@@ -6,7 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./account";
+export * from "./commitmentPlan";
+export * from "./deployment";
 export * from "./getAccount";
+export * from "./getCommitmentPlan";
+export * from "./getDeployment";
 export * from "./getPrivateEndpointConnection";
 export * from "./listAccountKeys";
 export * from "./privateEndpointConnection";
@@ -18,15 +22,19 @@ export * from "../types/enums/cognitiveservices";
 import * as v20160201preview from "./v20160201preview";
 import * as v20170418 from "./v20170418";
 import * as v20210430 from "./v20210430";
+import * as v20211001 from "./v20211001";
 
 export {
     v20160201preview,
     v20170418,
     v20210430,
+    v20211001,
 };
 
 // Import resources to register:
 import { Account } from "./account";
+import { CommitmentPlan } from "./commitmentPlan";
+import { Deployment } from "./deployment";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 
 const _module = {
@@ -35,6 +43,10 @@ const _module = {
         switch (type) {
             case "azure-native:cognitiveservices:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:CommitmentPlan":
+                return new CommitmentPlan(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:Deployment":
+                return new Deployment(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:

@@ -39,7 +39,7 @@ class EventHubDataConnectionArgs:
                Expected value is 'EventHub'.
         :param pulumi.Input[str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[Union[str, 'Compression']] compression: The event hub messages compression type
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[str, 'EventHubDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
@@ -150,7 +150,7 @@ class EventHubDataConnectionArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -296,7 +296,7 @@ class EventHubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload

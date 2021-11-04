@@ -3,7 +3,21 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `cognitiveservices.CommitmentPlan`
+- `cognitiveservices.Deployment`
+
+#### New functions:
+
+- `cognitiveservices.getCommitmentPlan`
+- `cognitiveservices.getDeployment`
+
+#### Breaking Changes published by Microsoft:
+
+- `security:CustomAssessmentAutomation` properties `implementationEffort`
+  and `userImpact` removed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16550))
 
 ---
 

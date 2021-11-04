@@ -22,7 +22,7 @@ class RoleAssignmentArgs:
         The set of arguments for constructing a RoleAssignment resource.
         :param pulumi.Input['RoleAssignmentPropertiesArgs'] properties: Role assignment properties.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
-        :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
+        :param pulumi.Input[str] role_assignment_name: A GUID for the role assignment to create. The name must be unique and different for each role assignment.
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "scope", scope)
@@ -57,7 +57,7 @@ class RoleAssignmentArgs:
     @pulumi.getter(name="roleAssignmentName")
     def role_assignment_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the role assignment to create. It can be any valid GUID.
+        A GUID for the role assignment to create. The name must be unique and different for each role assignment.
         """
         return pulumi.get(self, "role_assignment_name")
 
@@ -81,7 +81,7 @@ class RoleAssignment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']] properties: Role assignment properties.
-        :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
+        :param pulumi.Input[str] role_assignment_name: A GUID for the role assignment to create. The name must be unique and different for each role assignment.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
         """
         ...

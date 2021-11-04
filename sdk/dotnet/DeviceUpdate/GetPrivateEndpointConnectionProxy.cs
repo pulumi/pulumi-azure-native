@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         public readonly Outputs.RemotePrivateEndpointResponse? RemotePrivateEndpoint;
         /// <summary>
+        /// Operation status.
+        /// </summary>
+        public readonly string? Status;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -123,6 +127,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
             Outputs.RemotePrivateEndpointResponse? remotePrivateEndpoint,
 
+            string? status,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
             Name = name;
             ProvisioningState = provisioningState;
             RemotePrivateEndpoint = remotePrivateEndpoint;
+            Status = status;
             SystemData = systemData;
             Type = type;
         }

@@ -7,7 +7,11 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .account import *
+from .commitment_plan import *
+from .deployment import *
 from .get_account import *
+from .get_commitment_plan import *
+from .get_deployment import *
 from .get_private_endpoint_connection import *
 from .list_account_keys import *
 from .private_endpoint_connection import *
@@ -22,8 +26,11 @@ if typing.TYPE_CHECKING:
     v20170418 = __v20170418
     import pulumi_azure_native.cognitiveservices.v20210430 as __v20210430
     v20210430 = __v20210430
+    import pulumi_azure_native.cognitiveservices.v20211001 as __v20211001
+    v20211001 = __v20211001
 else:
     v20160201preview = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20160201preview')
     v20170418 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20170418')
     v20210430 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20210430')
+    v20211001 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20211001')
 

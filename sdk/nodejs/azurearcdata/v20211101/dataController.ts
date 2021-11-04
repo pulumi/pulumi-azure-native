@@ -52,7 +52,7 @@ export class DataController extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.azurearcdata.v20211101.DataControllerPropertiesResponse>;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.azurearcdata.v20211101.SystemDataResponse>;
     /**
@@ -60,7 +60,7 @@ export class DataController extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 

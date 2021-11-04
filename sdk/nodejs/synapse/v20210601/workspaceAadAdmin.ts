@@ -126,7 +126,7 @@ export interface WorkspaceAadAdminArgs {
      */
     tenantId?: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

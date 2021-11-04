@@ -36,7 +36,7 @@ class SqlPoolArgs:
         """
         The set of arguments for constructing a SqlPool resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] collation: Collation mode
         :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Specifies the mode of sql pool creation.
                
@@ -110,7 +110,7 @@ class SqlPoolArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -359,7 +359,7 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[str] status: Resource status
         :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this sql pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload

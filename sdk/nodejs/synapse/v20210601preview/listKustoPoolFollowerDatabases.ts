@@ -33,7 +33,7 @@ export interface ListKustoPoolFollowerDatabasesArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -62,7 +62,7 @@ export interface ListKustoPoolFollowerDatabasesOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

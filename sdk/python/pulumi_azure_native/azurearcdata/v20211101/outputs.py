@@ -1037,7 +1037,7 @@ class SqlServerInstancePropertiesResponse(dict):
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
-    Read only system data
+    Metadata pertaining to creation and last modification of the resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1074,13 +1074,13 @@ class SystemDataResponse(dict):
                  last_modified_by: Optional[str] = None,
                  last_modified_by_type: Optional[str] = None):
         """
-        Read only system data
-        :param str created_at: The timestamp of resource creation (UTC)
-        :param str created_by: An identifier for the identity that created the resource
-        :param str created_by_type: The type of identity that created the resource
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
         :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: An identifier for the identity that last modified the resource
-        :param str last_modified_by_type: The type of identity that last modified the resource
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -1099,7 +1099,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         """
-        The timestamp of resource creation (UTC)
+        The timestamp of resource creation (UTC).
         """
         return pulumi.get(self, "created_at")
 
@@ -1107,7 +1107,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[str]:
         """
-        An identifier for the identity that created the resource
+        The identity that created the resource.
         """
         return pulumi.get(self, "created_by")
 
@@ -1115,7 +1115,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdByType")
     def created_by_type(self) -> Optional[str]:
         """
-        The type of identity that created the resource
+        The type of identity that created the resource.
         """
         return pulumi.get(self, "created_by_type")
 
@@ -1131,7 +1131,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> Optional[str]:
         """
-        An identifier for the identity that last modified the resource
+        The identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by")
 
@@ -1139,7 +1139,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedByType")
     def last_modified_by_type(self) -> Optional[str]:
         """
-        The type of identity that last modified the resource
+        The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
 

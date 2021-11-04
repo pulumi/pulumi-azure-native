@@ -177,7 +177,7 @@ def get_kusto_pool_attached_database_configuration(attached_database_configurati
     :param str attached_database_configuration_name: The name of the attached database configuration.
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['attachedDatabaseConfigurationName'] = attached_database_configuration_name
@@ -218,6 +218,6 @@ def get_kusto_pool_attached_database_configuration_output(attached_database_conf
     :param str attached_database_configuration_name: The name of the attached database configuration.
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

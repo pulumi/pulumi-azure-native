@@ -101,7 +101,7 @@ def get_key(key_name: Optional[str] = None,
 
     :param str key_name: The name of the workspace key
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['keyName'] = key_name
@@ -132,6 +132,6 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
 
     :param str key_name: The name of the workspace key
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

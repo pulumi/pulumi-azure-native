@@ -21,7 +21,7 @@ class GetPrivateEndpointConnectionProxyResult:
     """
     Private endpoint connection proxy details.
     """
-    def __init__(__self__, e_tag=None, id=None, name=None, provisioning_state=None, remote_private_endpoint=None, system_data=None, type=None):
+    def __init__(__self__, e_tag=None, id=None, name=None, provisioning_state=None, remote_private_endpoint=None, status=None, system_data=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
@@ -37,6 +37,9 @@ class GetPrivateEndpointConnectionProxyResult:
         if remote_private_endpoint and not isinstance(remote_private_endpoint, dict):
             raise TypeError("Expected argument 'remote_private_endpoint' to be a dict")
         pulumi.set(__self__, "remote_private_endpoint", remote_private_endpoint)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -85,6 +88,14 @@ class GetPrivateEndpointConnectionProxyResult:
         return pulumi.get(self, "remote_private_endpoint")
 
     @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Operation status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -112,6 +123,7 @@ class AwaitableGetPrivateEndpointConnectionProxyResult(GetPrivateEndpointConnect
             name=self.name,
             provisioning_state=self.provisioning_state,
             remote_private_endpoint=self.remote_private_endpoint,
+            status=self.status,
             system_data=self.system_data,
             type=self.type)
 
@@ -144,6 +156,7 @@ def get_private_endpoint_connection_proxy(account_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         remote_private_endpoint=__ret__.remote_private_endpoint,
+        status=__ret__.status,
         system_data=__ret__.system_data,
         type=__ret__.type)
 

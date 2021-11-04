@@ -64,6 +64,10 @@ export interface GetPrivateEndpointConnectionProxyResult {
      */
     readonly remotePrivateEndpoint?: outputs.deviceupdate.RemotePrivateEndpointResponse;
     /**
+     * Operation status.
+     */
+    readonly status?: string;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.deviceupdate.SystemDataResponse;

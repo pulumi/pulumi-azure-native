@@ -22,7 +22,7 @@ class WorkspaceSqlAadAdminArgs:
         """
         The set of arguments for constructing a WorkspaceSqlAadAdmin resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] administrator_type: Workspace active directory administrator type
         :param pulumi.Input[str] login: Login of the workspace active directory administrator
         :param pulumi.Input[str] sid: Object ID of the workspace active directory administrator
@@ -55,7 +55,7 @@ class WorkspaceSqlAadAdminArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -134,7 +134,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sid: Object ID of the workspace active directory administrator
         :param pulumi.Input[str] tenant_id: Tenant ID of the workspace active directory administrator
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload

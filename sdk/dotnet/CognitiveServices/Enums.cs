@@ -8,6 +8,68 @@ using Pulumi;
 namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
+    /// Deployment scale type.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeploymentScaleType : IEquatable<DeploymentScaleType>
+    {
+        private readonly string _value;
+
+        private DeploymentScaleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeploymentScaleType Manual { get; } = new DeploymentScaleType("Manual");
+
+        public static bool operator ==(DeploymentScaleType left, DeploymentScaleType right) => left.Equals(right);
+        public static bool operator !=(DeploymentScaleType left, DeploymentScaleType right) => !left.Equals(right);
+
+        public static explicit operator string(DeploymentScaleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeploymentScaleType other && Equals(other);
+        public bool Equals(DeploymentScaleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Account hosting model.
+    /// </summary>
+    [EnumType]
+    public readonly struct HostingModel : IEquatable<HostingModel>
+    {
+        private readonly string _value;
+
+        private HostingModel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HostingModel Web { get; } = new HostingModel("Web");
+        public static HostingModel ConnectedContainer { get; } = new HostingModel("ConnectedContainer");
+        public static HostingModel DisconnectedContainer { get; } = new HostingModel("DisconnectedContainer");
+
+        public static bool operator ==(HostingModel left, HostingModel right) => left.Equals(right);
+        public static bool operator !=(HostingModel left, HostingModel right) => !left.Equals(right);
+
+        public static explicit operator string(HostingModel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostingModel other && Equals(other);
+        public bool Equals(HostingModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of managed service identity.
     /// </summary>
     [EnumType]

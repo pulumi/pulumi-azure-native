@@ -32,7 +32,7 @@ class KustoPoolAttachedDatabaseConfigurationArgs:
         :param pulumi.Input[str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[str] kusto_pool_resource_id: The resource id of the kusto pool where the databases you would like to attach reside.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] attached_database_configuration_name: The name of the attached database configuration.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['TableLevelSharingPropertiesArgs'] table_level_sharing_properties: Table level sharing specifications
@@ -114,7 +114,7 @@ class KustoPoolAttachedDatabaseConfigurationArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -188,7 +188,7 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['TableLevelSharingPropertiesArgs']] table_level_sharing_properties: Table level sharing specifications
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload

@@ -18,6 +18,7 @@ type PrivateEndpointConnectionProxy struct {
 	Name                  pulumi.StringOutput                    `pulumi:"name"`
 	ProvisioningState     pulumi.StringOutput                    `pulumi:"provisioningState"`
 	RemotePrivateEndpoint RemotePrivateEndpointResponsePtrOutput `pulumi:"remotePrivateEndpoint"`
+	Status                pulumi.StringPtrOutput                 `pulumi:"status"`
 	SystemData            SystemDataResponseOutput               `pulumi:"systemData"`
 	Type                  pulumi.StringOutput                    `pulumi:"type"`
 }
@@ -83,6 +84,7 @@ type privateEndpointConnectionProxyArgs struct {
 	PrivateEndpointConnectionProxyId *string                `pulumi:"privateEndpointConnectionProxyId"`
 	RemotePrivateEndpoint            *RemotePrivateEndpoint `pulumi:"remotePrivateEndpoint"`
 	ResourceGroupName                string                 `pulumi:"resourceGroupName"`
+	Status                           *string                `pulumi:"status"`
 }
 
 
@@ -91,6 +93,7 @@ type PrivateEndpointConnectionProxyArgs struct {
 	PrivateEndpointConnectionProxyId pulumi.StringPtrInput
 	RemotePrivateEndpoint            RemotePrivateEndpointPtrInput
 	ResourceGroupName                pulumi.StringInput
+	Status                           pulumi.StringPtrInput
 }
 
 func (PrivateEndpointConnectionProxyArgs) ElementType() reflect.Type {

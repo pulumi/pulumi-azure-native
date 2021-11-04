@@ -118,7 +118,7 @@ def get_kusto_pool_database(database_name: Optional[str] = None,
     :param str database_name: The name of the database in the Kusto pool.
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     pulumi.log.warn("""get_kusto_pool_database is deprecated: Please use one of the variants: ReadWriteDatabase.""")
     __args__ = dict()
@@ -154,7 +154,7 @@ def get_kusto_pool_database_output(database_name: Optional[pulumi.Input[str]] = 
     :param str database_name: The name of the database in the Kusto pool.
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     pulumi.log.warn("""get_kusto_pool_database is deprecated: Please use one of the variants: ReadWriteDatabase.""")
     ...

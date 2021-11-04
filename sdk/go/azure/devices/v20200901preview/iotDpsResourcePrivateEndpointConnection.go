@@ -51,6 +51,12 @@ func NewIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:devices/v20200301:IotDpsResourcePrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:devices/v20211015:IotDpsResourcePrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IotDpsResourcePrivateEndpointConnection

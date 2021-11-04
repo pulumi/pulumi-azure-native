@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         public string TransparentDataEncryptionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         public Input<string> TransparentDataEncryptionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

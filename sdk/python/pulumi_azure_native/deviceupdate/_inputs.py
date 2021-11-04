@@ -77,13 +77,21 @@ class DiagnosticStoragePropertiesArgs:
 @pulumi.input_type
 class GroupConnectivityInformationArgs:
     def __init__(__self__, *,
-                 customer_visible_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 customer_visible_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_link_service_arm_region: Optional[pulumi.Input[str]] = None,
+                 redirect_map_id: Optional[pulumi.Input[str]] = None):
         """
         Group connectivity details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] customer_visible_fqdns: List of customer visible FQDNs.
+        :param pulumi.Input[str] private_link_service_arm_region: PrivateLinkService ARM region.
+        :param pulumi.Input[str] redirect_map_id: Redirect map ID.
         """
         if customer_visible_fqdns is not None:
             pulumi.set(__self__, "customer_visible_fqdns", customer_visible_fqdns)
+        if private_link_service_arm_region is not None:
+            pulumi.set(__self__, "private_link_service_arm_region", private_link_service_arm_region)
+        if redirect_map_id is not None:
+            pulumi.set(__self__, "redirect_map_id", redirect_map_id)
 
     @property
     @pulumi.getter(name="customerVisibleFqdns")
@@ -96,6 +104,30 @@ class GroupConnectivityInformationArgs:
     @customer_visible_fqdns.setter
     def customer_visible_fqdns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "customer_visible_fqdns", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceArmRegion")
+    def private_link_service_arm_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        PrivateLinkService ARM region.
+        """
+        return pulumi.get(self, "private_link_service_arm_region")
+
+    @private_link_service_arm_region.setter
+    def private_link_service_arm_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_service_arm_region", value)
+
+    @property
+    @pulumi.getter(name="redirectMapId")
+    def redirect_map_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Redirect map ID.
+        """
+        return pulumi.get(self, "redirect_map_id")
+
+    @redirect_map_id.setter
+    def redirect_map_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redirect_map_id", value)
 
 
 @pulumi.input_type

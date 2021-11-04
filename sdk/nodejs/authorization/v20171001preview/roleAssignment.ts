@@ -110,7 +110,7 @@ export interface RoleAssignmentArgs {
      */
     principalId?: pulumi.Input<string>;
     /**
-     * The name of the role assignment to create. It can be any valid GUID.
+     * A GUID for the role assignment to create. The name must be unique and different for each role assignment.
      */
     roleAssignmentName?: pulumi.Input<string>;
     /**

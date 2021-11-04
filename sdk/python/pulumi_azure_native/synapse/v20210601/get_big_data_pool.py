@@ -318,7 +318,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
 
     :param str big_data_pool_name: Big Data pool name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['bigDataPoolName'] = big_data_pool_name
@@ -367,6 +367,6 @@ def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[str]] = N
 
     :param str big_data_pool_name: Big Data pool name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

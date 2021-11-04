@@ -37,6 +37,14 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
         /// </summary>
         public readonly string ManagedByTenantName;
         /// <summary>
+        /// The identifier of the managed tenant.
+        /// </summary>
+        public readonly string ManageeTenantId;
+        /// <summary>
+        /// The name of the managed tenant.
+        /// </summary>
+        public readonly string ManageeTenantName;
+        /// <summary>
         /// The current provisioning state of the registration definition.
         /// </summary>
         public readonly string ProvisioningState;
@@ -57,6 +65,10 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
 
             string managedByTenantName,
 
+            string manageeTenantId,
+
+            string manageeTenantName,
+
             string provisioningState,
 
             string? registrationDefinitionName)
@@ -66,6 +78,8 @@ namespace Pulumi.AzureNative.ManagedServices.V20200201Preview.Outputs
             EligibleAuthorizations = eligibleAuthorizations;
             ManagedByTenantId = managedByTenantId;
             ManagedByTenantName = managedByTenantName;
+            ManageeTenantId = manageeTenantId;
+            ManageeTenantName = manageeTenantName;
             ProvisioningState = provisioningState;
             RegistrationDefinitionName = registrationDefinitionName;
         }

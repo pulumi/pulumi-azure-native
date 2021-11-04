@@ -3142,6 +3142,8 @@ _utilities.register(
   "fqn": "pulumi_azure_native.cognitiveservices",
   "classes": {
    "azure-native:cognitiveservices:Account": "Account",
+   "azure-native:cognitiveservices:CommitmentPlan": "CommitmentPlan",
+   "azure-native:cognitiveservices:Deployment": "Deployment",
    "azure-native:cognitiveservices:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
@@ -3169,6 +3171,17 @@ _utilities.register(
   "classes": {
    "azure-native:cognitiveservices/v20210430:Account": "Account",
    "azure-native:cognitiveservices/v20210430:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "cognitiveservices/v20211001",
+  "fqn": "pulumi_azure_native.cognitiveservices.v20211001",
+  "classes": {
+   "azure-native:cognitiveservices/v20211001:Account": "Account",
+   "azure-native:cognitiveservices/v20211001:CommitmentPlan": "CommitmentPlan",
+   "azure-native:cognitiveservices/v20211001:Deployment": "Deployment",
+   "azure-native:cognitiveservices/v20211001:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -6443,6 +6456,16 @@ _utilities.register(
    "azure-native:devices/v20210702preview:IotHubResource": "IotHubResource",
    "azure-native:devices/v20210702preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
    "azure-native:devices/v20210702preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devices/v20211015",
+  "fqn": "pulumi_azure_native.devices.v20211015",
+  "classes": {
+   "azure-native:devices/v20211015:DpsCertificate": "DpsCertificate",
+   "azure-native:devices/v20211015:IotDpsResource": "IotDpsResource",
+   "azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection": "IotDpsResourcePrivateEndpointConnection"
   }
  },
  {

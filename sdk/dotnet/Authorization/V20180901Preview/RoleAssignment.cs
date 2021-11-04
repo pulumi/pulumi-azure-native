@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.Authorization.V20180901Preview
         public InputUnion<string, Pulumi.AzureNative.Authorization.V20180901Preview.PrincipalType>? PrincipalType { get; set; }
 
         /// <summary>
-        /// The name of the role assignment to create. It can be any valid GUID.
+        /// A GUID for the role assignment to create. The name must be unique and different for each role assignment.
         /// </summary>
         [Input("roleAssignmentName")]
         public Input<string>? RoleAssignmentName { get; set; }

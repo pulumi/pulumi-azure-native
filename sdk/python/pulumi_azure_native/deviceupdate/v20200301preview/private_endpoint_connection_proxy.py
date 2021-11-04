@@ -19,13 +19,15 @@ class PrivateEndpointConnectionProxyArgs:
                  account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  private_endpoint_connection_proxy_id: Optional[pulumi.Input[str]] = None,
-                 remote_private_endpoint: Optional[pulumi.Input['RemotePrivateEndpointArgs']] = None):
+                 remote_private_endpoint: Optional[pulumi.Input['RemotePrivateEndpointArgs']] = None,
+                 status: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionProxy resource.
         :param pulumi.Input[str] account_name: Account name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] private_endpoint_connection_proxy_id: The ID of the private endpoint connection proxy object.
         :param pulumi.Input['RemotePrivateEndpointArgs'] remote_private_endpoint: Remote private endpoint details.
+        :param pulumi.Input[str] status: Operation status.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -33,6 +35,8 @@ class PrivateEndpointConnectionProxyArgs:
             pulumi.set(__self__, "private_endpoint_connection_proxy_id", private_endpoint_connection_proxy_id)
         if remote_private_endpoint is not None:
             pulumi.set(__self__, "remote_private_endpoint", remote_private_endpoint)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="accountName")
@@ -82,6 +86,18 @@ class PrivateEndpointConnectionProxyArgs:
     def remote_private_endpoint(self, value: Optional[pulumi.Input['RemotePrivateEndpointArgs']]):
         pulumi.set(self, "remote_private_endpoint", value)
 
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Operation status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
 
 class PrivateEndpointConnectionProxy(pulumi.CustomResource):
     @overload
@@ -92,6 +108,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
                  private_endpoint_connection_proxy_id: Optional[pulumi.Input[str]] = None,
                  remote_private_endpoint: Optional[pulumi.Input[pulumi.InputType['RemotePrivateEndpointArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Private endpoint connection proxy details.
@@ -102,6 +119,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
         :param pulumi.Input[str] private_endpoint_connection_proxy_id: The ID of the private endpoint connection proxy object.
         :param pulumi.Input[pulumi.InputType['RemotePrivateEndpointArgs']] remote_private_endpoint: Remote private endpoint details.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] status: Operation status.
         """
         ...
     @overload
@@ -131,6 +149,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
                  private_endpoint_connection_proxy_id: Optional[pulumi.Input[str]] = None,
                  remote_private_endpoint: Optional[pulumi.Input[pulumi.InputType['RemotePrivateEndpointArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -151,6 +170,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["status"] = status
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -184,6 +204,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["remote_private_endpoint"] = None
+        __props__.__dict__["status"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnectionProxy(resource_name, opts=opts, __props__=__props__)
@@ -219,6 +240,14 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
         Remote private endpoint details.
         """
         return pulumi.get(self, "remote_private_endpoint")
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[Optional[str]]:
+        """
+        Operation status.
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="systemData")

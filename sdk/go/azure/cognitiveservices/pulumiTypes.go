@@ -1272,6 +1272,1829 @@ func (o CognitiveServicesAccountSkuChangeInfoResponsePtrOutput) LastChangeDate()
 	}).(pulumi.StringPtrOutput)
 }
 
+type CommitmentPeriod struct {
+	Count *int    `pulumi:"count"`
+	Tier  *string `pulumi:"tier"`
+}
+
+
+
+
+
+type CommitmentPeriodInput interface {
+	pulumi.Input
+
+	ToCommitmentPeriodOutput() CommitmentPeriodOutput
+	ToCommitmentPeriodOutputWithContext(context.Context) CommitmentPeriodOutput
+}
+
+type CommitmentPeriodArgs struct {
+	Count pulumi.IntPtrInput    `pulumi:"count"`
+	Tier  pulumi.StringPtrInput `pulumi:"tier"`
+}
+
+func (CommitmentPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPeriod)(nil)).Elem()
+}
+
+func (i CommitmentPeriodArgs) ToCommitmentPeriodOutput() CommitmentPeriodOutput {
+	return i.ToCommitmentPeriodOutputWithContext(context.Background())
+}
+
+func (i CommitmentPeriodArgs) ToCommitmentPeriodOutputWithContext(ctx context.Context) CommitmentPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPeriodOutput)
+}
+
+func (i CommitmentPeriodArgs) ToCommitmentPeriodPtrOutput() CommitmentPeriodPtrOutput {
+	return i.ToCommitmentPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i CommitmentPeriodArgs) ToCommitmentPeriodPtrOutputWithContext(ctx context.Context) CommitmentPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPeriodOutput).ToCommitmentPeriodPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CommitmentPeriodPtrInput interface {
+	pulumi.Input
+
+	ToCommitmentPeriodPtrOutput() CommitmentPeriodPtrOutput
+	ToCommitmentPeriodPtrOutputWithContext(context.Context) CommitmentPeriodPtrOutput
+}
+
+type commitmentPeriodPtrType CommitmentPeriodArgs
+
+func CommitmentPeriodPtr(v *CommitmentPeriodArgs) CommitmentPeriodPtrInput {
+	return (*commitmentPeriodPtrType)(v)
+}
+
+func (*commitmentPeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPeriod)(nil)).Elem()
+}
+
+func (i *commitmentPeriodPtrType) ToCommitmentPeriodPtrOutput() CommitmentPeriodPtrOutput {
+	return i.ToCommitmentPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *commitmentPeriodPtrType) ToCommitmentPeriodPtrOutputWithContext(ctx context.Context) CommitmentPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPeriodPtrOutput)
+}
+
+type CommitmentPeriodOutput struct{ *pulumi.OutputState }
+
+func (CommitmentPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPeriod)(nil)).Elem()
+}
+
+func (o CommitmentPeriodOutput) ToCommitmentPeriodOutput() CommitmentPeriodOutput {
+	return o
+}
+
+func (o CommitmentPeriodOutput) ToCommitmentPeriodOutputWithContext(ctx context.Context) CommitmentPeriodOutput {
+	return o
+}
+
+func (o CommitmentPeriodOutput) ToCommitmentPeriodPtrOutput() CommitmentPeriodPtrOutput {
+	return o.ToCommitmentPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o CommitmentPeriodOutput) ToCommitmentPeriodPtrOutputWithContext(ctx context.Context) CommitmentPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPeriod) *CommitmentPeriod {
+		return &v
+	}).(CommitmentPeriodPtrOutput)
+}
+
+func (o CommitmentPeriodOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CommitmentPeriod) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+func (o CommitmentPeriodOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommitmentPeriod) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type CommitmentPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (CommitmentPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPeriod)(nil)).Elem()
+}
+
+func (o CommitmentPeriodPtrOutput) ToCommitmentPeriodPtrOutput() CommitmentPeriodPtrOutput {
+	return o
+}
+
+func (o CommitmentPeriodPtrOutput) ToCommitmentPeriodPtrOutputWithContext(ctx context.Context) CommitmentPeriodPtrOutput {
+	return o
+}
+
+func (o CommitmentPeriodPtrOutput) Elem() CommitmentPeriodOutput {
+	return o.ApplyT(func(v *CommitmentPeriod) CommitmentPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentPeriod
+		return ret
+	}).(CommitmentPeriodOutput)
+}
+
+func (o CommitmentPeriodPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CommitmentPeriod) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CommitmentPeriodPtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentPeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+type CommitmentPeriodResponse struct {
+	Count     *int                    `pulumi:"count"`
+	EndDate   string                  `pulumi:"endDate"`
+	Quota     CommitmentQuotaResponse `pulumi:"quota"`
+	StartDate string                  `pulumi:"startDate"`
+	Tier      *string                 `pulumi:"tier"`
+}
+
+
+
+
+
+type CommitmentPeriodResponseInput interface {
+	pulumi.Input
+
+	ToCommitmentPeriodResponseOutput() CommitmentPeriodResponseOutput
+	ToCommitmentPeriodResponseOutputWithContext(context.Context) CommitmentPeriodResponseOutput
+}
+
+type CommitmentPeriodResponseArgs struct {
+	Count     pulumi.IntPtrInput           `pulumi:"count"`
+	EndDate   pulumi.StringInput           `pulumi:"endDate"`
+	Quota     CommitmentQuotaResponseInput `pulumi:"quota"`
+	StartDate pulumi.StringInput           `pulumi:"startDate"`
+	Tier      pulumi.StringPtrInput        `pulumi:"tier"`
+}
+
+func (CommitmentPeriodResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPeriodResponse)(nil)).Elem()
+}
+
+func (i CommitmentPeriodResponseArgs) ToCommitmentPeriodResponseOutput() CommitmentPeriodResponseOutput {
+	return i.ToCommitmentPeriodResponseOutputWithContext(context.Background())
+}
+
+func (i CommitmentPeriodResponseArgs) ToCommitmentPeriodResponseOutputWithContext(ctx context.Context) CommitmentPeriodResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPeriodResponseOutput)
+}
+
+func (i CommitmentPeriodResponseArgs) ToCommitmentPeriodResponsePtrOutput() CommitmentPeriodResponsePtrOutput {
+	return i.ToCommitmentPeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CommitmentPeriodResponseArgs) ToCommitmentPeriodResponsePtrOutputWithContext(ctx context.Context) CommitmentPeriodResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPeriodResponseOutput).ToCommitmentPeriodResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CommitmentPeriodResponsePtrInput interface {
+	pulumi.Input
+
+	ToCommitmentPeriodResponsePtrOutput() CommitmentPeriodResponsePtrOutput
+	ToCommitmentPeriodResponsePtrOutputWithContext(context.Context) CommitmentPeriodResponsePtrOutput
+}
+
+type commitmentPeriodResponsePtrType CommitmentPeriodResponseArgs
+
+func CommitmentPeriodResponsePtr(v *CommitmentPeriodResponseArgs) CommitmentPeriodResponsePtrInput {
+	return (*commitmentPeriodResponsePtrType)(v)
+}
+
+func (*commitmentPeriodResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPeriodResponse)(nil)).Elem()
+}
+
+func (i *commitmentPeriodResponsePtrType) ToCommitmentPeriodResponsePtrOutput() CommitmentPeriodResponsePtrOutput {
+	return i.ToCommitmentPeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *commitmentPeriodResponsePtrType) ToCommitmentPeriodResponsePtrOutputWithContext(ctx context.Context) CommitmentPeriodResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPeriodResponsePtrOutput)
+}
+
+type CommitmentPeriodResponseOutput struct{ *pulumi.OutputState }
+
+func (CommitmentPeriodResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPeriodResponse)(nil)).Elem()
+}
+
+func (o CommitmentPeriodResponseOutput) ToCommitmentPeriodResponseOutput() CommitmentPeriodResponseOutput {
+	return o
+}
+
+func (o CommitmentPeriodResponseOutput) ToCommitmentPeriodResponseOutputWithContext(ctx context.Context) CommitmentPeriodResponseOutput {
+	return o
+}
+
+func (o CommitmentPeriodResponseOutput) ToCommitmentPeriodResponsePtrOutput() CommitmentPeriodResponsePtrOutput {
+	return o.ToCommitmentPeriodResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CommitmentPeriodResponseOutput) ToCommitmentPeriodResponsePtrOutputWithContext(ctx context.Context) CommitmentPeriodResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPeriodResponse) *CommitmentPeriodResponse {
+		return &v
+	}).(CommitmentPeriodResponsePtrOutput)
+}
+
+func (o CommitmentPeriodResponseOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CommitmentPeriodResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+func (o CommitmentPeriodResponseOutput) EndDate() pulumi.StringOutput {
+	return o.ApplyT(func(v CommitmentPeriodResponse) string { return v.EndDate }).(pulumi.StringOutput)
+}
+
+func (o CommitmentPeriodResponseOutput) Quota() CommitmentQuotaResponseOutput {
+	return o.ApplyT(func(v CommitmentPeriodResponse) CommitmentQuotaResponse { return v.Quota }).(CommitmentQuotaResponseOutput)
+}
+
+func (o CommitmentPeriodResponseOutput) StartDate() pulumi.StringOutput {
+	return o.ApplyT(func(v CommitmentPeriodResponse) string { return v.StartDate }).(pulumi.StringOutput)
+}
+
+func (o CommitmentPeriodResponseOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommitmentPeriodResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
+}
+
+type CommitmentPeriodResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CommitmentPeriodResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPeriodResponse)(nil)).Elem()
+}
+
+func (o CommitmentPeriodResponsePtrOutput) ToCommitmentPeriodResponsePtrOutput() CommitmentPeriodResponsePtrOutput {
+	return o
+}
+
+func (o CommitmentPeriodResponsePtrOutput) ToCommitmentPeriodResponsePtrOutputWithContext(ctx context.Context) CommitmentPeriodResponsePtrOutput {
+	return o
+}
+
+func (o CommitmentPeriodResponsePtrOutput) Elem() CommitmentPeriodResponseOutput {
+	return o.ApplyT(func(v *CommitmentPeriodResponse) CommitmentPeriodResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentPeriodResponse
+		return ret
+	}).(CommitmentPeriodResponseOutput)
+}
+
+func (o CommitmentPeriodResponsePtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CommitmentPeriodResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CommitmentPeriodResponsePtrOutput) EndDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentPeriodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CommitmentPeriodResponsePtrOutput) Quota() CommitmentQuotaResponsePtrOutput {
+	return o.ApplyT(func(v *CommitmentPeriodResponse) *CommitmentQuotaResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.Quota
+	}).(CommitmentQuotaResponsePtrOutput)
+}
+
+func (o CommitmentPeriodResponsePtrOutput) StartDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentPeriodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartDate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CommitmentPeriodResponsePtrOutput) Tier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentPeriodResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Tier
+	}).(pulumi.StringPtrOutput)
+}
+
+type CommitmentPlanProperties struct {
+	AutoRenew    *bool             `pulumi:"autoRenew"`
+	Current      *CommitmentPeriod `pulumi:"current"`
+	HostingModel *string           `pulumi:"hostingModel"`
+	Next         *CommitmentPeriod `pulumi:"next"`
+	PlanType     *string           `pulumi:"planType"`
+}
+
+
+
+
+
+type CommitmentPlanPropertiesInput interface {
+	pulumi.Input
+
+	ToCommitmentPlanPropertiesOutput() CommitmentPlanPropertiesOutput
+	ToCommitmentPlanPropertiesOutputWithContext(context.Context) CommitmentPlanPropertiesOutput
+}
+
+type CommitmentPlanPropertiesArgs struct {
+	AutoRenew    pulumi.BoolPtrInput      `pulumi:"autoRenew"`
+	Current      CommitmentPeriodPtrInput `pulumi:"current"`
+	HostingModel pulumi.StringPtrInput    `pulumi:"hostingModel"`
+	Next         CommitmentPeriodPtrInput `pulumi:"next"`
+	PlanType     pulumi.StringPtrInput    `pulumi:"planType"`
+}
+
+func (CommitmentPlanPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlanProperties)(nil)).Elem()
+}
+
+func (i CommitmentPlanPropertiesArgs) ToCommitmentPlanPropertiesOutput() CommitmentPlanPropertiesOutput {
+	return i.ToCommitmentPlanPropertiesOutputWithContext(context.Background())
+}
+
+func (i CommitmentPlanPropertiesArgs) ToCommitmentPlanPropertiesOutputWithContext(ctx context.Context) CommitmentPlanPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanPropertiesOutput)
+}
+
+func (i CommitmentPlanPropertiesArgs) ToCommitmentPlanPropertiesPtrOutput() CommitmentPlanPropertiesPtrOutput {
+	return i.ToCommitmentPlanPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i CommitmentPlanPropertiesArgs) ToCommitmentPlanPropertiesPtrOutputWithContext(ctx context.Context) CommitmentPlanPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanPropertiesOutput).ToCommitmentPlanPropertiesPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CommitmentPlanPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToCommitmentPlanPropertiesPtrOutput() CommitmentPlanPropertiesPtrOutput
+	ToCommitmentPlanPropertiesPtrOutputWithContext(context.Context) CommitmentPlanPropertiesPtrOutput
+}
+
+type commitmentPlanPropertiesPtrType CommitmentPlanPropertiesArgs
+
+func CommitmentPlanPropertiesPtr(v *CommitmentPlanPropertiesArgs) CommitmentPlanPropertiesPtrInput {
+	return (*commitmentPlanPropertiesPtrType)(v)
+}
+
+func (*commitmentPlanPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPlanProperties)(nil)).Elem()
+}
+
+func (i *commitmentPlanPropertiesPtrType) ToCommitmentPlanPropertiesPtrOutput() CommitmentPlanPropertiesPtrOutput {
+	return i.ToCommitmentPlanPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *commitmentPlanPropertiesPtrType) ToCommitmentPlanPropertiesPtrOutputWithContext(ctx context.Context) CommitmentPlanPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanPropertiesPtrOutput)
+}
+
+type CommitmentPlanPropertiesOutput struct{ *pulumi.OutputState }
+
+func (CommitmentPlanPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlanProperties)(nil)).Elem()
+}
+
+func (o CommitmentPlanPropertiesOutput) ToCommitmentPlanPropertiesOutput() CommitmentPlanPropertiesOutput {
+	return o
+}
+
+func (o CommitmentPlanPropertiesOutput) ToCommitmentPlanPropertiesOutputWithContext(ctx context.Context) CommitmentPlanPropertiesOutput {
+	return o
+}
+
+func (o CommitmentPlanPropertiesOutput) ToCommitmentPlanPropertiesPtrOutput() CommitmentPlanPropertiesPtrOutput {
+	return o.ToCommitmentPlanPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o CommitmentPlanPropertiesOutput) ToCommitmentPlanPropertiesPtrOutputWithContext(ctx context.Context) CommitmentPlanPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPlanProperties) *CommitmentPlanProperties {
+		return &v
+	}).(CommitmentPlanPropertiesPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CommitmentPlanProperties) *bool { return v.AutoRenew }).(pulumi.BoolPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesOutput) Current() CommitmentPeriodPtrOutput {
+	return o.ApplyT(func(v CommitmentPlanProperties) *CommitmentPeriod { return v.Current }).(CommitmentPeriodPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesOutput) HostingModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommitmentPlanProperties) *string { return v.HostingModel }).(pulumi.StringPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesOutput) Next() CommitmentPeriodPtrOutput {
+	return o.ApplyT(func(v CommitmentPlanProperties) *CommitmentPeriod { return v.Next }).(CommitmentPeriodPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesOutput) PlanType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommitmentPlanProperties) *string { return v.PlanType }).(pulumi.StringPtrOutput)
+}
+
+type CommitmentPlanPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CommitmentPlanPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPlanProperties)(nil)).Elem()
+}
+
+func (o CommitmentPlanPropertiesPtrOutput) ToCommitmentPlanPropertiesPtrOutput() CommitmentPlanPropertiesPtrOutput {
+	return o
+}
+
+func (o CommitmentPlanPropertiesPtrOutput) ToCommitmentPlanPropertiesPtrOutputWithContext(ctx context.Context) CommitmentPlanPropertiesPtrOutput {
+	return o
+}
+
+func (o CommitmentPlanPropertiesPtrOutput) Elem() CommitmentPlanPropertiesOutput {
+	return o.ApplyT(func(v *CommitmentPlanProperties) CommitmentPlanProperties {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentPlanProperties
+		return ret
+	}).(CommitmentPlanPropertiesOutput)
+}
+
+func (o CommitmentPlanPropertiesPtrOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRenew
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesPtrOutput) Current() CommitmentPeriodPtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanProperties) *CommitmentPeriod {
+		if v == nil {
+			return nil
+		}
+		return v.Current
+	}).(CommitmentPeriodPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesPtrOutput) HostingModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostingModel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesPtrOutput) Next() CommitmentPeriodPtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanProperties) *CommitmentPeriod {
+		if v == nil {
+			return nil
+		}
+		return v.Next
+	}).(CommitmentPeriodPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesPtrOutput) PlanType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlanType
+	}).(pulumi.StringPtrOutput)
+}
+
+type CommitmentPlanPropertiesResponse struct {
+	AutoRenew    *bool                     `pulumi:"autoRenew"`
+	Current      *CommitmentPeriodResponse `pulumi:"current"`
+	HostingModel *string                   `pulumi:"hostingModel"`
+	Last         CommitmentPeriodResponse  `pulumi:"last"`
+	Next         *CommitmentPeriodResponse `pulumi:"next"`
+	PlanType     *string                   `pulumi:"planType"`
+}
+
+
+
+
+
+type CommitmentPlanPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToCommitmentPlanPropertiesResponseOutput() CommitmentPlanPropertiesResponseOutput
+	ToCommitmentPlanPropertiesResponseOutputWithContext(context.Context) CommitmentPlanPropertiesResponseOutput
+}
+
+type CommitmentPlanPropertiesResponseArgs struct {
+	AutoRenew    pulumi.BoolPtrInput              `pulumi:"autoRenew"`
+	Current      CommitmentPeriodResponsePtrInput `pulumi:"current"`
+	HostingModel pulumi.StringPtrInput            `pulumi:"hostingModel"`
+	Last         CommitmentPeriodResponseInput    `pulumi:"last"`
+	Next         CommitmentPeriodResponsePtrInput `pulumi:"next"`
+	PlanType     pulumi.StringPtrInput            `pulumi:"planType"`
+}
+
+func (CommitmentPlanPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlanPropertiesResponse)(nil)).Elem()
+}
+
+func (i CommitmentPlanPropertiesResponseArgs) ToCommitmentPlanPropertiesResponseOutput() CommitmentPlanPropertiesResponseOutput {
+	return i.ToCommitmentPlanPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i CommitmentPlanPropertiesResponseArgs) ToCommitmentPlanPropertiesResponseOutputWithContext(ctx context.Context) CommitmentPlanPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanPropertiesResponseOutput)
+}
+
+func (i CommitmentPlanPropertiesResponseArgs) ToCommitmentPlanPropertiesResponsePtrOutput() CommitmentPlanPropertiesResponsePtrOutput {
+	return i.ToCommitmentPlanPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CommitmentPlanPropertiesResponseArgs) ToCommitmentPlanPropertiesResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanPropertiesResponseOutput).ToCommitmentPlanPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CommitmentPlanPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToCommitmentPlanPropertiesResponsePtrOutput() CommitmentPlanPropertiesResponsePtrOutput
+	ToCommitmentPlanPropertiesResponsePtrOutputWithContext(context.Context) CommitmentPlanPropertiesResponsePtrOutput
+}
+
+type commitmentPlanPropertiesResponsePtrType CommitmentPlanPropertiesResponseArgs
+
+func CommitmentPlanPropertiesResponsePtr(v *CommitmentPlanPropertiesResponseArgs) CommitmentPlanPropertiesResponsePtrInput {
+	return (*commitmentPlanPropertiesResponsePtrType)(v)
+}
+
+func (*commitmentPlanPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPlanPropertiesResponse)(nil)).Elem()
+}
+
+func (i *commitmentPlanPropertiesResponsePtrType) ToCommitmentPlanPropertiesResponsePtrOutput() CommitmentPlanPropertiesResponsePtrOutput {
+	return i.ToCommitmentPlanPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *commitmentPlanPropertiesResponsePtrType) ToCommitmentPlanPropertiesResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanPropertiesResponsePtrOutput)
+}
+
+type CommitmentPlanPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (CommitmentPlanPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentPlanPropertiesResponse)(nil)).Elem()
+}
+
+func (o CommitmentPlanPropertiesResponseOutput) ToCommitmentPlanPropertiesResponseOutput() CommitmentPlanPropertiesResponseOutput {
+	return o
+}
+
+func (o CommitmentPlanPropertiesResponseOutput) ToCommitmentPlanPropertiesResponseOutputWithContext(ctx context.Context) CommitmentPlanPropertiesResponseOutput {
+	return o
+}
+
+func (o CommitmentPlanPropertiesResponseOutput) ToCommitmentPlanPropertiesResponsePtrOutput() CommitmentPlanPropertiesResponsePtrOutput {
+	return o.ToCommitmentPlanPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CommitmentPlanPropertiesResponseOutput) ToCommitmentPlanPropertiesResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanPropertiesResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPlanPropertiesResponse) *CommitmentPlanPropertiesResponse {
+		return &v
+	}).(CommitmentPlanPropertiesResponsePtrOutput)
+}
+
+func (o CommitmentPlanPropertiesResponseOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) *bool { return v.AutoRenew }).(pulumi.BoolPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesResponseOutput) Current() CommitmentPeriodResponsePtrOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) *CommitmentPeriodResponse { return v.Current }).(CommitmentPeriodResponsePtrOutput)
+}
+
+func (o CommitmentPlanPropertiesResponseOutput) HostingModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) *string { return v.HostingModel }).(pulumi.StringPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesResponseOutput) Last() CommitmentPeriodResponseOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) CommitmentPeriodResponse { return v.Last }).(CommitmentPeriodResponseOutput)
+}
+
+func (o CommitmentPlanPropertiesResponseOutput) Next() CommitmentPeriodResponsePtrOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) *CommitmentPeriodResponse { return v.Next }).(CommitmentPeriodResponsePtrOutput)
+}
+
+func (o CommitmentPlanPropertiesResponseOutput) PlanType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommitmentPlanPropertiesResponse) *string { return v.PlanType }).(pulumi.StringPtrOutput)
+}
+
+type CommitmentPlanPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CommitmentPlanPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentPlanPropertiesResponse)(nil)).Elem()
+}
+
+func (o CommitmentPlanPropertiesResponsePtrOutput) ToCommitmentPlanPropertiesResponsePtrOutput() CommitmentPlanPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CommitmentPlanPropertiesResponsePtrOutput) ToCommitmentPlanPropertiesResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o CommitmentPlanPropertiesResponsePtrOutput) Elem() CommitmentPlanPropertiesResponseOutput {
+	return o.ApplyT(func(v *CommitmentPlanPropertiesResponse) CommitmentPlanPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentPlanPropertiesResponse
+		return ret
+	}).(CommitmentPlanPropertiesResponseOutput)
+}
+
+func (o CommitmentPlanPropertiesResponsePtrOutput) AutoRenew() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRenew
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesResponsePtrOutput) Current() CommitmentPeriodResponsePtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanPropertiesResponse) *CommitmentPeriodResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Current
+	}).(CommitmentPeriodResponsePtrOutput)
+}
+
+func (o CommitmentPlanPropertiesResponsePtrOutput) HostingModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostingModel
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CommitmentPlanPropertiesResponsePtrOutput) Last() CommitmentPeriodResponsePtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanPropertiesResponse) *CommitmentPeriodResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.Last
+	}).(CommitmentPeriodResponsePtrOutput)
+}
+
+func (o CommitmentPlanPropertiesResponsePtrOutput) Next() CommitmentPeriodResponsePtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanPropertiesResponse) *CommitmentPeriodResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Next
+	}).(CommitmentPeriodResponsePtrOutput)
+}
+
+func (o CommitmentPlanPropertiesResponsePtrOutput) PlanType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentPlanPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlanType
+	}).(pulumi.StringPtrOutput)
+}
+
+type CommitmentQuotaResponse struct {
+	Quantity *float64 `pulumi:"quantity"`
+	Unit     *string  `pulumi:"unit"`
+}
+
+
+
+
+
+type CommitmentQuotaResponseInput interface {
+	pulumi.Input
+
+	ToCommitmentQuotaResponseOutput() CommitmentQuotaResponseOutput
+	ToCommitmentQuotaResponseOutputWithContext(context.Context) CommitmentQuotaResponseOutput
+}
+
+type CommitmentQuotaResponseArgs struct {
+	Quantity pulumi.Float64PtrInput `pulumi:"quantity"`
+	Unit     pulumi.StringPtrInput  `pulumi:"unit"`
+}
+
+func (CommitmentQuotaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentQuotaResponse)(nil)).Elem()
+}
+
+func (i CommitmentQuotaResponseArgs) ToCommitmentQuotaResponseOutput() CommitmentQuotaResponseOutput {
+	return i.ToCommitmentQuotaResponseOutputWithContext(context.Background())
+}
+
+func (i CommitmentQuotaResponseArgs) ToCommitmentQuotaResponseOutputWithContext(ctx context.Context) CommitmentQuotaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentQuotaResponseOutput)
+}
+
+func (i CommitmentQuotaResponseArgs) ToCommitmentQuotaResponsePtrOutput() CommitmentQuotaResponsePtrOutput {
+	return i.ToCommitmentQuotaResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CommitmentQuotaResponseArgs) ToCommitmentQuotaResponsePtrOutputWithContext(ctx context.Context) CommitmentQuotaResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentQuotaResponseOutput).ToCommitmentQuotaResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type CommitmentQuotaResponsePtrInput interface {
+	pulumi.Input
+
+	ToCommitmentQuotaResponsePtrOutput() CommitmentQuotaResponsePtrOutput
+	ToCommitmentQuotaResponsePtrOutputWithContext(context.Context) CommitmentQuotaResponsePtrOutput
+}
+
+type commitmentQuotaResponsePtrType CommitmentQuotaResponseArgs
+
+func CommitmentQuotaResponsePtr(v *CommitmentQuotaResponseArgs) CommitmentQuotaResponsePtrInput {
+	return (*commitmentQuotaResponsePtrType)(v)
+}
+
+func (*commitmentQuotaResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentQuotaResponse)(nil)).Elem()
+}
+
+func (i *commitmentQuotaResponsePtrType) ToCommitmentQuotaResponsePtrOutput() CommitmentQuotaResponsePtrOutput {
+	return i.ToCommitmentQuotaResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *commitmentQuotaResponsePtrType) ToCommitmentQuotaResponsePtrOutputWithContext(ctx context.Context) CommitmentQuotaResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommitmentQuotaResponsePtrOutput)
+}
+
+type CommitmentQuotaResponseOutput struct{ *pulumi.OutputState }
+
+func (CommitmentQuotaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommitmentQuotaResponse)(nil)).Elem()
+}
+
+func (o CommitmentQuotaResponseOutput) ToCommitmentQuotaResponseOutput() CommitmentQuotaResponseOutput {
+	return o
+}
+
+func (o CommitmentQuotaResponseOutput) ToCommitmentQuotaResponseOutputWithContext(ctx context.Context) CommitmentQuotaResponseOutput {
+	return o
+}
+
+func (o CommitmentQuotaResponseOutput) ToCommitmentQuotaResponsePtrOutput() CommitmentQuotaResponsePtrOutput {
+	return o.ToCommitmentQuotaResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CommitmentQuotaResponseOutput) ToCommitmentQuotaResponsePtrOutputWithContext(ctx context.Context) CommitmentQuotaResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentQuotaResponse) *CommitmentQuotaResponse {
+		return &v
+	}).(CommitmentQuotaResponsePtrOutput)
+}
+
+func (o CommitmentQuotaResponseOutput) Quantity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CommitmentQuotaResponse) *float64 { return v.Quantity }).(pulumi.Float64PtrOutput)
+}
+
+func (o CommitmentQuotaResponseOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommitmentQuotaResponse) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type CommitmentQuotaResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CommitmentQuotaResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommitmentQuotaResponse)(nil)).Elem()
+}
+
+func (o CommitmentQuotaResponsePtrOutput) ToCommitmentQuotaResponsePtrOutput() CommitmentQuotaResponsePtrOutput {
+	return o
+}
+
+func (o CommitmentQuotaResponsePtrOutput) ToCommitmentQuotaResponsePtrOutputWithContext(ctx context.Context) CommitmentQuotaResponsePtrOutput {
+	return o
+}
+
+func (o CommitmentQuotaResponsePtrOutput) Elem() CommitmentQuotaResponseOutput {
+	return o.ApplyT(func(v *CommitmentQuotaResponse) CommitmentQuotaResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommitmentQuotaResponse
+		return ret
+	}).(CommitmentQuotaResponseOutput)
+}
+
+func (o CommitmentQuotaResponsePtrOutput) Quantity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CommitmentQuotaResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Quantity
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CommitmentQuotaResponsePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommitmentQuotaResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentModel struct {
+	Format  *string `pulumi:"format"`
+	Name    *string `pulumi:"name"`
+	Version *string `pulumi:"version"`
+}
+
+
+
+
+
+type DeploymentModelInput interface {
+	pulumi.Input
+
+	ToDeploymentModelOutput() DeploymentModelOutput
+	ToDeploymentModelOutputWithContext(context.Context) DeploymentModelOutput
+}
+
+type DeploymentModelArgs struct {
+	Format  pulumi.StringPtrInput `pulumi:"format"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (DeploymentModelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentModel)(nil)).Elem()
+}
+
+func (i DeploymentModelArgs) ToDeploymentModelOutput() DeploymentModelOutput {
+	return i.ToDeploymentModelOutputWithContext(context.Background())
+}
+
+func (i DeploymentModelArgs) ToDeploymentModelOutputWithContext(ctx context.Context) DeploymentModelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentModelOutput)
+}
+
+func (i DeploymentModelArgs) ToDeploymentModelPtrOutput() DeploymentModelPtrOutput {
+	return i.ToDeploymentModelPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentModelArgs) ToDeploymentModelPtrOutputWithContext(ctx context.Context) DeploymentModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentModelOutput).ToDeploymentModelPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DeploymentModelPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentModelPtrOutput() DeploymentModelPtrOutput
+	ToDeploymentModelPtrOutputWithContext(context.Context) DeploymentModelPtrOutput
+}
+
+type deploymentModelPtrType DeploymentModelArgs
+
+func DeploymentModelPtr(v *DeploymentModelArgs) DeploymentModelPtrInput {
+	return (*deploymentModelPtrType)(v)
+}
+
+func (*deploymentModelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentModel)(nil)).Elem()
+}
+
+func (i *deploymentModelPtrType) ToDeploymentModelPtrOutput() DeploymentModelPtrOutput {
+	return i.ToDeploymentModelPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentModelPtrType) ToDeploymentModelPtrOutputWithContext(ctx context.Context) DeploymentModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentModelPtrOutput)
+}
+
+type DeploymentModelOutput struct{ *pulumi.OutputState }
+
+func (DeploymentModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentModel)(nil)).Elem()
+}
+
+func (o DeploymentModelOutput) ToDeploymentModelOutput() DeploymentModelOutput {
+	return o
+}
+
+func (o DeploymentModelOutput) ToDeploymentModelOutputWithContext(ctx context.Context) DeploymentModelOutput {
+	return o
+}
+
+func (o DeploymentModelOutput) ToDeploymentModelPtrOutput() DeploymentModelPtrOutput {
+	return o.ToDeploymentModelPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentModelOutput) ToDeploymentModelPtrOutputWithContext(ctx context.Context) DeploymentModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentModel) *DeploymentModel {
+		return &v
+	}).(DeploymentModelPtrOutput)
+}
+
+func (o DeploymentModelOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentModel) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentModelOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentModel) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentModelOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentModel) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentModelPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentModel)(nil)).Elem()
+}
+
+func (o DeploymentModelPtrOutput) ToDeploymentModelPtrOutput() DeploymentModelPtrOutput {
+	return o
+}
+
+func (o DeploymentModelPtrOutput) ToDeploymentModelPtrOutputWithContext(ctx context.Context) DeploymentModelPtrOutput {
+	return o
+}
+
+func (o DeploymentModelPtrOutput) Elem() DeploymentModelOutput {
+	return o.ApplyT(func(v *DeploymentModel) DeploymentModel {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentModel
+		return ret
+	}).(DeploymentModelOutput)
+}
+
+func (o DeploymentModelPtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentModel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentModelPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentModel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentModelPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentModel) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentModelResponse struct {
+	Format  *string `pulumi:"format"`
+	Name    *string `pulumi:"name"`
+	Version *string `pulumi:"version"`
+}
+
+
+
+
+
+type DeploymentModelResponseInput interface {
+	pulumi.Input
+
+	ToDeploymentModelResponseOutput() DeploymentModelResponseOutput
+	ToDeploymentModelResponseOutputWithContext(context.Context) DeploymentModelResponseOutput
+}
+
+type DeploymentModelResponseArgs struct {
+	Format  pulumi.StringPtrInput `pulumi:"format"`
+	Name    pulumi.StringPtrInput `pulumi:"name"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (DeploymentModelResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentModelResponse)(nil)).Elem()
+}
+
+func (i DeploymentModelResponseArgs) ToDeploymentModelResponseOutput() DeploymentModelResponseOutput {
+	return i.ToDeploymentModelResponseOutputWithContext(context.Background())
+}
+
+func (i DeploymentModelResponseArgs) ToDeploymentModelResponseOutputWithContext(ctx context.Context) DeploymentModelResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentModelResponseOutput)
+}
+
+func (i DeploymentModelResponseArgs) ToDeploymentModelResponsePtrOutput() DeploymentModelResponsePtrOutput {
+	return i.ToDeploymentModelResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentModelResponseArgs) ToDeploymentModelResponsePtrOutputWithContext(ctx context.Context) DeploymentModelResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentModelResponseOutput).ToDeploymentModelResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DeploymentModelResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentModelResponsePtrOutput() DeploymentModelResponsePtrOutput
+	ToDeploymentModelResponsePtrOutputWithContext(context.Context) DeploymentModelResponsePtrOutput
+}
+
+type deploymentModelResponsePtrType DeploymentModelResponseArgs
+
+func DeploymentModelResponsePtr(v *DeploymentModelResponseArgs) DeploymentModelResponsePtrInput {
+	return (*deploymentModelResponsePtrType)(v)
+}
+
+func (*deploymentModelResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentModelResponse)(nil)).Elem()
+}
+
+func (i *deploymentModelResponsePtrType) ToDeploymentModelResponsePtrOutput() DeploymentModelResponsePtrOutput {
+	return i.ToDeploymentModelResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentModelResponsePtrType) ToDeploymentModelResponsePtrOutputWithContext(ctx context.Context) DeploymentModelResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentModelResponsePtrOutput)
+}
+
+type DeploymentModelResponseOutput struct{ *pulumi.OutputState }
+
+func (DeploymentModelResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentModelResponse)(nil)).Elem()
+}
+
+func (o DeploymentModelResponseOutput) ToDeploymentModelResponseOutput() DeploymentModelResponseOutput {
+	return o
+}
+
+func (o DeploymentModelResponseOutput) ToDeploymentModelResponseOutputWithContext(ctx context.Context) DeploymentModelResponseOutput {
+	return o
+}
+
+func (o DeploymentModelResponseOutput) ToDeploymentModelResponsePtrOutput() DeploymentModelResponsePtrOutput {
+	return o.ToDeploymentModelResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentModelResponseOutput) ToDeploymentModelResponsePtrOutputWithContext(ctx context.Context) DeploymentModelResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentModelResponse) *DeploymentModelResponse {
+		return &v
+	}).(DeploymentModelResponsePtrOutput)
+}
+
+func (o DeploymentModelResponseOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentModelResponse) *string { return v.Format }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentModelResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentModelResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentModelResponseOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentModelResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentModelResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentModelResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentModelResponse)(nil)).Elem()
+}
+
+func (o DeploymentModelResponsePtrOutput) ToDeploymentModelResponsePtrOutput() DeploymentModelResponsePtrOutput {
+	return o
+}
+
+func (o DeploymentModelResponsePtrOutput) ToDeploymentModelResponsePtrOutputWithContext(ctx context.Context) DeploymentModelResponsePtrOutput {
+	return o
+}
+
+func (o DeploymentModelResponsePtrOutput) Elem() DeploymentModelResponseOutput {
+	return o.ApplyT(func(v *DeploymentModelResponse) DeploymentModelResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentModelResponse
+		return ret
+	}).(DeploymentModelResponseOutput)
+}
+
+func (o DeploymentModelResponsePtrOutput) Format() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentModelResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentModelResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentModelResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentModelResponsePtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentModelResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentProperties struct {
+	Model         *DeploymentModel         `pulumi:"model"`
+	ScaleSettings *DeploymentScaleSettings `pulumi:"scaleSettings"`
+}
+
+
+
+
+
+type DeploymentPropertiesInput interface {
+	pulumi.Input
+
+	ToDeploymentPropertiesOutput() DeploymentPropertiesOutput
+	ToDeploymentPropertiesOutputWithContext(context.Context) DeploymentPropertiesOutput
+}
+
+type DeploymentPropertiesArgs struct {
+	Model         DeploymentModelPtrInput         `pulumi:"model"`
+	ScaleSettings DeploymentScaleSettingsPtrInput `pulumi:"scaleSettings"`
+}
+
+func (DeploymentPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentProperties)(nil)).Elem()
+}
+
+func (i DeploymentPropertiesArgs) ToDeploymentPropertiesOutput() DeploymentPropertiesOutput {
+	return i.ToDeploymentPropertiesOutputWithContext(context.Background())
+}
+
+func (i DeploymentPropertiesArgs) ToDeploymentPropertiesOutputWithContext(ctx context.Context) DeploymentPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesOutput)
+}
+
+func (i DeploymentPropertiesArgs) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
+	return i.ToDeploymentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentPropertiesArgs) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesOutput).ToDeploymentPropertiesPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DeploymentPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput
+	ToDeploymentPropertiesPtrOutputWithContext(context.Context) DeploymentPropertiesPtrOutput
+}
+
+type deploymentPropertiesPtrType DeploymentPropertiesArgs
+
+func DeploymentPropertiesPtr(v *DeploymentPropertiesArgs) DeploymentPropertiesPtrInput {
+	return (*deploymentPropertiesPtrType)(v)
+}
+
+func (*deploymentPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentProperties)(nil)).Elem()
+}
+
+func (i *deploymentPropertiesPtrType) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
+	return i.ToDeploymentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentPropertiesPtrType) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesPtrOutput)
+}
+
+type DeploymentPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DeploymentPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentProperties)(nil)).Elem()
+}
+
+func (o DeploymentPropertiesOutput) ToDeploymentPropertiesOutput() DeploymentPropertiesOutput {
+	return o
+}
+
+func (o DeploymentPropertiesOutput) ToDeploymentPropertiesOutputWithContext(ctx context.Context) DeploymentPropertiesOutput {
+	return o
+}
+
+func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
+	return o.ToDeploymentPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentProperties) *DeploymentProperties {
+		return &v
+	}).(DeploymentPropertiesPtrOutput)
+}
+
+func (o DeploymentPropertiesOutput) Model() DeploymentModelPtrOutput {
+	return o.ApplyT(func(v DeploymentProperties) *DeploymentModel { return v.Model }).(DeploymentModelPtrOutput)
+}
+
+func (o DeploymentPropertiesOutput) ScaleSettings() DeploymentScaleSettingsPtrOutput {
+	return o.ApplyT(func(v DeploymentProperties) *DeploymentScaleSettings { return v.ScaleSettings }).(DeploymentScaleSettingsPtrOutput)
+}
+
+type DeploymentPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentProperties)(nil)).Elem()
+}
+
+func (o DeploymentPropertiesPtrOutput) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
+	return o
+}
+
+func (o DeploymentPropertiesPtrOutput) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
+	return o
+}
+
+func (o DeploymentPropertiesPtrOutput) Elem() DeploymentPropertiesOutput {
+	return o.ApplyT(func(v *DeploymentProperties) DeploymentProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentProperties
+		return ret
+	}).(DeploymentPropertiesOutput)
+}
+
+func (o DeploymentPropertiesPtrOutput) Model() DeploymentModelPtrOutput {
+	return o.ApplyT(func(v *DeploymentProperties) *DeploymentModel {
+		if v == nil {
+			return nil
+		}
+		return v.Model
+	}).(DeploymentModelPtrOutput)
+}
+
+func (o DeploymentPropertiesPtrOutput) ScaleSettings() DeploymentScaleSettingsPtrOutput {
+	return o.ApplyT(func(v *DeploymentProperties) *DeploymentScaleSettings {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleSettings
+	}).(DeploymentScaleSettingsPtrOutput)
+}
+
+type DeploymentPropertiesResponse struct {
+	Model             *DeploymentModelResponse         `pulumi:"model"`
+	ProvisioningState string                           `pulumi:"provisioningState"`
+	ScaleSettings     *DeploymentScaleSettingsResponse `pulumi:"scaleSettings"`
+}
+
+
+
+
+
+type DeploymentPropertiesResponseInput interface {
+	pulumi.Input
+
+	ToDeploymentPropertiesResponseOutput() DeploymentPropertiesResponseOutput
+	ToDeploymentPropertiesResponseOutputWithContext(context.Context) DeploymentPropertiesResponseOutput
+}
+
+type DeploymentPropertiesResponseArgs struct {
+	Model             DeploymentModelResponsePtrInput         `pulumi:"model"`
+	ProvisioningState pulumi.StringInput                      `pulumi:"provisioningState"`
+	ScaleSettings     DeploymentScaleSettingsResponsePtrInput `pulumi:"scaleSettings"`
+}
+
+func (DeploymentPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentPropertiesResponse)(nil)).Elem()
+}
+
+func (i DeploymentPropertiesResponseArgs) ToDeploymentPropertiesResponseOutput() DeploymentPropertiesResponseOutput {
+	return i.ToDeploymentPropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i DeploymentPropertiesResponseArgs) ToDeploymentPropertiesResponseOutputWithContext(ctx context.Context) DeploymentPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesResponseOutput)
+}
+
+func (i DeploymentPropertiesResponseArgs) ToDeploymentPropertiesResponsePtrOutput() DeploymentPropertiesResponsePtrOutput {
+	return i.ToDeploymentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentPropertiesResponseArgs) ToDeploymentPropertiesResponsePtrOutputWithContext(ctx context.Context) DeploymentPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesResponseOutput).ToDeploymentPropertiesResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DeploymentPropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentPropertiesResponsePtrOutput() DeploymentPropertiesResponsePtrOutput
+	ToDeploymentPropertiesResponsePtrOutputWithContext(context.Context) DeploymentPropertiesResponsePtrOutput
+}
+
+type deploymentPropertiesResponsePtrType DeploymentPropertiesResponseArgs
+
+func DeploymentPropertiesResponsePtr(v *DeploymentPropertiesResponseArgs) DeploymentPropertiesResponsePtrInput {
+	return (*deploymentPropertiesResponsePtrType)(v)
+}
+
+func (*deploymentPropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentPropertiesResponse)(nil)).Elem()
+}
+
+func (i *deploymentPropertiesResponsePtrType) ToDeploymentPropertiesResponsePtrOutput() DeploymentPropertiesResponsePtrOutput {
+	return i.ToDeploymentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentPropertiesResponsePtrType) ToDeploymentPropertiesResponsePtrOutputWithContext(ctx context.Context) DeploymentPropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesResponsePtrOutput)
+}
+
+type DeploymentPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (DeploymentPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentPropertiesResponse)(nil)).Elem()
+}
+
+func (o DeploymentPropertiesResponseOutput) ToDeploymentPropertiesResponseOutput() DeploymentPropertiesResponseOutput {
+	return o
+}
+
+func (o DeploymentPropertiesResponseOutput) ToDeploymentPropertiesResponseOutputWithContext(ctx context.Context) DeploymentPropertiesResponseOutput {
+	return o
+}
+
+func (o DeploymentPropertiesResponseOutput) ToDeploymentPropertiesResponsePtrOutput() DeploymentPropertiesResponsePtrOutput {
+	return o.ToDeploymentPropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentPropertiesResponseOutput) ToDeploymentPropertiesResponsePtrOutputWithContext(ctx context.Context) DeploymentPropertiesResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentPropertiesResponse) *DeploymentPropertiesResponse {
+		return &v
+	}).(DeploymentPropertiesResponsePtrOutput)
+}
+
+func (o DeploymentPropertiesResponseOutput) Model() DeploymentModelResponsePtrOutput {
+	return o.ApplyT(func(v DeploymentPropertiesResponse) *DeploymentModelResponse { return v.Model }).(DeploymentModelResponsePtrOutput)
+}
+
+func (o DeploymentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o DeploymentPropertiesResponseOutput) ScaleSettings() DeploymentScaleSettingsResponsePtrOutput {
+	return o.ApplyT(func(v DeploymentPropertiesResponse) *DeploymentScaleSettingsResponse { return v.ScaleSettings }).(DeploymentScaleSettingsResponsePtrOutput)
+}
+
+type DeploymentPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentPropertiesResponse)(nil)).Elem()
+}
+
+func (o DeploymentPropertiesResponsePtrOutput) ToDeploymentPropertiesResponsePtrOutput() DeploymentPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o DeploymentPropertiesResponsePtrOutput) ToDeploymentPropertiesResponsePtrOutputWithContext(ctx context.Context) DeploymentPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o DeploymentPropertiesResponsePtrOutput) Elem() DeploymentPropertiesResponseOutput {
+	return o.ApplyT(func(v *DeploymentPropertiesResponse) DeploymentPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentPropertiesResponse
+		return ret
+	}).(DeploymentPropertiesResponseOutput)
+}
+
+func (o DeploymentPropertiesResponsePtrOutput) Model() DeploymentModelResponsePtrOutput {
+	return o.ApplyT(func(v *DeploymentPropertiesResponse) *DeploymentModelResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Model
+	}).(DeploymentModelResponsePtrOutput)
+}
+
+func (o DeploymentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentPropertiesResponsePtrOutput) ScaleSettings() DeploymentScaleSettingsResponsePtrOutput {
+	return o.ApplyT(func(v *DeploymentPropertiesResponse) *DeploymentScaleSettingsResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleSettings
+	}).(DeploymentScaleSettingsResponsePtrOutput)
+}
+
+type DeploymentScaleSettings struct {
+	Capacity  *int    `pulumi:"capacity"`
+	ScaleType *string `pulumi:"scaleType"`
+}
+
+
+
+
+
+type DeploymentScaleSettingsInput interface {
+	pulumi.Input
+
+	ToDeploymentScaleSettingsOutput() DeploymentScaleSettingsOutput
+	ToDeploymentScaleSettingsOutputWithContext(context.Context) DeploymentScaleSettingsOutput
+}
+
+type DeploymentScaleSettingsArgs struct {
+	Capacity  pulumi.IntPtrInput    `pulumi:"capacity"`
+	ScaleType pulumi.StringPtrInput `pulumi:"scaleType"`
+}
+
+func (DeploymentScaleSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentScaleSettings)(nil)).Elem()
+}
+
+func (i DeploymentScaleSettingsArgs) ToDeploymentScaleSettingsOutput() DeploymentScaleSettingsOutput {
+	return i.ToDeploymentScaleSettingsOutputWithContext(context.Background())
+}
+
+func (i DeploymentScaleSettingsArgs) ToDeploymentScaleSettingsOutputWithContext(ctx context.Context) DeploymentScaleSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScaleSettingsOutput)
+}
+
+func (i DeploymentScaleSettingsArgs) ToDeploymentScaleSettingsPtrOutput() DeploymentScaleSettingsPtrOutput {
+	return i.ToDeploymentScaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentScaleSettingsArgs) ToDeploymentScaleSettingsPtrOutputWithContext(ctx context.Context) DeploymentScaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScaleSettingsOutput).ToDeploymentScaleSettingsPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DeploymentScaleSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentScaleSettingsPtrOutput() DeploymentScaleSettingsPtrOutput
+	ToDeploymentScaleSettingsPtrOutputWithContext(context.Context) DeploymentScaleSettingsPtrOutput
+}
+
+type deploymentScaleSettingsPtrType DeploymentScaleSettingsArgs
+
+func DeploymentScaleSettingsPtr(v *DeploymentScaleSettingsArgs) DeploymentScaleSettingsPtrInput {
+	return (*deploymentScaleSettingsPtrType)(v)
+}
+
+func (*deploymentScaleSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentScaleSettings)(nil)).Elem()
+}
+
+func (i *deploymentScaleSettingsPtrType) ToDeploymentScaleSettingsPtrOutput() DeploymentScaleSettingsPtrOutput {
+	return i.ToDeploymentScaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentScaleSettingsPtrType) ToDeploymentScaleSettingsPtrOutputWithContext(ctx context.Context) DeploymentScaleSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScaleSettingsPtrOutput)
+}
+
+type DeploymentScaleSettingsOutput struct{ *pulumi.OutputState }
+
+func (DeploymentScaleSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentScaleSettings)(nil)).Elem()
+}
+
+func (o DeploymentScaleSettingsOutput) ToDeploymentScaleSettingsOutput() DeploymentScaleSettingsOutput {
+	return o
+}
+
+func (o DeploymentScaleSettingsOutput) ToDeploymentScaleSettingsOutputWithContext(ctx context.Context) DeploymentScaleSettingsOutput {
+	return o
+}
+
+func (o DeploymentScaleSettingsOutput) ToDeploymentScaleSettingsPtrOutput() DeploymentScaleSettingsPtrOutput {
+	return o.ToDeploymentScaleSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentScaleSettingsOutput) ToDeploymentScaleSettingsPtrOutputWithContext(ctx context.Context) DeploymentScaleSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentScaleSettings) *DeploymentScaleSettings {
+		return &v
+	}).(DeploymentScaleSettingsPtrOutput)
+}
+
+func (o DeploymentScaleSettingsOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentScaleSettings) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentScaleSettingsOutput) ScaleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentScaleSettings) *string { return v.ScaleType }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentScaleSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentScaleSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentScaleSettings)(nil)).Elem()
+}
+
+func (o DeploymentScaleSettingsPtrOutput) ToDeploymentScaleSettingsPtrOutput() DeploymentScaleSettingsPtrOutput {
+	return o
+}
+
+func (o DeploymentScaleSettingsPtrOutput) ToDeploymentScaleSettingsPtrOutputWithContext(ctx context.Context) DeploymentScaleSettingsPtrOutput {
+	return o
+}
+
+func (o DeploymentScaleSettingsPtrOutput) Elem() DeploymentScaleSettingsOutput {
+	return o.ApplyT(func(v *DeploymentScaleSettings) DeploymentScaleSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentScaleSettings
+		return ret
+	}).(DeploymentScaleSettingsOutput)
+}
+
+func (o DeploymentScaleSettingsPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentScaleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentScaleSettingsPtrOutput) ScaleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentScaleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleType
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentScaleSettingsResponse struct {
+	Capacity  *int    `pulumi:"capacity"`
+	ScaleType *string `pulumi:"scaleType"`
+}
+
+
+
+
+
+type DeploymentScaleSettingsResponseInput interface {
+	pulumi.Input
+
+	ToDeploymentScaleSettingsResponseOutput() DeploymentScaleSettingsResponseOutput
+	ToDeploymentScaleSettingsResponseOutputWithContext(context.Context) DeploymentScaleSettingsResponseOutput
+}
+
+type DeploymentScaleSettingsResponseArgs struct {
+	Capacity  pulumi.IntPtrInput    `pulumi:"capacity"`
+	ScaleType pulumi.StringPtrInput `pulumi:"scaleType"`
+}
+
+func (DeploymentScaleSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentScaleSettingsResponse)(nil)).Elem()
+}
+
+func (i DeploymentScaleSettingsResponseArgs) ToDeploymentScaleSettingsResponseOutput() DeploymentScaleSettingsResponseOutput {
+	return i.ToDeploymentScaleSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i DeploymentScaleSettingsResponseArgs) ToDeploymentScaleSettingsResponseOutputWithContext(ctx context.Context) DeploymentScaleSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScaleSettingsResponseOutput)
+}
+
+func (i DeploymentScaleSettingsResponseArgs) ToDeploymentScaleSettingsResponsePtrOutput() DeploymentScaleSettingsResponsePtrOutput {
+	return i.ToDeploymentScaleSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentScaleSettingsResponseArgs) ToDeploymentScaleSettingsResponsePtrOutputWithContext(ctx context.Context) DeploymentScaleSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScaleSettingsResponseOutput).ToDeploymentScaleSettingsResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DeploymentScaleSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentScaleSettingsResponsePtrOutput() DeploymentScaleSettingsResponsePtrOutput
+	ToDeploymentScaleSettingsResponsePtrOutputWithContext(context.Context) DeploymentScaleSettingsResponsePtrOutput
+}
+
+type deploymentScaleSettingsResponsePtrType DeploymentScaleSettingsResponseArgs
+
+func DeploymentScaleSettingsResponsePtr(v *DeploymentScaleSettingsResponseArgs) DeploymentScaleSettingsResponsePtrInput {
+	return (*deploymentScaleSettingsResponsePtrType)(v)
+}
+
+func (*deploymentScaleSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentScaleSettingsResponse)(nil)).Elem()
+}
+
+func (i *deploymentScaleSettingsResponsePtrType) ToDeploymentScaleSettingsResponsePtrOutput() DeploymentScaleSettingsResponsePtrOutput {
+	return i.ToDeploymentScaleSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentScaleSettingsResponsePtrType) ToDeploymentScaleSettingsResponsePtrOutputWithContext(ctx context.Context) DeploymentScaleSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentScaleSettingsResponsePtrOutput)
+}
+
+type DeploymentScaleSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (DeploymentScaleSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentScaleSettingsResponse)(nil)).Elem()
+}
+
+func (o DeploymentScaleSettingsResponseOutput) ToDeploymentScaleSettingsResponseOutput() DeploymentScaleSettingsResponseOutput {
+	return o
+}
+
+func (o DeploymentScaleSettingsResponseOutput) ToDeploymentScaleSettingsResponseOutputWithContext(ctx context.Context) DeploymentScaleSettingsResponseOutput {
+	return o
+}
+
+func (o DeploymentScaleSettingsResponseOutput) ToDeploymentScaleSettingsResponsePtrOutput() DeploymentScaleSettingsResponsePtrOutput {
+	return o.ToDeploymentScaleSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentScaleSettingsResponseOutput) ToDeploymentScaleSettingsResponsePtrOutputWithContext(ctx context.Context) DeploymentScaleSettingsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentScaleSettingsResponse) *DeploymentScaleSettingsResponse {
+		return &v
+	}).(DeploymentScaleSettingsResponsePtrOutput)
+}
+
+func (o DeploymentScaleSettingsResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentScaleSettingsResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentScaleSettingsResponseOutput) ScaleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentScaleSettingsResponse) *string { return v.ScaleType }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentScaleSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentScaleSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentScaleSettingsResponse)(nil)).Elem()
+}
+
+func (o DeploymentScaleSettingsResponsePtrOutput) ToDeploymentScaleSettingsResponsePtrOutput() DeploymentScaleSettingsResponsePtrOutput {
+	return o
+}
+
+func (o DeploymentScaleSettingsResponsePtrOutput) ToDeploymentScaleSettingsResponsePtrOutputWithContext(ctx context.Context) DeploymentScaleSettingsResponsePtrOutput {
+	return o
+}
+
+func (o DeploymentScaleSettingsResponsePtrOutput) Elem() DeploymentScaleSettingsResponseOutput {
+	return o.ApplyT(func(v *DeploymentScaleSettingsResponse) DeploymentScaleSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentScaleSettingsResponse
+		return ret
+	}).(DeploymentScaleSettingsResponseOutput)
+}
+
+func (o DeploymentScaleSettingsResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentScaleSettingsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentScaleSettingsResponsePtrOutput) ScaleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentScaleSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleType
+	}).(pulumi.StringPtrOutput)
+}
+
 type Encryption struct {
 	KeySource          *string             `pulumi:"keySource"`
 	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
@@ -4115,6 +5938,214 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SystemDataResponse struct {
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+
+
+
+
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+type SystemDataResponseArgs struct {
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
 type UserAssignedIdentity struct {
 	ClientId    *string `pulumi:"clientId"`
 	PrincipalId *string `pulumi:"principalId"`
@@ -4726,6 +6757,28 @@ func init() {
 	pulumi.RegisterOutputType(CognitiveServicesAccountPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CognitiveServicesAccountSkuChangeInfoResponseOutput{})
 	pulumi.RegisterOutputType(CognitiveServicesAccountSkuChangeInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(CommitmentPeriodOutput{})
+	pulumi.RegisterOutputType(CommitmentPeriodPtrOutput{})
+	pulumi.RegisterOutputType(CommitmentPeriodResponseOutput{})
+	pulumi.RegisterOutputType(CommitmentPeriodResponsePtrOutput{})
+	pulumi.RegisterOutputType(CommitmentPlanPropertiesOutput{})
+	pulumi.RegisterOutputType(CommitmentPlanPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(CommitmentPlanPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(CommitmentPlanPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(CommitmentQuotaResponseOutput{})
+	pulumi.RegisterOutputType(CommitmentQuotaResponsePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentModelOutput{})
+	pulumi.RegisterOutputType(DeploymentModelPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentModelResponseOutput{})
+	pulumi.RegisterOutputType(DeploymentModelResponsePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentPropertiesOutput{})
+	pulumi.RegisterOutputType(DeploymentPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(DeploymentPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(DeploymentScaleSettingsOutput{})
+	pulumi.RegisterOutputType(DeploymentScaleSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentScaleSettingsResponseOutput{})
+	pulumi.RegisterOutputType(DeploymentScaleSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionOutput{})
 	pulumi.RegisterOutputType(EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionResponseOutput{})
@@ -4766,6 +6819,8 @@ func init() {
 	pulumi.RegisterOutputType(SkuCapabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityMapOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})

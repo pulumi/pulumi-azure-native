@@ -231,7 +231,7 @@ export interface EventHubDataConnectionArgs {
      */
     tableName?: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

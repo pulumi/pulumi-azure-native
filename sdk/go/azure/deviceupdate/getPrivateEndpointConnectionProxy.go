@@ -29,6 +29,7 @@ type LookupPrivateEndpointConnectionProxyResult struct {
 	Name                  string                         `pulumi:"name"`
 	ProvisioningState     string                         `pulumi:"provisioningState"`
 	RemotePrivateEndpoint *RemotePrivateEndpointResponse `pulumi:"remotePrivateEndpoint"`
+	Status                *string                        `pulumi:"status"`
 	SystemData            SystemDataResponse             `pulumi:"systemData"`
 	Type                  string                         `pulumi:"type"`
 }

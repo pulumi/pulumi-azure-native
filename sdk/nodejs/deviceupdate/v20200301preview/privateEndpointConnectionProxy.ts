@@ -52,6 +52,10 @@ export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
      */
     public readonly remotePrivateEndpoint!: pulumi.Output<outputs.deviceupdate.v20200301preview.RemotePrivateEndpointResponse | undefined>;
     /**
+     * Operation status.
+     */
+    public readonly status!: pulumi.Output<string | undefined>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.deviceupdate.v20200301preview.SystemDataResponse>;
@@ -81,6 +85,7 @@ export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
             inputs["privateEndpointConnectionProxyId"] = args ? args.privateEndpointConnectionProxyId : undefined;
             inputs["remotePrivateEndpoint"] = args ? args.remotePrivateEndpoint : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["eTag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -91,6 +96,7 @@ export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["remotePrivateEndpoint"] = undefined /*out*/;
+            inputs["status"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -123,4 +129,8 @@ export interface PrivateEndpointConnectionProxyArgs {
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Operation status.
+     */
+    status?: pulumi.Input<string>;
 }

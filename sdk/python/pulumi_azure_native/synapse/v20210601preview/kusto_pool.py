@@ -30,7 +30,7 @@ class KustoPoolArgs:
         The set of arguments for constructing a KustoPool resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AzureSkuArgs'] sku: The SKU of the kusto pool.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[bool] enable_purge: A boolean value that indicates if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: A boolean value that indicates if the streaming ingest is enabled.
         :param pulumi.Input[str] kusto_pool_name: The name of the Kusto pool.
@@ -89,7 +89,7 @@ class KustoPoolArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -211,7 +211,7 @@ class KustoPool(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['AzureSkuArgs']] sku: The SKU of the kusto pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] workspace_uid: The workspace unique identifier.
         """
         ...

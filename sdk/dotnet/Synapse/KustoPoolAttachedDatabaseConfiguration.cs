@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<Inputs.TableLevelSharingPropertiesArgs>? TableLevelSharingProperties { get; set; }
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

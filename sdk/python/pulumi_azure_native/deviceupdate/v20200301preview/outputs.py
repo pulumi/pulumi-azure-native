@@ -197,6 +197,10 @@ class GroupConnectivityInformationResponse(dict):
             suggest = "member_name"
         elif key == "customerVisibleFqdns":
             suggest = "customer_visible_fqdns"
+        elif key == "privateLinkServiceArmRegion":
+            suggest = "private_link_service_arm_region"
+        elif key == "redirectMapId":
+            suggest = "redirect_map_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GroupConnectivityInformationResponse. Access the value via the '{suggest}' property getter instead.")
@@ -213,19 +217,27 @@ class GroupConnectivityInformationResponse(dict):
                  group_id: str,
                  internal_fqdn: str,
                  member_name: str,
-                 customer_visible_fqdns: Optional[Sequence[str]] = None):
+                 customer_visible_fqdns: Optional[Sequence[str]] = None,
+                 private_link_service_arm_region: Optional[str] = None,
+                 redirect_map_id: Optional[str] = None):
         """
         Group connectivity details.
         :param str group_id: Group ID.
         :param str internal_fqdn: Internal FQDN.
         :param str member_name: Member name.
         :param Sequence[str] customer_visible_fqdns: List of customer visible FQDNs.
+        :param str private_link_service_arm_region: PrivateLinkService ARM region.
+        :param str redirect_map_id: Redirect map ID.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "internal_fqdn", internal_fqdn)
         pulumi.set(__self__, "member_name", member_name)
         if customer_visible_fqdns is not None:
             pulumi.set(__self__, "customer_visible_fqdns", customer_visible_fqdns)
+        if private_link_service_arm_region is not None:
+            pulumi.set(__self__, "private_link_service_arm_region", private_link_service_arm_region)
+        if redirect_map_id is not None:
+            pulumi.set(__self__, "redirect_map_id", redirect_map_id)
 
     @property
     @pulumi.getter(name="groupId")
@@ -258,6 +270,22 @@ class GroupConnectivityInformationResponse(dict):
         List of customer visible FQDNs.
         """
         return pulumi.get(self, "customer_visible_fqdns")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceArmRegion")
+    def private_link_service_arm_region(self) -> Optional[str]:
+        """
+        PrivateLinkService ARM region.
+        """
+        return pulumi.get(self, "private_link_service_arm_region")
+
+    @property
+    @pulumi.getter(name="redirectMapId")
+    def redirect_map_id(self) -> Optional[str]:
+        """
+        Redirect map ID.
+        """
+        return pulumi.get(self, "redirect_map_id")
 
 
 @pulumi.output_type

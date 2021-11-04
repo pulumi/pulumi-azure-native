@@ -56,7 +56,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] sql_administrator_login_password: SQL administrator login password
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['VirtualNetworkProfileArgs'] virtual_network_profile: Virtual Network profile
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input['WorkspaceRepositoryConfigurationArgs'] workspace_repository_configuration: Git integration settings
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -319,7 +319,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -389,7 +389,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] sql_administrator_login_password: SQL administrator login password
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkProfileArgs']] virtual_network_profile: Virtual Network profile
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[pulumi.InputType['WorkspaceRepositoryConfigurationArgs']] workspace_repository_configuration: Git integration settings
         """
         ...

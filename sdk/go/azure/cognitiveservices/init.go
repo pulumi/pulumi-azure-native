@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:cognitiveservices:Account":
 		r = &Account{}
+	case "azure-native:cognitiveservices:CommitmentPlan":
+		r = &CommitmentPlan{}
+	case "azure-native:cognitiveservices:Deployment":
+		r = &Deployment{}
 	case "azure-native:cognitiveservices:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
 	default:

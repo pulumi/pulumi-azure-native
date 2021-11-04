@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Authorization.V20150701
         public Input<Inputs.RoleAssignmentPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
-        /// The name of the role assignment to create. It can be any valid GUID.
+        /// A GUID for the role assignment to create. The name must be unique and different for each role assignment.
         /// </summary>
         [Input("roleAssignmentName")]
         public Input<string>? RoleAssignmentName { get; set; }

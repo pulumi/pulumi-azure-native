@@ -2291,6 +2291,8 @@ type RegistrationDefinitionPropertiesResponse struct {
 	EligibleAuthorizations     []EligibleAuthorizationResponse `pulumi:"eligibleAuthorizations"`
 	ManagedByTenantId          string                          `pulumi:"managedByTenantId"`
 	ManagedByTenantName        string                          `pulumi:"managedByTenantName"`
+	ManageeTenantId            string                          `pulumi:"manageeTenantId"`
+	ManageeTenantName          string                          `pulumi:"manageeTenantName"`
 	ProvisioningState          string                          `pulumi:"provisioningState"`
 	RegistrationDefinitionName *string                         `pulumi:"registrationDefinitionName"`
 }
@@ -2312,6 +2314,8 @@ type RegistrationDefinitionPropertiesResponseArgs struct {
 	EligibleAuthorizations     EligibleAuthorizationResponseArrayInput `pulumi:"eligibleAuthorizations"`
 	ManagedByTenantId          pulumi.StringInput                      `pulumi:"managedByTenantId"`
 	ManagedByTenantName        pulumi.StringInput                      `pulumi:"managedByTenantName"`
+	ManageeTenantId            pulumi.StringInput                      `pulumi:"manageeTenantId"`
+	ManageeTenantName          pulumi.StringInput                      `pulumi:"manageeTenantName"`
 	ProvisioningState          pulumi.StringInput                      `pulumi:"provisioningState"`
 	RegistrationDefinitionName pulumi.StringPtrInput                   `pulumi:"registrationDefinitionName"`
 }
@@ -2415,6 +2419,14 @@ func (o RegistrationDefinitionPropertiesResponseOutput) ManagedByTenantName() pu
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) string { return v.ManagedByTenantName }).(pulumi.StringOutput)
 }
 
+func (o RegistrationDefinitionPropertiesResponseOutput) ManageeTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) string { return v.ManageeTenantId }).(pulumi.StringOutput)
+}
+
+func (o RegistrationDefinitionPropertiesResponseOutput) ManageeTenantName() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) string { return v.ManageeTenantName }).(pulumi.StringOutput)
+}
+
 func (o RegistrationDefinitionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistrationDefinitionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -2489,6 +2501,24 @@ func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManagedByTenantName()
 			return nil
 		}
 		return &v.ManagedByTenantName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManageeTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ManageeTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RegistrationDefinitionPropertiesResponsePtrOutput) ManageeTenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistrationDefinitionPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ManageeTenantName
 	}).(pulumi.StringPtrOutput)
 }
 

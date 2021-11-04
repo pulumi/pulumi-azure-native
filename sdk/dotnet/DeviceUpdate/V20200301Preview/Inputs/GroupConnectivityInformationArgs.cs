@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Inputs
             set => _customerVisibleFqdns = value;
         }
 
+        /// <summary>
+        /// PrivateLinkService ARM region.
+        /// </summary>
+        [Input("privateLinkServiceArmRegion")]
+        public Input<string>? PrivateLinkServiceArmRegion { get; set; }
+
+        /// <summary>
+        /// Redirect map ID.
+        /// </summary>
+        [Input("redirectMapId")]
+        public Input<string>? RedirectMapId { get; set; }
+
         public GroupConnectivityInformationArgs()
         {
         }

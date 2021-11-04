@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'BudgetOperatorType',
     'CategoryType',
+    'CultureCode',
     'OperatorType',
     'ThresholdType',
     'TimeGrainType',
@@ -27,6 +28,33 @@ class CategoryType(str, Enum):
     COST = "Cost"
 
 
+class CultureCode(str, Enum):
+    """
+    Language in which the recipient will receive the notification
+    """
+    EN_US = "en-us"
+    JA_JP = "ja-jp"
+    ZH_CN = "zh-cn"
+    DE_DE = "de-de"
+    ES_ES = "es-es"
+    FR_FR = "fr-fr"
+    IT_IT = "it-it"
+    KO_KR = "ko-kr"
+    PT_BR = "pt-br"
+    RU_RU = "ru-ru"
+    ZH_TW = "zh-tw"
+    CS_CZ = "cs-cz"
+    PL_PL = "pl-pl"
+    TR_TR = "tr-tr"
+    DA_DK = "da-dk"
+    EN_GB = "en-gb"
+    HU_HU = "hu-hu"
+    NB_NO = "nb-no"
+    NL_NL = "nl-nl"
+    PT_PT = "pt-pt"
+    SV_SE = "sv-se"
+
+
 class OperatorType(str, Enum):
     """
     The comparison operator.
@@ -41,6 +69,7 @@ class ThresholdType(str, Enum):
     The type of threshold
     """
     ACTUAL = "Actual"
+    FORECASTED = "Forecasted"
 
 
 class TimeGrainType(str, Enum):

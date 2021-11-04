@@ -26,7 +26,7 @@ class KustoPoolDatabaseArgs:
         :param pulumi.Input[Union[str, 'Kind']] kind: Kind of the database
         :param pulumi.Input[str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto pool.
         :param pulumi.Input[str] location: Resource location.
         """
@@ -79,7 +79,7 @@ class KustoPoolDatabaseArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -139,7 +139,7 @@ class KustoPoolDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload

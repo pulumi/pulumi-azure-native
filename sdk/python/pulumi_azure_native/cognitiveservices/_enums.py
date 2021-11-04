@@ -5,12 +5,30 @@
 from enum import Enum
 
 __all__ = [
+    'DeploymentScaleType',
+    'HostingModel',
     'IdentityType',
     'KeySource',
     'NetworkRuleAction',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
 ]
+
+
+class DeploymentScaleType(str, Enum):
+    """
+    Deployment scale type.
+    """
+    MANUAL = "Manual"
+
+
+class HostingModel(str, Enum):
+    """
+    Account hosting model.
+    """
+    WEB = "Web"
+    CONNECTED_CONTAINER = "ConnectedContainer"
+    DISCONNECTED_CONTAINER = "DisconnectedContainer"
 
 
 class IdentityType(str, Enum):

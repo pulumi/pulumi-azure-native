@@ -32,7 +32,7 @@ export interface GetIpFirewallRuleArgs {
      */
     ruleName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -81,7 +81,7 @@ export interface GetIpFirewallRuleOutputArgs {
      */
     ruleName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

@@ -258,7 +258,7 @@ def get_kusto_pool(kusto_pool_name: Optional[str] = None,
 
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['kustoPoolName'] = kusto_pool_name
@@ -302,6 +302,6 @@ def get_kusto_pool_output(kusto_pool_name: Optional[pulumi.Input[str]] = None,
 
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

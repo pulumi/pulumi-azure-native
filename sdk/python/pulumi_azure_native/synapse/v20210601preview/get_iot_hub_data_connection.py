@@ -215,7 +215,7 @@ def get_iot_hub_data_connection(data_connection_name: Optional[str] = None,
     :param str database_name: The name of the database in the Kusto pool.
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['dataConnectionName'] = data_connection_name
@@ -261,6 +261,6 @@ def get_iot_hub_data_connection_output(data_connection_name: Optional[pulumi.Inp
     :param str database_name: The name of the database in the Kusto pool.
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

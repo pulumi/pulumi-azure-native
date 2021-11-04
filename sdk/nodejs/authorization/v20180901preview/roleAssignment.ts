@@ -127,7 +127,7 @@ export interface RoleAssignmentArgs {
      */
     principalType?: pulumi.Input<string | enums.authorization.v20180901preview.PrincipalType>;
     /**
-     * The name of the role assignment to create. It can be any valid GUID.
+     * A GUID for the role assignment to create. The name must be unique and different for each role assignment.
      */
     roleAssignmentName?: pulumi.Input<string>;
     /**

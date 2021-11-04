@@ -32,6 +32,14 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Outputs
         /// Member name.
         /// </summary>
         public readonly string MemberName;
+        /// <summary>
+        /// PrivateLinkService ARM region.
+        /// </summary>
+        public readonly string? PrivateLinkServiceArmRegion;
+        /// <summary>
+        /// Redirect map ID.
+        /// </summary>
+        public readonly string? RedirectMapId;
 
         [OutputConstructor]
         private GroupConnectivityInformationResponse(
@@ -41,12 +49,18 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview.Outputs
 
             string internalFqdn,
 
-            string memberName)
+            string memberName,
+
+            string? privateLinkServiceArmRegion,
+
+            string? redirectMapId)
         {
             CustomerVisibleFqdns = customerVisibleFqdns;
             GroupId = groupId;
             InternalFqdn = internalFqdn;
             MemberName = memberName;
+            PrivateLinkServiceArmRegion = privateLinkServiceArmRegion;
+            RedirectMapId = redirectMapId;
         }
     }
 }

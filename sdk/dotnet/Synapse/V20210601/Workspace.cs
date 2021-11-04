@@ -355,7 +355,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601
         public Input<Inputs.VirtualNetworkProfileArgs>? VirtualNetworkProfile { get; set; }
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName")]
         public Input<string>? WorkspaceName { get; set; }

@@ -290,7 +290,7 @@ export interface WorkspaceArgs {
      */
     virtualNetworkProfile?: pulumi.Input<inputs.synapse.v20210601preview.VirtualNetworkProfileArgs>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName?: pulumi.Input<string>;
     /**

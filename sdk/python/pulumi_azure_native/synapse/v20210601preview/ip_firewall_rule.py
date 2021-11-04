@@ -21,7 +21,7 @@ class IpFirewallRuleArgs:
         """
         The set of arguments for constructing a IpFirewallRule resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] end_ip_address: The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
         :param pulumi.Input[str] rule_name: The IP firewall rule name
         :param pulumi.Input[str] start_ip_address: The start IP address of the firewall rule. Must be IPv4 format
@@ -51,7 +51,7 @@ class IpFirewallRuleArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -116,7 +116,7 @@ class IpFirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_name: The IP firewall rule name
         :param pulumi.Input[str] start_ip_address: The start IP address of the firewall rule. Must be IPv4 format
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload

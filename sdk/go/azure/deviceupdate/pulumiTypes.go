@@ -455,7 +455,9 @@ func (o DiagnosticStoragePropertiesResponsePtrOutput) ResourceId() pulumi.String
 }
 
 type GroupConnectivityInformation struct {
-	CustomerVisibleFqdns []string `pulumi:"customerVisibleFqdns"`
+	CustomerVisibleFqdns        []string `pulumi:"customerVisibleFqdns"`
+	PrivateLinkServiceArmRegion *string  `pulumi:"privateLinkServiceArmRegion"`
+	RedirectMapId               *string  `pulumi:"redirectMapId"`
 }
 
 
@@ -470,7 +472,9 @@ type GroupConnectivityInformationInput interface {
 }
 
 type GroupConnectivityInformationArgs struct {
-	CustomerVisibleFqdns pulumi.StringArrayInput `pulumi:"customerVisibleFqdns"`
+	CustomerVisibleFqdns        pulumi.StringArrayInput `pulumi:"customerVisibleFqdns"`
+	PrivateLinkServiceArmRegion pulumi.StringPtrInput   `pulumi:"privateLinkServiceArmRegion"`
+	RedirectMapId               pulumi.StringPtrInput   `pulumi:"redirectMapId"`
 }
 
 func (GroupConnectivityInformationArgs) ElementType() reflect.Type {
@@ -528,6 +532,14 @@ func (o GroupConnectivityInformationOutput) CustomerVisibleFqdns() pulumi.String
 	return o.ApplyT(func(v GroupConnectivityInformation) []string { return v.CustomerVisibleFqdns }).(pulumi.StringArrayOutput)
 }
 
+func (o GroupConnectivityInformationOutput) PrivateLinkServiceArmRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConnectivityInformation) *string { return v.PrivateLinkServiceArmRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupConnectivityInformationOutput) RedirectMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConnectivityInformation) *string { return v.RedirectMapId }).(pulumi.StringPtrOutput)
+}
+
 type GroupConnectivityInformationArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupConnectivityInformationArrayOutput) ElementType() reflect.Type {
@@ -549,10 +561,12 @@ func (o GroupConnectivityInformationArrayOutput) Index(i pulumi.IntInput) GroupC
 }
 
 type GroupConnectivityInformationResponse struct {
-	CustomerVisibleFqdns []string `pulumi:"customerVisibleFqdns"`
-	GroupId              string   `pulumi:"groupId"`
-	InternalFqdn         string   `pulumi:"internalFqdn"`
-	MemberName           string   `pulumi:"memberName"`
+	CustomerVisibleFqdns        []string `pulumi:"customerVisibleFqdns"`
+	GroupId                     string   `pulumi:"groupId"`
+	InternalFqdn                string   `pulumi:"internalFqdn"`
+	MemberName                  string   `pulumi:"memberName"`
+	PrivateLinkServiceArmRegion *string  `pulumi:"privateLinkServiceArmRegion"`
+	RedirectMapId               *string  `pulumi:"redirectMapId"`
 }
 
 
@@ -567,10 +581,12 @@ type GroupConnectivityInformationResponseInput interface {
 }
 
 type GroupConnectivityInformationResponseArgs struct {
-	CustomerVisibleFqdns pulumi.StringArrayInput `pulumi:"customerVisibleFqdns"`
-	GroupId              pulumi.StringInput      `pulumi:"groupId"`
-	InternalFqdn         pulumi.StringInput      `pulumi:"internalFqdn"`
-	MemberName           pulumi.StringInput      `pulumi:"memberName"`
+	CustomerVisibleFqdns        pulumi.StringArrayInput `pulumi:"customerVisibleFqdns"`
+	GroupId                     pulumi.StringInput      `pulumi:"groupId"`
+	InternalFqdn                pulumi.StringInput      `pulumi:"internalFqdn"`
+	MemberName                  pulumi.StringInput      `pulumi:"memberName"`
+	PrivateLinkServiceArmRegion pulumi.StringPtrInput   `pulumi:"privateLinkServiceArmRegion"`
+	RedirectMapId               pulumi.StringPtrInput   `pulumi:"redirectMapId"`
 }
 
 func (GroupConnectivityInformationResponseArgs) ElementType() reflect.Type {
@@ -638,6 +654,14 @@ func (o GroupConnectivityInformationResponseOutput) InternalFqdn() pulumi.String
 
 func (o GroupConnectivityInformationResponseOutput) MemberName() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupConnectivityInformationResponse) string { return v.MemberName }).(pulumi.StringOutput)
+}
+
+func (o GroupConnectivityInformationResponseOutput) PrivateLinkServiceArmRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConnectivityInformationResponse) *string { return v.PrivateLinkServiceArmRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupConnectivityInformationResponseOutput) RedirectMapId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupConnectivityInformationResponse) *string { return v.RedirectMapId }).(pulumi.StringPtrOutput)
 }
 
 type GroupConnectivityInformationResponseArrayOutput struct{ *pulumi.OutputState }

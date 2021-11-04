@@ -38,7 +38,7 @@ export interface GetSqlServerInstanceArgs {
  */
 export interface GetSqlServerInstanceResult {
     /**
-     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -54,7 +54,7 @@ export interface GetSqlServerInstanceResult {
      */
     readonly properties: outputs.azurearcdata.v20211101.SqlServerInstancePropertiesResponse;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.azurearcdata.v20211101.SystemDataResponse;
     /**
@@ -62,7 +62,7 @@ export interface GetSqlServerInstanceResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

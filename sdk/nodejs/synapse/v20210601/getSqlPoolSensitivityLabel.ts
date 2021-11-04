@@ -52,7 +52,7 @@ export interface GetSqlPoolSensitivityLabelArgs {
      */
     tableName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -142,7 +142,7 @@ export interface GetSqlPoolSensitivityLabelOutputArgs {
      */
     tableName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

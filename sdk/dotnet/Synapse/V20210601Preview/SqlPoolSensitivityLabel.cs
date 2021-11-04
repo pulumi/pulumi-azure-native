@@ -211,7 +211,7 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
         public Input<string> TableName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

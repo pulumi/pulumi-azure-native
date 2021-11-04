@@ -77,6 +77,8 @@ namespace Pulumi.AzureNative.Devices.V20200301
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200101:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20200901preview:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20200901preview:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20211015:DpsCertificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20211015:DpsCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

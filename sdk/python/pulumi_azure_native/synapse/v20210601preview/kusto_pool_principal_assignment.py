@@ -30,7 +30,7 @@ class KustoPoolPrincipalAssignmentArgs:
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: Principal type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ClusterPrincipalRole']] role: Cluster principal role.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
         """
@@ -109,7 +109,7 @@ class KustoPoolPrincipalAssignmentArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -168,7 +168,7 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ClusterPrincipalRole']] role: Cluster principal role.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload

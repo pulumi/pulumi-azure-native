@@ -20,6 +20,35 @@ export const CategoryType = {
  */
 export type CategoryType = (typeof CategoryType)[keyof typeof CategoryType];
 
+export const CultureCode = {
+    En_us: "en-us",
+    Ja_jp: "ja-jp",
+    Zh_cn: "zh-cn",
+    De_de: "de-de",
+    Es_es: "es-es",
+    Fr_fr: "fr-fr",
+    It_it: "it-it",
+    Ko_kr: "ko-kr",
+    Pt_br: "pt-br",
+    Ru_ru: "ru-ru",
+    Zh_tw: "zh-tw",
+    Cs_cz: "cs-cz",
+    Pl_pl: "pl-pl",
+    Tr_tr: "tr-tr",
+    Da_dk: "da-dk",
+    En_gb: "en-gb",
+    Hu_hu: "hu-hu",
+    Nb_no: "nb-no",
+    Nl_nl: "nl-nl",
+    Pt_pt: "pt-pt",
+    Sv_se: "sv-se",
+} as const;
+
+/**
+ * Language in which the recipient will receive the notification
+ */
+export type CultureCode = (typeof CultureCode)[keyof typeof CultureCode];
+
 export const OperatorType = {
     EqualTo: "EqualTo",
     GreaterThan: "GreaterThan",
@@ -33,6 +62,7 @@ export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
 
 export const ThresholdType = {
     Actual: "Actual",
+    Forecasted: "Forecasted",
 } as const;
 
 /**

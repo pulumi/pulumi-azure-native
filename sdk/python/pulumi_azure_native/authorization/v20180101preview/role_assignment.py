@@ -24,7 +24,7 @@ class RoleAssignmentArgs:
         :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
         :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
-        :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
+        :param pulumi.Input[str] role_assignment_name: A GUID for the role assignment to create. The name must be unique and different for each role assignment.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "role_definition_id", role_definition_id)
@@ -86,7 +86,7 @@ class RoleAssignmentArgs:
     @pulumi.getter(name="roleAssignmentName")
     def role_assignment_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the role assignment to create. It can be any valid GUID.
+        A GUID for the role assignment to create. The name must be unique and different for each role assignment.
         """
         return pulumi.get(self, "role_assignment_name")
 
@@ -113,7 +113,7 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
         :param pulumi.Input[str] principal_id: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-        :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
+        :param pulumi.Input[str] role_assignment_name: A GUID for the role assignment to create. The name must be unique and different for each role assignment.
         :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
         """

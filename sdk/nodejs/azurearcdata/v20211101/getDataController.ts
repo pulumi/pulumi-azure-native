@@ -39,7 +39,7 @@ export interface GetDataControllerResult {
      */
     readonly extendedLocation?: outputs.azurearcdata.v20211101.ExtendedLocationResponse;
     /**
-     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -55,7 +55,7 @@ export interface GetDataControllerResult {
      */
     readonly properties: outputs.azurearcdata.v20211101.DataControllerPropertiesResponse;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.azurearcdata.v20211101.SystemDataResponse;
     /**
@@ -63,7 +63,7 @@ export interface GetDataControllerResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }

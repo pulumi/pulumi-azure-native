@@ -27,7 +27,7 @@ export interface GetWorkspaceSqlAadAdminArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -76,7 +76,7 @@ export interface GetWorkspaceSqlAadAdminOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

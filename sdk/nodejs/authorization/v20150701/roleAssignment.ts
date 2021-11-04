@@ -93,7 +93,7 @@ export interface RoleAssignmentArgs {
      */
     properties: pulumi.Input<inputs.authorization.v20150701.RoleAssignmentPropertiesArgs>;
     /**
-     * The name of the role assignment to create. It can be any valid GUID.
+     * A GUID for the role assignment to create. The name must be unique and different for each role assignment.
      */
     roleAssignmentName?: pulumi.Input<string>;
     /**

@@ -41,6 +41,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         public Output<Outputs.RemotePrivateEndpointResponse?> RemotePrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Operation status.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
@@ -126,6 +132,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Operation status.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         public PrivateEndpointConnectionProxyArgs()
         {

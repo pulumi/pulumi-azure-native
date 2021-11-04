@@ -17,14 +17,13 @@ type CustomAssessmentAutomation struct {
 	AssessmentKey          pulumi.StringPtrOutput   `pulumi:"assessmentKey"`
 	CompressedQuery        pulumi.StringPtrOutput   `pulumi:"compressedQuery"`
 	Description            pulumi.StringPtrOutput   `pulumi:"description"`
-	ImplementationEffort   pulumi.StringPtrOutput   `pulumi:"implementationEffort"`
+	DisplayName            pulumi.StringPtrOutput   `pulumi:"displayName"`
 	Name                   pulumi.StringOutput      `pulumi:"name"`
 	RemediationDescription pulumi.StringPtrOutput   `pulumi:"remediationDescription"`
 	Severity               pulumi.StringPtrOutput   `pulumi:"severity"`
 	SupportedCloud         pulumi.StringPtrOutput   `pulumi:"supportedCloud"`
 	SystemData             SystemDataResponseOutput `pulumi:"systemData"`
 	Type                   pulumi.StringOutput      `pulumi:"type"`
-	UserImpact             pulumi.StringPtrOutput   `pulumi:"userImpact"`
 }
 
 
@@ -84,12 +83,11 @@ type customAssessmentAutomationArgs struct {
 	CompressedQuery                *string `pulumi:"compressedQuery"`
 	CustomAssessmentAutomationName *string `pulumi:"customAssessmentAutomationName"`
 	Description                    *string `pulumi:"description"`
-	ImplementationEffort           *string `pulumi:"implementationEffort"`
+	DisplayName                    *string `pulumi:"displayName"`
 	RemediationDescription         *string `pulumi:"remediationDescription"`
 	ResourceGroupName              string  `pulumi:"resourceGroupName"`
 	Severity                       *string `pulumi:"severity"`
 	SupportedCloud                 *string `pulumi:"supportedCloud"`
-	UserImpact                     *string `pulumi:"userImpact"`
 }
 
 
@@ -97,12 +95,11 @@ type CustomAssessmentAutomationArgs struct {
 	CompressedQuery                pulumi.StringPtrInput
 	CustomAssessmentAutomationName pulumi.StringPtrInput
 	Description                    pulumi.StringPtrInput
-	ImplementationEffort           pulumi.StringPtrInput
+	DisplayName                    pulumi.StringPtrInput
 	RemediationDescription         pulumi.StringPtrInput
 	ResourceGroupName              pulumi.StringInput
 	Severity                       pulumi.StringPtrInput
 	SupportedCloud                 pulumi.StringPtrInput
-	UserImpact                     pulumi.StringPtrInput
 }
 
 func (CustomAssessmentAutomationArgs) ElementType() reflect.Type {

@@ -10,6 +10,334 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DeploymentScaleType string
+
+const (
+	DeploymentScaleTypeManual = DeploymentScaleType("Manual")
+)
+
+func (DeploymentScaleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentScaleType)(nil)).Elem()
+}
+
+func (e DeploymentScaleType) ToDeploymentScaleTypeOutput() DeploymentScaleTypeOutput {
+	return pulumi.ToOutput(e).(DeploymentScaleTypeOutput)
+}
+
+func (e DeploymentScaleType) ToDeploymentScaleTypeOutputWithContext(ctx context.Context) DeploymentScaleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeploymentScaleTypeOutput)
+}
+
+func (e DeploymentScaleType) ToDeploymentScaleTypePtrOutput() DeploymentScaleTypePtrOutput {
+	return e.ToDeploymentScaleTypePtrOutputWithContext(context.Background())
+}
+
+func (e DeploymentScaleType) ToDeploymentScaleTypePtrOutputWithContext(ctx context.Context) DeploymentScaleTypePtrOutput {
+	return DeploymentScaleType(e).ToDeploymentScaleTypeOutputWithContext(ctx).ToDeploymentScaleTypePtrOutputWithContext(ctx)
+}
+
+func (e DeploymentScaleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentScaleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeploymentScaleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeploymentScaleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeploymentScaleTypeOutput struct{ *pulumi.OutputState }
+
+func (DeploymentScaleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentScaleType)(nil)).Elem()
+}
+
+func (o DeploymentScaleTypeOutput) ToDeploymentScaleTypeOutput() DeploymentScaleTypeOutput {
+	return o
+}
+
+func (o DeploymentScaleTypeOutput) ToDeploymentScaleTypeOutputWithContext(ctx context.Context) DeploymentScaleTypeOutput {
+	return o
+}
+
+func (o DeploymentScaleTypeOutput) ToDeploymentScaleTypePtrOutput() DeploymentScaleTypePtrOutput {
+	return o.ToDeploymentScaleTypePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentScaleTypeOutput) ToDeploymentScaleTypePtrOutputWithContext(ctx context.Context) DeploymentScaleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentScaleType) *DeploymentScaleType {
+		return &v
+	}).(DeploymentScaleTypePtrOutput)
+}
+
+func (o DeploymentScaleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeploymentScaleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentScaleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeploymentScaleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentScaleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeploymentScaleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentScaleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentScaleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentScaleType)(nil)).Elem()
+}
+
+func (o DeploymentScaleTypePtrOutput) ToDeploymentScaleTypePtrOutput() DeploymentScaleTypePtrOutput {
+	return o
+}
+
+func (o DeploymentScaleTypePtrOutput) ToDeploymentScaleTypePtrOutputWithContext(ctx context.Context) DeploymentScaleTypePtrOutput {
+	return o
+}
+
+func (o DeploymentScaleTypePtrOutput) Elem() DeploymentScaleTypeOutput {
+	return o.ApplyT(func(v *DeploymentScaleType) DeploymentScaleType {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentScaleType
+		return ret
+	}).(DeploymentScaleTypeOutput)
+}
+
+func (o DeploymentScaleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentScaleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeploymentScaleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type DeploymentScaleTypeInput interface {
+	pulumi.Input
+
+	ToDeploymentScaleTypeOutput() DeploymentScaleTypeOutput
+	ToDeploymentScaleTypeOutputWithContext(context.Context) DeploymentScaleTypeOutput
+}
+
+var deploymentScaleTypePtrType = reflect.TypeOf((**DeploymentScaleType)(nil)).Elem()
+
+type DeploymentScaleTypePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentScaleTypePtrOutput() DeploymentScaleTypePtrOutput
+	ToDeploymentScaleTypePtrOutputWithContext(context.Context) DeploymentScaleTypePtrOutput
+}
+
+type deploymentScaleTypePtr string
+
+func DeploymentScaleTypePtr(v string) DeploymentScaleTypePtrInput {
+	return (*deploymentScaleTypePtr)(&v)
+}
+
+func (*deploymentScaleTypePtr) ElementType() reflect.Type {
+	return deploymentScaleTypePtrType
+}
+
+func (in *deploymentScaleTypePtr) ToDeploymentScaleTypePtrOutput() DeploymentScaleTypePtrOutput {
+	return pulumi.ToOutput(in).(DeploymentScaleTypePtrOutput)
+}
+
+func (in *deploymentScaleTypePtr) ToDeploymentScaleTypePtrOutputWithContext(ctx context.Context) DeploymentScaleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeploymentScaleTypePtrOutput)
+}
+
+type HostingModel string
+
+const (
+	HostingModelWeb                   = HostingModel("Web")
+	HostingModelConnectedContainer    = HostingModel("ConnectedContainer")
+	HostingModelDisconnectedContainer = HostingModel("DisconnectedContainer")
+)
+
+func (HostingModel) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostingModel)(nil)).Elem()
+}
+
+func (e HostingModel) ToHostingModelOutput() HostingModelOutput {
+	return pulumi.ToOutput(e).(HostingModelOutput)
+}
+
+func (e HostingModel) ToHostingModelOutputWithContext(ctx context.Context) HostingModelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HostingModelOutput)
+}
+
+func (e HostingModel) ToHostingModelPtrOutput() HostingModelPtrOutput {
+	return e.ToHostingModelPtrOutputWithContext(context.Background())
+}
+
+func (e HostingModel) ToHostingModelPtrOutputWithContext(ctx context.Context) HostingModelPtrOutput {
+	return HostingModel(e).ToHostingModelOutputWithContext(ctx).ToHostingModelPtrOutputWithContext(ctx)
+}
+
+func (e HostingModel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostingModel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HostingModel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HostingModel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HostingModelOutput struct{ *pulumi.OutputState }
+
+func (HostingModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostingModel)(nil)).Elem()
+}
+
+func (o HostingModelOutput) ToHostingModelOutput() HostingModelOutput {
+	return o
+}
+
+func (o HostingModelOutput) ToHostingModelOutputWithContext(ctx context.Context) HostingModelOutput {
+	return o
+}
+
+func (o HostingModelOutput) ToHostingModelPtrOutput() HostingModelPtrOutput {
+	return o.ToHostingModelPtrOutputWithContext(context.Background())
+}
+
+func (o HostingModelOutput) ToHostingModelPtrOutputWithContext(ctx context.Context) HostingModelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostingModel) *HostingModel {
+		return &v
+	}).(HostingModelPtrOutput)
+}
+
+func (o HostingModelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HostingModelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostingModel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HostingModelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostingModelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HostingModel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HostingModelPtrOutput struct{ *pulumi.OutputState }
+
+func (HostingModelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostingModel)(nil)).Elem()
+}
+
+func (o HostingModelPtrOutput) ToHostingModelPtrOutput() HostingModelPtrOutput {
+	return o
+}
+
+func (o HostingModelPtrOutput) ToHostingModelPtrOutputWithContext(ctx context.Context) HostingModelPtrOutput {
+	return o
+}
+
+func (o HostingModelPtrOutput) Elem() HostingModelOutput {
+	return o.ApplyT(func(v *HostingModel) HostingModel {
+		if v != nil {
+			return *v
+		}
+		var ret HostingModel
+		return ret
+	}).(HostingModelOutput)
+}
+
+func (o HostingModelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HostingModelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HostingModel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type HostingModelInput interface {
+	pulumi.Input
+
+	ToHostingModelOutput() HostingModelOutput
+	ToHostingModelOutputWithContext(context.Context) HostingModelOutput
+}
+
+var hostingModelPtrType = reflect.TypeOf((**HostingModel)(nil)).Elem()
+
+type HostingModelPtrInput interface {
+	pulumi.Input
+
+	ToHostingModelPtrOutput() HostingModelPtrOutput
+	ToHostingModelPtrOutputWithContext(context.Context) HostingModelPtrOutput
+}
+
+type hostingModelPtr string
+
+func HostingModelPtr(v string) HostingModelPtrInput {
+	return (*hostingModelPtr)(&v)
+}
+
+func (*hostingModelPtr) ElementType() reflect.Type {
+	return hostingModelPtrType
+}
+
+func (in *hostingModelPtr) ToHostingModelPtrOutput() HostingModelPtrOutput {
+	return pulumi.ToOutput(in).(HostingModelPtrOutput)
+}
+
+func (in *hostingModelPtr) ToHostingModelPtrOutputWithContext(ctx context.Context) HostingModelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HostingModelPtrOutput)
+}
+
 type IdentityType string
 
 const (
@@ -834,6 +1162,10 @@ func (in *publicNetworkAccessPtr) ToPublicNetworkAccessPtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterOutputType(DeploymentScaleTypeOutput{})
+	pulumi.RegisterOutputType(DeploymentScaleTypePtrOutput{})
+	pulumi.RegisterOutputType(HostingModelOutput{})
+	pulumi.RegisterOutputType(HostingModelPtrOutput{})
 	pulumi.RegisterOutputType(IdentityTypeOutput{})
 	pulumi.RegisterOutputType(IdentityTypePtrOutput{})
 	pulumi.RegisterOutputType(KeySourceOutput{})

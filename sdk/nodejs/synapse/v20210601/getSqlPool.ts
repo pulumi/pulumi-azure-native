@@ -33,7 +33,7 @@ export interface GetSqlPoolArgs {
      */
     sqlPoolName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -134,7 +134,7 @@ export interface GetSqlPoolOutputArgs {
      */
     sqlPoolName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

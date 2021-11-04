@@ -5,12 +5,34 @@
 import * as v20160201preview from "./v20160201preview";
 import * as v20170418 from "./v20170418";
 import * as v20210430 from "./v20210430";
+import * as v20211001 from "./v20211001";
 
 export {
     v20160201preview,
     v20170418,
     v20210430,
+    v20211001,
 };
+
+export const DeploymentScaleType = {
+    Manual: "Manual",
+} as const;
+
+/**
+ * Deployment scale type.
+ */
+export type DeploymentScaleType = (typeof DeploymentScaleType)[keyof typeof DeploymentScaleType];
+
+export const HostingModel = {
+    Web: "Web",
+    ConnectedContainer: "ConnectedContainer",
+    DisconnectedContainer: "DisconnectedContainer",
+} as const;
+
+/**
+ * Account hosting model.
+ */
+export type HostingModel = (typeof HostingModel)[keyof typeof HostingModel];
 
 export const IdentityType = {
     None: "None",

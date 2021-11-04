@@ -654,6 +654,10 @@ class RegistrationDefinitionPropertiesResponse(dict):
             suggest = "managed_by_tenant_id"
         elif key == "managedByTenantName":
             suggest = "managed_by_tenant_name"
+        elif key == "manageeTenantId":
+            suggest = "managee_tenant_id"
+        elif key == "manageeTenantName":
+            suggest = "managee_tenant_name"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "eligibleAuthorizations":
@@ -676,6 +680,8 @@ class RegistrationDefinitionPropertiesResponse(dict):
                  authorizations: Sequence['outputs.AuthorizationResponse'],
                  managed_by_tenant_id: str,
                  managed_by_tenant_name: str,
+                 managee_tenant_id: str,
+                 managee_tenant_name: str,
                  provisioning_state: str,
                  description: Optional[str] = None,
                  eligible_authorizations: Optional[Sequence['outputs.EligibleAuthorizationResponse']] = None,
@@ -685,6 +691,8 @@ class RegistrationDefinitionPropertiesResponse(dict):
         :param Sequence['AuthorizationResponse'] authorizations: The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
         :param str managed_by_tenant_id: The identifier of the managedBy tenant.
         :param str managed_by_tenant_name: The name of the managedBy tenant.
+        :param str managee_tenant_id: The identifier of the managed tenant.
+        :param str managee_tenant_name: The name of the managed tenant.
         :param str provisioning_state: The current provisioning state of the registration definition.
         :param str description: The description of the registration definition.
         :param Sequence['EligibleAuthorizationResponse'] eligible_authorizations: The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.
@@ -693,6 +701,8 @@ class RegistrationDefinitionPropertiesResponse(dict):
         pulumi.set(__self__, "authorizations", authorizations)
         pulumi.set(__self__, "managed_by_tenant_id", managed_by_tenant_id)
         pulumi.set(__self__, "managed_by_tenant_name", managed_by_tenant_name)
+        pulumi.set(__self__, "managee_tenant_id", managee_tenant_id)
+        pulumi.set(__self__, "managee_tenant_name", managee_tenant_name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -724,6 +734,22 @@ class RegistrationDefinitionPropertiesResponse(dict):
         The name of the managedBy tenant.
         """
         return pulumi.get(self, "managed_by_tenant_name")
+
+    @property
+    @pulumi.getter(name="manageeTenantId")
+    def managee_tenant_id(self) -> str:
+        """
+        The identifier of the managed tenant.
+        """
+        return pulumi.get(self, "managee_tenant_id")
+
+    @property
+    @pulumi.getter(name="manageeTenantName")
+    def managee_tenant_name(self) -> str:
+        """
+        The name of the managed tenant.
+        """
+        return pulumi.get(self, "managee_tenant_name")
 
     @property
     @pulumi.getter(name="provisioningState")
