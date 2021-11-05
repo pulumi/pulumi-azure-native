@@ -1,4 +1,4 @@
-// Copyright 2016-2020, Pulumi Corporation.
+// Copyright 2016-2021, Pulumi Corporation.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -45,9 +45,11 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
+		DisplayName: "Azure Native",
 		License:     "Apache-2.0",
-		Keywords:    []string{"pulumi", "azure", "azure-native"},
+		Keywords:    []string{"pulumi", "azure", "azure-native", "category/cloud", "kind/native"},
 		Homepage:    "https://pulumi.com",
+		Publisher:   "Pulumi",
 		Repository:  "https://github.com/pulumi/pulumi-azure-native",
 		Config: pschema.ConfigSpec{
 			Variables: map[string]pschema.PropertySpec{
@@ -305,11 +307,11 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	}
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
-		"importBasePath":                goBasePath,
-		"packageImportAliases":          golangImportAliases,
-		"disableFunctionOutputVersions": true,
+		"importBasePath":                 goBasePath,
+		"packageImportAliases":           golangImportAliases,
+		"disableFunctionOutputVersions":  true,
 		"generateResourceContainerTypes": false,
-		"disableInputTypeRegistrations": true,
+		"disableInputTypeRegistrations":  true,
 	})
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"dependencies": map[string]string{
