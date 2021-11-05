@@ -1,4 +1,5 @@
 // Copyright 2016-2020, Pulumi Corporation.  All rights reserved.
+//go:build go || all
 // +build go all
 
 package examples
@@ -24,6 +25,21 @@ func TestAccAksGo(t *testing.T) {
 	test := getGoBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "go-aks"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestServicebusRecreate(t *testing.T) {
+	test := getGoBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "go-servicebus-recreate", "step1"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      filepath.Join(getCwd(t), "go-servicebus-recreate", "step2"),
+					Additive: true,
+				},
+			},
 		})
 
 	integration.ProgramTest(t, &test)
