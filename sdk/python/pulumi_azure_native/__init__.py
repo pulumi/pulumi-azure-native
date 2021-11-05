@@ -8503,6 +8503,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "insights/v20210801",
+  "fqn": "pulumi_azure_native.insights.v20210801",
+  "classes": {
+   "azure-native:insights/v20210801:ScheduledQueryRule": "ScheduledQueryRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "insights/v20210901",
   "fqn": "pulumi_azure_native.insights.v20210901",
   "classes": {

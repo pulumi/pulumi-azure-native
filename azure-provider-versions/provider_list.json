@@ -65739,7 +65739,6 @@
           "UK South",
           "UK West",
           "Korea Central",
-          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65747,7 +65746,11 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West"
+          "Switzerland West",
+          "Norway West",
+          "Norway East",
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "maintenanceConfigurations"
@@ -65800,7 +65803,6 @@
           "UK South",
           "UK West",
           "Korea Central",
-          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65808,7 +65810,11 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West"
+          "Switzerland West",
+          "Norway West",
+          "Norway East",
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "updates"
@@ -65861,7 +65867,6 @@
           "UK South",
           "UK West",
           "Korea Central",
-          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65869,7 +65874,11 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West"
+          "Switzerland West",
+          "Norway West",
+          "Norway East",
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "configurationAssignments"
@@ -65922,7 +65931,6 @@
           "UK South",
           "UK West",
           "Korea Central",
-          "Korea South",
           "France Central",
           "France South",
           "UAE North",
@@ -65930,7 +65938,11 @@
           "Germany West Central",
           "Germany North",
           "Switzerland North",
-          "Switzerland West"
+          "Switzerland West",
+          "Norway West",
+          "Norway East",
+          "Brazil Southeast",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "applyUpdates"
@@ -90172,6 +90184,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01",
           "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
@@ -90191,6 +90204,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01",
           "2020-12-01-preview"
         ],
         "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SupportsTags, SupportsLocation",
@@ -90210,6 +90224,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01",
           "2020-12-01-preview"
         ],
         "capabilities": "None",
@@ -90229,6 +90244,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01",
           "2020-12-01-preview"
         ],
         "capabilities": "None",
@@ -90245,6 +90261,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01",
           "2020-12-01-preview"
         ],
         "capabilities": "None",
@@ -90264,6 +90281,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01",
           "2020-12-01-preview"
         ],
         "capabilities": "None",
@@ -90283,6 +90301,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01",
           "2020-12-01-preview"
         ],
         "capabilities": "None",
@@ -90302,6 +90321,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01",
           "2020-12-01-preview"
         ],
         "capabilities": "None",
@@ -90321,6 +90341,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01",
           "2020-12-01-preview"
         ],
         "capabilities": "None",
@@ -90340,6 +90361,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-12-01",
           "2020-12-01-preview"
         ],
         "capabilities": "None",
