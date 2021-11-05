@@ -3,7 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+- Fixed replacement of ServiceBus Topics & Queues [#940](https://github.com/pulumi/pulumi-azure-native/issues/940)
 
 ---
 
