@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.45.0 (2021-11-05)
+
 #### New resources:
 
 - `cognitiveservices.CommitmentPlan`
@@ -18,8 +24,6 @@ CHANGELOG
 - `security:CustomAssessmentAutomation` properties `implementationEffort`
   and `userImpact` removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16550))
-
----
 
 ## 1.44.0 (2021-11-02)
 
