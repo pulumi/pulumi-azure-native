@@ -1,0 +1,47 @@
+
+
+
+package network
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupFirewallPolicy(ctx *pulumi.Context, args *LookupFirewallPolicyArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyResult, error) {
+	var rv LookupFirewallPolicyResult
+	err := ctx.Invoke("azure-native:network:getFirewallPolicy", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupFirewallPolicyArgs struct {
+	Expand             *string `pulumi:"expand"`
+	FirewallPolicyName string  `pulumi:"firewallPolicyName"`
+	ResourceGroupName  string  `pulumi:"resourceGroupName"`
+}
+
+
+type LookupFirewallPolicyResult struct {
+	BasePolicy           *SubResourceResponse                        `pulumi:"basePolicy"`
+	ChildPolicies        []SubResourceResponse                       `pulumi:"childPolicies"`
+	DnsSettings          *DnsSettingsResponse                        `pulumi:"dnsSettings"`
+	Etag                 string                                      `pulumi:"etag"`
+	Firewalls            []SubResourceResponse                       `pulumi:"firewalls"`
+	Id                   *string                                     `pulumi:"id"`
+	Identity             *ManagedServiceIdentityResponse             `pulumi:"identity"`
+	Insights             *FirewallPolicyInsightsResponse             `pulumi:"insights"`
+	IntrusionDetection   *FirewallPolicyIntrusionDetectionResponse   `pulumi:"intrusionDetection"`
+	Location             *string                                     `pulumi:"location"`
+	Name                 string                                      `pulumi:"name"`
+	ProvisioningState    string                                      `pulumi:"provisioningState"`
+	RuleCollectionGroups []SubResourceResponse                       `pulumi:"ruleCollectionGroups"`
+	Sku                  *FirewallPolicySkuResponse                  `pulumi:"sku"`
+	Snat                 *FirewallPolicySNATResponse                 `pulumi:"snat"`
+	Tags                 map[string]string                           `pulumi:"tags"`
+	ThreatIntelMode      *string                                     `pulumi:"threatIntelMode"`
+	ThreatIntelWhitelist *FirewallPolicyThreatIntelWhitelistResponse `pulumi:"threatIntelWhitelist"`
+	TransportSecurity    *FirewallPolicyTransportSecurityResponse    `pulumi:"transportSecurity"`
+	Type                 string                                      `pulumi:"type"`
+}

@@ -1,0 +1,53 @@
+
+
+
+package connectedvmwarevsphere
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupVirtualMachineTemplate(ctx *pulumi.Context, args *LookupVirtualMachineTemplateArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineTemplateResult, error) {
+	var rv LookupVirtualMachineTemplateResult
+	err := ctx.Invoke("azure-native:connectedvmwarevsphere:getVirtualMachineTemplate", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupVirtualMachineTemplateArgs struct {
+	ResourceGroupName          string `pulumi:"resourceGroupName"`
+	VirtualMachineTemplateName string `pulumi:"virtualMachineTemplateName"`
+}
+
+
+type LookupVirtualMachineTemplateResult struct {
+	CustomResourceName string                     `pulumi:"customResourceName"`
+	Disks              []VirtualDiskResponse      `pulumi:"disks"`
+	ExtendedLocation   *ExtendedLocationResponse  `pulumi:"extendedLocation"`
+	FirmwareType       string                     `pulumi:"firmwareType"`
+	FolderPath         string                     `pulumi:"folderPath"`
+	Id                 string                     `pulumi:"id"`
+	InventoryItemId    *string                    `pulumi:"inventoryItemId"`
+	Kind               *string                    `pulumi:"kind"`
+	Location           string                     `pulumi:"location"`
+	MemorySizeMB       int                        `pulumi:"memorySizeMB"`
+	MoName             string                     `pulumi:"moName"`
+	MoRefId            *string                    `pulumi:"moRefId"`
+	Name               string                     `pulumi:"name"`
+	NetworkInterfaces  []NetworkInterfaceResponse `pulumi:"networkInterfaces"`
+	NumCPUs            int                        `pulumi:"numCPUs"`
+	NumCoresPerSocket  int                        `pulumi:"numCoresPerSocket"`
+	OsName             string                     `pulumi:"osName"`
+	OsType             string                     `pulumi:"osType"`
+	ProvisioningState  string                     `pulumi:"provisioningState"`
+	Statuses           []ResourceStatusResponse   `pulumi:"statuses"`
+	SystemData         SystemDataResponse         `pulumi:"systemData"`
+	Tags               map[string]string          `pulumi:"tags"`
+	ToolsVersion       string                     `pulumi:"toolsVersion"`
+	ToolsVersionStatus string                     `pulumi:"toolsVersionStatus"`
+	Type               string                     `pulumi:"type"`
+	Uuid               string                     `pulumi:"uuid"`
+	VCenterId          *string                    `pulumi:"vCenterId"`
+}

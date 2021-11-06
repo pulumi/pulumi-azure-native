@@ -1,0 +1,48 @@
+
+
+
+package connectedvmwarevsphere
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupResourcePool(ctx *pulumi.Context, args *LookupResourcePoolArgs, opts ...pulumi.InvokeOption) (*LookupResourcePoolResult, error) {
+	var rv LookupResourcePoolResult
+	err := ctx.Invoke("azure-native:connectedvmwarevsphere:getResourcePool", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupResourcePoolArgs struct {
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourcePoolName  string `pulumi:"resourcePoolName"`
+}
+
+
+type LookupResourcePoolResult struct {
+	CpuLimitMHz        float64                   `pulumi:"cpuLimitMHz"`
+	CpuReservationMHz  float64                   `pulumi:"cpuReservationMHz"`
+	CpuSharesLevel     string                    `pulumi:"cpuSharesLevel"`
+	CustomResourceName string                    `pulumi:"customResourceName"`
+	ExtendedLocation   *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	Id                 string                    `pulumi:"id"`
+	InventoryItemId    *string                   `pulumi:"inventoryItemId"`
+	Kind               *string                   `pulumi:"kind"`
+	Location           string                    `pulumi:"location"`
+	MemLimitMB         float64                   `pulumi:"memLimitMB"`
+	MemReservationMB   float64                   `pulumi:"memReservationMB"`
+	MemSharesLevel     string                    `pulumi:"memSharesLevel"`
+	MoName             string                    `pulumi:"moName"`
+	MoRefId            *string                   `pulumi:"moRefId"`
+	Name               string                    `pulumi:"name"`
+	ProvisioningState  string                    `pulumi:"provisioningState"`
+	Statuses           []ResourceStatusResponse  `pulumi:"statuses"`
+	SystemData         SystemDataResponse        `pulumi:"systemData"`
+	Tags               map[string]string         `pulumi:"tags"`
+	Type               string                    `pulumi:"type"`
+	Uuid               string                    `pulumi:"uuid"`
+	VCenterId          *string                   `pulumi:"vCenterId"`
+}
