@@ -1,0 +1,68 @@
+
+
+
+package v20210901
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupAgentPool(ctx *pulumi.Context, args *LookupAgentPoolArgs, opts ...pulumi.InvokeOption) (*LookupAgentPoolResult, error) {
+	var rv LookupAgentPoolResult
+	err := ctx.Invoke("azure-native:containerservice/v20210901:getAgentPool", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupAgentPoolArgs struct {
+	AgentPoolName     string `pulumi:"agentPoolName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceName      string `pulumi:"resourceName"`
+}
+
+
+type LookupAgentPoolResult struct {
+	AvailabilityZones         []string                          `pulumi:"availabilityZones"`
+	Count                     *int                              `pulumi:"count"`
+	CreationData              *CreationDataResponse             `pulumi:"creationData"`
+	EnableAutoScaling         *bool                             `pulumi:"enableAutoScaling"`
+	EnableEncryptionAtHost    *bool                             `pulumi:"enableEncryptionAtHost"`
+	EnableFIPS                *bool                             `pulumi:"enableFIPS"`
+	EnableNodePublicIP        *bool                             `pulumi:"enableNodePublicIP"`
+	EnableUltraSSD            *bool                             `pulumi:"enableUltraSSD"`
+	GpuInstanceProfile        *string                           `pulumi:"gpuInstanceProfile"`
+	Id                        string                            `pulumi:"id"`
+	KubeletConfig             *KubeletConfigResponse            `pulumi:"kubeletConfig"`
+	KubeletDiskType           *string                           `pulumi:"kubeletDiskType"`
+	LinuxOSConfig             *LinuxOSConfigResponse            `pulumi:"linuxOSConfig"`
+	MaxCount                  *int                              `pulumi:"maxCount"`
+	MaxPods                   *int                              `pulumi:"maxPods"`
+	MinCount                  *int                              `pulumi:"minCount"`
+	Mode                      *string                           `pulumi:"mode"`
+	Name                      string                            `pulumi:"name"`
+	NodeImageVersion          string                            `pulumi:"nodeImageVersion"`
+	NodeLabels                map[string]string                 `pulumi:"nodeLabels"`
+	NodePublicIPPrefixID      *string                           `pulumi:"nodePublicIPPrefixID"`
+	NodeTaints                []string                          `pulumi:"nodeTaints"`
+	OrchestratorVersion       *string                           `pulumi:"orchestratorVersion"`
+	OsDiskSizeGB              *int                              `pulumi:"osDiskSizeGB"`
+	OsDiskType                *string                           `pulumi:"osDiskType"`
+	OsSKU                     *string                           `pulumi:"osSKU"`
+	OsType                    *string                           `pulumi:"osType"`
+	PodSubnetID               *string                           `pulumi:"podSubnetID"`
+	PowerState                *PowerStateResponse               `pulumi:"powerState"`
+	ProvisioningState         string                            `pulumi:"provisioningState"`
+	ProximityPlacementGroupID *string                           `pulumi:"proximityPlacementGroupID"`
+	ScaleDownMode             *string                           `pulumi:"scaleDownMode"`
+	ScaleSetEvictionPolicy    *string                           `pulumi:"scaleSetEvictionPolicy"`
+	ScaleSetPriority          *string                           `pulumi:"scaleSetPriority"`
+	SpotMaxPrice              *float64                          `pulumi:"spotMaxPrice"`
+	Tags                      map[string]string                 `pulumi:"tags"`
+	Type                      string                            `pulumi:"type"`
+	UpgradeSettings           *AgentPoolUpgradeSettingsResponse `pulumi:"upgradeSettings"`
+	VmSize                    *string                           `pulumi:"vmSize"`
+	VnetSubnetID              *string                           `pulumi:"vnetSubnetID"`
+	WorkloadRuntime           *string                           `pulumi:"workloadRuntime"`
+}
