@@ -116,7 +116,7 @@ generate_go::
 
 build_go::
 	# Only building the top level packages and building 1 package at a time to avoid OOMing
-	cd sdk/ && \
+	cd sdk/ && go mod tidy && \
 	GOGC=50 go list github.com/pulumi/pulumi-azure-native/sdk/go/azure/... | grep -v "latest\|\/v.*"$ | xargs -L 1 go build
 
 clean::
