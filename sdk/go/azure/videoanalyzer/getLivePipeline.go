@@ -1,0 +1,36 @@
+
+
+
+package videoanalyzer
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupLivePipeline(ctx *pulumi.Context, args *LookupLivePipelineArgs, opts ...pulumi.InvokeOption) (*LookupLivePipelineResult, error) {
+	var rv LookupLivePipelineResult
+	err := ctx.Invoke("azure-native:videoanalyzer:getLivePipeline", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupLivePipelineArgs struct {
+	AccountName       string `pulumi:"accountName"`
+	LivePipelineName  string `pulumi:"livePipelineName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupLivePipelineResult struct {
+	BitrateKbps  int                           `pulumi:"bitrateKbps"`
+	Description  *string                       `pulumi:"description"`
+	Id           string                        `pulumi:"id"`
+	Name         string                        `pulumi:"name"`
+	Parameters   []ParameterDefinitionResponse `pulumi:"parameters"`
+	State        string                        `pulumi:"state"`
+	SystemData   SystemDataResponse            `pulumi:"systemData"`
+	TopologyName string                        `pulumi:"topologyName"`
+	Type         string                        `pulumi:"type"`
+}

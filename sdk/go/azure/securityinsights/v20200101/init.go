@@ -1,0 +1,74 @@
+
+
+
+package v20200101
+
+import (
+	"fmt"
+
+	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type module struct {
+	version semver.Version
+}
+
+func (m *module) Version() semver.Version {
+	return m.version
+}
+
+func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
+	switch typ {
+	case "azure-native:securityinsights/v20200101:AADDataConnector":
+		r = &AADDataConnector{}
+	case "azure-native:securityinsights/v20200101:AATPDataConnector":
+		r = &AATPDataConnector{}
+	case "azure-native:securityinsights/v20200101:ASCDataConnector":
+		r = &ASCDataConnector{}
+	case "azure-native:securityinsights/v20200101:Action":
+		r = &Action{}
+	case "azure-native:securityinsights/v20200101:AlertRule":
+		r = &AlertRule{}
+	case "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector":
+		r = &AwsCloudTrailDataConnector{}
+	case "azure-native:securityinsights/v20200101:Bookmark":
+		r = &Bookmark{}
+	case "azure-native:securityinsights/v20200101:DataConnector":
+		r = &DataConnector{}
+	case "azure-native:securityinsights/v20200101:FusionAlertRule":
+		r = &FusionAlertRule{}
+	case "azure-native:securityinsights/v20200101:Incident":
+		r = &Incident{}
+	case "azure-native:securityinsights/v20200101:MCASDataConnector":
+		r = &MCASDataConnector{}
+	case "azure-native:securityinsights/v20200101:MDATPDataConnector":
+		r = &MDATPDataConnector{}
+	case "azure-native:securityinsights/v20200101:MicrosoftSecurityIncidentCreationAlertRule":
+		r = &MicrosoftSecurityIncidentCreationAlertRule{}
+	case "azure-native:securityinsights/v20200101:OfficeDataConnector":
+		r = &OfficeDataConnector{}
+	case "azure-native:securityinsights/v20200101:ScheduledAlertRule":
+		r = &ScheduledAlertRule{}
+	case "azure-native:securityinsights/v20200101:TIDataConnector":
+		r = &TIDataConnector{}
+	default:
+		return nil, fmt.Errorf("unknown resource type: %s", typ)
+	}
+
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return
+}
+
+func init() {
+	version, err := azure.PkgVersion()
+	if err != nil {
+		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
+	}
+	pulumi.RegisterResourceModule(
+		"azure-native",
+		"securityinsights/v20200101",
+		&module{version},
+	)
+}
