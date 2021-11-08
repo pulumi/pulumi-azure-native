@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VideoIndexer
 {
     /// <summary>
     /// An Azure Video Analyzer for Media account.
-    /// API Version: 2021-10-27-preview.
+    /// API Version: 2021-10-18-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:videoindexer:Account")]
     public partial class Account : Pulumi.CustomResource

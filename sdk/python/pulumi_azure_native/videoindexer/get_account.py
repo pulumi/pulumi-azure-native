@@ -181,7 +181,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     An Azure Video Analyzer for Media account.
-    API Version: 2021-10-27-preview.
+    API Version: 2021-10-18-preview.
 
 
     :param str account_name: The name of the Azure Video Analyzer for Media account.
@@ -217,7 +217,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     An Azure Video Analyzer for Media account.
-    API Version: 2021-10-27-preview.
+    API Version: 2021-10-18-preview.
 
 
     :param str account_name: The name of the Azure Video Analyzer for Media account.

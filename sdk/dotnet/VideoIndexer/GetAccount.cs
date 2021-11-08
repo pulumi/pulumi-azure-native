@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.VideoIndexer
     {
         /// <summary>
         /// An Azure Video Analyzer for Media account.
-        /// API Version: 2021-10-27-preview.
+        /// API Version: 2021-10-18-preview.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:videoindexer:getAccount", args ?? new GetAccountArgs(), options.WithVersion());
 
         /// <summary>
         /// An Azure Video Analyzer for Media account.
-        /// API Version: 2021-10-27-preview.
+        /// API Version: 2021-10-18-preview.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:videoindexer:getAccount", args ?? new GetAccountInvokeArgs(), options.WithVersion());

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Video Analyzer for Media account.
- * API Version: 2021-10-27-preview.
+ * API Version: 2021-10-18-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     if (!opts) {
