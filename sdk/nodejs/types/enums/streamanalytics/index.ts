@@ -6,12 +6,14 @@ import * as v20160301 from "./v20160301";
 import * as v20170401preview from "./v20170401preview";
 import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
+import * as v20211001preview from "./v20211001preview";
 
 export {
     v20160301,
     v20170401preview,
     v20200301,
     v20200301preview,
+    v20211001preview,
 };
 
 export const ClusterSkuName = {

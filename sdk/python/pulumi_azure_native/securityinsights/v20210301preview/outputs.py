@@ -61,6 +61,7 @@ __all__ = [
     'SystemDataResponse',
     'TIDataConnectorDataTypesResponse',
     'TIDataConnectorDataTypesResponseIndicators',
+    'TeamInformationResponse',
     'TiTaxiiDataConnectorDataTypesResponse',
     'TiTaxiiDataConnectorDataTypesResponseTaxiiClient',
     'WatchlistUserInfoResponse',
@@ -2671,6 +2672,93 @@ class TIDataConnectorDataTypesResponseIndicators(dict):
         Describe whether this data type connection is enabled or not.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class TeamInformationResponse(dict):
+    """
+    Describes team information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryChannelUrl":
+            suggest = "primary_channel_url"
+        elif key == "teamCreationTimeUtc":
+            suggest = "team_creation_time_utc"
+        elif key == "teamId":
+            suggest = "team_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TeamInformationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TeamInformationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TeamInformationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: str,
+                 name: str,
+                 primary_channel_url: str,
+                 team_creation_time_utc: str,
+                 team_id: str):
+        """
+        Describes team information
+        :param str description: The description of the team
+        :param str name: The name of the team
+        :param str primary_channel_url: The primary channel URL of the team
+        :param str team_creation_time_utc: The time the team was created
+        :param str team_id: Team ID
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary_channel_url", primary_channel_url)
+        pulumi.set(__self__, "team_creation_time_utc", team_creation_time_utc)
+        pulumi.set(__self__, "team_id", team_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of the team
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the team
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="primaryChannelUrl")
+    def primary_channel_url(self) -> str:
+        """
+        The primary channel URL of the team
+        """
+        return pulumi.get(self, "primary_channel_url")
+
+    @property
+    @pulumi.getter(name="teamCreationTimeUtc")
+    def team_creation_time_utc(self) -> str:
+        """
+        The time the team was created
+        """
+        return pulumi.get(self, "team_creation_time_utc")
+
+    @property
+    @pulumi.getter(name="teamId")
+    def team_id(self) -> str:
+        """
+        Team ID
+        """
+        return pulumi.get(self, "team_id")
 
 
 @pulumi.output_type

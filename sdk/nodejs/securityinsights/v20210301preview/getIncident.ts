@@ -136,6 +136,10 @@ export interface GetIncidentResult {
      */
     readonly systemData: outputs.securityinsights.v20210301preview.SystemDataResponse;
     /**
+     * Describes a team for the incident
+     */
+    readonly teamInformation?: outputs.securityinsights.v20210301preview.TeamInformationResponse;
+    /**
      * The title of the incident
      */
     readonly title: string;

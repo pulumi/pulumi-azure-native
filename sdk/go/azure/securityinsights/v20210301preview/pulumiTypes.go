@@ -13906,6 +13906,199 @@ func (o TIDataConnectorDataTypesResponseIndicatorsPtrOutput) State() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type TeamInformationResponse struct {
+	Description         string `pulumi:"description"`
+	Name                string `pulumi:"name"`
+	PrimaryChannelUrl   string `pulumi:"primaryChannelUrl"`
+	TeamCreationTimeUtc string `pulumi:"teamCreationTimeUtc"`
+	TeamId              string `pulumi:"teamId"`
+}
+
+
+
+
+
+type TeamInformationResponseInput interface {
+	pulumi.Input
+
+	ToTeamInformationResponseOutput() TeamInformationResponseOutput
+	ToTeamInformationResponseOutputWithContext(context.Context) TeamInformationResponseOutput
+}
+
+type TeamInformationResponseArgs struct {
+	Description         pulumi.StringInput `pulumi:"description"`
+	Name                pulumi.StringInput `pulumi:"name"`
+	PrimaryChannelUrl   pulumi.StringInput `pulumi:"primaryChannelUrl"`
+	TeamCreationTimeUtc pulumi.StringInput `pulumi:"teamCreationTimeUtc"`
+	TeamId              pulumi.StringInput `pulumi:"teamId"`
+}
+
+func (TeamInformationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamInformationResponse)(nil)).Elem()
+}
+
+func (i TeamInformationResponseArgs) ToTeamInformationResponseOutput() TeamInformationResponseOutput {
+	return i.ToTeamInformationResponseOutputWithContext(context.Background())
+}
+
+func (i TeamInformationResponseArgs) ToTeamInformationResponseOutputWithContext(ctx context.Context) TeamInformationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamInformationResponseOutput)
+}
+
+func (i TeamInformationResponseArgs) ToTeamInformationResponsePtrOutput() TeamInformationResponsePtrOutput {
+	return i.ToTeamInformationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i TeamInformationResponseArgs) ToTeamInformationResponsePtrOutputWithContext(ctx context.Context) TeamInformationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamInformationResponseOutput).ToTeamInformationResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type TeamInformationResponsePtrInput interface {
+	pulumi.Input
+
+	ToTeamInformationResponsePtrOutput() TeamInformationResponsePtrOutput
+	ToTeamInformationResponsePtrOutputWithContext(context.Context) TeamInformationResponsePtrOutput
+}
+
+type teamInformationResponsePtrType TeamInformationResponseArgs
+
+func TeamInformationResponsePtr(v *TeamInformationResponseArgs) TeamInformationResponsePtrInput {
+	return (*teamInformationResponsePtrType)(v)
+}
+
+func (*teamInformationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamInformationResponse)(nil)).Elem()
+}
+
+func (i *teamInformationResponsePtrType) ToTeamInformationResponsePtrOutput() TeamInformationResponsePtrOutput {
+	return i.ToTeamInformationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *teamInformationResponsePtrType) ToTeamInformationResponsePtrOutputWithContext(ctx context.Context) TeamInformationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TeamInformationResponsePtrOutput)
+}
+
+type TeamInformationResponseOutput struct{ *pulumi.OutputState }
+
+func (TeamInformationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TeamInformationResponse)(nil)).Elem()
+}
+
+func (o TeamInformationResponseOutput) ToTeamInformationResponseOutput() TeamInformationResponseOutput {
+	return o
+}
+
+func (o TeamInformationResponseOutput) ToTeamInformationResponseOutputWithContext(ctx context.Context) TeamInformationResponseOutput {
+	return o
+}
+
+func (o TeamInformationResponseOutput) ToTeamInformationResponsePtrOutput() TeamInformationResponsePtrOutput {
+	return o.ToTeamInformationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o TeamInformationResponseOutput) ToTeamInformationResponsePtrOutputWithContext(ctx context.Context) TeamInformationResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamInformationResponse) *TeamInformationResponse {
+		return &v
+	}).(TeamInformationResponsePtrOutput)
+}
+
+func (o TeamInformationResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamInformationResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o TeamInformationResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamInformationResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o TeamInformationResponseOutput) PrimaryChannelUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamInformationResponse) string { return v.PrimaryChannelUrl }).(pulumi.StringOutput)
+}
+
+func (o TeamInformationResponseOutput) TeamCreationTimeUtc() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamInformationResponse) string { return v.TeamCreationTimeUtc }).(pulumi.StringOutput)
+}
+
+func (o TeamInformationResponseOutput) TeamId() pulumi.StringOutput {
+	return o.ApplyT(func(v TeamInformationResponse) string { return v.TeamId }).(pulumi.StringOutput)
+}
+
+type TeamInformationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TeamInformationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TeamInformationResponse)(nil)).Elem()
+}
+
+func (o TeamInformationResponsePtrOutput) ToTeamInformationResponsePtrOutput() TeamInformationResponsePtrOutput {
+	return o
+}
+
+func (o TeamInformationResponsePtrOutput) ToTeamInformationResponsePtrOutputWithContext(ctx context.Context) TeamInformationResponsePtrOutput {
+	return o
+}
+
+func (o TeamInformationResponsePtrOutput) Elem() TeamInformationResponseOutput {
+	return o.ApplyT(func(v *TeamInformationResponse) TeamInformationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TeamInformationResponse
+		return ret
+	}).(TeamInformationResponseOutput)
+}
+
+func (o TeamInformationResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TeamInformationResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TeamInformationResponsePtrOutput) PrimaryChannelUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryChannelUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TeamInformationResponsePtrOutput) TeamCreationTimeUtc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TeamCreationTimeUtc
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TeamInformationResponsePtrOutput) TeamId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TeamInformationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TeamId
+	}).(pulumi.StringPtrOutput)
+}
+
 type TiTaxiiDataConnectorDataTypes struct {
 	TaxiiClient TiTaxiiDataConnectorDataTypesTaxiiClient `pulumi:"taxiiClient"`
 }
@@ -14931,6 +15124,8 @@ func init() {
 	pulumi.RegisterOutputType(TIDataConnectorDataTypesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TIDataConnectorDataTypesResponseIndicatorsOutput{})
 	pulumi.RegisterOutputType(TIDataConnectorDataTypesResponseIndicatorsPtrOutput{})
+	pulumi.RegisterOutputType(TeamInformationResponseOutput{})
+	pulumi.RegisterOutputType(TeamInformationResponsePtrOutput{})
 	pulumi.RegisterOutputType(TiTaxiiDataConnectorDataTypesOutput{})
 	pulumi.RegisterOutputType(TiTaxiiDataConnectorDataTypesPtrOutput{})
 	pulumi.RegisterOutputType(TiTaxiiDataConnectorDataTypesResponseOutput{})

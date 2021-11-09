@@ -105,6 +105,8 @@ namespace Pulumi.AzureNative.Devices.V20200831Preview
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20210701:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20210701preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20210701preview:Certificate"},
+                    new Pulumi.Alias { Type = "azure-native:devices/v20210702:Certificate"},
+                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20210702:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20210702preview:Certificate"},
                     new Pulumi.Alias { Type = "azure-nextgen:devices/v20210702preview:Certificate"},
                 },

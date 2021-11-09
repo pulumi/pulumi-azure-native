@@ -181,6 +181,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
+        /// Describes a team for the incident
+        /// </summary>
+        public readonly Outputs.TeamInformationResponse? TeamInformation;
+        /// <summary>
         /// The title of the incident
         /// </summary>
         public readonly string Title;
@@ -235,6 +239,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 
             Outputs.SystemDataResponse systemData,
 
+            Outputs.TeamInformationResponse? teamInformation,
+
             string title,
 
             string type)
@@ -261,6 +267,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
             Severity = severity;
             Status = status;
             SystemData = systemData;
+            TeamInformation = teamInformation;
             Title = title;
             Type = type;
         }

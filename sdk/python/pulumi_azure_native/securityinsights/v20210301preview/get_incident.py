@@ -21,7 +21,7 @@ class GetIncidentResult:
     """
     Represents an incident in Azure Security Insights.
     """
-    def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, id=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, provider_incident_id=None, provider_name=None, related_analytic_rule_ids=None, severity=None, status=None, system_data=None, title=None, type=None):
+    def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, id=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, provider_incident_id=None, provider_name=None, related_analytic_rule_ids=None, severity=None, status=None, system_data=None, team_information=None, title=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
         pulumi.set(__self__, "additional_data", additional_data)
@@ -88,6 +88,9 @@ class GetIncidentResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if team_information and not isinstance(team_information, dict):
+            raise TypeError("Expected argument 'team_information' to be a dict")
+        pulumi.set(__self__, "team_information", team_information)
         if title and not isinstance(title, str):
             raise TypeError("Expected argument 'title' to be a str")
         pulumi.set(__self__, "title", title)
@@ -272,6 +275,14 @@ class GetIncidentResult:
         return pulumi.get(self, "system_data")
 
     @property
+    @pulumi.getter(name="teamInformation")
+    def team_information(self) -> Optional['outputs.TeamInformationResponse']:
+        """
+        Describes a team for the incident
+        """
+        return pulumi.get(self, "team_information")
+
+    @property
     @pulumi.getter
     def title(self) -> str:
         """
@@ -316,6 +327,7 @@ class AwaitableGetIncidentResult(GetIncidentResult):
             severity=self.severity,
             status=self.status,
             system_data=self.system_data,
+            team_information=self.team_information,
             title=self.title,
             type=self.type)
 
@@ -368,6 +380,7 @@ def get_incident(incident_id: Optional[str] = None,
         severity=__ret__.severity,
         status=__ret__.status,
         system_data=__ret__.system_data,
+        team_information=__ret__.team_information,
         title=__ret__.title,
         type=__ret__.type)
 

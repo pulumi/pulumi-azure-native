@@ -47,6 +47,7 @@ type LookupIncidentResult struct {
 	Severity               string                         `pulumi:"severity"`
 	Status                 string                         `pulumi:"status"`
 	SystemData             SystemDataResponse             `pulumi:"systemData"`
+	TeamInformation        *TeamInformationResponse       `pulumi:"teamInformation"`
 	Title                  string                         `pulumi:"title"`
 	Type                   string                         `pulumi:"type"`
 }

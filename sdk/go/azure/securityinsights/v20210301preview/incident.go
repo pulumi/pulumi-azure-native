@@ -35,6 +35,7 @@ type Incident struct {
 	Severity               pulumi.StringOutput                  `pulumi:"severity"`
 	Status                 pulumi.StringOutput                  `pulumi:"status"`
 	SystemData             SystemDataResponseOutput             `pulumi:"systemData"`
+	TeamInformation        TeamInformationResponsePtrOutput     `pulumi:"teamInformation"`
 	Title                  pulumi.StringOutput                  `pulumi:"title"`
 	Type                   pulumi.StringOutput                  `pulumi:"type"`
 }

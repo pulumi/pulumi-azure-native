@@ -32299,7 +32299,41 @@
         "capabilities": "SupportsExtension",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [],
+        "locations": [
+          "East US",
+          "West US",
+          "West Europe",
+          "East Asia",
+          "Southeast Asia",
+          "Japan East",
+          "Japan West",
+          "North Central US",
+          "South Central US",
+          "East US 2",
+          "Canada East",
+          "Canada Central",
+          "Central US",
+          "Australia East",
+          "Australia Southeast",
+          "Australia Central",
+          "Australia Central 2",
+          "Brazil South",
+          "South India",
+          "Central India",
+          "West India",
+          "North Europe",
+          "Norway East",
+          "Germany West Central",
+          "Switzerland North",
+          "West US 2",
+          "West Central US",
+          "Korea Central",
+          "UK South",
+          "UK West",
+          "France Central",
+          "East US 2 EUAP",
+          "Central US EUAP"
+        ],
         "properties": null,
         "resourceType": "metricbaselines"
       },
@@ -37595,10 +37629,8 @@
           "Norway West",
           "France South",
           "South India",
-          "Korea South",
           "Canada East",
-          "West US 3",
-          "Sweden Central"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "workspaces"
@@ -37648,10 +37680,8 @@
           "Australia Central",
           "France South",
           "South India",
-          "Korea South",
           "Canada East",
-          "West US 3",
-          "Sweden Central"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "querypacks"
@@ -37733,10 +37763,8 @@
           "Norway West",
           "France South",
           "South India",
-          "Korea South",
           "Canada East",
-          "West US 3",
-          "Sweden Central"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "locations/operationStatuses"
@@ -37789,10 +37817,8 @@
           "Norway West",
           "France South",
           "South India",
-          "Korea South",
           "Canada East",
-          "West US 3",
-          "Sweden Central"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "workspaces/scopedPrivateLinkProxies"
@@ -37871,10 +37897,8 @@
           "Norway West",
           "France South",
           "South India",
-          "Korea South",
           "Canada East",
-          "West US 3",
-          "Sweden Central"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "workspaces/dataSources"
@@ -37927,10 +37951,8 @@
           "Norway West",
           "France South",
           "South India",
-          "Korea South",
           "Canada East",
-          "West US 3",
-          "Sweden Central"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "workspaces/linkedStorageAccounts"
@@ -37983,10 +38005,8 @@
           "Norway West",
           "France South",
           "South India",
-          "Korea South",
           "Canada East",
-          "West US 3",
-          "Sweden Central"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "workspaces/tables"
@@ -38044,10 +38064,8 @@
           "Norway West",
           "France South",
           "South India",
-          "Korea South",
           "Canada East",
-          "West US 3",
-          "Sweden Central"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "workspaces/storageInsightConfigs"
@@ -38116,10 +38134,8 @@
           "Norway West",
           "France South",
           "South India",
-          "Korea South",
           "Canada East",
-          "West US 3",
-          "Sweden Central"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "workspaces/linkedServices"
@@ -38188,10 +38204,8 @@
           "Norway West",
           "France South",
           "South India",
-          "Korea South",
           "Canada East",
-          "West US 3",
-          "Sweden Central"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "deletedWorkspaces"
@@ -38263,10 +38277,8 @@
           "Norway West",
           "France South",
           "South India",
-          "Korea South",
           "Canada East",
-          "West US 3",
-          "Sweden Central"
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "clusters"
@@ -38310,7 +38322,17 @@
           "Switzerland North",
           "Switzerland West",
           "Germany West Central",
-          "UAE North"
+          "Australia Central 2",
+          "UAE Central",
+          "UAE North",
+          "Japan West",
+          "Brazil Southeast",
+          "Norway East",
+          "Norway West",
+          "France South",
+          "South India",
+          "Canada East",
+          "West US 3"
         ],
         "properties": null,
         "resourceType": "workspaces/dataExports"
@@ -45440,8 +45462,6 @@
         ],
         "apiVersions": [
           "2021-07-15-preview",
-          "2021-07-02-preview",
-          "2021-07-02",
           "2021-07-01-preview",
           "2021-07-01",
           "2021-03-31",
@@ -45499,8 +45519,6 @@
           }
         ],
         "apiVersions": [
-          "2021-07-02-preview",
-          "2021-07-02",
           "2021-07-01-preview",
           "2021-07-01",
           "2021-03-31",
@@ -45541,8 +45559,6 @@
           }
         ],
         "apiVersions": [
-          "2021-07-02-preview",
-          "2021-07-02",
           "2021-07-01-preview",
           "2021-07-01",
           "2021-03-31",
@@ -45583,8 +45599,6 @@
           }
         ],
         "apiVersions": [
-          "2021-07-02-preview",
-          "2021-07-02",
           "2021-07-01-preview",
           "2021-07-01",
           "2021-03-31",
@@ -45632,8 +45646,6 @@
           }
         ],
         "apiVersions": [
-          "2021-07-02-preview",
-          "2021-07-02",
           "2021-07-01-preview",
           "2021-07-01",
           "2021-03-31",
@@ -45681,8 +45693,6 @@
           }
         ],
         "apiVersions": [
-          "2021-07-02-preview",
-          "2021-07-02",
           "2021-07-01-preview",
           "2021-07-01",
           "2021-03-31",
@@ -45759,8 +45769,6 @@
           }
         ],
         "apiVersions": [
-          "2021-07-02-preview",
-          "2021-07-02",
           "2021-07-01-preview",
           "2021-07-01",
           "2021-03-31",
@@ -45887,8 +45895,6 @@
           }
         ],
         "apiVersions": [
-          "2021-07-02-preview",
-          "2021-07-02",
           "2021-07-01-preview",
           "2021-07-01",
           "2021-03-31",
@@ -45960,7 +45966,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-10-15",
           "2020-03-01",
           "2020-01-01",
           "2018-01-22",

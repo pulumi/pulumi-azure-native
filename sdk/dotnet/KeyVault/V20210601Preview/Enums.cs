@@ -164,6 +164,7 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         public static JsonWebKeyOperation WrapKey { get; } = new JsonWebKeyOperation("wrapKey");
         public static JsonWebKeyOperation UnwrapKey { get; } = new JsonWebKeyOperation("unwrapKey");
         public static JsonWebKeyOperation Import { get; } = new JsonWebKeyOperation("import");
+        public static JsonWebKeyOperation Release { get; } = new JsonWebKeyOperation("release");
 
         public static bool operator ==(JsonWebKeyOperation left, JsonWebKeyOperation right) => left.Equals(right);
         public static bool operator !=(JsonWebKeyOperation left, JsonWebKeyOperation right) => !left.Equals(right);
@@ -240,8 +241,10 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
         public static KeyPermissions Restore { get; } = new KeyPermissions("restore");
         public static KeyPermissions Recover { get; } = new KeyPermissions("recover");
         public static KeyPermissions Purge { get; } = new KeyPermissions("purge");
-        public static KeyPermissions Release { get; } = new KeyPermissions("release");
         public static KeyPermissions Rotate { get; } = new KeyPermissions("rotate");
+        public static KeyPermissions Getrotationpolicy { get; } = new KeyPermissions("getrotationpolicy");
+        public static KeyPermissions Setrotationpolicy { get; } = new KeyPermissions("setrotationpolicy");
+        public static KeyPermissions Release { get; } = new KeyPermissions("release");
 
         public static bool operator ==(KeyPermissions left, KeyPermissions right) => left.Equals(right);
         public static bool operator !=(KeyPermissions left, KeyPermissions right) => !left.Equals(right);

@@ -76,6 +76,12 @@ func NewStreamingJob(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20170401preview:StreamingJob"),
 		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20211001preview:StreamingJob"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:streamanalytics/v20211001preview:StreamingJob"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource StreamingJob

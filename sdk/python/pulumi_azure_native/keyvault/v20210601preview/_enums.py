@@ -83,6 +83,7 @@ class JsonWebKeyOperation(str, Enum):
     WRAP_KEY = "wrapKey"
     UNWRAP_KEY = "unwrapKey"
     IMPORT_ = "import"
+    RELEASE = "release"
 
 
 class JsonWebKeyType(str, Enum):
@@ -113,8 +114,10 @@ class KeyPermissions(str, Enum):
     RESTORE = "restore"
     RECOVER = "recover"
     PURGE = "purge"
-    RELEASE = "release"
     ROTATE = "rotate"
+    GETROTATIONPOLICY = "getrotationpolicy"
+    SETROTATIONPOLICY = "setrotationpolicy"
+    RELEASE = "release"
 
 
 class KeyRotationPolicyActionType(str, Enum):

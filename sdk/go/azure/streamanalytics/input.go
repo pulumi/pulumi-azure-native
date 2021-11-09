@@ -54,6 +54,12 @@ func NewInput(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:streamanalytics/v20200301:Input"),
 		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20211001preview:Input"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:streamanalytics/v20211001preview:Input"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Input

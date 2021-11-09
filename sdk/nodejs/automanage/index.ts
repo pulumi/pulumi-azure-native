@@ -17,9 +17,11 @@ export * from "../types/enums/automanage";
 
 // Export sub-modules:
 import * as v20200630preview from "./v20200630preview";
+import * as v20210430preview from "./v20210430preview";
 
 export {
     v20200630preview,
+    v20210430preview,
 };
 
 // Import resources to register:

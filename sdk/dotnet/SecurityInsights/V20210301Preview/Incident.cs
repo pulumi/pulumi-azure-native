@@ -142,6 +142,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
+        /// Describes a team for the incident
+        /// </summary>
+        [Output("teamInformation")]
+        public Output<Outputs.TeamInformationResponse?> TeamInformation { get; private set; } = null!;
+
+        /// <summary>
         /// The title of the incident
         /// </summary>
         [Output("title")]

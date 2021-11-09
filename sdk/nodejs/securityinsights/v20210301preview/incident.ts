@@ -120,6 +120,10 @@ export class Incident extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.v20210301preview.SystemDataResponse>;
     /**
+     * Describes a team for the incident
+     */
+    public /*out*/ readonly teamInformation!: pulumi.Output<outputs.securityinsights.v20210301preview.TeamInformationResponse | undefined>;
+    /**
      * The title of the incident
      */
     public readonly title!: pulumi.Output<string>;
@@ -183,6 +187,7 @@ export class Incident extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["relatedAnalyticRuleIds"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
+            inputs["teamInformation"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["additionalData"] = undefined /*out*/;
@@ -206,6 +211,7 @@ export class Incident extends pulumi.CustomResource {
             inputs["severity"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
+            inputs["teamInformation"] = undefined /*out*/;
             inputs["title"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

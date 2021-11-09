@@ -1939,6 +1939,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "automanage/v20210430preview",
+  "fqn": "pulumi_azure_native.automanage.v20210430preview",
+  "classes": {
+   "azure-native:automanage/v20210430preview:ConfigurationProfile": "ConfigurationProfile",
+   "azure-native:automanage/v20210430preview:ConfigurationProfileAssignment": "ConfigurationProfileAssignment",
+   "azure-native:automanage/v20210430preview:ConfigurationProfilesVersion": "ConfigurationProfilesVersion"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "automation",
   "fqn": "pulumi_azure_native.automation",
   "classes": {
@@ -6445,6 +6455,17 @@ _utilities.register(
    "azure-native:devices/v20210701preview:IotHubResource": "IotHubResource",
    "azure-native:devices/v20210701preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
    "azure-native:devices/v20210701preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devices/v20210702",
+  "fqn": "pulumi_azure_native.devices.v20210702",
+  "classes": {
+   "azure-native:devices/v20210702:Certificate": "Certificate",
+   "azure-native:devices/v20210702:IotHubResource": "IotHubResource",
+   "azure-native:devices/v20210702:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
+   "azure-native:devices/v20210702:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -16231,6 +16252,17 @@ _utilities.register(
   "classes": {
    "azure-native:streamanalytics/v20200301preview:Cluster": "Cluster",
    "azure-native:streamanalytics/v20200301preview:PrivateEndpoint": "PrivateEndpoint"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "streamanalytics/v20211001preview",
+  "fqn": "pulumi_azure_native.streamanalytics.v20211001preview",
+  "classes": {
+   "azure-native:streamanalytics/v20211001preview:Function": "Function",
+   "azure-native:streamanalytics/v20211001preview:Input": "Input",
+   "azure-native:streamanalytics/v20211001preview:Output": "Output",
+   "azure-native:streamanalytics/v20211001preview:StreamingJob": "StreamingJob"
   }
  },
  {

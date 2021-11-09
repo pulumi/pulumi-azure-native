@@ -63,6 +63,7 @@ export const JsonWebKeyOperation = {
     WrapKey: "wrapKey",
     UnwrapKey: "unwrapKey",
     Import: "import",
+    Release: "release",
 } as const;
 
 /**
@@ -100,8 +101,10 @@ export const KeyPermissions = {
     Restore: "restore",
     Recover: "recover",
     Purge: "purge",
-    Release: "release",
     Rotate: "rotate",
+    Getrotationpolicy: "getrotationpolicy",
+    Setrotationpolicy: "setrotationpolicy",
+    Release: "release",
 } as const;
 
 export type KeyPermissions = (typeof KeyPermissions)[keyof typeof KeyPermissions];

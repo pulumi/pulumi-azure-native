@@ -173,7 +173,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20160301:Function"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20170401preview:Function"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20200301:Function"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20200301:Function")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20160301:Function"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20170401preview:Function"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20200301:Function"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20200301:Function"), pulumi.Alias(type_="azure-native:streamanalytics/v20211001preview:Function"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20211001preview:Function")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Function, __self__).__init__(
             'azure-native:streamanalytics:Function',
