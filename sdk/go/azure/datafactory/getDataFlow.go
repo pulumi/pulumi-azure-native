@@ -1,0 +1,32 @@
+
+
+
+package datafactory
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupDataFlow(ctx *pulumi.Context, args *LookupDataFlowArgs, opts ...pulumi.InvokeOption) (*LookupDataFlowResult, error) {
+	var rv LookupDataFlowResult
+	err := ctx.Invoke("azure-native:datafactory:getDataFlow", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupDataFlowArgs struct {
+	DataFlowName      string `pulumi:"dataFlowName"`
+	FactoryName       string `pulumi:"factoryName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupDataFlowResult struct {
+	Etag       string      `pulumi:"etag"`
+	Id         string      `pulumi:"id"`
+	Name       string      `pulumi:"name"`
+	Properties interface{} `pulumi:"properties"`
+	Type       string      `pulumi:"type"`
+}

@@ -1,0 +1,37 @@
+
+
+
+package v20201001
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func ListWebAppPublishingCredentialsSlot(ctx *pulumi.Context, args *ListWebAppPublishingCredentialsSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppPublishingCredentialsSlotResult, error) {
+	var rv ListWebAppPublishingCredentialsSlotResult
+	err := ctx.Invoke("azure-native:web/v20201001:listWebAppPublishingCredentialsSlot", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type ListWebAppPublishingCredentialsSlotArgs struct {
+	Name              string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Slot              string `pulumi:"slot"`
+}
+
+
+type ListWebAppPublishingCredentialsSlotResult struct {
+	Id                         string             `pulumi:"id"`
+	Kind                       *string            `pulumi:"kind"`
+	Name                       string             `pulumi:"name"`
+	PublishingPassword         *string            `pulumi:"publishingPassword"`
+	PublishingPasswordHash     *string            `pulumi:"publishingPasswordHash"`
+	PublishingPasswordHashSalt *string            `pulumi:"publishingPasswordHashSalt"`
+	PublishingUserName         string             `pulumi:"publishingUserName"`
+	ScmUri                     *string            `pulumi:"scmUri"`
+	SystemData                 SystemDataResponse `pulumi:"systemData"`
+	Type                       string             `pulumi:"type"`
+}

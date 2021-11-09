@@ -1,0 +1,37 @@
+
+
+
+package v20190801preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupDataExport(ctx *pulumi.Context, args *LookupDataExportArgs, opts ...pulumi.InvokeOption) (*LookupDataExportResult, error) {
+	var rv LookupDataExportResult
+	err := ctx.Invoke("azure-native:operationalinsights/v20190801preview:getDataExport", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupDataExportArgs struct {
+	DataExportName    string `pulumi:"dataExportName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
+}
+
+
+type LookupDataExportResult struct {
+	CreatedDate      *string  `pulumi:"createdDate"`
+	DataExportId     *string  `pulumi:"dataExportId"`
+	Enable           *bool    `pulumi:"enable"`
+	EventHubName     *string  `pulumi:"eventHubName"`
+	Id               string   `pulumi:"id"`
+	LastModifiedDate *string  `pulumi:"lastModifiedDate"`
+	Name             string   `pulumi:"name"`
+	ResourceId       string   `pulumi:"resourceId"`
+	TableNames       []string `pulumi:"tableNames"`
+	Type             string   `pulumi:"type"`
+}
