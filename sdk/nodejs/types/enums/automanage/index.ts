@@ -8,6 +8,16 @@ export {
     v20200630preview,
 };
 
+export const ConfigurationProfile = {
+    Azure_virtual_machine_best_practices_Dev_Test: "Azure virtual machine best practices – Dev/Test",
+    Azure_virtual_machine_best_practices_Production: "Azure virtual machine best practices – Production",
+} as const;
+
+/**
+ * A value indicating configuration profile.
+ */
+export type ConfigurationProfile = (typeof ConfigurationProfile)[keyof typeof ConfigurationProfile];
+
 export const EnableRealTimeProtection = {
     True: "True",
     False: "False",

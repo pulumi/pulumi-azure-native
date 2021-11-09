@@ -3,7 +3,20 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-- Fixed replacement of ServiceBus Topics & Queues [#940](https://github.com/pulumi/pulumi-azure-native/issues/940)
+#### Enhancements:
+
+- Fixed replacement of ServiceBus Topics & Queues
+  [#940](https://github.com/pulumi/pulumi-azure-native/issues/940)
+
+#### New resources:
+
+- `automanage.ConfigurationProfile`
+- `automanage.ConfigurationProfilesVersion`
+
+#### New functions:
+
+- `automanage.getConfigurationProfile`
+- `automanage.getConfigurationProfilesVersion`
 
 ---
 

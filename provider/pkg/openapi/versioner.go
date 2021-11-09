@@ -96,6 +96,7 @@ var cutoffProviderVersions = map[string]string{
 	"apimanagement":           "v20210401preview",
 	"appconfiguration":        "v20200701preview",
 	"authorization":           "v20210301preview",
+	"automanage":              "v20200630preview",
 	"avs":                     "v20210101preview",
 	"azurearcdata":            "v20210601preview",
 	"azurestackhci":           "v20210101preview",

@@ -10,6 +10,170 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ConfigurationProfileEnum string
+
+const (
+	ConfigurationProfileEnum_Azure_virtual_machine_best_practices_Dev_Test   = ConfigurationProfileEnum("Azure virtual machine best practices – Dev/Test")
+	ConfigurationProfileEnum_Azure_virtual_machine_best_practices_Production = ConfigurationProfileEnum("Azure virtual machine best practices – Production")
+)
+
+func (ConfigurationProfileEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileEnum)(nil)).Elem()
+}
+
+func (e ConfigurationProfileEnum) ToConfigurationProfileEnumOutput() ConfigurationProfileEnumOutput {
+	return pulumi.ToOutput(e).(ConfigurationProfileEnumOutput)
+}
+
+func (e ConfigurationProfileEnum) ToConfigurationProfileEnumOutputWithContext(ctx context.Context) ConfigurationProfileEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfigurationProfileEnumOutput)
+}
+
+func (e ConfigurationProfileEnum) ToConfigurationProfileEnumPtrOutput() ConfigurationProfileEnumPtrOutput {
+	return e.ToConfigurationProfileEnumPtrOutputWithContext(context.Background())
+}
+
+func (e ConfigurationProfileEnum) ToConfigurationProfileEnumPtrOutputWithContext(ctx context.Context) ConfigurationProfileEnumPtrOutput {
+	return ConfigurationProfileEnum(e).ToConfigurationProfileEnumOutputWithContext(ctx).ToConfigurationProfileEnumPtrOutputWithContext(ctx)
+}
+
+func (e ConfigurationProfileEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigurationProfileEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigurationProfileEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfigurationProfileEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfigurationProfileEnumOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfileEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileEnum)(nil)).Elem()
+}
+
+func (o ConfigurationProfileEnumOutput) ToConfigurationProfileEnumOutput() ConfigurationProfileEnumOutput {
+	return o
+}
+
+func (o ConfigurationProfileEnumOutput) ToConfigurationProfileEnumOutputWithContext(ctx context.Context) ConfigurationProfileEnumOutput {
+	return o
+}
+
+func (o ConfigurationProfileEnumOutput) ToConfigurationProfileEnumPtrOutput() ConfigurationProfileEnumPtrOutput {
+	return o.ToConfigurationProfileEnumPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfileEnumOutput) ToConfigurationProfileEnumPtrOutputWithContext(ctx context.Context) ConfigurationProfileEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileEnum) *ConfigurationProfileEnum {
+		return &v
+	}).(ConfigurationProfileEnumPtrOutput)
+}
+
+func (o ConfigurationProfileEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfileEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfigurationProfileEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfigurationProfileEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfileEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfigurationProfileEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationProfileEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfileEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfileEnum)(nil)).Elem()
+}
+
+func (o ConfigurationProfileEnumPtrOutput) ToConfigurationProfileEnumPtrOutput() ConfigurationProfileEnumPtrOutput {
+	return o
+}
+
+func (o ConfigurationProfileEnumPtrOutput) ToConfigurationProfileEnumPtrOutputWithContext(ctx context.Context) ConfigurationProfileEnumPtrOutput {
+	return o
+}
+
+func (o ConfigurationProfileEnumPtrOutput) Elem() ConfigurationProfileEnumOutput {
+	return o.ApplyT(func(v *ConfigurationProfileEnum) ConfigurationProfileEnum {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfileEnum
+		return ret
+	}).(ConfigurationProfileEnumOutput)
+}
+
+func (o ConfigurationProfileEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfileEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfigurationProfileEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type ConfigurationProfileEnumInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileEnumOutput() ConfigurationProfileEnumOutput
+	ToConfigurationProfileEnumOutputWithContext(context.Context) ConfigurationProfileEnumOutput
+}
+
+var configurationProfileEnumPtrType = reflect.TypeOf((**ConfigurationProfileEnum)(nil)).Elem()
+
+type ConfigurationProfileEnumPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileEnumPtrOutput() ConfigurationProfileEnumPtrOutput
+	ToConfigurationProfileEnumPtrOutputWithContext(context.Context) ConfigurationProfileEnumPtrOutput
+}
+
+type configurationProfileEnumPtr string
+
+func ConfigurationProfileEnumPtr(v string) ConfigurationProfileEnumPtrInput {
+	return (*configurationProfileEnumPtr)(&v)
+}
+
+func (*configurationProfileEnumPtr) ElementType() reflect.Type {
+	return configurationProfileEnumPtrType
+}
+
+func (in *configurationProfileEnumPtr) ToConfigurationProfileEnumPtrOutput() ConfigurationProfileEnumPtrOutput {
+	return pulumi.ToOutput(in).(ConfigurationProfileEnumPtrOutput)
+}
+
+func (in *configurationProfileEnumPtr) ToConfigurationProfileEnumPtrOutputWithContext(ctx context.Context) ConfigurationProfileEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfigurationProfileEnumPtrOutput)
+}
+
 type EnableRealTimeProtection string
 
 const (
@@ -667,6 +831,8 @@ func (in *scanTypePtr) ToScanTypePtrOutputWithContext(ctx context.Context) ScanT
 }
 
 func init() {
+	pulumi.RegisterOutputType(ConfigurationProfileEnumOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfileEnumPtrOutput{})
 	pulumi.RegisterOutputType(EnableRealTimeProtectionOutput{})
 	pulumi.RegisterOutputType(EnableRealTimeProtectionPtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})

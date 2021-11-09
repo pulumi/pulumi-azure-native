@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ConfigurationProfile struct {
+type ConfigurationProfileEnum struct {
 	pulumi.CustomResourceState
 
 	Location   pulumi.StringOutput                          `pulumi:"location"`
@@ -23,8 +23,8 @@ type ConfigurationProfile struct {
 }
 
 
-func NewConfigurationProfile(ctx *pulumi.Context,
-	name string, args *ConfigurationProfileArgs, opts ...pulumi.ResourceOption) (*ConfigurationProfile, error) {
+func NewConfigurationProfileEnum(ctx *pulumi.Context,
+	name string, args *ConfigurationProfileEnumArgs, opts ...pulumi.ResourceOption) (*ConfigurationProfileEnum, error) {
 	if args == nil {
 		return nil, errors.New("missing one or more required arguments")
 	}
@@ -44,7 +44,7 @@ func NewConfigurationProfile(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
-	var resource ConfigurationProfile
+	var resource ConfigurationProfileEnum
 	err := ctx.RegisterResource("azure-native:automanage:ConfigurationProfile", name, args, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -54,9 +54,9 @@ func NewConfigurationProfile(ctx *pulumi.Context,
 
 
 
-func GetConfigurationProfile(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *ConfigurationProfileState, opts ...pulumi.ResourceOption) (*ConfigurationProfile, error) {
-	var resource ConfigurationProfile
+func GetConfigurationProfileEnum(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *ConfigurationProfileEnumState, opts ...pulumi.ResourceOption) (*ConfigurationProfileEnum, error) {
+	var resource ConfigurationProfileEnum
 	err := ctx.ReadResource("azure-native:automanage:ConfigurationProfile", name, id, state, &resource, opts...)
 	if err != nil {
 		return nil, err
@@ -65,17 +65,17 @@ func GetConfigurationProfile(ctx *pulumi.Context,
 }
 
 
-type configurationProfileState struct {
+type configurationProfileEnumState struct {
 }
 
-type ConfigurationProfileState struct {
+type ConfigurationProfileEnumState struct {
 }
 
-func (ConfigurationProfileState) ElementType() reflect.Type {
-	return reflect.TypeOf((*configurationProfileState)(nil)).Elem()
+func (ConfigurationProfileEnumState) ElementType() reflect.Type {
+	return reflect.TypeOf((*configurationProfileEnumState)(nil)).Elem()
 }
 
-type configurationProfileArgs struct {
+type configurationProfileEnumArgs struct {
 	ConfigurationProfileName *string                         `pulumi:"configurationProfileName"`
 	Location                 *string                         `pulumi:"location"`
 	Properties               *ConfigurationProfileProperties `pulumi:"properties"`
@@ -84,7 +84,7 @@ type configurationProfileArgs struct {
 }
 
 
-type ConfigurationProfileArgs struct {
+type ConfigurationProfileEnumArgs struct {
 	ConfigurationProfileName pulumi.StringPtrInput
 	Location                 pulumi.StringPtrInput
 	Properties               ConfigurationProfilePropertiesPtrInput
@@ -92,43 +92,43 @@ type ConfigurationProfileArgs struct {
 	Tags                     pulumi.StringMapInput
 }
 
-func (ConfigurationProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*configurationProfileArgs)(nil)).Elem()
+func (ConfigurationProfileEnumArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*configurationProfileEnumArgs)(nil)).Elem()
 }
 
-type ConfigurationProfileInput interface {
+type ConfigurationProfileEnumInput interface {
 	pulumi.Input
 
-	ToConfigurationProfileOutput() ConfigurationProfileOutput
-	ToConfigurationProfileOutputWithContext(ctx context.Context) ConfigurationProfileOutput
+	ToConfigurationProfileEnumOutput() ConfigurationProfileEnumOutput
+	ToConfigurationProfileEnumOutputWithContext(ctx context.Context) ConfigurationProfileEnumOutput
 }
 
-func (*ConfigurationProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfile)(nil))
+func (*ConfigurationProfileEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileEnum)(nil))
 }
 
-func (i *ConfigurationProfile) ToConfigurationProfileOutput() ConfigurationProfileOutput {
-	return i.ToConfigurationProfileOutputWithContext(context.Background())
+func (i *ConfigurationProfileEnum) ToConfigurationProfileEnumOutput() ConfigurationProfileEnumOutput {
+	return i.ToConfigurationProfileEnumOutputWithContext(context.Background())
 }
 
-func (i *ConfigurationProfile) ToConfigurationProfileOutputWithContext(ctx context.Context) ConfigurationProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileOutput)
+func (i *ConfigurationProfileEnum) ToConfigurationProfileEnumOutputWithContext(ctx context.Context) ConfigurationProfileEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileEnumOutput)
 }
 
-type ConfigurationProfileOutput struct{ *pulumi.OutputState }
+type ConfigurationProfileEnumOutput struct{ *pulumi.OutputState }
 
-func (ConfigurationProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfile)(nil))
+func (ConfigurationProfileEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileEnum)(nil))
 }
 
-func (o ConfigurationProfileOutput) ToConfigurationProfileOutput() ConfigurationProfileOutput {
+func (o ConfigurationProfileEnumOutput) ToConfigurationProfileEnumOutput() ConfigurationProfileEnumOutput {
 	return o
 }
 
-func (o ConfigurationProfileOutput) ToConfigurationProfileOutputWithContext(ctx context.Context) ConfigurationProfileOutput {
+func (o ConfigurationProfileEnumOutput) ToConfigurationProfileEnumOutputWithContext(ctx context.Context) ConfigurationProfileEnumOutput {
 	return o
 }
 
 func init() {
-	pulumi.RegisterOutputType(ConfigurationProfileOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfileEnumOutput{})
 }

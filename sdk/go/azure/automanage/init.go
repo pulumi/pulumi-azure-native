@@ -24,7 +24,7 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	case "azure-native:automanage:Account":
 		r = &Account{}
 	case "azure-native:automanage:ConfigurationProfile":
-		r = &ConfigurationProfile{}
+		r = &ConfigurationProfileEnum{}
 	case "azure-native:automanage:ConfigurationProfileAssignment":
 		r = &ConfigurationProfileAssignment{}
 	case "azure-native:automanage:ConfigurationProfilePreference":

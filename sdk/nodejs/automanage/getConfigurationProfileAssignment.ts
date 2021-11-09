@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration profile assignment is an association between a VM and automanage profile configuration.
- * API Version: 2021-04-30-preview.
+ * API Version: 2020-06-30-preview.
  */
 export function getConfigurationProfileAssignment(args: GetConfigurationProfileAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileAssignmentResult> {
     if (!opts) {
@@ -55,10 +55,6 @@ export interface GetConfigurationProfileAssignmentResult {
      * Properties of the configuration profile assignment.
      */
     readonly properties: outputs.automanage.ConfigurationProfileAssignmentPropertiesResponse;
-    /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    readonly systemData: outputs.automanage.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

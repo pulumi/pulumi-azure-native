@@ -16,7 +16,6 @@ type ConfigurationProfileAssignment struct {
 
 	Name       pulumi.StringOutput                                    `pulumi:"name"`
 	Properties ConfigurationProfileAssignmentPropertiesResponseOutput `pulumi:"properties"`
-	SystemData SystemDataResponseOutput                               `pulumi:"systemData"`
 	Type       pulumi.StringOutput                                    `pulumi:"type"`
 }
 

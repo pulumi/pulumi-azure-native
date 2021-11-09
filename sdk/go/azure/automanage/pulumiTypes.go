@@ -306,10 +306,144 @@ func (o AccountIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConfigurationProfileAssignmentComplianceResponse struct {
+	UpdateStatus string `pulumi:"updateStatus"`
+}
+
+
+
+
+
+type ConfigurationProfileAssignmentComplianceResponseInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileAssignmentComplianceResponseOutput() ConfigurationProfileAssignmentComplianceResponseOutput
+	ToConfigurationProfileAssignmentComplianceResponseOutputWithContext(context.Context) ConfigurationProfileAssignmentComplianceResponseOutput
+}
+
+type ConfigurationProfileAssignmentComplianceResponseArgs struct {
+	UpdateStatus pulumi.StringInput `pulumi:"updateStatus"`
+}
+
+func (ConfigurationProfileAssignmentComplianceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileAssignmentComplianceResponse)(nil)).Elem()
+}
+
+func (i ConfigurationProfileAssignmentComplianceResponseArgs) ToConfigurationProfileAssignmentComplianceResponseOutput() ConfigurationProfileAssignmentComplianceResponseOutput {
+	return i.ToConfigurationProfileAssignmentComplianceResponseOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfileAssignmentComplianceResponseArgs) ToConfigurationProfileAssignmentComplianceResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentComplianceResponseOutput)
+}
+
+func (i ConfigurationProfileAssignmentComplianceResponseArgs) ToConfigurationProfileAssignmentComplianceResponsePtrOutput() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
+	return i.ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfileAssignmentComplianceResponseArgs) ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentComplianceResponseOutput).ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ConfigurationProfileAssignmentComplianceResponsePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileAssignmentComplianceResponsePtrOutput() ConfigurationProfileAssignmentComplianceResponsePtrOutput
+	ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(context.Context) ConfigurationProfileAssignmentComplianceResponsePtrOutput
+}
+
+type configurationProfileAssignmentComplianceResponsePtrType ConfigurationProfileAssignmentComplianceResponseArgs
+
+func ConfigurationProfileAssignmentComplianceResponsePtr(v *ConfigurationProfileAssignmentComplianceResponseArgs) ConfigurationProfileAssignmentComplianceResponsePtrInput {
+	return (*configurationProfileAssignmentComplianceResponsePtrType)(v)
+}
+
+func (*configurationProfileAssignmentComplianceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfileAssignmentComplianceResponse)(nil)).Elem()
+}
+
+func (i *configurationProfileAssignmentComplianceResponsePtrType) ToConfigurationProfileAssignmentComplianceResponsePtrOutput() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
+	return i.ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationProfileAssignmentComplianceResponsePtrType) ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
+}
+
+type ConfigurationProfileAssignmentComplianceResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfileAssignmentComplianceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileAssignmentComplianceResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationProfileAssignmentComplianceResponseOutput() ConfigurationProfileAssignmentComplianceResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationProfileAssignmentComplianceResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationProfileAssignmentComplianceResponsePtrOutput() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
+	return o.ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileAssignmentComplianceResponse) *ConfigurationProfileAssignmentComplianceResponse {
+		return &v
+	}).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
+}
+
+func (o ConfigurationProfileAssignmentComplianceResponseOutput) UpdateStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentComplianceResponse) string { return v.UpdateStatus }).(pulumi.StringOutput)
+}
+
+type ConfigurationProfileAssignmentComplianceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfileAssignmentComplianceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfileAssignmentComplianceResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) ToConfigurationProfileAssignmentComplianceResponsePtrOutput() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponsePtrOutput {
+	return o
+}
+
+func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) Elem() ConfigurationProfileAssignmentComplianceResponseOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignmentComplianceResponse) ConfigurationProfileAssignmentComplianceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfileAssignmentComplianceResponse
+		return ret
+	}).(ConfigurationProfileAssignmentComplianceResponseOutput)
+}
+
+func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) UpdateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignmentComplianceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UpdateStatus
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationProfileAssignmentProperties struct {
-	ConfigurationProfile *string                `pulumi:"configurationProfile"`
-	ProfileOverrides     map[string]interface{} `pulumi:"profileOverrides"`
-	TargetId             *string                `pulumi:"targetId"`
+	AccountId                        *string `pulumi:"accountId"`
+	ConfigurationProfile             *string `pulumi:"configurationProfile"`
+	ConfigurationProfilePreferenceId *string `pulumi:"configurationProfilePreferenceId"`
+	TargetId                         *string `pulumi:"targetId"`
 }
 
 
@@ -324,9 +458,10 @@ type ConfigurationProfileAssignmentPropertiesInput interface {
 }
 
 type ConfigurationProfileAssignmentPropertiesArgs struct {
-	ConfigurationProfile pulumi.StringPtrInput `pulumi:"configurationProfile"`
-	ProfileOverrides     pulumi.MapInput       `pulumi:"profileOverrides"`
-	TargetId             pulumi.StringPtrInput `pulumi:"targetId"`
+	AccountId                        pulumi.StringPtrInput `pulumi:"accountId"`
+	ConfigurationProfile             pulumi.StringPtrInput `pulumi:"configurationProfile"`
+	ConfigurationProfilePreferenceId pulumi.StringPtrInput `pulumi:"configurationProfilePreferenceId"`
+	TargetId                         pulumi.StringPtrInput `pulumi:"targetId"`
 }
 
 func (ConfigurationProfileAssignmentPropertiesArgs) ElementType() reflect.Type {
@@ -406,12 +541,16 @@ func (o ConfigurationProfileAssignmentPropertiesOutput) ToConfigurationProfileAs
 	}).(ConfigurationProfileAssignmentPropertiesPtrOutput)
 }
 
+func (o ConfigurationProfileAssignmentPropertiesOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
 func (o ConfigurationProfileAssignmentPropertiesOutput) ConfigurationProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.ConfigurationProfile }).(pulumi.StringPtrOutput)
 }
 
-func (o ConfigurationProfileAssignmentPropertiesOutput) ProfileOverrides() pulumi.MapOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) map[string]interface{} { return v.ProfileOverrides }).(pulumi.MapOutput)
+func (o ConfigurationProfileAssignmentPropertiesOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.ConfigurationProfilePreferenceId }).(pulumi.StringPtrOutput)
 }
 
 func (o ConfigurationProfileAssignmentPropertiesOutput) TargetId() pulumi.StringPtrOutput {
@@ -442,6 +581,15 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) Elem() ConfigurationP
 	}).(ConfigurationProfileAssignmentPropertiesOutput)
 }
 
+func (o ConfigurationProfileAssignmentPropertiesPtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ConfigurationProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
 		if v == nil {
@@ -451,13 +599,13 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ConfigurationProfile(
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ProfileOverrides() pulumi.MapOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) map[string]interface{} {
+func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ProfileOverrides
-	}).(pulumi.MapOutput)
+		return v.ConfigurationProfilePreferenceId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o ConfigurationProfileAssignmentPropertiesPtrOutput) TargetId() pulumi.StringPtrOutput {
@@ -470,10 +618,12 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) TargetId() pulumi.Str
 }
 
 type ConfigurationProfileAssignmentPropertiesResponse struct {
-	ConfigurationProfile *string                `pulumi:"configurationProfile"`
-	ProfileOverrides     map[string]interface{} `pulumi:"profileOverrides"`
-	Status               string                 `pulumi:"status"`
-	TargetId             *string                `pulumi:"targetId"`
+	AccountId                        *string                                           `pulumi:"accountId"`
+	Compliance                       *ConfigurationProfileAssignmentComplianceResponse `pulumi:"compliance"`
+	ConfigurationProfile             *string                                           `pulumi:"configurationProfile"`
+	ConfigurationProfilePreferenceId *string                                           `pulumi:"configurationProfilePreferenceId"`
+	ProvisioningState                string                                            `pulumi:"provisioningState"`
+	TargetId                         *string                                           `pulumi:"targetId"`
 }
 
 
@@ -488,10 +638,12 @@ type ConfigurationProfileAssignmentPropertiesResponseInput interface {
 }
 
 type ConfigurationProfileAssignmentPropertiesResponseArgs struct {
-	ConfigurationProfile pulumi.StringPtrInput `pulumi:"configurationProfile"`
-	ProfileOverrides     pulumi.MapInput       `pulumi:"profileOverrides"`
-	Status               pulumi.StringInput    `pulumi:"status"`
-	TargetId             pulumi.StringPtrInput `pulumi:"targetId"`
+	AccountId                        pulumi.StringPtrInput                                    `pulumi:"accountId"`
+	Compliance                       ConfigurationProfileAssignmentComplianceResponsePtrInput `pulumi:"compliance"`
+	ConfigurationProfile             pulumi.StringPtrInput                                    `pulumi:"configurationProfile"`
+	ConfigurationProfilePreferenceId pulumi.StringPtrInput                                    `pulumi:"configurationProfilePreferenceId"`
+	ProvisioningState                pulumi.StringInput                                       `pulumi:"provisioningState"`
+	TargetId                         pulumi.StringPtrInput                                    `pulumi:"targetId"`
 }
 
 func (ConfigurationProfileAssignmentPropertiesResponseArgs) ElementType() reflect.Type {
@@ -571,18 +723,28 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationP
 	}).(ConfigurationProfileAssignmentPropertiesResponsePtrOutput)
 }
 
+func (o ConfigurationProfileAssignmentPropertiesResponseOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.AccountId }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationProfileAssignmentPropertiesResponseOutput) Compliance() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *ConfigurationProfileAssignmentComplianceResponse {
+		return v.Compliance
+	}).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
+}
+
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ConfigurationProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.ConfigurationProfile }).(pulumi.StringPtrOutput)
 }
 
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ProfileOverrides() pulumi.MapOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) map[string]interface{} {
-		return v.ProfileOverrides
-	}).(pulumi.MapOutput)
+func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string {
+		return v.ConfigurationProfilePreferenceId
+	}).(pulumi.StringPtrOutput)
 }
 
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
+func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) TargetId() pulumi.StringPtrOutput {
@@ -613,6 +775,24 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Elem() Config
 	}).(ConfigurationProfileAssignmentPropertiesResponseOutput)
 }
 
+func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Compliance() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *ConfigurationProfileAssignmentComplianceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Compliance
+	}).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
+}
+
 func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ConfigurationProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
 		if v == nil {
@@ -622,21 +802,21 @@ func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Configuration
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ProfileOverrides() pulumi.MapOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.ProfileOverrides
-	}).(pulumi.MapOutput)
-}
-
-func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
+func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Status
+		return v.ConfigurationProfilePreferenceId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationProfileAssignmentPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignmentPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2234,6 +2414,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityResponseOutput{})
 	pulumi.RegisterOutputType(AccountIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfileAssignmentComplianceResponseOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfileAssignmentComplianceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesResponseOutput{})

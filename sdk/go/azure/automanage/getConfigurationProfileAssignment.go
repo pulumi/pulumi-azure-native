@@ -27,6 +27,5 @@ type LookupConfigurationProfileAssignmentResult struct {
 	Id         string                                           `pulumi:"id"`
 	Name       string                                           `pulumi:"name"`
 	Properties ConfigurationProfileAssignmentPropertiesResponse `pulumi:"properties"`
-	SystemData SystemDataResponse                               `pulumi:"systemData"`
 	Type       string                                           `pulumi:"type"`
 }

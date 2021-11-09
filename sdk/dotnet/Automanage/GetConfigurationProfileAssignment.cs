@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Automanage
     {
         /// <summary>
         /// Configuration profile assignment is an association between a VM and automanage profile configuration.
-        /// API Version: 2021-04-30-preview.
+        /// API Version: 2020-06-30-preview.
         /// </summary>
         public static Task<GetConfigurationProfileAssignmentResult> InvokeAsync(GetConfigurationProfileAssignmentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileAssignmentResult>("azure-native:automanage:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentArgs(), options.WithVersion());
 
         /// <summary>
         /// Configuration profile assignment is an association between a VM and automanage profile configuration.
-        /// API Version: 2021-04-30-preview.
+        /// API Version: 2020-06-30-preview.
         /// </summary>
         public static Output<GetConfigurationProfileAssignmentResult> Invoke(GetConfigurationProfileAssignmentInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileAssignmentResult>("azure-native:automanage:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentInvokeArgs(), options.WithVersion());
@@ -95,10 +95,6 @@ namespace Pulumi.AzureNative.Automanage
         /// </summary>
         public readonly Outputs.ConfigurationProfileAssignmentPropertiesResponse Properties;
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -111,14 +107,11 @@ namespace Pulumi.AzureNative.Automanage
 
             Outputs.ConfigurationProfileAssignmentPropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
-            SystemData = systemData;
             Type = type;
         }
     }

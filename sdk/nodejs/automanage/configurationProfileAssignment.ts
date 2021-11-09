@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration profile assignment is an association between a VM and automanage profile configuration.
- * API Version: 2021-04-30-preview.
+ * API Version: 2020-06-30-preview.
  */
 export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     /**
@@ -45,10 +45,6 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.automanage.ConfigurationProfileAssignmentPropertiesResponse>;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.automanage.SystemDataResponse>;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -75,12 +71,10 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["vmName"] = args ? args.vmName : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
