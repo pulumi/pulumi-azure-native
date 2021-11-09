@@ -15,7 +15,6 @@ __all__ = [
     'ConfigurationProfilePreferenceAntiMalwareArgs',
     'ConfigurationProfilePreferencePropertiesArgs',
     'ConfigurationProfilePreferenceVmBackupArgs',
-    'ConfigurationProfilePropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -328,45 +327,5 @@ class ConfigurationProfilePreferenceVmBackupArgs:
     @time_zone.setter
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
-
-
-@pulumi.input_type
-class ConfigurationProfilePropertiesArgs:
-    def __init__(__self__, *,
-                 configuration: Optional[Any] = None,
-                 overrides: Optional[pulumi.Input[Sequence[Any]]] = None):
-        """
-        Automanage configuration profile properties.
-        :param Any configuration: configuration dictionary of the configuration profile.
-        :param pulumi.Input[Sequence[Any]] overrides: overrides of the configuration profile.
-        """
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
-        if overrides is not None:
-            pulumi.set(__self__, "overrides", overrides)
-
-    @property
-    @pulumi.getter
-    def configuration(self) -> Optional[Any]:
-        """
-        configuration dictionary of the configuration profile.
-        """
-        return pulumi.get(self, "configuration")
-
-    @configuration.setter
-    def configuration(self, value: Optional[Any]):
-        pulumi.set(self, "configuration", value)
-
-    @property
-    @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input[Sequence[Any]]]:
-        """
-        overrides of the configuration profile.
-        """
-        return pulumi.get(self, "overrides")
-
-    @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input[Sequence[Any]]]):
-        pulumi.set(self, "overrides", value)
 
 

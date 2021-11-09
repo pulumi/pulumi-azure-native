@@ -93,7 +93,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automanage/v20210430preview:ConfigurationProfile" }, { type: "azure-native:automanage:ConfigurationProfile" }, { type: "azure-nextgen:automanage:ConfigurationProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:automanage/v20210430preview:ConfigurationProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationProfile.__pulumiType, name, inputs, opts);
     }

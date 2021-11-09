@@ -82,6 +82,7 @@ var deprecatedProviderVersions = map[string][]string{
 
 // A manually-maintained list of API versions to ignore while calculating the top-level resources.
 var ignoredProviderVersions = map[string][]string{
+	"Automanage": {"v20210430preview"}, // Conflict in configuration profile definition (enum vs resource) with the previous version.
 	"Migrate":    {"v20200501"}, // Conflict in property types with the previous version.
 	"StorSimple": {"v20161001"},
 }

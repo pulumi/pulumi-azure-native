@@ -6,15 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./account";
-export * from "./configurationProfile";
 export * from "./configurationProfileAssignment";
 export * from "./configurationProfilePreference";
-export * from "./configurationProfilesVersion";
 export * from "./getAccount";
-export * from "./getConfigurationProfile";
 export * from "./getConfigurationProfileAssignment";
 export * from "./getConfigurationProfilePreference";
-export * from "./getConfigurationProfilesVersion";
 
 // Export enums:
 export * from "../types/enums/automanage";
@@ -30,10 +26,8 @@ export {
 
 // Import resources to register:
 import { Account } from "./account";
-import { ConfigurationProfile } from "./configurationProfile";
 import { ConfigurationProfileAssignment } from "./configurationProfileAssignment";
 import { ConfigurationProfilePreference } from "./configurationProfilePreference";
-import { ConfigurationProfilesVersion } from "./configurationProfilesVersion";
 
 const _module = {
     version: utilities.getVersion(),
@@ -41,14 +35,10 @@ const _module = {
         switch (type) {
             case "azure-native:automanage:Account":
                 return new Account(name, <any>undefined, { urn })
-            case "azure-native:automanage:ConfigurationProfile":
-                return new ConfigurationProfile(name, <any>undefined, { urn })
             case "azure-native:automanage:ConfigurationProfileAssignment":
                 return new ConfigurationProfileAssignment(name, <any>undefined, { urn })
             case "azure-native:automanage:ConfigurationProfilePreference":
                 return new ConfigurationProfilePreference(name, <any>undefined, { urn })
-            case "azure-native:automanage:ConfigurationProfilesVersion":
-                return new ConfigurationProfilesVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

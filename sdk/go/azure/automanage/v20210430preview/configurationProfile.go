@@ -36,12 +36,6 @@ func NewConfigurationProfile(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:automanage/v20210430preview:ConfigurationProfile"),
 		},
-		{
-			Type: pulumi.String("azure-native:automanage:ConfigurationProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automanage:ConfigurationProfile"),
-		},
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationProfile

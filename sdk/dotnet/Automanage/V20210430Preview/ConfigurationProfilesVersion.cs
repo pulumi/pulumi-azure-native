@@ -77,8 +77,6 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:automanage/v20210430preview:ConfigurationProfilesVersion"},
-                    new Pulumi.Alias { Type = "azure-native:automanage:ConfigurationProfilesVersion"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automanage:ConfigurationProfilesVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

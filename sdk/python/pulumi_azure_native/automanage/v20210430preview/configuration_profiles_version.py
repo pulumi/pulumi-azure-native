@@ -193,7 +193,7 @@ class ConfigurationProfilesVersion(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automanage/v20210430preview:ConfigurationProfilesVersion"), pulumi.Alias(type_="azure-native:automanage:ConfigurationProfilesVersion"), pulumi.Alias(type_="azure-nextgen:automanage:ConfigurationProfilesVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:automanage/v20210430preview:ConfigurationProfilesVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConfigurationProfilesVersion, __self__).__init__(
             'azure-native:automanage/v20210430preview:ConfigurationProfilesVersion',

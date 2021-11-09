@@ -1923,10 +1923,8 @@ _utilities.register(
   "fqn": "pulumi_azure_native.automanage",
   "classes": {
    "azure-native:automanage:Account": "Account",
-   "azure-native:automanage:ConfigurationProfile": "ConfigurationProfile",
    "azure-native:automanage:ConfigurationProfileAssignment": "ConfigurationProfileAssignment",
-   "azure-native:automanage:ConfigurationProfilePreference": "ConfigurationProfilePreference",
-   "azure-native:automanage:ConfigurationProfilesVersion": "ConfigurationProfilesVersion"
+   "azure-native:automanage:ConfigurationProfilePreference": "ConfigurationProfilePreference"
   }
  },
  {
