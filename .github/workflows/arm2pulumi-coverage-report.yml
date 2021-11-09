@@ -7,14 +7,14 @@ name: arm2pulumi-coverage-report
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
   AWS_REGION: us-west-2
-  
+
 jobs:
   generate-coverage:
     name: prerequisites
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        goversion: [1.16.x]
+        goversion: [1.17.x]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2

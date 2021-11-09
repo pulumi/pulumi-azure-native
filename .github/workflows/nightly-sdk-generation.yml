@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        goversion: [1.16.x]
+        goversion: [1.17.x]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -70,4 +70,4 @@ jobs:
           pr_title: "Automated SDK generation @ azure-rest-api-specs ${{ steps.vars.outputs.commit-hash }}"
           pr_label: "automation/merge"
           pr_allow_empty: true
-          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}   
+          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
