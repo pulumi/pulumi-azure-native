@@ -41,7 +41,6 @@ const goBasePath = "github.com/pulumi/pulumi-azure-native/sdk/go/azure"
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
 func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
-	nextGenProvider := "pulumi:providers:azure-nextgen"
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -216,9 +215,6 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 					Description: "This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.",
 				},
 			},
-			Aliases: []schema.AliasSpec{{
-				Type: &nextGenProvider,
-			}},
 		},
 		Types:     map[string]pschema.ComplexTypeSpec{},
 		Resources: map[string]pschema.ResourceSpec{},
@@ -626,14 +622,11 @@ func (g *packageGenerator) genResourceVariant(prov string, resource *resourceVar
 	resourceResponse.requiredSpecs.Delete("id")
 
 	// Add an alias for each API version that has the same path in it.
-	// Also, add an alias to the same version in azure-nextgen and all other versions in azure-nextgen.
-	alias := fmt.Sprintf("%s:%s:%s", "azure-nextgen", module, resource.typeName)
-	aliases := []pschema.AliasSpec{{Type: &alias}}
+	var aliases []pschema.AliasSpec
 	for _, version := range resource.CompatibleVersions {
 		moduleName := providerApiToModule(prov, version)
 		alias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, moduleName, resource.typeName)
-		nextGenAlias := fmt.Sprintf("%s:%s:%s", "azure-nextgen", moduleName, resource.typeName)
-		aliases = append(aliases, pschema.AliasSpec{Type: &alias}, pschema.AliasSpec{Type: &nextGenAlias})
+		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
 	}
 
 	resourceSpec := pschema.ResourceSpec{
