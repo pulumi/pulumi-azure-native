@@ -101,7 +101,7 @@ export class MDATPDataConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20200101:MDATPDataConnector" }, { type: "azure-native:securityinsights:MDATPDataConnector" }, { type: "azure-nextgen:securityinsights:MDATPDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MDATPDataConnector" }, { type: "azure-nextgen:securityinsights/v20190101preview:MDATPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:MDATPDataConnector" }, { type: "azure-nextgen:securityinsights/v20210301preview:MDATPDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MDATPDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MDATPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:MDATPDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MDATPDataConnector.__pulumiType, name, inputs, opts);
     }

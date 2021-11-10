@@ -106,7 +106,7 @@ export class Anomalies extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:Anomalies" }, { type: "azure-native:securityinsights/v20190101preview:Anomalies" }, { type: "azure-nextgen:securityinsights/v20190101preview:Anomalies" }, { type: "azure-native:securityinsights/v20210301preview:Anomalies" }, { type: "azure-nextgen:securityinsights/v20210301preview:Anomalies" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Anomalies" }, { type: "azure-native:securityinsights/v20210301preview:Anomalies" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Anomalies.__pulumiType, name, inputs, opts);
     }

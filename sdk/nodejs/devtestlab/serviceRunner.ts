@@ -91,7 +91,7 @@ export class ServiceRunner extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:ServiceRunner" }, { type: "azure-native:devtestlab/v20160515:ServiceRunner" }, { type: "azure-nextgen:devtestlab/v20160515:ServiceRunner" }, { type: "azure-native:devtestlab/v20180915:ServiceRunner" }, { type: "azure-nextgen:devtestlab/v20180915:ServiceRunner" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20160515:ServiceRunner" }, { type: "azure-native:devtestlab/v20180915:ServiceRunner" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceRunner.__pulumiType, name, inputs, opts);
     }

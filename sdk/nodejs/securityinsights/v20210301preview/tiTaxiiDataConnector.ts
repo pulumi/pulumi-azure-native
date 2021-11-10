@@ -168,7 +168,7 @@ export class TiTaxiiDataConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20210301preview:TiTaxiiDataConnector" }, { type: "azure-native:securityinsights:TiTaxiiDataConnector" }, { type: "azure-nextgen:securityinsights:TiTaxiiDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:TiTaxiiDataConnector" }, { type: "azure-nextgen:securityinsights/v20190101preview:TiTaxiiDataConnector" }, { type: "azure-native:securityinsights/v20200101:TiTaxiiDataConnector" }, { type: "azure-nextgen:securityinsights/v20200101:TiTaxiiDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:TiTaxiiDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:TiTaxiiDataConnector" }, { type: "azure-native:securityinsights/v20200101:TiTaxiiDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TiTaxiiDataConnector.__pulumiType, name, inputs, opts);
     }

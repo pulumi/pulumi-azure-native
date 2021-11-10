@@ -151,8 +151,6 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SiteInstanceDeploymentSlot.__pulumiType, name, inputs, opts);
     }
 }

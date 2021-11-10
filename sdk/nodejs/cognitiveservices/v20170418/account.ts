@@ -111,7 +111,7 @@ export class Account extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cognitiveservices/v20170418:Account" }, { type: "azure-native:cognitiveservices:Account" }, { type: "azure-nextgen:cognitiveservices:Account" }, { type: "azure-native:cognitiveservices/v20160201preview:Account" }, { type: "azure-nextgen:cognitiveservices/v20160201preview:Account" }, { type: "azure-native:cognitiveservices/v20210430:Account" }, { type: "azure-nextgen:cognitiveservices/v20210430:Account" }, { type: "azure-native:cognitiveservices/v20211001:Account" }, { type: "azure-nextgen:cognitiveservices/v20211001:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:Account" }, { type: "azure-native:cognitiveservices/v20160201preview:Account" }, { type: "azure-native:cognitiveservices/v20210430:Account" }, { type: "azure-native:cognitiveservices/v20211001:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, inputs, opts);
     }

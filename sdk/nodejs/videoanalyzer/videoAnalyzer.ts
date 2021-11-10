@@ -118,7 +118,7 @@ export class VideoAnalyzer extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:videoanalyzer:VideoAnalyzer" }, { type: "azure-native:videoanalyzer/v20210501preview:VideoAnalyzer" }, { type: "azure-nextgen:videoanalyzer/v20210501preview:VideoAnalyzer" }, { type: "azure-native:videoanalyzer/v20211101preview:VideoAnalyzer" }, { type: "azure-nextgen:videoanalyzer/v20211101preview:VideoAnalyzer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer/v20210501preview:VideoAnalyzer" }, { type: "azure-native:videoanalyzer/v20211101preview:VideoAnalyzer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VideoAnalyzer.__pulumiType, name, inputs, opts);
     }

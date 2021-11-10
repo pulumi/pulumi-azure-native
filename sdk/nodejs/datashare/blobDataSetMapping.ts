@@ -166,7 +166,7 @@ export class BlobDataSetMapping extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare:BlobDataSetMapping" }, { type: "azure-native:datashare/v20181101preview:BlobDataSetMapping" }, { type: "azure-nextgen:datashare/v20181101preview:BlobDataSetMapping" }, { type: "azure-native:datashare/v20191101:BlobDataSetMapping" }, { type: "azure-nextgen:datashare/v20191101:BlobDataSetMapping" }, { type: "azure-native:datashare/v20200901:BlobDataSetMapping" }, { type: "azure-nextgen:datashare/v20200901:BlobDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:BlobDataSetMapping" }, { type: "azure-nextgen:datashare/v20201001preview:BlobDataSetMapping" }, { type: "azure-native:datashare/v20210801:BlobDataSetMapping" }, { type: "azure-nextgen:datashare/v20210801:BlobDataSetMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:BlobDataSetMapping" }, { type: "azure-native:datashare/v20191101:BlobDataSetMapping" }, { type: "azure-native:datashare/v20200901:BlobDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:BlobDataSetMapping" }, { type: "azure-native:datashare/v20210801:BlobDataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobDataSetMapping.__pulumiType, name, inputs, opts);
     }

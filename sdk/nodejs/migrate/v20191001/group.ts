@@ -88,7 +88,7 @@ export class Group extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate/v20191001:Group" }, { type: "azure-native:migrate:Group" }, { type: "azure-nextgen:migrate:Group" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate:Group" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Group.__pulumiType, name, inputs, opts);
     }

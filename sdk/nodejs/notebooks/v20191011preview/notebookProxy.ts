@@ -111,7 +111,7 @@ export class NotebookProxy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:notebooks/v20191011preview:NotebookProxy" }, { type: "azure-native:notebooks:NotebookProxy" }, { type: "azure-nextgen:notebooks:NotebookProxy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notebooks:NotebookProxy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotebookProxy.__pulumiType, name, inputs, opts);
     }

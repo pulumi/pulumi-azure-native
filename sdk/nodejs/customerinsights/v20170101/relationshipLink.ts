@@ -151,7 +151,7 @@ export class RelationshipLink extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170101:RelationshipLink" }, { type: "azure-native:customerinsights:RelationshipLink" }, { type: "azure-nextgen:customerinsights:RelationshipLink" }, { type: "azure-native:customerinsights/v20170426:RelationshipLink" }, { type: "azure-nextgen:customerinsights/v20170426:RelationshipLink" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:RelationshipLink" }, { type: "azure-native:customerinsights/v20170426:RelationshipLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RelationshipLink.__pulumiType, name, inputs, opts);
     }

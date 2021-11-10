@@ -106,7 +106,7 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting" }, { type: "azure-native:insights:SubscriptionDiagnosticSetting" }, { type: "azure-nextgen:insights:SubscriptionDiagnosticSetting" }, { type: "azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting" }, { type: "azure-nextgen:insights/v20210501preview:SubscriptionDiagnosticSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:SubscriptionDiagnosticSetting" }, { type: "azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubscriptionDiagnosticSetting.__pulumiType, name, inputs, opts);
     }

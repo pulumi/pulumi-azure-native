@@ -81,7 +81,7 @@ export class RegistrationDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:managedservices/v20200201preview:RegistrationDefinition" }, { type: "azure-native:managedservices:RegistrationDefinition" }, { type: "azure-nextgen:managedservices:RegistrationDefinition" }, { type: "azure-native:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190901:RegistrationDefinition" }, { type: "azure-nextgen:managedservices/v20190901:RegistrationDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managedservices:RegistrationDefinition" }, { type: "azure-native:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190901:RegistrationDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistrationDefinition.__pulumiType, name, inputs, opts);
     }

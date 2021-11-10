@@ -101,7 +101,7 @@ export class PrivateEndpointConnectionsForSCCPowershell extends pulumi.CustomRes
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:m365securityandcompliance:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsForSCCPowershell" }, { type: "azure-nextgen:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsForSCCPowershell" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsForSCCPowershell" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionsForSCCPowershell.__pulumiType, name, inputs, opts);
     }

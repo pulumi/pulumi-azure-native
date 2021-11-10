@@ -171,7 +171,7 @@ export class FluxConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kubernetesconfiguration/v20211101preview:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration:FluxConfiguration" }, { type: "azure-nextgen:kubernetesconfiguration:FluxConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration:FluxConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FluxConfiguration.__pulumiType, name, inputs, opts);
     }

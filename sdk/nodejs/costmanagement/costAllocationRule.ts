@@ -76,7 +76,7 @@ export class CostAllocationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement:CostAllocationRule" }, { type: "azure-native:costmanagement/v20200301preview:CostAllocationRule" }, { type: "azure-nextgen:costmanagement/v20200301preview:CostAllocationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20200301preview:CostAllocationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CostAllocationRule.__pulumiType, name, inputs, opts);
     }

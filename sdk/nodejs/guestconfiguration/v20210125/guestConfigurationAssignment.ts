@@ -91,7 +91,7 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:guestconfiguration/v20210125:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20180630preview:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20181120:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment" }, { type: "azure-nextgen:guestconfiguration/v20200625:GuestConfigurationAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestConfigurationAssignment.__pulumiType, name, inputs, opts);
     }

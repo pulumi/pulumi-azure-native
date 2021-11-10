@@ -124,7 +124,7 @@ export class RoleAssignmentArtifact extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:blueprint/v20181101preview:RoleAssignmentArtifact" }, { type: "azure-native:blueprint:RoleAssignmentArtifact" }, { type: "azure-nextgen:blueprint:RoleAssignmentArtifact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:blueprint:RoleAssignmentArtifact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RoleAssignmentArtifact.__pulumiType, name, inputs, opts);
     }

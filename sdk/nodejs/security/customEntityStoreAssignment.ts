@@ -88,7 +88,7 @@ export class CustomEntityStoreAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:CustomEntityStoreAssignment" }, { type: "azure-native:security/v20210701preview:CustomEntityStoreAssignment" }, { type: "azure-nextgen:security/v20210701preview:CustomEntityStoreAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20210701preview:CustomEntityStoreAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomEntityStoreAssignment.__pulumiType, name, inputs, opts);
     }

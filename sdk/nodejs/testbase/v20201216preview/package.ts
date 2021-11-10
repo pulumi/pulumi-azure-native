@@ -187,7 +187,7 @@ export class Package extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:testbase/v20201216preview:Package" }, { type: "azure-native:testbase:Package" }, { type: "azure-nextgen:testbase:Package" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase:Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Package.__pulumiType, name, inputs, opts);
     }

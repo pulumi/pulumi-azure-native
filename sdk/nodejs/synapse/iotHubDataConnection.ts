@@ -161,7 +161,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:IotHubDataConnection" }, { type: "azure-native:synapse/v20210401preview:IotHubDataConnection" }, { type: "azure-nextgen:synapse/v20210401preview:IotHubDataConnection" }, { type: "azure-native:synapse/v20210601preview:IotHubDataConnection" }, { type: "azure-nextgen:synapse/v20210601preview:IotHubDataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:IotHubDataConnection" }, { type: "azure-native:synapse/v20210601preview:IotHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotHubDataConnection.__pulumiType, name, inputs, opts);
     }

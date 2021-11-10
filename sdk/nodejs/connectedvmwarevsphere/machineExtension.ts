@@ -139,7 +139,7 @@ export class MachineExtension extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:connectedvmwarevsphere:MachineExtension" }, { type: "azure-native:connectedvmwarevsphere/v20201001preview:MachineExtension" }, { type: "azure-nextgen:connectedvmwarevsphere/v20201001preview:MachineExtension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:MachineExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachineExtension.__pulumiType, name, inputs, opts);
     }

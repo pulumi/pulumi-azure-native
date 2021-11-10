@@ -124,7 +124,7 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20170301preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql:ServerSecurityAlertPolicy" }, { type: "azure-nextgen:sql:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20200202preview:ServerSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200202preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20200801preview:ServerSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20200801preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20201101preview:ServerSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20201101preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20210201preview:ServerSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20210201preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20210501preview:ServerSecurityAlertPolicy" }, { type: "azure-nextgen:sql/v20210501preview:ServerSecurityAlertPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20200202preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20200801preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20201101preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20210201preview:ServerSecurityAlertPolicy" }, { type: "azure-native:sql/v20210501preview:ServerSecurityAlertPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerSecurityAlertPolicy.__pulumiType, name, inputs, opts);
     }

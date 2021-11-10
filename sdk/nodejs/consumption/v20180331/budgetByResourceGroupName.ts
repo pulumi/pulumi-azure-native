@@ -129,7 +129,7 @@ export class BudgetByResourceGroupName extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:consumption/v20180331:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20180131:BudgetByResourceGroupName" }, { type: "azure-nextgen:consumption/v20180131:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20180630:BudgetByResourceGroupName" }, { type: "azure-nextgen:consumption/v20180630:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20180831:BudgetByResourceGroupName" }, { type: "azure-nextgen:consumption/v20180831:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20181001:BudgetByResourceGroupName" }, { type: "azure-nextgen:consumption/v20181001:BudgetByResourceGroupName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:consumption/v20180131:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20180630:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20180831:BudgetByResourceGroupName" }, { type: "azure-native:consumption/v20181001:BudgetByResourceGroupName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BudgetByResourceGroupName.__pulumiType, name, inputs, opts);
     }

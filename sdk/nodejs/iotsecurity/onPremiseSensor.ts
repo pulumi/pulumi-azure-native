@@ -72,7 +72,7 @@ export class OnPremiseSensor extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:iotsecurity:OnPremiseSensor" }, { type: "azure-native:iotsecurity/v20210201preview:OnPremiseSensor" }, { type: "azure-nextgen:iotsecurity/v20210201preview:OnPremiseSensor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotsecurity/v20210201preview:OnPremiseSensor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OnPremiseSensor.__pulumiType, name, inputs, opts);
     }

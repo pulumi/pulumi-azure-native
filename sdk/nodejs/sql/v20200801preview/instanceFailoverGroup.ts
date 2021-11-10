@@ -118,7 +118,7 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20200801preview:InstanceFailoverGroup" }, { type: "azure-native:sql:InstanceFailoverGroup" }, { type: "azure-nextgen:sql:InstanceFailoverGroup" }, { type: "azure-native:sql/v20171001preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20171001preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20201101preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20201101preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210201preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20210201preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210501preview:InstanceFailoverGroup" }, { type: "azure-nextgen:sql/v20210501preview:InstanceFailoverGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:InstanceFailoverGroup" }, { type: "azure-native:sql/v20171001preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20201101preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210201preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210501preview:InstanceFailoverGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InstanceFailoverGroup.__pulumiType, name, inputs, opts);
     }

@@ -124,7 +124,7 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sqlvirtualmachine:SqlVirtualMachineGroup" }, { type: "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup" }, { type: "azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlVirtualMachineGroup.__pulumiType, name, inputs, opts);
     }

@@ -83,7 +83,7 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:digitaltwins:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint" }, { type: "azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint" }, { type: "azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DigitalTwinsEndpoint.__pulumiType, name, inputs, opts);
     }

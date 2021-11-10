@@ -163,7 +163,7 @@ export class DefaultUserRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20210201preview:DefaultUserRule" }, { type: "azure-native:network:DefaultUserRule" }, { type: "azure-nextgen:network:DefaultUserRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:DefaultUserRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefaultUserRule.__pulumiType, name, inputs, opts);
     }

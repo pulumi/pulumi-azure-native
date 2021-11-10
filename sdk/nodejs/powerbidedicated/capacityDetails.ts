@@ -121,7 +121,7 @@ export class CapacityDetails extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbidedicated:CapacityDetails" }, { type: "azure-native:powerbidedicated/v20171001:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/v20171001:CapacityDetails" }, { type: "azure-native:powerbidedicated/v20210101:CapacityDetails" }, { type: "azure-nextgen:powerbidedicated/v20210101:CapacityDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:powerbidedicated/v20171001:CapacityDetails" }, { type: "azure-native:powerbidedicated/v20210101:CapacityDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CapacityDetails.__pulumiType, name, inputs, opts);
     }

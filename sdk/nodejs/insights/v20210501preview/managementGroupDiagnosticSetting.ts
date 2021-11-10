@@ -116,7 +116,7 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20210501preview:ManagementGroupDiagnosticSetting" }, { type: "azure-native:insights:ManagementGroupDiagnosticSetting" }, { type: "azure-nextgen:insights:ManagementGroupDiagnosticSetting" }, { type: "azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting" }, { type: "azure-nextgen:insights/v20200101preview:ManagementGroupDiagnosticSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ManagementGroupDiagnosticSetting" }, { type: "azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementGroupDiagnosticSetting.__pulumiType, name, inputs, opts);
     }

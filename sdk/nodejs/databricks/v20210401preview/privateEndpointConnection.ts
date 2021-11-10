@@ -82,7 +82,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databricks/v20210401preview:PrivateEndpointConnection" }, { type: "azure-native:databricks:PrivateEndpointConnection" }, { type: "azure-nextgen:databricks:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databricks:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

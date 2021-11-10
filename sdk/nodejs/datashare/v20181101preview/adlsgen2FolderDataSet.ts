@@ -137,7 +137,7 @@ export class ADLSGen2FolderDataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare:ADLSGen2FolderDataSet" }, { type: "azure-nextgen:datashare:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20191101:ADLSGen2FolderDataSet" }, { type: "azure-nextgen:datashare/v20191101:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20200901:ADLSGen2FolderDataSet" }, { type: "azure-nextgen:datashare/v20200901:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSet" }, { type: "azure-nextgen:datashare/v20201001preview:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen2FolderDataSet" }, { type: "azure-nextgen:datashare/v20210801:ADLSGen2FolderDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20191101:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20200901:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen2FolderDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ADLSGen2FolderDataSet.__pulumiType, name, inputs, opts);
     }

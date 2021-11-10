@@ -166,7 +166,7 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery" }, { type: "azure-nextgen:securityinsights/v20210301preview:ActivityCustomEntityQuery" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActivityCustomEntityQuery.__pulumiType, name, inputs, opts);
     }

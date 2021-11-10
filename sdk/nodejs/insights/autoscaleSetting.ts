@@ -115,7 +115,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:AutoscaleSetting" }, { type: "azure-native:insights/v20140401:AutoscaleSetting" }, { type: "azure-nextgen:insights/v20140401:AutoscaleSetting" }, { type: "azure-native:insights/v20150401:AutoscaleSetting" }, { type: "azure-nextgen:insights/v20150401:AutoscaleSetting" }, { type: "azure-native:insights/v20210501preview:AutoscaleSetting" }, { type: "azure-nextgen:insights/v20210501preview:AutoscaleSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20140401:AutoscaleSetting" }, { type: "azure-native:insights/v20150401:AutoscaleSetting" }, { type: "azure-native:insights/v20210501preview:AutoscaleSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AutoscaleSetting.__pulumiType, name, inputs, opts);
     }

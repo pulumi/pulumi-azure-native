@@ -98,7 +98,7 @@ export class Addon extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge:Addon" }, { type: "azure-native:databoxedge/v20200901:Addon" }, { type: "azure-nextgen:databoxedge/v20200901:Addon" }, { type: "azure-native:databoxedge/v20200901preview:Addon" }, { type: "azure-nextgen:databoxedge/v20200901preview:Addon" }, { type: "azure-native:databoxedge/v20201201:Addon" }, { type: "azure-nextgen:databoxedge/v20201201:Addon" }, { type: "azure-native:databoxedge/v20210201:Addon" }, { type: "azure-nextgen:databoxedge/v20210201:Addon" }, { type: "azure-native:databoxedge/v20210201preview:Addon" }, { type: "azure-nextgen:databoxedge/v20210201preview:Addon" }, { type: "azure-native:databoxedge/v20210601:Addon" }, { type: "azure-nextgen:databoxedge/v20210601:Addon" }, { type: "azure-native:databoxedge/v20210601preview:Addon" }, { type: "azure-nextgen:databoxedge/v20210601preview:Addon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge/v20200901:Addon" }, { type: "azure-native:databoxedge/v20200901preview:Addon" }, { type: "azure-native:databoxedge/v20201201:Addon" }, { type: "azure-native:databoxedge/v20210201:Addon" }, { type: "azure-native:databoxedge/v20210201preview:Addon" }, { type: "azure-native:databoxedge/v20210601:Addon" }, { type: "azure-native:databoxedge/v20210601preview:Addon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Addon.__pulumiType, name, inputs, opts);
     }

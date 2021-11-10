@@ -147,7 +147,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:connectedvmwarevsphere/v20201001preview:VirtualNetwork" }, { type: "azure-native:connectedvmwarevsphere:VirtualNetwork" }, { type: "azure-nextgen:connectedvmwarevsphere:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:VirtualNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetwork.__pulumiType, name, inputs, opts);
     }

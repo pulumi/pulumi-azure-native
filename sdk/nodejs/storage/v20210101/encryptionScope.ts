@@ -109,7 +109,7 @@ export class EncryptionScope extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storage/v20210101:EncryptionScope" }, { type: "azure-native:storage:EncryptionScope" }, { type: "azure-nextgen:storage:EncryptionScope" }, { type: "azure-native:storage/v20190601:EncryptionScope" }, { type: "azure-nextgen:storage/v20190601:EncryptionScope" }, { type: "azure-native:storage/v20200801preview:EncryptionScope" }, { type: "azure-nextgen:storage/v20200801preview:EncryptionScope" }, { type: "azure-native:storage/v20210201:EncryptionScope" }, { type: "azure-nextgen:storage/v20210201:EncryptionScope" }, { type: "azure-native:storage/v20210401:EncryptionScope" }, { type: "azure-nextgen:storage/v20210401:EncryptionScope" }, { type: "azure-native:storage/v20210601:EncryptionScope" }, { type: "azure-nextgen:storage/v20210601:EncryptionScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storage:EncryptionScope" }, { type: "azure-native:storage/v20190601:EncryptionScope" }, { type: "azure-native:storage/v20200801preview:EncryptionScope" }, { type: "azure-native:storage/v20210201:EncryptionScope" }, { type: "azure-native:storage/v20210401:EncryptionScope" }, { type: "azure-native:storage/v20210601:EncryptionScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EncryptionScope.__pulumiType, name, inputs, opts);
     }

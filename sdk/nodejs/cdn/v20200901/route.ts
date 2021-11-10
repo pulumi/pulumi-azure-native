@@ -167,7 +167,7 @@ export class Route extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn/v20200901:Route" }, { type: "azure-native:cdn:Route" }, { type: "azure-nextgen:cdn:Route" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn:Route" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Route.__pulumiType, name, inputs, opts);
     }

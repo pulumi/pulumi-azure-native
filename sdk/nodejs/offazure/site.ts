@@ -91,7 +91,7 @@ export class Site extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:offazure:Site" }, { type: "azure-native:offazure/v20200101:Site" }, { type: "azure-nextgen:offazure/v20200101:Site" }, { type: "azure-native:offazure/v20200707:Site" }, { type: "azure-nextgen:offazure/v20200707:Site" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:Site" }, { type: "azure-native:offazure/v20200707:Site" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Site.__pulumiType, name, inputs, opts);
     }

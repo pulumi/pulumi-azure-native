@@ -136,7 +136,7 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20210201preview:ConnectivityConfiguration" }, { type: "azure-native:network:ConnectivityConfiguration" }, { type: "azure-nextgen:network:ConnectivityConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:ConnectivityConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectivityConfiguration.__pulumiType, name, inputs, opts);
     }

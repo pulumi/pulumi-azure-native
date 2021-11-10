@@ -73,7 +73,7 @@ export class HyperVCollector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate:HyperVCollector" }, { type: "azure-native:migrate/v20191001:HyperVCollector" }, { type: "azure-nextgen:migrate/v20191001:HyperVCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:HyperVCollector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HyperVCollector.__pulumiType, name, inputs, opts);
     }

@@ -105,7 +105,7 @@ export class CassandraResourceCassandraView extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:documentdb:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20210701preview:CassandraResourceCassandraView" }, { type: "azure-nextgen:documentdb/v20210701preview:CassandraResourceCassandraView" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210701preview:CassandraResourceCassandraView" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CassandraResourceCassandraView.__pulumiType, name, inputs, opts);
     }

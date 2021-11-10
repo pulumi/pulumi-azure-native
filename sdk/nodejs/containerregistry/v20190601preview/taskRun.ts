@@ -116,7 +116,7 @@ export class TaskRun extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:containerregistry/v20190601preview:TaskRun" }, { type: "azure-native:containerregistry:TaskRun" }, { type: "azure-nextgen:containerregistry:TaskRun" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:TaskRun" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TaskRun.__pulumiType, name, inputs, opts);
     }

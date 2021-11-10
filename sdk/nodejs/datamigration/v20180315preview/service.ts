@@ -120,7 +120,7 @@ export class Service extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration/v20180315preview:Service" }, { type: "azure-native:datamigration:Service" }, { type: "azure-nextgen:datamigration:Service" }, { type: "azure-native:datamigration/v20171115preview:Service" }, { type: "azure-nextgen:datamigration/v20171115preview:Service" }, { type: "azure-native:datamigration/v20180331preview:Service" }, { type: "azure-nextgen:datamigration/v20180331preview:Service" }, { type: "azure-native:datamigration/v20180419:Service" }, { type: "azure-nextgen:datamigration/v20180419:Service" }, { type: "azure-native:datamigration/v20180715preview:Service" }, { type: "azure-nextgen:datamigration/v20180715preview:Service" }, { type: "azure-native:datamigration/v20210630:Service" }, { type: "azure-nextgen:datamigration/v20210630:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration:Service" }, { type: "azure-native:datamigration/v20171115preview:Service" }, { type: "azure-native:datamigration/v20180331preview:Service" }, { type: "azure-native:datamigration/v20180419:Service" }, { type: "azure-native:datamigration/v20180715preview:Service" }, { type: "azure-native:datamigration/v20210630:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, inputs, opts);
     }

@@ -295,7 +295,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab:VirtualMachine" }, { type: "azure-native:devtestlab/v20150521preview:VirtualMachine" }, { type: "azure-nextgen:devtestlab/v20150521preview:VirtualMachine" }, { type: "azure-native:devtestlab/v20160515:VirtualMachine" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualMachine" }, { type: "azure-native:devtestlab/v20180915:VirtualMachine" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20150521preview:VirtualMachine" }, { type: "azure-native:devtestlab/v20160515:VirtualMachine" }, { type: "azure-native:devtestlab/v20180915:VirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }

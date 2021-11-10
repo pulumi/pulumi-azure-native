@@ -173,7 +173,7 @@ export class PartnerRegistration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid/v20210601preview:PartnerRegistration" }, { type: "azure-native:eventgrid:PartnerRegistration" }, { type: "azure-nextgen:eventgrid:PartnerRegistration" }, { type: "azure-native:eventgrid/v20200401preview:PartnerRegistration" }, { type: "azure-nextgen:eventgrid/v20200401preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20201015preview:PartnerRegistration" }, { type: "azure-nextgen:eventgrid/v20201015preview:PartnerRegistration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:PartnerRegistration" }, { type: "azure-native:eventgrid/v20200401preview:PartnerRegistration" }, { type: "azure-native:eventgrid/v20201015preview:PartnerRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerRegistration.__pulumiType, name, inputs, opts);
     }

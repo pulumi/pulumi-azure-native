@@ -138,7 +138,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse/v20210401preview:DatabasePrincipalAssignment" }, { type: "azure-native:synapse:DatabasePrincipalAssignment" }, { type: "azure-nextgen:synapse:DatabasePrincipalAssignment" }, { type: "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment" }, { type: "azure-nextgen:synapse/v20210601preview:DatabasePrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse:DatabasePrincipalAssignment" }, { type: "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabasePrincipalAssignment.__pulumiType, name, inputs, opts);
     }

@@ -168,7 +168,7 @@ export class SourceControl extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20210301preview:SourceControl" }, { type: "azure-native:securityinsights:SourceControl" }, { type: "azure-nextgen:securityinsights:SourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:SourceControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SourceControl.__pulumiType, name, inputs, opts);
     }

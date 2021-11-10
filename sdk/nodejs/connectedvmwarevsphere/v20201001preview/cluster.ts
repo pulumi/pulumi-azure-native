@@ -159,7 +159,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:connectedvmwarevsphere/v20201001preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere:Cluster" }, { type: "azure-nextgen:connectedvmwarevsphere:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, inputs, opts);
     }

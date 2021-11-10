@@ -122,7 +122,7 @@ export class Share extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare:Share" }, { type: "azure-native:datashare/v20181101preview:Share" }, { type: "azure-nextgen:datashare/v20181101preview:Share" }, { type: "azure-native:datashare/v20191101:Share" }, { type: "azure-nextgen:datashare/v20191101:Share" }, { type: "azure-native:datashare/v20200901:Share" }, { type: "azure-nextgen:datashare/v20200901:Share" }, { type: "azure-native:datashare/v20201001preview:Share" }, { type: "azure-nextgen:datashare/v20201001preview:Share" }, { type: "azure-native:datashare/v20210801:Share" }, { type: "azure-nextgen:datashare/v20210801:Share" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare/v20181101preview:Share" }, { type: "azure-native:datashare/v20191101:Share" }, { type: "azure-native:datashare/v20200901:Share" }, { type: "azure-native:datashare/v20201001preview:Share" }, { type: "azure-native:datashare/v20210801:Share" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Share.__pulumiType, name, inputs, opts);
     }

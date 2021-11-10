@@ -75,7 +75,7 @@ export class DeviceGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:iotsecurity/v20210201preview:DeviceGroup" }, { type: "azure-native:iotsecurity:DeviceGroup" }, { type: "azure-nextgen:iotsecurity:DeviceGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotsecurity:DeviceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DeviceGroup.__pulumiType, name, inputs, opts);
     }

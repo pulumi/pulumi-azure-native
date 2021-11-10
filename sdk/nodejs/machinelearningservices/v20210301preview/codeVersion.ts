@@ -91,7 +91,7 @@ export class CodeVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20210301preview:CodeVersion" }, { type: "azure-native:machinelearningservices:CodeVersion" }, { type: "azure-nextgen:machinelearningservices:CodeVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:CodeVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodeVersion.__pulumiType, name, inputs, opts);
     }

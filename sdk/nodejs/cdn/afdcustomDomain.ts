@@ -122,7 +122,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cdn:AFDCustomDomain" }, { type: "azure-native:cdn/v20200901:AFDCustomDomain" }, { type: "azure-nextgen:cdn/v20200901:AFDCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDCustomDomain.__pulumiType, name, inputs, opts);
     }

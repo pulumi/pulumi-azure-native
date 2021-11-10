@@ -96,7 +96,7 @@ export class WorkloadNetworkPublicIP extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs/v20210601:WorkloadNetworkPublicIP" }, { type: "azure-native:avs:WorkloadNetworkPublicIP" }, { type: "azure-nextgen:avs:WorkloadNetworkPublicIP" }, { type: "azure-native:avs/v20211201:WorkloadNetworkPublicIP" }, { type: "azure-nextgen:avs/v20211201:WorkloadNetworkPublicIP" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkPublicIP" }, { type: "azure-native:avs/v20211201:WorkloadNetworkPublicIP" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkloadNetworkPublicIP.__pulumiType, name, inputs, opts);
     }

@@ -106,7 +106,7 @@ export class PartnerNamespace extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventgrid/v20200401preview:PartnerNamespace" }, { type: "azure-native:eventgrid:PartnerNamespace" }, { type: "azure-nextgen:eventgrid:PartnerNamespace" }, { type: "azure-native:eventgrid/v20201015preview:PartnerNamespace" }, { type: "azure-nextgen:eventgrid/v20201015preview:PartnerNamespace" }, { type: "azure-native:eventgrid/v20210601preview:PartnerNamespace" }, { type: "azure-nextgen:eventgrid/v20210601preview:PartnerNamespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:PartnerNamespace" }, { type: "azure-native:eventgrid/v20201015preview:PartnerNamespace" }, { type: "azure-native:eventgrid/v20210601preview:PartnerNamespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerNamespace.__pulumiType, name, inputs, opts);
     }

@@ -96,7 +96,7 @@ export class PowerBIResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:powerbi/v20200601:PowerBIResource" }, { type: "azure-native:powerbi:PowerBIResource" }, { type: "azure-nextgen:powerbi:PowerBIResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:powerbi:PowerBIResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PowerBIResource.__pulumiType, name, inputs, opts);
     }

@@ -97,7 +97,7 @@ export class ProductSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20190101preview:ProductSetting" }, { type: "azure-native:securityinsights:ProductSetting" }, { type: "azure-nextgen:securityinsights:ProductSetting" }, { type: "azure-native:securityinsights/v20210301preview:ProductSetting" }, { type: "azure-nextgen:securityinsights/v20210301preview:ProductSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ProductSetting" }, { type: "azure-native:securityinsights/v20210301preview:ProductSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductSetting.__pulumiType, name, inputs, opts);
     }

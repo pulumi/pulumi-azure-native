@@ -100,7 +100,7 @@ export class ServerKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20200101:ServerKey" }, { type: "azure-native:dbformysql:ServerKey" }, { type: "azure-nextgen:dbformysql:ServerKey" }, { type: "azure-native:dbformysql/v20200101privatepreview:ServerKey" }, { type: "azure-nextgen:dbformysql/v20200101privatepreview:ServerKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql:ServerKey" }, { type: "azure-native:dbformysql/v20200101privatepreview:ServerKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerKey.__pulumiType, name, inputs, opts);
     }

@@ -199,7 +199,7 @@ export class AzurePowerShellScript extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20201001:AzurePowerShellScript" }, { type: "azure-native:resources:AzurePowerShellScript" }, { type: "azure-nextgen:resources:AzurePowerShellScript" }, { type: "azure-native:resources/v20191001preview:AzurePowerShellScript" }, { type: "azure-nextgen:resources/v20191001preview:AzurePowerShellScript" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources:AzurePowerShellScript" }, { type: "azure-native:resources/v20191001preview:AzurePowerShellScript" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzurePowerShellScript.__pulumiType, name, inputs, opts);
     }

@@ -148,7 +148,7 @@ export class Disk extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20160515:Disk" }, { type: "azure-native:devtestlab:Disk" }, { type: "azure-nextgen:devtestlab:Disk" }, { type: "azure-native:devtestlab/v20180915:Disk" }, { type: "azure-nextgen:devtestlab/v20180915:Disk" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Disk" }, { type: "azure-native:devtestlab/v20180915:Disk" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Disk.__pulumiType, name, inputs, opts);
     }

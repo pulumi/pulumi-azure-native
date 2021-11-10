@@ -115,7 +115,7 @@ export class VirtualNetworkResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20150521preview:VirtualNetworkResource" }, { type: "azure-native:devtestlab:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab:VirtualNetworkResource" }, { type: "azure-native:devtestlab/v20160515:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab/v20160515:VirtualNetworkResource" }, { type: "azure-native:devtestlab/v20180915:VirtualNetworkResource" }, { type: "azure-nextgen:devtestlab/v20180915:VirtualNetworkResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualNetworkResource" }, { type: "azure-native:devtestlab/v20160515:VirtualNetworkResource" }, { type: "azure-native:devtestlab/v20180915:VirtualNetworkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkResource.__pulumiType, name, inputs, opts);
     }

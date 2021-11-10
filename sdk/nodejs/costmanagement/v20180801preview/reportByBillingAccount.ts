@@ -105,7 +105,7 @@ export class ReportByBillingAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement/v20180801preview:ReportByBillingAccount" }, { type: "azure-native:costmanagement:ReportByBillingAccount" }, { type: "azure-nextgen:costmanagement:ReportByBillingAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ReportByBillingAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReportByBillingAccount.__pulumiType, name, inputs, opts);
     }

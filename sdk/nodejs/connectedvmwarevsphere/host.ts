@@ -148,7 +148,7 @@ export class Host extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:connectedvmwarevsphere:Host" }, { type: "azure-native:connectedvmwarevsphere/v20201001preview:Host" }, { type: "azure-nextgen:connectedvmwarevsphere/v20201001preview:Host" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:Host" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Host.__pulumiType, name, inputs, opts);
     }

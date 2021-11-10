@@ -89,7 +89,7 @@ export class Trigger extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datafactory:Trigger" }, { type: "azure-native:datafactory/v20170901preview:Trigger" }, { type: "azure-nextgen:datafactory/v20170901preview:Trigger" }, { type: "azure-native:datafactory/v20180601:Trigger" }, { type: "azure-nextgen:datafactory/v20180601:Trigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datafactory/v20170901preview:Trigger" }, { type: "azure-native:datafactory/v20180601:Trigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Trigger.__pulumiType, name, inputs, opts);
     }

@@ -148,7 +148,7 @@ export class Datastore extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:connectedvmwarevsphere:Datastore" }, { type: "azure-native:connectedvmwarevsphere/v20201001preview:Datastore" }, { type: "azure-nextgen:connectedvmwarevsphere/v20201001preview:Datastore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:Datastore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Datastore.__pulumiType, name, inputs, opts);
     }

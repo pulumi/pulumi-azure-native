@@ -124,7 +124,7 @@ export class SecurityConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:SecurityConnector" }, { type: "azure-native:security/v20210701preview:SecurityConnector" }, { type: "azure-nextgen:security/v20210701preview:SecurityConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20210701preview:SecurityConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityConnector.__pulumiType, name, inputs, opts);
     }

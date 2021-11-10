@@ -91,8 +91,6 @@ export class PrivateEndpointConnectionControllerPrivateEndpointConnection extend
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionControllerPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }
 }

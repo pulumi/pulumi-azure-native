@@ -100,7 +100,7 @@ export class PrivateEndpointConnectionByWorkspace extends pulumi.CustomResource 
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace" }, { type: "azure-nextgen:desktopvirtualization:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace" }, { type: "azure-nextgen:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace" }, { type: "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionByWorkspace.__pulumiType, name, inputs, opts);
     }

@@ -190,7 +190,7 @@ export class ResourcePool extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:connectedvmwarevsphere:ResourcePool" }, { type: "azure-native:connectedvmwarevsphere/v20201001preview:ResourcePool" }, { type: "azure-nextgen:connectedvmwarevsphere/v20201001preview:ResourcePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:ResourcePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ResourcePool.__pulumiType, name, inputs, opts);
     }

@@ -106,7 +106,7 @@ export class JobAgent extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20201101preview:JobAgent" }, { type: "azure-native:sql:JobAgent" }, { type: "azure-nextgen:sql:JobAgent" }, { type: "azure-native:sql/v20170301preview:JobAgent" }, { type: "azure-nextgen:sql/v20170301preview:JobAgent" }, { type: "azure-native:sql/v20200202preview:JobAgent" }, { type: "azure-nextgen:sql/v20200202preview:JobAgent" }, { type: "azure-native:sql/v20200801preview:JobAgent" }, { type: "azure-nextgen:sql/v20200801preview:JobAgent" }, { type: "azure-native:sql/v20210201preview:JobAgent" }, { type: "azure-nextgen:sql/v20210201preview:JobAgent" }, { type: "azure-native:sql/v20210501preview:JobAgent" }, { type: "azure-nextgen:sql/v20210501preview:JobAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:JobAgent" }, { type: "azure-native:sql/v20170301preview:JobAgent" }, { type: "azure-native:sql/v20200202preview:JobAgent" }, { type: "azure-native:sql/v20200801preview:JobAgent" }, { type: "azure-native:sql/v20210201preview:JobAgent" }, { type: "azure-native:sql/v20210501preview:JobAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobAgent.__pulumiType, name, inputs, opts);
     }

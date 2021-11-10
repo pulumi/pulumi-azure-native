@@ -131,7 +131,7 @@ export class Job extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20180601preview:Job" }, { type: "azure-native:media:Job" }, { type: "azure-nextgen:media:Job" }, { type: "azure-native:media/v20180330preview:Job" }, { type: "azure-nextgen:media/v20180330preview:Job" }, { type: "azure-native:media/v20180701:Job" }, { type: "azure-nextgen:media/v20180701:Job" }, { type: "azure-native:media/v20200501:Job" }, { type: "azure-nextgen:media/v20200501:Job" }, { type: "azure-native:media/v20210601:Job" }, { type: "azure-nextgen:media/v20210601:Job" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:Job" }, { type: "azure-native:media/v20180330preview:Job" }, { type: "azure-native:media/v20180701:Job" }, { type: "azure-native:media/v20200501:Job" }, { type: "azure-native:media/v20210601:Job" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Job.__pulumiType, name, inputs, opts);
     }

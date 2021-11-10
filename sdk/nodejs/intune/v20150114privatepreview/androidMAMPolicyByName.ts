@@ -143,7 +143,7 @@ export class AndroidMAMPolicyByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName" }, { type: "azure-native:intune:AndroidMAMPolicyByName" }, { type: "azure-nextgen:intune:AndroidMAMPolicyByName" }, { type: "azure-native:intune/v20150114preview:AndroidMAMPolicyByName" }, { type: "azure-nextgen:intune/v20150114preview:AndroidMAMPolicyByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:intune:AndroidMAMPolicyByName" }, { type: "azure-native:intune/v20150114preview:AndroidMAMPolicyByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AndroidMAMPolicyByName.__pulumiType, name, inputs, opts);
     }
