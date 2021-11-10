@@ -37,145 +37,73 @@ func NewServiceEndpointPolicyDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180701:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:ServiceEndpointPolicyDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180801:ServiceEndpointPolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181001:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:ServiceEndpointPolicyDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181101:ServiceEndpointPolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181201:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:ServiceEndpointPolicyDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190201:ServiceEndpointPolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190401:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:ServiceEndpointPolicyDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190601:ServiceEndpointPolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190701:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:ServiceEndpointPolicyDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190801:ServiceEndpointPolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190901:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:ServiceEndpointPolicyDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191101:ServiceEndpointPolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:ServiceEndpointPolicyDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:ServiceEndpointPolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:ServiceEndpointPolicyDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:ServiceEndpointPolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:ServiceEndpointPolicyDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:ServiceEndpointPolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:ServiceEndpointPolicyDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:ServiceEndpointPolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:ServiceEndpointPolicyDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:ServiceEndpointPolicyDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:ServiceEndpointPolicyDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:ServiceEndpointPolicyDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:ServiceEndpointPolicyDefinition"),
 		},
 	})
 	opts = append(opts, aliases)

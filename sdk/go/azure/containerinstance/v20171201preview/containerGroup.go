@@ -46,85 +46,43 @@ func NewContainerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20171201preview:ContainerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerinstance:ContainerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerinstance:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerinstance/v20170801preview:ContainerGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20170801preview:ContainerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerinstance/v20171001preview:ContainerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20171001preview:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerinstance/v20180201preview:ContainerGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20180201preview:ContainerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerinstance/v20180401:ContainerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20180401:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerinstance/v20180601:ContainerGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20180601:ContainerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerinstance/v20180901:ContainerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20180901:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerinstance/v20181001:ContainerGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20181001:ContainerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerinstance/v20191201:ContainerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20191201:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerinstance/v20201101:ContainerGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20201101:ContainerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerinstance/v20210301:ContainerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20210301:ContainerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerinstance/v20210701:ContainerGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20210701:ContainerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerinstance/v20210901:ContainerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerinstance/v20210901:ContainerGroup"),
 		},
 	})
 	opts = append(opts, aliases)

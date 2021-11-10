@@ -37,73 +37,37 @@ func NewTag(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement:Tag"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:Tag"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Tag"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:Tag"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Tag"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Tag"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Tag"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:Tag"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Tag"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:Tag"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Tag"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Tag"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Tag"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Tag"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Tag"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:Tag"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:Tag"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:Tag"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:Tag"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:Tag"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:Tag"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:Tag"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:Tag"),
 		},
 	})
 	opts = append(opts, aliases)

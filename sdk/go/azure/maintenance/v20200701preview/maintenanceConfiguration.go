@@ -41,43 +41,22 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:maintenance/v20200701preview:MaintenanceConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:maintenance:MaintenanceConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maintenance:MaintenanceConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:maintenance/v20180601preview:MaintenanceConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:maintenance/v20180601preview:MaintenanceConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:maintenance/v20200401:MaintenanceConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maintenance/v20200401:MaintenanceConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:maintenance/v20210401preview:MaintenanceConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:maintenance/v20210401preview:MaintenanceConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:maintenance/v20210501:MaintenanceConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:maintenance/v20210501:MaintenanceConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:maintenance/v20210901preview:MaintenanceConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maintenance/v20210901preview:MaintenanceConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

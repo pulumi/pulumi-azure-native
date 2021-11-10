@@ -39,55 +39,28 @@ func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:HubVirtualNetworkConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:HubVirtualNetworkConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:HubVirtualNetworkConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:HubVirtualNetworkConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:HubVirtualNetworkConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:HubVirtualNetworkConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:HubVirtualNetworkConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:HubVirtualNetworkConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:HubVirtualNetworkConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:HubVirtualNetworkConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:HubVirtualNetworkConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:HubVirtualNetworkConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:HubVirtualNetworkConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:HubVirtualNetworkConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:HubVirtualNetworkConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:HubVirtualNetworkConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:HubVirtualNetworkConnection"),
 		},
 	})
 	opts = append(opts, aliases)

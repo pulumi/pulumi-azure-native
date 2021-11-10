@@ -40,13 +40,7 @@ func NewTransactionNode(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:blockchain/v20180601preview:TransactionNode"),
-		},
-		{
 			Type: pulumi.String("azure-native:blockchain:TransactionNode"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:blockchain:TransactionNode"),
 		},
 	})
 	opts = append(opts, aliases)

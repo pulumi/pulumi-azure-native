@@ -48,49 +48,25 @@ func NewDatabaseSecurityAlertPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:DatabaseSecurityAlertPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:DatabaseSecurityAlertPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20140401:DatabaseSecurityAlertPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:DatabaseSecurityAlertPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:DatabaseSecurityAlertPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:DatabaseSecurityAlertPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:DatabaseSecurityAlertPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:DatabaseSecurityAlertPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:DatabaseSecurityAlertPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

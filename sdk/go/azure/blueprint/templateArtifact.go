@@ -50,13 +50,7 @@ func NewTemplateArtifact(ctx *pulumi.Context,
 	args.Kind = pulumi.String("template")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:blueprint:TemplateArtifact"),
-		},
-		{
 			Type: pulumi.String("azure-native:blueprint/v20181101preview:TemplateArtifact"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:blueprint/v20181101preview:TemplateArtifact"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -45,73 +45,37 @@ func NewCloudEdgeManagementRole(ctx *pulumi.Context,
 	args.Kind = pulumi.String("CloudEdgeManagement")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:CloudEdgeManagementRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:CloudEdgeManagementRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:CloudEdgeManagementRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:CloudEdgeManagementRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:CloudEdgeManagementRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:CloudEdgeManagementRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:CloudEdgeManagementRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:CloudEdgeManagementRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:CloudEdgeManagementRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:CloudEdgeManagementRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:CloudEdgeManagementRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:CloudEdgeManagementRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:CloudEdgeManagementRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:CloudEdgeManagementRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:CloudEdgeManagementRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:CloudEdgeManagementRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:CloudEdgeManagementRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:CloudEdgeManagementRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:CloudEdgeManagementRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:CloudEdgeManagementRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:CloudEdgeManagementRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:CloudEdgeManagementRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:CloudEdgeManagementRole"),
 		},
 	})
 	opts = append(opts, aliases)

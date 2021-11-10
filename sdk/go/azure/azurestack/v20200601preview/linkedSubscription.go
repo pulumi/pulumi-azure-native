@@ -48,13 +48,7 @@ func NewLinkedSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:azurestack/v20200601preview:LinkedSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurestack:LinkedSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:azurestack:LinkedSubscription"),
 		},
 	})
 	opts = append(opts, aliases)

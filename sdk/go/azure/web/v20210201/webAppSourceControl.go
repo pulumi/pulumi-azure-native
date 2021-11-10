@@ -41,79 +41,40 @@ func NewWebAppSourceControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppSourceControl"),
 		},
 	})
 	opts = append(opts, aliases)

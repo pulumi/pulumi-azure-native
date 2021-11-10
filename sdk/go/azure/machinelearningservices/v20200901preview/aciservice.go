@@ -51,37 +51,19 @@ func NewACIService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:ACIService"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices:ACIService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices:ACIService"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:ACIService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:ACIService"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200515preview:ACIService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200515preview:ACIService"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210101:ACIService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:ACIService"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210401:ACIService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210401:ACIService"),
 		},
 	})
 	opts = append(opts, aliases)

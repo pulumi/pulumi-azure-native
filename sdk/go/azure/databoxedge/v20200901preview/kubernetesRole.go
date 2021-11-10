@@ -57,73 +57,37 @@ func NewKubernetesRole(ctx *pulumi.Context,
 	args.Kind = pulumi.String("Kubernetes")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:KubernetesRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:KubernetesRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:KubernetesRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:KubernetesRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:KubernetesRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:KubernetesRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:KubernetesRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:KubernetesRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:KubernetesRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:KubernetesRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:KubernetesRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:KubernetesRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:KubernetesRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:KubernetesRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:KubernetesRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:KubernetesRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:KubernetesRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:KubernetesRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:KubernetesRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:KubernetesRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:KubernetesRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:KubernetesRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:KubernetesRole"),
 		},
 	})
 	opts = append(opts, aliases)

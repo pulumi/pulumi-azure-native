@@ -53,85 +53,43 @@ func NewApiOperation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:ApiOperation"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:ApiOperation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:ApiOperation"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:ApiOperation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:ApiOperation"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:ApiOperation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:ApiOperation"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiOperation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiOperation"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiOperation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiOperation"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiOperation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiOperation"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiOperation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiOperation"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiOperation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiOperation"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiOperation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiOperation"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiOperation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiOperation"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:ApiOperation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ApiOperation"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:ApiOperation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ApiOperation"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:ApiOperation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:ApiOperation"),
 		},
 	})
 	opts = append(opts, aliases)

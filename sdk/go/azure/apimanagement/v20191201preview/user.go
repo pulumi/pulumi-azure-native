@@ -53,85 +53,43 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:User"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:User"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:User"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:User"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:User"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:User"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:User"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:User"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:User"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:User"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:User"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:User"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:User"),
 		},
 	})
 	opts = append(opts, aliases)

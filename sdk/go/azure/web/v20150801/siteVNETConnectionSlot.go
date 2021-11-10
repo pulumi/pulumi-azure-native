@@ -45,79 +45,40 @@ func NewSiteVNETConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteVNETConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteVNETConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteVNETConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteVNETConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteVNETConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteVNETConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteVNETConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteVNETConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteVNETConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteVNETConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteVNETConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteVNETConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteVNETConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteVNETConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteVNETConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteVNETConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteVNETConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteVNETConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteVNETConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteVNETConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteVNETConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteVNETConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteVNETConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteVNETConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteVNETConnectionSlot"),
 		},
 	})
 	opts = append(opts, aliases)

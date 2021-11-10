@@ -36,13 +36,7 @@ func NewRuleSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:cdn:RuleSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20200901:RuleSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/v20200901:RuleSet"),
 		},
 	})
 	opts = append(opts, aliases)

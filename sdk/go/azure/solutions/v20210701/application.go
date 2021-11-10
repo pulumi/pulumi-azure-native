@@ -56,43 +56,22 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:solutions/v20210701:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:solutions:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:solutions:Application"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20160901preview:Application"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:solutions/v20160901preview:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:solutions/v20170901:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:solutions/v20170901:Application"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20180601:Application"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:solutions/v20180601:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:solutions/v20190701:Application"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:solutions/v20190701:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:solutions/v20200821preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:solutions/v20200821preview:Application"),
 		},
 	})
 	opts = append(opts, aliases)

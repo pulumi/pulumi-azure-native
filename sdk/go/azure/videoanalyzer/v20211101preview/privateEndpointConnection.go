@@ -40,13 +40,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer/v20211101preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:videoanalyzer:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

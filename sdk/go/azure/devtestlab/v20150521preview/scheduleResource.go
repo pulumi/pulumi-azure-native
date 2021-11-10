@@ -42,25 +42,13 @@ func NewScheduleResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:ScheduleResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab:ScheduleResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab:ScheduleResource"),
 		},
 		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:ScheduleResource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:ScheduleResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20180915:ScheduleResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ScheduleResource"),
 		},
 	})
 	opts = append(opts, aliases)

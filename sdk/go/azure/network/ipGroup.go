@@ -37,85 +37,43 @@ func NewIpGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network:IpGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190901:IpGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:IpGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191101:IpGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:IpGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:IpGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:IpGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:IpGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:IpGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:IpGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:IpGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:IpGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:IpGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:IpGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:IpGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:IpGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:IpGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:IpGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:IpGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:IpGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:IpGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:IpGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:IpGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:IpGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:IpGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:IpGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:IpGroup"),
 		},
 	})
 	opts = append(opts, aliases)

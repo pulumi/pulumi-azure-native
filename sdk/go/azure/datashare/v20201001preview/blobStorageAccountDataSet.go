@@ -52,37 +52,19 @@ func NewBlobStorageAccountDataSet(ctx *pulumi.Context,
 	args.Kind = pulumi.String("BlobStorageAccount")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:BlobStorageAccountDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare:BlobStorageAccountDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare:BlobStorageAccountDataSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20181101preview:BlobStorageAccountDataSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:BlobStorageAccountDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20191101:BlobStorageAccountDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20191101:BlobStorageAccountDataSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20200901:BlobStorageAccountDataSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20200901:BlobStorageAccountDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20210801:BlobStorageAccountDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20210801:BlobStorageAccountDataSet"),
 		},
 	})
 	opts = append(opts, aliases)

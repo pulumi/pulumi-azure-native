@@ -48,43 +48,22 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20140901:QueueAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus:QueueAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus:QueueAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicebus/v20150801:QueueAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20150801:QueueAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20170401:QueueAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20170401:QueueAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicebus/v20180101preview:QueueAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:QueueAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20210101preview:QueueAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210101preview:QueueAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20210601preview:QueueAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210601preview:QueueAuthorizationRule"),
 		},
 	})
 	opts = append(opts, aliases)

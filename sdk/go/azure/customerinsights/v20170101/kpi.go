@@ -67,19 +67,10 @@ func NewKpi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:customerinsights/v20170101:Kpi"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights:Kpi"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:customerinsights:Kpi"),
-		},
-		{
 			Type: pulumi.String("azure-native:customerinsights/v20170426:Kpi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customerinsights/v20170426:Kpi"),
 		},
 	})
 	opts = append(opts, aliases)

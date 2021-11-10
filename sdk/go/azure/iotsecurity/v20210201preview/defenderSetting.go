@@ -44,13 +44,7 @@ func NewDefenderSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:iotsecurity/v20210201preview:DefenderSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:iotsecurity:DefenderSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:iotsecurity:DefenderSetting"),
 		},
 	})
 	opts = append(opts, aliases)

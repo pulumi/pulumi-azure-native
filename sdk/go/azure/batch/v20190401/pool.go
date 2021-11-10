@@ -58,61 +58,31 @@ func NewPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:batch/v20190401:Pool"),
-		},
-		{
 			Type: pulumi.String("azure-native:batch:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batch:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-native:batch/v20170901:Pool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:batch/v20170901:Pool"),
-		},
-		{
 			Type: pulumi.String("azure-native:batch/v20181201:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batch/v20181201:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-native:batch/v20190801:Pool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:batch/v20190801:Pool"),
-		},
-		{
 			Type: pulumi.String("azure-native:batch/v20200301:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batch/v20200301:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-native:batch/v20200501:Pool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:batch/v20200501:Pool"),
-		},
-		{
 			Type: pulumi.String("azure-native:batch/v20200901:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batch/v20200901:Pool"),
 		},
 		{
 			Type: pulumi.String("azure-native:batch/v20210101:Pool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:batch/v20210101:Pool"),
-		},
-		{
 			Type: pulumi.String("azure-native:batch/v20210601:Pool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:batch/v20210601:Pool"),
 		},
 	})
 	opts = append(opts, aliases)

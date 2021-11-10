@@ -42,49 +42,25 @@ func NewAddon(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:Addon"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:Addon"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:Addon"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:Addon"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Addon"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Addon"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Addon"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:Addon"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Addon"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:Addon"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:Addon"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:Addon"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:Addon"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:Addon"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:Addon"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -63,61 +63,31 @@ func NewEventGridDataConnection(ctx *pulumi.Context,
 	args.Kind = pulumi.String("EventGrid")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20191109:EventGridDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto:EventGridDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto:EventGridDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190121:EventGridDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190121:EventGridDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20190515:EventGridDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190515:EventGridDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190907:EventGridDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190907:EventGridDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200215:EventGridDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200215:EventGridDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20200614:EventGridDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200614:EventGridDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200918:EventGridDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200918:EventGridDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20210101:EventGridDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210101:EventGridDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20210827:EventGridDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210827:EventGridDataConnection"),
 		},
 	})
 	opts = append(opts, aliases)

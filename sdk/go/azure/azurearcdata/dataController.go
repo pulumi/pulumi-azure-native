@@ -38,31 +38,16 @@ func NewDataController(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:azurearcdata:DataController"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurearcdata/v20210601preview:DataController"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20210601preview:DataController"),
 		},
 		{
 			Type: pulumi.String("azure-native:azurearcdata/v20210701preview:DataController"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20210701preview:DataController"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurearcdata/v20210801:DataController"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20210801:DataController"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurearcdata/v20211101:DataController"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20211101:DataController"),
 		},
 	})
 	opts = append(opts, aliases)

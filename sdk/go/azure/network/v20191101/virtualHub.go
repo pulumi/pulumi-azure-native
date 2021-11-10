@@ -45,157 +45,79 @@ func NewVirtualHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180401:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180401:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180601:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180701:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180701:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180801:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181001:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181101:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181201:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190201:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190401:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190601:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190701:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190801:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190901:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:VirtualHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:VirtualHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:VirtualHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:VirtualHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:VirtualHub"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -33,25 +33,13 @@ func NewActionRuleByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:alertsmanagement/v20190505preview:ActionRuleByName"),
-		},
-		{
 			Type: pulumi.String("azure-native:alertsmanagement:ActionRuleByName"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:alertsmanagement:ActionRuleByName"),
 		},
 		{
 			Type: pulumi.String("azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:alertsmanagement/v20181102privatepreview:ActionRuleByName"),
-		},
-		{
 			Type: pulumi.String("azure-native:alertsmanagement/v20210808preview:ActionRuleByName"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:alertsmanagement/v20210808preview:ActionRuleByName"),
 		},
 	})
 	opts = append(opts, aliases)

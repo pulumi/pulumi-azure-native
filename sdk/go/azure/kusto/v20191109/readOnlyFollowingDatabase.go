@@ -46,73 +46,37 @@ func NewReadOnlyFollowingDatabase(ctx *pulumi.Context,
 	args.Kind = pulumi.String("ReadOnlyFollowing")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20191109:ReadOnlyFollowingDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto:ReadOnlyFollowingDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto:ReadOnlyFollowingDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20180907preview:ReadOnlyFollowingDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190121:ReadOnlyFollowingDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190121:ReadOnlyFollowingDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20190515:ReadOnlyFollowingDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190515:ReadOnlyFollowingDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190907:ReadOnlyFollowingDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190907:ReadOnlyFollowingDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200215:ReadOnlyFollowingDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200215:ReadOnlyFollowingDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20200614:ReadOnlyFollowingDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200614:ReadOnlyFollowingDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200918:ReadOnlyFollowingDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200918:ReadOnlyFollowingDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20210101:ReadOnlyFollowingDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210101:ReadOnlyFollowingDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20210827:ReadOnlyFollowingDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210827:ReadOnlyFollowingDatabase"),
 		},
 	})
 	opts = append(opts, aliases)

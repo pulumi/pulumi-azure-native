@@ -36,19 +36,10 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20180601:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

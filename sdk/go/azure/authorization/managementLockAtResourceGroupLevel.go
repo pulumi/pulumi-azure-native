@@ -36,31 +36,16 @@ func NewManagementLockAtResourceGroupLevel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:authorization:ManagementLockAtResourceGroupLevel"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20150101:ManagementLockAtResourceGroupLevel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20150101:ManagementLockAtResourceGroupLevel"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20160901:ManagementLockAtResourceGroupLevel"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20160901:ManagementLockAtResourceGroupLevel"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20170401:ManagementLockAtResourceGroupLevel"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20200501:ManagementLockAtResourceGroupLevel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20200501:ManagementLockAtResourceGroupLevel"),
 		},
 	})
 	opts = append(opts, aliases)

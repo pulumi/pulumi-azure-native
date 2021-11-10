@@ -38,55 +38,28 @@ func NewDedicatedHostGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20191201:DedicatedHostGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:DedicatedHostGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute:DedicatedHostGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20190301:DedicatedHostGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20190301:DedicatedHostGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20190701:DedicatedHostGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20190701:DedicatedHostGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20200601:DedicatedHostGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20200601:DedicatedHostGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201201:DedicatedHostGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20201201:DedicatedHostGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20210301:DedicatedHostGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210301:DedicatedHostGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210401:DedicatedHostGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210401:DedicatedHostGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210701:DedicatedHostGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210701:DedicatedHostGroup"),
 		},
 	})
 	opts = append(opts, aliases)

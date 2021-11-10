@@ -40,13 +40,7 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210331preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210331preview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

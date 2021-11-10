@@ -34,13 +34,7 @@ func NewPartner(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:managementpartner:Partner"),
-		},
-		{
 			Type: pulumi.String("azure-native:managementpartner/v20180201:Partner"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:managementpartner/v20180201:Partner"),
 		},
 	})
 	opts = append(opts, aliases)

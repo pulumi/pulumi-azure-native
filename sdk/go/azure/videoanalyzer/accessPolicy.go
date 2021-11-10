@@ -36,19 +36,10 @@ func NewAccessPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer:AccessPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:videoanalyzer/v20210501preview:AccessPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer/v20210501preview:AccessPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:videoanalyzer/v20211101preview:AccessPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer/v20211101preview:AccessPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

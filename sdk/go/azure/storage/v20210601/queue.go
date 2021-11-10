@@ -35,43 +35,22 @@ func NewQueue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:Queue"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage:Queue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage:Queue"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20190601:Queue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:Queue"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20200801preview:Queue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:Queue"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210101:Queue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:Queue"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210201:Queue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:Queue"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210401:Queue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:Queue"),
 		},
 	})
 	opts = append(opts, aliases)

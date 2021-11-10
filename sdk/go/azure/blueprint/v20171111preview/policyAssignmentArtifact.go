@@ -48,12 +48,6 @@ func NewPolicyAssignmentArtifact(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'PolicyDefinitionId'")
 	}
 	args.Kind = pulumi.String("policyAssignment")
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:blueprint/v20171111preview:PolicyAssignmentArtifact"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource PolicyAssignmentArtifact
 	err := ctx.RegisterResource("azure-native:blueprint/v20171111preview:PolicyAssignmentArtifact", name, args, &resource, opts...)
 	if err != nil {

@@ -41,43 +41,22 @@ func NewServerKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:ServerKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:ServerKey"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20150501preview:ServerKey"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20150501preview:ServerKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:ServerKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerKey"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:ServerKey"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ServerKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:ServerKey"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ServerKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:ServerKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ServerKey"),
 		},
 	})
 	opts = append(opts, aliases)

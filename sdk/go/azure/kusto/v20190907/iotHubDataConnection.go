@@ -58,61 +58,31 @@ func NewIotHubDataConnection(ctx *pulumi.Context,
 	args.Kind = pulumi.String("IotHub")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190907:IotHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto:IotHubDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto:IotHubDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190121:IotHubDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190121:IotHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20190515:IotHubDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190515:IotHubDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20191109:IotHubDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20191109:IotHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200215:IotHubDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200215:IotHubDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20200614:IotHubDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200614:IotHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200918:IotHubDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200918:IotHubDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20210101:IotHubDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210101:IotHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20210827:IotHubDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210827:IotHubDataConnection"),
 		},
 	})
 	opts = append(opts, aliases)

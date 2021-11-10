@@ -51,19 +51,10 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storsimple/v20161001:StorageAccountCredential"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple:StorageAccountCredential"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storsimple:StorageAccountCredential"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple/v20170601:StorageAccountCredential"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/v20170601:StorageAccountCredential"),
 		},
 	})
 	opts = append(opts, aliases)

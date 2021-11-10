@@ -43,241 +43,121 @@ func NewNetworkInterface(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180701:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20150501preview:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20150501preview:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20150615:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20150615:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20160330:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20160330:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20160601:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20160601:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20160901:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20160901:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20161201:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20161201:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20170301:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170301:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20170601:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20170601:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20170801:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170801:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20170901:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20170901:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20171001:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20171001:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20171101:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20171101:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180101:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180101:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180201:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180201:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180401:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180401:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180601:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180801:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181001:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181101:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181201:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190201:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190401:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190601:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190701:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190801:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190901:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191101:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:NetworkInterface"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:NetworkInterface"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:NetworkInterface"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:NetworkInterface"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:NetworkInterface"),
 		},
 	})
 	opts = append(opts, aliases)

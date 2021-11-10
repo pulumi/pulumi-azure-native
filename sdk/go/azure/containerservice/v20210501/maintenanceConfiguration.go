@@ -36,49 +36,25 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210501:MaintenanceConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice:MaintenanceConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice:MaintenanceConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20201201:MaintenanceConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20201201:MaintenanceConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210201:MaintenanceConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210201:MaintenanceConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20210301:MaintenanceConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210301:MaintenanceConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210701:MaintenanceConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210701:MaintenanceConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20210801:MaintenanceConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210801:MaintenanceConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210901:MaintenanceConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210901:MaintenanceConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

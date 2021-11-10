@@ -40,31 +40,16 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20160601:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:logic/v20150801preview:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20150801preview:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20180701preview:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20180701preview:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20190501:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/v20190501:Certificate"),
 		},
 	})
 	opts = append(opts, aliases)

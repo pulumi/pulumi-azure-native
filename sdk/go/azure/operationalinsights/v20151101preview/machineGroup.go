@@ -46,13 +46,7 @@ func NewMachineGroup(ctx *pulumi.Context,
 	args.Kind = pulumi.String("machineGroup")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/v20151101preview:MachineGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:operationalinsights:MachineGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:operationalinsights:MachineGroup"),
 		},
 	})
 	opts = append(opts, aliases)

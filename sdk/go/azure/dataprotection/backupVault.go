@@ -39,37 +39,19 @@ func NewBackupVault(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dataprotection:BackupVault"),
-		},
-		{
 			Type: pulumi.String("azure-native:dataprotection/v20210101:BackupVault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20210101:BackupVault"),
 		},
 		{
 			Type: pulumi.String("azure-native:dataprotection/v20210201preview:BackupVault"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20210201preview:BackupVault"),
-		},
-		{
 			Type: pulumi.String("azure-native:dataprotection/v20210601preview:BackupVault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20210601preview:BackupVault"),
 		},
 		{
 			Type: pulumi.String("azure-native:dataprotection/v20210701:BackupVault"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20210701:BackupVault"),
-		},
-		{
 			Type: pulumi.String("azure-native:dataprotection/v20211001preview:BackupVault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20211001preview:BackupVault"),
 		},
 	})
 	opts = append(opts, aliases)

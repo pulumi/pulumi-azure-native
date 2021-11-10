@@ -47,73 +47,37 @@ func NewDevice(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:Device"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:Device"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:Device"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:Device"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:Device"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:Device"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Device"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Device"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Device"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:Device"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Device"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Device"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Device"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:Device"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Device"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:Device"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:Device"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:Device"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:Device"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:Device"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:Device"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:Device"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:Device"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -48,73 +48,37 @@ func NewPeriodicTimerEventTrigger(ctx *pulumi.Context,
 	args.Kind = pulumi.String("PeriodicTimerEvent")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:PeriodicTimerEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:PeriodicTimerEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:PeriodicTimerEventTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:PeriodicTimerEventTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:PeriodicTimerEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:PeriodicTimerEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:PeriodicTimerEventTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:PeriodicTimerEventTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:PeriodicTimerEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:PeriodicTimerEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:PeriodicTimerEventTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:PeriodicTimerEventTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:PeriodicTimerEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:PeriodicTimerEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:PeriodicTimerEventTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:PeriodicTimerEventTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:PeriodicTimerEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:PeriodicTimerEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:PeriodicTimerEventTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:PeriodicTimerEventTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:PeriodicTimerEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:PeriodicTimerEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:PeriodicTimerEventTrigger"),
 		},
 	})
 	opts = append(opts, aliases)

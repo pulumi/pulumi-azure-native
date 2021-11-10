@@ -41,55 +41,28 @@ func NewExport(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:costmanagement/v20190901:Export"),
-		},
-		{
 			Type: pulumi.String("azure-native:costmanagement:Export"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement:Export"),
 		},
 		{
 			Type: pulumi.String("azure-native:costmanagement/v20190101:Export"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:costmanagement/v20190101:Export"),
-		},
-		{
 			Type: pulumi.String("azure-native:costmanagement/v20191001:Export"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement/v20191001:Export"),
 		},
 		{
 			Type: pulumi.String("azure-native:costmanagement/v20191101:Export"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:costmanagement/v20191101:Export"),
-		},
-		{
 			Type: pulumi.String("azure-native:costmanagement/v20200601:Export"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement/v20200601:Export"),
 		},
 		{
 			Type: pulumi.String("azure-native:costmanagement/v20201201preview:Export"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:costmanagement/v20201201preview:Export"),
-		},
-		{
 			Type: pulumi.String("azure-native:costmanagement/v20210101:Export"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:costmanagement/v20210101:Export"),
-		},
-		{
 			Type: pulumi.String("azure-native:costmanagement/v20211001:Export"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement/v20211001:Export"),
 		},
 	})
 	opts = append(opts, aliases)

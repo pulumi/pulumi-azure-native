@@ -40,79 +40,40 @@ func NewProtectionContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectionContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20161201:ProtectionContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20161201:ProtectionContainer"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20201001:ProtectionContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:ProtectionContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20201201:ProtectionContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:ProtectionContainer"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210101:ProtectionContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:ProtectionContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectionContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201:ProtectionContainer"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201preview:ProtectionContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201preview:ProtectionContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:ProtectionContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ProtectionContainer"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ProtectionContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ProtectionContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ProtectionContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ProtectionContainer"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ProtectionContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ProtectionContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:ProtectionContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ProtectionContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ProtectionContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ProtectionContainer"),
 		},
 	})
 	opts = append(opts, aliases)

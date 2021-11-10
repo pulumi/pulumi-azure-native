@@ -41,61 +41,31 @@ func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationProtectionContainerMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:ReplicationProtectionContainerMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationProtectionContainerMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationProtectionContainerMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationProtectionContainerMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationProtectionContainerMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationProtectionContainerMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationProtectionContainerMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:ReplicationProtectionContainerMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ReplicationProtectionContainerMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ReplicationProtectionContainerMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ReplicationProtectionContainerMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ReplicationProtectionContainerMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ReplicationProtectionContainerMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ReplicationProtectionContainerMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationProtectionContainerMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ReplicationProtectionContainerMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ReplicationProtectionContainerMapping"),
 		},
 	})
 	opts = append(opts, aliases)

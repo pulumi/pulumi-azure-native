@@ -39,55 +39,28 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:VirtualHubIpConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:VirtualHubIpConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:VirtualHubIpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:VirtualHubIpConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualHubIpConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:VirtualHubIpConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHubIpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:VirtualHubIpConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHubIpConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:VirtualHubIpConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualHubIpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:VirtualHubIpConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:VirtualHubIpConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:VirtualHubIpConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:VirtualHubIpConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:VirtualHubIpConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:VirtualHubIpConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

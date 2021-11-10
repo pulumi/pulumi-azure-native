@@ -34,31 +34,16 @@ func NewSqlServerInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:azurearcdata:SqlServerInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurearcdata/v20210601preview:SqlServerInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20210601preview:SqlServerInstance"),
 		},
 		{
 			Type: pulumi.String("azure-native:azurearcdata/v20210701preview:SqlServerInstance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20210701preview:SqlServerInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurearcdata/v20210801:SqlServerInstance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20210801:SqlServerInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurearcdata/v20211101:SqlServerInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20211101:SqlServerInstance"),
 		},
 	})
 	opts = append(opts, aliases)

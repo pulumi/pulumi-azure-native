@@ -44,127 +44,64 @@ func NewSnapshot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20190501:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20170815:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20170815:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20190601:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20190601:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20190701:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20190701:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20190801:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20190801:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20191001:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20191001:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20191101:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20191101:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20200201:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200201:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20200301:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200301:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20200501:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200501:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20200601:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200601:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20200701:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200701:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20200801:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200801:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20200901:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200901:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20201101:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20201101:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20201201:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20201201:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20210201:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20210201:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20210401:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20210401:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20210401preview:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20210401preview:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20210601:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20210601:Snapshot"),
 		},
 	})
 	opts = append(opts, aliases)

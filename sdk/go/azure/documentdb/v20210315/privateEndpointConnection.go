@@ -37,67 +37,34 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210315:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20190801preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210115:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210301preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210401preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210415:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210415:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210515:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210515:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210615:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210615:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20211015:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

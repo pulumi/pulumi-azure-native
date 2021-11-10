@@ -38,13 +38,7 @@ func NewCustomAssessmentAutomation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:security/v20210701preview:CustomAssessmentAutomation"),
-		},
-		{
 			Type: pulumi.String("azure-native:security:CustomAssessmentAutomation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security:CustomAssessmentAutomation"),
 		},
 	})
 	opts = append(opts, aliases)

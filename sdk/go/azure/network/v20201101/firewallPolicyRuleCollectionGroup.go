@@ -37,55 +37,28 @@ func NewFirewallPolicyRuleCollectionGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:FirewallPolicyRuleCollectionGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:FirewallPolicyRuleCollectionGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:FirewallPolicyRuleCollectionGroup"),
 		},
 	})
 	opts = append(opts, aliases)

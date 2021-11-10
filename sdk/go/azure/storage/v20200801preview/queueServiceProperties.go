@@ -34,43 +34,22 @@ func NewQueueServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:QueueServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage:QueueServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage:QueueServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20190601:QueueServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:QueueServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210101:QueueServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:QueueServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210201:QueueServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:QueueServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210401:QueueServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:QueueServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210601:QueueServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:QueueServiceProperties"),
 		},
 	})
 	opts = append(opts, aliases)

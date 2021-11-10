@@ -48,85 +48,43 @@ func NewIdentityProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:IdentityProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:IdentityProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:IdentityProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:IdentityProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:IdentityProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:IdentityProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:IdentityProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:IdentityProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:IdentityProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:IdentityProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:IdentityProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:IdentityProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:IdentityProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:IdentityProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:IdentityProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:IdentityProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:IdentityProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:IdentityProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:IdentityProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:IdentityProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:IdentityProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:IdentityProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:IdentityProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:IdentityProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:IdentityProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:IdentityProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:IdentityProvider"),
 		},
 	})
 	opts = append(opts, aliases)

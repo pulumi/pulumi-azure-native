@@ -37,25 +37,13 @@ func NewResourceGuardProxy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201preview:ResourceGuardProxy"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:ResourceGuardProxy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ResourceGuardProxy"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:ResourceGuardProxy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ResourceGuardProxy"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ResourceGuardProxy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ResourceGuardProxy"),
 		},
 	})
 	opts = append(opts, aliases)

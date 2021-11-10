@@ -35,79 +35,40 @@ func NewWebAppApplicationSettings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web:WebAppApplicationSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppApplicationSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppApplicationSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppApplicationSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppApplicationSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppApplicationSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppApplicationSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppApplicationSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppApplicationSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppApplicationSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppApplicationSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppApplicationSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppApplicationSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppApplicationSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppApplicationSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppApplicationSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppApplicationSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppApplicationSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppApplicationSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppApplicationSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppApplicationSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppApplicationSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppApplicationSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppApplicationSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppApplicationSettings"),
 		},
 	})
 	opts = append(opts, aliases)

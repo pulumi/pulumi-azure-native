@@ -38,49 +38,25 @@ func NewMediaService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:media:MediaService"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20151001:MediaService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/v20151001:MediaService"),
 		},
 		{
 			Type: pulumi.String("azure-native:media/v20180330preview:MediaService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:media/v20180330preview:MediaService"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180601preview:MediaService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/v20180601preview:MediaService"),
 		},
 		{
 			Type: pulumi.String("azure-native:media/v20180701:MediaService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:media/v20180701:MediaService"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20200501:MediaService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/v20200501:MediaService"),
 		},
 		{
 			Type: pulumi.String("azure-native:media/v20210501:MediaService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:media/v20210501:MediaService"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20210601:MediaService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/v20210601:MediaService"),
 		},
 	})
 	opts = append(opts, aliases)

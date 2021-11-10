@@ -49,31 +49,16 @@ func NewServerDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:analysisservices/v20160516:ServerDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:analysisservices:ServerDetails"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:analysisservices:ServerDetails"),
 		},
 		{
 			Type: pulumi.String("azure-native:analysisservices/v20170714:ServerDetails"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:analysisservices/v20170714:ServerDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:analysisservices/v20170801:ServerDetails"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:analysisservices/v20170801:ServerDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:analysisservices/v20170801beta:ServerDetails"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:analysisservices/v20170801beta:ServerDetails"),
 		},
 	})
 	opts = append(opts, aliases)

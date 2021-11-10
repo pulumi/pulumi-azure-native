@@ -45,43 +45,22 @@ func NewInstancePool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:InstancePool"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:InstancePool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:InstancePool"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20180601preview:InstancePool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20180601preview:InstancePool"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:InstancePool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:InstancePool"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:InstancePool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:InstancePool"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:InstancePool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:InstancePool"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:InstancePool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:InstancePool"),
 		},
 	})
 	opts = append(opts, aliases)

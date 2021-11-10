@@ -35,49 +35,25 @@ func NewGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:Gateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:Gateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:Gateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:Gateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Gateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Gateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Gateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Gateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Gateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:Gateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:Gateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:Gateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:Gateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:Gateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:Gateway"),
 		},
 	})
 	opts = append(opts, aliases)

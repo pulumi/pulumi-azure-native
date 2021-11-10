@@ -36,49 +36,25 @@ func NewIpFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210501:IpFirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse:IpFirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse:IpFirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:IpFirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:IpFirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20201201:IpFirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20201201:IpFirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210301:IpFirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210301:IpFirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210401preview:IpFirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:IpFirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210601:IpFirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:IpFirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:IpFirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:IpFirewallRule"),
 		},
 	})
 	opts = append(opts, aliases)

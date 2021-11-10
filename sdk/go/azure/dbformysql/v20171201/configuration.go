@@ -39,19 +39,10 @@ func NewConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20171201:Configuration"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformysql:Configuration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbformysql:Configuration"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformysql/v20171201preview:Configuration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20171201preview:Configuration"),
 		},
 	})
 	opts = append(opts, aliases)

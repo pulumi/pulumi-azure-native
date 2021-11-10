@@ -57,73 +57,37 @@ func NewProductApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:ProductApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:ProductApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:ProductApi"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ProductApi"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ProductApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:ProductApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ProductApi"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ProductApi"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ProductApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:ProductApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ProductApi"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:ProductApi"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ProductApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ProductApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ProductApi"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ProductApi"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ProductApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:ProductApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ProductApi"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:ProductApi"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:ProductApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:ProductApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ProductApi"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -38,31 +38,16 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:cognitiveservices/v20210430:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:cognitiveservices:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cognitiveservices:Account"),
 		},
 		{
 			Type: pulumi.String("azure-native:cognitiveservices/v20160201preview:Account"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cognitiveservices/v20160201preview:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:cognitiveservices/v20170418:Account"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cognitiveservices/v20170418:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:cognitiveservices/v20211001:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cognitiveservices/v20211001:Account"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -44,13 +44,7 @@ func NewCassandraResourceCassandraView(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb:CassandraResourceCassandraView"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:CassandraResourceCassandraView"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:CassandraResourceCassandraView"),
 		},
 	})
 	opts = append(opts, aliases)

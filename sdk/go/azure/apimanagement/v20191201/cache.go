@@ -39,61 +39,31 @@ func NewCache(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Cache"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:Cache"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:Cache"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Cache"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Cache"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:Cache"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Cache"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Cache"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Cache"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Cache"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Cache"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:Cache"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:Cache"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:Cache"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:Cache"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:Cache"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:Cache"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:Cache"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:Cache"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -35,13 +35,7 @@ func NewStorage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:appplatform:Storage"),
-		},
-		{
 			Type: pulumi.String("azure-native:appplatform/v20210901preview:Storage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:appplatform/v20210901preview:Storage"),
 		},
 	})
 	opts = append(opts, aliases)

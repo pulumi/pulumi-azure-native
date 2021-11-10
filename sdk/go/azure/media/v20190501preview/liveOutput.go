@@ -52,43 +52,22 @@ func NewLiveOutput(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:media/v20190501preview:LiveOutput"),
-		},
-		{
 			Type: pulumi.String("azure-native:media:LiveOutput"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media:LiveOutput"),
 		},
 		{
 			Type: pulumi.String("azure-native:media/v20180330preview:LiveOutput"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:media/v20180330preview:LiveOutput"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180601preview:LiveOutput"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/v20180601preview:LiveOutput"),
 		},
 		{
 			Type: pulumi.String("azure-native:media/v20180701:LiveOutput"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:media/v20180701:LiveOutput"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20200501:LiveOutput"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:media/v20200501:LiveOutput"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20210601:LiveOutput"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/v20210601:LiveOutput"),
 		},
 	})
 	opts = append(opts, aliases)

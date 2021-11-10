@@ -53,73 +53,37 @@ func NewShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:Share"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:Share"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:Share"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:Share"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:Share"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:Share"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Share"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Share"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:Share"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:Share"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Share"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:Share"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:Share"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:Share"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:Share"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:Share"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:Share"),
 		},
 	})
 	opts = append(opts, aliases)

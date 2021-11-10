@@ -50,13 +50,7 @@ func NewRoleAssignmentArtifact(ctx *pulumi.Context,
 	args.Kind = pulumi.String("roleAssignment")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:blueprint:RoleAssignmentArtifact"),
-		},
-		{
 			Type: pulumi.String("azure-native:blueprint/v20181101preview:RoleAssignmentArtifact"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:blueprint/v20181101preview:RoleAssignmentArtifact"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -37,13 +37,7 @@ func NewPlacementPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:avs:PlacementPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20211201:PlacementPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/v20211201:PlacementPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -41,13 +41,7 @@ func NewEnvironmentSpecificationVersion(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210301preview:EnvironmentSpecificationVersion"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices:EnvironmentSpecificationVersion"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices:EnvironmentSpecificationVersion"),
 		},
 	})
 	opts = append(opts, aliases)

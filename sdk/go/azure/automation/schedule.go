@@ -56,25 +56,13 @@ func NewSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:automation:Schedule"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20151031:Schedule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/v20151031:Schedule"),
 		},
 		{
 			Type: pulumi.String("azure-native:automation/v20190601:Schedule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:automation/v20190601:Schedule"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20200113preview:Schedule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Schedule"),
 		},
 	})
 	opts = append(opts, aliases)

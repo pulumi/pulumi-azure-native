@@ -38,19 +38,10 @@ func NewDataset(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:Dataset"),
-		},
-		{
 			Type: pulumi.String("azure-native:datafactory:Dataset"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datafactory:Dataset"),
-		},
-		{
 			Type: pulumi.String("azure-native:datafactory/v20180601:Dataset"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datafactory/v20180601:Dataset"),
 		},
 	})
 	opts = append(opts, aliases)

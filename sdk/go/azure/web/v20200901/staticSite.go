@@ -41,55 +41,28 @@ func NewStaticSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:StaticSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:StaticSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:StaticSite"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:StaticSite"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:StaticSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:StaticSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:StaticSite"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:StaticSite"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:StaticSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:StaticSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:StaticSite"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:StaticSite"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:StaticSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:StaticSite"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:StaticSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:StaticSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:StaticSite"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -62,37 +62,19 @@ func NewBlobStorageAccountDataSetMapping(ctx *pulumi.Context,
 	args.Kind = pulumi.String("BlobStorageAccount")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:BlobStorageAccountDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare:BlobStorageAccountDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare:BlobStorageAccountDataSetMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20181101preview:BlobStorageAccountDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:BlobStorageAccountDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20191101:BlobStorageAccountDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20191101:BlobStorageAccountDataSetMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20200901:BlobStorageAccountDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20200901:BlobStorageAccountDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20210801:BlobStorageAccountDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20210801:BlobStorageAccountDataSetMapping"),
 		},
 	})
 	opts = append(opts, aliases)

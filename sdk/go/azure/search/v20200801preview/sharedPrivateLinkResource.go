@@ -34,25 +34,13 @@ func NewSharedPrivateLinkResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:search/v20200801preview:SharedPrivateLinkResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:search:SharedPrivateLinkResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:search:SharedPrivateLinkResource"),
 		},
 		{
 			Type: pulumi.String("azure-native:search/v20200801:SharedPrivateLinkResource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:search/v20200801:SharedPrivateLinkResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:search/v20210401preview:SharedPrivateLinkResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:search/v20210401preview:SharedPrivateLinkResource"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -41,43 +41,22 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210101preview:TopicAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus:TopicAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus:TopicAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicebus/v20140901:TopicAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20140901:TopicAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20150801:TopicAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20150801:TopicAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicebus/v20170401:TopicAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20170401:TopicAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20180101preview:TopicAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:TopicAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20210601preview:TopicAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210601preview:TopicAuthorizationRule"),
 		},
 	})
 	opts = append(opts, aliases)

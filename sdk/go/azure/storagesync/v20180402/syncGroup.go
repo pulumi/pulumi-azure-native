@@ -35,67 +35,34 @@ func NewSyncGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20180402:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync:SyncGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20170605preview:SyncGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20170605preview:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20180701:SyncGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20180701:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20181001:SyncGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20181001:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20190201:SyncGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20190201:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20190301:SyncGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20190301:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20190601:SyncGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20190601:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20191001:SyncGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20191001:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20200301:SyncGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20200301:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20200901:SyncGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20200901:SyncGroup"),
 		},
 	})
 	opts = append(opts, aliases)

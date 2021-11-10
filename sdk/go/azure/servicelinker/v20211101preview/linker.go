@@ -35,13 +35,7 @@ func NewLinker(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:servicelinker/v20211101preview:Linker"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicelinker:Linker"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicelinker:Linker"),
 		},
 	})
 	opts = append(opts, aliases)

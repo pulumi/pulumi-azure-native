@@ -45,13 +45,7 @@ func NewLivePipeline(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer/v20211101preview:LivePipeline"),
-		},
-		{
 			Type: pulumi.String("azure-native:videoanalyzer:LivePipeline"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer:LivePipeline"),
 		},
 	})
 	opts = append(opts, aliases)

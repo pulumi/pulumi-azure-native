@@ -51,13 +51,7 @@ func NewIotConnectorFhirDestination(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:healthcareapis:IotConnectorFhirDestination"),
-		},
-		{
 			Type: pulumi.String("azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:healthcareapis/v20210601preview:IotConnectorFhirDestination"),
 		},
 	})
 	opts = append(opts, aliases)

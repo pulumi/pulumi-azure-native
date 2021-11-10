@@ -35,79 +35,40 @@ func NewWebAppMetadata(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppMetadata"),
 		},
 	})
 	opts = append(opts, aliases)

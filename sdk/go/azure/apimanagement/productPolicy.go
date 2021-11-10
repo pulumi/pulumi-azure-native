@@ -44,73 +44,37 @@ func NewProductPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement:ProductPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ProductPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ProductPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:ProductPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ProductPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ProductPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ProductPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:ProductPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ProductPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:ProductPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ProductPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ProductPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ProductPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ProductPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ProductPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:ProductPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ProductPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:ProductPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:ProductPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:ProductPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ProductPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:ProductPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:ProductPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

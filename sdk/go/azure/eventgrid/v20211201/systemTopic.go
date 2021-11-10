@@ -38,31 +38,16 @@ func NewSystemTopic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20211201:SystemTopic"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid:SystemTopic"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid:SystemTopic"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20200401preview:SystemTopic"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:SystemTopic"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20201015preview:SystemTopic"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:SystemTopic"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20210601preview:SystemTopic"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20210601preview:SystemTopic"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -41,31 +41,16 @@ func NewScopeMap(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20210801preview:ScopeMap"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry:ScopeMap"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry:ScopeMap"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20190501preview:ScopeMap"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20190501preview:ScopeMap"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20201101preview:ScopeMap"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ScopeMap"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20210601preview:ScopeMap"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20210601preview:ScopeMap"),
 		},
 	})
 	opts = append(opts, aliases)

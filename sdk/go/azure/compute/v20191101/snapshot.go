@@ -48,85 +48,43 @@ func NewSnapshot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20191101:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20160430preview:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20160430preview:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20170330:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20170330:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20180401:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20180401:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20180601:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20180601:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20180930:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20180930:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20190301:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20190301:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20190701:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20190701:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20200501:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20200501:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20200630:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20200630:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20200930:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20200930:Snapshot"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20201201:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20201201:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210401:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210401:Snapshot"),
 		},
 	})
 	opts = append(opts, aliases)

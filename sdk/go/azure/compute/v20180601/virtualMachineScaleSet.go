@@ -45,103 +45,52 @@ func NewVirtualMachineScaleSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20180601:VirtualMachineScaleSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:VirtualMachineScaleSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute:VirtualMachineScaleSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20150615:VirtualMachineScaleSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20150615:VirtualMachineScaleSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20160330:VirtualMachineScaleSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20160330:VirtualMachineScaleSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20160430preview:VirtualMachineScaleSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20160430preview:VirtualMachineScaleSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20170330:VirtualMachineScaleSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20170330:VirtualMachineScaleSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20171201:VirtualMachineScaleSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20171201:VirtualMachineScaleSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20180401:VirtualMachineScaleSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20180401:VirtualMachineScaleSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20181001:VirtualMachineScaleSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20181001:VirtualMachineScaleSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20190301:VirtualMachineScaleSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20190301:VirtualMachineScaleSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20190701:VirtualMachineScaleSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20190701:VirtualMachineScaleSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20191201:VirtualMachineScaleSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20191201:VirtualMachineScaleSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineScaleSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineScaleSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201201:VirtualMachineScaleSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineScaleSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20210301:VirtualMachineScaleSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210301:VirtualMachineScaleSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210401:VirtualMachineScaleSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210401:VirtualMachineScaleSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210701:VirtualMachineScaleSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210701:VirtualMachineScaleSet"),
 		},
 	})
 	opts = append(opts, aliases)

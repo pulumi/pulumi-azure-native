@@ -52,43 +52,22 @@ func NewStandardEnvironment(ctx *pulumi.Context,
 	args.Kind = pulumi.String("Standard")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:StandardEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights:StandardEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights:StandardEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:StandardEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:StandardEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:StandardEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:StandardEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:StandardEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:StandardEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210331preview:StandardEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210331preview:StandardEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210630preview:StandardEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210630preview:StandardEnvironment"),
 		},
 	})
 	opts = append(opts, aliases)

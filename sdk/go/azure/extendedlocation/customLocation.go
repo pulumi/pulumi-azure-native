@@ -40,19 +40,10 @@ func NewCustomLocation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:extendedlocation:CustomLocation"),
-		},
-		{
 			Type: pulumi.String("azure-native:extendedlocation/v20210315preview:CustomLocation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:extendedlocation/v20210315preview:CustomLocation"),
-		},
-		{
 			Type: pulumi.String("azure-native:extendedlocation/v20210815:CustomLocation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:extendedlocation/v20210815:CustomLocation"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -62,31 +62,16 @@ func NewAgreement(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20160601:Agreement"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic:Agreement"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic:Agreement"),
 		},
 		{
 			Type: pulumi.String("azure-native:logic/v20150801preview:Agreement"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20150801preview:Agreement"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20180701preview:Agreement"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20180701preview:Agreement"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20190501:Agreement"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/v20190501:Agreement"),
 		},
 	})
 	opts = append(opts, aliases)

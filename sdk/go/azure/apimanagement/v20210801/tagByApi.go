@@ -37,73 +37,37 @@ func NewTagByApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:TagByApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:TagByApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:TagByApi"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:TagByApi"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:TagByApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:TagByApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:TagByApi"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:TagByApi"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:TagByApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:TagByApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:TagByApi"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:TagByApi"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:TagByApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:TagByApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:TagByApi"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:TagByApi"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:TagByApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:TagByApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:TagByApi"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:TagByApi"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:TagByApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:TagByApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:TagByApi"),
 		},
 	})
 	opts = append(opts, aliases)

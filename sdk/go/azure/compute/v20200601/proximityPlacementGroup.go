@@ -37,73 +37,37 @@ func NewProximityPlacementGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20200601:ProximityPlacementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:ProximityPlacementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20180401:ProximityPlacementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20180401:ProximityPlacementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20180601:ProximityPlacementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20180601:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20181001:ProximityPlacementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20181001:ProximityPlacementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20190301:ProximityPlacementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20190301:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20190701:ProximityPlacementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20190701:ProximityPlacementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20191201:ProximityPlacementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20191201:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20201201:ProximityPlacementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20201201:ProximityPlacementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210301:ProximityPlacementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210301:ProximityPlacementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20210401:ProximityPlacementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210401:ProximityPlacementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210701:ProximityPlacementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210701:ProximityPlacementGroup"),
 		},
 	})
 	opts = append(opts, aliases)

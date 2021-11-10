@@ -43,85 +43,43 @@ func NewApplicationGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:ApplicationGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization:ApplicationGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20190123preview:ApplicationGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190123preview:ApplicationGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190924preview:ApplicationGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20191210preview:ApplicationGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20191210preview:ApplicationGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20200921preview:ApplicationGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:ApplicationGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:ApplicationGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:ApplicationGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:ApplicationGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:ApplicationGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210201preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:ApplicationGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210309preview:ApplicationGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210309preview:ApplicationGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210401preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210401preview:ApplicationGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210712:ApplicationGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210712:ApplicationGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210903preview:ApplicationGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210903preview:ApplicationGroup"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -38,13 +38,7 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210301preview:Job"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices:Job"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices:Job"),
 		},
 	})
 	opts = append(opts, aliases)

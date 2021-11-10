@@ -39,49 +39,25 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20211101:NamespaceAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub:NamespaceAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub:NamespaceAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventhub/v20140901:NamespaceAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20150801:NamespaceAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20150801:NamespaceAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventhub/v20170401:NamespaceAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20170401:NamespaceAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20180101preview:NamespaceAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:NamespaceAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventhub/v20210101preview:NamespaceAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20210101preview:NamespaceAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20210601preview:NamespaceAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20210601preview:NamespaceAuthorizationRule"),
 		},
 	})
 	opts = append(opts, aliases)

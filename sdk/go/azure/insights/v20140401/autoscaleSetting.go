@@ -43,25 +43,13 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:insights/v20140401:AutoscaleSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights:AutoscaleSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights:AutoscaleSetting"),
 		},
 		{
 			Type: pulumi.String("azure-native:insights/v20150401:AutoscaleSetting"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:insights/v20150401:AutoscaleSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20210501preview:AutoscaleSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/v20210501preview:AutoscaleSetting"),
 		},
 	})
 	opts = append(opts, aliases)

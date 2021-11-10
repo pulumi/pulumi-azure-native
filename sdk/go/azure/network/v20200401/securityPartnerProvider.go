@@ -37,67 +37,34 @@ func NewSecurityPartnerProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:SecurityPartnerProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:SecurityPartnerProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:SecurityPartnerProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:SecurityPartnerProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:SecurityPartnerProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:SecurityPartnerProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:SecurityPartnerProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:SecurityPartnerProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:SecurityPartnerProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:SecurityPartnerProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:SecurityPartnerProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:SecurityPartnerProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:SecurityPartnerProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:SecurityPartnerProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:SecurityPartnerProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:SecurityPartnerProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:SecurityPartnerProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:SecurityPartnerProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:SecurityPartnerProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:SecurityPartnerProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:SecurityPartnerProvider"),
 		},
 	})
 	opts = append(opts, aliases)

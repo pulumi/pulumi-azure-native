@@ -42,79 +42,40 @@ func NewCustomDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20160402:CustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn:CustomDomain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-native:cdn/v20150601:CustomDomain"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20150601:CustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20161002:CustomDomain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/v20161002:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-native:cdn/v20170402:CustomDomain"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20170402:CustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20171012:CustomDomain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/v20171012:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-native:cdn/v20190415:CustomDomain"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20190415:CustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20190615:CustomDomain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/v20190615:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-native:cdn/v20190615preview:CustomDomain"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20190615preview:CustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20191231:CustomDomain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/v20191231:CustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-native:cdn/v20200331:CustomDomain"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20200331:CustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20200415:CustomDomain"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20200415:CustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20200901:CustomDomain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/v20200901:CustomDomain"),
 		},
 	})
 	opts = append(opts, aliases)

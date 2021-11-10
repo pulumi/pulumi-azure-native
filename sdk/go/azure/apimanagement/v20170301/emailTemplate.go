@@ -39,73 +39,37 @@ func NewEmailTemplate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:EmailTemplate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:EmailTemplate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:EmailTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:EmailTemplate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:EmailTemplate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:EmailTemplate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:EmailTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:EmailTemplate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:EmailTemplate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:EmailTemplate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:EmailTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:EmailTemplate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:EmailTemplate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:EmailTemplate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:EmailTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:EmailTemplate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:EmailTemplate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:EmailTemplate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:EmailTemplate"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:EmailTemplate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:EmailTemplate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:EmailTemplate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:EmailTemplate"),
 		},
 	})
 	opts = append(opts, aliases)

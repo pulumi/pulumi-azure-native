@@ -41,19 +41,10 @@ func NewWCFRelay(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:relay:WCFRelay"),
-		},
-		{
 			Type: pulumi.String("azure-native:relay/v20160701:WCFRelay"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:relay/v20160701:WCFRelay"),
-		},
-		{
 			Type: pulumi.String("azure-native:relay/v20170401:WCFRelay"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:relay/v20170401:WCFRelay"),
 		},
 	})
 	opts = append(opts, aliases)

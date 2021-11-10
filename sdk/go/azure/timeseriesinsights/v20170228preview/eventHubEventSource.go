@@ -66,43 +66,22 @@ func NewEventHubEventSource(ctx *pulumi.Context,
 	args.Kind = pulumi.String("Microsoft.EventHub")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:EventHubEventSource"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights:EventHubEventSource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights:EventHubEventSource"),
 		},
 		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:EventHubEventSource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:EventHubEventSource"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:EventHubEventSource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:EventHubEventSource"),
 		},
 		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:EventHubEventSource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:EventHubEventSource"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210331preview:EventHubEventSource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210331preview:EventHubEventSource"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210630preview:EventHubEventSource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210630preview:EventHubEventSource"),
 		},
 	})
 	opts = append(opts, aliases)

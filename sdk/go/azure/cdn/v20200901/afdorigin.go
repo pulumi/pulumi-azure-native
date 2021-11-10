@@ -51,13 +51,7 @@ func NewAFDOrigin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20200901:AFDOrigin"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn:AFDOrigin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn:AFDOrigin"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -35,49 +35,25 @@ func NewKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:Key"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse:Key"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse:Key"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:Key"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:Key"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20201201:Key"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20201201:Key"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210301:Key"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210301:Key"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210401preview:Key"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:Key"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210501:Key"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210501:Key"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601:Key"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:Key"),
 		},
 	})
 	opts = append(opts, aliases)

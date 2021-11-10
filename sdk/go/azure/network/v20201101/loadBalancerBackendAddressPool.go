@@ -41,61 +41,31 @@ func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:LoadBalancerBackendAddressPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:LoadBalancerBackendAddressPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:LoadBalancerBackendAddressPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:LoadBalancerBackendAddressPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:LoadBalancerBackendAddressPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:LoadBalancerBackendAddressPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:LoadBalancerBackendAddressPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:LoadBalancerBackendAddressPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:LoadBalancerBackendAddressPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:LoadBalancerBackendAddressPool"),
 		},
 	})
 	opts = append(opts, aliases)

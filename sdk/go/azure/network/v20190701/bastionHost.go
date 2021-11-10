@@ -36,109 +36,55 @@ func NewBastionHost(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:BastionHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:BastionHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190401:BastionHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:BastionHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190601:BastionHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190801:BastionHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:BastionHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190901:BastionHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191101:BastionHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:BastionHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:BastionHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:BastionHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:BastionHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:BastionHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:BastionHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:BastionHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:BastionHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:BastionHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:BastionHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:BastionHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:BastionHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:BastionHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:BastionHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:BastionHost"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:BastionHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:BastionHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:BastionHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:BastionHost"),
 		},
 	})
 	opts = append(opts, aliases)

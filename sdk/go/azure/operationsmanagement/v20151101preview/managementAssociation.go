@@ -41,13 +41,7 @@ func NewManagementAssociation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:operationsmanagement/v20151101preview:ManagementAssociation"),
-		},
-		{
 			Type: pulumi.String("azure-native:operationsmanagement:ManagementAssociation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:operationsmanagement:ManagementAssociation"),
 		},
 	})
 	opts = append(opts, aliases)

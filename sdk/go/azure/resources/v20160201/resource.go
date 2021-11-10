@@ -47,115 +47,58 @@ func NewResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20160201:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20151101:Resource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20151101:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20160701:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20160701:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20160901:Resource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20160901:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20170510:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20170510:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20180201:Resource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20180201:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20180501:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20180501:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20190301:Resource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20190301:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190501:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20190501:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20190510:Resource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20190510:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190701:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20190701:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20190801:Resource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20190801:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20191001:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20191001:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20200601:Resource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20200601:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20200801:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20200801:Resource"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20201001:Resource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20201001:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20210101:Resource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20210101:Resource"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20210401:Resource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20210401:Resource"),
 		},
 	})
 	opts = append(opts, aliases)

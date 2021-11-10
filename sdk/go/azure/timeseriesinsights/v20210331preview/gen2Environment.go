@@ -60,43 +60,22 @@ func NewGen2Environment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210331preview:Gen2Environment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights:Gen2Environment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights:Gen2Environment"),
 		},
 		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:Gen2Environment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:Gen2Environment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:Gen2Environment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:Gen2Environment"),
 		},
 		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:Gen2Environment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:Gen2Environment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:Gen2Environment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:Gen2Environment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210630preview:Gen2Environment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210630preview:Gen2Environment"),
 		},
 	})
 	opts = append(opts, aliases)

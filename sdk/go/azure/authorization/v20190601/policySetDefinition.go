@@ -36,61 +36,31 @@ func NewPolicySetDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20190601:PolicySetDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization:PolicySetDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20170601preview:PolicySetDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20170601preview:PolicySetDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20180301:PolicySetDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20180301:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20180501:PolicySetDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20180501:PolicySetDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20190101:PolicySetDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20190101:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20190901:PolicySetDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20190901:PolicySetDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20200301:PolicySetDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20200301:PolicySetDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20200901:PolicySetDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20200901:PolicySetDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20210601:PolicySetDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20210601:PolicySetDefinition"),
 		},
 	})
 	opts = append(opts, aliases)

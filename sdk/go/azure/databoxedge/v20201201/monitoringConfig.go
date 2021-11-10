@@ -40,49 +40,25 @@ func NewMonitoringConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:MonitoringConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:MonitoringConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:MonitoringConfig"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:MonitoringConfig"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:MonitoringConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:MonitoringConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:MonitoringConfig"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:MonitoringConfig"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:MonitoringConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:MonitoringConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:MonitoringConfig"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:MonitoringConfig"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:MonitoringConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:MonitoringConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:MonitoringConfig"),
 		},
 	})
 	opts = append(opts, aliases)

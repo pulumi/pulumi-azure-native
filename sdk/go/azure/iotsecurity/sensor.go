@@ -41,13 +41,7 @@ func NewSensor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:iotsecurity:Sensor"),
-		},
-		{
 			Type: pulumi.String("azure-native:iotsecurity/v20210201preview:Sensor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:iotsecurity/v20210201preview:Sensor"),
 		},
 	})
 	opts = append(opts, aliases)

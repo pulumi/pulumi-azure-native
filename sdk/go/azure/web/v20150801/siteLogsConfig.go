@@ -40,79 +40,40 @@ func NewSiteLogsConfig(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteLogsConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteLogsConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteLogsConfig"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteLogsConfig"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteLogsConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteLogsConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteLogsConfig"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteLogsConfig"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteLogsConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteLogsConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteLogsConfig"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteLogsConfig"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteLogsConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteLogsConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteLogsConfig"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteLogsConfig"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteLogsConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteLogsConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteLogsConfig"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteLogsConfig"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteLogsConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteLogsConfig"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteLogsConfig"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteLogsConfig"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteLogsConfig"),
 		},
 	})
 	opts = append(opts, aliases)

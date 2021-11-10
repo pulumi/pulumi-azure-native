@@ -38,61 +38,31 @@ func NewReplicationvCenter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationvCenter"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:ReplicationvCenter"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationvCenter"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationvCenter"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationvCenter"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationvCenter"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationvCenter"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:ReplicationvCenter"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ReplicationvCenter"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ReplicationvCenter"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ReplicationvCenter"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ReplicationvCenter"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ReplicationvCenter"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ReplicationvCenter"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationvCenter"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationvCenter"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationvCenter"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ReplicationvCenter"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ReplicationvCenter"),
 		},
 	})
 	opts = append(opts, aliases)

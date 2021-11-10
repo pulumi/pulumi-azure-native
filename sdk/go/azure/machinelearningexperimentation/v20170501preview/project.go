@@ -49,13 +49,7 @@ func NewProject(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningexperimentation/v20170501preview:Project"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningexperimentation:Project"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningexperimentation:Project"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -43,79 +43,40 @@ func NewSiteBackupConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteBackupConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

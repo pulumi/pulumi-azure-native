@@ -35,37 +35,19 @@ func NewSpatialAnchorsAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:mixedreality:SpatialAnchorsAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:mixedreality:SpatialAnchorsAccount"),
 		},
 		{
 			Type: pulumi.String("azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:mixedreality/v20200501:SpatialAnchorsAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:mixedreality/v20200501:SpatialAnchorsAccount"),
 		},
 		{
 			Type: pulumi.String("azure-native:mixedreality/v20210101:SpatialAnchorsAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:mixedreality/v20210301preview:SpatialAnchorsAccount"),
 		},
 	})
 	opts = append(opts, aliases)

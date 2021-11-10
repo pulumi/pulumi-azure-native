@@ -37,139 +37,70 @@ func NewNetworkProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:NetworkProfile"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180801:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181001:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:NetworkProfile"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181101:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181201:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:NetworkProfile"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190201:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190401:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:NetworkProfile"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190601:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190701:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:NetworkProfile"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190901:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191101:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:NetworkProfile"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191201:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200301:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:NetworkProfile"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:NetworkProfile"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:NetworkProfile"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:NetworkProfile"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:NetworkProfile"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:NetworkProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:NetworkProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:NetworkProfile"),
 		},
 	})
 	opts = append(opts, aliases)

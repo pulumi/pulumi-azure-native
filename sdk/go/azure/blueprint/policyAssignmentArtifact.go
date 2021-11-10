@@ -50,13 +50,7 @@ func NewPolicyAssignmentArtifact(ctx *pulumi.Context,
 	args.Kind = pulumi.String("policyAssignment")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:blueprint:PolicyAssignmentArtifact"),
-		},
-		{
 			Type: pulumi.String("azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:blueprint/v20181101preview:PolicyAssignmentArtifact"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -49,12 +49,6 @@ func NewSiteInstanceDeploymentSlot(ctx *pulumi.Context,
 	if args.Slot == nil {
 		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource SiteInstanceDeploymentSlot
 	err := ctx.RegisterResource("azure-native:web/v20150801:SiteInstanceDeploymentSlot", name, args, &resource, opts...)
 	if err != nil {

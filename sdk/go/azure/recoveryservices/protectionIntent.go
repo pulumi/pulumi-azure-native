@@ -40,61 +40,31 @@ func NewProtectionIntent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectionIntent"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20170701:ProtectionIntent"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20170701:ProtectionIntent"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectionIntent"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201:ProtectionIntent"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201preview:ProtectionIntent"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201preview:ProtectionIntent"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:ProtectionIntent"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ProtectionIntent"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ProtectionIntent"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ProtectionIntent"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ProtectionIntent"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ProtectionIntent"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ProtectionIntent"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ProtectionIntent"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:ProtectionIntent"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ProtectionIntent"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ProtectionIntent"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ProtectionIntent"),
 		},
 	})
 	opts = append(opts, aliases)

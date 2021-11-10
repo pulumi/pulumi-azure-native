@@ -35,79 +35,40 @@ func NewWebAppConnectionStrings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppConnectionStrings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppConnectionStrings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppConnectionStrings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppConnectionStrings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppConnectionStrings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppConnectionStrings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppConnectionStrings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppConnectionStrings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppConnectionStrings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppConnectionStrings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppConnectionStrings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppConnectionStrings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppConnectionStrings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppConnectionStrings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppConnectionStrings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppConnectionStrings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppConnectionStrings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppConnectionStrings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppConnectionStrings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppConnectionStrings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppConnectionStrings"),
 		},
 	})
 	opts = append(opts, aliases)

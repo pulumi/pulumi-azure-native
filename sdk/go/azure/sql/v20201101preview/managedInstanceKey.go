@@ -40,43 +40,22 @@ func NewManagedInstanceKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ManagedInstanceKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:ManagedInstanceKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:ManagedInstanceKey"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20171001preview:ManagedInstanceKey"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20171001preview:ManagedInstanceKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:ManagedInstanceKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedInstanceKey"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:ManagedInstanceKey"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedInstanceKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:ManagedInstanceKey"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ManagedInstanceKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:ManagedInstanceKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ManagedInstanceKey"),
 		},
 	})
 	opts = append(opts, aliases)

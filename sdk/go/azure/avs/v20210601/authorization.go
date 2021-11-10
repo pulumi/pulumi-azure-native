@@ -36,37 +36,19 @@ func NewAuthorization(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20210601:Authorization"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs:Authorization"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs:Authorization"),
 		},
 		{
 			Type: pulumi.String("azure-native:avs/v20200320:Authorization"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20200320:Authorization"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20200717preview:Authorization"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/v20200717preview:Authorization"),
 		},
 		{
 			Type: pulumi.String("azure-native:avs/v20210101preview:Authorization"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20210101preview:Authorization"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20211201:Authorization"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/v20211201:Authorization"),
 		},
 	})
 	opts = append(opts, aliases)

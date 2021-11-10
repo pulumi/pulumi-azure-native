@@ -31,37 +31,19 @@ func NewRegistrationAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:managedservices/v20190401preview:RegistrationAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:managedservices:RegistrationAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:managedservices:RegistrationAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-native:managedservices/v20180601preview:RegistrationAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:managedservices/v20180601preview:RegistrationAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:managedservices/v20190601:RegistrationAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:managedservices/v20190601:RegistrationAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-native:managedservices/v20190901:RegistrationAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:managedservices/v20190901:RegistrationAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:managedservices/v20200201preview:RegistrationAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:managedservices/v20200201preview:RegistrationAssignment"),
 		},
 	})
 	opts = append(opts, aliases)

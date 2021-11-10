@@ -42,25 +42,13 @@ func NewStorageInsight(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/v20150320:StorageInsight"),
-		},
-		{
 			Type: pulumi.String("azure-native:operationalinsights:StorageInsight"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:operationalinsights:StorageInsight"),
 		},
 		{
 			Type: pulumi.String("azure-native:operationalinsights/v20200301preview:StorageInsight"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/v20200301preview:StorageInsight"),
-		},
-		{
 			Type: pulumi.String("azure-native:operationalinsights/v20200801:StorageInsight"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:StorageInsight"),
 		},
 	})
 	opts = append(opts, aliases)

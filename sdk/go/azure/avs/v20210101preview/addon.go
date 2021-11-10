@@ -36,31 +36,16 @@ func NewAddon(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20210101preview:Addon"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs:Addon"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs:Addon"),
 		},
 		{
 			Type: pulumi.String("azure-native:avs/v20200717preview:Addon"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20200717preview:Addon"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20210601:Addon"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20210601:Addon"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20211201:Addon"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/v20211201:Addon"),
 		},
 	})
 	opts = append(opts, aliases)

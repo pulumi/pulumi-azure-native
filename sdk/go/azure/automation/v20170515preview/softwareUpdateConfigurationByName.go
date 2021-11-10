@@ -48,19 +48,10 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation:SoftwareUpdateConfigurationByName"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:automation:SoftwareUpdateConfigurationByName"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20190601:SoftwareUpdateConfigurationByName"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/v20190601:SoftwareUpdateConfigurationByName"),
 		},
 	})
 	opts = append(opts, aliases)

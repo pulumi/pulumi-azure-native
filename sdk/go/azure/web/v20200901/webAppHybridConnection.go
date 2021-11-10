@@ -46,73 +46,37 @@ func NewWebAppHybridConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppHybridConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppHybridConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppHybridConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppHybridConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppHybridConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppHybridConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppHybridConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppHybridConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppHybridConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppHybridConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppHybridConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppHybridConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppHybridConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppHybridConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHybridConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppHybridConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppHybridConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppHybridConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppHybridConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppHybridConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppHybridConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppHybridConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppHybridConnection"),
 		},
 	})
 	opts = append(opts, aliases)

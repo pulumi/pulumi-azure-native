@@ -39,49 +39,25 @@ func NewConsumerGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:ConsumerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub:ConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub:ConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventhub/v20140901:ConsumerGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20140901:ConsumerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20150801:ConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20150801:ConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventhub/v20170401:ConsumerGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20170401:ConsumerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20210101preview:ConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20210101preview:ConsumerGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventhub/v20210601preview:ConsumerGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20210601preview:ConsumerGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20211101:ConsumerGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20211101:ConsumerGroup"),
 		},
 	})
 	opts = append(opts, aliases)

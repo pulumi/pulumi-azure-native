@@ -32,13 +32,7 @@ func NewResourceManagementPrivateLink(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:authorization:ResourceManagementPrivateLink"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20200501:ResourceManagementPrivateLink"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20200501:ResourceManagementPrivateLink"),
 		},
 	})
 	opts = append(opts, aliases)

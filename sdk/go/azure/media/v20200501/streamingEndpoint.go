@@ -55,43 +55,22 @@ func NewStreamingEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:media/v20200501:StreamingEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:media:StreamingEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media:StreamingEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:media/v20180330preview:StreamingEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:media/v20180330preview:StreamingEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180601preview:StreamingEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/v20180601preview:StreamingEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:media/v20180701:StreamingEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:media/v20180701:StreamingEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20190501preview:StreamingEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:media/v20190501preview:StreamingEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20210601:StreamingEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/v20210601:StreamingEndpoint"),
 		},
 	})
 	opts = append(opts, aliases)

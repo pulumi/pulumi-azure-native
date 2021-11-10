@@ -52,37 +52,19 @@ func NewSynapseWorkspaceSqlPoolTableDataSetMapping(ctx *pulumi.Context,
 	args.Kind = pulumi.String("SynapseWorkspaceSqlPoolTable")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSetMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping"),
 		},
 	})
 	opts = append(opts, aliases)

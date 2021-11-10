@@ -43,43 +43,22 @@ func NewZone(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180301preview:Zone"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:Zone"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:Zone"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20150504preview:Zone"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20150504preview:Zone"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20160401:Zone"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20160401:Zone"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20170901:Zone"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170901:Zone"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20171001:Zone"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20171001:Zone"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180501:Zone"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180501:Zone"),
 		},
 	})
 	opts = append(opts, aliases)

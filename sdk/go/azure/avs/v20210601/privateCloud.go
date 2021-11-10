@@ -60,37 +60,19 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20210601:PrivateCloud"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs:PrivateCloud"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs:PrivateCloud"),
 		},
 		{
 			Type: pulumi.String("azure-native:avs/v20200320:PrivateCloud"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20200320:PrivateCloud"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20200717preview:PrivateCloud"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/v20200717preview:PrivateCloud"),
 		},
 		{
 			Type: pulumi.String("azure-native:avs/v20210101preview:PrivateCloud"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20210101preview:PrivateCloud"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20211201:PrivateCloud"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/v20211201:PrivateCloud"),
 		},
 	})
 	opts = append(opts, aliases)

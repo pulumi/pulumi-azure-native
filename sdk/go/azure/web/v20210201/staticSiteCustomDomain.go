@@ -42,31 +42,16 @@ func NewStaticSiteCustomDomain(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:StaticSiteCustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:StaticSiteCustomDomain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:StaticSiteCustomDomain"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:StaticSiteCustomDomain"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:StaticSiteCustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:StaticSiteCustomDomain"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:StaticSiteCustomDomain"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:StaticSiteCustomDomain"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:StaticSiteCustomDomain"),
 		},
 	})
 	opts = append(opts, aliases)

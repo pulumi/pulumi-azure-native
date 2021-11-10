@@ -35,19 +35,10 @@ func NewHyperVSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:offazure/v20200707:HyperVSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:offazure:HyperVSite"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:offazure:HyperVSite"),
-		},
-		{
 			Type: pulumi.String("azure-native:offazure/v20200101:HyperVSite"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:offazure/v20200101:HyperVSite"),
 		},
 	})
 	opts = append(opts, aliases)

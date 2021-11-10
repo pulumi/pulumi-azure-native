@@ -40,37 +40,19 @@ func NewShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare:Share"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare:Share"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20191101:Share"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20191101:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:Share"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20200901:Share"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20201001preview:Share"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:Share"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20210801:Share"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20210801:Share"),
 		},
 	})
 	opts = append(opts, aliases)

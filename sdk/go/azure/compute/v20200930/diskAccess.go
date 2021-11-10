@@ -35,37 +35,19 @@ func NewDiskAccess(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20200930:DiskAccess"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:DiskAccess"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute:DiskAccess"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20200501:DiskAccess"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20200501:DiskAccess"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20200630:DiskAccess"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20200630:DiskAccess"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20201201:DiskAccess"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20201201:DiskAccess"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210401:DiskAccess"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210401:DiskAccess"),
 		},
 	})
 	opts = append(opts, aliases)

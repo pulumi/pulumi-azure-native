@@ -57,19 +57,10 @@ func NewJobDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:hybriddata/v20190601:JobDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybriddata:JobDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybriddata:JobDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybriddata/v20160601:JobDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybriddata/v20160601:JobDefinition"),
 		},
 	})
 	opts = append(opts, aliases)

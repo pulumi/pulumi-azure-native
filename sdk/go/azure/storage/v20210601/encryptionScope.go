@@ -39,43 +39,22 @@ func NewEncryptionScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:EncryptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage:EncryptionScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage:EncryptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20190601:EncryptionScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:EncryptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20200801preview:EncryptionScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:EncryptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210101:EncryptionScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:EncryptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210201:EncryptionScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:EncryptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210401:EncryptionScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:EncryptionScope"),
 		},
 	})
 	opts = append(opts, aliases)

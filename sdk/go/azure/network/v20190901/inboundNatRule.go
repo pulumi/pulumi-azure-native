@@ -43,199 +43,100 @@ func NewInboundNatRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20170601:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170601:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20170801:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20170801:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20170901:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170901:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20171001:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20171001:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20171101:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20171101:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180101:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180101:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180201:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180201:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180401:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180401:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180601:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180601:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180701:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180701:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180801:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181001:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181101:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181201:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190201:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190401:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190601:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190701:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190801:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191101:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191201:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200301:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:InboundNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:InboundNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:InboundNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:InboundNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:InboundNatRule"),
 		},
 	})
 	opts = append(opts, aliases)

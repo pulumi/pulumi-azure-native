@@ -66,73 +66,37 @@ func NewManagedHostingEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:ManagedHostingEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:ManagedHostingEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:ManagedHostingEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160901:ManagedHostingEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160901:ManagedHostingEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:ManagedHostingEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:ManagedHostingEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:ManagedHostingEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:ManagedHostingEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:ManagedHostingEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:ManagedHostingEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:ManagedHostingEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:ManagedHostingEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:ManagedHostingEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:ManagedHostingEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:ManagedHostingEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:ManagedHostingEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:ManagedHostingEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:ManagedHostingEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:ManagedHostingEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:ManagedHostingEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:ManagedHostingEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:ManagedHostingEnvironment"),
 		},
 	})
 	opts = append(opts, aliases)

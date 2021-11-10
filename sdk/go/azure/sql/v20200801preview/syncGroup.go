@@ -48,49 +48,25 @@ func NewSyncGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:SyncGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20150501preview:SyncGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20150501preview:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20190601preview:SyncGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20190601preview:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:SyncGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:SyncGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:SyncGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:SyncGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:SyncGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:SyncGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:SyncGroup"),
 		},
 	})
 	opts = append(opts, aliases)

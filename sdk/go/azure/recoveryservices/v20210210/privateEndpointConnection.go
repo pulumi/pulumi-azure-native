@@ -37,79 +37,40 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20200202:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20200202:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20201001:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20201201:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210101:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

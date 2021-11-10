@@ -46,73 +46,37 @@ func NewNetworkVirtualAppliance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:NetworkVirtualAppliance"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:NetworkVirtualAppliance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:NetworkVirtualAppliance"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191201:NetworkVirtualAppliance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:NetworkVirtualAppliance"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200301:NetworkVirtualAppliance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:NetworkVirtualAppliance"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:NetworkVirtualAppliance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:NetworkVirtualAppliance"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:NetworkVirtualAppliance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:NetworkVirtualAppliance"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:NetworkVirtualAppliance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:NetworkVirtualAppliance"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:NetworkVirtualAppliance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:NetworkVirtualAppliance"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:NetworkVirtualAppliance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:NetworkVirtualAppliance"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:NetworkVirtualAppliance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:NetworkVirtualAppliance"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:NetworkVirtualAppliance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:NetworkVirtualAppliance"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:NetworkVirtualAppliance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:NetworkVirtualAppliance"),
 		},
 	})
 	opts = append(opts, aliases)

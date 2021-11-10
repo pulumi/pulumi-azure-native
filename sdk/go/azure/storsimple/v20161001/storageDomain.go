@@ -40,12 +40,6 @@ func NewStorageDomain(ctx *pulumi.Context,
 	if args.StorageAccountCredentialIds == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccountCredentialIds'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/v20161001:StorageDomain"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource StorageDomain
 	err := ctx.RegisterResource("azure-native:storsimple/v20161001:StorageDomain", name, args, &resource, opts...)
 	if err != nil {

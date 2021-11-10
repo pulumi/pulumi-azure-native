@@ -43,79 +43,40 @@ func NewWebAppDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppDeployment"),
 		},
 	})
 	opts = append(opts, aliases)

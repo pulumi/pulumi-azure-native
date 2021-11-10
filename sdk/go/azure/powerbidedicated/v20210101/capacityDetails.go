@@ -41,19 +41,10 @@ func NewCapacityDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:powerbidedicated/v20210101:CapacityDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:powerbidedicated:CapacityDetails"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:powerbidedicated:CapacityDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:powerbidedicated/v20171001:CapacityDetails"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:powerbidedicated/v20171001:CapacityDetails"),
 		},
 	})
 	opts = append(opts, aliases)

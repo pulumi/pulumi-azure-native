@@ -43,19 +43,10 @@ func NewProductSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights:ProductSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights/v20190101preview:ProductSetting"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:ProductSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights/v20210301preview:ProductSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:ProductSetting"),
 		},
 	})
 	opts = append(opts, aliases)

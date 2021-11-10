@@ -37,67 +37,34 @@ func NewVault(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160601:Vault"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20160601:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20200202:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20200202:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20201001:Vault"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210101:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:Vault"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:Vault"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:Vault"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:Vault"),
 		},
 	})
 	opts = append(opts, aliases)

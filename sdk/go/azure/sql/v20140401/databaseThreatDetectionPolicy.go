@@ -48,49 +48,25 @@ func NewDatabaseThreatDetectionPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20140401:DatabaseThreatDetectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:DatabaseThreatDetectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:DatabaseThreatDetectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20180601preview:DatabaseThreatDetectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:DatabaseThreatDetectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:DatabaseThreatDetectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:DatabaseThreatDetectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:DatabaseThreatDetectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:DatabaseThreatDetectionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:DatabaseThreatDetectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:DatabaseThreatDetectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:DatabaseThreatDetectionPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

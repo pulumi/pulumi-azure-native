@@ -33,25 +33,13 @@ func NewRemediationAtSubscription(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:policyinsights:RemediationAtSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:policyinsights:RemediationAtSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:policyinsights/v20190701:RemediationAtSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:policyinsights/v20190701:RemediationAtSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:policyinsights/v20211001:RemediationAtSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:policyinsights/v20211001:RemediationAtSubscription"),
 		},
 	})
 	opts = append(opts, aliases)

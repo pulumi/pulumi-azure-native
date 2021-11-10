@@ -41,127 +41,64 @@ func NewDatabaseAccountCassandraKeyspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb:DatabaseAccountCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccountCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20190801:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20191212:DatabaseAccountCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20191212:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200301:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200301:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200401:DatabaseAccountCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200401:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200601preview:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200901:DatabaseAccountCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200901:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210115:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210301preview:DatabaseAccountCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210315:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210315:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210401preview:DatabaseAccountCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210415:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210415:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210515:DatabaseAccountCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210515:DatabaseAccountCassandraKeyspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210615:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210615:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:DatabaseAccountCassandraKeyspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:DatabaseAccountCassandraKeyspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:DatabaseAccountCassandraKeyspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20211015:DatabaseAccountCassandraKeyspace"),
 		},
 	})
 	opts = append(opts, aliases)

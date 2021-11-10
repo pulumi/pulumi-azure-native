@@ -45,43 +45,22 @@ func NewGalleryImageVersion(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20200930:GalleryImageVersion"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:GalleryImageVersion"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute:GalleryImageVersion"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20180601:GalleryImageVersion"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20180601:GalleryImageVersion"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20190301:GalleryImageVersion"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20190301:GalleryImageVersion"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20190701:GalleryImageVersion"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20190701:GalleryImageVersion"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20191201:GalleryImageVersion"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20191201:GalleryImageVersion"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210701:GalleryImageVersion"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210701:GalleryImageVersion"),
 		},
 	})
 	opts = append(opts, aliases)

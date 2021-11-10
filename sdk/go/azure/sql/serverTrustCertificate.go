@@ -36,13 +36,7 @@ func NewServerTrustCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql:ServerTrustCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:ServerTrustCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ServerTrustCertificate"),
 		},
 	})
 	opts = append(opts, aliases)

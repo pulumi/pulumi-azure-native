@@ -47,55 +47,28 @@ func NewDedicatedHost(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20190701:DedicatedHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:DedicatedHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute:DedicatedHost"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20190301:DedicatedHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20190301:DedicatedHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20191201:DedicatedHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20191201:DedicatedHost"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20200601:DedicatedHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20200601:DedicatedHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201201:DedicatedHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20201201:DedicatedHost"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20210301:DedicatedHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210301:DedicatedHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210401:DedicatedHost"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210401:DedicatedHost"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210701:DedicatedHost"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210701:DedicatedHost"),
 		},
 	})
 	opts = append(opts, aliases)

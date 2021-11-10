@@ -53,13 +53,7 @@ func NewKustoPoolAttachedDatabaseConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse:KustoPoolAttachedDatabaseConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse:KustoPoolAttachedDatabaseConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -57,73 +57,37 @@ func NewWebAppSiteExtensionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppSiteExtensionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppSiteExtensionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppSiteExtensionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppSiteExtensionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSiteExtensionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppSiteExtensionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSiteExtensionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppSiteExtensionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSiteExtensionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppSiteExtensionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSiteExtensionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppSiteExtensionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSiteExtensionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppSiteExtensionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSiteExtensionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppSiteExtensionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSiteExtensionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppSiteExtensionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSiteExtensionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppSiteExtensionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppSiteExtensionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppSiteExtensionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppSiteExtensionSlot"),
 		},
 	})
 	opts = append(opts, aliases)

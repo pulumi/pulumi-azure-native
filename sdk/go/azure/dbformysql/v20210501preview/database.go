@@ -36,25 +36,13 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20210501preview:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformysql/v20200701preview:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20200701preview:Database"),
 		},
 		{
 			Type: pulumi.String("azure-native:dbformysql/v20200701privatepreview:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20200701privatepreview:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformysql/v20210501:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformysql/v20210501:Database"),
 		},
 	})
 	opts = append(opts, aliases)

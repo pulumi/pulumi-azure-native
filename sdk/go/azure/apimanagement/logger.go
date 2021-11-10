@@ -41,85 +41,43 @@ func NewLogger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement:Logger"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:Logger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:Logger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Logger"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:Logger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:Logger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Logger"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Logger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:Logger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Logger"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:Logger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Logger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Logger"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Logger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:Logger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:Logger"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:Logger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:Logger"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:Logger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:Logger"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:Logger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:Logger"),
 		},
 	})
 	opts = append(opts, aliases)

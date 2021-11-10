@@ -42,79 +42,40 @@ func NewSiteVNETConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteVNETConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteVNETConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteVNETConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteVNETConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteVNETConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteVNETConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteVNETConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteVNETConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteVNETConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteVNETConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteVNETConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteVNETConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteVNETConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteVNETConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteVNETConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteVNETConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteVNETConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteVNETConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteVNETConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteVNETConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteVNETConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteVNETConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteVNETConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteVNETConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteVNETConnection"),
 		},
 	})
 	opts = append(opts, aliases)

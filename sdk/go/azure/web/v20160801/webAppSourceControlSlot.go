@@ -42,79 +42,40 @@ func NewWebAppSourceControlSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSourceControlSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppSourceControlSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppSourceControlSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppSourceControlSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppSourceControlSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppSourceControlSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSourceControlSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppSourceControlSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppSourceControlSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSourceControlSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppSourceControlSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppSourceControlSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSourceControlSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppSourceControlSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSourceControlSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppSourceControlSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppSourceControlSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppSourceControlSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppSourceControlSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppSourceControlSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppSourceControlSlot"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -64,79 +64,40 @@ func NewSiteSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteSlot"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -40,43 +40,22 @@ func NewBackupLongTermRetentionPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20170301preview:BackupLongTermRetentionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:BackupLongTermRetentionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:BackupLongTermRetentionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:BackupLongTermRetentionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:BackupLongTermRetentionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:BackupLongTermRetentionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:BackupLongTermRetentionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:BackupLongTermRetentionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:BackupLongTermRetentionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:BackupLongTermRetentionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:BackupLongTermRetentionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:BackupLongTermRetentionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:BackupLongTermRetentionPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

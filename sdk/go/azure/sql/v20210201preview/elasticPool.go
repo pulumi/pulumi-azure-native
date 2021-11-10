@@ -44,49 +44,25 @@ func NewElasticPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ElasticPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:ElasticPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:ElasticPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20140401:ElasticPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20140401:ElasticPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20171001preview:ElasticPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20171001preview:ElasticPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:ElasticPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ElasticPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:ElasticPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ElasticPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:ElasticPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ElasticPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:ElasticPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ElasticPool"),
 		},
 	})
 	opts = append(opts, aliases)

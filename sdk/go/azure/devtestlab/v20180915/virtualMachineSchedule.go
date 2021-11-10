@@ -52,19 +52,10 @@ func NewVirtualMachineSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab:VirtualMachineSchedule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab:VirtualMachineSchedule"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:VirtualMachineSchedule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:VirtualMachineSchedule"),
 		},
 	})
 	opts = append(opts, aliases)

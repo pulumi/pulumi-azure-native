@@ -49,73 +49,37 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190515:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20170907privatepreview:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20180907preview:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20180907preview:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190121:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190121:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20190907:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190907:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20191109:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20191109:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200215:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200215:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20200614:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200614:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200918:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200918:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20210101:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210101:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20210827:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210827:Cluster"),
 		},
 	})
 	opts = append(opts, aliases)

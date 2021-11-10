@@ -41,13 +41,7 @@ func NewLabPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:labservices:LabPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:labservices/v20211001preview:LabPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:labservices/v20211001preview:LabPlan"),
 		},
 	})
 	opts = append(opts, aliases)

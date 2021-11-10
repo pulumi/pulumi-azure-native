@@ -32,79 +32,40 @@ func NewDeploymentAtSubscriptionScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20190801:DeploymentAtSubscriptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources:DeploymentAtSubscriptionScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources:DeploymentAtSubscriptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20180501:DeploymentAtSubscriptionScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20180501:DeploymentAtSubscriptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190301:DeploymentAtSubscriptionScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20190301:DeploymentAtSubscriptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20190501:DeploymentAtSubscriptionScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20190501:DeploymentAtSubscriptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190510:DeploymentAtSubscriptionScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20190510:DeploymentAtSubscriptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20190701:DeploymentAtSubscriptionScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20190701:DeploymentAtSubscriptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20191001:DeploymentAtSubscriptionScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20191001:DeploymentAtSubscriptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20200601:DeploymentAtSubscriptionScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20200601:DeploymentAtSubscriptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20200801:DeploymentAtSubscriptionScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20200801:DeploymentAtSubscriptionScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20201001:DeploymentAtSubscriptionScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentAtSubscriptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20210101:DeploymentAtSubscriptionScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20210101:DeploymentAtSubscriptionScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20210401:DeploymentAtSubscriptionScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20210401:DeploymentAtSubscriptionScope"),
 		},
 	})
 	opts = append(opts, aliases)

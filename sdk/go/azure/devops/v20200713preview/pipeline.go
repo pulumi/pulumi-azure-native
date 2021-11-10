@@ -42,19 +42,10 @@ func NewPipeline(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devops/v20200713preview:Pipeline"),
-		},
-		{
 			Type: pulumi.String("azure-native:devops:Pipeline"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devops:Pipeline"),
-		},
-		{
 			Type: pulumi.String("azure-native:devops/v20190701preview:Pipeline"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devops/v20190701preview:Pipeline"),
 		},
 	})
 	opts = append(opts, aliases)

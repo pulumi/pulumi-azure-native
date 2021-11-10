@@ -48,211 +48,106 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170301:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20161201:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20161201:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20170601:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20170601:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20170801:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170801:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20170901:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20170901:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20171001:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20171001:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20171101:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20171101:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180101:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180101:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180201:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180201:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180401:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180401:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180601:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180701:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180701:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180801:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181001:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181101:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181201:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190201:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190401:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190601:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190701:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190801:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190901:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191101:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191201:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200301:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:RouteFilterRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:RouteFilterRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:RouteFilterRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:RouteFilterRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:RouteFilterRule"),
 		},
 	})
 	opts = append(opts, aliases)

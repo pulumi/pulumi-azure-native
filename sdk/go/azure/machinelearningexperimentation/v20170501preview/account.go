@@ -51,13 +51,7 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningexperimentation/v20170501preview:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningexperimentation:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningexperimentation:Account"),
 		},
 	})
 	opts = append(opts, aliases)

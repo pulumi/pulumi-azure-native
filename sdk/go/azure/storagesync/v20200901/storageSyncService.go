@@ -39,67 +39,34 @@ func NewStorageSyncService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20200901:StorageSyncService"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync:StorageSyncService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync:StorageSyncService"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20170605preview:StorageSyncService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20170605preview:StorageSyncService"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20180402:StorageSyncService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20180402:StorageSyncService"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20180701:StorageSyncService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20180701:StorageSyncService"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20181001:StorageSyncService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20181001:StorageSyncService"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20190201:StorageSyncService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20190201:StorageSyncService"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20190301:StorageSyncService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20190301:StorageSyncService"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20190601:StorageSyncService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20190601:StorageSyncService"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20191001:StorageSyncService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20191001:StorageSyncService"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20200301:StorageSyncService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20200301:StorageSyncService"),
 		},
 	})
 	opts = append(opts, aliases)

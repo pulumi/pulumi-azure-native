@@ -56,235 +56,118 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20171001:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20150615:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20150615:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20160330:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20160330:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20160601:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20160601:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20160901:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20160901:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20161201:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20161201:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20170301:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20170301:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20170601:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170601:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20170801:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20170801:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20170901:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170901:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20171101:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20171101:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180101:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180101:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180201:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180201:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180401:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180401:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180601:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180701:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180701:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180801:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181001:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181101:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181201:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190201:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190401:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190601:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190701:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190801:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190901:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191101:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191201:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200301:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:VirtualNetworkGatewayConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:VirtualNetworkGatewayConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:VirtualNetworkGatewayConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:VirtualNetworkGatewayConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:VirtualNetworkGatewayConnection"),
 		},
 	})
 	opts = append(opts, aliases)

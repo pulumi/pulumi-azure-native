@@ -41,79 +41,40 @@ func NewWebAppPremierAddOn(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppPremierAddOn"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppPremierAddOn"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppPremierAddOn"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppPremierAddOn"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppPremierAddOn"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppPremierAddOn"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppPremierAddOn"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppPremierAddOn"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppPremierAddOn"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppPremierAddOn"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppPremierAddOn"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppPremierAddOn"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPremierAddOn"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppPremierAddOn"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPremierAddOn"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppPremierAddOn"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPremierAddOn"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppPremierAddOn"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppPremierAddOn"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppPremierAddOn"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppPremierAddOn"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppPremierAddOn"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppPremierAddOn"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppPremierAddOn"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppPremierAddOn"),
 		},
 	})
 	opts = append(opts, aliases)

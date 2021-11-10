@@ -41,73 +41,37 @@ func NewPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Policy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:Policy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:Policy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Policy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:Policy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Policy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Policy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:Policy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Policy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Policy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Policy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:Policy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:Policy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:Policy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:Policy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:Policy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:Policy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:Policy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:Policy"),
 		},
 	})
 	opts = append(opts, aliases)

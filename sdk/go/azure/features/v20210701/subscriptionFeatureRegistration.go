@@ -31,13 +31,7 @@ func NewSubscriptionFeatureRegistration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:features/v20210701:SubscriptionFeatureRegistration"),
-		},
-		{
 			Type: pulumi.String("azure-native:features:SubscriptionFeatureRegistration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:features:SubscriptionFeatureRegistration"),
 		},
 	})
 	opts = append(opts, aliases)

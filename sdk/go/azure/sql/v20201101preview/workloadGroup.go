@@ -51,43 +51,22 @@ func NewWorkloadGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:WorkloadGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:WorkloadGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:WorkloadGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20190601preview:WorkloadGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20190601preview:WorkloadGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:WorkloadGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:WorkloadGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:WorkloadGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:WorkloadGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:WorkloadGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:WorkloadGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:WorkloadGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:WorkloadGroup"),
 		},
 	})
 	opts = append(opts, aliases)

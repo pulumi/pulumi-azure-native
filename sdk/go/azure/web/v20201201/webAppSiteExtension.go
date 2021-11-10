@@ -54,73 +54,37 @@ func NewWebAppSiteExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSiteExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppSiteExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppSiteExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppSiteExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSiteExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppSiteExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSiteExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppSiteExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSiteExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppSiteExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSiteExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppSiteExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSiteExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppSiteExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSiteExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppSiteExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSiteExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppSiteExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppSiteExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppSiteExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppSiteExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppSiteExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppSiteExtension"),
 		},
 	})
 	opts = append(opts, aliases)

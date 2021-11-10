@@ -42,163 +42,82 @@ func NewExpressRouteCircuitConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180601:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180201:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180201:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180401:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180401:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180701:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180701:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180801:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181001:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181101:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181201:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190201:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190401:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190601:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190701:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190801:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190901:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191101:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191201:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200301:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:ExpressRouteCircuitConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:ExpressRouteCircuitConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:ExpressRouteCircuitConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:ExpressRouteCircuitConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:ExpressRouteCircuitConnection"),
 		},
 	})
 	opts = append(opts, aliases)

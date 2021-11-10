@@ -42,13 +42,7 @@ func NewUserRuleCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201preview:UserRuleCollection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:UserRuleCollection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:UserRuleCollection"),
 		},
 	})
 	opts = append(opts, aliases)

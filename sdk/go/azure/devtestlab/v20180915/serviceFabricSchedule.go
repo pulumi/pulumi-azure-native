@@ -55,13 +55,7 @@ func NewServiceFabricSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab:ServiceFabricSchedule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab:ServiceFabricSchedule"),
 		},
 	})
 	opts = append(opts, aliases)

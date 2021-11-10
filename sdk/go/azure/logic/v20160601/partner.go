@@ -46,31 +46,16 @@ func NewPartner(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20160601:Partner"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic:Partner"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic:Partner"),
 		},
 		{
 			Type: pulumi.String("azure-native:logic/v20150801preview:Partner"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20150801preview:Partner"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20180701preview:Partner"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20180701preview:Partner"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20190501:Partner"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/v20190501:Partner"),
 		},
 	})
 	opts = append(opts, aliases)

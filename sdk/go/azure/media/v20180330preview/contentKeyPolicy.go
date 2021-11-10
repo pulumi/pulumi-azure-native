@@ -41,37 +41,19 @@ func NewContentKeyPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:media/v20180330preview:ContentKeyPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:media:ContentKeyPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media:ContentKeyPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:media/v20180601preview:ContentKeyPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:media/v20180601preview:ContentKeyPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20180701:ContentKeyPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/v20180701:ContentKeyPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:media/v20200501:ContentKeyPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:media/v20200501:ContentKeyPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:media/v20210601:ContentKeyPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:media/v20210601:ContentKeyPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

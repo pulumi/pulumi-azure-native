@@ -45,79 +45,40 @@ func NewSiteDeployment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteDeployment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteDeployment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteDeployment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteDeployment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteDeployment"),
 		},
 	})
 	opts = append(opts, aliases)

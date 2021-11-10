@@ -37,79 +37,40 @@ func NewSiteMetadata(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteMetadata"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteMetadata"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteMetadata"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteMetadata"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteMetadata"),
 		},
 	})
 	opts = append(opts, aliases)

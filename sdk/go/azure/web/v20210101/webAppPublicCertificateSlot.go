@@ -40,73 +40,37 @@ func NewWebAppPublicCertificateSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppPublicCertificateSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppPublicCertificateSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppPublicCertificateSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppPublicCertificateSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppPublicCertificateSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppPublicCertificateSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppPublicCertificateSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppPublicCertificateSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppPublicCertificateSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppPublicCertificateSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppPublicCertificateSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppPublicCertificateSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPublicCertificateSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppPublicCertificateSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPublicCertificateSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppPublicCertificateSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPublicCertificateSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppPublicCertificateSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppPublicCertificateSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppPublicCertificateSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppPublicCertificateSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppPublicCertificateSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppPublicCertificateSlot"),
 		},
 	})
 	opts = append(opts, aliases)

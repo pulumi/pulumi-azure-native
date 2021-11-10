@@ -45,73 +45,37 @@ func NewBackup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200501:Backup"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp:Backup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp:Backup"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20200601:Backup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200601:Backup"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20200701:Backup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200701:Backup"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20200801:Backup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200801:Backup"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20200901:Backup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20200901:Backup"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20201101:Backup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20201101:Backup"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20201201:Backup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20201201:Backup"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20210201:Backup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20210201:Backup"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20210401:Backup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20210401:Backup"),
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20210401preview:Backup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:netapp/v20210401preview:Backup"),
-		},
-		{
 			Type: pulumi.String("azure-native:netapp/v20210601:Backup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:netapp/v20210601:Backup"),
 		},
 	})
 	opts = append(opts, aliases)

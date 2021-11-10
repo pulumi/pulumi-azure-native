@@ -42,49 +42,25 @@ func NewIotDpsResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20200901preview:IotDpsResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices:IotDpsResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices:IotDpsResource"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20170821preview:IotDpsResource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20170821preview:IotDpsResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20171115:IotDpsResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20171115:IotDpsResource"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20180122:IotDpsResource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20180122:IotDpsResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20200101:IotDpsResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20200101:IotDpsResource"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20200301:IotDpsResource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20200301:IotDpsResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20211015:IotDpsResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20211015:IotDpsResource"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -39,31 +39,16 @@ func NewOutput(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:streamanalytics/v20200301:Output"),
-		},
-		{
 			Type: pulumi.String("azure-native:streamanalytics:Output"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:streamanalytics:Output"),
 		},
 		{
 			Type: pulumi.String("azure-native:streamanalytics/v20160301:Output"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:Output"),
-		},
-		{
 			Type: pulumi.String("azure-native:streamanalytics/v20170401preview:Output"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:streamanalytics/v20170401preview:Output"),
-		},
-		{
 			Type: pulumi.String("azure-native:streamanalytics/v20211001preview:Output"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:streamanalytics/v20211001preview:Output"),
 		},
 	})
 	opts = append(opts, aliases)

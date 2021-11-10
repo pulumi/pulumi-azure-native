@@ -39,67 +39,34 @@ func NewAppServiceCertificateOrderCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrderCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:certificateregistration:AppServiceCertificateOrderCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:certificateregistration:AppServiceCertificateOrderCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrderCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrderCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrderCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrderCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrderCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:certificateregistration/v20201201:AppServiceCertificateOrderCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:certificateregistration/v20201201:AppServiceCertificateOrderCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:certificateregistration/v20210101:AppServiceCertificateOrderCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:certificateregistration/v20210101:AppServiceCertificateOrderCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:certificateregistration/v20210115:AppServiceCertificateOrderCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:certificateregistration/v20210115:AppServiceCertificateOrderCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:certificateregistration/v20210201:AppServiceCertificateOrderCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:certificateregistration/v20210201:AppServiceCertificateOrderCertificate"),
 		},
 	})
 	opts = append(opts, aliases)

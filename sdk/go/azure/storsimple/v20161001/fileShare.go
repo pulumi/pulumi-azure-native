@@ -60,12 +60,6 @@ func NewFileShare(ctx *pulumi.Context,
 	if args.ShareStatus == nil {
 		return nil, errors.New("invalid value for required argument 'ShareStatus'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/v20161001:FileShare"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource FileShare
 	err := ctx.RegisterResource("azure-native:storsimple/v20161001:FileShare", name, args, &resource, opts...)
 	if err != nil {

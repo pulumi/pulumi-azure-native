@@ -34,13 +34,7 @@ func NewCustomApi(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160601:CustomApi"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:CustomApi"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:CustomApi"),
 		},
 	})
 	opts = append(opts, aliases)

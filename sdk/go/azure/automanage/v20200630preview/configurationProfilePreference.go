@@ -33,13 +33,7 @@ func NewConfigurationProfilePreference(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:automanage/v20200630preview:ConfigurationProfilePreference"),
-		},
-		{
 			Type: pulumi.String("azure-native:automanage:ConfigurationProfilePreference"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automanage:ConfigurationProfilePreference"),
 		},
 	})
 	opts = append(opts, aliases)

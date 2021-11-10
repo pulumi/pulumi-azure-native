@@ -45,31 +45,16 @@ func NewOuContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:aad/v20210301:OuContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:aad:OuContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:aad:OuContainer"),
 		},
 		{
 			Type: pulumi.String("azure-native:aad/v20170601:OuContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:aad/v20170601:OuContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:aad/v20200101:OuContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:aad/v20200101:OuContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:aad/v20210501:OuContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:aad/v20210501:OuContainer"),
 		},
 	})
 	opts = append(opts, aliases)

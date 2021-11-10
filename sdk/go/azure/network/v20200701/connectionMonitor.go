@@ -55,181 +55,91 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20171001:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20171001:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20171101:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20171101:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180101:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180101:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180201:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180201:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180401:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180401:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180601:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180701:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180701:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180801:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181001:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181101:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181201:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190201:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190401:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190601:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190701:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190801:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190901:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191101:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191201:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200301:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:ConnectionMonitor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:ConnectionMonitor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:ConnectionMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:ConnectionMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:ConnectionMonitor"),
 		},
 	})
 	opts = append(opts, aliases)

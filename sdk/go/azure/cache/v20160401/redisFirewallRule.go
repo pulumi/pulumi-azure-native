@@ -41,49 +41,25 @@ func NewRedisFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20160401:RedisFirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache:RedisFirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache:RedisFirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:cache/v20170201:RedisFirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20170201:RedisFirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20171001:RedisFirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/v20171001:RedisFirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:cache/v20180301:RedisFirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20180301:RedisFirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20190701:RedisFirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/v20190701:RedisFirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:cache/v20200601:RedisFirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20200601:RedisFirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20201201:RedisFirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/v20201201:RedisFirewallRule"),
 		},
 	})
 	opts = append(opts, aliases)

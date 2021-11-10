@@ -46,85 +46,43 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190123preview:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization:Application"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:Application"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190924preview:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20191210preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20191210preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:Application"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20200921preview:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:Application"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:Application"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210201preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210309preview:Application"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210309preview:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210401preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210401preview:Application"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210712:Application"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210712:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210903preview:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210903preview:Application"),
 		},
 	})
 	opts = append(opts, aliases)

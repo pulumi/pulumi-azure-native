@@ -35,13 +35,7 @@ func NewGuestDiagnosticsSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:insights/v20180601preview:guestDiagnosticsSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights:guestDiagnosticsSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights:guestDiagnosticsSetting"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -44,25 +44,13 @@ func NewRemediationAtResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:policyinsights/v20211001:RemediationAtResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:policyinsights:RemediationAtResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:policyinsights:RemediationAtResource"),
 		},
 		{
 			Type: pulumi.String("azure-native:policyinsights/v20180701preview:RemediationAtResource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:policyinsights/v20180701preview:RemediationAtResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:policyinsights/v20190701:RemediationAtResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:policyinsights/v20190701:RemediationAtResource"),
 		},
 	})
 	opts = append(opts, aliases)

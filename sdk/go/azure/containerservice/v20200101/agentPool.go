@@ -51,133 +51,67 @@ func NewAgentPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200101:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice:AgentPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20190201:AgentPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20190201:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20190401:AgentPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20190401:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20190601:AgentPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20190601:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20190801:AgentPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20190801:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20191001:AgentPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20191001:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20191101:AgentPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20191101:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20200201:AgentPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200201:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20200301:AgentPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200301:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20200401:AgentPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200401:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20200601:AgentPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200601:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20200701:AgentPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200701:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20200901:AgentPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200901:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20201101:AgentPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20201101:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20201201:AgentPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20201201:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20210201:AgentPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210201:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210301:AgentPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210301:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20210501:AgentPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210501:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210701:AgentPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210701:AgentPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20210801:AgentPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210801:AgentPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210901:AgentPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210901:AgentPool"),
 		},
 	})
 	opts = append(opts, aliases)

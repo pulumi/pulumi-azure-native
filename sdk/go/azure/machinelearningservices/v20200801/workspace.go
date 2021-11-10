@@ -59,115 +59,58 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200801:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20180301preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20180301preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20181119:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20181119:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20190501:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20190501:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20190601:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20190601:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20191101:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20191101:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200101:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200101:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200218preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200218preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200301:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200301:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200401:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200401:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200515preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200515preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200601:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200601:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200901preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210101:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210301preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210301preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210401:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210401:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210701:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210701:Workspace"),
 		},
 	})
 	opts = append(opts, aliases)

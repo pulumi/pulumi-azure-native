@@ -42,31 +42,16 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20210201preview:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache:Database"),
 		},
 		{
 			Type: pulumi.String("azure-native:cache/v20201001preview:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20201001preview:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20210301:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20210301:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20210801:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/v20210801:Database"),
 		},
 	})
 	opts = append(opts, aliases)

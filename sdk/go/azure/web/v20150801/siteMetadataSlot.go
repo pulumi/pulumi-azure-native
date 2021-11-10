@@ -40,79 +40,40 @@ func NewSiteMetadataSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteMetadataSlot"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -49,25 +49,13 @@ func NewJitRequest(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:solutions:JitRequest"),
-		},
-		{
 			Type: pulumi.String("azure-native:solutions/v20190701:JitRequest"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:solutions/v20190701:JitRequest"),
 		},
 		{
 			Type: pulumi.String("azure-native:solutions/v20200821preview:JitRequest"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:solutions/v20200821preview:JitRequest"),
-		},
-		{
 			Type: pulumi.String("azure-native:solutions/v20210701:JitRequest"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:solutions/v20210701:JitRequest"),
 		},
 	})
 	opts = append(opts, aliases)

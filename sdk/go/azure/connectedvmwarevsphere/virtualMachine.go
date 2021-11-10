@@ -58,13 +58,7 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:connectedvmwarevsphere:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:connectedvmwarevsphere/v20201001preview:VirtualMachine"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -36,67 +36,34 @@ func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20191001:DeploymentAtManagementGroupScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources:DeploymentAtManagementGroupScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources:DeploymentAtManagementGroupScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20190501:DeploymentAtManagementGroupScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20190501:DeploymentAtManagementGroupScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190510:DeploymentAtManagementGroupScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20190510:DeploymentAtManagementGroupScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20190701:DeploymentAtManagementGroupScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20190701:DeploymentAtManagementGroupScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190801:DeploymentAtManagementGroupScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20190801:DeploymentAtManagementGroupScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20200601:DeploymentAtManagementGroupScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20200601:DeploymentAtManagementGroupScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20200801:DeploymentAtManagementGroupScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20200801:DeploymentAtManagementGroupScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20201001:DeploymentAtManagementGroupScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentAtManagementGroupScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20210101:DeploymentAtManagementGroupScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20210101:DeploymentAtManagementGroupScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20210401:DeploymentAtManagementGroupScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20210401:DeploymentAtManagementGroupScope"),
 		},
 	})
 	opts = append(opts, aliases)

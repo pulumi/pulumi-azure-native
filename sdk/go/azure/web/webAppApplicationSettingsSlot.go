@@ -38,79 +38,40 @@ func NewWebAppApplicationSettingsSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web:WebAppApplicationSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppApplicationSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppApplicationSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppApplicationSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppApplicationSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppApplicationSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppApplicationSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppApplicationSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppApplicationSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppApplicationSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppApplicationSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppApplicationSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppApplicationSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppApplicationSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppApplicationSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppApplicationSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppApplicationSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppApplicationSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppApplicationSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppApplicationSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppApplicationSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppApplicationSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppApplicationSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppApplicationSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppApplicationSettingsSlot"),
 		},
 	})
 	opts = append(opts, aliases)

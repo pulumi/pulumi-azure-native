@@ -40,13 +40,7 @@ func NewSapMonitor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:hanaonazure/v20200207preview:SapMonitor"),
-		},
-		{
 			Type: pulumi.String("azure-native:hanaonazure:SapMonitor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hanaonazure:SapMonitor"),
 		},
 	})
 	opts = append(opts, aliases)

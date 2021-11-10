@@ -40,37 +40,19 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20200601:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20200401preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20201015preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20210601preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20210601preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20211201:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20211201:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

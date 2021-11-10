@@ -35,19 +35,10 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201preview:Database"),
 		},
 	})
 	opts = append(opts, aliases)

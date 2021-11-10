@@ -34,49 +34,25 @@ func NewPrivateLinkHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210301:PrivateLinkHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse:PrivateLinkHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse:PrivateLinkHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:PrivateLinkHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:PrivateLinkHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20201201:PrivateLinkHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20201201:PrivateLinkHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210401preview:PrivateLinkHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:PrivateLinkHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210501:PrivateLinkHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210501:PrivateLinkHub"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210601:PrivateLinkHub"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:PrivateLinkHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:PrivateLinkHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:PrivateLinkHub"),
 		},
 	})
 	opts = append(opts, aliases)

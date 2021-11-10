@@ -38,19 +38,10 @@ func NewIntegrationRuntime(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datafactory:IntegrationRuntime"),
-		},
-		{
 			Type: pulumi.String("azure-native:datafactory/v20170901preview:IntegrationRuntime"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datafactory/v20170901preview:IntegrationRuntime"),
-		},
-		{
 			Type: pulumi.String("azure-native:datafactory/v20180601:IntegrationRuntime"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datafactory/v20180601:IntegrationRuntime"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -31,19 +31,10 @@ func NewAdvancedThreatProtection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:security:AdvancedThreatProtection"),
-		},
-		{
 			Type: pulumi.String("azure-native:security/v20170801preview:AdvancedThreatProtection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:security/v20170801preview:AdvancedThreatProtection"),
-		},
-		{
 			Type: pulumi.String("azure-native:security/v20190101:AdvancedThreatProtection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security/v20190101:AdvancedThreatProtection"),
 		},
 	})
 	opts = append(opts, aliases)

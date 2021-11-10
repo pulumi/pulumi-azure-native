@@ -57,61 +57,31 @@ func NewEventHubDataConnection(ctx *pulumi.Context,
 	args.Kind = pulumi.String("EventHub")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210827:EventHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto:EventHubDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto:EventHubDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190121:EventHubDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190121:EventHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20190515:EventHubDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190515:EventHubDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190907:EventHubDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190907:EventHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20191109:EventHubDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20191109:EventHubDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20200215:EventHubDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200215:EventHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200614:EventHubDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200614:EventHubDataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20200918:EventHubDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200918:EventHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20210101:EventHubDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210101:EventHubDataConnection"),
 		},
 	})
 	opts = append(opts, aliases)

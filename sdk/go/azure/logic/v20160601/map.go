@@ -46,31 +46,16 @@ func NewMap(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20160601:Map"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic:Map"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic:Map"),
 		},
 		{
 			Type: pulumi.String("azure-native:logic/v20150801preview:Map"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20150801preview:Map"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20180701preview:Map"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20180701preview:Map"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20190501:Map"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/v20190501:Map"),
 		},
 	})
 	opts = append(opts, aliases)

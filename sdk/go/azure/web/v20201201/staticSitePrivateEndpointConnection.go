@@ -38,31 +38,16 @@ func NewStaticSitePrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:StaticSitePrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:StaticSitePrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:StaticSitePrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:StaticSitePrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:StaticSitePrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:StaticSitePrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:StaticSitePrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:StaticSitePrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:StaticSitePrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

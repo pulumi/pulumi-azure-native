@@ -59,37 +59,19 @@ func NewSqlDBTableDataSet(ctx *pulumi.Context,
 	args.Kind = pulumi.String("SqlDBTable")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datashare:SqlDBTableDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20181101preview:SqlDBTableDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:SqlDBTableDataSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20191101:SqlDBTableDataSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20191101:SqlDBTableDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:SqlDBTableDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20200901:SqlDBTableDataSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20201001preview:SqlDBTableDataSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:SqlDBTableDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20210801:SqlDBTableDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20210801:SqlDBTableDataSet"),
 		},
 	})
 	opts = append(opts, aliases)

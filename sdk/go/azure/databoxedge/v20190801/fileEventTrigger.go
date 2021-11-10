@@ -47,73 +47,37 @@ func NewFileEventTrigger(ctx *pulumi.Context,
 	args.Kind = pulumi.String("FileEvent")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:FileEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:FileEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:FileEventTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:FileEventTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:FileEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:FileEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:FileEventTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:FileEventTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:FileEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:FileEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:FileEventTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:FileEventTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:FileEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:FileEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:FileEventTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:FileEventTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:FileEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:FileEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:FileEventTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:FileEventTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:FileEventTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:FileEventTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:FileEventTrigger"),
 		},
 	})
 	opts = append(opts, aliases)

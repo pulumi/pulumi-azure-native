@@ -38,55 +38,28 @@ func NewApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:ApplicationGatewayPrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:ApplicationGatewayPrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:ApplicationGatewayPrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

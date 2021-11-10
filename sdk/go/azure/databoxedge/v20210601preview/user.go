@@ -40,73 +40,37 @@ func NewUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:User"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:User"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:User"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:User"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:User"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:User"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:User"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:User"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:User"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:User"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:User"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:User"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:User"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -39,61 +39,31 @@ func NewHubRouteTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:HubRouteTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:HubRouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:HubRouteTable"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:HubRouteTable"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:HubRouteTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:HubRouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:HubRouteTable"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:HubRouteTable"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:HubRouteTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:HubRouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:HubRouteTable"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:HubRouteTable"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:HubRouteTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:HubRouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:HubRouteTable"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:HubRouteTable"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:HubRouteTable"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:HubRouteTable"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:HubRouteTable"),
 		},
 	})
 	opts = append(opts, aliases)

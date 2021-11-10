@@ -50,73 +50,37 @@ func NewBlobContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:BlobContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage:BlobContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage:BlobContainer"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20180201:BlobContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20180201:BlobContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20180301preview:BlobContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20180301preview:BlobContainer"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20180701:BlobContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20180701:BlobContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20181101:BlobContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20181101:BlobContainer"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20190401:BlobContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20190401:BlobContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20190601:BlobContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:BlobContainer"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20200801preview:BlobContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:BlobContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210101:BlobContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobContainer"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210401:BlobContainer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:BlobContainer"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210601:BlobContainer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:BlobContainer"),
 		},
 	})
 	opts = append(opts, aliases)

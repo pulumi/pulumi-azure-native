@@ -45,37 +45,19 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/v20210601:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:operationalinsights:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:operationalinsights:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:operationalinsights/v20151101preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/v20151101preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:operationalinsights/v20200301preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/v20200301preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:operationalinsights/v20200801:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/v20200801:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:operationalinsights/v20201001:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:operationalinsights/v20201001:Workspace"),
 		},
 	})
 	opts = append(opts, aliases)

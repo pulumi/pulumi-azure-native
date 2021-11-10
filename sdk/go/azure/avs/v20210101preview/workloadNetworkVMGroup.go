@@ -38,31 +38,16 @@ func NewWorkloadNetworkVMGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20210101preview:WorkloadNetworkVMGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs:WorkloadNetworkVMGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkVMGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:avs/v20200717preview:WorkloadNetworkVMGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20200717preview:WorkloadNetworkVMGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20210601:WorkloadNetworkVMGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20210601:WorkloadNetworkVMGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20211201:WorkloadNetworkVMGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/v20211201:WorkloadNetworkVMGroup"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -38,61 +38,31 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ReplicationRecoveryPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:ReplicationRecoveryPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationRecoveryPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationRecoveryPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ReplicationRecoveryPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ReplicationRecoveryPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ReplicationRecoveryPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ReplicationRecoveryPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ReplicationRecoveryPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationRecoveryPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationRecoveryPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationRecoveryPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ReplicationRecoveryPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ReplicationRecoveryPlan"),
 		},
 	})
 	opts = append(opts, aliases)

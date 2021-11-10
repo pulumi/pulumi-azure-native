@@ -39,61 +39,31 @@ func NewPolicySetDefinitionAtManagementGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20180501:PolicySetDefinitionAtManagementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization:PolicySetDefinitionAtManagementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization:PolicySetDefinitionAtManagementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20170601preview:PolicySetDefinitionAtManagementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20180301:PolicySetDefinitionAtManagementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20180301:PolicySetDefinitionAtManagementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20190101:PolicySetDefinitionAtManagementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20190101:PolicySetDefinitionAtManagementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20190601:PolicySetDefinitionAtManagementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20190601:PolicySetDefinitionAtManagementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20190901:PolicySetDefinitionAtManagementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20190901:PolicySetDefinitionAtManagementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20200301:PolicySetDefinitionAtManagementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20200301:PolicySetDefinitionAtManagementGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20200901:PolicySetDefinitionAtManagementGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20200901:PolicySetDefinitionAtManagementGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20210601:PolicySetDefinitionAtManagementGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20210601:PolicySetDefinitionAtManagementGroup"),
 		},
 	})
 	opts = append(opts, aliases)

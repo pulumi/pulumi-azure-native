@@ -37,49 +37,25 @@ func NewPeeringServicePrefix(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:peering/v20190801preview:PeeringServicePrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering:PeeringServicePrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:peering:PeeringServicePrefix"),
 		},
 		{
 			Type: pulumi.String("azure-native:peering/v20190901preview:PeeringServicePrefix"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:peering/v20190901preview:PeeringServicePrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering/v20200101preview:PeeringServicePrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:peering/v20200101preview:PeeringServicePrefix"),
 		},
 		{
 			Type: pulumi.String("azure-native:peering/v20200401:PeeringServicePrefix"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:peering/v20200401:PeeringServicePrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering/v20201001:PeeringServicePrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:peering/v20201001:PeeringServicePrefix"),
 		},
 		{
 			Type: pulumi.String("azure-native:peering/v20210101:PeeringServicePrefix"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:peering/v20210101:PeeringServicePrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering/v20210601:PeeringServicePrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:peering/v20210601:PeeringServicePrefix"),
 		},
 	})
 	opts = append(opts, aliases)

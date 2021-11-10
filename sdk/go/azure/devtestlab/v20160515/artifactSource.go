@@ -46,25 +46,13 @@ func NewArtifactSource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:ArtifactSource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab:ArtifactSource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab:ArtifactSource"),
 		},
 		{
 			Type: pulumi.String("azure-native:devtestlab/v20150521preview:ArtifactSource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:ArtifactSource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20180915:ArtifactSource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ArtifactSource"),
 		},
 	})
 	opts = append(opts, aliases)

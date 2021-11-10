@@ -37,49 +37,25 @@ func NewReplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20171001:Replication"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry:Replication"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry:Replication"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20170601preview:Replication"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20170601preview:Replication"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20190501:Replication"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20190501:Replication"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20191201preview:Replication"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20191201preview:Replication"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20201101preview:Replication"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:Replication"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20210601preview:Replication"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20210601preview:Replication"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20210801preview:Replication"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20210801preview:Replication"),
 		},
 	})
 	opts = append(opts, aliases)

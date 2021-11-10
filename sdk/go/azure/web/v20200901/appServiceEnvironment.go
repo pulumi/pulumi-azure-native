@@ -77,73 +77,37 @@ func NewAppServiceEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:AppServiceEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:AppServiceEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:AppServiceEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:AppServiceEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:AppServiceEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160901:AppServiceEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160901:AppServiceEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:AppServiceEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:AppServiceEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:AppServiceEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:AppServiceEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:AppServiceEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:AppServiceEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:AppServiceEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:AppServiceEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:AppServiceEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:AppServiceEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:AppServiceEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:AppServiceEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:AppServiceEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:AppServiceEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:AppServiceEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:AppServiceEnvironment"),
 		},
 	})
 	opts = append(opts, aliases)

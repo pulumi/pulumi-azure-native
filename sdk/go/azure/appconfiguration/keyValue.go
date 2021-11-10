@@ -41,19 +41,10 @@ func NewKeyValue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:appconfiguration:KeyValue"),
-		},
-		{
 			Type: pulumi.String("azure-native:appconfiguration/v20200701preview:KeyValue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:appconfiguration/v20200701preview:KeyValue"),
-		},
-		{
 			Type: pulumi.String("azure-native:appconfiguration/v20210301preview:KeyValue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:appconfiguration/v20210301preview:KeyValue"),
 		},
 	})
 	opts = append(opts, aliases)

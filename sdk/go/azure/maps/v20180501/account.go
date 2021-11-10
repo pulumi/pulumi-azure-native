@@ -37,43 +37,22 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:maps/v20180501:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:maps:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maps:Account"),
 		},
 		{
 			Type: pulumi.String("azure-native:maps/v20170101preview:Account"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:maps/v20170101preview:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:maps/v20200201preview:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maps/v20200201preview:Account"),
 		},
 		{
 			Type: pulumi.String("azure-native:maps/v20210201:Account"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:maps/v20210201:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:maps/v20210701preview:Account"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:maps/v20210701preview:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:maps/v20211201preview:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maps/v20211201preview:Account"),
 		},
 	})
 	opts = append(opts, aliases)

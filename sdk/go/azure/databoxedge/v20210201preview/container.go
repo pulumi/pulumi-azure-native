@@ -44,61 +44,31 @@ func NewContainer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:Container"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:Container"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:Container"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:Container"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Container"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Container"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Container"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:Container"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Container"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Container"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Container"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:Container"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Container"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:Container"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:Container"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:Container"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:Container"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:Container"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:Container"),
 		},
 	})
 	opts = append(opts, aliases)

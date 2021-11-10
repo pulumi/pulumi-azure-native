@@ -43,13 +43,7 @@ func NewAttestationAtResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:policyinsights:AttestationAtResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:policyinsights/v20210101:AttestationAtResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:policyinsights/v20210101:AttestationAtResource"),
 		},
 	})
 	opts = append(opts, aliases)

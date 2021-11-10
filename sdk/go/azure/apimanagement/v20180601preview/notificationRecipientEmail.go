@@ -37,73 +37,37 @@ func NewNotificationRecipientEmail(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:NotificationRecipientEmail"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:NotificationRecipientEmail"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:NotificationRecipientEmail"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:NotificationRecipientEmail"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:NotificationRecipientEmail"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:NotificationRecipientEmail"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:NotificationRecipientEmail"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:NotificationRecipientEmail"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:NotificationRecipientEmail"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:NotificationRecipientEmail"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:NotificationRecipientEmail"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:NotificationRecipientEmail"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:NotificationRecipientEmail"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:NotificationRecipientEmail"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:NotificationRecipientEmail"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:NotificationRecipientEmail"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:NotificationRecipientEmail"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:NotificationRecipientEmail"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:NotificationRecipientEmail"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:NotificationRecipientEmail"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:NotificationRecipientEmail"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:NotificationRecipientEmail"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:NotificationRecipientEmail"),
 		},
 	})
 	opts = append(opts, aliases)

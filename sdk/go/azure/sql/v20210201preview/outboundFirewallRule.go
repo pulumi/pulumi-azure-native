@@ -34,19 +34,10 @@ func NewOutboundFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:OutboundFirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:OutboundFirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql:OutboundFirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:OutboundFirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:OutboundFirewallRule"),
 		},
 	})
 	opts = append(opts, aliases)

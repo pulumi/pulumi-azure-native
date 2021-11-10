@@ -72,43 +72,22 @@ func NewNodeType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20210901privatepreview:NodeType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric:NodeType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric:NodeType"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20200101preview:NodeType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20200101preview:NodeType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20210101preview:NodeType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20210101preview:NodeType"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20210501:NodeType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20210501:NodeType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20210701preview:NodeType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20210701preview:NodeType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20211101preview:NodeType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20211101preview:NodeType"),
 		},
 	})
 	opts = append(opts, aliases)

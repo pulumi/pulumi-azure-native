@@ -35,43 +35,22 @@ func NewGetbot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:healthbot/v20201020:getbot"),
-		},
-		{
 			Type: pulumi.String("azure-native:healthbot:getbot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:healthbot:getbot"),
 		},
 		{
 			Type: pulumi.String("azure-native:healthbot/v20201020preview:getbot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:healthbot/v20201020preview:getbot"),
-		},
-		{
 			Type: pulumi.String("azure-native:healthbot/v20201208:getbot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:healthbot/v20201208:getbot"),
 		},
 		{
 			Type: pulumi.String("azure-native:healthbot/v20201208preview:getbot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:healthbot/v20201208preview:getbot"),
-		},
-		{
 			Type: pulumi.String("azure-native:healthbot/v20210610:getbot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:healthbot/v20210610:getbot"),
-		},
-		{
 			Type: pulumi.String("azure-native:healthbot/v20210824:getbot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:healthbot/v20210824:getbot"),
 		},
 	})
 	opts = append(opts, aliases)

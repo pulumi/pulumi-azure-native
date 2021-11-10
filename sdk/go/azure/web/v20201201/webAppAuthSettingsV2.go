@@ -39,49 +39,25 @@ func NewWebAppAuthSettingsV2(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppAuthSettingsV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppAuthSettingsV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppAuthSettingsV2"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppAuthSettingsV2"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppAuthSettingsV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppAuthSettingsV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppAuthSettingsV2"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppAuthSettingsV2"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppAuthSettingsV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppAuthSettingsV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppAuthSettingsV2"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppAuthSettingsV2"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppAuthSettingsV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppAuthSettingsV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppAuthSettingsV2"),
 		},
 	})
 	opts = append(opts, aliases)

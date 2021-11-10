@@ -35,13 +35,7 @@ func NewManagedNetworkPeeringPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:managednetwork:ManagedNetworkPeeringPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:managednetwork:ManagedNetworkPeeringPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

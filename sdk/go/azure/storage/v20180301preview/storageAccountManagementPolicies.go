@@ -35,61 +35,31 @@ func NewStorageAccountManagementPolicies(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20180301preview:StorageAccountManagementPolicies"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage:StorageAccountManagementPolicies"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage:StorageAccountManagementPolicies"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20181101:StorageAccountManagementPolicies"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20181101:StorageAccountManagementPolicies"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20190401:StorageAccountManagementPolicies"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20190401:StorageAccountManagementPolicies"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20190601:StorageAccountManagementPolicies"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:StorageAccountManagementPolicies"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20200801preview:StorageAccountManagementPolicies"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:StorageAccountManagementPolicies"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210101:StorageAccountManagementPolicies"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:StorageAccountManagementPolicies"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210201:StorageAccountManagementPolicies"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:StorageAccountManagementPolicies"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210401:StorageAccountManagementPolicies"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:StorageAccountManagementPolicies"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210601:StorageAccountManagementPolicies"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:StorageAccountManagementPolicies"),
 		},
 	})
 	opts = append(opts, aliases)

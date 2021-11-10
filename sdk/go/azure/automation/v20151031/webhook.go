@@ -47,13 +47,7 @@ func NewWebhook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:automation/v20151031:Webhook"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation:Webhook"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation:Webhook"),
 		},
 	})
 	opts = append(opts, aliases)

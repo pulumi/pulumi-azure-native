@@ -38,79 +38,40 @@ func NewWebAppMetadataSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppMetadataSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppMetadataSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppMetadataSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppMetadataSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppMetadataSlot"),
 		},
 	})
 	opts = append(opts, aliases)

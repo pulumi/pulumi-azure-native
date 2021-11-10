@@ -35,25 +35,13 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:hdinsight/v20150301preview:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:hdinsight:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hdinsight:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:hdinsight/v20180601preview:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hdinsight/v20180601preview:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:hdinsight/v20210601:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hdinsight/v20210601:Cluster"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -39,19 +39,10 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql:VirtualNetworkRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20171201:VirtualNetworkRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201:VirtualNetworkRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20171201preview:VirtualNetworkRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20171201preview:VirtualNetworkRule"),
 		},
 	})
 	opts = append(opts, aliases)

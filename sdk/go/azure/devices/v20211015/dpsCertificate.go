@@ -36,49 +36,25 @@ func NewDpsCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20211015:DpsCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices:DpsCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices:DpsCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20170821preview:DpsCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20170821preview:DpsCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20171115:DpsCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20171115:DpsCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20180122:DpsCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20180122:DpsCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20200101:DpsCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20200101:DpsCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20200301:DpsCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20200301:DpsCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20200901preview:DpsCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20200901preview:DpsCertificate"),
 		},
 	})
 	opts = append(opts, aliases)

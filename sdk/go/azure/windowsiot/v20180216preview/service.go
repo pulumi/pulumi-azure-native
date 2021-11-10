@@ -38,19 +38,10 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:windowsiot/v20180216preview:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:windowsiot:Service"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:windowsiot:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:windowsiot/v20190601:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:windowsiot/v20190601:Service"),
 		},
 	})
 	opts = append(opts, aliases)

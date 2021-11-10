@@ -44,49 +44,25 @@ func NewServerAdvisor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ServerAdvisor"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:ServerAdvisor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:ServerAdvisor"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20140401:ServerAdvisor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20140401:ServerAdvisor"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20150501preview:ServerAdvisor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20150501preview:ServerAdvisor"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:ServerAdvisor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerAdvisor"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:ServerAdvisor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerAdvisor"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:ServerAdvisor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ServerAdvisor"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:ServerAdvisor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ServerAdvisor"),
 		},
 	})
 	opts = append(opts, aliases)

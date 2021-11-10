@@ -41,31 +41,16 @@ func NewWebAppPrivateEndpointConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web:WebAppPrivateEndpointConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppPrivateEndpointConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppPrivateEndpointConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppPrivateEndpointConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppPrivateEndpointConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppPrivateEndpointConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppPrivateEndpointConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppPrivateEndpointConnectionSlot"),
 		},
 	})
 	opts = append(opts, aliases)

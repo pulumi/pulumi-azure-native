@@ -48,103 +48,52 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20181001:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20150615:VirtualMachine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20150615:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20160330:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20160330:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20160430preview:VirtualMachine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20160430preview:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20170330:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20170330:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20171201:VirtualMachine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20171201:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20180401:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20180401:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20180601:VirtualMachine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20180601:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20190301:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20190301:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20190701:VirtualMachine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20190701:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20191201:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20191201:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201201:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachine"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20210301:VirtualMachine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210301:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210401:VirtualMachine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210401:VirtualMachine"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210701:VirtualMachine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210701:VirtualMachine"),
 		},
 	})
 	opts = append(opts, aliases)

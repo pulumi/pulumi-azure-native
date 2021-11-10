@@ -59,79 +59,40 @@ func NewSiteAuthSettingsSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteAuthSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteAuthSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteAuthSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteAuthSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteAuthSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteAuthSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteAuthSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteAuthSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteAuthSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteAuthSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteAuthSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteAuthSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteAuthSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteAuthSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteAuthSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteAuthSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteAuthSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteAuthSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteAuthSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteAuthSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteAuthSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteAuthSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteAuthSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteAuthSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteAuthSettingsSlot"),
 		},
 	})
 	opts = append(opts, aliases)

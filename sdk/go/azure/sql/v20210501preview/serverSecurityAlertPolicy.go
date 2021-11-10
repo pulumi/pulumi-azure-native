@@ -45,43 +45,22 @@ func NewServerSecurityAlertPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ServerSecurityAlertPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:ServerSecurityAlertPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:ServerSecurityAlertPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20170301preview:ServerSecurityAlertPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20170301preview:ServerSecurityAlertPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:ServerSecurityAlertPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerSecurityAlertPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:ServerSecurityAlertPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerSecurityAlertPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:ServerSecurityAlertPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ServerSecurityAlertPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:ServerSecurityAlertPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ServerSecurityAlertPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

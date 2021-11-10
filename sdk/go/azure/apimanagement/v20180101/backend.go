@@ -48,85 +48,43 @@ func NewBackend(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Backend"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:Backend"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:Backend"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:Backend"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Backend"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:Backend"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Backend"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:Backend"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Backend"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Backend"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Backend"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:Backend"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Backend"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:Backend"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Backend"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Backend"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Backend"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Backend"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Backend"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:Backend"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:Backend"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:Backend"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:Backend"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:Backend"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:Backend"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:Backend"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:Backend"),
 		},
 	})
 	opts = append(opts, aliases)

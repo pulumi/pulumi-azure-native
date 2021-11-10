@@ -54,13 +54,7 @@ func NewActivityCustomEntityQuery(ctx *pulumi.Context,
 	args.Kind = pulumi.String("Activity")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights:ActivityCustomEntityQuery"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:ActivityCustomEntityQuery"),
 		},
 	})
 	opts = append(opts, aliases)

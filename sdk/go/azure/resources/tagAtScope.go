@@ -34,43 +34,22 @@ func NewTagAtScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:resources:TagAtScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20191001:TagAtScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20191001:TagAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20200601:TagAtScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20200601:TagAtScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20200801:TagAtScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20200801:TagAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20201001:TagAtScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20201001:TagAtScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20210101:TagAtScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20210101:TagAtScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20210401:TagAtScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20210401:TagAtScope"),
 		},
 	})
 	opts = append(opts, aliases)

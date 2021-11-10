@@ -34,25 +34,13 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:scheduler/v20160301:Job"),
-		},
-		{
 			Type: pulumi.String("azure-native:scheduler:Job"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:scheduler:Job"),
 		},
 		{
 			Type: pulumi.String("azure-native:scheduler/v20140801preview:Job"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:scheduler/v20140801preview:Job"),
-		},
-		{
 			Type: pulumi.String("azure-native:scheduler/v20160101:Job"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:scheduler/v20160101:Job"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -46,79 +46,40 @@ func NewSiteBackupConfigurationSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteBackupConfigurationSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteBackupConfigurationSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteBackupConfigurationSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteBackupConfigurationSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteBackupConfigurationSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteBackupConfigurationSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteBackupConfigurationSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteBackupConfigurationSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteBackupConfigurationSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteBackupConfigurationSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteBackupConfigurationSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteBackupConfigurationSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteBackupConfigurationSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteBackupConfigurationSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteBackupConfigurationSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteBackupConfigurationSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteBackupConfigurationSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteBackupConfigurationSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteBackupConfigurationSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteBackupConfigurationSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteBackupConfigurationSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteBackupConfigurationSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteBackupConfigurationSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteBackupConfigurationSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteBackupConfigurationSlot"),
 		},
 	})
 	opts = append(opts, aliases)

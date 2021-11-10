@@ -88,19 +88,10 @@ func NewAndroidMAMPolicyByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName"),
-		},
-		{
 			Type: pulumi.String("azure-native:intune:AndroidMAMPolicyByName"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:intune:AndroidMAMPolicyByName"),
-		},
-		{
 			Type: pulumi.String("azure-native:intune/v20150114preview:AndroidMAMPolicyByName"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:intune/v20150114preview:AndroidMAMPolicyByName"),
 		},
 	})
 	opts = append(opts, aliases)

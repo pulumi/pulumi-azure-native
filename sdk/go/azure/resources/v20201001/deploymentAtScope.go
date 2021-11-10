@@ -36,55 +36,28 @@ func NewDeploymentAtScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20201001:DeploymentAtScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources:DeploymentAtScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources:DeploymentAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20190701:DeploymentAtScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20190701:DeploymentAtScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20190801:DeploymentAtScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20190801:DeploymentAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20191001:DeploymentAtScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20191001:DeploymentAtScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20200601:DeploymentAtScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20200601:DeploymentAtScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:resources/v20200801:DeploymentAtScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20200801:DeploymentAtScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20210101:DeploymentAtScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20210101:DeploymentAtScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20210401:DeploymentAtScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20210401:DeploymentAtScope"),
 		},
 	})
 	opts = append(opts, aliases)

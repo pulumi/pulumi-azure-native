@@ -34,19 +34,10 @@ func NewMoveResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:migrate/v20210101:MoveResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:migrate:MoveResource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:migrate:MoveResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:migrate/v20191001preview:MoveResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:migrate/v20191001preview:MoveResource"),
 		},
 	})
 	opts = append(opts, aliases)

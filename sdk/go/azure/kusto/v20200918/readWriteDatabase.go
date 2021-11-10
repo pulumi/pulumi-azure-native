@@ -44,73 +44,37 @@ func NewReadWriteDatabase(ctx *pulumi.Context,
 	args.Kind = pulumi.String("ReadWrite")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200918:ReadWriteDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto:ReadWriteDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto:ReadWriteDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:ReadWriteDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20170907privatepreview:ReadWriteDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20180907preview:ReadWriteDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20180907preview:ReadWriteDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190121:ReadWriteDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190121:ReadWriteDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20190515:ReadWriteDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190515:ReadWriteDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190907:ReadWriteDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190907:ReadWriteDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20191109:ReadWriteDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20191109:ReadWriteDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20200215:ReadWriteDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200215:ReadWriteDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200614:ReadWriteDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200614:ReadWriteDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20210101:ReadWriteDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210101:ReadWriteDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20210827:ReadWriteDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210827:ReadWriteDatabase"),
 		},
 	})
 	opts = append(opts, aliases)

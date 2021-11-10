@@ -38,19 +38,10 @@ func NewHybridUseBenefit(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:softwareplan:HybridUseBenefit"),
-		},
-		{
 			Type: pulumi.String("azure-native:softwareplan/v20190601preview:HybridUseBenefit"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:softwareplan/v20190601preview:HybridUseBenefit"),
-		},
-		{
 			Type: pulumi.String("azure-native:softwareplan/v20191201:HybridUseBenefit"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:softwareplan/v20191201:HybridUseBenefit"),
 		},
 	})
 	opts = append(opts, aliases)

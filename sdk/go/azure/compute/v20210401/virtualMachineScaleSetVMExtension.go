@@ -45,49 +45,25 @@ func NewVirtualMachineScaleSetVMExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210401:VirtualMachineScaleSetVMExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:VirtualMachineScaleSetVMExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute:VirtualMachineScaleSetVMExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20190701:VirtualMachineScaleSetVMExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20190701:VirtualMachineScaleSetVMExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20191201:VirtualMachineScaleSetVMExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineScaleSetVMExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20201201:VirtualMachineScaleSetVMExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20210301:VirtualMachineScaleSetVMExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210301:VirtualMachineScaleSetVMExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210701:VirtualMachineScaleSetVMExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210701:VirtualMachineScaleSetVMExtension"),
 		},
 	})
 	opts = append(opts, aliases)

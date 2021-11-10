@@ -45,12 +45,6 @@ func NewIscsiServer(ctx *pulumi.Context,
 	if args.StorageDomainId == nil {
 		return nil, errors.New("invalid value for required argument 'StorageDomainId'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/v20161001:IscsiServer"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource IscsiServer
 	err := ctx.RegisterResource("azure-native:storsimple/v20161001:IscsiServer", name, args, &resource, opts...)
 	if err != nil {

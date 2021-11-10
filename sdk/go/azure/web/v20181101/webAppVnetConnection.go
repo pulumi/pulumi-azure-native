@@ -41,79 +41,40 @@ func NewWebAppVnetConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppVnetConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppVnetConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppVnetConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppVnetConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppVnetConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppVnetConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppVnetConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppVnetConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppVnetConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppVnetConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppVnetConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppVnetConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppVnetConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppVnetConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppVnetConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppVnetConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppVnetConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppVnetConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppVnetConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppVnetConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppVnetConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppVnetConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppVnetConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppVnetConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppVnetConnection"),
 		},
 	})
 	opts = append(opts, aliases)

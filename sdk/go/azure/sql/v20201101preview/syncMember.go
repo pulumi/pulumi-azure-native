@@ -50,49 +50,25 @@ func NewSyncMember(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:SyncMember"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:SyncMember"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:SyncMember"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20150501preview:SyncMember"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20150501preview:SyncMember"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20190601preview:SyncMember"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20190601preview:SyncMember"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:SyncMember"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:SyncMember"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:SyncMember"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:SyncMember"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:SyncMember"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:SyncMember"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:SyncMember"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:SyncMember"),
 		},
 	})
 	opts = append(opts, aliases)

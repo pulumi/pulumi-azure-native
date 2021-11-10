@@ -43,31 +43,16 @@ func NewRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:servicebus:Rule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20170401:Rule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20170401:Rule"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicebus/v20180101preview:Rule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:Rule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20210101preview:Rule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210101preview:Rule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20210601preview:Rule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210601preview:Rule"),
 		},
 	})
 	opts = append(opts, aliases)

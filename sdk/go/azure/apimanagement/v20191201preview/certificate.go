@@ -42,85 +42,43 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:Certificate"),
 		},
 	})
 	opts = append(opts, aliases)

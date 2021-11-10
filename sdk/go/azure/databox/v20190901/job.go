@@ -50,49 +50,25 @@ func NewJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databox/v20190901:Job"),
-		},
-		{
 			Type: pulumi.String("azure-native:databox:Job"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databox:Job"),
 		},
 		{
 			Type: pulumi.String("azure-native:databox/v20180101:Job"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databox/v20180101:Job"),
-		},
-		{
 			Type: pulumi.String("azure-native:databox/v20200401:Job"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databox/v20200401:Job"),
 		},
 		{
 			Type: pulumi.String("azure-native:databox/v20201101:Job"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databox/v20201101:Job"),
-		},
-		{
 			Type: pulumi.String("azure-native:databox/v20210301:Job"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databox/v20210301:Job"),
 		},
 		{
 			Type: pulumi.String("azure-native:databox/v20210501:Job"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databox/v20210501:Job"),
-		},
-		{
 			Type: pulumi.String("azure-native:databox/v20210801preview:Job"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databox/v20210801preview:Job"),
 		},
 	})
 	opts = append(opts, aliases)

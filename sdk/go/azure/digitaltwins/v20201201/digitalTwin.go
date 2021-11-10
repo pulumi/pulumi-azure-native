@@ -39,25 +39,13 @@ func NewDigitalTwin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:digitaltwins/v20201201:DigitalTwin"),
-		},
-		{
 			Type: pulumi.String("azure-native:digitaltwins:DigitalTwin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:digitaltwins:DigitalTwin"),
 		},
 		{
 			Type: pulumi.String("azure-native:digitaltwins/v20200301preview:DigitalTwin"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:digitaltwins/v20200301preview:DigitalTwin"),
-		},
-		{
 			Type: pulumi.String("azure-native:digitaltwins/v20201031:DigitalTwin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:digitaltwins/v20201031:DigitalTwin"),
 		},
 	})
 	opts = append(opts, aliases)

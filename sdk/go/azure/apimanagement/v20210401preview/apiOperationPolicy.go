@@ -47,73 +47,37 @@ func NewApiOperationPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ApiOperationPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:ApiOperationPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:ApiOperationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiOperationPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiOperationPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiOperationPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiOperationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiOperationPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiOperationPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiOperationPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiOperationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiOperationPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiOperationPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiOperationPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiOperationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiOperationPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiOperationPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:ApiOperationPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ApiOperationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:ApiOperationPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:ApiOperationPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:ApiOperationPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:ApiOperationPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

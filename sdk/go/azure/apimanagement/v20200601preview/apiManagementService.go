@@ -81,85 +81,43 @@ func NewApiManagementService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiManagementService"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:ApiManagementService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:ApiManagementService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:ApiManagementService"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:ApiManagementService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiManagementService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiManagementService"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiManagementService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiManagementService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiManagementService"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiManagementService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiManagementService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiManagementService"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiManagementService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:ApiManagementService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ApiManagementService"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:ApiManagementService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:ApiManagementService"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:ApiManagementService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ApiManagementService"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:ApiManagementService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:ApiManagementService"),
 		},
 	})
 	opts = append(opts, aliases)

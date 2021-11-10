@@ -46,13 +46,7 @@ func NewConnectivityConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network:ConnectivityConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201preview:ConnectivityConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201preview:ConnectivityConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

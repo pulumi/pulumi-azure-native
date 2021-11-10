@@ -34,12 +34,6 @@ func NewPrivateEndpointConnectionControllerPrivateEndpointConnection(ctx *pulumi
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource PrivateEndpointConnectionControllerPrivateEndpointConnection
 	err := ctx.RegisterResource("azure-native:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {

@@ -33,25 +33,13 @@ func NewJobCollection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:scheduler/v20160301:JobCollection"),
-		},
-		{
 			Type: pulumi.String("azure-native:scheduler:JobCollection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:scheduler:JobCollection"),
 		},
 		{
 			Type: pulumi.String("azure-native:scheduler/v20140801preview:JobCollection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:scheduler/v20140801preview:JobCollection"),
-		},
-		{
 			Type: pulumi.String("azure-native:scheduler/v20160101:JobCollection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:scheduler/v20160101:JobCollection"),
 		},
 	})
 	opts = append(opts, aliases)

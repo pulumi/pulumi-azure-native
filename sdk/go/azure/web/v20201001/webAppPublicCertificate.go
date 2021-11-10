@@ -38,73 +38,37 @@ func NewWebAppPublicCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPublicCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppPublicCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppPublicCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppPublicCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppPublicCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppPublicCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppPublicCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppPublicCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppPublicCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppPublicCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppPublicCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppPublicCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPublicCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppPublicCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPublicCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppPublicCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppPublicCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppPublicCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppPublicCertificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppPublicCertificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppPublicCertificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppPublicCertificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppPublicCertificate"),
 		},
 	})
 	opts = append(opts, aliases)

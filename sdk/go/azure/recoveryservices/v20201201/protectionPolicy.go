@@ -37,79 +37,40 @@ func NewProtectionPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:ProtectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:ProtectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160601:ProtectionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20160601:ProtectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20201001:ProtectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:ProtectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210101:ProtectionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:ProtectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201:ProtectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201preview:ProtectionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201preview:ProtectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:ProtectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ProtectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ProtectionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ProtectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ProtectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ProtectionPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ProtectionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ProtectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:ProtectionPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ProtectionPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ProtectionPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ProtectionPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

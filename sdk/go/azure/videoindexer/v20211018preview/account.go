@@ -39,19 +39,10 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:videoindexer/v20211018preview:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:videoindexer:Account"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:videoindexer:Account"),
-		},
-		{
 			Type: pulumi.String("azure-native:videoindexer/v20211027preview:Account"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:videoindexer/v20211027preview:Account"),
 		},
 	})
 	opts = append(opts, aliases)

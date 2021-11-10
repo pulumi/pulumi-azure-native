@@ -51,31 +51,16 @@ func NewStreamingJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:streamanalytics:StreamingJob"),
-		},
-		{
 			Type: pulumi.String("azure-native:streamanalytics/v20160301:StreamingJob"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:streamanalytics/v20160301:StreamingJob"),
 		},
 		{
 			Type: pulumi.String("azure-native:streamanalytics/v20170401preview:StreamingJob"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:streamanalytics/v20170401preview:StreamingJob"),
-		},
-		{
 			Type: pulumi.String("azure-native:streamanalytics/v20200301:StreamingJob"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:streamanalytics/v20200301:StreamingJob"),
-		},
-		{
 			Type: pulumi.String("azure-native:streamanalytics/v20211001preview:StreamingJob"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:streamanalytics/v20211001preview:StreamingJob"),
 		},
 	})
 	opts = append(opts, aliases)

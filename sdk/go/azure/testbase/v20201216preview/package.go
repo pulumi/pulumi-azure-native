@@ -67,13 +67,7 @@ func NewPackage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:testbase/v20201216preview:Package"),
-		},
-		{
 			Type: pulumi.String("azure-native:testbase:Package"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:testbase:Package"),
 		},
 	})
 	opts = append(opts, aliases)

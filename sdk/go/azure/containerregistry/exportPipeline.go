@@ -42,31 +42,16 @@ func NewExportPipeline(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry:ExportPipeline"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20191201preview:ExportPipeline"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20191201preview:ExportPipeline"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20201101preview:ExportPipeline"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:ExportPipeline"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20210601preview:ExportPipeline"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20210601preview:ExportPipeline"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20210801preview:ExportPipeline"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20210801preview:ExportPipeline"),
 		},
 	})
 	opts = append(opts, aliases)
