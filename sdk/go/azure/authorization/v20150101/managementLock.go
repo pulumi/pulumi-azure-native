@@ -28,31 +28,16 @@ func NewManagementLock(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20150101:ManagementLock"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization:ManagementLock"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization:ManagementLock"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20160901:ManagementLock"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20160901:ManagementLock"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20170401:ManagementLock"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20170401:ManagementLock"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20200501:ManagementLock"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20200501:ManagementLock"),
 		},
 	})
 	opts = append(opts, aliases)

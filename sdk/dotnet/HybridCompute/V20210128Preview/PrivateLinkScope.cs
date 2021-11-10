@@ -76,21 +76,13 @@ namespace Pulumi.AzureNative.HybridCompute.V20210128Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210128preview:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210325preview:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210422preview:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210422preview:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210517preview:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210520:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:PrivateLinkScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210610preview:PrivateLinkScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

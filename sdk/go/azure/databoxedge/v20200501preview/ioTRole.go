@@ -57,73 +57,37 @@ func NewIoTRole(ctx *pulumi.Context,
 	args.Kind = pulumi.String("IOT")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:IoTRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:IoTRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:IoTRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:IoTRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:IoTRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:IoTRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:IoTRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:IoTRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:IoTRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:IoTRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:IoTRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:IoTRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:IoTRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:IoTRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:IoTRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:IoTRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:IoTRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:IoTRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:IoTRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:IoTRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:IoTRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:IoTRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:IoTRole"),
 		},
 	})
 	opts = append(opts, aliases)

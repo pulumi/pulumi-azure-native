@@ -175,7 +175,7 @@ export class ConnectorMapping extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170101:ConnectorMapping" }, { type: "azure-native:customerinsights:ConnectorMapping" }, { type: "azure-nextgen:customerinsights:ConnectorMapping" }, { type: "azure-native:customerinsights/v20170426:ConnectorMapping" }, { type: "azure-nextgen:customerinsights/v20170426:ConnectorMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:ConnectorMapping" }, { type: "azure-native:customerinsights/v20170426:ConnectorMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectorMapping.__pulumiType, name, inputs, opts);
     }

@@ -37,91 +37,46 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20210701:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20200301:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20200301:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20200401:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20200401:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20200615:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20200615:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20200710preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20200710preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20200801:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20200801:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20200831:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20200831:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20200831preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20200831preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20210201preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20210201preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20210303preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20210303preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20210331:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20210331:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:devices/v20210701preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20210701preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20210702:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devices/v20210702:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:devices/v20210702preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devices/v20210702preview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -420,7 +420,7 @@ class StreamingJob(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:streamanalytics:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics/v20160301:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20160301:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics/v20170401preview:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20170401preview:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics/v20200301:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20200301:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics/v20211001preview:StreamingJob"), pulumi.Alias(type_="azure-nextgen:streamanalytics/v20211001preview:StreamingJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:streamanalytics/v20160301:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics/v20170401preview:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics/v20200301:StreamingJob"), pulumi.Alias(type_="azure-native:streamanalytics/v20211001preview:StreamingJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StreamingJob, __self__).__init__(
             'azure-native:streamanalytics:StreamingJob',

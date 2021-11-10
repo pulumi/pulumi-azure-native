@@ -113,9 +113,7 @@ namespace Pulumi.AzureNative.PolicyInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights:AttestationAtResourceGroup"},
                     new Pulumi.Alias { Type = "azure-native:policyinsights/v20210101:AttestationAtResourceGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:policyinsights/v20210101:AttestationAtResourceGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

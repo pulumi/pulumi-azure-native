@@ -98,9 +98,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridconnectivity:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:hybridconnectivity/v20211006preview:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridconnectivity/v20211006preview:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -44,43 +44,22 @@ func NewOrigin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20150601:Origin"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn:Origin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn:Origin"),
 		},
 		{
 			Type: pulumi.String("azure-native:cdn/v20160402:Origin"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20160402:Origin"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20191231:Origin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/v20191231:Origin"),
 		},
 		{
 			Type: pulumi.String("azure-native:cdn/v20200331:Origin"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20200331:Origin"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20200415:Origin"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cdn/v20200415:Origin"),
-		},
-		{
 			Type: pulumi.String("azure-native:cdn/v20200901:Origin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cdn/v20200901:Origin"),
 		},
 	})
 	opts = append(opts, aliases)

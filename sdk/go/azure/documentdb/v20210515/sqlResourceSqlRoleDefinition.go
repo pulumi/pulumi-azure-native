@@ -36,55 +36,28 @@ func NewSqlResourceSqlRoleDefinition(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210515:SqlResourceSqlRoleDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlRoleDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlRoleDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:SqlResourceSqlRoleDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210415:SqlResourceSqlRoleDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210415:SqlResourceSqlRoleDefinition"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210615:SqlResourceSqlRoleDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210615:SqlResourceSqlRoleDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:SqlResourceSqlRoleDefinition"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:SqlResourceSqlRoleDefinition"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:SqlResourceSqlRoleDefinition"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20211015:SqlResourceSqlRoleDefinition"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -94,11 +94,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForM365SecurityCenter"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance:privateLinkServicesForM365SecurityCenter"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

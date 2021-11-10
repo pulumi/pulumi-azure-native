@@ -35,13 +35,7 @@ func NewInstanceDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dynamics365fraudprotection:InstanceDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:dynamics365fraudprotection/v20210201preview:InstanceDetails"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dynamics365fraudprotection/v20210201preview:InstanceDetails"),
 		},
 	})
 	opts = append(opts, aliases)

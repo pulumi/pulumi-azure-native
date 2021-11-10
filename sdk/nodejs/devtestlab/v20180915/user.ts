@@ -114,7 +114,7 @@ export class User extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20180915:User" }, { type: "azure-native:devtestlab:User" }, { type: "azure-nextgen:devtestlab:User" }, { type: "azure-native:devtestlab/v20160515:User" }, { type: "azure-nextgen:devtestlab/v20160515:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:User" }, { type: "azure-native:devtestlab/v20160515:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, inputs, opts);
     }

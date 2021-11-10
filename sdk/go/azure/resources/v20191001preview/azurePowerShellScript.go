@@ -69,19 +69,10 @@ func NewAzurePowerShellScript(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:resources/v20191001preview:AzurePowerShellScript"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources:AzurePowerShellScript"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:resources:AzurePowerShellScript"),
-		},
-		{
 			Type: pulumi.String("azure-native:resources/v20201001:AzurePowerShellScript"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:resources/v20201001:AzurePowerShellScript"),
 		},
 	})
 	opts = append(opts, aliases)

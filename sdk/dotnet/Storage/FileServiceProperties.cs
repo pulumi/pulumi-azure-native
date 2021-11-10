@@ -77,21 +77,13 @@ namespace Pulumi.AzureNative.Storage
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:storage:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190401:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190601:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210401:FileServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:FileServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210601:FileServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

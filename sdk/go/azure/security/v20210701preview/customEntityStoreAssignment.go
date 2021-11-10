@@ -33,13 +33,7 @@ func NewCustomEntityStoreAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:security/v20210701preview:CustomEntityStoreAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:security:CustomEntityStoreAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security:CustomEntityStoreAssignment"),
 		},
 	})
 	opts = append(opts, aliases)

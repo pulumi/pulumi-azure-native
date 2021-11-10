@@ -95,7 +95,7 @@ export class File extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration/v20210630:File" }, { type: "azure-native:datamigration:File" }, { type: "azure-nextgen:datamigration:File" }, { type: "azure-native:datamigration/v20180715preview:File" }, { type: "azure-nextgen:datamigration/v20180715preview:File" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration:File" }, { type: "azure-native:datamigration/v20180715preview:File" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(File.__pulumiType, name, inputs, opts);
     }

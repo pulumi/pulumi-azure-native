@@ -113,7 +113,7 @@ export class AdminRuleCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network/v20210201preview:AdminRuleCollection" }, { type: "azure-native:network:AdminRuleCollection" }, { type: "azure-nextgen:network:AdminRuleCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:AdminRuleCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AdminRuleCollection.__pulumiType, name, inputs, opts);
     }

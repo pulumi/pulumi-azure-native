@@ -43,25 +43,13 @@ func NewCustomImage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:CustomImage"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab:CustomImage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab:CustomImage"),
 		},
 		{
 			Type: pulumi.String("azure-native:devtestlab/v20150521preview:CustomImage"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:CustomImage"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20180915:CustomImage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:CustomImage"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -48,49 +48,25 @@ func NewDatabaseBlobAuditingPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql:DatabaseBlobAuditingPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20150501preview:DatabaseBlobAuditingPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20150501preview:DatabaseBlobAuditingPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20170301preview:DatabaseBlobAuditingPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20170301preview:DatabaseBlobAuditingPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:DatabaseBlobAuditingPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:DatabaseBlobAuditingPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:DatabaseBlobAuditingPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:DatabaseBlobAuditingPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:DatabaseBlobAuditingPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:DatabaseBlobAuditingPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:DatabaseBlobAuditingPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:DatabaseBlobAuditingPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:DatabaseBlobAuditingPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:DatabaseBlobAuditingPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

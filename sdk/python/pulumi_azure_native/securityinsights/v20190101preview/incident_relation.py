@@ -216,7 +216,7 @@ class IncidentRelation(pulumi.CustomResource):
             __props__.__dict__["related_resource_name"] = None
             __props__.__dict__["related_resource_type"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights:IncidentRelation"), pulumi.Alias(type_="azure-nextgen:securityinsights:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IncidentRelation"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:IncidentRelation"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20210401:IncidentRelation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IncidentRelation"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:IncidentRelation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IncidentRelation, __self__).__init__(
             'azure-native:securityinsights/v20190101preview:IncidentRelation',

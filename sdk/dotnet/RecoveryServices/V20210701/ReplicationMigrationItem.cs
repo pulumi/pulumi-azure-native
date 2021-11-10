@@ -64,23 +64,14 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210701:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210210:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210301:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210401:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210601:ReplicationMigrationItem"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationMigrationItem"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210801:ReplicationMigrationItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

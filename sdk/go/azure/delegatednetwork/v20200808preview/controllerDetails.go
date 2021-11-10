@@ -37,19 +37,10 @@ func NewControllerDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:delegatednetwork:ControllerDetails"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:delegatednetwork:ControllerDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:delegatednetwork/v20210315:ControllerDetails"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:delegatednetwork/v20210315:ControllerDetails"),
 		},
 	})
 	opts = append(opts, aliases)

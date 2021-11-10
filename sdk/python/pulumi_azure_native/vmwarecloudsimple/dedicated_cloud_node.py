@@ -307,7 +307,7 @@ class DedicatedCloudNode(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vmware_cluster_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple:DedicatedCloudNode"), pulumi.Alias(type_="azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode"), pulumi.Alias(type_="azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DedicatedCloudNode, __self__).__init__(
             'azure-native:vmwarecloudsimple:DedicatedCloudNode',

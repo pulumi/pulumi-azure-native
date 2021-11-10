@@ -39,73 +39,37 @@ func NewTrigger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Trigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:Trigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:Trigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:Trigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:Trigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:Trigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Trigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Trigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:Trigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Trigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Trigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:Trigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:Trigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:Trigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:Trigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:Trigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:Trigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:Trigger"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -42,37 +42,19 @@ func NewMachineLearningService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:MachineLearningService"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices:MachineLearningService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices:MachineLearningService"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:MachineLearningService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningService"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200515preview:MachineLearningService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200515preview:MachineLearningService"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210101:MachineLearningService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:MachineLearningService"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210401:MachineLearningService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210401:MachineLearningService"),
 		},
 	})
 	opts = append(opts, aliases)

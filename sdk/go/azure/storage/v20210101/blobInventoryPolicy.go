@@ -39,43 +39,22 @@ func NewBlobInventoryPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobInventoryPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage:BlobInventoryPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage:BlobInventoryPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20190601:BlobInventoryPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:BlobInventoryPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20200801preview:BlobInventoryPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:BlobInventoryPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210201:BlobInventoryPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:BlobInventoryPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210401:BlobInventoryPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:BlobInventoryPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210601:BlobInventoryPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:BlobInventoryPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

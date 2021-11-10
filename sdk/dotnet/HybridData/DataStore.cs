@@ -83,11 +83,8 @@ namespace Pulumi.AzureNative.HybridData
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata:DataStore"},
                     new Pulumi.Alias { Type = "azure-native:hybriddata/v20160601:DataStore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20160601:DataStore"},
                     new Pulumi.Alias { Type = "azure-native:hybriddata/v20190601:DataStore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:DataStore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

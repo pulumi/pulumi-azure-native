@@ -43,13 +43,7 @@ func NewDatastore(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:connectedvmwarevsphere:Datastore"),
-		},
-		{
 			Type: pulumi.String("azure-native:connectedvmwarevsphere/v20201001preview:Datastore"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:connectedvmwarevsphere/v20201001preview:Datastore"),
 		},
 	})
 	opts = append(opts, aliases)

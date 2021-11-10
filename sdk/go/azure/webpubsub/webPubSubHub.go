@@ -38,13 +38,7 @@ func NewWebPubSubHub(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:webpubsub:WebPubSubHub"),
-		},
-		{
 			Type: pulumi.String("azure-native:webpubsub/v20211001:WebPubSubHub"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:webpubsub/v20211001:WebPubSubHub"),
 		},
 	})
 	opts = append(opts, aliases)

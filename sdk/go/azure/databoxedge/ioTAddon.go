@@ -54,49 +54,25 @@ func NewIoTAddon(ctx *pulumi.Context,
 	args.Kind = pulumi.String("IotEdge")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge:IoTAddon"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:IoTAddon"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:IoTAddon"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:IoTAddon"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:IoTAddon"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:IoTAddon"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:IoTAddon"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:IoTAddon"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:IoTAddon"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:IoTAddon"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:IoTAddon"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:IoTAddon"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:IoTAddon"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:IoTAddon"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:IoTAddon"),
 		},
 	})
 	opts = append(opts, aliases)

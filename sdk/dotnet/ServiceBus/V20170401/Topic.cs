@@ -148,19 +148,12 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:Topic"},
                     new Pulumi.Alias { Type = "azure-native:servicebus:Topic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus:Topic"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20140901:Topic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20140901:Topic"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20150801:Topic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20150801:Topic"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:Topic"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20210101preview:Topic"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Topic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20210601preview:Topic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

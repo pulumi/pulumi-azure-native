@@ -52,43 +52,22 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto:DatabasePrincipalAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto:DatabasePrincipalAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20200215:DatabasePrincipalAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200215:DatabasePrincipalAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200614:DatabasePrincipalAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200614:DatabasePrincipalAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20200918:DatabasePrincipalAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20210101:DatabasePrincipalAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210101:DatabasePrincipalAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20210827:DatabasePrincipalAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210827:DatabasePrincipalAssignment"),
 		},
 	})
 	opts = append(opts, aliases)

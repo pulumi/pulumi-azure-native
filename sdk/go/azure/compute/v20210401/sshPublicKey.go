@@ -33,43 +33,22 @@ func NewSshPublicKey(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210401:SshPublicKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:SshPublicKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute:SshPublicKey"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20191201:SshPublicKey"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20191201:SshPublicKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20200601:SshPublicKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20200601:SshPublicKey"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20201201:SshPublicKey"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20201201:SshPublicKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210301:SshPublicKey"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210301:SshPublicKey"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210701:SshPublicKey"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210701:SshPublicKey"),
 		},
 	})
 	opts = append(opts, aliases)

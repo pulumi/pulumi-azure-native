@@ -48,49 +48,25 @@ func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse:SqlPoolWorkloadClassifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse:SqlPoolWorkloadClassifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20201201:SqlPoolWorkloadClassifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolWorkloadClassifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210301:SqlPoolWorkloadClassifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210301:SqlPoolWorkloadClassifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210401preview:SqlPoolWorkloadClassifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:SqlPoolWorkloadClassifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210501:SqlPoolWorkloadClassifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210501:SqlPoolWorkloadClassifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210601:SqlPoolWorkloadClassifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:SqlPoolWorkloadClassifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:SqlPoolWorkloadClassifier"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -73,7 +73,7 @@ export class ServerCollector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate:ServerCollector" }, { type: "azure-native:migrate/v20191001:ServerCollector" }, { type: "azure-nextgen:migrate/v20191001:ServerCollector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20191001:ServerCollector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerCollector.__pulumiType, name, inputs, opts);
     }

@@ -58,11 +58,8 @@ namespace Pulumi.AzureNative.Addons.V20180301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:addons/v20180301:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-native:addons:SupportPlanType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:addons:SupportPlanType"},
                     new Pulumi.Alias { Type = "azure-native:addons/v20170515:SupportPlanType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:addons/v20170515:SupportPlanType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

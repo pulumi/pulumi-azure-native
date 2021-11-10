@@ -56,43 +56,22 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20211101preview:SourceControlConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration:SourceControlConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration:SourceControlConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20210501preview:SourceControlConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -91,7 +91,7 @@ export class Deployment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:cognitiveservices/v20211001:Deployment" }, { type: "azure-native:cognitiveservices:Deployment" }, { type: "azure-nextgen:cognitiveservices:Deployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices:Deployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Deployment.__pulumiType, name, inputs, opts);
     }

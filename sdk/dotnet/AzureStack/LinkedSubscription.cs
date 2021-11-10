@@ -125,9 +125,7 @@ namespace Pulumi.AzureNative.AzureStack
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:azurestack:LinkedSubscription"},
                     new Pulumi.Alias { Type = "azure-native:azurestack/v20200601preview:LinkedSubscription"},
-                    new Pulumi.Alias { Type = "azure-nextgen:azurestack/v20200601preview:LinkedSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -45,91 +45,46 @@ func NewEventSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20211201:EventSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid:EventSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20170615preview:EventSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20170615preview:EventSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20170915preview:EventSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20170915preview:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20180101:EventSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20180101:EventSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20180501preview:EventSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20180501preview:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20180915preview:EventSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20180915preview:EventSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20190101:EventSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20190101:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20190201preview:EventSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20190201preview:EventSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20190601:EventSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20190601:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20200101preview:EventSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20200101preview:EventSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20200401preview:EventSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:EventSubscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20200601:EventSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20200601:EventSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20201015preview:EventSubscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:EventSubscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20210601preview:EventSubscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20210601preview:EventSubscription"),
 		},
 	})
 	opts = append(opts, aliases)

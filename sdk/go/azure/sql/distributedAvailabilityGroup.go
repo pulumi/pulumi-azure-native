@@ -43,13 +43,7 @@ func NewDistributedAvailabilityGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql:DistributedAvailabilityGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:DistributedAvailabilityGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:DistributedAvailabilityGroup"),
 		},
 	})
 	opts = append(opts, aliases)

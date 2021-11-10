@@ -123,7 +123,7 @@ export class Rollout extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:deploymentmanager/v20191101preview:Rollout" }, { type: "azure-native:deploymentmanager:Rollout" }, { type: "azure-nextgen:deploymentmanager:Rollout" }, { type: "azure-native:deploymentmanager/v20180901preview:Rollout" }, { type: "azure-nextgen:deploymentmanager/v20180901preview:Rollout" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:Rollout" }, { type: "azure-native:deploymentmanager/v20180901preview:Rollout" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Rollout.__pulumiType, name, inputs, opts);
     }

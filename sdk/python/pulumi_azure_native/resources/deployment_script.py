@@ -202,7 +202,7 @@ class DeploymentScript(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources:DeploymentScript"), pulumi.Alias(type_="azure-native:resources/v20191001preview:DeploymentScript"), pulumi.Alias(type_="azure-nextgen:resources/v20191001preview:DeploymentScript"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentScript"), pulumi.Alias(type_="azure-nextgen:resources/v20201001:DeploymentScript")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources/v20191001preview:DeploymentScript"), pulumi.Alias(type_="azure-native:resources/v20201001:DeploymentScript")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DeploymentScript, __self__).__init__(
             'azure-native:resources:DeploymentScript',

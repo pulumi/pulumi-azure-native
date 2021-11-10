@@ -104,7 +104,7 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:connectedvmwarevsphere:HybridIdentityMetadatum" }, { type: "azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum" }, { type: "azure-nextgen:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HybridIdentityMetadatum.__pulumiType, name, inputs, opts);
     }

@@ -44,13 +44,7 @@ func NewAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:security/v20210801preview:Assignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:security:Assignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security:Assignment"),
 		},
 	})
 	opts = append(opts, aliases)

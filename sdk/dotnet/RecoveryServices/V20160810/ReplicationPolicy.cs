@@ -64,25 +64,15 @@ namespace Pulumi.AzureNative.RecoveryServices.V20160810
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160810:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210210:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210301:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210401:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210601:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210701:ReplicationPolicy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210801:ReplicationPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

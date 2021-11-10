@@ -37,55 +37,28 @@ func NewApplicationType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20190601preview:ApplicationType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric:ApplicationType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric:ApplicationType"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20170701preview:ApplicationType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20170701preview:ApplicationType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20190301:ApplicationType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20190301:ApplicationType"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20190301preview:ApplicationType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20190301preview:ApplicationType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20191101preview:ApplicationType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20191101preview:ApplicationType"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20200301:ApplicationType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20200301:ApplicationType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20201201preview:ApplicationType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20201201preview:ApplicationType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20210601:ApplicationType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20210601:ApplicationType"),
 		},
 	})
 	opts = append(opts, aliases)

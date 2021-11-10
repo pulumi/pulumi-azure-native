@@ -37,55 +37,28 @@ func NewVault(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20200401preview:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-native:keyvault/v20150601:Vault"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20150601:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20161001:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20161001:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-native:keyvault/v20180214:Vault"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20180214:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20180214preview:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20180214preview:Vault"),
 		},
 		{
 			Type: pulumi.String("azure-native:keyvault/v20190901:Vault"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20190901:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20210401preview:Vault"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20210401preview:Vault"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20210601preview:Vault"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20210601preview:Vault"),
 		},
 	})
 	opts = append(opts, aliases)

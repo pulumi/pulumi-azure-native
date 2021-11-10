@@ -88,17 +88,11 @@ namespace Pulumi.AzureNative.Media.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20210601:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180330preview:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180601preview:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:ContentKeyPolicy"},
                     new Pulumi.Alias { Type = "azure-native:media/v20200501:ContentKeyPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:ContentKeyPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

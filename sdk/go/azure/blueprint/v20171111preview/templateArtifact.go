@@ -48,12 +48,6 @@ func NewTemplateArtifact(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Template'")
 	}
 	args.Kind = pulumi.String("template")
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:blueprint/v20171111preview:TemplateArtifact"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource TemplateArtifact
 	err := ctx.RegisterResource("azure-native:blueprint/v20171111preview:TemplateArtifact", name, args, &resource, opts...)
 	if err != nil {

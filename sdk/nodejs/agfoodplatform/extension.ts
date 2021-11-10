@@ -115,7 +115,7 @@ export class Extension extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:agfoodplatform:Extension" }, { type: "azure-native:agfoodplatform/v20200512preview:Extension" }, { type: "azure-nextgen:agfoodplatform/v20200512preview:Extension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform/v20200512preview:Extension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Extension.__pulumiType, name, inputs, opts);
     }

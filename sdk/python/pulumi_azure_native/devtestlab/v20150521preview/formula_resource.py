@@ -350,7 +350,7 @@ class FormulaResource(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["vm"] = vm
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:FormulaResource"), pulumi.Alias(type_="azure-native:devtestlab:FormulaResource"), pulumi.Alias(type_="azure-nextgen:devtestlab:FormulaResource"), pulumi.Alias(type_="azure-native:devtestlab/v20160515:FormulaResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:FormulaResource"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:FormulaResource"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:FormulaResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab:FormulaResource"), pulumi.Alias(type_="azure-native:devtestlab/v20160515:FormulaResource"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:FormulaResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FormulaResource, __self__).__init__(
             'azure-native:devtestlab/v20150521preview:FormulaResource',

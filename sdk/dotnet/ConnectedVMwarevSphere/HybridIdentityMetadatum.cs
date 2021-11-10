@@ -83,9 +83,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:connectedvmwarevsphere:HybridIdentityMetadatum"},
                     new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum"},
-                    new Pulumi.Alias { Type = "azure-nextgen:connectedvmwarevsphere/v20201001preview:HybridIdentityMetadatum"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -60,31 +60,16 @@ func NewExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20210901:Extension"),
-		},
-		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration:Extension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration:Extension"),
 		},
 		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration/v20200701preview:Extension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20200701preview:Extension"),
-		},
-		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration/v20210501preview:Extension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20210501preview:Extension"),
-		},
-		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration/v20211101preview:Extension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kubernetesconfiguration/v20211101preview:Extension"),
 		},
 	})
 	opts = append(opts, aliases)

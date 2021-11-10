@@ -38,13 +38,7 @@ func NewExperiment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:chaos:Experiment"),
-		},
-		{
 			Type: pulumi.String("azure-native:chaos/v20210915preview:Experiment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:chaos/v20210915preview:Experiment"),
 		},
 	})
 	opts = append(opts, aliases)

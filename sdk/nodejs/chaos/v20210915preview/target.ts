@@ -102,7 +102,7 @@ export class Target extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:chaos/v20210915preview:Target" }, { type: "azure-native:chaos:Target" }, { type: "azure-nextgen:chaos:Target" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:chaos:Target" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Target.__pulumiType, name, inputs, opts);
     }

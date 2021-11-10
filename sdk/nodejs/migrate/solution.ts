@@ -86,7 +86,7 @@ export class Solution extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:migrate:Solution" }, { type: "azure-native:migrate/v20180901preview:Solution" }, { type: "azure-nextgen:migrate/v20180901preview:Solution" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180901preview:Solution" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Solution.__pulumiType, name, inputs, opts);
     }

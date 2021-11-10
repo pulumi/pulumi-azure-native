@@ -144,7 +144,7 @@ export class ApplianceDefinition extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:solutions/v20160901preview:ApplianceDefinition" }, { type: "azure-native:solutions:ApplianceDefinition" }, { type: "azure-nextgen:solutions:ApplianceDefinition" }, { type: "azure-native:solutions/v20170901:ApplianceDefinition" }, { type: "azure-nextgen:solutions/v20170901:ApplianceDefinition" }, { type: "azure-native:solutions/v20180601:ApplianceDefinition" }, { type: "azure-nextgen:solutions/v20180601:ApplianceDefinition" }, { type: "azure-native:solutions/v20190701:ApplianceDefinition" }, { type: "azure-nextgen:solutions/v20190701:ApplianceDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplianceDefinition" }, { type: "azure-nextgen:solutions/v20200821preview:ApplianceDefinition" }, { type: "azure-native:solutions/v20210701:ApplianceDefinition" }, { type: "azure-nextgen:solutions/v20210701:ApplianceDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplianceDefinition" }, { type: "azure-native:solutions/v20170901:ApplianceDefinition" }, { type: "azure-native:solutions/v20180601:ApplianceDefinition" }, { type: "azure-native:solutions/v20190701:ApplianceDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplianceDefinition" }, { type: "azure-native:solutions/v20210701:ApplianceDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApplianceDefinition.__pulumiType, name, inputs, opts);
     }

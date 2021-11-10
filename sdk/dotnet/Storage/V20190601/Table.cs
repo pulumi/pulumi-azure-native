@@ -58,19 +58,12 @@ namespace Pulumi.AzureNative.Storage.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:Table"},
                     new Pulumi.Alias { Type = "azure-native:storage:Table"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage:Table"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:Table"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:Table"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:Table"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:Table"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:Table"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:Table"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:Table"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210401:Table"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:Table"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210601:Table"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

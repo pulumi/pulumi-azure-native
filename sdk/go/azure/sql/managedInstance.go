@@ -56,49 +56,25 @@ func NewManagedInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql:ManagedInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20150501preview:ManagedInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20150501preview:ManagedInstance"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20180601preview:ManagedInstance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20180601preview:ManagedInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:ManagedInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedInstance"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:ManagedInstance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:ManagedInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ManagedInstance"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:ManagedInstance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ManagedInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:ManagedInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ManagedInstance"),
 		},
 	})
 	opts = append(opts, aliases)

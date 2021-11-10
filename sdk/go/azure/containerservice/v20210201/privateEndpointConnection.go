@@ -39,73 +39,37 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210201:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20200601:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200601:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20200701:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200701:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20200901:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200901:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20201101:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20201101:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20201201:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20201201:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210301:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210301:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20210501:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210501:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210701:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210701:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20210801:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210801:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210901:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210901:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

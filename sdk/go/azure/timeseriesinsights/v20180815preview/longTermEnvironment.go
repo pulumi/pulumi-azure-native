@@ -55,43 +55,22 @@ func NewLongTermEnvironment(ctx *pulumi.Context,
 	args.Kind = pulumi.String("LongTerm")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:LongTermEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights:LongTermEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights:LongTermEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:LongTermEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:LongTermEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:LongTermEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:LongTermEnvironment"),
 		},
 		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:LongTermEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:LongTermEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210331preview:LongTermEnvironment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210331preview:LongTermEnvironment"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210630preview:LongTermEnvironment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210630preview:LongTermEnvironment"),
 		},
 	})
 	opts = append(opts, aliases)

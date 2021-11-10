@@ -112,7 +112,7 @@ export class OnlineEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices:OnlineEndpoint" }, { type: "azure-native:machinelearningservices/v20210301preview:OnlineEndpoint" }, { type: "azure-nextgen:machinelearningservices/v20210301preview:OnlineEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:OnlineEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OnlineEndpoint.__pulumiType, name, inputs, opts);
     }

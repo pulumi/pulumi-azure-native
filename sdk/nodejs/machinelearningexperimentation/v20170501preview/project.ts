@@ -139,7 +139,7 @@ export class Project extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningexperimentation/v20170501preview:Project" }, { type: "azure-native:machinelearningexperimentation:Project" }, { type: "azure-nextgen:machinelearningexperimentation:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningexperimentation:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, inputs, opts);
     }

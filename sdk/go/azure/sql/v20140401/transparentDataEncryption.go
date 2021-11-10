@@ -38,43 +38,22 @@ func NewTransparentDataEncryption(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20140401:TransparentDataEncryption"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:TransparentDataEncryption"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:TransparentDataEncryption"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:TransparentDataEncryption"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:TransparentDataEncryption"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:TransparentDataEncryption"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:TransparentDataEncryption"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:TransparentDataEncryption"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:TransparentDataEncryption"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:TransparentDataEncryption"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:TransparentDataEncryption"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:TransparentDataEncryption"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:TransparentDataEncryption"),
 		},
 	})
 	opts = append(opts, aliases)

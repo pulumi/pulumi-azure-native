@@ -64,9 +64,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210301preview:ModelVersion"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices:ModelVersion"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:ModelVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

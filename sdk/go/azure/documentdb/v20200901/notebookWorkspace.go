@@ -35,97 +35,49 @@ func NewNotebookWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200901:NotebookWorkspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb:NotebookWorkspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb:NotebookWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:NotebookWorkspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20190801:NotebookWorkspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20191212:NotebookWorkspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20191212:NotebookWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200301:NotebookWorkspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200301:NotebookWorkspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200401:NotebookWorkspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200401:NotebookWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200601preview:NotebookWorkspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:NotebookWorkspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:NotebookWorkspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210115:NotebookWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210301preview:NotebookWorkspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:NotebookWorkspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210315:NotebookWorkspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210315:NotebookWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210401preview:NotebookWorkspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:NotebookWorkspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210415:NotebookWorkspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210415:NotebookWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210515:NotebookWorkspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210515:NotebookWorkspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210615:NotebookWorkspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210615:NotebookWorkspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:NotebookWorkspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:NotebookWorkspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:NotebookWorkspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20211015:NotebookWorkspace"),
 		},
 	})
 	opts = append(opts, aliases)

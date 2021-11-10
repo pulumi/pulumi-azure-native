@@ -41,55 +41,28 @@ func NewReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ReplicationRecoveryServicesProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:ReplicationRecoveryServicesProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationRecoveryServicesProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:ReplicationRecoveryServicesProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ReplicationRecoveryServicesProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ReplicationRecoveryServicesProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ReplicationRecoveryServicesProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ReplicationRecoveryServicesProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ReplicationRecoveryServicesProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ReplicationRecoveryServicesProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationRecoveryServicesProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationRecoveryServicesProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationRecoveryServicesProvider"),
 		},
 	})
 	opts = append(opts, aliases)

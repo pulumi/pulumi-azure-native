@@ -34,13 +34,7 @@ func NewSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:costmanagement:Setting"),
-		},
-		{
 			Type: pulumi.String("azure-native:costmanagement/v20191101:Setting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement/v20191101:Setting"),
 		},
 	})
 	opts = append(opts, aliases)

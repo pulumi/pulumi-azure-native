@@ -88,7 +88,7 @@ export class SerialPort extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:serialconsole:SerialPort" }, { type: "azure-native:serialconsole/v20180501:SerialPort" }, { type: "azure-nextgen:serialconsole/v20180501:SerialPort" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:serialconsole/v20180501:SerialPort" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SerialPort.__pulumiType, name, inputs, opts);
     }

@@ -149,7 +149,7 @@ export class LiveOutput extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20210601:LiveOutput" }, { type: "azure-native:media:LiveOutput" }, { type: "azure-nextgen:media:LiveOutput" }, { type: "azure-native:media/v20180330preview:LiveOutput" }, { type: "azure-nextgen:media/v20180330preview:LiveOutput" }, { type: "azure-native:media/v20180601preview:LiveOutput" }, { type: "azure-nextgen:media/v20180601preview:LiveOutput" }, { type: "azure-native:media/v20180701:LiveOutput" }, { type: "azure-nextgen:media/v20180701:LiveOutput" }, { type: "azure-native:media/v20190501preview:LiveOutput" }, { type: "azure-nextgen:media/v20190501preview:LiveOutput" }, { type: "azure-native:media/v20200501:LiveOutput" }, { type: "azure-nextgen:media/v20200501:LiveOutput" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:LiveOutput" }, { type: "azure-native:media/v20180330preview:LiveOutput" }, { type: "azure-native:media/v20180601preview:LiveOutput" }, { type: "azure-native:media/v20180701:LiveOutput" }, { type: "azure-native:media/v20190501preview:LiveOutput" }, { type: "azure-native:media/v20200501:LiveOutput" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LiveOutput.__pulumiType, name, inputs, opts);
     }

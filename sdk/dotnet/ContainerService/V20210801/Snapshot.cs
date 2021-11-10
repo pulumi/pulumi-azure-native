@@ -82,11 +82,8 @@ namespace Pulumi.AzureNative.ContainerService.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210801:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:containerservice:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice:Snapshot"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20210901:Snapshot"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210901:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

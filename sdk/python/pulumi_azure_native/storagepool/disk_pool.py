@@ -260,7 +260,7 @@ class DiskPool(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storagepool:DiskPool"), pulumi.Alias(type_="azure-native:storagepool/v20200315preview:DiskPool"), pulumi.Alias(type_="azure-nextgen:storagepool/v20200315preview:DiskPool"), pulumi.Alias(type_="azure-native:storagepool/v20210401preview:DiskPool"), pulumi.Alias(type_="azure-nextgen:storagepool/v20210401preview:DiskPool"), pulumi.Alias(type_="azure-native:storagepool/v20210801:DiskPool"), pulumi.Alias(type_="azure-nextgen:storagepool/v20210801:DiskPool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagepool/v20200315preview:DiskPool"), pulumi.Alias(type_="azure-native:storagepool/v20210401preview:DiskPool"), pulumi.Alias(type_="azure-native:storagepool/v20210801:DiskPool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskPool, __self__).__init__(
             'azure-native:storagepool:DiskPool',

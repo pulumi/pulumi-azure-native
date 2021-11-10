@@ -45,43 +45,22 @@ func NewServerBlobAuditingPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ServerBlobAuditingPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:ServerBlobAuditingPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:ServerBlobAuditingPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20170301preview:ServerBlobAuditingPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20170301preview:ServerBlobAuditingPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:ServerBlobAuditingPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerBlobAuditingPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:ServerBlobAuditingPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerBlobAuditingPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:ServerBlobAuditingPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ServerBlobAuditingPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:ServerBlobAuditingPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ServerBlobAuditingPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

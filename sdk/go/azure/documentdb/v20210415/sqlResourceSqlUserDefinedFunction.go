@@ -45,97 +45,49 @@ func NewSqlResourceSqlUserDefinedFunction(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210415:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20190801:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20191212:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200301:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200401:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200901:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200901:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210301preview:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210315:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210315:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210401preview:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210515:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210515:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210615:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210615:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:SqlResourceSqlUserDefinedFunction"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:SqlResourceSqlUserDefinedFunction"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20211015:SqlResourceSqlUserDefinedFunction"),
 		},
 	})
 	opts = append(opts, aliases)

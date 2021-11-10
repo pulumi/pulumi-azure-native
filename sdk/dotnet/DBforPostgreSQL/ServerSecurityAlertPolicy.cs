@@ -95,11 +95,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:ServerSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:ServerSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

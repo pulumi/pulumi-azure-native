@@ -124,15 +124,10 @@ namespace Pulumi.AzureNative.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:Schema"},
                     new Pulumi.Alias { Type = "azure-native:logic:Schema"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic:Schema"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Schema"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:Schema"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Schema"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:Schema"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20190501:Schema"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:Schema"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

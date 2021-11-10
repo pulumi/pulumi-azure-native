@@ -39,49 +39,25 @@ func NewSecret(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20210401preview:Secret"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault:Secret"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-native:keyvault/v20161001:Secret"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20161001:Secret"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20180214:Secret"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20180214:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-native:keyvault/v20180214preview:Secret"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20180214preview:Secret"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20190901:Secret"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20190901:Secret"),
 		},
 		{
 			Type: pulumi.String("azure-native:keyvault/v20200401preview:Secret"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20200401preview:Secret"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20210601preview:Secret"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20210601preview:Secret"),
 		},
 	})
 	opts = append(opts, aliases)

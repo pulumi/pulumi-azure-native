@@ -126,7 +126,7 @@ export class TemplateArtifact extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:blueprint:TemplateArtifact" }, { type: "azure-native:blueprint/v20181101preview:TemplateArtifact" }, { type: "azure-nextgen:blueprint/v20181101preview:TemplateArtifact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:TemplateArtifact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TemplateArtifact.__pulumiType, name, inputs, opts);
     }

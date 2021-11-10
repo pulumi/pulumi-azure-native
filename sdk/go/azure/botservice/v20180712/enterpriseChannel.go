@@ -36,13 +36,7 @@ func NewEnterpriseChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:botservice/v20180712:EnterpriseChannel"),
-		},
-		{
 			Type: pulumi.String("azure-native:botservice:EnterpriseChannel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:botservice:EnterpriseChannel"),
 		},
 	})
 	opts = append(opts, aliases)

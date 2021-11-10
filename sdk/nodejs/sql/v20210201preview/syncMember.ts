@@ -146,7 +146,7 @@ export class SyncMember extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20210201preview:SyncMember" }, { type: "azure-native:sql:SyncMember" }, { type: "azure-nextgen:sql:SyncMember" }, { type: "azure-native:sql/v20150501preview:SyncMember" }, { type: "azure-nextgen:sql/v20150501preview:SyncMember" }, { type: "azure-native:sql/v20190601preview:SyncMember" }, { type: "azure-nextgen:sql/v20190601preview:SyncMember" }, { type: "azure-native:sql/v20200202preview:SyncMember" }, { type: "azure-nextgen:sql/v20200202preview:SyncMember" }, { type: "azure-native:sql/v20200801preview:SyncMember" }, { type: "azure-nextgen:sql/v20200801preview:SyncMember" }, { type: "azure-native:sql/v20201101preview:SyncMember" }, { type: "azure-nextgen:sql/v20201101preview:SyncMember" }, { type: "azure-native:sql/v20210501preview:SyncMember" }, { type: "azure-nextgen:sql/v20210501preview:SyncMember" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncMember" }, { type: "azure-native:sql/v20150501preview:SyncMember" }, { type: "azure-native:sql/v20190601preview:SyncMember" }, { type: "azure-native:sql/v20200202preview:SyncMember" }, { type: "azure-native:sql/v20200801preview:SyncMember" }, { type: "azure-native:sql/v20201101preview:SyncMember" }, { type: "azure-native:sql/v20210501preview:SyncMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncMember.__pulumiType, name, inputs, opts);
     }

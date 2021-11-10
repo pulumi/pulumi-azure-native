@@ -80,7 +80,7 @@ export class Association extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customproviders/v20180901preview:Association" }, { type: "azure-native:customproviders:Association" }, { type: "azure-nextgen:customproviders:Association" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customproviders:Association" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Association.__pulumiType, name, inputs, opts);
     }

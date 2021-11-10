@@ -35,61 +35,31 @@ func NewReplicationFabric(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationFabric"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:ReplicationFabric"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationFabric"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationFabric"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationFabric"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationFabric"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationFabric"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:ReplicationFabric"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ReplicationFabric"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ReplicationFabric"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ReplicationFabric"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ReplicationFabric"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ReplicationFabric"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ReplicationFabric"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationFabric"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationFabric"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationFabric"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ReplicationFabric"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ReplicationFabric"),
 		},
 	})
 	opts = append(opts, aliases)

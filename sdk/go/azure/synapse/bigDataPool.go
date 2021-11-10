@@ -53,49 +53,25 @@ func NewBigDataPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse:BigDataPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:BigDataPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:BigDataPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20201201:BigDataPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20201201:BigDataPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210301:BigDataPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210301:BigDataPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210401preview:BigDataPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:BigDataPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210501:BigDataPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210501:BigDataPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210601:BigDataPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:BigDataPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:BigDataPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:BigDataPool"),
 		},
 	})
 	opts = append(opts, aliases)

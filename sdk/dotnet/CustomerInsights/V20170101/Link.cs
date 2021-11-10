@@ -118,11 +118,8 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Link"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights:Link"},
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Link"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Link"},
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Link"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

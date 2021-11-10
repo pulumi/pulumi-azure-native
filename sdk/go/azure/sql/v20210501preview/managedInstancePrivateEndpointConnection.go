@@ -36,37 +36,19 @@ func NewManagedInstancePrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ManagedInstancePrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:ManagedInstancePrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:ManagedInstancePrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedInstancePrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:ManagedInstancePrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ManagedInstancePrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ManagedInstancePrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

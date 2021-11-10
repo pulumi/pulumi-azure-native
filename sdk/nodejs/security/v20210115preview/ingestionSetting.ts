@@ -64,7 +64,7 @@ export class IngestionSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/v20210115preview:IngestionSetting" }, { type: "azure-native:security:IngestionSetting" }, { type: "azure-nextgen:security:IngestionSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:IngestionSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IngestionSetting.__pulumiType, name, inputs, opts);
     }

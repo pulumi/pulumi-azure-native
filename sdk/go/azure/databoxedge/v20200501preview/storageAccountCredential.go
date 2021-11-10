@@ -50,73 +50,37 @@ func NewStorageAccountCredential(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:StorageAccountCredential"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:StorageAccountCredential"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:StorageAccountCredential"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:StorageAccountCredential"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:StorageAccountCredential"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:StorageAccountCredential"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:StorageAccountCredential"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:StorageAccountCredential"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:StorageAccountCredential"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:StorageAccountCredential"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:StorageAccountCredential"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:StorageAccountCredential"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:StorageAccountCredential"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:StorageAccountCredential"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:StorageAccountCredential"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:StorageAccountCredential"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:StorageAccountCredential"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:StorageAccountCredential"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:StorageAccountCredential"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:StorageAccountCredential"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:StorageAccountCredential"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:StorageAccountCredential"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:StorageAccountCredential"),
 		},
 	})
 	opts = append(opts, aliases)

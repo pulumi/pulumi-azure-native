@@ -43,25 +43,13 @@ func NewComputePolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datalakeanalytics:ComputePolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:datalakeanalytics/v20151001preview:ComputePolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20151001preview:ComputePolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:datalakeanalytics/v20161101:ComputePolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20161101:ComputePolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:datalakeanalytics/v20191101preview:ComputePolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datalakeanalytics/v20191101preview:ComputePolicy"),
 		},
 	})
 	opts = append(opts, aliases)

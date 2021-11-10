@@ -65,9 +65,7 @@ namespace Pulumi.AzureNative.DataFactory
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory:DataFlow"},
                     new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:DataFlow"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:DataFlow"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

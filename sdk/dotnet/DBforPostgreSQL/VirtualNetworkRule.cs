@@ -71,11 +71,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:VirtualNetworkRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:VirtualNetworkRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:VirtualNetworkRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -34,43 +34,22 @@ func NewTable(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:Table"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage:Table"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage:Table"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20190601:Table"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:Table"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20200801preview:Table"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:Table"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210101:Table"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:Table"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210201:Table"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:Table"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210401:Table"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:Table"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -52,85 +52,43 @@ func NewSubscription(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement:Subscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:Subscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:Subscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Subscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:Subscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:Subscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Subscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Subscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:Subscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Subscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:Subscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:Subscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:Subscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:Subscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:Subscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:Subscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:Subscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:Subscription"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:Subscription"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:Subscription"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:Subscription"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:Subscription"),
 		},
 	})
 	opts = append(opts, aliases)

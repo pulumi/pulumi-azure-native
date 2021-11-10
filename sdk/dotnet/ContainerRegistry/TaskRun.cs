@@ -96,9 +96,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:TaskRun"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:TaskRun"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190601preview:TaskRun"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

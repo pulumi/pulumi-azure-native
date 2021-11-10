@@ -31,13 +31,7 @@ func NewCostAllocationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:costmanagement/v20200301preview:CostAllocationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:costmanagement:CostAllocationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement:CostAllocationRule"),
 		},
 	})
 	opts = append(opts, aliases)

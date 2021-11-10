@@ -91,7 +91,7 @@ export class Secret extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabricmesh:Secret" }, { type: "azure-native:servicefabricmesh/v20180901preview:Secret" }, { type: "azure-nextgen:servicefabricmesh/v20180901preview:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180901preview:Secret" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Secret.__pulumiType, name, inputs, opts);
     }

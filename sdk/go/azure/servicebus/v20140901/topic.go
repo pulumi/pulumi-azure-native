@@ -54,43 +54,22 @@ func NewTopic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20140901:Topic"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus:Topic"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicebus/v20150801:Topic"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20150801:Topic"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20170401:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20170401:Topic"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicebus/v20180101preview:Topic"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:Topic"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20210101preview:Topic"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210101preview:Topic"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20210601preview:Topic"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210601preview:Topic"),
 		},
 	})
 	opts = append(opts, aliases)

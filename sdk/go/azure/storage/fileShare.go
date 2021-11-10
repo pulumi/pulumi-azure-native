@@ -48,49 +48,25 @@ func NewFileShare(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage:FileShare"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20190401:FileShare"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20190401:FileShare"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20190601:FileShare"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:FileShare"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20200801preview:FileShare"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:FileShare"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210101:FileShare"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:FileShare"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210201:FileShare"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:FileShare"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210401:FileShare"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:FileShare"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210601:FileShare"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:FileShare"),
 		},
 	})
 	opts = append(opts, aliases)

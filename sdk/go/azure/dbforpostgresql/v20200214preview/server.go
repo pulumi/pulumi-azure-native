@@ -57,37 +57,19 @@ func NewServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20200214preview:Server"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20200214privatepreview:Server"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20200214privatepreview:Server"),
 		},
 		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20210410privatepreview:Server"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210410privatepreview:Server"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20210601:Server"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210601:Server"),
 		},
 		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20210601preview:Server"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210601preview:Server"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20210615privatepreview:Server"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20210615privatepreview:Server"),
 		},
 	})
 	opts = append(opts, aliases)

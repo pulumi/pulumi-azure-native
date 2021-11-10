@@ -100,21 +100,13 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:ServerAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql:ServerAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:ServerAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:ServerAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ServerAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ServerAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ServerAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:ServerAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ServerAdvisor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

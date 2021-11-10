@@ -37,43 +37,22 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20170401:NamespaceAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus:NamespaceAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus:NamespaceAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicebus/v20140901:NamespaceAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20140901:NamespaceAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20150801:NamespaceAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20150801:NamespaceAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:NamespaceAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20210101preview:NamespaceAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210101preview:NamespaceAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20210601preview:NamespaceAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210601preview:NamespaceAuthorizationRule"),
 		},
 	})
 	opts = append(opts, aliases)

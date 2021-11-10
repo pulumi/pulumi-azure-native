@@ -102,7 +102,7 @@ export class DataController extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurearcdata/v20211101:DataController" }, { type: "azure-native:azurearcdata:DataController" }, { type: "azure-nextgen:azurearcdata:DataController" }, { type: "azure-native:azurearcdata/v20210601preview:DataController" }, { type: "azure-nextgen:azurearcdata/v20210601preview:DataController" }, { type: "azure-native:azurearcdata/v20210701preview:DataController" }, { type: "azure-nextgen:azurearcdata/v20210701preview:DataController" }, { type: "azure-native:azurearcdata/v20210801:DataController" }, { type: "azure-nextgen:azurearcdata/v20210801:DataController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:DataController" }, { type: "azure-native:azurearcdata/v20210601preview:DataController" }, { type: "azure-native:azurearcdata/v20210701preview:DataController" }, { type: "azure-native:azurearcdata/v20210801:DataController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataController.__pulumiType, name, inputs, opts);
     }

@@ -98,7 +98,7 @@ export class CustomerEvent extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:testbase:CustomerEvent" }, { type: "azure-native:testbase/v20201216preview:CustomerEvent" }, { type: "azure-nextgen:testbase/v20201216preview:CustomerEvent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:CustomerEvent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomerEvent.__pulumiType, name, inputs, opts);
     }

@@ -40,13 +40,7 @@ func NewStandard(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:security/v20210801preview:Standard"),
-		},
-		{
 			Type: pulumi.String("azure-native:security:Standard"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security:Standard"),
 		},
 	})
 	opts = append(opts, aliases)

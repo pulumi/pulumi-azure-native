@@ -67,37 +67,19 @@ func NewBlobFolderDataSetMapping(ctx *pulumi.Context,
 	args.Kind = pulumi.String("BlobFolder")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:BlobFolderDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare:BlobFolderDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare:BlobFolderDataSetMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20191101:BlobFolderDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20191101:BlobFolderDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:BlobFolderDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20200901:BlobFolderDataSetMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20201001preview:BlobFolderDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:BlobFolderDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20210801:BlobFolderDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20210801:BlobFolderDataSetMapping"),
 		},
 	})
 	opts = append(opts, aliases)

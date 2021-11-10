@@ -113,7 +113,7 @@ export class KustoDatabaseDataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20181101preview:KustoDatabaseDataSet" }, { type: "azure-native:datashare:KustoDatabaseDataSet" }, { type: "azure-nextgen:datashare:KustoDatabaseDataSet" }, { type: "azure-native:datashare/v20191101:KustoDatabaseDataSet" }, { type: "azure-nextgen:datashare/v20191101:KustoDatabaseDataSet" }, { type: "azure-native:datashare/v20200901:KustoDatabaseDataSet" }, { type: "azure-nextgen:datashare/v20200901:KustoDatabaseDataSet" }, { type: "azure-native:datashare/v20201001preview:KustoDatabaseDataSet" }, { type: "azure-nextgen:datashare/v20201001preview:KustoDatabaseDataSet" }, { type: "azure-native:datashare/v20210801:KustoDatabaseDataSet" }, { type: "azure-nextgen:datashare/v20210801:KustoDatabaseDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:KustoDatabaseDataSet" }, { type: "azure-native:datashare/v20191101:KustoDatabaseDataSet" }, { type: "azure-native:datashare/v20200901:KustoDatabaseDataSet" }, { type: "azure-native:datashare/v20201001preview:KustoDatabaseDataSet" }, { type: "azure-native:datashare/v20210801:KustoDatabaseDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KustoDatabaseDataSet.__pulumiType, name, inputs, opts);
     }

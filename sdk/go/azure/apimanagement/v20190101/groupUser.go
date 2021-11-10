@@ -44,73 +44,37 @@ func NewGroupUser(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:GroupUser"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:GroupUser"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:GroupUser"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:GroupUser"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:GroupUser"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:GroupUser"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:GroupUser"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:GroupUser"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:GroupUser"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:GroupUser"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:GroupUser"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:GroupUser"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:GroupUser"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:GroupUser"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:GroupUser"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:GroupUser"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:GroupUser"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:GroupUser"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:GroupUser"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:GroupUser"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:GroupUser"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:GroupUser"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:GroupUser"),
 		},
 	})
 	opts = append(opts, aliases)

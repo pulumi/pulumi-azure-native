@@ -69,85 +69,43 @@ func NewHostPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210401preview:HostPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization:HostPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20190123preview:HostPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190123preview:HostPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190924preview:HostPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20191210preview:HostPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20191210preview:HostPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20200921preview:HostPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:HostPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:HostPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:HostPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:HostPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:HostPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:HostPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210201preview:HostPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:HostPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210309preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210309preview:HostPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210712:HostPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210712:HostPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210903preview:HostPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210903preview:HostPool"),
 		},
 	})
 	opts = append(opts, aliases)

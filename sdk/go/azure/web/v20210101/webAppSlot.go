@@ -90,79 +90,40 @@ func NewWebAppSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppSlot"),
 		},
 	})
 	opts = append(opts, aliases)

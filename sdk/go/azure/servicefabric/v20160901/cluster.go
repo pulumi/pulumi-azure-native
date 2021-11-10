@@ -57,67 +57,34 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20160901:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20170701preview:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20170701preview:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20180201:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20180201:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20190301:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20190301:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20190301preview:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20190301preview:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20190601preview:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20190601preview:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20191101preview:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20191101preview:Cluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20200301:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20200301:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20201201preview:Cluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20201201preview:Cluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20210601:Cluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20210601:Cluster"),
 		},
 	})
 	opts = append(opts, aliases)

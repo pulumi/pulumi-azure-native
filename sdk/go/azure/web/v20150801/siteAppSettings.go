@@ -37,79 +37,40 @@ func NewSiteAppSettings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteAppSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteAppSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteAppSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteAppSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteAppSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteAppSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteAppSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteAppSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteAppSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteAppSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteAppSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteAppSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteAppSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteAppSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteAppSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteAppSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteAppSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteAppSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteAppSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteAppSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteAppSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteAppSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteAppSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteAppSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteAppSettings"),
 		},
 	})
 	opts = append(opts, aliases)

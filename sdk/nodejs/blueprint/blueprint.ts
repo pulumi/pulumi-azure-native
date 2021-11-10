@@ -121,7 +121,7 @@ export class Blueprint extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:blueprint:Blueprint" }, { type: "azure-native:blueprint/v20181101preview:Blueprint" }, { type: "azure-nextgen:blueprint/v20181101preview:Blueprint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:blueprint/v20181101preview:Blueprint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Blueprint.__pulumiType, name, inputs, opts);
     }

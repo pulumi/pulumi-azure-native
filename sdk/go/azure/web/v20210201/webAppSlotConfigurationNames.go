@@ -37,79 +37,40 @@ func NewWebAppSlotConfigurationNames(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppSlotConfigurationNames"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppSlotConfigurationNames"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppSlotConfigurationNames"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppSlotConfigurationNames"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppSlotConfigurationNames"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppSlotConfigurationNames"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSlotConfigurationNames"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppSlotConfigurationNames"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSlotConfigurationNames"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppSlotConfigurationNames"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSlotConfigurationNames"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppSlotConfigurationNames"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSlotConfigurationNames"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppSlotConfigurationNames"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSlotConfigurationNames"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppSlotConfigurationNames"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSlotConfigurationNames"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppSlotConfigurationNames"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSlotConfigurationNames"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppSlotConfigurationNames"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSlotConfigurationNames"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppSlotConfigurationNames"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppSlotConfigurationNames"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppSlotConfigurationNames"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppSlotConfigurationNames"),
 		},
 	})
 	opts = append(opts, aliases)

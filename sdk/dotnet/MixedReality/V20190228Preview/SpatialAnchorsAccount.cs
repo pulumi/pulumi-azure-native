@@ -82,17 +82,11 @@ namespace Pulumi.AzureNative.MixedReality.V20190228Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/v20200501:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20200501:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20210301preview:SpatialAnchorsAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

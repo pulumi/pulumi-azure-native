@@ -199,7 +199,7 @@ class BackupPolicy(pulumi.CustomResource):
             __props__.__dict__["schedules_count"] = None
             __props__.__dict__["ssm_host_name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:BackupPolicy"), pulumi.Alias(type_="azure-native:storsimple:BackupPolicy"), pulumi.Alias(type_="azure-nextgen:storsimple:BackupPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupPolicy, __self__).__init__(
             'azure-native:storsimple/v20170601:BackupPolicy',

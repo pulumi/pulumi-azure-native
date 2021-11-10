@@ -88,11 +88,8 @@ namespace Pulumi.AzureNative.Insights.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20210401:DataCollectionRuleAssociation"},
                     new Pulumi.Alias { Type = "azure-native:insights:DataCollectionRuleAssociation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights:DataCollectionRuleAssociation"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20191101preview:DataCollectionRuleAssociation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

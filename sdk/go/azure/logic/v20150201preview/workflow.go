@@ -43,31 +43,16 @@ func NewWorkflow(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20150201preview:Workflow"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic:Workflow"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic:Workflow"),
 		},
 		{
 			Type: pulumi.String("azure-native:logic/v20160601:Workflow"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20160601:Workflow"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20180701preview:Workflow"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:logic/v20180701preview:Workflow"),
-		},
-		{
 			Type: pulumi.String("azure-native:logic/v20190501:Workflow"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:logic/v20190501:Workflow"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -70,15 +70,10 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:Addon"},
                     new Pulumi.Alias { Type = "azure-native:avs:Addon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs:Addon"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:Addon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:Addon"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210601:Addon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210601:Addon"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20211201:Addon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20211201:Addon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -63,151 +63,76 @@ func NewManagedCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerservice:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20170831:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20170831:ManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20180331:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20180331:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20180801preview:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20180801preview:ManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20190201:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20190201:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20190401:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20190401:ManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20190601:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20190601:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20190801:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20190801:ManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20191001:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20191001:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20191101:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20191101:ManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20200101:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200101:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20200201:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200201:ManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20200301:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200301:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20200401:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200401:ManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20200601:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200601:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20200701:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200701:ManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20200901:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20200901:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20201101:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20201101:ManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20201201:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20201201:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210201:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210201:ManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20210301:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210301:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210501:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210501:ManagedCluster"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerservice/v20210701:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210701:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210801:ManagedCluster"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210801:ManagedCluster"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210901:ManagedCluster"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210901:ManagedCluster"),
 		},
 	})
 	opts = append(opts, aliases)

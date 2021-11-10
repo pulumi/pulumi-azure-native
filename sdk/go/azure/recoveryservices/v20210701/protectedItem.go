@@ -43,91 +43,46 @@ func NewProtectedItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ProtectedItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:ProtectedItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160601:ProtectedItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20160601:ProtectedItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20190513:ProtectedItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20190513:ProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20190615:ProtectedItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20190615:ProtectedItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20201001:ProtectedItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20201001:ProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20201201:ProtectedItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20201201:ProtectedItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210101:ProtectedItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210101:ProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201:ProtectedItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201:ProtectedItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210201preview:ProtectedItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210201preview:ProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:ProtectedItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ProtectedItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ProtectedItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ProtectedItem"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ProtectedItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ProtectedItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ProtectedItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ProtectedItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ProtectedItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ProtectedItem"),
 		},
 	})
 	opts = append(opts, aliases)

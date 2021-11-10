@@ -45,13 +45,7 @@ func NewDataMaskingPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20140401:DataMaskingPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:DataMaskingPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:DataMaskingPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

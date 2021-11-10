@@ -66,73 +66,37 @@ func NewAppServicePlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:AppServicePlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:AppServicePlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:AppServicePlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:AppServicePlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:AppServicePlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160901:AppServicePlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160901:AppServicePlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:AppServicePlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:AppServicePlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:AppServicePlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:AppServicePlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:AppServicePlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:AppServicePlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:AppServicePlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:AppServicePlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:AppServicePlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:AppServicePlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:AppServicePlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:AppServicePlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:AppServicePlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:AppServicePlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:AppServicePlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:AppServicePlan"),
 		},
 	})
 	opts = append(opts, aliases)

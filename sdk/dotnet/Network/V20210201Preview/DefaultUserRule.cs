@@ -138,9 +138,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201preview:DefaultUserRule"},
                     new Pulumi.Alias { Type = "azure-native:network:DefaultUserRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:DefaultUserRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

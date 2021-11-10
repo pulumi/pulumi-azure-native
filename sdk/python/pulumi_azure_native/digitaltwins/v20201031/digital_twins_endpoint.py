@@ -153,7 +153,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201031:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-native:digitaltwins:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-nextgen:digitaltwins:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20200301preview:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-nextgen:digitaltwins/v20201201:DigitalTwinsEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:digitaltwins:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DigitalTwinsEndpoint, __self__).__init__(
             'azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint',

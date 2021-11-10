@@ -45,43 +45,22 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210601preview:Namespace"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus:Namespace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus:Namespace"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicebus/v20140901:Namespace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20140901:Namespace"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20150801:Namespace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20150801:Namespace"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicebus/v20170401:Namespace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20170401:Namespace"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20180101preview:Namespace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20180101preview:Namespace"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicebus/v20210101preview:Namespace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicebus/v20210101preview:Namespace"),
 		},
 	})
 	opts = append(opts, aliases)

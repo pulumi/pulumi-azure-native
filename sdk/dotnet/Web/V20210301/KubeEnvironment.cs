@@ -125,15 +125,10 @@ namespace Pulumi.AzureNative.Web.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210301:KubeEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web:KubeEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web:KubeEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:KubeEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:KubeEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:KubeEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:KubeEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:KubeEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210201:KubeEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

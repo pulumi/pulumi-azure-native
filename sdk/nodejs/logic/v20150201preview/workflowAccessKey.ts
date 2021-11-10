@@ -82,7 +82,7 @@ export class WorkflowAccessKey extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20150201preview:WorkflowAccessKey" }, { type: "azure-native:logic:WorkflowAccessKey" }, { type: "azure-nextgen:logic:WorkflowAccessKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic:WorkflowAccessKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkflowAccessKey.__pulumiType, name, inputs, opts);
     }

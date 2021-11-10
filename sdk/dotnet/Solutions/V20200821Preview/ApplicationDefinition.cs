@@ -166,19 +166,12 @@ namespace Pulumi.AzureNative.Solutions.V20200821Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20160901preview:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20160901preview:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20170901:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20180601:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20190701:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:ApplicationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20210701:ApplicationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20210701:ApplicationDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

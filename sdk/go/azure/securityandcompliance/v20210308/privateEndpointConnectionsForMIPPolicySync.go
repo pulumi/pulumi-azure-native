@@ -40,13 +40,7 @@ func NewPrivateEndpointConnectionsForMIPPolicySync(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsForMIPPolicySync"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync"),
 		},
 	})
 	opts = append(opts, aliases)

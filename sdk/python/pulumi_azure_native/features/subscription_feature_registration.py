@@ -129,7 +129,7 @@ class SubscriptionFeatureRegistration(pulumi.CustomResource):
             __props__.__dict__["provider_namespace"] = provider_namespace
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:features:SubscriptionFeatureRegistration"), pulumi.Alias(type_="azure-native:features/v20210701:SubscriptionFeatureRegistration"), pulumi.Alias(type_="azure-nextgen:features/v20210701:SubscriptionFeatureRegistration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:features/v20210701:SubscriptionFeatureRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SubscriptionFeatureRegistration, __self__).__init__(
             'azure-native:features:SubscriptionFeatureRegistration',

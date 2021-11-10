@@ -37,73 +37,37 @@ func NewTagByProduct(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:TagByProduct"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:TagByProduct"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:TagByProduct"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:TagByProduct"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:TagByProduct"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:TagByProduct"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:TagByProduct"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:TagByProduct"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:TagByProduct"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:TagByProduct"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:TagByProduct"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:TagByProduct"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:TagByProduct"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:TagByProduct"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:TagByProduct"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:TagByProduct"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:TagByProduct"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:TagByProduct"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:TagByProduct"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:TagByProduct"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:TagByProduct"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:TagByProduct"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:TagByProduct"),
 		},
 	})
 	opts = append(opts, aliases)

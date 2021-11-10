@@ -63,13 +63,7 @@ func NewMetricAlert(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:insights/v20180301:MetricAlert"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights:MetricAlert"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights:MetricAlert"),
 		},
 	})
 	opts = append(opts, aliases)

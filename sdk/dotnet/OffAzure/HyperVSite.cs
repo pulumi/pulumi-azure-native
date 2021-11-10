@@ -74,11 +74,8 @@ namespace Pulumi.AzureNative.OffAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:offazure:HyperVSite"},
                     new Pulumi.Alias { Type = "azure-native:offazure/v20200101:HyperVSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200101:HyperVSite"},
                     new Pulumi.Alias { Type = "azure-native:offazure/v20200707:HyperVSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:HyperVSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

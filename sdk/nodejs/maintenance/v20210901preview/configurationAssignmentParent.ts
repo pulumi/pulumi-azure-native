@@ -113,7 +113,7 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:maintenance/v20210901preview:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance:ConfigurationAssignmentParent" }, { type: "azure-nextgen:maintenance:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent" }, { type: "azure-nextgen:maintenance/v20210401preview:ConfigurationAssignmentParent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:maintenance:ConfigurationAssignmentParent" }, { type: "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationAssignmentParent.__pulumiType, name, inputs, opts);
     }

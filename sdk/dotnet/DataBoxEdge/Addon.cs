@@ -66,21 +66,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Addon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Addon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Addon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Addon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Addon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201preview:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Addon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601:Addon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Addon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601preview:Addon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

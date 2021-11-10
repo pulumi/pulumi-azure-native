@@ -88,17 +88,11 @@ namespace Pulumi.AzureNative.EventHub.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20210601preview:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:eventhub:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20210101preview:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20211101:NamespaceNetworkRuleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

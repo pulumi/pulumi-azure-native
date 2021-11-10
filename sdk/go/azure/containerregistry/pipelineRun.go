@@ -38,31 +38,16 @@ func NewPipelineRun(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry:PipelineRun"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20191201preview:PipelineRun"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20191201preview:PipelineRun"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20201101preview:PipelineRun"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:PipelineRun"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20210601preview:PipelineRun"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20210601preview:PipelineRun"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20210801preview:PipelineRun"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20210801preview:PipelineRun"),
 		},
 	})
 	opts = append(opts, aliases)

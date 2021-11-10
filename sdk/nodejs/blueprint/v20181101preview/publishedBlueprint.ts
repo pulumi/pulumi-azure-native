@@ -120,7 +120,7 @@ export class PublishedBlueprint extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:blueprint/v20181101preview:PublishedBlueprint" }, { type: "azure-native:blueprint:PublishedBlueprint" }, { type: "azure-nextgen:blueprint:PublishedBlueprint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:blueprint:PublishedBlueprint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PublishedBlueprint.__pulumiType, name, inputs, opts);
     }

@@ -64,17 +64,11 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql:ServerTrustGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerTrustGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ServerTrustGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerTrustGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:ServerTrustGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerTrustGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ServerTrustGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

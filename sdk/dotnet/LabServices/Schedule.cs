@@ -95,9 +95,7 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:labservices:Schedule"},
                     new Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:Schedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:labservices/v20211001preview:Schedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

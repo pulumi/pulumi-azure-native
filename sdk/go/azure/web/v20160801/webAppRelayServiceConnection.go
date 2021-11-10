@@ -41,79 +41,40 @@ func NewWebAppRelayServiceConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppRelayServiceConnection"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -41,73 +41,37 @@ func NewApiSchema(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiSchema"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:ApiSchema"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:ApiSchema"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiSchema"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiSchema"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiSchema"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiSchema"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiSchema"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiSchema"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiSchema"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiSchema"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiSchema"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiSchema"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiSchema"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiSchema"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:ApiSchema"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ApiSchema"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:ApiSchema"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:ApiSchema"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:ApiSchema"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ApiSchema"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:ApiSchema"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:ApiSchema"),
 		},
 	})
 	opts = append(opts, aliases)

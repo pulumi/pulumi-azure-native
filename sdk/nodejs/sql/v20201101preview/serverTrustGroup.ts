@@ -91,7 +91,7 @@ export class ServerTrustGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20201101preview:ServerTrustGroup" }, { type: "azure-native:sql:ServerTrustGroup" }, { type: "azure-nextgen:sql:ServerTrustGroup" }, { type: "azure-native:sql/v20200202preview:ServerTrustGroup" }, { type: "azure-nextgen:sql/v20200202preview:ServerTrustGroup" }, { type: "azure-native:sql/v20200801preview:ServerTrustGroup" }, { type: "azure-nextgen:sql/v20200801preview:ServerTrustGroup" }, { type: "azure-native:sql/v20210201preview:ServerTrustGroup" }, { type: "azure-nextgen:sql/v20210201preview:ServerTrustGroup" }, { type: "azure-native:sql/v20210501preview:ServerTrustGroup" }, { type: "azure-nextgen:sql/v20210501preview:ServerTrustGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerTrustGroup" }, { type: "azure-native:sql/v20200202preview:ServerTrustGroup" }, { type: "azure-native:sql/v20200801preview:ServerTrustGroup" }, { type: "azure-native:sql/v20210201preview:ServerTrustGroup" }, { type: "azure-native:sql/v20210501preview:ServerTrustGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerTrustGroup.__pulumiType, name, inputs, opts);
     }

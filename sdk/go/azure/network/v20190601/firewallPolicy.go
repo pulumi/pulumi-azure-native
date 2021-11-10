@@ -39,103 +39,52 @@ func NewFirewallPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:FirewallPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:FirewallPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190701:FirewallPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:FirewallPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190801:FirewallPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190901:FirewallPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:FirewallPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191101:FirewallPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191201:FirewallPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:FirewallPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200301:FirewallPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:FirewallPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:FirewallPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:FirewallPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:FirewallPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:FirewallPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:FirewallPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:FirewallPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:FirewallPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:FirewallPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:FirewallPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:FirewallPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:FirewallPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:FirewallPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:FirewallPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:FirewallPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:FirewallPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

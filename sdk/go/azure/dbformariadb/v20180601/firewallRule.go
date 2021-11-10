@@ -41,19 +41,10 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601:FirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformariadb:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbformariadb:FirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformariadb/v20180601preview:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601preview:FirewallRule"),
 		},
 	})
 	opts = append(opts, aliases)

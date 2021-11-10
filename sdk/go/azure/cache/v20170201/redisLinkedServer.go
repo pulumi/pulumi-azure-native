@@ -46,43 +46,22 @@ func NewRedisLinkedServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20170201:RedisLinkedServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache:RedisLinkedServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache:RedisLinkedServer"),
 		},
 		{
 			Type: pulumi.String("azure-native:cache/v20171001:RedisLinkedServer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20171001:RedisLinkedServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20180301:RedisLinkedServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/v20180301:RedisLinkedServer"),
 		},
 		{
 			Type: pulumi.String("azure-native:cache/v20190701:RedisLinkedServer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20190701:RedisLinkedServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20200601:RedisLinkedServer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20200601:RedisLinkedServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20201201:RedisLinkedServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/v20201201:RedisLinkedServer"),
 		},
 	})
 	opts = append(opts, aliases)

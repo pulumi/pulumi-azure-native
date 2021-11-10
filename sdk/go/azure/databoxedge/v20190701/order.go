@@ -46,73 +46,37 @@ func NewOrder(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:Order"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:Order"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:Order"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:Order"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:Order"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:Order"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Order"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Order"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Order"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:Order"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Order"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Order"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Order"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:Order"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Order"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:Order"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:Order"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:Order"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:Order"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:Order"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:Order"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:Order"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:Order"),
 		},
 	})
 	opts = append(opts, aliases)

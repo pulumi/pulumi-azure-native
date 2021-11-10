@@ -92,7 +92,7 @@ export class DataVersion extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices:DataVersion" }, { type: "azure-native:machinelearningservices/v20210301preview:DataVersion" }, { type: "azure-nextgen:machinelearningservices/v20210301preview:DataVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:DataVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataVersion.__pulumiType, name, inputs, opts);
     }

@@ -37,19 +37,10 @@ func NewWorkloadNetworkPublicIP(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20211201:WorkloadNetworkPublicIP"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs:WorkloadNetworkPublicIP"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:avs:WorkloadNetworkPublicIP"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20210601:WorkloadNetworkPublicIP"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/v20210601:WorkloadNetworkPublicIP"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -167,7 +167,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:synapse:EventGridDataConnection" }, { type: "azure-native:synapse/v20210401preview:EventGridDataConnection" }, { type: "azure-nextgen:synapse/v20210401preview:EventGridDataConnection" }, { type: "azure-native:synapse/v20210601preview:EventGridDataConnection" }, { type: "azure-nextgen:synapse/v20210601preview:EventGridDataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:EventGridDataConnection" }, { type: "azure-native:synapse/v20210601preview:EventGridDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventGridDataConnection.__pulumiType, name, inputs, opts);
     }

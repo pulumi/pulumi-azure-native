@@ -36,31 +36,16 @@ func NewCreator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:maps:Creator"),
-		},
-		{
 			Type: pulumi.String("azure-native:maps/v20200201preview:Creator"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maps/v20200201preview:Creator"),
 		},
 		{
 			Type: pulumi.String("azure-native:maps/v20210201:Creator"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:maps/v20210201:Creator"),
-		},
-		{
 			Type: pulumi.String("azure-native:maps/v20210701preview:Creator"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:maps/v20210701preview:Creator"),
-		},
-		{
 			Type: pulumi.String("azure-native:maps/v20211201preview:Creator"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:maps/v20211201preview:Creator"),
 		},
 	})
 	opts = append(opts, aliases)

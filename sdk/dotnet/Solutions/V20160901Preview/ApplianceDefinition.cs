@@ -118,19 +118,12 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20160901preview:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions:ApplianceDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20170901:ApplianceDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20170901:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20180601:ApplianceDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20180601:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20190701:ApplianceDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:ApplianceDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:ApplianceDefinition"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20210701:ApplianceDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20210701:ApplianceDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -88,11 +88,8 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20210315:DelegatedSubnetServiceDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork:DelegatedSubnetServiceDetails"},
-                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork:DelegatedSubnetServiceDetails"},
                     new Pulumi.Alias { Type = "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"},
-                    new Pulumi.Alias { Type = "azure-nextgen:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

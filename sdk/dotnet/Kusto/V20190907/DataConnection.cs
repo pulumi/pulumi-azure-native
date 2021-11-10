@@ -65,25 +65,15 @@ namespace Pulumi.AzureNative.Kusto.V20190907
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20190121:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20190515:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190515:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20191109:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200215:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200614:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200918:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210101:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210101:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210827:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210827:DataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

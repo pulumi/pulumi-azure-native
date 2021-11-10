@@ -43,13 +43,7 @@ func NewPipelineJob(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer:PipelineJob"),
-		},
-		{
 			Type: pulumi.String("azure-native:videoanalyzer/v20211101preview:PipelineJob"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer/v20211101preview:PipelineJob"),
 		},
 	})
 	opts = append(opts, aliases)

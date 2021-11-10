@@ -112,27 +112,16 @@ namespace Pulumi.AzureNative.Network.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200301:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200501:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200701:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:IpAllocation"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:IpAllocation"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210501:IpAllocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

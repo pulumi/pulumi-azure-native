@@ -71,13 +71,9 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization:ManagementLockByScope"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20160901:ManagementLockByScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20160901:ManagementLockByScope"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20170401:ManagementLockByScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20170401:ManagementLockByScope"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20200501:ManagementLockByScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200501:ManagementLockByScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

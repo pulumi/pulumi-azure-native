@@ -45,13 +45,7 @@ func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kusto:ManagedPrivateEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20210827:ManagedPrivateEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210827:ManagedPrivateEndpoint"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -112,19 +112,12 @@ namespace Pulumi.AzureNative.AppConfiguration.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200601:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20190201preview:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20190201preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20191001:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20191001:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20191101preview:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20191101preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20200701preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:ConfigurationStore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appconfiguration/v20210301preview:ConfigurationStore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

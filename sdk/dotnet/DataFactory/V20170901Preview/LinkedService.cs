@@ -64,11 +64,8 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:LinkedService"},
                     new Pulumi.Alias { Type = "azure-native:datafactory:LinkedService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory:LinkedService"},
                     new Pulumi.Alias { Type = "azure-native:datafactory/v20180601:LinkedService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:LinkedService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

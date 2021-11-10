@@ -118,21 +118,13 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql:ElasticPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:ElasticPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20171001preview:ElasticPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20171001preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ElasticPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ElasticPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ElasticPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:ElasticPool"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ElasticPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ElasticPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

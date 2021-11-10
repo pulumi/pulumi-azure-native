@@ -38,13 +38,7 @@ func NewArtifact(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:blueprint/v20181101preview:Artifact"),
-		},
-		{
 			Type: pulumi.String("azure-native:blueprint:Artifact"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:blueprint:Artifact"),
 		},
 	})
 	opts = append(opts, aliases)

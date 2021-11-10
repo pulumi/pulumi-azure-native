@@ -94,23 +94,14 @@ namespace Pulumi.AzureNative.CostManagement.V20201201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20201201preview:Export"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement:Export"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement:Export"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20190101:Export"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190101:Export"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20190901:Export"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20190901:Export"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20191001:Export"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20191001:Export"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20191101:Export"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20191101:Export"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20200601:Export"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20200601:Export"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20210101:Export"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20210101:Export"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:Export"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20211001:Export"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

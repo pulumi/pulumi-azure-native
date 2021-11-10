@@ -35,79 +35,40 @@ func NewMachine(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210422preview:Machine"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute:Machine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute:Machine"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20190318preview:Machine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20190318preview:Machine"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20190802preview:Machine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20190802preview:Machine"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20191212:Machine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20191212:Machine"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20200730preview:Machine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20200730preview:Machine"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20200802:Machine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20200802:Machine"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20200815preview:Machine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20200815preview:Machine"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210128preview:Machine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210128preview:Machine"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210325preview:Machine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210325preview:Machine"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210517preview:Machine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210517preview:Machine"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210520:Machine"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210520:Machine"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210610preview:Machine"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210610preview:Machine"),
 		},
 	})
 	opts = append(opts, aliases)

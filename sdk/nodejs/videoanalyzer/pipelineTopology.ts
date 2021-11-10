@@ -139,7 +139,7 @@ export class PipelineTopology extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:videoanalyzer:PipelineTopology" }, { type: "azure-native:videoanalyzer/v20211101preview:PipelineTopology" }, { type: "azure-nextgen:videoanalyzer/v20211101preview:PipelineTopology" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer/v20211101preview:PipelineTopology" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PipelineTopology.__pulumiType, name, inputs, opts);
     }

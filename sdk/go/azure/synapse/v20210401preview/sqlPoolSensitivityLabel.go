@@ -55,49 +55,25 @@ func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:SqlPoolSensitivityLabel"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse:SqlPoolSensitivityLabel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse:SqlPoolSensitivityLabel"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPoolSensitivityLabel"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20201201:SqlPoolSensitivityLabel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolSensitivityLabel"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210301:SqlPoolSensitivityLabel"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210301:SqlPoolSensitivityLabel"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210501:SqlPoolSensitivityLabel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210501:SqlPoolSensitivityLabel"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210601:SqlPoolSensitivityLabel"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:SqlPoolSensitivityLabel"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:SqlPoolSensitivityLabel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:SqlPoolSensitivityLabel"),
 		},
 	})
 	opts = append(opts, aliases)

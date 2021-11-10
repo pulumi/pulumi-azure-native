@@ -172,7 +172,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20210601:Database"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20201105preview:Database"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20201105preview:Database")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20201105preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Database, __self__).__init__(
             'azure-native:dbforpostgresql/v20210601:Database',

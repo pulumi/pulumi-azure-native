@@ -99,7 +99,7 @@ export class AppServiceEnvironmentPrivateEndpointConnection extends pulumi.Custo
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web/v20210201:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-nextgen:web:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210101:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20210101:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210115:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-nextgen:web/v20210115:AppServiceEnvironmentPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210101:AppServiceEnvironmentPrivateEndpointConnection" }, { type: "azure-native:web/v20210115:AppServiceEnvironmentPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AppServiceEnvironmentPrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

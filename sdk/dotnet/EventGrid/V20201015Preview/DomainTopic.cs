@@ -64,23 +64,14 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid:DomainTopic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:DomainTopic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:DomainTopic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:DomainTopic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:DomainTopic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:DomainTopic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:DomainTopic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20210601preview:DomainTopic"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:DomainTopic"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20211201:DomainTopic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

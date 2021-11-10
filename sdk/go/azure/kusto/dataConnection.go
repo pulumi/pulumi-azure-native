@@ -42,61 +42,31 @@ func NewDataConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kusto:DataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20190121:DataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190121:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190515:DataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190515:DataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20190907:DataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190907:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20191109:DataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20191109:DataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200215:DataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200215:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20200614:DataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200614:DataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200918:DataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200918:DataConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20210101:DataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210101:DataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20210827:DataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210827:DataConnection"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -44,73 +44,37 @@ func NewMECRole(ctx *pulumi.Context,
 	args.Kind = pulumi.String("MEC")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:MECRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:MECRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:MECRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:MECRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:MECRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190701:MECRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:MECRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:MECRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:MECRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:MECRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:MECRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:MECRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:MECRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:MECRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:MECRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:MECRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:MECRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:MECRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:MECRole"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:MECRole"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:MECRole"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:MECRole"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:MECRole"),
 		},
 	})
 	opts = append(opts, aliases)

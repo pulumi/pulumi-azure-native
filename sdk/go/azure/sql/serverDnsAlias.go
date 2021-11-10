@@ -34,43 +34,22 @@ func NewServerDnsAlias(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql:ServerDnsAlias"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20170301preview:ServerDnsAlias"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20170301preview:ServerDnsAlias"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:ServerDnsAlias"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerDnsAlias"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:ServerDnsAlias"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerDnsAlias"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:ServerDnsAlias"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ServerDnsAlias"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:ServerDnsAlias"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ServerDnsAlias"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:ServerDnsAlias"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ServerDnsAlias"),
 		},
 	})
 	opts = append(opts, aliases)

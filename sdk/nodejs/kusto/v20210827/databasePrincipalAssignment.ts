@@ -128,7 +128,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto/v20210827:DatabasePrincipalAssignment" }, { type: "azure-native:kusto:DatabasePrincipalAssignment" }, { type: "azure-nextgen:kusto:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20191109:DatabasePrincipalAssignment" }, { type: "azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200215:DatabasePrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200215:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200614:DatabasePrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200614:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200918:DatabasePrincipalAssignment" }, { type: "azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210101:DatabasePrincipalAssignment" }, { type: "azure-nextgen:kusto/v20210101:DatabasePrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20191109:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200215:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200614:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200918:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210101:DatabasePrincipalAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabasePrincipalAssignment.__pulumiType, name, inputs, opts);
     }

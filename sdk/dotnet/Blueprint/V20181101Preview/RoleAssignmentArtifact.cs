@@ -102,9 +102,7 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:blueprint/v20181101preview:RoleAssignmentArtifact"},
                     new Pulumi.Alias { Type = "azure-native:blueprint:RoleAssignmentArtifact"},
-                    new Pulumi.Alias { Type = "azure-nextgen:blueprint:RoleAssignmentArtifact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

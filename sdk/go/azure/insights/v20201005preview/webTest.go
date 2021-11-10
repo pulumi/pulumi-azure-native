@@ -64,25 +64,13 @@ func NewWebTest(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:insights/v20201005preview:WebTest"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights:WebTest"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights:WebTest"),
 		},
 		{
 			Type: pulumi.String("azure-native:insights/v20150501:WebTest"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:insights/v20150501:WebTest"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20180501preview:WebTest"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/v20180501preview:WebTest"),
 		},
 	})
 	opts = append(opts, aliases)

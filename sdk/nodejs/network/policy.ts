@@ -139,7 +139,7 @@ export class Policy extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:Policy" }, { type: "azure-native:network/v20190301:Policy" }, { type: "azure-nextgen:network/v20190301:Policy" }, { type: "azure-native:network/v20191001:Policy" }, { type: "azure-nextgen:network/v20191001:Policy" }, { type: "azure-native:network/v20200401:Policy" }, { type: "azure-nextgen:network/v20200401:Policy" }, { type: "azure-native:network/v20201101:Policy" }, { type: "azure-nextgen:network/v20201101:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190301:Policy" }, { type: "azure-native:network/v20191001:Policy" }, { type: "azure-native:network/v20200401:Policy" }, { type: "azure-native:network/v20201101:Policy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, inputs, opts);
     }

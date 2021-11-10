@@ -109,7 +109,7 @@ export class Configuration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql:Configuration" }, { type: "azure-native:dbforpostgresql/v20171201:Configuration" }, { type: "azure-nextgen:dbforpostgresql/v20171201:Configuration" }, { type: "azure-native:dbforpostgresql/v20171201preview:Configuration" }, { type: "azure-nextgen:dbforpostgresql/v20171201preview:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20171201:Configuration" }, { type: "azure-native:dbforpostgresql/v20171201preview:Configuration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Configuration.__pulumiType, name, inputs, opts);
     }

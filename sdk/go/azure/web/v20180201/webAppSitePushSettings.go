@@ -41,73 +41,37 @@ func NewWebAppSitePushSettings(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSitePushSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppSitePushSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppSitePushSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppSitePushSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSitePushSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppSitePushSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSitePushSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppSitePushSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSitePushSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppSitePushSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSitePushSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppSitePushSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSitePushSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppSitePushSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSitePushSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppSitePushSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSitePushSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppSitePushSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppSitePushSettings"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppSitePushSettings"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppSitePushSettings"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppSitePushSettings"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppSitePushSettings"),
 		},
 	})
 	opts = append(opts, aliases)

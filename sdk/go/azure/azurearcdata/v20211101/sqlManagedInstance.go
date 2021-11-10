@@ -39,31 +39,16 @@ func NewSqlManagedInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20211101:SqlManagedInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurearcdata:SqlManagedInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:azurearcdata:SqlManagedInstance"),
 		},
 		{
 			Type: pulumi.String("azure-native:azurearcdata/v20210601preview:SqlManagedInstance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20210601preview:SqlManagedInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurearcdata/v20210701preview:SqlManagedInstance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20210701preview:SqlManagedInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurearcdata/v20210801:SqlManagedInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:azurearcdata/v20210801:SqlManagedInstance"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -112,15 +112,10 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20210301preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality:RemoteRenderingAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/v20191202preview:RemoteRenderingAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20191202preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/v20200406preview:RemoteRenderingAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20200406preview:RemoteRenderingAccount"},
                     new Pulumi.Alias { Type = "azure-native:mixedreality/v20210101:RemoteRenderingAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:mixedreality/v20210101:RemoteRenderingAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

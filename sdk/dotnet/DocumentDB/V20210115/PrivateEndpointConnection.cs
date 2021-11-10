@@ -76,27 +76,16 @@ namespace Pulumi.AzureNative.DocumentDB.V20210115
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210115:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20190801preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20190801preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210315:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210315:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210401preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210415:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210515:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210615:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210701preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20211015:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

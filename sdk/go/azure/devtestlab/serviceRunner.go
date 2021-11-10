@@ -36,19 +36,10 @@ func NewServiceRunner(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab:ServiceRunner"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:ServiceRunner"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:ServiceRunner"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20180915:ServiceRunner"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:ServiceRunner"),
 		},
 	})
 	opts = append(opts, aliases)

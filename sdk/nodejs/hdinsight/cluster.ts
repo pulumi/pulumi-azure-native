@@ -100,7 +100,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:hdinsight:Cluster" }, { type: "azure-native:hdinsight/v20150301preview:Cluster" }, { type: "azure-nextgen:hdinsight/v20150301preview:Cluster" }, { type: "azure-native:hdinsight/v20180601preview:Cluster" }, { type: "azure-nextgen:hdinsight/v20180601preview:Cluster" }, { type: "azure-native:hdinsight/v20210601:Cluster" }, { type: "azure-nextgen:hdinsight/v20210601:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Cluster" }, { type: "azure-native:hdinsight/v20180601preview:Cluster" }, { type: "azure-native:hdinsight/v20210601:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, inputs, opts);
     }

@@ -127,11 +127,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse:EventHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:EventHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:EventHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:EventHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:EventHubDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

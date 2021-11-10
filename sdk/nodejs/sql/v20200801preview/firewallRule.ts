@@ -84,7 +84,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20200801preview:FirewallRule" }, { type: "azure-native:sql:FirewallRule" }, { type: "azure-nextgen:sql:FirewallRule" }, { type: "azure-native:sql/v20140401:FirewallRule" }, { type: "azure-nextgen:sql/v20140401:FirewallRule" }, { type: "azure-native:sql/v20150501preview:FirewallRule" }, { type: "azure-nextgen:sql/v20150501preview:FirewallRule" }, { type: "azure-native:sql/v20200202preview:FirewallRule" }, { type: "azure-nextgen:sql/v20200202preview:FirewallRule" }, { type: "azure-native:sql/v20201101preview:FirewallRule" }, { type: "azure-nextgen:sql/v20201101preview:FirewallRule" }, { type: "azure-native:sql/v20210201preview:FirewallRule" }, { type: "azure-nextgen:sql/v20210201preview:FirewallRule" }, { type: "azure-native:sql/v20210501preview:FirewallRule" }, { type: "azure-nextgen:sql/v20210501preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:FirewallRule" }, { type: "azure-native:sql/v20140401:FirewallRule" }, { type: "azure-native:sql/v20150501preview:FirewallRule" }, { type: "azure-native:sql/v20200202preview:FirewallRule" }, { type: "azure-native:sql/v20201101preview:FirewallRule" }, { type: "azure-native:sql/v20210201preview:FirewallRule" }, { type: "azure-native:sql/v20210501preview:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

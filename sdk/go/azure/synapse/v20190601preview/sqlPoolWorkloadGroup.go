@@ -51,49 +51,25 @@ func NewSqlPoolWorkloadGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse:SqlPoolWorkloadGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse:SqlPoolWorkloadGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20201201:SqlPoolWorkloadGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPoolWorkloadGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210301:SqlPoolWorkloadGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210301:SqlPoolWorkloadGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210401preview:SqlPoolWorkloadGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:SqlPoolWorkloadGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210501:SqlPoolWorkloadGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210501:SqlPoolWorkloadGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210601:SqlPoolWorkloadGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:SqlPoolWorkloadGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:SqlPoolWorkloadGroup"),
 		},
 	})
 	opts = append(opts, aliases)

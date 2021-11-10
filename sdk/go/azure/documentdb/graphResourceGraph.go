@@ -41,13 +41,7 @@ func NewGraphResourceGraph(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb:GraphResourceGraph"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:GraphResourceGraph"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:GraphResourceGraph"),
 		},
 	})
 	opts = append(opts, aliases)

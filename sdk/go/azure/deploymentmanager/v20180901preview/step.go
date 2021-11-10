@@ -36,19 +36,10 @@ func NewStep(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:deploymentmanager/v20180901preview:Step"),
-		},
-		{
 			Type: pulumi.String("azure-native:deploymentmanager:Step"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:deploymentmanager:Step"),
-		},
-		{
 			Type: pulumi.String("azure-native:deploymentmanager/v20191101preview:Step"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:deploymentmanager/v20191101preview:Step"),
 		},
 	})
 	opts = append(opts, aliases)

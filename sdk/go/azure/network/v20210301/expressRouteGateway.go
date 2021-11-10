@@ -40,139 +40,70 @@ func NewExpressRouteGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180801:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181001:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181101:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181201:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190201:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190401:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190601:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190701:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190801:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190901:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191101:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:ExpressRouteGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:ExpressRouteGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:ExpressRouteGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:ExpressRouteGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:ExpressRouteGateway"),
 		},
 	})
 	opts = append(opts, aliases)

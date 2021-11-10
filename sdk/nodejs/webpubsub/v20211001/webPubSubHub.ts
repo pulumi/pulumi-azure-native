@@ -88,7 +88,7 @@ export class WebPubSubHub extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:webpubsub/v20211001:WebPubSubHub" }, { type: "azure-native:webpubsub:WebPubSubHub" }, { type: "azure-nextgen:webpubsub:WebPubSubHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubHub.__pulumiType, name, inputs, opts);
     }

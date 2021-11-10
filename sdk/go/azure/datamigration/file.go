@@ -38,19 +38,10 @@ func NewFile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datamigration:File"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration/v20180715preview:File"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datamigration/v20180715preview:File"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration/v20210630:File"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datamigration/v20210630:File"),
 		},
 	})
 	opts = append(opts, aliases)

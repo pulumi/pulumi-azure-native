@@ -41,19 +41,10 @@ func NewThreatIntelligenceIndicator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights:ThreatIntelligenceIndicator"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights:ThreatIntelligenceIndicator"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20210401:ThreatIntelligenceIndicator"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -39,19 +39,10 @@ func NewAccessControlRecord(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storsimple/v20170601:AccessControlRecord"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple:AccessControlRecord"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storsimple:AccessControlRecord"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple/v20161001:AccessControlRecord"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/v20161001:AccessControlRecord"),
 		},
 	})
 	opts = append(opts, aliases)

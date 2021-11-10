@@ -46,79 +46,40 @@ func NewSiteRelayServiceConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteRelayServiceConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteRelayServiceConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteRelayServiceConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteRelayServiceConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteRelayServiceConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteRelayServiceConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteRelayServiceConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteRelayServiceConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteRelayServiceConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteRelayServiceConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteRelayServiceConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteRelayServiceConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteRelayServiceConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteRelayServiceConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteRelayServiceConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteRelayServiceConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteRelayServiceConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteRelayServiceConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteRelayServiceConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteRelayServiceConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteRelayServiceConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteRelayServiceConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteRelayServiceConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteRelayServiceConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteRelayServiceConnectionSlot"),
 		},
 	})
 	opts = append(opts, aliases)

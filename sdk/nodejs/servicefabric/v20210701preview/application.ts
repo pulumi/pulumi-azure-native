@@ -128,7 +128,7 @@ export class Application extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabric/v20210701preview:Application" }, { type: "azure-native:servicefabric/v20210101preview:Application" }, { type: "azure-nextgen:servicefabric/v20210101preview:Application" }, { type: "azure-native:servicefabric/v20210501:Application" }, { type: "azure-nextgen:servicefabric/v20210501:Application" }, { type: "azure-native:servicefabric/v20210901privatepreview:Application" }, { type: "azure-nextgen:servicefabric/v20210901privatepreview:Application" }, { type: "azure-native:servicefabric/v20211101preview:Application" }, { type: "azure-nextgen:servicefabric/v20211101preview:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20210101preview:Application" }, { type: "azure-native:servicefabric/v20210501:Application" }, { type: "azure-native:servicefabric/v20210901privatepreview:Application" }, { type: "azure-native:servicefabric/v20211101preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, inputs, opts);
     }

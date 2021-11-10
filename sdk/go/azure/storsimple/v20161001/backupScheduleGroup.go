@@ -38,12 +38,6 @@ func NewBackupScheduleGroup(ctx *pulumi.Context,
 	if args.StartTime == nil {
 		return nil, errors.New("invalid value for required argument 'StartTime'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/v20161001:BackupScheduleGroup"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource BackupScheduleGroup
 	err := ctx.RegisterResource("azure-native:storsimple/v20161001:BackupScheduleGroup", name, args, &resource, opts...)
 	if err != nil {

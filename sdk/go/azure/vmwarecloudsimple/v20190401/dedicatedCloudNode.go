@@ -64,13 +64,7 @@ func NewDedicatedCloudNode(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode"),
-		},
-		{
 			Type: pulumi.String("azure-native:vmwarecloudsimple:DedicatedCloudNode"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:vmwarecloudsimple:DedicatedCloudNode"),
 		},
 	})
 	opts = append(opts, aliases)

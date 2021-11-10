@@ -89,13 +89,9 @@ namespace Pulumi.AzureNative.OperationalInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:StorageInsightConfig"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20150320:StorageInsightConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20150320:StorageInsightConfig"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:StorageInsightConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:StorageInsightConfig"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:StorageInsightConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:StorageInsightConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

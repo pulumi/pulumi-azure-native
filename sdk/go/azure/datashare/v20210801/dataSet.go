@@ -42,37 +42,19 @@ func NewDataSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20210801:DataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare:DataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare:DataSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20181101preview:DataSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:DataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20191101:DataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20191101:DataSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20200901:DataSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20200901:DataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20201001preview:DataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:DataSet"),
 		},
 	})
 	opts = append(opts, aliases)

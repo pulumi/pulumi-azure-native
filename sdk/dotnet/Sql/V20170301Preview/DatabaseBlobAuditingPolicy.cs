@@ -176,21 +176,13 @@ namespace Pulumi.AzureNative.Sql.V20170301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:DatabaseBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql:DatabaseBlobAuditingPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:DatabaseBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:DatabaseBlobAuditingPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:DatabaseBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseBlobAuditingPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:DatabaseBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:DatabaseBlobAuditingPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:DatabaseBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:DatabaseBlobAuditingPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:DatabaseBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:DatabaseBlobAuditingPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:DatabaseBlobAuditingPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DatabaseBlobAuditingPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:DatabaseBlobAuditingPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

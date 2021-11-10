@@ -46,13 +46,7 @@ func NewOrderItemByName(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:edgeorder/v20201201preview:OrderItemByName"),
-		},
-		{
 			Type: pulumi.String("azure-native:edgeorder:OrderItemByName"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:edgeorder:OrderItemByName"),
 		},
 	})
 	opts = append(opts, aliases)

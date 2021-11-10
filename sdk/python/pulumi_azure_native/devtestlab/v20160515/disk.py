@@ -372,7 +372,7 @@ class Disk(pulumi.CustomResource):
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["created_date"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Disk"), pulumi.Alias(type_="azure-native:devtestlab:Disk"), pulumi.Alias(type_="azure-nextgen:devtestlab:Disk"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:Disk"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:Disk")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab:Disk"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:Disk")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Disk, __self__).__init__(
             'azure-native:devtestlab/v20160515:Disk',

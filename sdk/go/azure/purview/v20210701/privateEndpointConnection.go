@@ -36,19 +36,10 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:purview/v20210701:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:purview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:purview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:purview/v20201201preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:purview/v20201201preview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -53,19 +53,10 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:security/v20170801preview:IotSecuritySolution"),
-		},
-		{
 			Type: pulumi.String("azure-native:security:IotSecuritySolution"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:security:IotSecuritySolution"),
-		},
-		{
 			Type: pulumi.String("azure-native:security/v20190801:IotSecuritySolution"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security/v20190801:IotSecuritySolution"),
 		},
 	})
 	opts = append(opts, aliases)

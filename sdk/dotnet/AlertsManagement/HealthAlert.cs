@@ -101,9 +101,7 @@ namespace Pulumi.AzureNative.AlertsManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement:HealthAlert"},
                     new Pulumi.Alias { Type = "azure-native:alertsmanagement/v20200804preview:HealthAlert"},
-                    new Pulumi.Alias { Type = "azure-nextgen:alertsmanagement/v20200804preview:HealthAlert"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

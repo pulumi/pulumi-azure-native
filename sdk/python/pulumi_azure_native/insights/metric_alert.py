@@ -382,7 +382,7 @@ class MetricAlert(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights:MetricAlert"), pulumi.Alias(type_="azure-native:insights/v20180301:MetricAlert"), pulumi.Alias(type_="azure-nextgen:insights/v20180301:MetricAlert")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20180301:MetricAlert")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MetricAlert, __self__).__init__(
             'azure-native:insights:MetricAlert',

@@ -35,49 +35,25 @@ func NewFirewallRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20150501preview:FirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20140401:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20140401:FirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:FirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:FirewallRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:FirewallRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:FirewallRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:FirewallRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:FirewallRule"),
 		},
 	})
 	opts = append(opts, aliases)

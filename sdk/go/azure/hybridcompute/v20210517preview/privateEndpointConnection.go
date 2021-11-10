@@ -35,49 +35,25 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210517preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210128preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210325preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210422preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210422preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210520:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210520:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210610preview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

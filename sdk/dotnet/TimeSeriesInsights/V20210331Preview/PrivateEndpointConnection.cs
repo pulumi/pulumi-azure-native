@@ -76,9 +76,7 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210331preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

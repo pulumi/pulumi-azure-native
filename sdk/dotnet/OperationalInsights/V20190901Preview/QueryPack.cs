@@ -88,9 +88,7 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20190901preview:QueryPack"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:QueryPack"},
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:QueryPack"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

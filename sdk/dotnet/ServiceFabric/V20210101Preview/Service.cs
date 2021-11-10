@@ -76,15 +76,10 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210101preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210501:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210701preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210901privatepreview:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20211101preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

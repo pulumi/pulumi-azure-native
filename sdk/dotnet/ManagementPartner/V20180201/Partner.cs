@@ -100,9 +100,7 @@ namespace Pulumi.AzureNative.ManagementPartner.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:managementpartner/v20180201:Partner"},
                     new Pulumi.Alias { Type = "azure-native:managementpartner:Partner"},
-                    new Pulumi.Alias { Type = "azure-nextgen:managementpartner:Partner"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

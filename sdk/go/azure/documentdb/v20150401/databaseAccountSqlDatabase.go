@@ -46,127 +46,64 @@ func NewDatabaseAccountSqlDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:DatabaseAccountSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20190801:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20191212:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20191212:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200301:DatabaseAccountSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200301:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200401:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200401:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200601preview:DatabaseAccountSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200901:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200901:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:DatabaseAccountSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210115:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210301preview:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210315:DatabaseAccountSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210315:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210401preview:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210415:DatabaseAccountSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210415:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210515:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210515:DatabaseAccountSqlDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210615:DatabaseAccountSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210615:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:DatabaseAccountSqlDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:DatabaseAccountSqlDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:DatabaseAccountSqlDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20211015:DatabaseAccountSqlDatabase"),
 		},
 	})
 	opts = append(opts, aliases)

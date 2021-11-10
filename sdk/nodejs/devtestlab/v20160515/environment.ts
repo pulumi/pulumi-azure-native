@@ -124,7 +124,7 @@ export class Environment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20160515:Environment" }, { type: "azure-native:devtestlab:Environment" }, { type: "azure-nextgen:devtestlab:Environment" }, { type: "azure-native:devtestlab/v20180915:Environment" }, { type: "azure-nextgen:devtestlab/v20180915:Environment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Environment" }, { type: "azure-native:devtestlab/v20180915:Environment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Environment.__pulumiType, name, inputs, opts);
     }

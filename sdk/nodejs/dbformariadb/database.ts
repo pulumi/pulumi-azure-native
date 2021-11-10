@@ -85,7 +85,7 @@ export class Database extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformariadb:Database" }, { type: "azure-native:dbformariadb/v20180601:Database" }, { type: "azure-nextgen:dbformariadb/v20180601:Database" }, { type: "azure-native:dbformariadb/v20180601preview:Database" }, { type: "azure-nextgen:dbformariadb/v20180601preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformariadb/v20180601:Database" }, { type: "azure-native:dbformariadb/v20180601preview:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, inputs, opts);
     }

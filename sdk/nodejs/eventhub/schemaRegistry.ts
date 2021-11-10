@@ -116,7 +116,7 @@ export class SchemaRegistry extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub:SchemaRegistry" }, { type: "azure-native:eventhub/v20211101:SchemaRegistry" }, { type: "azure-nextgen:eventhub/v20211101:SchemaRegistry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub/v20211101:SchemaRegistry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SchemaRegistry.__pulumiType, name, inputs, opts);
     }

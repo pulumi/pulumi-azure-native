@@ -34,31 +34,16 @@ func NewSkus(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:providerhub/v20210501preview:Skus"),
-		},
-		{
 			Type: pulumi.String("azure-native:providerhub:Skus"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:providerhub:Skus"),
 		},
 		{
 			Type: pulumi.String("azure-native:providerhub/v20201120:Skus"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:providerhub/v20201120:Skus"),
-		},
-		{
 			Type: pulumi.String("azure-native:providerhub/v20210601preview:Skus"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:providerhub/v20210601preview:Skus"),
-		},
-		{
 			Type: pulumi.String("azure-native:providerhub/v20210901preview:Skus"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:providerhub/v20210901preview:Skus"),
 		},
 	})
 	opts = append(opts, aliases)

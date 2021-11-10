@@ -89,21 +89,13 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GatewayHostnameConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210101preview:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210401preview:GatewayHostnameConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210801:GatewayHostnameConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

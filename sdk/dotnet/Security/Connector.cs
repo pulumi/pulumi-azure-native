@@ -65,9 +65,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:security:Connector"},
                     new Pulumi.Alias { Type = "azure-native:security/v20200101preview:Connector"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security/v20200101preview:Connector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

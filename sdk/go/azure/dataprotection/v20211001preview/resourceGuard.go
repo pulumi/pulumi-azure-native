@@ -36,19 +36,10 @@ func NewResourceGuard(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20211001preview:ResourceGuard"),
-		},
-		{
 			Type: pulumi.String("azure-native:dataprotection:ResourceGuard"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dataprotection:ResourceGuard"),
-		},
-		{
 			Type: pulumi.String("azure-native:dataprotection/v20210701:ResourceGuard"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20210701:ResourceGuard"),
 		},
 	})
 	opts = append(opts, aliases)

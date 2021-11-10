@@ -65,27 +65,16 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200301:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200501:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200701:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:PrivateDnsZoneGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:PrivateDnsZoneGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210501:PrivateDnsZoneGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

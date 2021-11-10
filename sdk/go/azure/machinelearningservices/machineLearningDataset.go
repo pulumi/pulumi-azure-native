@@ -50,13 +50,7 @@ func NewMachineLearningDataset(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices:MachineLearningDataset"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:MachineLearningDataset"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset"),
 		},
 	})
 	opts = append(opts, aliases)

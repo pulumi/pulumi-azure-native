@@ -108,7 +108,7 @@ class TenantConfiguration(pulumi.CustomResource):
             __props__.__dict__["enforce_private_markdown_storage"] = enforce_private_markdown_storage
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal/v20200901preview:TenantConfiguration"), pulumi.Alias(type_="azure-native:portal:TenantConfiguration"), pulumi.Alias(type_="azure-nextgen:portal:TenantConfiguration"), pulumi.Alias(type_="azure-native:portal/v20190101preview:TenantConfiguration"), pulumi.Alias(type_="azure-nextgen:portal/v20190101preview:TenantConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal:TenantConfiguration"), pulumi.Alias(type_="azure-native:portal/v20190101preview:TenantConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TenantConfiguration, __self__).__init__(
             'azure-native:portal/v20200901preview:TenantConfiguration',

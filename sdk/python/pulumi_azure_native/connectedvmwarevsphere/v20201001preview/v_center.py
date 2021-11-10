@@ -260,7 +260,7 @@ class VCenter(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:connectedvmwarevsphere/v20201001preview:VCenter"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere:VCenter"), pulumi.Alias(type_="azure-nextgen:connectedvmwarevsphere:VCenter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere:VCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VCenter, __self__).__init__(
             'azure-native:connectedvmwarevsphere/v20201001preview:VCenter',

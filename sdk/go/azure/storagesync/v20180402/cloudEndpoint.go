@@ -45,67 +45,34 @@ func NewCloudEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20180402:CloudEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync:CloudEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync:CloudEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20170605preview:CloudEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20170605preview:CloudEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20180701:CloudEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20180701:CloudEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20181001:CloudEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20181001:CloudEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20190201:CloudEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20190201:CloudEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20190301:CloudEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20190301:CloudEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20190601:CloudEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20190601:CloudEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagesync/v20191001:CloudEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20191001:CloudEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20200301:CloudEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20200301:CloudEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagesync/v20200901:CloudEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagesync/v20200901:CloudEndpoint"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -64,17 +64,11 @@ namespace Pulumi.AzureNative.AVS.V20211201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20211201:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-native:avs:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200320:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:HcxEnterpriseSite"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210601:HcxEnterpriseSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210601:HcxEnterpriseSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -61,25 +61,13 @@ func NewTiTaxiiDataConnector(ctx *pulumi.Context,
 	args.Kind = pulumi.String("ThreatIntelligenceTaxii")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:TiTaxiiDataConnector"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights:TiTaxiiDataConnector"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityinsights:TiTaxiiDataConnector"),
 		},
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20200101:TiTaxiiDataConnector"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:TiTaxiiDataConnector"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:TiTaxiiDataConnector"),
 		},
 	})
 	opts = append(opts, aliases)

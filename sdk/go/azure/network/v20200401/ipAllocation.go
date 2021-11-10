@@ -43,67 +43,34 @@ func NewIpAllocation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:IpAllocation"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:IpAllocation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:IpAllocation"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:IpAllocation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:IpAllocation"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:IpAllocation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:IpAllocation"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:IpAllocation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:IpAllocation"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:IpAllocation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:IpAllocation"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:IpAllocation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:IpAllocation"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:IpAllocation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:IpAllocation"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:IpAllocation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:IpAllocation"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:IpAllocation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:IpAllocation"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:IpAllocation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:IpAllocation"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -176,7 +176,7 @@ class Transform(pulumi.CustomResource):
             __props__.__dict__["last_modified"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:media/v20180601preview:Transform"), pulumi.Alias(type_="azure-native:media:Transform"), pulumi.Alias(type_="azure-nextgen:media:Transform"), pulumi.Alias(type_="azure-native:media/v20180330preview:Transform"), pulumi.Alias(type_="azure-nextgen:media/v20180330preview:Transform"), pulumi.Alias(type_="azure-native:media/v20180701:Transform"), pulumi.Alias(type_="azure-nextgen:media/v20180701:Transform"), pulumi.Alias(type_="azure-native:media/v20200501:Transform"), pulumi.Alias(type_="azure-nextgen:media/v20200501:Transform"), pulumi.Alias(type_="azure-native:media/v20210601:Transform"), pulumi.Alias(type_="azure-nextgen:media/v20210601:Transform")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media:Transform"), pulumi.Alias(type_="azure-native:media/v20180330preview:Transform"), pulumi.Alias(type_="azure-native:media/v20180701:Transform"), pulumi.Alias(type_="azure-native:media/v20200501:Transform"), pulumi.Alias(type_="azure-native:media/v20210601:Transform")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Transform, __self__).__init__(
             'azure-native:media/v20180601preview:Transform',

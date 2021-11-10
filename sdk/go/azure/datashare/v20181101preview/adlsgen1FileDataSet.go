@@ -59,37 +59,19 @@ func NewADLSGen1FileDataSet(ctx *pulumi.Context,
 	args.Kind = pulumi.String("AdlsGen1File")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:ADLSGen1FileDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare:ADLSGen1FileDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare:ADLSGen1FileDataSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20191101:ADLSGen1FileDataSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20191101:ADLSGen1FileDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20200901:ADLSGen1FileDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20200901:ADLSGen1FileDataSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20201001preview:ADLSGen1FileDataSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:ADLSGen1FileDataSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20210801:ADLSGen1FileDataSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20210801:ADLSGen1FileDataSet"),
 		},
 	})
 	opts = append(opts, aliases)

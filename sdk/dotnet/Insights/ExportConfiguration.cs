@@ -155,9 +155,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:insights:ExportConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20150501:ExportConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:ExportConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -47,49 +47,25 @@ func NewScalingPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:ScalingPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization:ScalingPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization:ScalingPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:ScalingPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:ScalingPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:ScalingPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:ScalingPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210309preview:ScalingPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210309preview:ScalingPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210401preview:ScalingPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210401preview:ScalingPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210712:ScalingPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210712:ScalingPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210903preview:ScalingPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210903preview:ScalingPlan"),
 		},
 	})
 	opts = append(opts, aliases)

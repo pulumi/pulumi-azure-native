@@ -46,13 +46,7 @@ func NewSchedule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:labservices:Schedule"),
-		},
-		{
 			Type: pulumi.String("azure-native:labservices/v20211001preview:Schedule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:labservices/v20211001preview:Schedule"),
 		},
 	})
 	opts = append(opts, aliases)

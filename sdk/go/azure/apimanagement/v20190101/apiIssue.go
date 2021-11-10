@@ -51,73 +51,37 @@ func NewApiIssue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiIssue"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:ApiIssue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:ApiIssue"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiIssue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiIssue"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiIssue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiIssue"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiIssue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiIssue"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiIssue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiIssue"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiIssue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiIssue"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiIssue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiIssue"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:ApiIssue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ApiIssue"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:ApiIssue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:ApiIssue"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:ApiIssue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ApiIssue"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:ApiIssue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:ApiIssue"),
 		},
 	})
 	opts = append(opts, aliases)

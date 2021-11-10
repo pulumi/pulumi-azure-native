@@ -88,17 +88,11 @@ namespace Pulumi.AzureNative.Compute.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20210401:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-native:compute:DiskAccess"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskAccess"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200630:DiskAccess"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskAccess"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskAccess"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskAccess"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:DiskAccess"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

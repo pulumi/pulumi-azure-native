@@ -46,91 +46,46 @@ func NewVpnServerConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:VpnServerConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:VpnServerConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:VpnServerConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190801:VpnServerConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:VpnServerConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190901:VpnServerConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:VpnServerConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191101:VpnServerConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:VpnServerConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:VpnServerConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:VpnServerConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:VpnServerConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:VpnServerConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:VpnServerConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:VpnServerConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:VpnServerConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:VpnServerConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:VpnServerConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:VpnServerConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:VpnServerConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:VpnServerConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:VpnServerConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:VpnServerConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:VpnServerConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:VpnServerConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:VpnServerConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:VpnServerConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:VpnServerConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:VpnServerConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

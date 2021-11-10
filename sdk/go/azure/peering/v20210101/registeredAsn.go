@@ -36,37 +36,19 @@ func NewRegisteredAsn(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:peering/v20210101:RegisteredAsn"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering:RegisteredAsn"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:peering:RegisteredAsn"),
 		},
 		{
 			Type: pulumi.String("azure-native:peering/v20200101preview:RegisteredAsn"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:peering/v20200101preview:RegisteredAsn"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering/v20200401:RegisteredAsn"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:peering/v20200401:RegisteredAsn"),
 		},
 		{
 			Type: pulumi.String("azure-native:peering/v20201001:RegisteredAsn"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:peering/v20201001:RegisteredAsn"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering/v20210601:RegisteredAsn"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:peering/v20210601:RegisteredAsn"),
 		},
 	})
 	opts = append(opts, aliases)

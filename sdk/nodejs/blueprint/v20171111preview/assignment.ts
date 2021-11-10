@@ -135,8 +135,6 @@ export class Assignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:blueprint/v20171111preview:Assignment" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Assignment.__pulumiType, name, inputs, opts);
     }
 }

@@ -47,85 +47,43 @@ func NewOpenIdConnectProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:OpenIdConnectProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:OpenIdConnectProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:OpenIdConnectProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:OpenIdConnectProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:OpenIdConnectProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:OpenIdConnectProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:OpenIdConnectProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:OpenIdConnectProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:OpenIdConnectProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:OpenIdConnectProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:OpenIdConnectProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:OpenIdConnectProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:OpenIdConnectProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:OpenIdConnectProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:OpenIdConnectProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:OpenIdConnectProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:OpenIdConnectProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:OpenIdConnectProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:OpenIdConnectProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:OpenIdConnectProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:OpenIdConnectProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:OpenIdConnectProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:OpenIdConnectProvider"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:OpenIdConnectProvider"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:OpenIdConnectProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:OpenIdConnectProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:OpenIdConnectProvider"),
 		},
 	})
 	opts = append(opts, aliases)

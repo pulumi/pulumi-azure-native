@@ -197,7 +197,7 @@ class SubAccount(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logz/v20201001:SubAccount"), pulumi.Alias(type_="azure-native:logz:SubAccount"), pulumi.Alias(type_="azure-nextgen:logz:SubAccount"), pulumi.Alias(type_="azure-native:logz/v20201001preview:SubAccount"), pulumi.Alias(type_="azure-nextgen:logz/v20201001preview:SubAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logz:SubAccount"), pulumi.Alias(type_="azure-native:logz/v20201001preview:SubAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SubAccount, __self__).__init__(
             'azure-native:logz/v20201001:SubAccount',

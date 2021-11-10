@@ -36,19 +36,10 @@ func NewNetworkSecurityPerimeter(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201preview:NetworkSecurityPerimeter"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:NetworkSecurityPerimeter"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network:NetworkSecurityPerimeter"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301preview:NetworkSecurityPerimeter"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210301preview:NetworkSecurityPerimeter"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -102,7 +102,7 @@ export class AADDataConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights:AADDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:AADDataConnector" }, { type: "azure-nextgen:securityinsights/v20190101preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20200101:AADDataConnector" }, { type: "azure-nextgen:securityinsights/v20200101:AADDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AADDataConnector" }, { type: "azure-nextgen:securityinsights/v20210301preview:AADDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:AADDataConnector" }, { type: "azure-native:securityinsights/v20200101:AADDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AADDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AADDataConnector.__pulumiType, name, inputs, opts);
     }

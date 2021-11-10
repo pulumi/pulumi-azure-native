@@ -71,9 +71,7 @@ namespace Pulumi.AzureNative.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:NamespaceIpFilterRule"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:NamespaceIpFilterRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:NamespaceIpFilterRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

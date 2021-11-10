@@ -102,7 +102,7 @@ export class Session extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:logic/v20160601:Session" }, { type: "azure-native:logic:Session" }, { type: "azure-nextgen:logic:Session" }, { type: "azure-native:logic/v20180701preview:Session" }, { type: "azure-nextgen:logic/v20180701preview:Session" }, { type: "azure-native:logic/v20190501:Session" }, { type: "azure-nextgen:logic/v20190501:Session" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:logic:Session" }, { type: "azure-native:logic/v20180701preview:Session" }, { type: "azure-native:logic/v20190501:Session" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Session.__pulumiType, name, inputs, opts);
     }

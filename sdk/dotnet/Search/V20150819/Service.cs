@@ -112,19 +112,12 @@ namespace Pulumi.AzureNative.Search.V20150819
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:search/v20150819:Service"},
                     new Pulumi.Alias { Type = "azure-native:search:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:search:Service"},
                     new Pulumi.Alias { Type = "azure-native:search/v20191001preview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:search/v20191001preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:search/v20200313:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:search/v20200313:Service"},
                     new Pulumi.Alias { Type = "azure-native:search/v20200801:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:search/v20200801:Service"},
                     new Pulumi.Alias { Type = "azure-native:search/v20200801preview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:search/v20200801preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:search/v20210401preview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:search/v20210401preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

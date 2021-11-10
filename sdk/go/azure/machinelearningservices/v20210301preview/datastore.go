@@ -38,19 +38,10 @@ func NewDatastore(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210301preview:Datastore"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices:Datastore"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices:Datastore"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:Datastore"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:Datastore"),
 		},
 	})
 	opts = append(opts, aliases)

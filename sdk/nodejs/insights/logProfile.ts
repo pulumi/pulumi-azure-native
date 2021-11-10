@@ -117,7 +117,7 @@ export class LogProfile extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:LogProfile" }, { type: "azure-native:insights/v20160301:LogProfile" }, { type: "azure-nextgen:insights/v20160301:LogProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20160301:LogProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LogProfile.__pulumiType, name, inputs, opts);
     }

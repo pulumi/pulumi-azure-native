@@ -65,9 +65,7 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:automation:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -44,55 +44,28 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationMigrationItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationMigrationItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationMigrationItem"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationMigrationItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationMigrationItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:ReplicationMigrationItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ReplicationMigrationItem"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ReplicationMigrationItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ReplicationMigrationItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ReplicationMigrationItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ReplicationMigrationItem"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ReplicationMigrationItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationMigrationItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationMigrationItem"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationMigrationItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ReplicationMigrationItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ReplicationMigrationItem"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -46,61 +46,31 @@ func NewRegistry(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20171001:Registry"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry:Registry"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry:Registry"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20160627preview:Registry"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20160627preview:Registry"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20170301:Registry"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20170301:Registry"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20170601preview:Registry"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20170601preview:Registry"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20190501:Registry"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20190501:Registry"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20191201preview:Registry"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20191201preview:Registry"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20201101preview:Registry"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20201101preview:Registry"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20210601preview:Registry"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20210601preview:Registry"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20210801preview:Registry"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20210801preview:Registry"),
 		},
 	})
 	opts = append(opts, aliases)

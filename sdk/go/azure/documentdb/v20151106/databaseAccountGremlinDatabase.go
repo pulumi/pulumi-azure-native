@@ -44,127 +44,64 @@ func NewDatabaseAccountGremlinDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb:DatabaseAccountGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccountGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccountGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccountGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:DatabaseAccountGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20190801:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20191212:DatabaseAccountGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20191212:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200301:DatabaseAccountGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200301:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200401:DatabaseAccountGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200401:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200601preview:DatabaseAccountGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200901:DatabaseAccountGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200901:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:DatabaseAccountGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210115:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210301preview:DatabaseAccountGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210315:DatabaseAccountGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210315:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210401preview:DatabaseAccountGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210415:DatabaseAccountGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210415:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210515:DatabaseAccountGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210515:DatabaseAccountGremlinDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210615:DatabaseAccountGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210615:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:DatabaseAccountGremlinDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:DatabaseAccountGremlinDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:DatabaseAccountGremlinDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20211015:DatabaseAccountGremlinDatabase"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -42,37 +42,19 @@ func NewAKSService(ctx *pulumi.Context,
 	args.ComputeType = pulumi.String("AKS")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:AKSService"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices:AKSService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices:AKSService"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:AKSService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:AKSService"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200515preview:AKSService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200515preview:AKSService"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210101:AKSService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:AKSService"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210401:AKSService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210401:AKSService"),
 		},
 	})
 	opts = append(opts, aliases)

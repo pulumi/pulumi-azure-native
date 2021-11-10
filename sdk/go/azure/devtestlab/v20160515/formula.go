@@ -43,25 +43,13 @@ func NewFormula(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:Formula"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab:Formula"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab:Formula"),
 		},
 		{
 			Type: pulumi.String("azure-native:devtestlab/v20150521preview:Formula"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:Formula"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20180915:Formula"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:Formula"),
 		},
 	})
 	opts = append(opts, aliases)

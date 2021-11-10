@@ -76,11 +76,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210903Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210903preview:PrivateEndpointConnectionByWorkspace"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization:PrivateEndpointConnectionByWorkspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization:PrivateEndpointConnectionByWorkspace"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

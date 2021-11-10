@@ -41,43 +41,22 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datamigration/v20171115preview:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datamigration:Service"),
 		},
 		{
 			Type: pulumi.String("azure-native:datamigration/v20180315preview:Service"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datamigration/v20180315preview:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration/v20180331preview:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datamigration/v20180331preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-native:datamigration/v20180419:Service"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datamigration/v20180419:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration/v20180715preview:Service"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datamigration/v20180715preview:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration/v20210630:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datamigration/v20210630:Service"),
 		},
 	})
 	opts = append(opts, aliases)

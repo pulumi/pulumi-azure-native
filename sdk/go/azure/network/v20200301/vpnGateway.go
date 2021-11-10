@@ -38,157 +38,79 @@ func NewVpnGateway(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180401:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180401:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180601:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180601:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180701:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180701:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180801:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181001:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181101:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181201:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190201:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190401:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190601:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190701:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190801:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190901:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191101:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191201:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:VpnGateway"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:VpnGateway"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:VpnGateway"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:VpnGateway"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:VpnGateway"),
 		},
 	})
 	opts = append(opts, aliases)

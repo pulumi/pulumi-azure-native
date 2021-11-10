@@ -70,21 +70,13 @@ namespace Pulumi.AzureNative.ContainerService.V20210901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210901:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20201201:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20201201:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20210201:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210201:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20210301:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210301:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20210501:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210501:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20210701:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210701:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20210801:MaintenanceConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerservice/v20210801:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

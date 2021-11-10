@@ -40,19 +40,10 @@ func NewPrivateEndpointConnectionsSec(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance:PrivateEndpointConnectionsSec"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityandcompliance/v20210111:PrivateEndpointConnectionsSec"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210111:PrivateEndpointConnectionsSec"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsSec"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsSec"),
 		},
 	})
 	opts = append(opts, aliases)

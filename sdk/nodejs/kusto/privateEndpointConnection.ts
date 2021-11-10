@@ -107,7 +107,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:kusto:PrivateEndpointConnection" }, { type: "azure-native:kusto/v20210827:PrivateEndpointConnection" }, { type: "azure-nextgen:kusto/v20210827:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20210827:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
     }

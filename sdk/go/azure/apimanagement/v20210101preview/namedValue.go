@@ -41,49 +41,25 @@ func NewNamedValue(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:NamedValue"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:NamedValue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:NamedValue"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:NamedValue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:NamedValue"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:NamedValue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:NamedValue"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:NamedValue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:NamedValue"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:NamedValue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:NamedValue"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:NamedValue"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:NamedValue"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:NamedValue"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:NamedValue"),
 		},
 	})
 	opts = append(opts, aliases)

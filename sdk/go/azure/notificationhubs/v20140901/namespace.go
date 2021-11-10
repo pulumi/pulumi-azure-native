@@ -36,25 +36,13 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:notificationhubs/v20140901:Namespace"),
-		},
-		{
 			Type: pulumi.String("azure-native:notificationhubs:Namespace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:notificationhubs:Namespace"),
 		},
 		{
 			Type: pulumi.String("azure-native:notificationhubs/v20160301:Namespace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:notificationhubs/v20160301:Namespace"),
-		},
-		{
 			Type: pulumi.String("azure-native:notificationhubs/v20170401:Namespace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:notificationhubs/v20170401:Namespace"),
 		},
 	})
 	opts = append(opts, aliases)

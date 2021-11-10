@@ -94,13 +94,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:VirtualNetworkResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:VirtualNetworkResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:VirtualNetworkResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:VirtualNetworkResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:VirtualNetworkResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:VirtualNetworkResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:VirtualNetworkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

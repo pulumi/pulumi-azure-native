@@ -156,7 +156,7 @@ class DefenderSetting(pulumi.CustomResource):
             __props__.__dict__["evaluation_end_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:iotsecurity/v20210201preview:DefenderSetting"), pulumi.Alias(type_="azure-native:iotsecurity:DefenderSetting"), pulumi.Alias(type_="azure-nextgen:iotsecurity:DefenderSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotsecurity:DefenderSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefenderSetting, __self__).__init__(
             'azure-native:iotsecurity/v20210201preview:DefenderSetting',

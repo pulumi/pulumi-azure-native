@@ -43,61 +43,31 @@ func NewBlobServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:BlobServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage:BlobServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage:BlobServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20180701:BlobServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20180701:BlobServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20181101:BlobServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20181101:BlobServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20190401:BlobServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20190401:BlobServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20190601:BlobServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:BlobServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20200801preview:BlobServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:BlobServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210101:BlobServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:BlobServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210201:BlobServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:BlobServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210401:BlobServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:BlobServiceProperties"),
 		},
 	})
 	opts = append(opts, aliases)

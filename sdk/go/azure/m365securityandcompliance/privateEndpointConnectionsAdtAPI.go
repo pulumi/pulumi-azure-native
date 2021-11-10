@@ -40,13 +40,7 @@ func NewPrivateEndpointConnectionsAdtAPI(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:m365securityandcompliance:PrivateEndpointConnectionsAdtAPI"),
-		},
-		{
 			Type: pulumi.String("azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsAdtAPI"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsAdtAPI"),
 		},
 	})
 	opts = append(opts, aliases)

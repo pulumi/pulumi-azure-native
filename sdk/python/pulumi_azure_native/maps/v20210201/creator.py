@@ -193,7 +193,7 @@ class Creator(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:maps/v20210201:Creator"), pulumi.Alias(type_="azure-native:maps:Creator"), pulumi.Alias(type_="azure-nextgen:maps:Creator"), pulumi.Alias(type_="azure-native:maps/v20200201preview:Creator"), pulumi.Alias(type_="azure-nextgen:maps/v20200201preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20210701preview:Creator"), pulumi.Alias(type_="azure-nextgen:maps/v20210701preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20211201preview:Creator"), pulumi.Alias(type_="azure-nextgen:maps/v20211201preview:Creator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maps:Creator"), pulumi.Alias(type_="azure-native:maps/v20200201preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20210701preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20211201preview:Creator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Creator, __self__).__init__(
             'azure-native:maps/v20210201:Creator',

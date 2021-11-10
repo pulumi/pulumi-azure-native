@@ -54,31 +54,16 @@ func NewBuildTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20180201preview:BuildTask"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry:BuildTask"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry:BuildTask"),
 		},
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20180901:BuildTask"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20180901:BuildTask"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20190401:BuildTask"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20190401:BuildTask"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerregistry/v20190601preview:BuildTask"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerregistry/v20190601preview:BuildTask"),
 		},
 	})
 	opts = append(opts, aliases)

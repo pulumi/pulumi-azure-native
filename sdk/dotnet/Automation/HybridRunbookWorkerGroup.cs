@@ -77,9 +77,7 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:automation:HybridRunbookWorkerGroup"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20210622:HybridRunbookWorkerGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20210622:HybridRunbookWorkerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

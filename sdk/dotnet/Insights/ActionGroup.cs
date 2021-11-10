@@ -149,19 +149,12 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:insights:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20170401:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20170401:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20180301:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20180301:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20180901:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20180901:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20190301:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20190301:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20190601:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20190601:ActionGroup"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20210901:ActionGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20210901:ActionGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

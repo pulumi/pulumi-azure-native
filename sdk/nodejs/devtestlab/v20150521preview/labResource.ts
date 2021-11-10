@@ -129,7 +129,7 @@ export class LabResource extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20150521preview:LabResource" }, { type: "azure-native:devtestlab:LabResource" }, { type: "azure-nextgen:devtestlab:LabResource" }, { type: "azure-native:devtestlab/v20160515:LabResource" }, { type: "azure-nextgen:devtestlab/v20160515:LabResource" }, { type: "azure-native:devtestlab/v20180915:LabResource" }, { type: "azure-nextgen:devtestlab/v20180915:LabResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:LabResource" }, { type: "azure-native:devtestlab/v20160515:LabResource" }, { type: "azure-native:devtestlab/v20180915:LabResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LabResource.__pulumiType, name, inputs, opts);
     }

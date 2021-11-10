@@ -142,7 +142,7 @@ export class Webhook extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:automation/v20151031:Webhook" }, { type: "azure-native:automation:Webhook" }, { type: "azure-nextgen:automation:Webhook" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:automation:Webhook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Webhook.__pulumiType, name, inputs, opts);
     }

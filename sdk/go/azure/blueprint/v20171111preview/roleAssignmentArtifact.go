@@ -48,12 +48,6 @@ func NewRoleAssignmentArtifact(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleDefinitionId'")
 	}
 	args.Kind = pulumi.String("roleAssignment")
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:blueprint/v20171111preview:RoleAssignmentArtifact"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource RoleAssignmentArtifact
 	err := ctx.RegisterResource("azure-native:blueprint/v20171111preview:RoleAssignmentArtifact", name, args, &resource, opts...)
 	if err != nil {

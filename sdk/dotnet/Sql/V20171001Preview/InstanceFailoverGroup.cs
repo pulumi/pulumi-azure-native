@@ -88,19 +88,12 @@ namespace Pulumi.AzureNative.Sql.V20171001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20171001preview:InstanceFailoverGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql:InstanceFailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:InstanceFailoverGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:InstanceFailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:InstanceFailoverGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:InstanceFailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:InstanceFailoverGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:InstanceFailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:InstanceFailoverGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:InstanceFailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:InstanceFailoverGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:InstanceFailoverGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:InstanceFailoverGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

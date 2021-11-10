@@ -42,49 +42,25 @@ func NewGatewayHostnameConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:GatewayHostnameConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:GatewayHostnameConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:GatewayHostnameConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:GatewayHostnameConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:GatewayHostnameConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:GatewayHostnameConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:GatewayHostnameConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:GatewayHostnameConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:GatewayHostnameConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:GatewayHostnameConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:GatewayHostnameConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

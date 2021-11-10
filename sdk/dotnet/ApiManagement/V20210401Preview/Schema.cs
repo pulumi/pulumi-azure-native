@@ -70,9 +70,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210401preview:Schema"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Schema"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Schema"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -43,13 +43,7 @@ func NewLogProfile(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:insights:LogProfile"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20160301:LogProfile"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/v20160301:LogProfile"),
 		},
 	})
 	opts = append(opts, aliases)

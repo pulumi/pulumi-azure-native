@@ -51,55 +51,28 @@ func NewRoleAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20201001preview:RoleAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization:RoleAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization:RoleAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20150701:RoleAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20150701:RoleAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20171001preview:RoleAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20171001preview:RoleAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20180101preview:RoleAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20180101preview:RoleAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20180901preview:RoleAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20180901preview:RoleAssignment"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20200301preview:RoleAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20200301preview:RoleAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20200401preview:RoleAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20200401preview:RoleAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20200801preview:RoleAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20200801preview:RoleAssignment"),
 		},
 	})
 	opts = append(opts, aliases)

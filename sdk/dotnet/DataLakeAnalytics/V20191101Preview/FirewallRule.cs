@@ -64,13 +64,9 @@ namespace Pulumi.AzureNative.DataLakeAnalytics.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20191101preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20151001preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20151001preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:datalakeanalytics/v20161101:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datalakeanalytics/v20161101:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

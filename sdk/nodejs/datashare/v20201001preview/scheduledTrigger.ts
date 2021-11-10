@@ -141,7 +141,7 @@ export class ScheduledTrigger extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20201001preview:ScheduledTrigger" }, { type: "azure-native:datashare:ScheduledTrigger" }, { type: "azure-nextgen:datashare:ScheduledTrigger" }, { type: "azure-native:datashare/v20181101preview:ScheduledTrigger" }, { type: "azure-nextgen:datashare/v20181101preview:ScheduledTrigger" }, { type: "azure-native:datashare/v20191101:ScheduledTrigger" }, { type: "azure-nextgen:datashare/v20191101:ScheduledTrigger" }, { type: "azure-native:datashare/v20200901:ScheduledTrigger" }, { type: "azure-nextgen:datashare/v20200901:ScheduledTrigger" }, { type: "azure-native:datashare/v20210801:ScheduledTrigger" }, { type: "azure-nextgen:datashare/v20210801:ScheduledTrigger" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:ScheduledTrigger" }, { type: "azure-native:datashare/v20181101preview:ScheduledTrigger" }, { type: "azure-native:datashare/v20191101:ScheduledTrigger" }, { type: "azure-native:datashare/v20200901:ScheduledTrigger" }, { type: "azure-native:datashare/v20210801:ScheduledTrigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledTrigger.__pulumiType, name, inputs, opts);
     }

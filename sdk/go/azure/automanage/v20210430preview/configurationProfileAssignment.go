@@ -35,19 +35,10 @@ func NewConfigurationProfileAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:automanage/v20210430preview:ConfigurationProfileAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:automanage:ConfigurationProfileAssignment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:automanage:ConfigurationProfileAssignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:automanage/v20200630preview:ConfigurationProfileAssignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automanage/v20200630preview:ConfigurationProfileAssignment"),
 		},
 	})
 	opts = append(opts, aliases)

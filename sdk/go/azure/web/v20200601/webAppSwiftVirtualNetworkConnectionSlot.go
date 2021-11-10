@@ -39,55 +39,28 @@ func NewWebAppSwiftVirtualNetworkConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppSwiftVirtualNetworkConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppSwiftVirtualNetworkConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppSwiftVirtualNetworkConnectionSlot"),
 		},
 	})
 	opts = append(opts, aliases)

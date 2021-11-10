@@ -182,7 +182,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:media/v20180330preview:StreamingEndpoint" }, { type: "azure-native:media:StreamingEndpoint" }, { type: "azure-nextgen:media:StreamingEndpoint" }, { type: "azure-native:media/v20180601preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20180601preview:StreamingEndpoint" }, { type: "azure-native:media/v20180701:StreamingEndpoint" }, { type: "azure-nextgen:media/v20180701:StreamingEndpoint" }, { type: "azure-native:media/v20190501preview:StreamingEndpoint" }, { type: "azure-nextgen:media/v20190501preview:StreamingEndpoint" }, { type: "azure-native:media/v20200501:StreamingEndpoint" }, { type: "azure-nextgen:media/v20200501:StreamingEndpoint" }, { type: "azure-native:media/v20210601:StreamingEndpoint" }, { type: "azure-nextgen:media/v20210601:StreamingEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingEndpoint" }, { type: "azure-native:media/v20180601preview:StreamingEndpoint" }, { type: "azure-native:media/v20180701:StreamingEndpoint" }, { type: "azure-native:media/v20190501preview:StreamingEndpoint" }, { type: "azure-native:media/v20200501:StreamingEndpoint" }, { type: "azure-native:media/v20210601:StreamingEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StreamingEndpoint.__pulumiType, name, inputs, opts);
     }

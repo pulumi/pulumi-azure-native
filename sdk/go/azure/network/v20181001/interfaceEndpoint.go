@@ -39,139 +39,70 @@ func NewInterfaceEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:InterfaceEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180801:InterfaceEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181101:InterfaceEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181201:InterfaceEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190201:InterfaceEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190401:InterfaceEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190601:InterfaceEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190701:InterfaceEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190801:InterfaceEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190901:InterfaceEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191101:InterfaceEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191201:InterfaceEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200301:InterfaceEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:InterfaceEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:InterfaceEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:InterfaceEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:InterfaceEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:InterfaceEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:InterfaceEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:InterfaceEndpoint"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:InterfaceEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:InterfaceEndpoint"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:InterfaceEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:InterfaceEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:InterfaceEndpoint"),
 		},
 	})
 	opts = append(opts, aliases)

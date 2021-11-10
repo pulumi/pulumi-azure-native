@@ -197,7 +197,7 @@ class PipelineJob(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:videoanalyzer/v20211101preview:PipelineJob"), pulumi.Alias(type_="azure-native:videoanalyzer:PipelineJob"), pulumi.Alias(type_="azure-nextgen:videoanalyzer:PipelineJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:videoanalyzer:PipelineJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PipelineJob, __self__).__init__(
             'azure-native:videoanalyzer/v20211101preview:PipelineJob',

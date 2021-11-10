@@ -62,37 +62,19 @@ func NewADLSGen2StorageAccountDataSetMapping(ctx *pulumi.Context,
 	args.Kind = pulumi.String("AdlsGen2StorageAccount")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare:ADLSGen2StorageAccountDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare:ADLSGen2StorageAccountDataSetMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20181101preview:ADLSGen2StorageAccountDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:ADLSGen2StorageAccountDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20191101:ADLSGen2StorageAccountDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20191101:ADLSGen2StorageAccountDataSetMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20200901:ADLSGen2StorageAccountDataSetMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20200901:ADLSGen2StorageAccountDataSetMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20210801:ADLSGen2StorageAccountDataSetMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20210801:ADLSGen2StorageAccountDataSetMapping"),
 		},
 	})
 	opts = append(opts, aliases)

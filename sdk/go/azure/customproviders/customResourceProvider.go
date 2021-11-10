@@ -36,13 +36,7 @@ func NewCustomResourceProvider(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:customproviders:CustomResourceProvider"),
-		},
-		{
 			Type: pulumi.String("azure-native:customproviders/v20180901preview:CustomResourceProvider"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:customproviders/v20180901preview:CustomResourceProvider"),
 		},
 	})
 	opts = append(opts, aliases)

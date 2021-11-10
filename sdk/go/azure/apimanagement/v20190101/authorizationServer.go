@@ -64,85 +64,43 @@ func NewAuthorizationServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:AuthorizationServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:AuthorizationServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:AuthorizationServer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:AuthorizationServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:AuthorizationServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:AuthorizationServer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:AuthorizationServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:AuthorizationServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:AuthorizationServer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:AuthorizationServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:AuthorizationServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:AuthorizationServer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:AuthorizationServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:AuthorizationServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:AuthorizationServer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:AuthorizationServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:AuthorizationServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:AuthorizationServer"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:AuthorizationServer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:AuthorizationServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:AuthorizationServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:AuthorizationServer"),
 		},
 	})
 	opts = append(opts, aliases)

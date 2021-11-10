@@ -98,10 +98,6 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                Aliases =
-                {
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20161001:FileShare"},
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

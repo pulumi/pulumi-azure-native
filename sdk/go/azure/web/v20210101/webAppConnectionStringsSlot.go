@@ -38,79 +38,40 @@ func NewWebAppConnectionStringsSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppConnectionStringsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppConnectionStringsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppConnectionStringsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppConnectionStringsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppConnectionStringsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppConnectionStringsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppConnectionStringsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppConnectionStringsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppConnectionStringsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppConnectionStringsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppConnectionStringsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppConnectionStringsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppConnectionStringsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppConnectionStringsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppConnectionStringsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppConnectionStringsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppConnectionStringsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppConnectionStringsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppConnectionStringsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppConnectionStringsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppConnectionStringsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppConnectionStringsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppConnectionStringsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppConnectionStringsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppConnectionStringsSlot"),
 		},
 	})
 	opts = append(opts, aliases)

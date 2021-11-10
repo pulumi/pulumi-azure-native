@@ -153,8 +153,6 @@ class BuildStep(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["properties"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20180201preview:BuildStep")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BuildStep, __self__).__init__(
             'azure-native:containerregistry/v20180201preview:BuildStep',
             resource_name,

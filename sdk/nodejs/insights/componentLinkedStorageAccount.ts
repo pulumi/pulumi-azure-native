@@ -79,7 +79,7 @@ export class ComponentLinkedStorageAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights:ComponentLinkedStorageAccount" }, { type: "azure-native:insights/v20200301preview:ComponentLinkedStorageAccount" }, { type: "azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20200301preview:ComponentLinkedStorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ComponentLinkedStorageAccount.__pulumiType, name, inputs, opts);
     }

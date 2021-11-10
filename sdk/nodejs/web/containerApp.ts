@@ -123,7 +123,7 @@ export class ContainerApp extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:web:ContainerApp" }, { type: "azure-native:web/v20210301:ContainerApp" }, { type: "azure-nextgen:web/v20210301:ContainerApp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20210301:ContainerApp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerApp.__pulumiType, name, inputs, opts);
     }

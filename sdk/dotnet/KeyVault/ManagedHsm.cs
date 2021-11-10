@@ -83,13 +83,9 @@ namespace Pulumi.AzureNative.KeyVault
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault:ManagedHsm"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:ManagedHsm"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20200401preview:ManagedHsm"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:ManagedHsm"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20210401preview:ManagedHsm"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:ManagedHsm"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20210601preview:ManagedHsm"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

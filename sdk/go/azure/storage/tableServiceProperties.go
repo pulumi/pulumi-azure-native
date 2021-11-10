@@ -34,43 +34,22 @@ func NewTableServiceProperties(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage:TableServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20190601:TableServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:TableServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20200801preview:TableServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:TableServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210101:TableServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:TableServiceProperties"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210201:TableServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:TableServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210401:TableServiceProperties"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:TableServiceProperties"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210601:TableServiceProperties"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:TableServiceProperties"),
 		},
 	})
 	opts = append(opts, aliases)

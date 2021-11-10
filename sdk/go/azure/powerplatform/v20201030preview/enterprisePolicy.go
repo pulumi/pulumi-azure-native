@@ -41,13 +41,7 @@ func NewEnterprisePolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:powerplatform:EnterprisePolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:powerplatform:EnterprisePolicy"),
 		},
 	})
 	opts = append(opts, aliases)

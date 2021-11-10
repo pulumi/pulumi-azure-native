@@ -47,13 +47,7 @@ func NewController(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devspaces:Controller"),
-		},
-		{
 			Type: pulumi.String("azure-native:devspaces/v20190401:Controller"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devspaces/v20190401:Controller"),
 		},
 	})
 	opts = append(opts, aliases)

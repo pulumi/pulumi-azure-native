@@ -106,21 +106,13 @@ namespace Pulumi.AzureNative.Network.V20180201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180201:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20151101:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20151101:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20170301:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170301:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20170501:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20170501:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180301:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180301:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180401:Endpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180801:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -35,13 +35,7 @@ func NewServiceTask(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datamigration/v20180715preview:ServiceTask"),
-		},
-		{
 			Type: pulumi.String("azure-native:datamigration/v20210630:ServiceTask"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datamigration/v20210630:ServiceTask"),
 		},
 	})
 	opts = append(opts, aliases)

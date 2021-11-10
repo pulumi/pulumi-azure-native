@@ -131,15 +131,10 @@ namespace Pulumi.AzureNative.AnalysisServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-native:analysisservices/v20160516:ServerDetails"},
-                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20160516:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-native:analysisservices/v20170714:ServerDetails"},
-                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170714:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-native:analysisservices/v20170801:ServerDetails"},
-                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170801:ServerDetails"},
                     new Pulumi.Alias { Type = "azure-native:analysisservices/v20170801beta:ServerDetails"},
-                    new Pulumi.Alias { Type = "azure-nextgen:analysisservices/v20170801beta:ServerDetails"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

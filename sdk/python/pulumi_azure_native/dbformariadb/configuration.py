@@ -176,7 +176,7 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["description"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbformariadb:Configuration"), pulumi.Alias(type_="azure-native:dbformariadb/v20180601:Configuration"), pulumi.Alias(type_="azure-nextgen:dbformariadb/v20180601:Configuration"), pulumi.Alias(type_="azure-native:dbformariadb/v20180601preview:Configuration"), pulumi.Alias(type_="azure-nextgen:dbformariadb/v20180601preview:Configuration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformariadb/v20180601:Configuration"), pulumi.Alias(type_="azure-native:dbformariadb/v20180601preview:Configuration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Configuration, __self__).__init__(
             'azure-native:dbformariadb:Configuration',

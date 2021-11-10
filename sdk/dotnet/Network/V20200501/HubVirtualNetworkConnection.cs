@@ -88,23 +88,14 @@ namespace Pulumi.AzureNative.Network.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:network:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200701:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:HubVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:HubVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210501:HubVirtualNetworkConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

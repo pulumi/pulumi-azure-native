@@ -100,9 +100,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:BackupPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storsimple:BackupPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:BackupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

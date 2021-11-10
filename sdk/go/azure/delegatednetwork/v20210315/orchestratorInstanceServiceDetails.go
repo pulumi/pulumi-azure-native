@@ -48,19 +48,10 @@ func NewOrchestratorInstanceServiceDetails(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:delegatednetwork:OrchestratorInstanceServiceDetails"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:delegatednetwork:OrchestratorInstanceServiceDetails"),
-		},
-		{
 			Type: pulumi.String("azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -119,9 +119,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:insights:DataCollectionEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20210401:DataCollectionEndpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20210401:DataCollectionEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

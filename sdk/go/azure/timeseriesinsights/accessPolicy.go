@@ -36,43 +36,22 @@ func NewAccessPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights:AccessPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20170228preview:AccessPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20170228preview:AccessPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20171115:AccessPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20171115:AccessPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20180815preview:AccessPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20180815preview:AccessPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20200515:AccessPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20200515:AccessPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210331preview:AccessPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210331preview:AccessPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:timeseriesinsights/v20210630preview:AccessPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:timeseriesinsights/v20210630preview:AccessPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

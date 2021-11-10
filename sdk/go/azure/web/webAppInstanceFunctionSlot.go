@@ -50,73 +50,37 @@ func NewWebAppInstanceFunctionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web:WebAppInstanceFunctionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppInstanceFunctionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppInstanceFunctionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppInstanceFunctionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppInstanceFunctionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppInstanceFunctionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppInstanceFunctionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppInstanceFunctionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppInstanceFunctionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppInstanceFunctionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppInstanceFunctionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppInstanceFunctionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppInstanceFunctionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppInstanceFunctionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppInstanceFunctionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppInstanceFunctionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppInstanceFunctionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppInstanceFunctionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppInstanceFunctionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppInstanceFunctionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppInstanceFunctionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppInstanceFunctionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppInstanceFunctionSlot"),
 		},
 	})
 	opts = append(opts, aliases)

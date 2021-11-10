@@ -27,13 +27,7 @@ func NewOnPremiseSensor(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:iotsecurity/v20210201preview:OnPremiseSensor"),
-		},
-		{
 			Type: pulumi.String("azure-native:iotsecurity:OnPremiseSensor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:iotsecurity:OnPremiseSensor"),
 		},
 	})
 	opts = append(opts, aliases)

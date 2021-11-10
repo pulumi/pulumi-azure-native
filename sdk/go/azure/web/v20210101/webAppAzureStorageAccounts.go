@@ -35,67 +35,34 @@ func NewWebAppAzureStorageAccounts(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppAzureStorageAccounts"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppAzureStorageAccounts"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppAzureStorageAccounts"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppAzureStorageAccounts"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppAzureStorageAccounts"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppAzureStorageAccounts"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppAzureStorageAccounts"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppAzureStorageAccounts"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppAzureStorageAccounts"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppAzureStorageAccounts"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppAzureStorageAccounts"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppAzureStorageAccounts"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppAzureStorageAccounts"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppAzureStorageAccounts"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppAzureStorageAccounts"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppAzureStorageAccounts"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppAzureStorageAccounts"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppAzureStorageAccounts"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppAzureStorageAccounts"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppAzureStorageAccounts"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppAzureStorageAccounts"),
 		},
 	})
 	opts = append(opts, aliases)

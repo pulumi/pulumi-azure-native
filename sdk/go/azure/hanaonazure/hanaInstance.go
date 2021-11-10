@@ -42,13 +42,7 @@ func NewHanaInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:hanaonazure:HanaInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:hanaonazure/v20171103preview:HanaInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hanaonazure/v20171103preview:HanaInstance"),
 		},
 	})
 	opts = append(opts, aliases)

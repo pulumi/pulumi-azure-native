@@ -82,23 +82,14 @@ namespace Pulumi.AzureNative.Network.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-native:network:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200501:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200701:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:VirtualHubBgpConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:VirtualHubBgpConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210501:VirtualHubBgpConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

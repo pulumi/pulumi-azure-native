@@ -45,13 +45,7 @@ func NewTarget(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:chaos/v20210915preview:Target"),
-		},
-		{
 			Type: pulumi.String("azure-native:chaos:Target"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:chaos:Target"),
 		},
 	})
 	opts = append(opts, aliases)

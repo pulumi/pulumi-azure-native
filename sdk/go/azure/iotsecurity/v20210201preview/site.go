@@ -36,13 +36,7 @@ func NewSite(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:iotsecurity/v20210201preview:Site"),
-		},
-		{
 			Type: pulumi.String("azure-native:iotsecurity:Site"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:iotsecurity:Site"),
 		},
 	})
 	opts = append(opts, aliases)

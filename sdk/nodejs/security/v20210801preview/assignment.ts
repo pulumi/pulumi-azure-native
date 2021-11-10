@@ -153,7 +153,7 @@ export class Assignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security/v20210801preview:Assignment" }, { type: "azure-native:security:Assignment" }, { type: "azure-nextgen:security:Assignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security:Assignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Assignment.__pulumiType, name, inputs, opts);
     }

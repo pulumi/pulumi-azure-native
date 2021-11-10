@@ -198,7 +198,7 @@ class Anomalies(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights:Anomalies"), pulumi.Alias(type_="azure-nextgen:securityinsights:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Anomalies"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:Anomalies")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:Anomalies"), pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Anomalies")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Anomalies, __self__).__init__(
             'azure-native:securityinsights/v20210301preview:Anomalies',

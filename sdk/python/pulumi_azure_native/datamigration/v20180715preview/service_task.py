@@ -173,7 +173,7 @@ class ServiceTask(pulumi.CustomResource):
             __props__.__dict__["task_name"] = task_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datamigration/v20180715preview:ServiceTask"), pulumi.Alias(type_="azure-native:datamigration/v20210630:ServiceTask"), pulumi.Alias(type_="azure-nextgen:datamigration/v20210630:ServiceTask")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20210630:ServiceTask")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceTask, __self__).__init__(
             'azure-native:datamigration/v20180715preview:ServiceTask',

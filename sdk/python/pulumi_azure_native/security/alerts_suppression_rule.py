@@ -217,7 +217,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:AlertsSuppressionRule"), pulumi.Alias(type_="azure-native:security/v20190101preview:AlertsSuppressionRule"), pulumi.Alias(type_="azure-nextgen:security/v20190101preview:AlertsSuppressionRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20190101preview:AlertsSuppressionRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AlertsSuppressionRule, __self__).__init__(
             'azure-native:security:AlertsSuppressionRule',

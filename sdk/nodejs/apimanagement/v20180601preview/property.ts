@@ -102,7 +102,7 @@ export class Property extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:apimanagement/v20180601preview:Property" }, { type: "azure-native:apimanagement:Property" }, { type: "azure-nextgen:apimanagement:Property" }, { type: "azure-native:apimanagement/v20160707:Property" }, { type: "azure-nextgen:apimanagement/v20160707:Property" }, { type: "azure-native:apimanagement/v20161010:Property" }, { type: "azure-nextgen:apimanagement/v20161010:Property" }, { type: "azure-native:apimanagement/v20170301:Property" }, { type: "azure-nextgen:apimanagement/v20170301:Property" }, { type: "azure-native:apimanagement/v20180101:Property" }, { type: "azure-nextgen:apimanagement/v20180101:Property" }, { type: "azure-native:apimanagement/v20190101:Property" }, { type: "azure-nextgen:apimanagement/v20190101:Property" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Property" }, { type: "azure-native:apimanagement/v20160707:Property" }, { type: "azure-native:apimanagement/v20161010:Property" }, { type: "azure-native:apimanagement/v20170301:Property" }, { type: "azure-native:apimanagement/v20180101:Property" }, { type: "azure-native:apimanagement/v20190101:Property" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Property.__pulumiType, name, inputs, opts);
     }

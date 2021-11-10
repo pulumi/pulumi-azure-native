@@ -41,49 +41,25 @@ func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20210601preview:EventHubAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub:EventHubAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub:EventHubAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventhub/v20140901:EventHubAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20150801:EventHubAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20150801:EventHubAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventhub/v20170401:EventHubAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20170401:EventHubAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20180101preview:EventHubAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20180101preview:EventHubAuthorizationRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventhub/v20210101preview:EventHubAuthorizationRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20210101preview:EventHubAuthorizationRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20211101:EventHubAuthorizationRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20211101:EventHubAuthorizationRule"),
 		},
 	})
 	opts = append(opts, aliases)

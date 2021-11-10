@@ -41,13 +41,7 @@ func NewSchemaRegistry(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:eventhub:SchemaRegistry"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventhub/v20211101:SchemaRegistry"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventhub/v20211101:SchemaRegistry"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -40,13 +40,7 @@ func NewExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:agfoodplatform:Extension"),
-		},
-		{
 			Type: pulumi.String("azure-native:agfoodplatform/v20200512preview:Extension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:agfoodplatform/v20200512preview:Extension"),
 		},
 	})
 	opts = append(opts, aliases)

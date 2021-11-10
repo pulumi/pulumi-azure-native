@@ -235,7 +235,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:deviceupdate/v20200301preview:Instance"), pulumi.Alias(type_="azure-native:deviceupdate:Instance"), pulumi.Alias(type_="azure-nextgen:deviceupdate:Instance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate:Instance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Instance, __self__).__init__(
             'azure-native:deviceupdate/v20200301preview:Instance',

@@ -77,25 +77,15 @@ namespace Pulumi.AzureNative.ApiManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20180601preview:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20180601preview:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20190101:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20190101:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210101preview:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210401preview:Cache"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210801:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

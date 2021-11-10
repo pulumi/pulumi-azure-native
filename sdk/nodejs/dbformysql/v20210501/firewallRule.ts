@@ -97,7 +97,7 @@ export class FirewallRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbformysql/v20210501:FirewallRule" }, { type: "azure-native:dbformysql/v20200701preview:FirewallRule" }, { type: "azure-nextgen:dbformysql/v20200701preview:FirewallRule" }, { type: "azure-native:dbformysql/v20200701privatepreview:FirewallRule" }, { type: "azure-nextgen:dbformysql/v20200701privatepreview:FirewallRule" }, { type: "azure-native:dbformysql/v20210501preview:FirewallRule" }, { type: "azure-nextgen:dbformysql/v20210501preview:FirewallRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701preview:FirewallRule" }, { type: "azure-native:dbformysql/v20200701privatepreview:FirewallRule" }, { type: "azure-native:dbformysql/v20210501preview:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }

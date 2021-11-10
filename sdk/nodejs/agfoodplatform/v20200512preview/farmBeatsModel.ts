@@ -99,7 +99,7 @@ export class FarmBeatsModel extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:agfoodplatform/v20200512preview:FarmBeatsModel" }, { type: "azure-native:agfoodplatform:FarmBeatsModel" }, { type: "azure-nextgen:agfoodplatform:FarmBeatsModel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:agfoodplatform:FarmBeatsModel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FarmBeatsModel.__pulumiType, name, inputs, opts);
     }

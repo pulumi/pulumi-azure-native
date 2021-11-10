@@ -89,9 +89,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network:UserRuleCollection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:UserRuleCollection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201preview:UserRuleCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

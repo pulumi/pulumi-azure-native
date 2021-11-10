@@ -50,13 +50,7 @@ func NewAssignment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:blueprint/v20181101preview:Assignment"),
-		},
-		{
 			Type: pulumi.String("azure-native:blueprint:Assignment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:blueprint:Assignment"),
 		},
 	})
 	opts = append(opts, aliases)

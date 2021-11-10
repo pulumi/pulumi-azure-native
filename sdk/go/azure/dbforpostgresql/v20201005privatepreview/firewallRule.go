@@ -40,12 +40,6 @@ func NewFirewallRule(ctx *pulumi.Context,
 	if args.StartIpAddress == nil {
 		return nil, errors.New("invalid value for required argument 'StartIpAddress'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:dbforpostgresql/v20201005privatepreview:FirewallRule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource FirewallRule
 	err := ctx.RegisterResource("azure-native:dbforpostgresql/v20201005privatepreview:FirewallRule", name, args, &resource, opts...)
 	if err != nil {

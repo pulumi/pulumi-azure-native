@@ -70,13 +70,9 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:Datastore"},
                     new Pulumi.Alias { Type = "azure-native:avs:Datastore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs:Datastore"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210601:Datastore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210601:Datastore"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20211201:Datastore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20211201:Datastore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

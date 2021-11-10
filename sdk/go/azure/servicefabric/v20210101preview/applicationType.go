@@ -37,31 +37,16 @@ func NewApplicationType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20210101preview:ApplicationType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20210501:ApplicationType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20210501:ApplicationType"),
 		},
 		{
 			Type: pulumi.String("azure-native:servicefabric/v20210701preview:ApplicationType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20210701preview:ApplicationType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20210901privatepreview:ApplicationType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20210901privatepreview:ApplicationType"),
-		},
-		{
 			Type: pulumi.String("azure-native:servicefabric/v20211101preview:ApplicationType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:servicefabric/v20211101preview:ApplicationType"),
 		},
 	})
 	opts = append(opts, aliases)

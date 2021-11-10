@@ -38,13 +38,7 @@ func NewDataFlow(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datafactory:DataFlow"),
-		},
-		{
 			Type: pulumi.String("azure-native:datafactory/v20180601:DataFlow"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datafactory/v20180601:DataFlow"),
 		},
 	})
 	opts = append(opts, aliases)

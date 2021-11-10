@@ -61,19 +61,10 @@ func NewEventHubDataConnection(ctx *pulumi.Context,
 	args.Kind = pulumi.String("EventHub")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:EventHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse:EventHubDataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse:EventHubDataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210401preview:EventHubDataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:EventHubDataConnection"),
 		},
 	})
 	opts = append(opts, aliases)

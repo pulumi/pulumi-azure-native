@@ -274,7 +274,7 @@ class EventHubConnection(pulumi.CustomResource):
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:kusto/v20170907privatepreview:EventHubConnection"), pulumi.Alias(type_="azure-native:kusto:EventHubConnection"), pulumi.Alias(type_="azure-nextgen:kusto:EventHubConnection"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:EventHubConnection"), pulumi.Alias(type_="azure-nextgen:kusto/v20180907preview:EventHubConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto:EventHubConnection"), pulumi.Alias(type_="azure-native:kusto/v20180907preview:EventHubConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHubConnection, __self__).__init__(
             'azure-native:kusto/v20170907privatepreview:EventHubConnection',

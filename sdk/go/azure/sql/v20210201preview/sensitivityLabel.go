@@ -55,43 +55,22 @@ func NewSensitivityLabel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:SensitivityLabel"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:SensitivityLabel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:SensitivityLabel"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20170301preview:SensitivityLabel"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20170301preview:SensitivityLabel"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:SensitivityLabel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:SensitivityLabel"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:SensitivityLabel"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:SensitivityLabel"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:SensitivityLabel"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:SensitivityLabel"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:SensitivityLabel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:SensitivityLabel"),
 		},
 	})
 	opts = append(opts, aliases)

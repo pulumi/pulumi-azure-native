@@ -88,21 +88,13 @@ namespace Pulumi.AzureNative.Compute.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20191101:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20190701:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20190701:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200501:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200501:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200630:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200630:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20200930:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20200930:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20201201:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201201:DiskEncryptionSet"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210401:DiskEncryptionSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20210401:DiskEncryptionSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

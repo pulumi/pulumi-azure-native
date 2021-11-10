@@ -42,55 +42,28 @@ func NewManagedDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:ManagedDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:ManagedDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20170301preview:ManagedDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20170301preview:ManagedDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20180601preview:ManagedDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20180601preview:ManagedDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20190601preview:ManagedDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20190601preview:ManagedDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:ManagedDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedDatabase"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:ManagedDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ManagedDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:ManagedDatabase"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ManagedDatabase"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:ManagedDatabase"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ManagedDatabase"),
 		},
 	})
 	opts = append(opts, aliases)

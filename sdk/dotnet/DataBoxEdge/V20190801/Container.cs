@@ -76,25 +76,15 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:Container"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:Container"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:Container"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:Container"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:Container"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:Container"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:Container"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201preview:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:Container"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601:Container"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:Container"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601preview:Container"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

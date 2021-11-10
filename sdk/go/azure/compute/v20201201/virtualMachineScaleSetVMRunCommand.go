@@ -52,37 +52,19 @@ func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20201201:VirtualMachineScaleSetVMRunCommand"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:VirtualMachineScaleSetVMRunCommand"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute:VirtualMachineScaleSetVMRunCommand"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20200601:VirtualMachineScaleSetVMRunCommand"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210301:VirtualMachineScaleSetVMRunCommand"),
 		},
 		{
 			Type: pulumi.String("azure-native:compute/v20210401:VirtualMachineScaleSetVMRunCommand"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210401:VirtualMachineScaleSetVMRunCommand"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210701:VirtualMachineScaleSetVMRunCommand"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210701:VirtualMachineScaleSetVMRunCommand"),
 		},
 	})
 	opts = append(opts, aliases)

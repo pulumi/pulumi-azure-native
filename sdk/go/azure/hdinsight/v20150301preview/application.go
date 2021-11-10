@@ -36,25 +36,13 @@ func NewApplication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:hdinsight/v20150301preview:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:hdinsight:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hdinsight:Application"),
 		},
 		{
 			Type: pulumi.String("azure-native:hdinsight/v20180601preview:Application"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hdinsight/v20180601preview:Application"),
-		},
-		{
 			Type: pulumi.String("azure-native:hdinsight/v20210601:Application"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hdinsight/v20210601:Application"),
 		},
 	})
 	opts = append(opts, aliases)

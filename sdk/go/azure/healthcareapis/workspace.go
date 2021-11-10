@@ -35,13 +35,7 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:healthcareapis:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:healthcareapis/v20210601preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:healthcareapis/v20210601preview:Workspace"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -156,7 +156,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:videoanalyzer/v20211101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:videoanalyzer:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:videoanalyzer:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:videoanalyzer:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:videoanalyzer/v20211101preview:PrivateEndpointConnection',

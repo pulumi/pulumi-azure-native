@@ -43,37 +43,19 @@ func NewEndpointVariant(ctx *pulumi.Context,
 	args.ComputeType = pulumi.String("Custom")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210401:EndpointVariant"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices:EndpointVariant"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices:EndpointVariant"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:EndpointVariant"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:EndpointVariant"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200515preview:EndpointVariant"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200515preview:EndpointVariant"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200901preview:EndpointVariant"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:EndpointVariant"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210101:EndpointVariant"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:EndpointVariant"),
 		},
 	})
 	opts = append(opts, aliases)

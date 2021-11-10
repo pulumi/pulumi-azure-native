@@ -123,7 +123,7 @@ export class Controller extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devspaces/v20190401:Controller" }, { type: "azure-native:devspaces:Controller" }, { type: "azure-nextgen:devspaces:Controller" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devspaces:Controller" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Controller.__pulumiType, name, inputs, opts);
     }

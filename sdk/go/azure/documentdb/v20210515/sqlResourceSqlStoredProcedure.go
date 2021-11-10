@@ -45,97 +45,49 @@ func NewSqlResourceSqlStoredProcedure(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210515:SqlResourceSqlStoredProcedure"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlStoredProcedure"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlStoredProcedure"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20190801:SqlResourceSqlStoredProcedure"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20191212:SqlResourceSqlStoredProcedure"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20191212:SqlResourceSqlStoredProcedure"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200301:SqlResourceSqlStoredProcedure"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200301:SqlResourceSqlStoredProcedure"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200401:SqlResourceSqlStoredProcedure"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200401:SqlResourceSqlStoredProcedure"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlStoredProcedure"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200901:SqlResourceSqlStoredProcedure"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200901:SqlResourceSqlStoredProcedure"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:SqlResourceSqlStoredProcedure"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlStoredProcedure"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210301preview:SqlResourceSqlStoredProcedure"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:SqlResourceSqlStoredProcedure"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210315:SqlResourceSqlStoredProcedure"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210315:SqlResourceSqlStoredProcedure"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210401preview:SqlResourceSqlStoredProcedure"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:SqlResourceSqlStoredProcedure"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210415:SqlResourceSqlStoredProcedure"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210415:SqlResourceSqlStoredProcedure"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210615:SqlResourceSqlStoredProcedure"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210615:SqlResourceSqlStoredProcedure"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:SqlResourceSqlStoredProcedure"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:SqlResourceSqlStoredProcedure"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:SqlResourceSqlStoredProcedure"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20211015:SqlResourceSqlStoredProcedure"),
 		},
 	})
 	opts = append(opts, aliases)

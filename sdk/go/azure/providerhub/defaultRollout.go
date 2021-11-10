@@ -31,31 +31,16 @@ func NewDefaultRollout(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:providerhub:DefaultRollout"),
-		},
-		{
 			Type: pulumi.String("azure-native:providerhub/v20201120:DefaultRollout"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:providerhub/v20201120:DefaultRollout"),
 		},
 		{
 			Type: pulumi.String("azure-native:providerhub/v20210501preview:DefaultRollout"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:providerhub/v20210501preview:DefaultRollout"),
-		},
-		{
 			Type: pulumi.String("azure-native:providerhub/v20210601preview:DefaultRollout"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:providerhub/v20210601preview:DefaultRollout"),
-		},
-		{
 			Type: pulumi.String("azure-native:providerhub/v20210901preview:DefaultRollout"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:providerhub/v20210901preview:DefaultRollout"),
 		},
 	})
 	opts = append(opts, aliases)

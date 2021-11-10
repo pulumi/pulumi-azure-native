@@ -70,27 +70,16 @@ namespace Pulumi.AzureNative.Web.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppSwiftVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20180201:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20181101:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppSwiftVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210201:WebAppSwiftVirtualNetworkConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

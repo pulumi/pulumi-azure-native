@@ -375,7 +375,7 @@ class PrivateRecordSet(pulumi.CustomResource):
             __props__.__dict__["is_auto_registered"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/v20200601:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network:PrivateRecordSet"), pulumi.Alias(type_="azure-nextgen:network:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20180901:PrivateRecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20180901:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20200101:PrivateRecordSet"), pulumi.Alias(type_="azure-nextgen:network/v20200101:PrivateRecordSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20180901:PrivateRecordSet"), pulumi.Alias(type_="azure-native:network/v20200101:PrivateRecordSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateRecordSet, __self__).__init__(
             'azure-native:network/v20200601:PrivateRecordSet',

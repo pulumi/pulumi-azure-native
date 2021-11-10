@@ -107,11 +107,8 @@ namespace Pulumi.AzureNative.HybridData
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata:JobDefinition"},
                     new Pulumi.Alias { Type = "azure-native:hybriddata/v20160601:JobDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20160601:JobDefinition"},
                     new Pulumi.Alias { Type = "azure-native:hybriddata/v20190601:JobDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybriddata/v20190601:JobDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

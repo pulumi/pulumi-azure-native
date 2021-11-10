@@ -107,11 +107,8 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:insights:AlertRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20140401:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20140401:AlertRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20160301:AlertRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20160301:AlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

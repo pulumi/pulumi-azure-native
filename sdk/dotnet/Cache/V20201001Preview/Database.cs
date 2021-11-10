@@ -94,15 +94,10 @@ namespace Pulumi.AzureNative.Cache.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20201001preview:Database"},
                     new Pulumi.Alias { Type = "azure-native:cache:Database"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache:Database"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20210201preview:Database"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20210201preview:Database"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20210301:Database"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20210301:Database"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20210801:Database"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20210801:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

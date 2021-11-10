@@ -49,25 +49,13 @@ func NewPrivateRecordSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200101:PrivateRecordSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:PrivateRecordSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:PrivateRecordSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180901:PrivateRecordSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180901:PrivateRecordSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:PrivateRecordSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:PrivateRecordSet"),
 		},
 	})
 	opts = append(opts, aliases)

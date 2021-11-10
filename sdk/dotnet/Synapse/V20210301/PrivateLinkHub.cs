@@ -76,21 +76,13 @@ namespace Pulumi.AzureNative.Synapse.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210301:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-native:synapse:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20201201:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601:PrivateLinkHub"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:PrivateLinkHub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:PrivateLinkHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

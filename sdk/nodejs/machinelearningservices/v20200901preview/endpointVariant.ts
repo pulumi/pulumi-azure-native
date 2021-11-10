@@ -113,7 +113,7 @@ export class EndpointVariant extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20200901preview:EndpointVariant" }, { type: "azure-native:machinelearningservices:EndpointVariant" }, { type: "azure-nextgen:machinelearningservices:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20200501preview:EndpointVariant" }, { type: "azure-nextgen:machinelearningservices/v20200501preview:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20200515preview:EndpointVariant" }, { type: "azure-nextgen:machinelearningservices/v20200515preview:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20210101:EndpointVariant" }, { type: "azure-nextgen:machinelearningservices/v20210101:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20210401:EndpointVariant" }, { type: "azure-nextgen:machinelearningservices/v20210401:EndpointVariant" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20200501preview:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20200515preview:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20210101:EndpointVariant" }, { type: "azure-native:machinelearningservices/v20210401:EndpointVariant" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EndpointVariant.__pulumiType, name, inputs, opts);
     }

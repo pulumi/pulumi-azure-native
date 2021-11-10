@@ -71,9 +71,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices:Deployment"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:Deployment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20211001:Deployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

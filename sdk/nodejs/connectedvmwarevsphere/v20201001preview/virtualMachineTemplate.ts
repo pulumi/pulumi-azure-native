@@ -215,7 +215,7 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:connectedvmwarevsphere/v20201001preview:VirtualMachineTemplate" }, { type: "azure-native:connectedvmwarevsphere:VirtualMachineTemplate" }, { type: "azure-nextgen:connectedvmwarevsphere:VirtualMachineTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:VirtualMachineTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachineTemplate.__pulumiType, name, inputs, opts);
     }

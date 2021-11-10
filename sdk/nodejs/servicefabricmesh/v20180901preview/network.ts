@@ -90,7 +90,7 @@ export class Network extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:servicefabricmesh/v20180901preview:Network" }, { type: "azure-native:servicefabricmesh:Network" }, { type: "azure-nextgen:servicefabricmesh:Network" }, { type: "azure-native:servicefabricmesh/v20180701preview:Network" }, { type: "azure-nextgen:servicefabricmesh/v20180701preview:Network" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh:Network" }, { type: "azure-native:servicefabricmesh/v20180701preview:Network" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Network.__pulumiType, name, inputs, opts);
     }

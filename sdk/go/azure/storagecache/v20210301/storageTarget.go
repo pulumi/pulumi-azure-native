@@ -45,49 +45,25 @@ func NewStorageTarget(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storagecache/v20210301:StorageTarget"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagecache:StorageTarget"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagecache:StorageTarget"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagecache/v20190801preview:StorageTarget"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagecache/v20190801preview:StorageTarget"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagecache/v20191101:StorageTarget"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagecache/v20191101:StorageTarget"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagecache/v20200301:StorageTarget"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagecache/v20200301:StorageTarget"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagecache/v20201001:StorageTarget"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagecache/v20201001:StorageTarget"),
 		},
 		{
 			Type: pulumi.String("azure-native:storagecache/v20210501:StorageTarget"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storagecache/v20210501:StorageTarget"),
-		},
-		{
 			Type: pulumi.String("azure-native:storagecache/v20210901:StorageTarget"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storagecache/v20210901:StorageTarget"),
 		},
 	})
 	opts = append(opts, aliases)

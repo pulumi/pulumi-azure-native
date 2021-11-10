@@ -33,19 +33,10 @@ func NewCloudService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20201001preview:CloudService"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:CloudService"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute:CloudService"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210301:CloudService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210301:CloudService"),
 		},
 	})
 	opts = append(opts, aliases)

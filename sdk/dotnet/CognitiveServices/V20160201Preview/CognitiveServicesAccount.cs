@@ -94,15 +94,10 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20160201preview:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices:CognitiveServicesAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20170418:CognitiveServicesAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20170418:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20210430:CognitiveServicesAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20210430:CognitiveServicesAccount"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:CognitiveServicesAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20211001:CognitiveServicesAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

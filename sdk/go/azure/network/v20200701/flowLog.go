@@ -50,79 +50,40 @@ func NewFlowLog(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:FlowLog"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:FlowLog"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:FlowLog"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191101:FlowLog"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:FlowLog"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:FlowLog"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:FlowLog"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:FlowLog"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:FlowLog"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:FlowLog"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:FlowLog"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:FlowLog"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:FlowLog"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:FlowLog"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:FlowLog"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:FlowLog"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:FlowLog"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:FlowLog"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:FlowLog"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:FlowLog"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:FlowLog"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:FlowLog"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:FlowLog"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:FlowLog"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:FlowLog"),
 		},
 	})
 	opts = append(opts, aliases)

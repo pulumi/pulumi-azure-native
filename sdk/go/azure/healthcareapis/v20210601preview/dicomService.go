@@ -40,13 +40,7 @@ func NewDicomService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:healthcareapis/v20210601preview:DicomService"),
-		},
-		{
 			Type: pulumi.String("azure-native:healthcareapis:DicomService"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:healthcareapis:DicomService"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -47,13 +47,7 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storsimple/v20170601:BackupPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storsimple:BackupPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storsimple:BackupPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

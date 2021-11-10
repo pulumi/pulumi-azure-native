@@ -268,19 +268,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20211101preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20200101preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200101preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210101preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210101preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210501:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210701preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:ManagedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210901privatepreview:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

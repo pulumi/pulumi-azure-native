@@ -79,9 +79,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:azureactivedirectory/v20190101preview:B2CTenant"},
                     new Pulumi.Alias { Type = "azure-native:azureactivedirectory:B2CTenant"},
-                    new Pulumi.Alias { Type = "azure-nextgen:azureactivedirectory:B2CTenant"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

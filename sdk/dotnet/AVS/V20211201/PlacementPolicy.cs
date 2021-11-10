@@ -58,9 +58,7 @@ namespace Pulumi.AzureNative.AVS.V20211201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20211201:PlacementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:avs:PlacementPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs:PlacementPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

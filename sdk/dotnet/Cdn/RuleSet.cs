@@ -68,9 +68,7 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn:RuleSet"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:RuleSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:RuleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

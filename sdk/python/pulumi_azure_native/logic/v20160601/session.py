@@ -192,7 +192,7 @@ class Session(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/v20160601:Session"), pulumi.Alias(type_="azure-native:logic:Session"), pulumi.Alias(type_="azure-nextgen:logic:Session"), pulumi.Alias(type_="azure-native:logic/v20180701preview:Session"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:Session"), pulumi.Alias(type_="azure-native:logic/v20190501:Session"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:Session")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic:Session"), pulumi.Alias(type_="azure-native:logic/v20180701preview:Session"), pulumi.Alias(type_="azure-native:logic/v20190501:Session")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Session, __self__).__init__(
             'azure-native:logic/v20160601:Session',

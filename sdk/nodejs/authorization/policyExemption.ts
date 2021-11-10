@@ -124,7 +124,7 @@ export class PolicyExemption extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:authorization:PolicyExemption" }, { type: "azure-native:authorization/v20200701preview:PolicyExemption" }, { type: "azure-nextgen:authorization/v20200701preview:PolicyExemption" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20200701preview:PolicyExemption" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyExemption.__pulumiType, name, inputs, opts);
     }

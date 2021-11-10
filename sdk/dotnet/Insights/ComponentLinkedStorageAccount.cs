@@ -59,9 +59,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:insights:ComponentLinkedStorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20200301preview:ComponentLinkedStorageAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

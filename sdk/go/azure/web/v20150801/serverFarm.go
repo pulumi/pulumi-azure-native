@@ -45,73 +45,37 @@ func NewServerFarm(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:ServerFarm"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:ServerFarm"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:ServerFarm"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160901:ServerFarm"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160901:ServerFarm"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:ServerFarm"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:ServerFarm"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:ServerFarm"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:ServerFarm"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:ServerFarm"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:ServerFarm"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:ServerFarm"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:ServerFarm"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:ServerFarm"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:ServerFarm"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:ServerFarm"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:ServerFarm"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:ServerFarm"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:ServerFarm"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:ServerFarm"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:ServerFarm"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:ServerFarm"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:ServerFarm"),
 		},
 	})
 	opts = append(opts, aliases)

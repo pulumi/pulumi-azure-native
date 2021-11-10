@@ -52,43 +52,22 @@ func NewRecordSet(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180501:RecordSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:RecordSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:RecordSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20150504preview:RecordSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20150504preview:RecordSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20160401:RecordSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20160401:RecordSet"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20170901:RecordSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170901:RecordSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20171001:RecordSet"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20171001:RecordSet"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180301preview:RecordSet"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180301preview:RecordSet"),
 		},
 	})
 	opts = append(opts, aliases)

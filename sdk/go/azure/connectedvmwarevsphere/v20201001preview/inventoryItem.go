@@ -43,13 +43,7 @@ func NewInventoryItem(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:connectedvmwarevsphere/v20201001preview:InventoryItem"),
-		},
-		{
 			Type: pulumi.String("azure-native:connectedvmwarevsphere:InventoryItem"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:connectedvmwarevsphere:InventoryItem"),
 		},
 	})
 	opts = append(opts, aliases)

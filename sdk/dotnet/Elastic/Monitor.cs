@@ -89,11 +89,8 @@ namespace Pulumi.AzureNative.Elastic
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:elastic:Monitor"},
                     new Pulumi.Alias { Type = "azure-native:elastic/v20200701:Monitor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:elastic/v20200701:Monitor"},
                     new Pulumi.Alias { Type = "azure-native:elastic/v20200701preview:Monitor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:elastic/v20200701preview:Monitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

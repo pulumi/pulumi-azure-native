@@ -38,115 +38,58 @@ func NewMachineLearningCompute(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200601:MachineLearningCompute"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices:MachineLearningCompute"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20180301preview:MachineLearningCompute"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20180301preview:MachineLearningCompute"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20181119:MachineLearningCompute"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20181119:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20190501:MachineLearningCompute"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20190501:MachineLearningCompute"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20190601:MachineLearningCompute"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20190601:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20191101:MachineLearningCompute"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20191101:MachineLearningCompute"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200101:MachineLearningCompute"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200101:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200218preview:MachineLearningCompute"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200218preview:MachineLearningCompute"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200301:MachineLearningCompute"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200301:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200401:MachineLearningCompute"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200401:MachineLearningCompute"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:MachineLearningCompute"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200515preview:MachineLearningCompute"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200515preview:MachineLearningCompute"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200801:MachineLearningCompute"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200801:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200901preview:MachineLearningCompute"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:MachineLearningCompute"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210101:MachineLearningCompute"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:MachineLearningCompute"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210301preview:MachineLearningCompute"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210301preview:MachineLearningCompute"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210401:MachineLearningCompute"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210401:MachineLearningCompute"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210701:MachineLearningCompute"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210701:MachineLearningCompute"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -42,37 +42,19 @@ func NewSynchronizationSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20210801:SynchronizationSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare:SynchronizationSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare:SynchronizationSetting"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20181101preview:SynchronizationSetting"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20181101preview:SynchronizationSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20191101:SynchronizationSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20191101:SynchronizationSetting"),
 		},
 		{
 			Type: pulumi.String("azure-native:datashare/v20200901:SynchronizationSetting"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:datashare/v20200901:SynchronizationSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:datashare/v20201001preview:SynchronizationSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:datashare/v20201001preview:SynchronizationSetting"),
 		},
 	})
 	opts = append(opts, aliases)

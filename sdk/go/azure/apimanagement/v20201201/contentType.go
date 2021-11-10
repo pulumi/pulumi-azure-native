@@ -36,43 +36,22 @@ func NewContentType(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ContentType"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:ContentType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:ContentType"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:ContentType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ContentType"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ContentType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ContentType"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:ContentType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:ContentType"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:ContentType"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ContentType"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210801:ContentType"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:ContentType"),
 		},
 	})
 	opts = append(opts, aliases)

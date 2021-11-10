@@ -383,7 +383,7 @@ class ServiceFabricSchedule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_identifier"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab:ServiceFabricSchedule"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:ServiceFabricSchedule"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab/v20180915:ServiceFabricSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceFabricSchedule, __self__).__init__(
             'azure-native:devtestlab:ServiceFabricSchedule',

@@ -174,8 +174,6 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionControllerPrivateEndpointConnection, __self__).__init__(
             'azure-native:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection',
             resource_name,

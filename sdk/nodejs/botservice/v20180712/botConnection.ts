@@ -109,7 +109,7 @@ export class BotConnection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:botservice/v20180712:BotConnection" }, { type: "azure-native:botservice:BotConnection" }, { type: "azure-nextgen:botservice:BotConnection" }, { type: "azure-native:botservice/v20171201:BotConnection" }, { type: "azure-nextgen:botservice/v20171201:BotConnection" }, { type: "azure-native:botservice/v20200602:BotConnection" }, { type: "azure-nextgen:botservice/v20200602:BotConnection" }, { type: "azure-native:botservice/v20210301:BotConnection" }, { type: "azure-nextgen:botservice/v20210301:BotConnection" }, { type: "azure-native:botservice/v20210501preview:BotConnection" }, { type: "azure-nextgen:botservice/v20210501preview:BotConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:botservice:BotConnection" }, { type: "azure-native:botservice/v20171201:BotConnection" }, { type: "azure-native:botservice/v20200602:BotConnection" }, { type: "azure-native:botservice/v20210301:BotConnection" }, { type: "azure-native:botservice/v20210501preview:BotConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BotConnection.__pulumiType, name, inputs, opts);
     }

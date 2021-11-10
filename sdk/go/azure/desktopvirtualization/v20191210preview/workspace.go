@@ -35,85 +35,43 @@ func NewWorkspace(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20191210preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20190123preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190123preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20190924preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20190924preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20200921preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201019preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210201preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210309preview:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210309preview:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210401preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210401preview:Workspace"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210712:Workspace"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210712:Workspace"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210903preview:Workspace"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210903preview:Workspace"),
 		},
 	})
 	opts = append(opts, aliases)

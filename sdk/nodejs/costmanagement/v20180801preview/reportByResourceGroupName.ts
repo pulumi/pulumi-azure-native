@@ -105,7 +105,7 @@ export class ReportByResourceGroupName extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:costmanagement/v20180801preview:ReportByResourceGroupName" }, { type: "azure-native:costmanagement:ReportByResourceGroupName" }, { type: "azure-nextgen:costmanagement:ReportByResourceGroupName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:ReportByResourceGroupName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReportByResourceGroupName.__pulumiType, name, inputs, opts);
     }

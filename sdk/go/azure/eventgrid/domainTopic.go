@@ -35,55 +35,28 @@ func NewDomainTopic(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid:DomainTopic"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20190201preview:DomainTopic"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20190201preview:DomainTopic"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20190601:DomainTopic"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20190601:DomainTopic"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20200101preview:DomainTopic"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20200101preview:DomainTopic"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20200401preview:DomainTopic"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20200401preview:DomainTopic"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20200601:DomainTopic"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20200601:DomainTopic"),
 		},
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20201015preview:DomainTopic"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20201015preview:DomainTopic"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20210601preview:DomainTopic"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20210601preview:DomainTopic"),
-		},
-		{
 			Type: pulumi.String("azure-native:eventgrid/v20211201:DomainTopic"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:eventgrid/v20211201:DomainTopic"),
 		},
 	})
 	opts = append(opts, aliases)

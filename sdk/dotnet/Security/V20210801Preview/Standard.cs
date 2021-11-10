@@ -112,9 +112,7 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:security/v20210801preview:Standard"},
                     new Pulumi.Alias { Type = "azure-native:security:Standard"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security:Standard"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

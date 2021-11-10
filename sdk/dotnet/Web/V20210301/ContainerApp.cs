@@ -106,9 +106,7 @@ namespace Pulumi.AzureNative.Web.V20210301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210301:ContainerApp"},
                     new Pulumi.Alias { Type = "azure-native:web:ContainerApp"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web:ContainerApp"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

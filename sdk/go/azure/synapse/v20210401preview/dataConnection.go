@@ -46,19 +46,10 @@ func NewDataConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:DataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse:DataConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse:DataConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:DataConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:DataConnection"),
 		},
 	})
 	opts = append(opts, aliases)

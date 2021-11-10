@@ -130,7 +130,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storage/v20210601:Table"), pulumi.Alias(type_="azure-native:storage:Table"), pulumi.Alias(type_="azure-nextgen:storage:Table"), pulumi.Alias(type_="azure-native:storage/v20190601:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20190601:Table"), pulumi.Alias(type_="azure-native:storage/v20200801preview:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20200801preview:Table"), pulumi.Alias(type_="azure-native:storage/v20210101:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20210101:Table"), pulumi.Alias(type_="azure-native:storage/v20210201:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20210201:Table"), pulumi.Alias(type_="azure-native:storage/v20210401:Table"), pulumi.Alias(type_="azure-nextgen:storage/v20210401:Table")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storage:Table"), pulumi.Alias(type_="azure-native:storage/v20190601:Table"), pulumi.Alias(type_="azure-native:storage/v20200801preview:Table"), pulumi.Alias(type_="azure-native:storage/v20210101:Table"), pulumi.Alias(type_="azure-native:storage/v20210201:Table"), pulumi.Alias(type_="azure-native:storage/v20210401:Table")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Table, __self__).__init__(
             'azure-native:storage/v20210601:Table',

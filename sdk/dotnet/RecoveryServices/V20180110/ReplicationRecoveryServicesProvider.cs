@@ -64,23 +64,14 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180110
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationRecoveryServicesProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationRecoveryServicesProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationRecoveryServicesProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210210:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationRecoveryServicesProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210301:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationRecoveryServicesProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210401:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210601:ReplicationRecoveryServicesProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210601:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationRecoveryServicesProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210701:ReplicationRecoveryServicesProvider"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationRecoveryServicesProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210801:ReplicationRecoveryServicesProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

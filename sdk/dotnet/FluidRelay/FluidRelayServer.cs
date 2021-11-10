@@ -89,11 +89,8 @@ namespace Pulumi.AzureNative.FluidRelay
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:fluidrelay:FluidRelayServer"},
                     new Pulumi.Alias { Type = "azure-native:fluidrelay/v20210312preview:FluidRelayServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:fluidrelay/v20210312preview:FluidRelayServer"},
                     new Pulumi.Alias { Type = "azure-native:fluidrelay/v20210615preview:FluidRelayServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:fluidrelay/v20210615preview:FluidRelayServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

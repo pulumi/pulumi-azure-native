@@ -240,27 +240,16 @@ namespace Pulumi.AzureNative.ServiceFabric.V20201201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20201201preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20160901:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20160901:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20180201:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20180201:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190601preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20191101preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200301:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210601:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

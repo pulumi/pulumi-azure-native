@@ -71,15 +71,10 @@ namespace Pulumi.AzureNative.Advisor
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:advisor:Suppression"},
                     new Pulumi.Alias { Type = "azure-native:advisor/v20160712preview:Suppression"},
-                    new Pulumi.Alias { Type = "azure-nextgen:advisor/v20160712preview:Suppression"},
                     new Pulumi.Alias { Type = "azure-native:advisor/v20170331:Suppression"},
-                    new Pulumi.Alias { Type = "azure-nextgen:advisor/v20170331:Suppression"},
                     new Pulumi.Alias { Type = "azure-native:advisor/v20170419:Suppression"},
-                    new Pulumi.Alias { Type = "azure-nextgen:advisor/v20170419:Suppression"},
                     new Pulumi.Alias { Type = "azure-native:advisor/v20200101:Suppression"},
-                    new Pulumi.Alias { Type = "azure-nextgen:advisor/v20200101:Suppression"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

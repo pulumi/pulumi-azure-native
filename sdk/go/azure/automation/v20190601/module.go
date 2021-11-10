@@ -50,25 +50,13 @@ func NewModule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:automation/v20190601:Module"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation:Module"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation:Module"),
 		},
 		{
 			Type: pulumi.String("azure-native:automation/v20151031:Module"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:automation/v20151031:Module"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20200113preview:Module"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/v20200113preview:Module"),
 		},
 	})
 	opts = append(opts, aliases)

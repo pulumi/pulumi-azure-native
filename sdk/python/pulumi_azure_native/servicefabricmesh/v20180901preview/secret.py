@@ -172,7 +172,7 @@ class Secret(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabricmesh/v20180901preview:Secret"), pulumi.Alias(type_="azure-native:servicefabricmesh:Secret"), pulumi.Alias(type_="azure-nextgen:servicefabricmesh:Secret")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabricmesh:Secret")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Secret, __self__).__init__(
             'azure-native:servicefabricmesh/v20180901preview:Secret',

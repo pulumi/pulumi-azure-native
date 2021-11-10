@@ -94,9 +94,7 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:BackupSchedule"},
                     new Pulumi.Alias { Type = "azure-native:storsimple:BackupSchedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:BackupSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -45,49 +45,25 @@ func NewCustomIPPrefix(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:CustomIPPrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:CustomIPPrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:CustomIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:CustomIPPrefix"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:CustomIPPrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:CustomIPPrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:CustomIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:CustomIPPrefix"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:CustomIPPrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:CustomIPPrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:CustomIPPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:CustomIPPrefix"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:CustomIPPrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:CustomIPPrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:CustomIPPrefix"),
 		},
 	})
 	opts = append(opts, aliases)

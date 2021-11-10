@@ -107,9 +107,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sqlvirtualmachine:SqlVirtualMachineGroup"},
                     new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -48,43 +48,22 @@ func NewInstanceFailoverGroup(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:InstanceFailoverGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:InstanceFailoverGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:InstanceFailoverGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20171001preview:InstanceFailoverGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20171001preview:InstanceFailoverGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:InstanceFailoverGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:InstanceFailoverGroup"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:InstanceFailoverGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:InstanceFailoverGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:InstanceFailoverGroup"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:InstanceFailoverGroup"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:InstanceFailoverGroup"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:InstanceFailoverGroup"),
 		},
 	})
 	opts = append(opts, aliases)

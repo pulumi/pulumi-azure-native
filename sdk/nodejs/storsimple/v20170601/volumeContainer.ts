@@ -134,7 +134,7 @@ export class VolumeContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20170601:VolumeContainer" }, { type: "azure-native:storsimple:VolumeContainer" }, { type: "azure-nextgen:storsimple:VolumeContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:VolumeContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VolumeContainer.__pulumiType, name, inputs, opts);
     }

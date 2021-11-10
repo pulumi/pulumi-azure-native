@@ -41,79 +41,40 @@ func NewSiteSourceControl(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteSourceControl"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteSourceControl"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteSourceControl"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteSourceControl"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteSourceControl"),
 		},
 	})
 	opts = append(opts, aliases)

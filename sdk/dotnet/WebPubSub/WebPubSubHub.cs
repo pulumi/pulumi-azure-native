@@ -65,9 +65,7 @@ namespace Pulumi.AzureNative.WebPubSub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:webpubsub:WebPubSubHub"},
                     new Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubHub"},
-                    new Pulumi.Alias { Type = "azure-nextgen:webpubsub/v20211001:WebPubSubHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

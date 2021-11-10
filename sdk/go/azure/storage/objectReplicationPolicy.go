@@ -44,43 +44,22 @@ func NewObjectReplicationPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage:ObjectReplicationPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20190601:ObjectReplicationPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:ObjectReplicationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20200801preview:ObjectReplicationPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210101:ObjectReplicationPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:ObjectReplicationPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210201:ObjectReplicationPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:ObjectReplicationPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210401:ObjectReplicationPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:ObjectReplicationPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210601:ObjectReplicationPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:ObjectReplicationPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

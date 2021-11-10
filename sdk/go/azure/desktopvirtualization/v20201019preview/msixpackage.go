@@ -44,67 +44,34 @@ func NewMSIXPackage(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201019preview:MSIXPackage"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization:MSIXPackage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization:MSIXPackage"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20200921preview:MSIXPackage"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20200921preview:MSIXPackage"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201102preview:MSIXPackage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201102preview:MSIXPackage"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20201110preview:MSIXPackage"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20201110preview:MSIXPackage"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210114preview:MSIXPackage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210114preview:MSIXPackage"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210201preview:MSIXPackage"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210201preview:MSIXPackage"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210309preview:MSIXPackage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210309preview:MSIXPackage"),
 		},
 		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210401preview:MSIXPackage"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210401preview:MSIXPackage"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210712:MSIXPackage"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210712:MSIXPackage"),
-		},
-		{
 			Type: pulumi.String("azure-native:desktopvirtualization/v20210903preview:MSIXPackage"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:desktopvirtualization/v20210903preview:MSIXPackage"),
 		},
 	})
 	opts = append(opts, aliases)

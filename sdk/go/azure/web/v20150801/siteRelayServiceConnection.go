@@ -43,79 +43,40 @@ func NewSiteRelayServiceConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:SiteRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:SiteRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:SiteRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:SiteRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:SiteRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:SiteRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:SiteRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:SiteRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:SiteRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:SiteRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:SiteRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:SiteRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:SiteRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:SiteRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:SiteRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:SiteRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:SiteRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:SiteRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:SiteRelayServiceConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:SiteRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:SiteRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:SiteRelayServiceConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:SiteRelayServiceConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:SiteRelayServiceConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:SiteRelayServiceConnection"),
 		},
 	})
 	opts = append(opts, aliases)

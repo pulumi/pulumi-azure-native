@@ -45,79 +45,40 @@ func NewWebAppPremierAddOnSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppPremierAddOnSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppPremierAddOnSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppPremierAddOnSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppPremierAddOnSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppPremierAddOnSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppPremierAddOnSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppPremierAddOnSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppPremierAddOnSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppPremierAddOnSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppPremierAddOnSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppPremierAddOnSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppPremierAddOnSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppPremierAddOnSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppPremierAddOnSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppPremierAddOnSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppPremierAddOnSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppPremierAddOnSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppPremierAddOnSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppPremierAddOnSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppPremierAddOnSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppPremierAddOnSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppPremierAddOnSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppPremierAddOnSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppPremierAddOnSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppPremierAddOnSlot"),
 		},
 	})
 	opts = append(opts, aliases)

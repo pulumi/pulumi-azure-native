@@ -53,13 +53,7 @@ func NewEnvironment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:labservices:Environment"),
-		},
-		{
 			Type: pulumi.String("azure-native:labservices/v20181015:Environment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:labservices/v20181015:Environment"),
 		},
 	})
 	opts = append(opts, aliases)

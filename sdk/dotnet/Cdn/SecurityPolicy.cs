@@ -74,9 +74,7 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn:SecurityPolicy"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:SecurityPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:SecurityPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

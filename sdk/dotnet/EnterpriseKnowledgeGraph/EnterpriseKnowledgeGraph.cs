@@ -77,9 +77,7 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:enterpriseknowledgegraph:EnterpriseKnowledgeGraph"},
                     new Pulumi.Alias { Type = "azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"},
-                    new Pulumi.Alias { Type = "azure-nextgen:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

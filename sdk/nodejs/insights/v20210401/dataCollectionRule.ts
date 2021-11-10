@@ -136,7 +136,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20210401:DataCollectionRule" }, { type: "azure-native:insights:DataCollectionRule" }, { type: "azure-nextgen:insights:DataCollectionRule" }, { type: "azure-native:insights/v20191101preview:DataCollectionRule" }, { type: "azure-nextgen:insights/v20191101preview:DataCollectionRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:DataCollectionRule" }, { type: "azure-native:insights/v20191101preview:DataCollectionRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataCollectionRule.__pulumiType, name, inputs, opts);
     }

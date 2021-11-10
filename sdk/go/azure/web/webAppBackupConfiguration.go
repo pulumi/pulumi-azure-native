@@ -42,79 +42,40 @@ func NewWebAppBackupConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web:WebAppBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppBackupConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppBackupConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppBackupConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppBackupConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppBackupConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

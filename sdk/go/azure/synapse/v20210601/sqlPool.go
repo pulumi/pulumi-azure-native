@@ -47,55 +47,28 @@ func NewSqlPool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:SqlPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse:SqlPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse:SqlPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20190601preview:SqlPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:SqlPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20200401preview:SqlPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20200401preview:SqlPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20201201:SqlPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20201201:SqlPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210301:SqlPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210301:SqlPool"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210401preview:SqlPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:SqlPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210501:SqlPool"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210501:SqlPool"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:SqlPool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:SqlPool"),
 		},
 	})
 	opts = append(opts, aliases)

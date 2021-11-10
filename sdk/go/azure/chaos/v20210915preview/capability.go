@@ -44,13 +44,7 @@ func NewCapability(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:chaos/v20210915preview:Capability"),
-		},
-		{
 			Type: pulumi.String("azure-native:chaos:Capability"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:chaos:Capability"),
 		},
 	})
 	opts = append(opts, aliases)

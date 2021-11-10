@@ -42,13 +42,7 @@ func NewCustomerEvent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:testbase:CustomerEvent"),
-		},
-		{
 			Type: pulumi.String("azure-native:testbase/v20201216preview:CustomerEvent"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:testbase/v20201216preview:CustomerEvent"),
 		},
 	})
 	opts = append(opts, aliases)

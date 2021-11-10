@@ -70,11 +70,8 @@ namespace Pulumi.AzureNative.Purview.V20210701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:purview/v20210701:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:purview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:purview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:purview/v20201201preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:purview/v20201201preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

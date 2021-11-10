@@ -49,9 +49,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:ServerCollector"},
                     new Pulumi.Alias { Type = "azure-native:migrate:ServerCollector"},
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate:ServerCollector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

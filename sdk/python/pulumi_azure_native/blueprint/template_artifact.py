@@ -280,7 +280,7 @@ class TemplateArtifact(pulumi.CustomResource):
             __props__.__dict__["template"] = template
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:blueprint:TemplateArtifact"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:TemplateArtifact"), pulumi.Alias(type_="azure-nextgen:blueprint/v20181101preview:TemplateArtifact")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:blueprint/v20181101preview:TemplateArtifact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TemplateArtifact, __self__).__init__(
             'azure-native:blueprint:TemplateArtifact',

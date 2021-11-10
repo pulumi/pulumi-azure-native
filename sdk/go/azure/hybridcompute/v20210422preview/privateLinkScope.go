@@ -34,49 +34,25 @@ func NewPrivateLinkScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210422preview:PrivateLinkScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute:PrivateLinkScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute:PrivateLinkScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20200815preview:PrivateLinkScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210128preview:PrivateLinkScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210128preview:PrivateLinkScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210325preview:PrivateLinkScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210325preview:PrivateLinkScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210517preview:PrivateLinkScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210517preview:PrivateLinkScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210520:PrivateLinkScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210520:PrivateLinkScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210610preview:PrivateLinkScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210610preview:PrivateLinkScope"),
 		},
 	})
 	opts = append(opts, aliases)

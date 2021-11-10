@@ -45,19 +45,10 @@ func NewCapacityReservation(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:compute/v20210701:CapacityReservation"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute:CapacityReservation"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:compute:CapacityReservation"),
-		},
-		{
 			Type: pulumi.String("azure-native:compute/v20210401:CapacityReservation"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:compute/v20210401:CapacityReservation"),
 		},
 	})
 	opts = append(opts, aliases)

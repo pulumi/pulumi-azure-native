@@ -37,19 +37,10 @@ func NewSqlServer(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:azuredata/v20170301preview:SqlServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:azuredata:SqlServer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:azuredata:SqlServer"),
-		},
-		{
 			Type: pulumi.String("azure-native:azuredata/v20190724preview:SqlServer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:azuredata/v20190724preview:SqlServer"),
 		},
 	})
 	opts = append(opts, aliases)

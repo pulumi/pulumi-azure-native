@@ -76,23 +76,14 @@ namespace Pulumi.AzureNative.Network.V20191101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-native:network:FirewallPolicyRuleGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190601:FirewallPolicyRuleGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190601:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190701:FirewallPolicyRuleGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190701:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190801:FirewallPolicyRuleGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190801:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190901:FirewallPolicyRuleGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190901:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20191201:FirewallPolicyRuleGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191201:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200301:FirewallPolicyRuleGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200301:FirewallPolicyRuleGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:FirewallPolicyRuleGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:FirewallPolicyRuleGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

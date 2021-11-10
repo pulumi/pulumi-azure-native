@@ -133,7 +133,7 @@ export class ArcSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurestackhci/v20210101preview:ArcSetting" }, { type: "azure-native:azurestackhci:ArcSetting" }, { type: "azure-nextgen:azurestackhci:ArcSetting" }, { type: "azure-native:azurestackhci/v20210901:ArcSetting" }, { type: "azure-nextgen:azurestackhci/v20210901:ArcSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:ArcSetting" }, { type: "azure-native:azurestackhci/v20210901:ArcSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArcSetting.__pulumiType, name, inputs, opts);
     }

@@ -127,7 +127,7 @@ export class CommunicationService extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:communication:CommunicationService" }, { type: "azure-native:communication/v20200820:CommunicationService" }, { type: "azure-nextgen:communication/v20200820:CommunicationService" }, { type: "azure-native:communication/v20200820preview:CommunicationService" }, { type: "azure-nextgen:communication/v20200820preview:CommunicationService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20200820:CommunicationService" }, { type: "azure-native:communication/v20200820preview:CommunicationService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommunicationService.__pulumiType, name, inputs, opts);
     }

@@ -120,25 +120,15 @@ namespace Pulumi.AzureNative.Kusto.V20200918
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20190121:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20190515:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190515:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20190907:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20191109:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200215:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200614:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210101:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210101:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210827:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210827:IotHubDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

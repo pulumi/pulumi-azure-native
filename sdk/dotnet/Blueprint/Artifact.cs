@@ -60,9 +60,7 @@ namespace Pulumi.AzureNative.Blueprint
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:blueprint:Artifact"},
                     new Pulumi.Alias { Type = "azure-native:blueprint/v20181101preview:Artifact"},
-                    new Pulumi.Alias { Type = "azure-nextgen:blueprint/v20181101preview:Artifact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

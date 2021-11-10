@@ -132,7 +132,7 @@ export class NotificationChannel extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:devtestlab/v20180915:NotificationChannel" }, { type: "azure-native:devtestlab:NotificationChannel" }, { type: "azure-nextgen:devtestlab:NotificationChannel" }, { type: "azure-native:devtestlab/v20160515:NotificationChannel" }, { type: "azure-nextgen:devtestlab/v20160515:NotificationChannel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:NotificationChannel" }, { type: "azure-native:devtestlab/v20160515:NotificationChannel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationChannel.__pulumiType, name, inputs, opts);
     }

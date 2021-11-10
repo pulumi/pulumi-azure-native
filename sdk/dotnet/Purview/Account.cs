@@ -150,11 +150,8 @@ namespace Pulumi.AzureNative.Purview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:purview:Account"},
                     new Pulumi.Alias { Type = "azure-native:purview/v20201201preview:Account"},
-                    new Pulumi.Alias { Type = "azure-nextgen:purview/v20201201preview:Account"},
                     new Pulumi.Alias { Type = "azure-native:purview/v20210701:Account"},
-                    new Pulumi.Alias { Type = "azure-nextgen:purview/v20210701:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

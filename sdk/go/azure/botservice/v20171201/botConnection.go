@@ -39,37 +39,19 @@ func NewBotConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:botservice/v20171201:BotConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:botservice:BotConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:botservice:BotConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:botservice/v20180712:BotConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:botservice/v20180712:BotConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:botservice/v20200602:BotConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:botservice/v20200602:BotConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:botservice/v20210301:BotConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:botservice/v20210301:BotConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:botservice/v20210501preview:BotConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:botservice/v20210501preview:BotConnection"),
 		},
 	})
 	opts = append(opts, aliases)

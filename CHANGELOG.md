@@ -3,6 +3,11 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+- Remove aliases from `azure-nextgen` resources. If you need to update from `azure-nextgen`
+  versions, please update to 1.45.0 or earlier first, run `pulumi up` successfully, then
+  update to later versions.
+  [#1284](https://github.com/pulumi/pulumi-azure-native/issues/1284)
+
 #### Enhancements:
 
 - Fixed replacement of ServiceBus Topics & Queues

@@ -37,31 +37,16 @@ func NewWebPubSubPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:webpubsub:WebPubSubPrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:webpubsub:WebPubSubPrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:webpubsub/v20211001:WebPubSubPrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

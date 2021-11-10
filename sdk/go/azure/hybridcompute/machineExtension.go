@@ -43,73 +43,37 @@ func NewMachineExtension(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute:MachineExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20190802preview:MachineExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20190802preview:MachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20191212:MachineExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20191212:MachineExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20200730preview:MachineExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20200730preview:MachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20200802:MachineExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20200802:MachineExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20200815preview:MachineExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20200815preview:MachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210128preview:MachineExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210128preview:MachineExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210325preview:MachineExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210325preview:MachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210422preview:MachineExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210422preview:MachineExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210517preview:MachineExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210517preview:MachineExtension"),
 		},
 		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210520:MachineExtension"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210520:MachineExtension"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridcompute/v20210610preview:MachineExtension"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridcompute/v20210610preview:MachineExtension"),
 		},
 	})
 	opts = append(opts, aliases)

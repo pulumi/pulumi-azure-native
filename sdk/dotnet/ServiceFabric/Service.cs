@@ -137,23 +137,14 @@ namespace Pulumi.AzureNative.ServiceFabric
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190601preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20191101preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200301:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20201201preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210601:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

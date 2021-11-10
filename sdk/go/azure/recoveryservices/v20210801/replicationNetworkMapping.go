@@ -44,61 +44,31 @@ func NewReplicationNetworkMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ReplicationNetworkMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:ReplicationNetworkMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationNetworkMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationNetworkMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationNetworkMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180110:ReplicationNetworkMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationNetworkMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationNetworkMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationNetworkMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:ReplicationNetworkMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ReplicationNetworkMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ReplicationNetworkMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ReplicationNetworkMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ReplicationNetworkMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ReplicationNetworkMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ReplicationNetworkMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationNetworkMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationNetworkMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationNetworkMapping"),
 		},
 	})
 	opts = append(opts, aliases)

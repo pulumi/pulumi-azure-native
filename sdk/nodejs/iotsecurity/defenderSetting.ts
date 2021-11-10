@@ -107,7 +107,7 @@ export class DefenderSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:iotsecurity:DefenderSetting" }, { type: "azure-native:iotsecurity/v20210201preview:DefenderSetting" }, { type: "azure-nextgen:iotsecurity/v20210201preview:DefenderSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotsecurity/v20210201preview:DefenderSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefenderSetting.__pulumiType, name, inputs, opts);
     }

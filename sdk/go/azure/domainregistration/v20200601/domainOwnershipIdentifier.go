@@ -35,67 +35,34 @@ func NewDomainOwnershipIdentifier(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:domainregistration/v20200601:DomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:domainregistration:DomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:domainregistration:DomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:domainregistration/v20150401:DomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:domainregistration/v20150401:DomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:domainregistration/v20180201:DomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:domainregistration/v20180201:DomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:domainregistration/v20190801:DomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:domainregistration/v20190801:DomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:domainregistration/v20200901:DomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:domainregistration/v20200901:DomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:domainregistration/v20201001:DomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:domainregistration/v20201001:DomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:domainregistration/v20201201:DomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:domainregistration/v20201201:DomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:domainregistration/v20210101:DomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:domainregistration/v20210101:DomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:domainregistration/v20210115:DomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:domainregistration/v20210115:DomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:domainregistration/v20210201:DomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:domainregistration/v20210201:DomainOwnershipIdentifier"),
 		},
 	})
 	opts = append(opts, aliases)

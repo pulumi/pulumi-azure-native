@@ -85,7 +85,7 @@ export class ServiceTask extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datamigration/v20180715preview:ServiceTask" }, { type: "azure-native:datamigration/v20210630:ServiceTask" }, { type: "azure-nextgen:datamigration/v20210630:ServiceTask" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20210630:ServiceTask" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceTask.__pulumiType, name, inputs, opts);
     }

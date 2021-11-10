@@ -38,55 +38,28 @@ func NewVirtualHubBgpConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHubBgpConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:VirtualHubBgpConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:VirtualHubBgpConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:VirtualHubBgpConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualHubBgpConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:VirtualHubBgpConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHubBgpConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:VirtualHubBgpConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualHubBgpConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:VirtualHubBgpConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:VirtualHubBgpConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210201:VirtualHubBgpConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:VirtualHubBgpConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210301:VirtualHubBgpConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:VirtualHubBgpConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:VirtualHubBgpConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:VirtualHubBgpConnection"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -171,7 +171,7 @@ class LinkedWorkspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200515preview:LinkedWorkspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:LinkedWorkspace"), pulumi.Alias(type_="azure-nextgen:machinelearningservices/v20200501preview:LinkedWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:LinkedWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedWorkspace, __self__).__init__(
             'azure-native:machinelearningservices/v20200515preview:LinkedWorkspace',

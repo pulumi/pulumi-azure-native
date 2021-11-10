@@ -125,9 +125,7 @@ namespace Pulumi.AzureNative.HanaOnAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:hanaonazure:HanaInstance"},
                     new Pulumi.Alias { Type = "azure-native:hanaonazure/v20171103preview:HanaInstance"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hanaonazure/v20171103preview:HanaInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

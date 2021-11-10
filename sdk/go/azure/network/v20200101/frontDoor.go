@@ -45,37 +45,19 @@ func NewFrontDoor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200101:FrontDoor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:FrontDoor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:FrontDoor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190401:FrontDoor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:FrontDoor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190501:FrontDoor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190501:FrontDoor"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200401:FrontDoor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:FrontDoor"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200501:FrontDoor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:FrontDoor"),
 		},
 	})
 	opts = append(opts, aliases)

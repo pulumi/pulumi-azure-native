@@ -40,13 +40,7 @@ func NewConnectionMonitorTest(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:peering/v20210601:ConnectionMonitorTest"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering:ConnectionMonitorTest"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:peering:ConnectionMonitorTest"),
 		},
 	})
 	opts = append(opts, aliases)

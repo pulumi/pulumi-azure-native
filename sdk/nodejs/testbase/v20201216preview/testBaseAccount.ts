@@ -115,7 +115,7 @@ export class TestBaseAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:testbase/v20201216preview:TestBaseAccount" }, { type: "azure-native:testbase:TestBaseAccount" }, { type: "azure-nextgen:testbase:TestBaseAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase:TestBaseAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TestBaseAccount.__pulumiType, name, inputs, opts);
     }

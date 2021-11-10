@@ -107,9 +107,7 @@ namespace Pulumi.AzureNative.Quantum
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:quantum:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:quantum/v20191104preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:quantum/v20191104preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -97,7 +97,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20201001preview:SynchronizationSetting" }, { type: "azure-native:datashare:SynchronizationSetting" }, { type: "azure-nextgen:datashare:SynchronizationSetting" }, { type: "azure-native:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-native:datashare/v20191101:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20191101:SynchronizationSetting" }, { type: "azure-native:datashare/v20200901:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20200901:SynchronizationSetting" }, { type: "azure-native:datashare/v20210801:SynchronizationSetting" }, { type: "azure-nextgen:datashare/v20210801:SynchronizationSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:SynchronizationSetting" }, { type: "azure-native:datashare/v20181101preview:SynchronizationSetting" }, { type: "azure-native:datashare/v20191101:SynchronizationSetting" }, { type: "azure-native:datashare/v20200901:SynchronizationSetting" }, { type: "azure-native:datashare/v20210801:SynchronizationSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SynchronizationSetting.__pulumiType, name, inputs, opts);
     }

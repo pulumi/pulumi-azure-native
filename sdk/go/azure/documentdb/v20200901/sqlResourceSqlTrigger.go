@@ -45,97 +45,49 @@ func NewSqlResourceSqlTrigger(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200901:SqlResourceSqlTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb:SqlResourceSqlTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:SqlResourceSqlTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20190801:SqlResourceSqlTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20191212:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20191212:SqlResourceSqlTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200301:SqlResourceSqlTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200301:SqlResourceSqlTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200401:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200401:SqlResourceSqlTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200601preview:SqlResourceSqlTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210115:SqlResourceSqlTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210301preview:SqlResourceSqlTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:SqlResourceSqlTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210315:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210315:SqlResourceSqlTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210401preview:SqlResourceSqlTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:SqlResourceSqlTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210415:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210415:SqlResourceSqlTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210515:SqlResourceSqlTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210515:SqlResourceSqlTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210615:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210615:SqlResourceSqlTrigger"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:SqlResourceSqlTrigger"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:SqlResourceSqlTrigger"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:SqlResourceSqlTrigger"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20211015:SqlResourceSqlTrigger"),
 		},
 	})
 	opts = append(opts, aliases)

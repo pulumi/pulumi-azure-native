@@ -82,9 +82,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20210601preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

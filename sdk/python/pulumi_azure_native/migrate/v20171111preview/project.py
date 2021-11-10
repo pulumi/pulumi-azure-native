@@ -216,7 +216,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["number_of_machines"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate/v20171111preview:Project"), pulumi.Alias(type_="azure-native:migrate/v20180202:Project"), pulumi.Alias(type_="azure-nextgen:migrate/v20180202:Project")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20180202:Project")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Project, __self__).__init__(
             'azure-native:migrate/v20171111preview:Project',

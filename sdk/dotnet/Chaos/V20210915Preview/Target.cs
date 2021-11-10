@@ -70,9 +70,7 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:chaos/v20210915preview:Target"},
                     new Pulumi.Alias { Type = "azure-native:chaos:Target"},
-                    new Pulumi.Alias { Type = "azure-nextgen:chaos:Target"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -64,11 +64,8 @@ namespace Pulumi.AzureNative.Elastic.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:elastic/v20200701preview:TagRule"},
                     new Pulumi.Alias { Type = "azure-native:elastic:TagRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:elastic:TagRule"},
                     new Pulumi.Alias { Type = "azure-native:elastic/v20200701:TagRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:elastic/v20200701:TagRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

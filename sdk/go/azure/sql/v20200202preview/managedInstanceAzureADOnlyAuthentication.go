@@ -37,37 +37,19 @@ func NewManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:ManagedInstanceAzureADOnlyAuthentication"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:ManagedInstanceAzureADOnlyAuthentication"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:ManagedInstanceAzureADOnlyAuthentication"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ManagedInstanceAzureADOnlyAuthentication"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:ManagedInstanceAzureADOnlyAuthentication"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ManagedInstanceAzureADOnlyAuthentication"),
 		},
 	})
 	opts = append(opts, aliases)

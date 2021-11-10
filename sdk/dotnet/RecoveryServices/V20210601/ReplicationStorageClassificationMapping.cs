@@ -64,25 +64,15 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210601:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180110:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20180710:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210210:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210210:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210301:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210301:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210401:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210401:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210701:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210701:ReplicationStorageClassificationMapping"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20210801:ReplicationStorageClassificationMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:recoveryservices/v20210801:ReplicationStorageClassificationMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

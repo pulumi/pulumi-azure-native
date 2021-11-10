@@ -128,7 +128,7 @@ export class SqlDWTableDataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20191101:SqlDWTableDataSet" }, { type: "azure-native:datashare:SqlDWTableDataSet" }, { type: "azure-nextgen:datashare:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20181101preview:SqlDWTableDataSet" }, { type: "azure-nextgen:datashare/v20181101preview:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20200901:SqlDWTableDataSet" }, { type: "azure-nextgen:datashare/v20200901:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20201001preview:SqlDWTableDataSet" }, { type: "azure-nextgen:datashare/v20201001preview:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20210801:SqlDWTableDataSet" }, { type: "azure-nextgen:datashare/v20210801:SqlDWTableDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20181101preview:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20200901:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20201001preview:SqlDWTableDataSet" }, { type: "azure-native:datashare/v20210801:SqlDWTableDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlDWTableDataSet.__pulumiType, name, inputs, opts);
     }

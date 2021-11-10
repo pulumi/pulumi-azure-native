@@ -41,61 +41,31 @@ func NewReplicationStorageClassificationMapping(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180110:ReplicationStorageClassificationMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices:ReplicationStorageClassificationMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices:ReplicationStorageClassificationMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20160810:ReplicationStorageClassificationMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20160810:ReplicationStorageClassificationMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20180710:ReplicationStorageClassificationMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20180710:ReplicationStorageClassificationMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210210:ReplicationStorageClassificationMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210210:ReplicationStorageClassificationMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210301:ReplicationStorageClassificationMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210301:ReplicationStorageClassificationMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210401:ReplicationStorageClassificationMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210401:ReplicationStorageClassificationMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210601:ReplicationStorageClassificationMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210601:ReplicationStorageClassificationMapping"),
 		},
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210701:ReplicationStorageClassificationMapping"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210701:ReplicationStorageClassificationMapping"),
-		},
-		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ReplicationStorageClassificationMapping"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:recoveryservices/v20210801:ReplicationStorageClassificationMapping"),
 		},
 	})
 	opts = append(opts, aliases)

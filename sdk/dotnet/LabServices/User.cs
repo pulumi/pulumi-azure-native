@@ -113,9 +113,7 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:labservices:User"},
                     new Pulumi.Alias { Type = "azure-native:labservices/v20181015:User"},
-                    new Pulumi.Alias { Type = "azure-nextgen:labservices/v20181015:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -64,21 +64,13 @@ namespace Pulumi.AzureNative.Devices.V20170821Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20170821preview:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devices:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20171115:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20171115:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20180122:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20180122:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20200101:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200101:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20200301:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200301:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20200901preview:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20200901preview:DpsCertificate"},
                     new Pulumi.Alias { Type = "azure-native:devices/v20211015:DpsCertificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devices/v20211015:DpsCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

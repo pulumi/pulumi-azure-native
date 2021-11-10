@@ -55,25 +55,13 @@ func NewThreatIntelligenceAlertRule(ctx *pulumi.Context,
 	args.Kind = pulumi.String("ThreatIntelligence")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceAlertRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights:ThreatIntelligenceAlertRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityinsights:ThreatIntelligenceAlertRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20200101:ThreatIntelligenceAlertRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20200101:ThreatIntelligenceAlertRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights/v20210301preview:ThreatIntelligenceAlertRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:ThreatIntelligenceAlertRule"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -40,19 +40,10 @@ func NewDevice(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:hybridnetwork/v20210501:Device"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridnetwork:Device"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:hybridnetwork:Device"),
-		},
-		{
 			Type: pulumi.String("azure-native:hybridnetwork/v20200101preview:Device"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:hybridnetwork/v20200101preview:Device"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -98,9 +98,7 @@ namespace Pulumi.AzureNative.Cdn
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:AFDEndpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:AFDEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

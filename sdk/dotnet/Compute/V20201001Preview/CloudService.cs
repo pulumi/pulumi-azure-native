@@ -70,11 +70,8 @@ namespace Pulumi.AzureNative.Compute.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20201001preview:CloudService"},
                     new Pulumi.Alias { Type = "azure-native:compute:CloudService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute:CloudService"},
                     new Pulumi.Alias { Type = "azure-native:compute/v20210301:CloudService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:compute/v20210301:CloudService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

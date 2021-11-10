@@ -40,25 +40,13 @@ func NewVirtualNetworkResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:VirtualNetworkResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab:VirtualNetworkResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab:VirtualNetworkResource"),
 		},
 		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:VirtualNetworkResource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:VirtualNetworkResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20180915:VirtualNetworkResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:VirtualNetworkResource"),
 		},
 	})
 	opts = append(opts, aliases)

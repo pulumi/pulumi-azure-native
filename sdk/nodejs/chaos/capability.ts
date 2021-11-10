@@ -98,7 +98,7 @@ export class Capability extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:chaos:Capability" }, { type: "azure-native:chaos/v20210915preview:Capability" }, { type: "azure-nextgen:chaos/v20210915preview:Capability" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20210915preview:Capability" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Capability.__pulumiType, name, inputs, opts);
     }

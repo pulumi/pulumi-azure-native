@@ -35,19 +35,10 @@ func NewEdgeModule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer/v20211101preview:EdgeModule"),
-		},
-		{
 			Type: pulumi.String("azure-native:videoanalyzer:EdgeModule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer:EdgeModule"),
-		},
-		{
 			Type: pulumi.String("azure-native:videoanalyzer/v20210501preview:EdgeModule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer/v20210501preview:EdgeModule"),
 		},
 	})
 	opts = append(opts, aliases)

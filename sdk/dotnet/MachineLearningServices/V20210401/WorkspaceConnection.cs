@@ -82,21 +82,13 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210401:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200601:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200601:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200801:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200801:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200901preview:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210101:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210101:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210301preview:WorkspaceConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:WorkspaceConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20210701:WorkspaceConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

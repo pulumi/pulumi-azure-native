@@ -129,7 +129,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:mixedreality/v20200501:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality:SpatialAnchorsAccount" }, { type: "azure-nextgen:mixedreality:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount" }, { type: "azure-nextgen:mixedreality/v20190228preview:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount" }, { type: "azure-nextgen:mixedreality/v20191202preview:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20210101:SpatialAnchorsAccount" }, { type: "azure-nextgen:mixedreality/v20210101:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount" }, { type: "azure-nextgen:mixedreality/v20210301preview:SpatialAnchorsAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mixedreality:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20191202preview:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20210101:SpatialAnchorsAccount" }, { type: "azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SpatialAnchorsAccount.__pulumiType, name, inputs, opts);
     }

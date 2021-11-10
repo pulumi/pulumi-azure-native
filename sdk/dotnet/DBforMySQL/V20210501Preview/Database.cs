@@ -70,13 +70,9 @@ namespace Pulumi.AzureNative.DBforMySQL.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20210501preview:Database"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Database"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200701preview:Database"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Database"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200701privatepreview:Database"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Database"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20210501:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

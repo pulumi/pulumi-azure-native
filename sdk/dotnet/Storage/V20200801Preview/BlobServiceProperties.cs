@@ -112,25 +112,15 @@ namespace Pulumi.AzureNative.Storage.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20180701:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20180701:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20181101:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190401:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190601:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210401:BlobServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:BlobServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210601:BlobServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

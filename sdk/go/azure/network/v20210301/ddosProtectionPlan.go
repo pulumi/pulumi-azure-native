@@ -36,163 +36,82 @@ func NewDdosProtectionPlan(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180201:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180201:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180401:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180401:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180601:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180601:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180701:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180701:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180801:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181001:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181101:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181201:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190201:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190401:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190601:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190701:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190801:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190901:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191101:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:DdosProtectionPlan"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:DdosProtectionPlan"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:DdosProtectionPlan"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:DdosProtectionPlan"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:DdosProtectionPlan"),
 		},
 	})
 	opts = append(opts, aliases)

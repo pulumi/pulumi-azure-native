@@ -174,7 +174,7 @@ class RestorePointCollection(pulumi.CustomResource):
             __props__.__dict__["restore_point_collection_id"] = None
             __props__.__dict__["restore_points"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:compute/v20210401:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute:RestorePointCollection"), pulumi.Alias(type_="azure-nextgen:compute:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20210301:RestorePointCollection"), pulumi.Alias(type_="azure-nextgen:compute/v20210301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20210701:RestorePointCollection"), pulumi.Alias(type_="azure-nextgen:compute/v20210701:RestorePointCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20210301:RestorePointCollection"), pulumi.Alias(type_="azure-native:compute/v20210701:RestorePointCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RestorePointCollection, __self__).__init__(
             'azure-native:compute/v20210401:RestorePointCollection',

@@ -39,37 +39,19 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20210601preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:keyvault/v20180214:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20180214:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20190901:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20190901:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:keyvault/v20200401preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20200401preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:keyvault/v20210401preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:keyvault/v20210401preview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -112,23 +112,14 @@ namespace Pulumi.AzureNative.Web.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20190801:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20200901:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:StaticSite"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210201:StaticSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

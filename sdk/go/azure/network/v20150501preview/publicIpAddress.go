@@ -46,241 +46,121 @@ func NewPublicIpAddress(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20150501preview:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20150615:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20150615:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20160330:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20160330:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20160601:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20160601:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20160901:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20160901:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20161201:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20161201:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20170301:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20170301:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20170601:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170601:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20170801:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20170801:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20170901:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20170901:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20171001:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20171001:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20171101:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20171101:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180101:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180101:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180201:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180201:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180401:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180401:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180601:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180601:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20180701:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20180701:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20180801:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20180801:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181001:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181001:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20181101:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20181101:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20181201:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20181201:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190201:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190201:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190401:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190401:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190601:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190601:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190701:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190701:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190801:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190801:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20190901:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20191101:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:PublicIpAddress"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:PublicIpAddress"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:PublicIpAddress"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:PublicIpAddress"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:PublicIpAddress"),
 		},
 	})
 	opts = append(opts, aliases)

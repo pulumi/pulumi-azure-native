@@ -132,11 +132,8 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:EventGridDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

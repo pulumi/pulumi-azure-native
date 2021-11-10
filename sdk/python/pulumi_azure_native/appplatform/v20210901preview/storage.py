@@ -153,7 +153,7 @@ class Storage(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:appplatform/v20210901preview:Storage"), pulumi.Alias(type_="azure-native:appplatform:Storage"), pulumi.Alias(type_="azure-nextgen:appplatform:Storage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:Storage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Storage, __self__).__init__(
             'azure-native:appplatform/v20210901preview:Storage',

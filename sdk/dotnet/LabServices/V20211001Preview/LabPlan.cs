@@ -118,9 +118,7 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:labservices/v20211001preview:LabPlan"},
                     new Pulumi.Alias { Type = "azure-native:labservices:LabPlan"},
-                    new Pulumi.Alias { Type = "azure-nextgen:labservices:LabPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

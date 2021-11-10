@@ -83,9 +83,7 @@ namespace Pulumi.AzureNative.CostManagement
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement:Report"},
                     new Pulumi.Alias { Type = "azure-native:costmanagement/v20180801preview:Report"},
-                    new Pulumi.Alias { Type = "azure-nextgen:costmanagement/v20180801preview:Report"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

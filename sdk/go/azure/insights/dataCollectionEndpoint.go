@@ -41,13 +41,7 @@ func NewDataCollectionEndpoint(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:insights:DataCollectionEndpoint"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20210401:DataCollectionEndpoint"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/v20210401:DataCollectionEndpoint"),
 		},
 	})
 	opts = append(opts, aliases)

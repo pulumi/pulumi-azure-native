@@ -56,43 +56,22 @@ func NewService(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:search/v20200801:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:search:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:search:Service"),
 		},
 		{
 			Type: pulumi.String("azure-native:search/v20150819:Service"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:search/v20150819:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:search/v20191001preview:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:search/v20191001preview:Service"),
 		},
 		{
 			Type: pulumi.String("azure-native:search/v20200313:Service"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:search/v20200313:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:search/v20200801preview:Service"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:search/v20200801preview:Service"),
-		},
-		{
 			Type: pulumi.String("azure-native:search/v20210401preview:Service"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:search/v20210401preview:Service"),
 		},
 	})
 	opts = append(opts, aliases)

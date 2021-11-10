@@ -144,7 +144,7 @@ export class BlobFolderDataSet extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20210801:BlobFolderDataSet" }, { type: "azure-native:datashare:BlobFolderDataSet" }, { type: "azure-nextgen:datashare:BlobFolderDataSet" }, { type: "azure-native:datashare/v20181101preview:BlobFolderDataSet" }, { type: "azure-nextgen:datashare/v20181101preview:BlobFolderDataSet" }, { type: "azure-native:datashare/v20191101:BlobFolderDataSet" }, { type: "azure-nextgen:datashare/v20191101:BlobFolderDataSet" }, { type: "azure-native:datashare/v20200901:BlobFolderDataSet" }, { type: "azure-nextgen:datashare/v20200901:BlobFolderDataSet" }, { type: "azure-native:datashare/v20201001preview:BlobFolderDataSet" }, { type: "azure-nextgen:datashare/v20201001preview:BlobFolderDataSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:BlobFolderDataSet" }, { type: "azure-native:datashare/v20181101preview:BlobFolderDataSet" }, { type: "azure-native:datashare/v20191101:BlobFolderDataSet" }, { type: "azure-native:datashare/v20200901:BlobFolderDataSet" }, { type: "azure-native:datashare/v20201001preview:BlobFolderDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BlobFolderDataSet.__pulumiType, name, inputs, opts);
     }

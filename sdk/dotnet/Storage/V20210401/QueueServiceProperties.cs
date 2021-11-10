@@ -58,19 +58,12 @@ namespace Pulumi.AzureNative.Storage.V20210401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210401:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage:QueueServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190601:QueueServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:QueueServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:QueueServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:QueueServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:QueueServiceProperties"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:QueueServiceProperties"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210601:QueueServiceProperties"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

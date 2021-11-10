@@ -130,13 +130,9 @@ namespace Pulumi.AzureNative.Network.V20180901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20180901:PrivateRecordSet"},
                     new Pulumi.Alias { Type = "azure-native:network:PrivateRecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:PrivateRecordSet"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200101:PrivateRecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200101:PrivateRecordSet"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:PrivateRecordSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:PrivateRecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -115,7 +115,7 @@ export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.Cust
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:m365securityandcompliance:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-nextgen:m365securityandcompliance/v20210325preview:privateLinkServicesForO365ManagementActivityAPI" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForO365ManagementActivityAPI" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForO365ManagementActivityAPI.__pulumiType, name, inputs, opts);
     }

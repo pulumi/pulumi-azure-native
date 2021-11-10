@@ -71,127 +71,64 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210301preview:DatabaseAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb:DatabaseAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20150401:DatabaseAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20150401:DatabaseAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20150408:DatabaseAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20150408:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20151106:DatabaseAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20151106:DatabaseAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20160319:DatabaseAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20160319:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20160331:DatabaseAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20160331:DatabaseAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20190801:DatabaseAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20190801:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20191212:DatabaseAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20191212:DatabaseAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200301:DatabaseAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200301:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200401:DatabaseAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200401:DatabaseAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20200601preview:DatabaseAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200601preview:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20200901:DatabaseAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20200901:DatabaseAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210115:DatabaseAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210115:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210315:DatabaseAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210315:DatabaseAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210401preview:DatabaseAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210401preview:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210415:DatabaseAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210415:DatabaseAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210515:DatabaseAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210515:DatabaseAccount"),
 		},
 		{
 			Type: pulumi.String("azure-native:documentdb/v20210615:DatabaseAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210615:DatabaseAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20210701preview:DatabaseAccount"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20210701preview:DatabaseAccount"),
-		},
-		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:DatabaseAccount"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:documentdb/v20211015:DatabaseAccount"),
 		},
 	})
 	opts = append(opts, aliases)

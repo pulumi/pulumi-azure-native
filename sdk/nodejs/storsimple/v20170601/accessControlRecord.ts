@@ -94,7 +94,7 @@ export class AccessControlRecord extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:storsimple/v20170601:AccessControlRecord" }, { type: "azure-native:storsimple:AccessControlRecord" }, { type: "azure-nextgen:storsimple:AccessControlRecord" }, { type: "azure-native:storsimple/v20161001:AccessControlRecord" }, { type: "azure-nextgen:storsimple/v20161001:AccessControlRecord" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storsimple:AccessControlRecord" }, { type: "azure-native:storsimple/v20161001:AccessControlRecord" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessControlRecord.__pulumiType, name, inputs, opts);
     }

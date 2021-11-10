@@ -70,9 +70,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20211001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices/v20211001:CommitmentPlan"},
                     new Pulumi.Alias { Type = "azure-native:cognitiveservices:CommitmentPlan"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cognitiveservices:CommitmentPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

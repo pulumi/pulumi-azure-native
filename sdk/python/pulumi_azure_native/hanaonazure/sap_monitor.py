@@ -254,7 +254,7 @@ class SapMonitor(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["sap_monitor_collector_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hanaonazure:SapMonitor"), pulumi.Alias(type_="azure-native:hanaonazure/v20200207preview:SapMonitor"), pulumi.Alias(type_="azure-nextgen:hanaonazure/v20200207preview:SapMonitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hanaonazure/v20200207preview:SapMonitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SapMonitor, __self__).__init__(
             'azure-native:hanaonazure:SapMonitor',

@@ -71,21 +71,13 @@ namespace Pulumi.AzureNative.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20140901:ConsumerGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20140901:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20150801:ConsumerGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20150801:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20170401:ConsumerGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20170401:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20180101preview:ConsumerGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20210101preview:ConsumerGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20210101preview:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:ConsumerGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20210601preview:ConsumerGroup"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:ConsumerGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20211101:ConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

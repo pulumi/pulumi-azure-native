@@ -56,9 +56,7 @@ namespace Pulumi.AzureNative.Features
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:features:SubscriptionFeatureRegistration"},
                     new Pulumi.Alias { Type = "azure-native:features/v20210701:SubscriptionFeatureRegistration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:features/v20210701:SubscriptionFeatureRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

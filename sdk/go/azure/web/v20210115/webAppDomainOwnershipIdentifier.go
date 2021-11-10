@@ -35,73 +35,37 @@ func NewWebAppDomainOwnershipIdentifier(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppDomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppDomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppDomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppDomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppDomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppDomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppDomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppDomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppDomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppDomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppDomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppDomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppDomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppDomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppDomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppDomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppDomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppDomainOwnershipIdentifier"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppDomainOwnershipIdentifier"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppDomainOwnershipIdentifier"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppDomainOwnershipIdentifier"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppDomainOwnershipIdentifier"),
 		},
 	})
 	opts = append(opts, aliases)

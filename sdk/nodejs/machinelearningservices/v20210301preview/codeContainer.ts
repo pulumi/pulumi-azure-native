@@ -87,7 +87,7 @@ export class CodeContainer extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:machinelearningservices/v20210301preview:CodeContainer" }, { type: "azure-native:machinelearningservices:CodeContainer" }, { type: "azure-nextgen:machinelearningservices:CodeContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:CodeContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CodeContainer.__pulumiType, name, inputs, opts);
     }

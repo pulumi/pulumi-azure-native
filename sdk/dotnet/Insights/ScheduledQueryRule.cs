@@ -143,15 +143,10 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:insights:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20180416:ScheduledQueryRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20180416:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20200501preview:ScheduledQueryRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20200501preview:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20210201preview:ScheduledQueryRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20210201preview:ScheduledQueryRule"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20210801:ScheduledQueryRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20210801:ScheduledQueryRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

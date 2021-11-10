@@ -43,43 +43,22 @@ func NewProperty(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:Property"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:Property"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:Property"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:Property"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20160707:Property"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20161010:Property"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20161010:Property"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:Property"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:Property"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:Property"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:Property"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:Property"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:Property"),
 		},
 	})
 	opts = append(opts, aliases)

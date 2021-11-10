@@ -153,7 +153,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datafactory/v20180601:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:datafactory:PrivateEndpointConnection"), pulumi.Alias(type_="azure-nextgen:datafactory:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datafactory:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:datafactory/v20180601:PrivateEndpointConnection',

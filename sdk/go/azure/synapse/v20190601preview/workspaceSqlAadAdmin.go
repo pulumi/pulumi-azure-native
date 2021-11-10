@@ -37,49 +37,25 @@ func NewWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse:WorkspaceSqlAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse:WorkspaceSqlAadAdmin"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20201201:WorkspaceSqlAadAdmin"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20201201:WorkspaceSqlAadAdmin"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210301:WorkspaceSqlAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210301:WorkspaceSqlAadAdmin"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210401preview:WorkspaceSqlAadAdmin"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210501:WorkspaceSqlAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210501:WorkspaceSqlAadAdmin"),
 		},
 		{
 			Type: pulumi.String("azure-native:synapse/v20210601:WorkspaceSqlAadAdmin"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601:WorkspaceSqlAadAdmin"),
-		},
-		{
 			Type: pulumi.String("azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:synapse/v20210601preview:WorkspaceSqlAadAdmin"),
 		},
 	})
 	opts = append(opts, aliases)

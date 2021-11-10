@@ -64,11 +64,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20180601:Trigger"},
                     new Pulumi.Alias { Type = "azure-native:datafactory:Trigger"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory:Trigger"},
                     new Pulumi.Alias { Type = "azure-native:datafactory/v20170901preview:Trigger"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datafactory/v20170901preview:Trigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

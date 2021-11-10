@@ -43,19 +43,10 @@ func NewIPSyncer(ctx *pulumi.Context,
 	args.Kind = pulumi.String("IPSyncer")
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20190101preview:IPSyncer"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights:IPSyncer"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights:IPSyncer"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights/v20210301preview:IPSyncer"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:IPSyncer"),
 		},
 	})
 	opts = append(opts, aliases)

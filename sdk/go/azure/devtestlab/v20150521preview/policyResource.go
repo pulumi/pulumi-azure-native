@@ -45,25 +45,13 @@ func NewPolicyResource(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20150521preview:PolicyResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab:PolicyResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab:PolicyResource"),
 		},
 		{
 			Type: pulumi.String("azure-native:devtestlab/v20160515:PolicyResource"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20160515:PolicyResource"),
-		},
-		{
 			Type: pulumi.String("azure-native:devtestlab/v20180915:PolicyResource"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:devtestlab/v20180915:PolicyResource"),
 		},
 	})
 	opts = append(opts, aliases)

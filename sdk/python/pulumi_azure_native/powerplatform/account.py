@@ -173,7 +173,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerplatform:Account"), pulumi.Alias(type_="azure-native:powerplatform/v20201030preview:Account"), pulumi.Alias(type_="azure-nextgen:powerplatform/v20201030preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerplatform/v20201030preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:powerplatform:Account',

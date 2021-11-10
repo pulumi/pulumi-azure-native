@@ -39,37 +39,19 @@ func NewChannel(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:botservice:Channel"),
-		},
-		{
 			Type: pulumi.String("azure-native:botservice/v20171201:Channel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:botservice/v20171201:Channel"),
 		},
 		{
 			Type: pulumi.String("azure-native:botservice/v20180712:Channel"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:botservice/v20180712:Channel"),
-		},
-		{
 			Type: pulumi.String("azure-native:botservice/v20200602:Channel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:botservice/v20200602:Channel"),
 		},
 		{
 			Type: pulumi.String("azure-native:botservice/v20210301:Channel"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:botservice/v20210301:Channel"),
-		},
-		{
 			Type: pulumi.String("azure-native:botservice/v20210501preview:Channel"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:botservice/v20210501preview:Channel"),
 		},
 	})
 	opts = append(opts, aliases)

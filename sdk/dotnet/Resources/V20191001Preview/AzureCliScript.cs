@@ -180,11 +180,8 @@ namespace Pulumi.AzureNative.Resources.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001preview:AzureCliScript"},
                     new Pulumi.Alias { Type = "azure-native:resources:AzureCliScript"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources:AzureCliScript"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20201001:AzureCliScript"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:AzureCliScript"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

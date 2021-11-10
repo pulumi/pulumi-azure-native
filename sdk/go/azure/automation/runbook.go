@@ -54,25 +54,13 @@ func NewRunbook(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:automation:Runbook"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20151031:Runbook"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/v20151031:Runbook"),
 		},
 		{
 			Type: pulumi.String("azure-native:automation/v20180630:Runbook"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:automation/v20180630:Runbook"),
-		},
-		{
 			Type: pulumi.String("azure-native:automation/v20190601:Runbook"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:automation/v20190601:Runbook"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -43,19 +43,10 @@ func NewArcSetting(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:azurestackhci/v20210101preview:ArcSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurestackhci:ArcSetting"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:azurestackhci:ArcSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:azurestackhci/v20210901:ArcSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:azurestackhci/v20210901:ArcSetting"),
 		},
 	})
 	opts = append(opts, aliases)

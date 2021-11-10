@@ -36,85 +36,43 @@ func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20191101:VirtualHubRouteTableV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:VirtualHubRouteTableV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:VirtualHubRouteTableV2"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20190901:VirtualHubRouteTableV2"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20190901:VirtualHubRouteTableV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20191201:VirtualHubRouteTableV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20191201:VirtualHubRouteTableV2"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200301:VirtualHubRouteTableV2"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200301:VirtualHubRouteTableV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200401:VirtualHubRouteTableV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200401:VirtualHubRouteTableV2"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200501:VirtualHubRouteTableV2"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200501:VirtualHubRouteTableV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200601:VirtualHubRouteTableV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:VirtualHubRouteTableV2"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200701:VirtualHubRouteTableV2"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:VirtualHubRouteTableV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200801:VirtualHubRouteTableV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:VirtualHubRouteTableV2"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20201101:VirtualHubRouteTableV2"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:VirtualHubRouteTableV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:VirtualHubRouteTableV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:VirtualHubRouteTableV2"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:VirtualHubRouteTableV2"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:VirtualHubRouteTableV2"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:VirtualHubRouteTableV2"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:VirtualHubRouteTableV2"),
 		},
 	})
 	opts = append(opts, aliases)

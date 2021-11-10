@@ -126,7 +126,7 @@ export class HealthAlert extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:alertsmanagement/v20200804preview:HealthAlert" }, { type: "azure-native:alertsmanagement:HealthAlert" }, { type: "azure-nextgen:alertsmanagement:HealthAlert" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement:HealthAlert" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HealthAlert.__pulumiType, name, inputs, opts);
     }

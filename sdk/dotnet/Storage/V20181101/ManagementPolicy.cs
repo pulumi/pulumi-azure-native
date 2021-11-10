@@ -64,25 +64,15 @@ namespace Pulumi.AzureNative.Storage.V20181101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20180301preview:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190401:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190601:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210401:ManagementPolicy"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:ManagementPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210601:ManagementPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -70,9 +70,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:testbase/v20201216preview:CustomerEvent"},
                     new Pulumi.Alias { Type = "azure-native:testbase:CustomerEvent"},
-                    new Pulumi.Alias { Type = "azure-nextgen:testbase:CustomerEvent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -149,7 +149,7 @@ export class ArcAddon extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:databoxedge/v20201201:ArcAddon" }, { type: "azure-native:databoxedge:ArcAddon" }, { type: "azure-nextgen:databoxedge:ArcAddon" }, { type: "azure-native:databoxedge/v20200901:ArcAddon" }, { type: "azure-nextgen:databoxedge/v20200901:ArcAddon" }, { type: "azure-native:databoxedge/v20200901preview:ArcAddon" }, { type: "azure-nextgen:databoxedge/v20200901preview:ArcAddon" }, { type: "azure-native:databoxedge/v20210201:ArcAddon" }, { type: "azure-nextgen:databoxedge/v20210201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201preview:ArcAddon" }, { type: "azure-nextgen:databoxedge/v20210201preview:ArcAddon" }, { type: "azure-native:databoxedge/v20210601:ArcAddon" }, { type: "azure-nextgen:databoxedge/v20210601:ArcAddon" }, { type: "azure-native:databoxedge/v20210601preview:ArcAddon" }, { type: "azure-nextgen:databoxedge/v20210601preview:ArcAddon" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:ArcAddon" }, { type: "azure-native:databoxedge/v20200901:ArcAddon" }, { type: "azure-native:databoxedge/v20200901preview:ArcAddon" }, { type: "azure-native:databoxedge/v20210201:ArcAddon" }, { type: "azure-native:databoxedge/v20210201preview:ArcAddon" }, { type: "azure-native:databoxedge/v20210601:ArcAddon" }, { type: "azure-native:databoxedge/v20210601preview:ArcAddon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArcAddon.__pulumiType, name, inputs, opts);
     }

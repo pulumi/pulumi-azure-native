@@ -177,7 +177,7 @@ class BandwidthSetting(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volume_count"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:storsimple:BandwidthSetting"), pulumi.Alias(type_="azure-native:storsimple/v20170601:BandwidthSetting"), pulumi.Alias(type_="azure-nextgen:storsimple/v20170601:BandwidthSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storsimple/v20170601:BandwidthSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BandwidthSetting, __self__).__init__(
             'azure-native:storsimple:BandwidthSetting',

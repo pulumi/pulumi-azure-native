@@ -196,7 +196,7 @@ class IPSyncer(pulumi.CustomResource):
             __props__.__dict__["is_enabled"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:IPSyncer"), pulumi.Alias(type_="azure-native:securityinsights:IPSyncer"), pulumi.Alias(type_="azure-nextgen:securityinsights:IPSyncer"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IPSyncer"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:IPSyncer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:IPSyncer"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IPSyncer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IPSyncer, __self__).__init__(
             'azure-native:securityinsights/v20190101preview:IPSyncer',

@@ -83,9 +83,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network:NetworkExperimentProfile"},
                     new Pulumi.Alias { Type = "azure-native:network/v20191101:NetworkExperimentProfile"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191101:NetworkExperimentProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

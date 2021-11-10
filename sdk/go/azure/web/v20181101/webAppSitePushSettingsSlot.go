@@ -44,73 +44,37 @@ func NewWebAppSitePushSettingsSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppSitePushSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppSitePushSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppSitePushSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppSitePushSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppSitePushSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppSitePushSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppSitePushSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppSitePushSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppSitePushSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppSitePushSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppSitePushSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppSitePushSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppSitePushSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppSitePushSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppSitePushSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppSitePushSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppSitePushSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppSitePushSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppSitePushSettingsSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppSitePushSettingsSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppSitePushSettingsSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppSitePushSettingsSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppSitePushSettingsSlot"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -25,12 +25,6 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 		args = &TrafficManagerUserMetricsKeyArgs{}
 	}
 
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:network/v20170901preview:TrafficManagerUserMetricsKey"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource TrafficManagerUserMetricsKey
 	err := ctx.RegisterResource("azure-native:network/v20170901preview:TrafficManagerUserMetricsKey", name, args, &resource, opts...)
 	if err != nil {

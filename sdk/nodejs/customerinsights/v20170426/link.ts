@@ -165,7 +165,7 @@ export class Link extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:customerinsights/v20170426:Link" }, { type: "azure-native:customerinsights:Link" }, { type: "azure-nextgen:customerinsights:Link" }, { type: "azure-native:customerinsights/v20170101:Link" }, { type: "azure-nextgen:customerinsights/v20170101:Link" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Link" }, { type: "azure-native:customerinsights/v20170101:Link" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Link.__pulumiType, name, inputs, opts);
     }

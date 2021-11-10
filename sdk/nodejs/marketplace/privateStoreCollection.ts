@@ -117,7 +117,7 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:marketplace:PrivateStoreCollection" }, { type: "azure-native:marketplace/v20210601:PrivateStoreCollection" }, { type: "azure-nextgen:marketplace/v20210601:PrivateStoreCollection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:marketplace/v20210601:PrivateStoreCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateStoreCollection.__pulumiType, name, inputs, opts);
     }

@@ -111,7 +111,7 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:network:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210201:VirtualNetworkGatewayNatRule" }, { type: "azure-nextgen:network/v20210201:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210301:VirtualNetworkGatewayNatRule" }, { type: "azure-nextgen:network/v20210301:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210501:VirtualNetworkGatewayNatRule" }, { type: "azure-nextgen:network/v20210501:VirtualNetworkGatewayNatRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210301:VirtualNetworkGatewayNatRule" }, { type: "azure-native:network/v20210501:VirtualNetworkGatewayNatRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetworkGatewayNatRule.__pulumiType, name, inputs, opts);
     }

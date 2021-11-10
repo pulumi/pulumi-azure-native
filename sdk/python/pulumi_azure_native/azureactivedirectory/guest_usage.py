@@ -171,7 +171,7 @@ class GuestUsage(pulumi.CustomResource):
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azureactivedirectory:GuestUsage"), pulumi.Alias(type_="azure-native:azureactivedirectory/v20200501preview:GuestUsage"), pulumi.Alias(type_="azure-nextgen:azureactivedirectory/v20200501preview:GuestUsage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azureactivedirectory/v20200501preview:GuestUsage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestUsage, __self__).__init__(
             'azure-native:azureactivedirectory:GuestUsage',

@@ -38,73 +38,37 @@ func NewRole(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190701:Role"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge:Role"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge:Role"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20190301:Role"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190301:Role"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20190801:Role"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20190801:Role"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200501preview:Role"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200501preview:Role"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901:Role"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901:Role"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20200901preview:Role"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20200901preview:Role"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20201201:Role"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20201201:Role"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201:Role"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201:Role"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210201preview:Role"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210201preview:Role"),
 		},
 		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601:Role"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601:Role"),
-		},
-		{
 			Type: pulumi.String("azure-native:databoxedge/v20210601preview:Role"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:databoxedge/v20210601preview:Role"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -53,13 +53,7 @@ func NewPipelineTopology(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer:PipelineTopology"),
-		},
-		{
 			Type: pulumi.String("azure-native:videoanalyzer/v20211101preview:PipelineTopology"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:videoanalyzer/v20211101preview:PipelineTopology"),
 		},
 	})
 	opts = append(opts, aliases)

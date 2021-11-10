@@ -39,19 +39,10 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601:VirtualNetworkRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformariadb:VirtualNetworkRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dbformariadb:VirtualNetworkRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:dbformariadb/v20180601preview:VirtualNetworkRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dbformariadb/v20180601preview:VirtualNetworkRule"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -71,19 +71,12 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:Job"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:Job"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:Job"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:Job"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:Job"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:Job"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:Job"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:Job"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:Job"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:Job"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:Job"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:Job"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:Job"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

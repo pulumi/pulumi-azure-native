@@ -49,73 +49,37 @@ func NewWebAppHybridConnectionSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHybridConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppHybridConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppHybridConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppHybridConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppHybridConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppHybridConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppHybridConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppHybridConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppHybridConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppHybridConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppHybridConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppHybridConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppHybridConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppHybridConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppHybridConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppHybridConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppHybridConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppHybridConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppHybridConnectionSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppHybridConnectionSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppHybridConnectionSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppHybridConnectionSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppHybridConnectionSlot"),
 		},
 	})
 	opts = append(opts, aliases)

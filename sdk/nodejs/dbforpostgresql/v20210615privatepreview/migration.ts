@@ -163,8 +163,6 @@ export class Migration extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:dbforpostgresql/v20210615privatepreview:Migration" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Migration.__pulumiType, name, inputs, opts);
     }
 }

@@ -75,7 +75,7 @@ export class AdvancedThreatProtection extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:security:AdvancedThreatProtection" }, { type: "azure-native:security/v20170801preview:AdvancedThreatProtection" }, { type: "azure-nextgen:security/v20170801preview:AdvancedThreatProtection" }, { type: "azure-native:security/v20190101:AdvancedThreatProtection" }, { type: "azure-nextgen:security/v20190101:AdvancedThreatProtection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20170801preview:AdvancedThreatProtection" }, { type: "azure-native:security/v20190101:AdvancedThreatProtection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AdvancedThreatProtection.__pulumiType, name, inputs, opts);
     }

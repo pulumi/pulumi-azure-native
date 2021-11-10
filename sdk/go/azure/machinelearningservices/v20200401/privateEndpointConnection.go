@@ -43,85 +43,43 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200401:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200101:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200101:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200218preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200218preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200301:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200301:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200501preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200501preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200515preview:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200515preview:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200601:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200601:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200801:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200801:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20200901preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20200901preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210101:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210101:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210301preview:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210301preview:PrivateEndpointConnection"),
 		},
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210401:PrivateEndpointConnection"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210401:PrivateEndpointConnection"),
-		},
-		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210701:PrivateEndpointConnection"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:machinelearningservices/v20210701:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

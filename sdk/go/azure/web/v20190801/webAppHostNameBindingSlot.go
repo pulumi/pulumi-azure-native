@@ -46,79 +46,40 @@ func NewWebAppHostNameBindingSlot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppHostNameBindingSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppHostNameBindingSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppHostNameBindingSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppHostNameBindingSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppHostNameBindingSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppHostNameBindingSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppHostNameBindingSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppHostNameBindingSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppHostNameBindingSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppHostNameBindingSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppHostNameBindingSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppHostNameBindingSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppHostNameBindingSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppHostNameBindingSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppHostNameBindingSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppHostNameBindingSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHostNameBindingSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppHostNameBindingSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppHostNameBindingSlot"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:WebAppHostNameBindingSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppHostNameBindingSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppHostNameBindingSlot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppHostNameBindingSlot"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppHostNameBindingSlot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppHostNameBindingSlot"),
 		},
 	})
 	opts = append(opts, aliases)

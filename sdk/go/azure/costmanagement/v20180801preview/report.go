@@ -38,13 +38,7 @@ func NewReport(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:costmanagement/v20180801preview:Report"),
-		},
-		{
 			Type: pulumi.String("azure-native:costmanagement:Report"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:costmanagement:Report"),
 		},
 	})
 	opts = append(opts, aliases)

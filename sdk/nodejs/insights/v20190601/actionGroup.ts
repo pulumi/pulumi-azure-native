@@ -171,7 +171,7 @@ export class ActionGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:insights/v20190601:ActionGroup" }, { type: "azure-native:insights:ActionGroup" }, { type: "azure-nextgen:insights:ActionGroup" }, { type: "azure-native:insights/v20170401:ActionGroup" }, { type: "azure-nextgen:insights/v20170401:ActionGroup" }, { type: "azure-native:insights/v20180301:ActionGroup" }, { type: "azure-nextgen:insights/v20180301:ActionGroup" }, { type: "azure-native:insights/v20180901:ActionGroup" }, { type: "azure-nextgen:insights/v20180901:ActionGroup" }, { type: "azure-native:insights/v20190301:ActionGroup" }, { type: "azure-nextgen:insights/v20190301:ActionGroup" }, { type: "azure-native:insights/v20210901:ActionGroup" }, { type: "azure-nextgen:insights/v20210901:ActionGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ActionGroup" }, { type: "azure-native:insights/v20170401:ActionGroup" }, { type: "azure-native:insights/v20180301:ActionGroup" }, { type: "azure-native:insights/v20180901:ActionGroup" }, { type: "azure-native:insights/v20190301:ActionGroup" }, { type: "azure-native:insights/v20210901:ActionGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActionGroup.__pulumiType, name, inputs, opts);
     }

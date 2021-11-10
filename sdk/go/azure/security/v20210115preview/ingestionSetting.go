@@ -26,13 +26,7 @@ func NewIngestionSetting(ctx *pulumi.Context,
 
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:security/v20210115preview:IngestionSetting"),
-		},
-		{
 			Type: pulumi.String("azure-native:security:IngestionSetting"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:security:IngestionSetting"),
 		},
 	})
 	opts = append(opts, aliases)

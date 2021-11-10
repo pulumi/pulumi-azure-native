@@ -199,7 +199,7 @@ export class AzureCliScript extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:resources/v20201001:AzureCliScript" }, { type: "azure-native:resources:AzureCliScript" }, { type: "azure-nextgen:resources:AzureCliScript" }, { type: "azure-native:resources/v20191001preview:AzureCliScript" }, { type: "azure-nextgen:resources/v20191001preview:AzureCliScript" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:resources:AzureCliScript" }, { type: "azure-native:resources/v20191001preview:AzureCliScript" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureCliScript.__pulumiType, name, inputs, opts);
     }

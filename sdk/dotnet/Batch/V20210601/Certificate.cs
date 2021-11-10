@@ -103,25 +103,15 @@ namespace Pulumi.AzureNative.Batch.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20210601:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20170901:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20170901:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20181201:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20181201:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20190401:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20190401:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20190801:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20190801:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20200301:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200301:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20200501:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200501:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20200901:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20200901:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:batch/v20210101:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:batch/v20210101:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

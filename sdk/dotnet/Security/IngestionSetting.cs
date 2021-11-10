@@ -53,9 +53,7 @@ namespace Pulumi.AzureNative.Security
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:security:IngestionSetting"},
                     new Pulumi.Alias { Type = "azure-native:security/v20210115preview:IngestionSetting"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security/v20210115preview:IngestionSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

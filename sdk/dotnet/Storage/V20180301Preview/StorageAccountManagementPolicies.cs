@@ -64,25 +64,15 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20180301preview:StorageAccountManagementPolicies"},
                     new Pulumi.Alias { Type = "azure-native:storage:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage:StorageAccountManagementPolicies"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20181101:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20181101:StorageAccountManagementPolicies"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190401:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190401:StorageAccountManagementPolicies"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20190601:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20190601:StorageAccountManagementPolicies"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20200801preview:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20200801preview:StorageAccountManagementPolicies"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210101:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210101:StorageAccountManagementPolicies"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210201:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210201:StorageAccountManagementPolicies"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210401:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210401:StorageAccountManagementPolicies"},
                     new Pulumi.Alias { Type = "azure-native:storage/v20210601:StorageAccountManagementPolicies"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storage/v20210601:StorageAccountManagementPolicies"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

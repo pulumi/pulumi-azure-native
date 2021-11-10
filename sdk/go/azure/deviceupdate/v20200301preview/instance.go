@@ -41,13 +41,7 @@ func NewInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:deviceupdate/v20200301preview:Instance"),
-		},
-		{
 			Type: pulumi.String("azure-native:deviceupdate:Instance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:deviceupdate:Instance"),
 		},
 	})
 	opts = append(opts, aliases)

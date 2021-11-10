@@ -101,7 +101,7 @@ export class PrivateEndpointConnectionsForMIPPolicySync extends pulumi.CustomRes
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityandcompliance:PrivateEndpointConnectionsForMIPPolicySync" }, { type: "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForMIPPolicySync" }, { type: "azure-nextgen:securityandcompliance/v20210308:PrivateEndpointConnectionsForMIPPolicySync" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForMIPPolicySync" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionsForMIPPolicySync.__pulumiType, name, inputs, opts);
     }

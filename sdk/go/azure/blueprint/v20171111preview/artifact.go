@@ -36,12 +36,6 @@ func NewArtifact(ctx *pulumi.Context,
 	if args.ManagementGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:blueprint/v20171111preview:Artifact"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource Artifact
 	err := ctx.RegisterResource("azure-native:blueprint/v20171111preview:Artifact", name, args, &resource, opts...)
 	if err != nil {

@@ -37,25 +37,13 @@ func NewManagementLockByScope(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20200501:ManagementLockByScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization:ManagementLockByScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization:ManagementLockByScope"),
 		},
 		{
 			Type: pulumi.String("azure-native:authorization/v20160901:ManagementLockByScope"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:authorization/v20160901:ManagementLockByScope"),
-		},
-		{
 			Type: pulumi.String("azure-native:authorization/v20170401:ManagementLockByScope"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:authorization/v20170401:ManagementLockByScope"),
 		},
 	})
 	opts = append(opts, aliases)

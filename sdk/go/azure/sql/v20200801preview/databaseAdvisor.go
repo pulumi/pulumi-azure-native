@@ -47,49 +47,25 @@ func NewDatabaseAdvisor(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:DatabaseAdvisor"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:DatabaseAdvisor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:DatabaseAdvisor"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20140401:DatabaseAdvisor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20140401:DatabaseAdvisor"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20150501preview:DatabaseAdvisor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20150501preview:DatabaseAdvisor"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:DatabaseAdvisor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:DatabaseAdvisor"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20201101preview:DatabaseAdvisor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:DatabaseAdvisor"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:DatabaseAdvisor"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:DatabaseAdvisor"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:DatabaseAdvisor"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:DatabaseAdvisor"),
 		},
 	})
 	opts = append(opts, aliases)

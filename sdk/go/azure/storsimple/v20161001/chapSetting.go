@@ -38,12 +38,6 @@ func NewChapSetting(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-nextgen:storsimple/v20161001:ChapSetting"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource ChapSetting
 	err := ctx.RegisterResource("azure-native:storsimple/v20161001:ChapSetting", name, args, &resource, opts...)
 	if err != nil {

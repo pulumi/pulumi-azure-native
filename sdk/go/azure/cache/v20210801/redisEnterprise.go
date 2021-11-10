@@ -43,31 +43,16 @@ func NewRedisEnterprise(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20210801:RedisEnterprise"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache:RedisEnterprise"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache:RedisEnterprise"),
 		},
 		{
 			Type: pulumi.String("azure-native:cache/v20201001preview:RedisEnterprise"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20201001preview:RedisEnterprise"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20210201preview:RedisEnterprise"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:cache/v20210201preview:RedisEnterprise"),
-		},
-		{
 			Type: pulumi.String("azure-native:cache/v20210301:RedisEnterprise"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:cache/v20210301:RedisEnterprise"),
 		},
 	})
 	opts = append(opts, aliases)

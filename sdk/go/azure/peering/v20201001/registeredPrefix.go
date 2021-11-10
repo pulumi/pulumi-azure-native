@@ -38,37 +38,19 @@ func NewRegisteredPrefix(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:peering/v20201001:RegisteredPrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering:RegisteredPrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:peering:RegisteredPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-native:peering/v20200101preview:RegisteredPrefix"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:peering/v20200101preview:RegisteredPrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering/v20200401:RegisteredPrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:peering/v20200401:RegisteredPrefix"),
 		},
 		{
 			Type: pulumi.String("azure-native:peering/v20210101:RegisteredPrefix"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:peering/v20210101:RegisteredPrefix"),
-		},
-		{
 			Type: pulumi.String("azure-native:peering/v20210601:RegisteredPrefix"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:peering/v20210601:RegisteredPrefix"),
 		},
 	})
 	opts = append(opts, aliases)

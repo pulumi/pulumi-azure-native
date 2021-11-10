@@ -47,13 +47,7 @@ func NewHealthAlert(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:alertsmanagement/v20200804preview:HealthAlert"),
-		},
-		{
 			Type: pulumi.String("azure-native:alertsmanagement:HealthAlert"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:alertsmanagement:HealthAlert"),
 		},
 	})
 	opts = append(opts, aliases)

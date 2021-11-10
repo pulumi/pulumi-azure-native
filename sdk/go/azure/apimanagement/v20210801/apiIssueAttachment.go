@@ -51,73 +51,37 @@ func NewApiIssueAttachment(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210801:ApiIssueAttachment"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement:ApiIssueAttachment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement:ApiIssueAttachment"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20170301:ApiIssueAttachment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20170301:ApiIssueAttachment"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20180101:ApiIssueAttachment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180101:ApiIssueAttachment"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20180601preview:ApiIssueAttachment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20190101:ApiIssueAttachment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20190101:ApiIssueAttachment"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201:ApiIssueAttachment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201:ApiIssueAttachment"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20191201preview:ApiIssueAttachment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20191201preview:ApiIssueAttachment"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20200601preview:ApiIssueAttachment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20200601preview:ApiIssueAttachment"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20201201:ApiIssueAttachment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20201201:ApiIssueAttachment"),
 		},
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20210101preview:ApiIssueAttachment"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210101preview:ApiIssueAttachment"),
-		},
-		{
 			Type: pulumi.String("azure-native:apimanagement/v20210401preview:ApiIssueAttachment"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:apimanagement/v20210401preview:ApiIssueAttachment"),
 		},
 	})
 	opts = append(opts, aliases)

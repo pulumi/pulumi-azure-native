@@ -43,49 +43,25 @@ func NewDscpConfiguration(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:DscpConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:DscpConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:DscpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200601:DscpConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200601:DscpConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20200701:DscpConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20200701:DscpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20200801:DscpConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20200801:DscpConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20201101:DscpConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20201101:DscpConfiguration"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:DscpConfiguration"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:DscpConfiguration"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:DscpConfiguration"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:DscpConfiguration"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -39,73 +39,37 @@ func NewDatabase(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200614:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto:Database"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20170907privatepreview:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20170907privatepreview:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20180907preview:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20180907preview:Database"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190121:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190121:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20190515:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190515:Database"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20190907:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20190907:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20191109:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20191109:Database"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20200215:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200215:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20200918:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20200918:Database"),
 		},
 		{
 			Type: pulumi.String("azure-native:kusto/v20210101:Database"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210101:Database"),
-		},
-		{
 			Type: pulumi.String("azure-native:kusto/v20210827:Database"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:kusto/v20210827:Database"),
 		},
 	})
 	opts = append(opts, aliases)

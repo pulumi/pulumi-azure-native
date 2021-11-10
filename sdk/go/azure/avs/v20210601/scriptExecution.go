@@ -51,19 +51,10 @@ func NewScriptExecution(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:avs/v20210601:ScriptExecution"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs:ScriptExecution"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:avs:ScriptExecution"),
-		},
-		{
 			Type: pulumi.String("azure-native:avs/v20211201:ScriptExecution"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:avs/v20211201:ScriptExecution"),
 		},
 	})
 	opts = append(opts, aliases)

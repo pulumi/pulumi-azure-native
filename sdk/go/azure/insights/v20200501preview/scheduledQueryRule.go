@@ -66,31 +66,16 @@ func NewScheduledQueryRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:insights/v20200501preview:ScheduledQueryRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights:ScheduledQueryRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights:ScheduledQueryRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:insights/v20180416:ScheduledQueryRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:insights/v20180416:ScheduledQueryRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20210201preview:ScheduledQueryRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:insights/v20210201preview:ScheduledQueryRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:insights/v20210801:ScheduledQueryRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:insights/v20210801:ScheduledQueryRule"),
 		},
 	})
 	opts = append(opts, aliases)

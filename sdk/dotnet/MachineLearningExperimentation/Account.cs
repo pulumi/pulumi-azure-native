@@ -125,9 +125,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningexperimentation:Account"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningexperimentation/v20170501preview:Account"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningexperimentation/v20170501preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

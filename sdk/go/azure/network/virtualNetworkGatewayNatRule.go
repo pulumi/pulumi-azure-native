@@ -39,25 +39,13 @@ func NewVirtualNetworkGatewayNatRule(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network:VirtualNetworkGatewayNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210201:VirtualNetworkGatewayNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210201:VirtualNetworkGatewayNatRule"),
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20210301:VirtualNetworkGatewayNatRule"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210301:VirtualNetworkGatewayNatRule"),
-		},
-		{
 			Type: pulumi.String("azure-native:network/v20210501:VirtualNetworkGatewayNatRule"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:VirtualNetworkGatewayNatRule"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -131,9 +131,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:connectedvmwarevsphere:Datastore"},
                     new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:Datastore"},
-                    new Pulumi.Alias { Type = "azure-nextgen:connectedvmwarevsphere/v20201001preview:Datastore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

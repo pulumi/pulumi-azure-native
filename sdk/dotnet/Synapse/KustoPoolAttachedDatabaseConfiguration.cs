@@ -101,9 +101,7 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse:KustoPoolAttachedDatabaseConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

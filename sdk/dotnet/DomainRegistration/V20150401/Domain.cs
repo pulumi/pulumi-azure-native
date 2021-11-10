@@ -158,27 +158,16 @@ namespace Pulumi.AzureNative.DomainRegistration.V20150401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20150401:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20180201:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20180201:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20190801:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20190801:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20200601:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200601:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20200901:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20200901:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20201001:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20201001:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20201201:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20201201:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20210101:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20210101:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20210115:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20210115:Domain"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20210201:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:domainregistration/v20210201:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

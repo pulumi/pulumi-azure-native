@@ -38,61 +38,31 @@ func NewManagementPolicy(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20200801preview:ManagementPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage:ManagementPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage:ManagementPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20180301preview:ManagementPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20180301preview:ManagementPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20181101:ManagementPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20181101:ManagementPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20190401:ManagementPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20190401:ManagementPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20190601:ManagementPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20190601:ManagementPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210101:ManagementPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210101:ManagementPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210201:ManagementPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210201:ManagementPolicy"),
 		},
 		{
 			Type: pulumi.String("azure-native:storage/v20210401:ManagementPolicy"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:storage/v20210401:ManagementPolicy"),
-		},
-		{
 			Type: pulumi.String("azure-native:storage/v20210601:ManagementPolicy"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:storage/v20210601:ManagementPolicy"),
 		},
 	})
 	opts = append(opts, aliases)

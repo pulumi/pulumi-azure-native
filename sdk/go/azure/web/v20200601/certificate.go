@@ -55,79 +55,40 @@ func NewCertificate(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160301:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160301:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200901:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201001:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201201:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:Certificate"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20210101:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:Certificate"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:Certificate"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:Certificate"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:Certificate"),
 		},
 	})
 	opts = append(opts, aliases)

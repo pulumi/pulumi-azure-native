@@ -49,13 +49,7 @@ func NewResourcePool(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:connectedvmwarevsphere/v20201001preview:ResourcePool"),
-		},
-		{
 			Type: pulumi.String("azure-native:connectedvmwarevsphere:ResourcePool"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:connectedvmwarevsphere:ResourcePool"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -153,7 +153,7 @@ export class ADLSGen2StorageAccountDataSetMapping extends pulumi.CustomResource 
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-nextgen:datashare:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20181101preview:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-nextgen:datashare/v20181101preview:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20191101:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-nextgen:datashare/v20191101:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20200901:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-nextgen:datashare/v20200901:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20210801:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-nextgen:datashare/v20210801:ADLSGen2StorageAccountDataSetMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20181101preview:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20191101:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20200901:ADLSGen2StorageAccountDataSetMapping" }, { type: "azure-native:datashare/v20210801:ADLSGen2StorageAccountDataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ADLSGen2StorageAccountDataSetMapping.__pulumiType, name, inputs, opts);
     }

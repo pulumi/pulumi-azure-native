@@ -35,19 +35,10 @@ func NewSnapshot(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:containerservice:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210801:Snapshot"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210801:Snapshot"),
-		},
-		{
 			Type: pulumi.String("azure-native:containerservice/v20210901:Snapshot"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:containerservice/v20210901:Snapshot"),
 		},
 	})
 	opts = append(opts, aliases)

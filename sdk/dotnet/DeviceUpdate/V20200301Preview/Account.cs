@@ -94,9 +94,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:deviceupdate/v20200301preview:Account"},
                     new Pulumi.Alias { Type = "azure-native:deviceupdate:Account"},
-                    new Pulumi.Alias { Type = "azure-nextgen:deviceupdate:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

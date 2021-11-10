@@ -64,17 +64,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20200214Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20200214privatepreview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210410privatepreview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210601:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210601preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210615privatepreview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20210615privatepreview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -35,37 +35,19 @@ func NewBackupInstance(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20210701:BackupInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:dataprotection:BackupInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dataprotection:BackupInstance"),
 		},
 		{
 			Type: pulumi.String("azure-native:dataprotection/v20210101:BackupInstance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20210101:BackupInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:dataprotection/v20210201preview:BackupInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20210201preview:BackupInstance"),
 		},
 		{
 			Type: pulumi.String("azure-native:dataprotection/v20210601preview:BackupInstance"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20210601preview:BackupInstance"),
-		},
-		{
 			Type: pulumi.String("azure-native:dataprotection/v20211001preview:BackupInstance"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:dataprotection/v20211001preview:BackupInstance"),
 		},
 	})
 	opts = append(opts, aliases)

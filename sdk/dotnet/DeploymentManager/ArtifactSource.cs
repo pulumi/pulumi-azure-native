@@ -83,11 +83,8 @@ namespace Pulumi.AzureNative.DeploymentManager
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:ArtifactSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20180901preview:ArtifactSource"},
                     new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20191101preview:ArtifactSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20191101preview:ArtifactSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

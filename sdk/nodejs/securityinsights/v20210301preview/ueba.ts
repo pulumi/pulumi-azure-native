@@ -105,7 +105,7 @@ export class Ueba extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:securityinsights/v20210301preview:Ueba" }, { type: "azure-native:securityinsights:Ueba" }, { type: "azure-nextgen:securityinsights:Ueba" }, { type: "azure-native:securityinsights/v20190101preview:Ueba" }, { type: "azure-nextgen:securityinsights/v20190101preview:Ueba" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Ueba" }, { type: "azure-native:securityinsights/v20190101preview:Ueba" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Ueba.__pulumiType, name, inputs, opts);
     }

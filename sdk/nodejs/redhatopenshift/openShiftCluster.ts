@@ -136,7 +136,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:redhatopenshift:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20200430:OpenShiftCluster" }, { type: "azure-nextgen:redhatopenshift/v20200430:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20210901preview:OpenShiftCluster" }, { type: "azure-nextgen:redhatopenshift/v20210901preview:OpenShiftCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20200430:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20210901preview:OpenShiftCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OpenShiftCluster.__pulumiType, name, inputs, opts);
     }

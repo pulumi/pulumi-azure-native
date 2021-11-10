@@ -47,55 +47,28 @@ func NewServerAzureADAdministrator(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20201101preview:ServerAzureADAdministrator"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql:ServerAzureADAdministrator"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql:ServerAzureADAdministrator"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20140401:ServerAzureADAdministrator"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20140401:ServerAzureADAdministrator"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20180601preview:ServerAzureADAdministrator"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20190601preview:ServerAzureADAdministrator"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20200202preview:ServerAzureADAdministrator"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator"),
 		},
 		{
 			Type: pulumi.String("azure-native:sql/v20200801preview:ServerAzureADAdministrator"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210201preview:ServerAzureADAdministrator"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:sql/v20210201preview:ServerAzureADAdministrator"),
-		},
-		{
 			Type: pulumi.String("azure-native:sql/v20210501preview:ServerAzureADAdministrator"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:sql/v20210501preview:ServerAzureADAdministrator"),
 		},
 	})
 	opts = append(opts, aliases)

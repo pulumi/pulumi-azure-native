@@ -82,15 +82,10 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:WorkloadNetworkDhcp"},
                     new Pulumi.Alias { Type = "azure-native:avs:WorkloadNetworkDhcp"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs:WorkloadNetworkDhcp"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:WorkloadNetworkDhcp"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:WorkloadNetworkDhcp"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210601:WorkloadNetworkDhcp"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210601:WorkloadNetworkDhcp"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20211201:WorkloadNetworkDhcp"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20211201:WorkloadNetworkDhcp"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

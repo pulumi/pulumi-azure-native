@@ -124,11 +124,8 @@ namespace Pulumi.AzureNative.Intune.V20150114Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:intune/v20150114preview:AndroidMAMPolicyByName"},
                     new Pulumi.Alias { Type = "azure-native:intune:AndroidMAMPolicyByName"},
-                    new Pulumi.Alias { Type = "azure-nextgen:intune:AndroidMAMPolicyByName"},
                     new Pulumi.Alias { Type = "azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName"},
-                    new Pulumi.Alias { Type = "azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

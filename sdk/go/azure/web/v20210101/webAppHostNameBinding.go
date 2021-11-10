@@ -43,79 +43,40 @@ func NewWebAppHostNameBinding(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210101:WebAppHostNameBinding"),
-		},
-		{
 			Type: pulumi.String("azure-native:web:WebAppHostNameBinding"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web:WebAppHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20150801:WebAppHostNameBinding"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20150801:WebAppHostNameBinding"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20160801:WebAppHostNameBinding"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20160801:WebAppHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20180201:WebAppHostNameBinding"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20180201:WebAppHostNameBinding"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20181101:WebAppHostNameBinding"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20181101:WebAppHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20190801:WebAppHostNameBinding"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20190801:WebAppHostNameBinding"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20200601:WebAppHostNameBinding"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20200601:WebAppHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20200901:WebAppHostNameBinding"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20200901:WebAppHostNameBinding"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20201001:WebAppHostNameBinding"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20201001:WebAppHostNameBinding"),
 		},
 		{
 			Type: pulumi.String("azure-native:web/v20201201:WebAppHostNameBinding"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20201201:WebAppHostNameBinding"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210115:WebAppHostNameBinding"),
 		},
 		{
-			Type: pulumi.String("azure-nextgen:web/v20210115:WebAppHostNameBinding"),
-		},
-		{
 			Type: pulumi.String("azure-native:web/v20210201:WebAppHostNameBinding"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:web/v20210201:WebAppHostNameBinding"),
 		},
 	})
 	opts = append(opts, aliases)

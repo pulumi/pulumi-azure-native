@@ -36,13 +36,7 @@ func NewRoutingIntent(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:network/v20210501:RoutingIntent"),
-		},
-		{
 			Type: pulumi.String("azure-native:network:RoutingIntent"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:network:RoutingIntent"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -64,9 +64,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:testbase/v20201216preview:FavoriteProcess"},
                     new Pulumi.Alias { Type = "azure-native:testbase:FavoriteProcess"},
-                    new Pulumi.Alias { Type = "azure-nextgen:testbase:FavoriteProcess"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

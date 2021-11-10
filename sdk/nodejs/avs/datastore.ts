@@ -96,7 +96,7 @@ export class Datastore extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:avs:Datastore" }, { type: "azure-native:avs/v20210101preview:Datastore" }, { type: "azure-nextgen:avs/v20210101preview:Datastore" }, { type: "azure-native:avs/v20210601:Datastore" }, { type: "azure-nextgen:avs/v20210601:Datastore" }, { type: "azure-native:avs/v20211201:Datastore" }, { type: "azure-nextgen:avs/v20211201:Datastore" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:avs/v20210101preview:Datastore" }, { type: "azure-native:avs/v20210601:Datastore" }, { type: "azure-native:avs/v20211201:Datastore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Datastore.__pulumiType, name, inputs, opts);
     }

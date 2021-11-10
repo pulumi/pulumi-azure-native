@@ -108,7 +108,7 @@ export class PostgresInstance extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:azurearcdata/v20210601preview:PostgresInstance" }, { type: "azure-native:azurearcdata:PostgresInstance" }, { type: "azure-nextgen:azurearcdata:PostgresInstance" }, { type: "azure-native:azurearcdata/v20210701preview:PostgresInstance" }, { type: "azure-nextgen:azurearcdata/v20210701preview:PostgresInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata:PostgresInstance" }, { type: "azure-native:azurearcdata/v20210701preview:PostgresInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PostgresInstance.__pulumiType, name, inputs, opts);
     }

@@ -160,15 +160,10 @@ namespace Pulumi.AzureNative.Kubernetes.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20210401preview:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-native:kubernetes:ConnectedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetes:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-native:kubernetes/v20200101preview:ConnectedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20200101preview:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-native:kubernetes/v20210301:ConnectedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20210301:ConnectedCluster"},
                     new Pulumi.Alias { Type = "azure-native:kubernetes/v20211001:ConnectedCluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetes/v20211001:ConnectedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

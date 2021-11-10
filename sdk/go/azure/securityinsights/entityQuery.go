@@ -43,13 +43,7 @@ func NewEntityQuery(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
-			Type: pulumi.String("azure-nextgen:securityinsights:EntityQuery"),
-		},
-		{
 			Type: pulumi.String("azure-native:securityinsights/v20210301preview:EntityQuery"),
-		},
-		{
-			Type: pulumi.String("azure-nextgen:securityinsights/v20210301preview:EntityQuery"),
 		},
 	})
 	opts = append(opts, aliases)
