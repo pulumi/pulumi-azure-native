@@ -1,0 +1,273 @@
+
+
+
+package v20181101
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type InterfaceEndpoint struct {
+	pulumi.CustomResourceState
+
+	EndpointService   EndpointServiceResponsePtrOutput    `pulumi:"endpointService"`
+	Etag              pulumi.StringPtrOutput              `pulumi:"etag"`
+	Fqdn              pulumi.StringPtrOutput              `pulumi:"fqdn"`
+	Location          pulumi.StringPtrOutput              `pulumi:"location"`
+	Name              pulumi.StringOutput                 `pulumi:"name"`
+	NetworkInterfaces NetworkInterfaceResponseArrayOutput `pulumi:"networkInterfaces"`
+	Owner             pulumi.StringOutput                 `pulumi:"owner"`
+	ProvisioningState pulumi.StringOutput                 `pulumi:"provisioningState"`
+	Subnet            SubnetResponsePtrOutput             `pulumi:"subnet"`
+	Tags              pulumi.StringMapOutput              `pulumi:"tags"`
+	Type              pulumi.StringOutput                 `pulumi:"type"`
+}
+
+
+func NewInterfaceEndpoint(ctx *pulumi.Context,
+	name string, args *InterfaceEndpointArgs, opts ...pulumi.ResourceOption) (*InterfaceEndpoint, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:network/v20181101:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20180801:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20180801:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181001:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20181001:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20181201:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20181201:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190201:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20190201:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190401:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20190401:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190601:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20190601:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190701:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20190701:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190801:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20190801:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20190901:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20190901:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191101:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20191101:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20191201:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20191201:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200301:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200301:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200401:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200401:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200501:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200501:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200601:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200601:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200701:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200701:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20200801:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20200801:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20201101:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20201101:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20210201:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210201:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20210301:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210301:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20210501:InterfaceEndpoint"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:network/v20210501:InterfaceEndpoint"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource InterfaceEndpoint
+	err := ctx.RegisterResource("azure-native:network/v20181101:InterfaceEndpoint", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetInterfaceEndpoint(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *InterfaceEndpointState, opts ...pulumi.ResourceOption) (*InterfaceEndpoint, error) {
+	var resource InterfaceEndpoint
+	err := ctx.ReadResource("azure-native:network/v20181101:InterfaceEndpoint", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type interfaceEndpointState struct {
+}
+
+type InterfaceEndpointState struct {
+}
+
+func (InterfaceEndpointState) ElementType() reflect.Type {
+	return reflect.TypeOf((*interfaceEndpointState)(nil)).Elem()
+}
+
+type interfaceEndpointArgs struct {
+	EndpointService       *EndpointService  `pulumi:"endpointService"`
+	Etag                  *string           `pulumi:"etag"`
+	Fqdn                  *string           `pulumi:"fqdn"`
+	Id                    *string           `pulumi:"id"`
+	InterfaceEndpointName *string           `pulumi:"interfaceEndpointName"`
+	Location              *string           `pulumi:"location"`
+	ResourceGroupName     string            `pulumi:"resourceGroupName"`
+	Subnet                *SubnetType       `pulumi:"subnet"`
+	Tags                  map[string]string `pulumi:"tags"`
+}
+
+
+type InterfaceEndpointArgs struct {
+	EndpointService       EndpointServicePtrInput
+	Etag                  pulumi.StringPtrInput
+	Fqdn                  pulumi.StringPtrInput
+	Id                    pulumi.StringPtrInput
+	InterfaceEndpointName pulumi.StringPtrInput
+	Location              pulumi.StringPtrInput
+	ResourceGroupName     pulumi.StringInput
+	Subnet                SubnetTypePtrInput
+	Tags                  pulumi.StringMapInput
+}
+
+func (InterfaceEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*interfaceEndpointArgs)(nil)).Elem()
+}
+
+type InterfaceEndpointInput interface {
+	pulumi.Input
+
+	ToInterfaceEndpointOutput() InterfaceEndpointOutput
+	ToInterfaceEndpointOutputWithContext(ctx context.Context) InterfaceEndpointOutput
+}
+
+func (*InterfaceEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*InterfaceEndpoint)(nil))
+}
+
+func (i *InterfaceEndpoint) ToInterfaceEndpointOutput() InterfaceEndpointOutput {
+	return i.ToInterfaceEndpointOutputWithContext(context.Background())
+}
+
+func (i *InterfaceEndpoint) ToInterfaceEndpointOutputWithContext(ctx context.Context) InterfaceEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InterfaceEndpointOutput)
+}
+
+type InterfaceEndpointOutput struct{ *pulumi.OutputState }
+
+func (InterfaceEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InterfaceEndpoint)(nil))
+}
+
+func (o InterfaceEndpointOutput) ToInterfaceEndpointOutput() InterfaceEndpointOutput {
+	return o
+}
+
+func (o InterfaceEndpointOutput) ToInterfaceEndpointOutputWithContext(ctx context.Context) InterfaceEndpointOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(InterfaceEndpointOutput{})
+}
