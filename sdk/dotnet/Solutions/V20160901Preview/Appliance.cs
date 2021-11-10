@@ -141,6 +141,8 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20190701:Appliance"},
                     new Pulumi.Alias { Type = "azure-native:solutions/v20200821preview:Appliance"},
                     new Pulumi.Alias { Type = "azure-nextgen:solutions/v20200821preview:Appliance"},
+                    new Pulumi.Alias { Type = "azure-native:solutions/v20210701:Appliance"},
+                    new Pulumi.Alias { Type = "azure-nextgen:solutions/v20210701:Appliance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

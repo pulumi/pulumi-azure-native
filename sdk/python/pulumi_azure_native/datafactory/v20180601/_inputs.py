@@ -73640,19 +73640,27 @@ class TextFormatArgs:
 class TransformationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 dataset: Optional[pulumi.Input['DatasetReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 flowlet: Optional[pulumi.Input['DataFlowReferenceArgs']] = None):
+                 flowlet: Optional[pulumi.Input['DataFlowReferenceArgs']] = None,
+                 linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None):
         """
         A data flow transformation.
         :param pulumi.Input[str] name: Transformation name.
+        :param pulumi.Input['DatasetReferenceArgs'] dataset: Dataset reference.
         :param pulumi.Input[str] description: Transformation description.
         :param pulumi.Input['DataFlowReferenceArgs'] flowlet: Flowlet Reference
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service: Linked service reference.
         """
         pulumi.set(__self__, "name", name)
+        if dataset is not None:
+            pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if flowlet is not None:
             pulumi.set(__self__, "flowlet", flowlet)
+        if linked_service is not None:
+            pulumi.set(__self__, "linked_service", linked_service)
 
     @property
     @pulumi.getter
@@ -73665,6 +73673,18 @@ class TransformationArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def dataset(self) -> Optional[pulumi.Input['DatasetReferenceArgs']]:
+        """
+        Dataset reference.
+        """
+        return pulumi.get(self, "dataset")
+
+    @dataset.setter
+    def dataset(self, value: Optional[pulumi.Input['DatasetReferenceArgs']]):
+        pulumi.set(self, "dataset", value)
 
     @property
     @pulumi.getter
@@ -73689,6 +73709,18 @@ class TransformationArgs:
     @flowlet.setter
     def flowlet(self, value: Optional[pulumi.Input['DataFlowReferenceArgs']]):
         pulumi.set(self, "flowlet", value)
+
+    @property
+    @pulumi.getter(name="linkedService")
+    def linked_service(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service")
+
+    @linked_service.setter
+    def linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "linked_service", value)
 
 
 @pulumi.input_type

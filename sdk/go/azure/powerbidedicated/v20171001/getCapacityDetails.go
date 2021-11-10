@@ -24,6 +24,7 @@ type LookupCapacityDetailsArgs struct {
 
 type LookupCapacityDetailsResult struct {
 	Administration    *DedicatedCapacityAdministratorsResponse `pulumi:"administration"`
+	FriendlyName      string                                   `pulumi:"friendlyName"`
 	Id                string                                   `pulumi:"id"`
 	Location          string                                   `pulumi:"location"`
 	Mode              string                                   `pulumi:"mode"`
@@ -32,5 +33,6 @@ type LookupCapacityDetailsResult struct {
 	Sku               ResourceSkuResponse                      `pulumi:"sku"`
 	State             string                                   `pulumi:"state"`
 	Tags              map[string]string                        `pulumi:"tags"`
+	TenantId          string                                   `pulumi:"tenantId"`
 	Type              string                                   `pulumi:"type"`
 }

@@ -45,9 +45,17 @@ export interface GetViewResult {
      */
     readonly createdOn: string;
     /**
+     * Currency of the current view.
+     */
+    readonly currency: string;
+    /**
      * Has definition for data in this report config.
      */
-    readonly dataset?: outputs.costmanagement.v20211001.ReportConfigDatasetResponse;
+    readonly dataSet?: outputs.costmanagement.v20211001.ReportConfigDatasetResponse;
+    /**
+     * Date range of the current view.
+     */
+    readonly dateRange: string;
     /**
      * User input name of the view. Required.
      */
@@ -60,6 +68,10 @@ export interface GetViewResult {
      * Resource Id.
      */
     readonly id: string;
+    /**
+     * If true, report includes monetary commitment.
+     */
+    readonly includeMonetaryCommitment?: boolean;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */

@@ -34,6 +34,7 @@ __all__ = [
     'ProvisioningState',
     'PublicNetworkAccess',
     'SamplingType',
+    'SchemaType',
     'SkuType',
     'SoapApiType',
     'State',
@@ -436,6 +437,20 @@ class SamplingType(str, Enum):
     FIXED = "fixed"
     """
     Fixed-rate sampling.
+    """
+
+
+class SchemaType(str, Enum):
+    """
+    Schema Type. Immutable.
+    """
+    XML = "xml"
+    """
+    Xml schema type.
+    """
+    JSON = "json"
+    """
+    Json schema type.
     """
 
 

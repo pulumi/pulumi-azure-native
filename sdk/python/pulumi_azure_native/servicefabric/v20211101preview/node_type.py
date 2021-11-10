@@ -17,7 +17,6 @@ __all__ = ['NodeTypeArgs', 'NodeType']
 class NodeTypeArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
-                 data_disk_size_gb: pulumi.Input[int],
                  is_primary: pulumi.Input[bool],
                  resource_group_name: pulumi.Input[str],
                  vm_instance_count: pulumi.Input[int],
@@ -25,6 +24,7 @@ class NodeTypeArgs:
                  application_ports: Optional[pulumi.Input['EndpointRangeDescriptionArgs']] = None,
                  capacities: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  data_disk_letter: Optional[pulumi.Input[str]] = None,
+                 data_disk_size_gb: Optional[pulumi.Input[int]] = None,
                  data_disk_type: Optional[pulumi.Input[Union[str, 'DiskType']]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_encryption_at_host: Optional[pulumi.Input[bool]] = None,
@@ -38,6 +38,7 @@ class NodeTypeArgs:
                  sku: Optional[pulumi.Input['NodeTypeSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_default_public_load_balancer: Optional[pulumi.Input[bool]] = None,
+                 use_temp_data_disk: Optional[pulumi.Input[bool]] = None,
                  vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input['VMSSExtensionArgs']]]] = None,
                  vm_image_offer: Optional[pulumi.Input[str]] = None,
                  vm_image_publisher: Optional[pulumi.Input[str]] = None,
@@ -49,7 +50,6 @@ class NodeTypeArgs:
         """
         The set of arguments for constructing a NodeType resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[int] data_disk_size_gb: Disk size for each vm in the node type in GBs.
         :param pulumi.Input[bool] is_primary: Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[int] vm_instance_count: The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
@@ -57,6 +57,7 @@ class NodeTypeArgs:
         :param pulumi.Input['EndpointRangeDescriptionArgs'] application_ports: The range of ports from which cluster assigned port to Service Fabric applications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param pulumi.Input[str] data_disk_letter: Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
+        :param pulumi.Input[int] data_disk_size_gb: Disk size for the managed disk attached to the vms on the node type in GBs.
         :param pulumi.Input[Union[str, 'DiskType']] data_disk_type: Managed data disk type. Specifies the storage account type for the managed disk
         :param pulumi.Input[bool] enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
         :param pulumi.Input[bool] enable_encryption_at_host: Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
@@ -70,6 +71,7 @@ class NodeTypeArgs:
         :param pulumi.Input['NodeTypeSkuArgs'] sku: The node type sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[bool] use_default_public_load_balancer: Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+        :param pulumi.Input[bool] use_temp_data_disk: Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
         :param pulumi.Input[Sequence[pulumi.Input['VMSSExtensionArgs']]] vm_extensions: Set of extensions that should be installed onto the virtual machines.
         :param pulumi.Input[str] vm_image_offer: The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
         :param pulumi.Input[str] vm_image_publisher: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
@@ -80,7 +82,6 @@ class NodeTypeArgs:
         :param pulumi.Input[str] vm_size: The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
         pulumi.set(__self__, "is_primary", is_primary)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_instance_count", vm_instance_count)
@@ -92,6 +93,8 @@ class NodeTypeArgs:
             pulumi.set(__self__, "capacities", capacities)
         if data_disk_letter is not None:
             pulumi.set(__self__, "data_disk_letter", data_disk_letter)
+        if data_disk_size_gb is not None:
+            pulumi.set(__self__, "data_disk_size_gb", data_disk_size_gb)
         if data_disk_type is not None:
             pulumi.set(__self__, "data_disk_type", data_disk_type)
         if enable_accelerated_networking is not None:
@@ -124,6 +127,8 @@ class NodeTypeArgs:
             pulumi.set(__self__, "tags", tags)
         if use_default_public_load_balancer is not None:
             pulumi.set(__self__, "use_default_public_load_balancer", use_default_public_load_balancer)
+        if use_temp_data_disk is not None:
+            pulumi.set(__self__, "use_temp_data_disk", use_temp_data_disk)
         if vm_extensions is not None:
             pulumi.set(__self__, "vm_extensions", vm_extensions)
         if vm_image_offer is not None:
@@ -152,18 +157,6 @@ class NodeTypeArgs:
     @cluster_name.setter
     def cluster_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "cluster_name", value)
-
-    @property
-    @pulumi.getter(name="dataDiskSizeGB")
-    def data_disk_size_gb(self) -> pulumi.Input[int]:
-        """
-        Disk size for each vm in the node type in GBs.
-        """
-        return pulumi.get(self, "data_disk_size_gb")
-
-    @data_disk_size_gb.setter
-    def data_disk_size_gb(self, value: pulumi.Input[int]):
-        pulumi.set(self, "data_disk_size_gb", value)
 
     @property
     @pulumi.getter(name="isPrimary")
@@ -248,6 +241,18 @@ class NodeTypeArgs:
     @data_disk_letter.setter
     def data_disk_letter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_disk_letter", value)
+
+    @property
+    @pulumi.getter(name="dataDiskSizeGB")
+    def data_disk_size_gb(self) -> Optional[pulumi.Input[int]]:
+        """
+        Disk size for the managed disk attached to the vms on the node type in GBs.
+        """
+        return pulumi.get(self, "data_disk_size_gb")
+
+    @data_disk_size_gb.setter
+    def data_disk_size_gb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "data_disk_size_gb", value)
 
     @property
     @pulumi.getter(name="dataDiskType")
@@ -406,6 +411,18 @@ class NodeTypeArgs:
         pulumi.set(self, "use_default_public_load_balancer", value)
 
     @property
+    @pulumi.getter(name="useTempDataDisk")
+    def use_temp_data_disk(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+        """
+        return pulumi.get(self, "use_temp_data_disk")
+
+    @use_temp_data_disk.setter
+    def use_temp_data_disk(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_temp_data_disk", value)
+
+    @property
     @pulumi.getter(name="vmExtensions")
     def vm_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VMSSExtensionArgs']]]]:
         """
@@ -528,6 +545,7 @@ class NodeType(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['NodeTypeSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_default_public_load_balancer: Optional[pulumi.Input[bool]] = None,
+                 use_temp_data_disk: Optional[pulumi.Input[bool]] = None,
                  vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]]] = None,
                  vm_image_offer: Optional[pulumi.Input[str]] = None,
                  vm_image_publisher: Optional[pulumi.Input[str]] = None,
@@ -548,7 +566,7 @@ class NodeType(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] capacities: The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[str] data_disk_letter: Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
-        :param pulumi.Input[int] data_disk_size_gb: Disk size for each vm in the node type in GBs.
+        :param pulumi.Input[int] data_disk_size_gb: Disk size for the managed disk attached to the vms on the node type in GBs.
         :param pulumi.Input[Union[str, 'DiskType']] data_disk_type: Managed data disk type. Specifies the storage account type for the managed disk
         :param pulumi.Input[bool] enable_accelerated_networking: Specifies whether the network interface is accelerated networking-enabled.
         :param pulumi.Input[bool] enable_encryption_at_host: Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
@@ -564,6 +582,7 @@ class NodeType(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NodeTypeSkuArgs']] sku: The node type sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[bool] use_default_public_load_balancer: Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
+        :param pulumi.Input[bool] use_temp_data_disk: Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]] vm_extensions: Set of extensions that should be installed onto the virtual machines.
         :param pulumi.Input[str] vm_image_offer: The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
         :param pulumi.Input[str] vm_image_publisher: The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
@@ -619,6 +638,7 @@ class NodeType(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['NodeTypeSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_default_public_load_balancer: Optional[pulumi.Input[bool]] = None,
+                 use_temp_data_disk: Optional[pulumi.Input[bool]] = None,
                  vm_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VMSSExtensionArgs']]]]] = None,
                  vm_image_offer: Optional[pulumi.Input[str]] = None,
                  vm_image_publisher: Optional[pulumi.Input[str]] = None,
@@ -647,8 +667,6 @@ class NodeType(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["data_disk_letter"] = data_disk_letter
-            if data_disk_size_gb is None and not opts.urn:
-                raise TypeError("Missing required property 'data_disk_size_gb'")
             __props__.__dict__["data_disk_size_gb"] = data_disk_size_gb
             __props__.__dict__["data_disk_type"] = data_disk_type
             __props__.__dict__["enable_accelerated_networking"] = enable_accelerated_networking
@@ -675,6 +693,7 @@ class NodeType(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["use_default_public_load_balancer"] = use_default_public_load_balancer
+            __props__.__dict__["use_temp_data_disk"] = use_temp_data_disk
             __props__.__dict__["vm_extensions"] = vm_extensions
             __props__.__dict__["vm_image_offer"] = vm_image_offer
             __props__.__dict__["vm_image_publisher"] = vm_image_publisher
@@ -736,6 +755,7 @@ class NodeType(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["use_default_public_load_balancer"] = None
+        __props__.__dict__["use_temp_data_disk"] = None
         __props__.__dict__["vm_extensions"] = None
         __props__.__dict__["vm_image_offer"] = None
         __props__.__dict__["vm_image_publisher"] = None
@@ -781,9 +801,9 @@ class NodeType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dataDiskSizeGB")
-    def data_disk_size_gb(self) -> pulumi.Output[int]:
+    def data_disk_size_gb(self) -> pulumi.Output[Optional[int]]:
         """
-        Disk size for each vm in the node type in GBs.
+        Disk size for the managed disk attached to the vms on the node type in GBs.
         """
         return pulumi.get(self, "data_disk_size_gb")
 
@@ -922,6 +942,14 @@ class NodeType(pulumi.CustomResource):
         Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
         """
         return pulumi.get(self, "use_default_public_load_balancer")
+
+    @property
+    @pulumi.getter(name="useTempDataDisk")
+    def use_temp_data_disk(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+        """
+        return pulumi.get(self, "use_temp_data_disk")
 
     @property
     @pulumi.getter(name="vmExtensions")

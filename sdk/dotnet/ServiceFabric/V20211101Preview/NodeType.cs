@@ -40,10 +40,10 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview
         public Output<string?> DataDiskLetter { get; private set; } = null!;
 
         /// <summary>
-        /// Disk size for each vm in the node type in GBs.
+        /// Disk size for the managed disk attached to the vms on the node type in GBs.
         /// </summary>
         [Output("dataDiskSizeGB")]
-        public Output<int> DataDiskSizeGB { get; private set; } = null!;
+        public Output<int?> DataDiskSizeGB { get; private set; } = null!;
 
         /// <summary>
         /// Managed data disk type. Specifies the storage account type for the managed disk
@@ -146,6 +146,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview
         /// </summary>
         [Output("useDefaultPublicLoadBalancer")]
         public Output<bool?> UseDefaultPublicLoadBalancer { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+        /// </summary>
+        [Output("useTempDataDisk")]
+        public Output<bool?> UseTempDataDisk { get; private set; } = null!;
 
         /// <summary>
         /// Set of extensions that should be installed onto the virtual machines.
@@ -305,10 +311,10 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview
         public Input<string>? DataDiskLetter { get; set; }
 
         /// <summary>
-        /// Disk size for each vm in the node type in GBs.
+        /// Disk size for the managed disk attached to the vms on the node type in GBs.
         /// </summary>
-        [Input("dataDiskSizeGB", required: true)]
-        public Input<int> DataDiskSizeGB { get; set; } = null!;
+        [Input("dataDiskSizeGB")]
+        public Input<int>? DataDiskSizeGB { get; set; }
 
         /// <summary>
         /// Managed data disk type. Specifies the storage account type for the managed disk
@@ -423,6 +429,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview
         /// </summary>
         [Input("useDefaultPublicLoadBalancer")]
         public Input<bool>? UseDefaultPublicLoadBalancer { get; set; }
+
+        /// <summary>
+        /// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+        /// </summary>
+        [Input("useTempDataDisk")]
+        public Input<bool>? UseTempDataDisk { get; set; }
 
         [Input("vmExtensions")]
         private InputList<Inputs.VMSSExtensionArgs>? _vmExtensions;

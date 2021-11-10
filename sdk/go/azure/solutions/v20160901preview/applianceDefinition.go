@@ -82,6 +82,12 @@ func NewApplianceDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:solutions/v20200821preview:ApplianceDefinition"),
 		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20210701:ApplianceDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:solutions/v20210701:ApplianceDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApplianceDefinition

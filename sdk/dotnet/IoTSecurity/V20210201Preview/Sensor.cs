@@ -121,8 +121,6 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
                     new Pulumi.Alias { Type = "azure-nextgen:iotsecurity/v20210201preview:Sensor"},
                     new Pulumi.Alias { Type = "azure-native:iotsecurity:Sensor"},
                     new Pulumi.Alias { Type = "azure-nextgen:iotsecurity:Sensor"},
-                    new Pulumi.Alias { Type = "azure-native:iotsecurity/v20210901preview:Sensor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:iotsecurity/v20210901preview:Sensor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

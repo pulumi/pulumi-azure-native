@@ -15,6 +15,7 @@ type CapacityDetails struct {
 	pulumi.CustomResourceState
 
 	Administration    DedicatedCapacityAdministratorsResponsePtrOutput `pulumi:"administration"`
+	FriendlyName      pulumi.StringOutput                              `pulumi:"friendlyName"`
 	Location          pulumi.StringOutput                              `pulumi:"location"`
 	Mode              pulumi.StringOutput                              `pulumi:"mode"`
 	Name              pulumi.StringOutput                              `pulumi:"name"`
@@ -22,6 +23,7 @@ type CapacityDetails struct {
 	Sku               ResourceSkuResponseOutput                        `pulumi:"sku"`
 	State             pulumi.StringOutput                              `pulumi:"state"`
 	Tags              pulumi.StringMapOutput                           `pulumi:"tags"`
+	TenantId          pulumi.StringOutput                              `pulumi:"tenantId"`
 	Type              pulumi.StringOutput                              `pulumi:"type"`
 }
 

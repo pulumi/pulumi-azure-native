@@ -14,21 +14,24 @@ import (
 type ViewByScope struct {
 	pulumi.CustomResourceState
 
-	Accumulated pulumi.StringPtrOutput                  `pulumi:"accumulated"`
-	Chart       pulumi.StringPtrOutput                  `pulumi:"chart"`
-	CreatedOn   pulumi.StringOutput                     `pulumi:"createdOn"`
-	Dataset     ReportConfigDatasetResponsePtrOutput    `pulumi:"dataset"`
-	DisplayName pulumi.StringPtrOutput                  `pulumi:"displayName"`
-	ETag        pulumi.StringPtrOutput                  `pulumi:"eTag"`
-	Kpis        KpiPropertiesResponseArrayOutput        `pulumi:"kpis"`
-	Metric      pulumi.StringPtrOutput                  `pulumi:"metric"`
-	ModifiedOn  pulumi.StringOutput                     `pulumi:"modifiedOn"`
-	Name        pulumi.StringOutput                     `pulumi:"name"`
-	Pivots      PivotPropertiesResponseArrayOutput      `pulumi:"pivots"`
-	Scope       pulumi.StringPtrOutput                  `pulumi:"scope"`
-	TimePeriod  ReportConfigTimePeriodResponsePtrOutput `pulumi:"timePeriod"`
-	Timeframe   pulumi.StringOutput                     `pulumi:"timeframe"`
-	Type        pulumi.StringOutput                     `pulumi:"type"`
+	Accumulated               pulumi.StringPtrOutput                  `pulumi:"accumulated"`
+	Chart                     pulumi.StringPtrOutput                  `pulumi:"chart"`
+	CreatedOn                 pulumi.StringOutput                     `pulumi:"createdOn"`
+	Currency                  pulumi.StringOutput                     `pulumi:"currency"`
+	DataSet                   ReportConfigDatasetResponsePtrOutput    `pulumi:"dataSet"`
+	DateRange                 pulumi.StringOutput                     `pulumi:"dateRange"`
+	DisplayName               pulumi.StringPtrOutput                  `pulumi:"displayName"`
+	ETag                      pulumi.StringPtrOutput                  `pulumi:"eTag"`
+	IncludeMonetaryCommitment pulumi.BoolPtrOutput                    `pulumi:"includeMonetaryCommitment"`
+	Kpis                      KpiPropertiesResponseArrayOutput        `pulumi:"kpis"`
+	Metric                    pulumi.StringPtrOutput                  `pulumi:"metric"`
+	ModifiedOn                pulumi.StringOutput                     `pulumi:"modifiedOn"`
+	Name                      pulumi.StringOutput                     `pulumi:"name"`
+	Pivots                    PivotPropertiesResponseArrayOutput      `pulumi:"pivots"`
+	Scope                     pulumi.StringPtrOutput                  `pulumi:"scope"`
+	TimePeriod                ReportConfigTimePeriodResponsePtrOutput `pulumi:"timePeriod"`
+	Timeframe                 pulumi.StringOutput                     `pulumi:"timeframe"`
+	Type                      pulumi.StringOutput                     `pulumi:"type"`
 }
 
 
@@ -109,36 +112,38 @@ func (ViewByScopeState) ElementType() reflect.Type {
 }
 
 type viewByScopeArgs struct {
-	Accumulated *string                 `pulumi:"accumulated"`
-	Chart       *string                 `pulumi:"chart"`
-	Dataset     *ReportConfigDataset    `pulumi:"dataset"`
-	DisplayName *string                 `pulumi:"displayName"`
-	ETag        *string                 `pulumi:"eTag"`
-	Kpis        []KpiProperties         `pulumi:"kpis"`
-	Metric      *string                 `pulumi:"metric"`
-	Pivots      []PivotProperties       `pulumi:"pivots"`
-	Scope       string                  `pulumi:"scope"`
-	TimePeriod  *ReportConfigTimePeriod `pulumi:"timePeriod"`
-	Timeframe   string                  `pulumi:"timeframe"`
-	Type        string                  `pulumi:"type"`
-	ViewName    *string                 `pulumi:"viewName"`
+	Accumulated               *string                 `pulumi:"accumulated"`
+	Chart                     *string                 `pulumi:"chart"`
+	DataSet                   *ReportConfigDataset    `pulumi:"dataSet"`
+	DisplayName               *string                 `pulumi:"displayName"`
+	ETag                      *string                 `pulumi:"eTag"`
+	IncludeMonetaryCommitment *bool                   `pulumi:"includeMonetaryCommitment"`
+	Kpis                      []KpiProperties         `pulumi:"kpis"`
+	Metric                    *string                 `pulumi:"metric"`
+	Pivots                    []PivotProperties       `pulumi:"pivots"`
+	Scope                     string                  `pulumi:"scope"`
+	TimePeriod                *ReportConfigTimePeriod `pulumi:"timePeriod"`
+	Timeframe                 string                  `pulumi:"timeframe"`
+	Type                      string                  `pulumi:"type"`
+	ViewName                  *string                 `pulumi:"viewName"`
 }
 
 
 type ViewByScopeArgs struct {
-	Accumulated pulumi.StringPtrInput
-	Chart       pulumi.StringPtrInput
-	Dataset     ReportConfigDatasetPtrInput
-	DisplayName pulumi.StringPtrInput
-	ETag        pulumi.StringPtrInput
-	Kpis        KpiPropertiesArrayInput
-	Metric      pulumi.StringPtrInput
-	Pivots      PivotPropertiesArrayInput
-	Scope       pulumi.StringInput
-	TimePeriod  ReportConfigTimePeriodPtrInput
-	Timeframe   pulumi.StringInput
-	Type        pulumi.StringInput
-	ViewName    pulumi.StringPtrInput
+	Accumulated               pulumi.StringPtrInput
+	Chart                     pulumi.StringPtrInput
+	DataSet                   ReportConfigDatasetPtrInput
+	DisplayName               pulumi.StringPtrInput
+	ETag                      pulumi.StringPtrInput
+	IncludeMonetaryCommitment pulumi.BoolPtrInput
+	Kpis                      KpiPropertiesArrayInput
+	Metric                    pulumi.StringPtrInput
+	Pivots                    PivotPropertiesArrayInput
+	Scope                     pulumi.StringInput
+	TimePeriod                ReportConfigTimePeriodPtrInput
+	Timeframe                 pulumi.StringInput
+	Type                      pulumi.StringInput
+	ViewName                  pulumi.StringPtrInput
 }
 
 func (ViewByScopeArgs) ElementType() reflect.Type {

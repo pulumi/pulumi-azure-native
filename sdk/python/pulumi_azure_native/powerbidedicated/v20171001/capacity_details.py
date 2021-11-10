@@ -191,10 +191,12 @@ class CapacityDetails(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["friendly_name"] = None
             __props__.__dict__["mode"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
+            __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20171001:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated:CapacityDetails"), pulumi.Alias(type_="azure-native:powerbidedicated/v20210101:CapacityDetails"), pulumi.Alias(type_="azure-nextgen:powerbidedicated/v20210101:CapacityDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -221,6 +223,7 @@ class CapacityDetails(pulumi.CustomResource):
         __props__ = CapacityDetailsArgs.__new__(CapacityDetailsArgs)
 
         __props__.__dict__["administration"] = None
+        __props__.__dict__["friendly_name"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["mode"] = None
         __props__.__dict__["name"] = None
@@ -228,6 +231,7 @@ class CapacityDetails(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
         return CapacityDetails(resource_name, opts=opts, __props__=__props__)
 
@@ -238,6 +242,14 @@ class CapacityDetails(pulumi.CustomResource):
         A collection of Dedicated capacity administrators
         """
         return pulumi.get(self, "administration")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> pulumi.Output[str]:
+        """
+        Capacity name
+        """
+        return pulumi.get(self, "friendly_name")
 
     @property
     @pulumi.getter
@@ -294,6 +306,14 @@ class CapacityDetails(pulumi.CustomResource):
         Key-value pairs of additional resource provisioning properties.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Output[str]:
+        """
+        Tenant ID for the capacity. Used for creating Pro Plus capacity.
+        """
+        return pulumi.get(self, "tenant_id")
 
     @property
     @pulumi.getter

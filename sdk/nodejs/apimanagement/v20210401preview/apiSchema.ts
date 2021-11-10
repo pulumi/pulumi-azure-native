@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Schema Contract details.
+ * API Schema Contract details.
  */
 export class ApiSchema extends pulumi.CustomResource {
     /**
@@ -35,7 +35,7 @@ export class ApiSchema extends pulumi.CustomResource {
     }
 
     /**
-     * Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
+     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
      */
     public readonly components!: pulumi.Output<any | undefined>;
     /**
@@ -43,7 +43,7 @@ export class ApiSchema extends pulumi.CustomResource {
      */
     public readonly contentType!: pulumi.Output<string>;
     /**
-     * Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+     * Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
      */
     public readonly definitions!: pulumi.Output<any | undefined>;
     /**
@@ -118,7 +118,7 @@ export interface ApiSchemaArgs {
      */
     apiId: pulumi.Input<string>;
     /**
-     * Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
+     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
      */
     components?: any;
     /**
@@ -126,7 +126,7 @@ export interface ApiSchemaArgs {
      */
     contentType: pulumi.Input<string>;
     /**
-     * Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+     * Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
      */
     definitions?: any;
     /**
@@ -134,7 +134,7 @@ export interface ApiSchemaArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Schema identifier within an API. Must be unique in the current API Management service instance.
+     * Schema id identifier. Must be unique in the current API Management service instance.
      */
     schemaId?: pulumi.Input<string>;
     /**

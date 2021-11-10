@@ -89,7 +89,7 @@ export class Site extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:iotsecurity/v20210201preview:Site" }, { type: "azure-native:iotsecurity:Site" }, { type: "azure-nextgen:iotsecurity:Site" }, { type: "azure-native:iotsecurity/v20210901preview:Site" }, { type: "azure-nextgen:iotsecurity/v20210901preview:Site" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:iotsecurity/v20210201preview:Site" }, { type: "azure-native:iotsecurity:Site" }, { type: "azure-nextgen:iotsecurity:Site" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Site.__pulumiType, name, inputs, opts);
     }

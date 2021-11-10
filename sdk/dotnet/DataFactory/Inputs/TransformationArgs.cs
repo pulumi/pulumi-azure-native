@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     public sealed class TransformationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Dataset reference.
+        /// </summary>
+        [Input("dataset")]
+        public Input<Inputs.DatasetReferenceArgs>? Dataset { get; set; }
+
+        /// <summary>
         /// Transformation description.
         /// </summary>
         [Input("description")]
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("flowlet")]
         public Input<Inputs.DataFlowReferenceArgs>? Flowlet { get; set; }
+
+        /// <summary>
+        /// Linked service reference.
+        /// </summary>
+        [Input("linkedService")]
+        public Input<Inputs.LinkedServiceReferenceArgs>? LinkedService { get; set; }
 
         /// <summary>
         /// Transformation name.

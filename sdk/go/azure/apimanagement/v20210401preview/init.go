@@ -99,6 +99,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProductGroup{}
 	case "azure-native:apimanagement/v20210401preview:ProductPolicy":
 		r = &ProductPolicy{}
+	case "azure-native:apimanagement/v20210401preview:Schema":
+		r = &Schema{}
 	case "azure-native:apimanagement/v20210401preview:Subscription":
 		r = &Subscription{}
 	case "azure-native:apimanagement/v20210401preview:Tag":

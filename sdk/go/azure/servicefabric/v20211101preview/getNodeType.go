@@ -28,7 +28,7 @@ type LookupNodeTypeResult struct {
 	ApplicationPorts             *EndpointRangeDescriptionResponse `pulumi:"applicationPorts"`
 	Capacities                   map[string]string                 `pulumi:"capacities"`
 	DataDiskLetter               *string                           `pulumi:"dataDiskLetter"`
-	DataDiskSizeGB               int                               `pulumi:"dataDiskSizeGB"`
+	DataDiskSizeGB               *int                              `pulumi:"dataDiskSizeGB"`
 	DataDiskType                 *string                           `pulumi:"dataDiskType"`
 	EnableAcceleratedNetworking  *bool                             `pulumi:"enableAcceleratedNetworking"`
 	EnableEncryptionAtHost       *bool                             `pulumi:"enableEncryptionAtHost"`
@@ -47,6 +47,7 @@ type LookupNodeTypeResult struct {
 	Tags                         map[string]string                 `pulumi:"tags"`
 	Type                         string                            `pulumi:"type"`
 	UseDefaultPublicLoadBalancer *bool                             `pulumi:"useDefaultPublicLoadBalancer"`
+	UseTempDataDisk              *bool                             `pulumi:"useTempDataDisk"`
 	VmExtensions                 []VMSSExtensionResponse           `pulumi:"vmExtensions"`
 	VmImageOffer                 *string                           `pulumi:"vmImageOffer"`
 	VmImagePublisher             *string                           `pulumi:"vmImagePublisher"`

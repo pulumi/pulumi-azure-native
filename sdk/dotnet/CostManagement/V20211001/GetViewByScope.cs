@@ -81,9 +81,17 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
         /// </summary>
         public readonly string CreatedOn;
         /// <summary>
+        /// Currency of the current view.
+        /// </summary>
+        public readonly string Currency;
+        /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        public readonly Outputs.ReportConfigDatasetResponse? Dataset;
+        public readonly Outputs.ReportConfigDatasetResponse? DataSet;
+        /// <summary>
+        /// Date range of the current view.
+        /// </summary>
+        public readonly string DateRange;
         /// <summary>
         /// User input name of the view. Required.
         /// </summary>
@@ -96,6 +104,10 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
         /// Resource Id.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// If true, report includes monetary commitment.
+        /// </summary>
+        public readonly bool? IncludeMonetaryCommitment;
         /// <summary>
         /// List of KPIs to show in Cost Analysis UI.
         /// </summary>
@@ -141,13 +153,19 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
 
             string createdOn,
 
-            Outputs.ReportConfigDatasetResponse? dataset,
+            string currency,
+
+            Outputs.ReportConfigDatasetResponse? dataSet,
+
+            string dateRange,
 
             string? displayName,
 
             string? eTag,
 
             string id,
+
+            bool? includeMonetaryCommitment,
 
             ImmutableArray<Outputs.KpiPropertiesResponse> kpis,
 
@@ -170,10 +188,13 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
             Accumulated = accumulated;
             Chart = chart;
             CreatedOn = createdOn;
-            Dataset = dataset;
+            Currency = currency;
+            DataSet = dataSet;
+            DateRange = dateRange;
             DisplayName = displayName;
             ETag = eTag;
             Id = id;
+            IncludeMonetaryCommitment = includeMonetaryCommitment;
             Kpis = kpis;
             Metric = metric;
             ModifiedOn = modifiedOn;

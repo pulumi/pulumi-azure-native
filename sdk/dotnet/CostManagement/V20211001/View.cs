@@ -34,10 +34,22 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
+        /// Currency of the current view.
+        /// </summary>
+        [Output("currency")]
+        public Output<string> Currency { get; private set; } = null!;
+
+        /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        [Output("dataset")]
-        public Output<Outputs.ReportConfigDatasetResponse?> Dataset { get; private set; } = null!;
+        [Output("dataSet")]
+        public Output<Outputs.ReportConfigDatasetResponse?> DataSet { get; private set; } = null!;
+
+        /// <summary>
+        /// Date range of the current view.
+        /// </summary>
+        [Output("dateRange")]
+        public Output<string> DateRange { get; private set; } = null!;
 
         /// <summary>
         /// User input name of the view. Required.
@@ -50,6 +62,12 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, report includes monetary commitment.
+        /// </summary>
+        [Output("includeMonetaryCommitment")]
+        public Output<bool?> IncludeMonetaryCommitment { get; private set; } = null!;
 
         /// <summary>
         /// List of KPIs to show in Cost Analysis UI.
@@ -177,8 +195,8 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
         /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        [Input("dataset")]
-        public Input<Inputs.ReportConfigDatasetArgs>? Dataset { get; set; }
+        [Input("dataSet")]
+        public Input<Inputs.ReportConfigDatasetArgs>? DataSet { get; set; }
 
         /// <summary>
         /// User input name of the view. Required.
@@ -191,6 +209,12 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
         /// </summary>
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
+
+        /// <summary>
+        /// If true, report includes monetary commitment.
+        /// </summary>
+        [Input("includeMonetaryCommitment")]
+        public Input<bool>? IncludeMonetaryCommitment { get; set; }
 
         [Input("kpis")]
         private InputList<Inputs.KpiPropertiesArgs>? _kpis;

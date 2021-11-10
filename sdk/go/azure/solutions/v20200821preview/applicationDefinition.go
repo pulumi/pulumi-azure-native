@@ -84,6 +84,12 @@ func NewApplicationDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:solutions/v20190701:ApplicationDefinition"),
 		},
+		{
+			Type: pulumi.String("azure-native:solutions/v20210701:ApplicationDefinition"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:solutions/v20210701:ApplicationDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ApplicationDefinition

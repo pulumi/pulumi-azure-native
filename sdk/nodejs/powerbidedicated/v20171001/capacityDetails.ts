@@ -40,6 +40,10 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public readonly administration!: pulumi.Output<outputs.powerbidedicated.v20171001.DedicatedCapacityAdministratorsResponse | undefined>;
     /**
+     * Capacity name
+     */
+    public /*out*/ readonly friendlyName!: pulumi.Output<string>;
+    /**
      * Location of the PowerBI Dedicated resource.
      */
     public readonly location!: pulumi.Output<string>;
@@ -68,6 +72,10 @@ export class CapacityDetails extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Tenant ID for the capacity. Used for creating Pro Plus capacity.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    /**
      * The type of the PowerBI Dedicated resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -95,13 +103,16 @@ export class CapacityDetails extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["friendlyName"] = undefined /*out*/;
             inputs["mode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["administration"] = undefined /*out*/;
+            inputs["friendlyName"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["mode"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -109,6 +120,7 @@ export class CapacityDetails extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["tenantId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

@@ -965,6 +965,43 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
     /// <summary>
+    /// Schema Type. Immutable.
+    /// </summary>
+    [EnumType]
+    public readonly struct SchemaType : IEquatable<SchemaType>
+    {
+        private readonly string _value;
+
+        private SchemaType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Xml schema type.
+        /// </summary>
+        public static SchemaType Xml { get; } = new SchemaType("xml");
+        /// <summary>
+        /// Json schema type.
+        /// </summary>
+        public static SchemaType Json { get; } = new SchemaType("json");
+
+        public static bool operator ==(SchemaType left, SchemaType right) => left.Equals(right);
+        public static bool operator !=(SchemaType left, SchemaType right) => !left.Equals(right);
+
+        public static explicit operator string(SchemaType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SchemaType other && Equals(other);
+        public bool Equals(SchemaType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Name of the Sku.
     /// </summary>
     [EnumType]

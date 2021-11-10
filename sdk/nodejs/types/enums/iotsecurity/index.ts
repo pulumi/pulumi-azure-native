@@ -3,11 +3,9 @@
 
 // Export sub-modules:
 import * as v20210201preview from "./v20210201preview";
-import * as v20210901preview from "./v20210901preview";
 
 export {
     v20210201preview,
-    v20210901preview,
 };
 
 export const MdeIntegration = {

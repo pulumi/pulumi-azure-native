@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     public static class GetApiSchema
     {
         /// <summary>
-        /// Schema Contract details.
+        /// API Schema Contract details.
         /// </summary>
         public static Task<GetApiSchemaResult> InvokeAsync(GetApiSchemaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiSchemaResult>("azure-native:apimanagement/v20210401preview:getApiSchema", args ?? new GetApiSchemaArgs(), options.WithVersion());
 
         /// <summary>
-        /// Schema Contract details.
+        /// API Schema Contract details.
         /// </summary>
         public static Output<GetApiSchemaResult> Invoke(GetApiSchemaInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApiSchemaResult>("azure-native:apimanagement/v20210401preview:getApiSchema", args ?? new GetApiSchemaInvokeArgs(), options.WithVersion());
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Schema identifier within an API. Must be unique in the current API Management service instance.
+        /// Schema id identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("schemaId", required: true)]
         public string SchemaId { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Schema identifier within an API. Must be unique in the current API Management service instance.
+        /// Schema id identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("schemaId", required: true)]
         public Input<string> SchemaId { get; set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
     public sealed class GetApiSchemaResult
     {
         /// <summary>
-        /// Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
+        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
         /// </summary>
         public readonly object? Components;
         /// <summary>
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         /// </summary>
         public readonly string ContentType;
         /// <summary>
-        /// Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
         /// </summary>
         public readonly object? Definitions;
         /// <summary>

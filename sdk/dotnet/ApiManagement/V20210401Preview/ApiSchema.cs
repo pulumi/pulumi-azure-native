@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
 {
     /// <summary>
-    /// Schema Contract details.
+    /// API Schema Contract details.
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210401preview:ApiSchema")]
     public partial class ApiSchema : Pulumi.CustomResource
     {
         /// <summary>
-        /// Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
+        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
         /// </summary>
         [Output("components")]
         public Output<object?> Components { get; private set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public Output<string> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
         /// </summary>
         [Output("definitions")]
         public Output<object?> Definitions { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
-        /// Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
+        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
         /// </summary>
         [Input("components")]
         public Input<object>? Components { get; set; }
@@ -141,7 +141,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public Input<string> ContentType { get; set; } = null!;
 
         /// <summary>
-        /// Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
         /// </summary>
         [Input("definitions")]
         public Input<object>? Definitions { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Schema identifier within an API. Must be unique in the current API Management service instance.
+        /// Schema id identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("schemaId")]
         public Input<string>? SchemaId { get; set; }

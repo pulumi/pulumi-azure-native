@@ -22,20 +22,23 @@ type LookupViewArgs struct {
 
 
 type LookupViewResult struct {
-	Accumulated *string                         `pulumi:"accumulated"`
-	Chart       *string                         `pulumi:"chart"`
-	CreatedOn   string                          `pulumi:"createdOn"`
-	Dataset     *ReportConfigDatasetResponse    `pulumi:"dataset"`
-	DisplayName *string                         `pulumi:"displayName"`
-	ETag        *string                         `pulumi:"eTag"`
-	Id          string                          `pulumi:"id"`
-	Kpis        []KpiPropertiesResponse         `pulumi:"kpis"`
-	Metric      *string                         `pulumi:"metric"`
-	ModifiedOn  string                          `pulumi:"modifiedOn"`
-	Name        string                          `pulumi:"name"`
-	Pivots      []PivotPropertiesResponse       `pulumi:"pivots"`
-	Scope       *string                         `pulumi:"scope"`
-	TimePeriod  *ReportConfigTimePeriodResponse `pulumi:"timePeriod"`
-	Timeframe   string                          `pulumi:"timeframe"`
-	Type        string                          `pulumi:"type"`
+	Accumulated               *string                         `pulumi:"accumulated"`
+	Chart                     *string                         `pulumi:"chart"`
+	CreatedOn                 string                          `pulumi:"createdOn"`
+	Currency                  string                          `pulumi:"currency"`
+	DataSet                   *ReportConfigDatasetResponse    `pulumi:"dataSet"`
+	DateRange                 string                          `pulumi:"dateRange"`
+	DisplayName               *string                         `pulumi:"displayName"`
+	ETag                      *string                         `pulumi:"eTag"`
+	Id                        string                          `pulumi:"id"`
+	IncludeMonetaryCommitment *bool                           `pulumi:"includeMonetaryCommitment"`
+	Kpis                      []KpiPropertiesResponse         `pulumi:"kpis"`
+	Metric                    *string                         `pulumi:"metric"`
+	ModifiedOn                string                          `pulumi:"modifiedOn"`
+	Name                      string                          `pulumi:"name"`
+	Pivots                    []PivotPropertiesResponse       `pulumi:"pivots"`
+	Scope                     *string                         `pulumi:"scope"`
+	TimePeriod                *ReportConfigTimePeriodResponse `pulumi:"timePeriod"`
+	Timeframe                 string                          `pulumi:"timeframe"`
+	Type                      string                          `pulumi:"type"`
 }

@@ -10,16 +10,12 @@ from .defender_setting import *
 from .device_group import *
 from .get_defender_setting import *
 from .get_device_group import *
-from .get_location_site import *
 from .get_on_premise_sensor import *
 from .get_sensor import *
 from .get_site import *
-from .get_site_sensor import *
-from .location_site import *
 from .on_premise_sensor import *
 from .sensor import *
 from .site import *
-from .site_sensor import *
 from ._inputs import *
 from . import outputs
 
@@ -27,9 +23,6 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.iotsecurity.v20210201preview as __v20210201preview
     v20210201preview = __v20210201preview
-    import pulumi_azure_native.iotsecurity.v20210901preview as __v20210901preview
-    v20210901preview = __v20210901preview
 else:
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.iotsecurity.v20210201preview')
-    v20210901preview = _utilities.lazy_import('pulumi_azure_native.iotsecurity.v20210901preview')
 

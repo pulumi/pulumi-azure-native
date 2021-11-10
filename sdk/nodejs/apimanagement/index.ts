@@ -68,6 +68,7 @@ export * from "./getPrivateEndpointConnectionByName";
 export * from "./getProduct";
 export * from "./getProductPolicy";
 export * from "./getProperty";
+export * from "./getSchema";
 export * from "./getSubscription";
 export * from "./getTag";
 export * from "./getTagByApi";
@@ -99,6 +100,7 @@ export * from "./productApi";
 export * from "./productGroup";
 export * from "./productPolicy";
 export * from "./property";
+export * from "./schema";
 export * from "./subscription";
 export * from "./tag";
 export * from "./tagByApi";
@@ -183,6 +185,7 @@ import { ProductApi } from "./productApi";
 import { ProductGroup } from "./productGroup";
 import { ProductPolicy } from "./productPolicy";
 import { Property } from "./property";
+import { Schema } from "./schema";
 import { Subscription } from "./subscription";
 import { Tag } from "./tag";
 import { TagByApi } from "./tagByApi";
@@ -278,6 +281,8 @@ const _module = {
                 return new ProductPolicy(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Property":
                 return new Property(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:Schema":
+                return new Schema(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Tag":

@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class TransformationResponse
     {
         /// <summary>
+        /// Dataset reference.
+        /// </summary>
+        public readonly Outputs.DatasetReferenceResponse? Dataset;
+        /// <summary>
         /// Transformation description.
         /// </summary>
         public readonly string? Description;
@@ -25,20 +29,30 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.DataFlowReferenceResponse? Flowlet;
         /// <summary>
+        /// Linked service reference.
+        /// </summary>
+        public readonly Outputs.LinkedServiceReferenceResponse? LinkedService;
+        /// <summary>
         /// Transformation name.
         /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
         private TransformationResponse(
+            Outputs.DatasetReferenceResponse? dataset,
+
             string? description,
 
             Outputs.DataFlowReferenceResponse? flowlet,
 
+            Outputs.LinkedServiceReferenceResponse? linkedService,
+
             string name)
         {
+            Dataset = dataset;
             Description = description;
             Flowlet = flowlet;
+            LinkedService = linkedService;
             Name = name;
         }
     }

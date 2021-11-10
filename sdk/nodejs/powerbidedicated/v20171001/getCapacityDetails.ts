@@ -42,6 +42,10 @@ export interface GetCapacityDetailsResult {
      */
     readonly administration?: outputs.powerbidedicated.v20171001.DedicatedCapacityAdministratorsResponse;
     /**
+     * Capacity name
+     */
+    readonly friendlyName: string;
+    /**
      * An identifier that represents the PowerBI Dedicated resource.
      */
     readonly id: string;
@@ -73,6 +77,10 @@ export interface GetCapacityDetailsResult {
      * Key-value pairs of additional resource provisioning properties.
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Tenant ID for the capacity. Used for creating Pro Plus capacity.
+     */
+    readonly tenantId: string;
     /**
      * The type of the PowerBI Dedicated resource.
      */

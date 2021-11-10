@@ -27,10 +27,13 @@ if typing.TYPE_CHECKING:
     v20190701 = __v20190701
     import pulumi_azure_native.solutions.v20200821preview as __v20200821preview
     v20200821preview = __v20200821preview
+    import pulumi_azure_native.solutions.v20210701 as __v20210701
+    v20210701 = __v20210701
 else:
     v20160901preview = _utilities.lazy_import('pulumi_azure_native.solutions.v20160901preview')
     v20170901 = _utilities.lazy_import('pulumi_azure_native.solutions.v20170901')
     v20180601 = _utilities.lazy_import('pulumi_azure_native.solutions.v20180601')
     v20190701 = _utilities.lazy_import('pulumi_azure_native.solutions.v20190701')
     v20200821preview = _utilities.lazy_import('pulumi_azure_native.solutions.v20200821preview')
+    v20210701 = _utilities.lazy_import('pulumi_azure_native.solutions.v20210701')
 

@@ -25,16 +25,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DefenderSetting{}
 	case "azure-native:iotsecurity:DeviceGroup":
 		r = &DeviceGroup{}
-	case "azure-native:iotsecurity:LocationSite":
-		r = &LocationSite{}
 	case "azure-native:iotsecurity:OnPremiseSensor":
 		r = &OnPremiseSensor{}
 	case "azure-native:iotsecurity:Sensor":
 		r = &Sensor{}
 	case "azure-native:iotsecurity:Site":
 		r = &Site{}
-	case "azure-native:iotsecurity:SiteSensor":
-		r = &SiteSensor{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

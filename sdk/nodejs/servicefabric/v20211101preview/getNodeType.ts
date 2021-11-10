@@ -59,9 +59,9 @@ export interface GetNodeTypeResult {
      */
     readonly dataDiskLetter?: string;
     /**
-     * Disk size for each vm in the node type in GBs.
+     * Disk size for the managed disk attached to the vms on the node type in GBs.
      */
-    readonly dataDiskSizeGB: number;
+    readonly dataDiskSizeGB?: number;
     /**
      * Managed data disk type. Specifies the storage account type for the managed disk
      */
@@ -134,6 +134,10 @@ export interface GetNodeTypeResult {
      * Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
      */
     readonly useDefaultPublicLoadBalancer?: boolean;
+    /**
+     * Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+     */
+    readonly useTempDataDisk?: boolean;
     /**
      * Set of extensions that should be installed onto the virtual machines.
      */

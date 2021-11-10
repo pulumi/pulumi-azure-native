@@ -21,7 +21,7 @@ class GetNodeTypeResult:
     """
     Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     """
-    def __init__(__self__, additional_data_disks=None, application_ports=None, capacities=None, data_disk_letter=None, data_disk_size_gb=None, data_disk_type=None, enable_accelerated_networking=None, enable_encryption_at_host=None, ephemeral_ports=None, frontend_configurations=None, id=None, is_primary=None, is_stateless=None, multiple_placement_groups=None, name=None, network_security_rules=None, placement_properties=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None, use_default_public_load_balancer=None, vm_extensions=None, vm_image_offer=None, vm_image_publisher=None, vm_image_sku=None, vm_image_version=None, vm_instance_count=None, vm_managed_identity=None, vm_secrets=None, vm_size=None):
+    def __init__(__self__, additional_data_disks=None, application_ports=None, capacities=None, data_disk_letter=None, data_disk_size_gb=None, data_disk_type=None, enable_accelerated_networking=None, enable_encryption_at_host=None, ephemeral_ports=None, frontend_configurations=None, id=None, is_primary=None, is_stateless=None, multiple_placement_groups=None, name=None, network_security_rules=None, placement_properties=None, provisioning_state=None, sku=None, system_data=None, tags=None, type=None, use_default_public_load_balancer=None, use_temp_data_disk=None, vm_extensions=None, vm_image_offer=None, vm_image_publisher=None, vm_image_sku=None, vm_image_version=None, vm_instance_count=None, vm_managed_identity=None, vm_secrets=None, vm_size=None):
         if additional_data_disks and not isinstance(additional_data_disks, list):
             raise TypeError("Expected argument 'additional_data_disks' to be a list")
         pulumi.set(__self__, "additional_data_disks", additional_data_disks)
@@ -91,6 +91,9 @@ class GetNodeTypeResult:
         if use_default_public_load_balancer and not isinstance(use_default_public_load_balancer, bool):
             raise TypeError("Expected argument 'use_default_public_load_balancer' to be a bool")
         pulumi.set(__self__, "use_default_public_load_balancer", use_default_public_load_balancer)
+        if use_temp_data_disk and not isinstance(use_temp_data_disk, bool):
+            raise TypeError("Expected argument 'use_temp_data_disk' to be a bool")
+        pulumi.set(__self__, "use_temp_data_disk", use_temp_data_disk)
         if vm_extensions and not isinstance(vm_extensions, list):
             raise TypeError("Expected argument 'vm_extensions' to be a list")
         pulumi.set(__self__, "vm_extensions", vm_extensions)
@@ -153,9 +156,9 @@ class GetNodeTypeResult:
 
     @property
     @pulumi.getter(name="dataDiskSizeGB")
-    def data_disk_size_gb(self) -> int:
+    def data_disk_size_gb(self) -> Optional[int]:
         """
-        Disk size for each vm in the node type in GBs.
+        Disk size for the managed disk attached to the vms on the node type in GBs.
         """
         return pulumi.get(self, "data_disk_size_gb")
 
@@ -304,6 +307,14 @@ class GetNodeTypeResult:
         return pulumi.get(self, "use_default_public_load_balancer")
 
     @property
+    @pulumi.getter(name="useTempDataDisk")
+    def use_temp_data_disk(self) -> Optional[bool]:
+        """
+        Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+        """
+        return pulumi.get(self, "use_temp_data_disk")
+
+    @property
     @pulumi.getter(name="vmExtensions")
     def vm_extensions(self) -> Optional[Sequence['outputs.VMSSExtensionResponse']]:
         """
@@ -405,6 +416,7 @@ class AwaitableGetNodeTypeResult(GetNodeTypeResult):
             tags=self.tags,
             type=self.type,
             use_default_public_load_balancer=self.use_default_public_load_balancer,
+            use_temp_data_disk=self.use_temp_data_disk,
             vm_extensions=self.vm_extensions,
             vm_image_offer=self.vm_image_offer,
             vm_image_publisher=self.vm_image_publisher,
@@ -462,6 +474,7 @@ def get_node_type(cluster_name: Optional[str] = None,
         tags=__ret__.tags,
         type=__ret__.type,
         use_default_public_load_balancer=__ret__.use_default_public_load_balancer,
+        use_temp_data_disk=__ret__.use_temp_data_disk,
         vm_extensions=__ret__.vm_extensions,
         vm_image_offer=__ret__.vm_image_offer,
         vm_image_publisher=__ret__.vm_image_publisher,

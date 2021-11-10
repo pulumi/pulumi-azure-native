@@ -97,9 +97,9 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview
         /// </summary>
         public readonly string? DataDiskLetter;
         /// <summary>
-        /// Disk size for each vm in the node type in GBs.
+        /// Disk size for the managed disk attached to the vms on the node type in GBs.
         /// </summary>
-        public readonly int DataDiskSizeGB;
+        public readonly int? DataDiskSizeGB;
         /// <summary>
         /// Managed data disk type. Specifies the storage account type for the managed disk
         /// </summary>
@@ -173,6 +173,10 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview
         /// </summary>
         public readonly bool? UseDefaultPublicLoadBalancer;
         /// <summary>
+        /// Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
+        /// </summary>
+        public readonly bool? UseTempDataDisk;
+        /// <summary>
         /// Set of extensions that should be installed onto the virtual machines.
         /// </summary>
         public readonly ImmutableArray<Outputs.VMSSExtensionResponse> VmExtensions;
@@ -219,7 +223,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview
 
             string? dataDiskLetter,
 
-            int dataDiskSizeGB,
+            int? dataDiskSizeGB,
 
             string? dataDiskType,
 
@@ -256,6 +260,8 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview
             string type,
 
             bool? useDefaultPublicLoadBalancer,
+
+            bool? useTempDataDisk,
 
             ImmutableArray<Outputs.VMSSExtensionResponse> vmExtensions,
 
@@ -298,6 +304,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20211101Preview
             Tags = tags;
             Type = type;
             UseDefaultPublicLoadBalancer = useDefaultPublicLoadBalancer;
+            UseTempDataDisk = useTempDataDisk;
             VmExtensions = vmExtensions;
             VmImageOffer = vmImageOffer;
             VmImagePublisher = vmImagePublisher;

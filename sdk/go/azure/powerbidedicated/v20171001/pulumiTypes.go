@@ -277,8 +277,9 @@ func (o DedicatedCapacityAdministratorsResponsePtrOutput) Members() pulumi.Strin
 }
 
 type ResourceSku struct {
-	Name string  `pulumi:"name"`
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     string  `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 
@@ -293,8 +294,9 @@ type ResourceSkuInput interface {
 }
 
 type ResourceSkuArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ResourceSkuArgs) ElementType() reflect.Type {
@@ -374,6 +376,10 @@ func (o ResourceSkuOutput) ToResourceSkuPtrOutputWithContext(ctx context.Context
 	}).(ResourceSkuPtrOutput)
 }
 
+func (o ResourceSkuOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceSku) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
 func (o ResourceSkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -406,6 +412,15 @@ func (o ResourceSkuPtrOutput) Elem() ResourceSkuOutput {
 	}).(ResourceSkuOutput)
 }
 
+func (o ResourceSkuPtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceSku) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o ResourceSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSku) *string {
 		if v == nil {
@@ -425,8 +440,9 @@ func (o ResourceSkuPtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 type ResourceSkuResponse struct {
-	Name string  `pulumi:"name"`
-	Tier *string `pulumi:"tier"`
+	Capacity *int    `pulumi:"capacity"`
+	Name     string  `pulumi:"name"`
+	Tier     *string `pulumi:"tier"`
 }
 
 
@@ -441,8 +457,9 @@ type ResourceSkuResponseInput interface {
 }
 
 type ResourceSkuResponseArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
+	Name     pulumi.StringInput    `pulumi:"name"`
+	Tier     pulumi.StringPtrInput `pulumi:"tier"`
 }
 
 func (ResourceSkuResponseArgs) ElementType() reflect.Type {
@@ -522,6 +539,10 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx
 	}).(ResourceSkuResponsePtrOutput)
 }
 
+func (o ResourceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ResourceSkuResponse) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
 func (o ResourceSkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceSkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -552,6 +573,15 @@ func (o ResourceSkuResponsePtrOutput) Elem() ResourceSkuResponseOutput {
 		var ret ResourceSkuResponse
 		return ret
 	}).(ResourceSkuResponseOutput)
+}
+
+func (o ResourceSkuResponsePtrOutput) Capacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourceSkuResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Capacity
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o ResourceSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {

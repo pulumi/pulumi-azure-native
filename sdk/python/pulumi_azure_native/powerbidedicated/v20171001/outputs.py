@@ -44,13 +44,17 @@ class ResourceSkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
+                 capacity: Optional[int] = None,
                  tier: Optional[str] = None):
         """
         Represents the SKU name and Azure pricing tier for PowerBI Dedicated resource.
         :param str name: Name of the SKU level.
+        :param int capacity: The capacity of the SKU.
         :param str tier: The name of the Azure pricing tier to which the SKU applies.
         """
         pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
@@ -61,6 +65,14 @@ class ResourceSkuResponse(dict):
         Name of the SKU level.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        The capacity of the SKU.
+        """
+        return pulumi.get(self, "capacity")
 
     @property
     @pulumi.getter

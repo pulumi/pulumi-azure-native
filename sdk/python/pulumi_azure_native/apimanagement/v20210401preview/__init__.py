@@ -66,6 +66,7 @@ from .get_policy import *
 from .get_private_endpoint_connection_by_name import *
 from .get_product import *
 from .get_product_policy import *
+from .get_schema import *
 from .get_subscription import *
 from .get_tag import *
 from .get_tag_by_api import *
@@ -95,6 +96,7 @@ from .product import *
 from .product_api import *
 from .product_group import *
 from .product_policy import *
+from .schema import *
 from .subscription import *
 from .tag import *
 from .tag_by_api import *

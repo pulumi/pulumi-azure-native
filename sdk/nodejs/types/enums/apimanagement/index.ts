@@ -443,6 +443,22 @@ export const SamplingType = {
  */
 export type SamplingType = (typeof SamplingType)[keyof typeof SamplingType];
 
+export const SchemaType = {
+    /**
+     * Xml schema type.
+     */
+    Xml: "xml",
+    /**
+     * Json schema type.
+     */
+    Json: "json",
+} as const;
+
+/**
+ * Schema Type. Immutable.
+ */
+export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
+
 export const SkuType = {
     /**
      * Developer SKU of Api Management.

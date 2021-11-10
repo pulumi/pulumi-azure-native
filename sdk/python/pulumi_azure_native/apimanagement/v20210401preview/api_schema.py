@@ -27,9 +27,9 @@ class ApiSchemaArgs:
         :param pulumi.Input[str] content_type: Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-        :param Any components: Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
-        :param Any definitions: Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
-        :param pulumi.Input[str] schema_id: Schema identifier within an API. Must be unique in the current API Management service instance.
+        :param Any components: Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
+        :param Any definitions: Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
+        :param pulumi.Input[str] schema_id: Schema id identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] value: Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
         """
         pulumi.set(__self__, "api_id", api_id)
@@ -97,7 +97,7 @@ class ApiSchemaArgs:
     @pulumi.getter
     def components(self) -> Optional[Any]:
         """
-        Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
+        Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
         """
         return pulumi.get(self, "components")
 
@@ -109,7 +109,7 @@ class ApiSchemaArgs:
     @pulumi.getter
     def definitions(self) -> Optional[Any]:
         """
-        Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+        Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
         """
         return pulumi.get(self, "definitions")
 
@@ -121,7 +121,7 @@ class ApiSchemaArgs:
     @pulumi.getter(name="schemaId")
     def schema_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Schema identifier within an API. Must be unique in the current API Management service instance.
+        Schema id identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "schema_id")
 
@@ -157,16 +157,16 @@ class ApiSchema(pulumi.CustomResource):
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Schema Contract details.
+        API Schema Contract details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        :param Any components: Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
+        :param Any components: Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
         :param pulumi.Input[str] content_type: Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
-        :param Any definitions: Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+        :param Any definitions: Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] schema_id: Schema identifier within an API. Must be unique in the current API Management service instance.
+        :param pulumi.Input[str] schema_id: Schema id identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] value: Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
         """
@@ -177,7 +177,7 @@ class ApiSchema(pulumi.CustomResource):
                  args: ApiSchemaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Schema Contract details.
+        API Schema Contract details.
 
         :param str resource_name: The name of the resource.
         :param ApiSchemaArgs args: The arguments to use to populate this resource's properties.
@@ -268,7 +268,7 @@ class ApiSchema(pulumi.CustomResource):
     @pulumi.getter
     def components(self) -> pulumi.Output[Optional[Any]]:
         """
-        Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
+        Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
         """
         return pulumi.get(self, "components")
 
@@ -284,7 +284,7 @@ class ApiSchema(pulumi.CustomResource):
     @pulumi.getter
     def definitions(self) -> pulumi.Output[Optional[Any]]:
         """
-        Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+        Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
         """
         return pulumi.get(self, "definitions")
 

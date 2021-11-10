@@ -48,9 +48,17 @@ export class View extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
+     * Currency of the current view.
+     */
+    public /*out*/ readonly currency!: pulumi.Output<string>;
+    /**
      * Has definition for data in this report config.
      */
-    public readonly dataset!: pulumi.Output<outputs.costmanagement.v20211001.ReportConfigDatasetResponse | undefined>;
+    public readonly dataSet!: pulumi.Output<outputs.costmanagement.v20211001.ReportConfigDatasetResponse | undefined>;
+    /**
+     * Date range of the current view.
+     */
+    public /*out*/ readonly dateRange!: pulumi.Output<string>;
     /**
      * User input name of the view. Required.
      */
@@ -59,6 +67,10 @@ export class View extends pulumi.CustomResource {
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     public readonly eTag!: pulumi.Output<string | undefined>;
+    /**
+     * If true, report includes monetary commitment.
+     */
+    public readonly includeMonetaryCommitment!: pulumi.Output<boolean | undefined>;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */
@@ -115,9 +127,10 @@ export class View extends pulumi.CustomResource {
             }
             inputs["accumulated"] = args ? args.accumulated : undefined;
             inputs["chart"] = args ? args.chart : undefined;
-            inputs["dataset"] = args ? args.dataset : undefined;
+            inputs["dataSet"] = args ? args.dataSet : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["includeMonetaryCommitment"] = args ? args.includeMonetaryCommitment : undefined;
             inputs["kpis"] = args ? args.kpis : undefined;
             inputs["metric"] = args ? args.metric : undefined;
             inputs["pivots"] = args ? args.pivots : undefined;
@@ -127,15 +140,20 @@ export class View extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["viewName"] = args ? args.viewName : undefined;
             inputs["createdOn"] = undefined /*out*/;
+            inputs["currency"] = undefined /*out*/;
+            inputs["dateRange"] = undefined /*out*/;
             inputs["modifiedOn"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
         } else {
             inputs["accumulated"] = undefined /*out*/;
             inputs["chart"] = undefined /*out*/;
             inputs["createdOn"] = undefined /*out*/;
-            inputs["dataset"] = undefined /*out*/;
+            inputs["currency"] = undefined /*out*/;
+            inputs["dataSet"] = undefined /*out*/;
+            inputs["dateRange"] = undefined /*out*/;
             inputs["displayName"] = undefined /*out*/;
             inputs["eTag"] = undefined /*out*/;
+            inputs["includeMonetaryCommitment"] = undefined /*out*/;
             inputs["kpis"] = undefined /*out*/;
             inputs["metric"] = undefined /*out*/;
             inputs["modifiedOn"] = undefined /*out*/;
@@ -170,7 +188,7 @@ export interface ViewArgs {
     /**
      * Has definition for data in this report config.
      */
-    dataset?: pulumi.Input<inputs.costmanagement.v20211001.ReportConfigDatasetArgs>;
+    dataSet?: pulumi.Input<inputs.costmanagement.v20211001.ReportConfigDatasetArgs>;
     /**
      * User input name of the view. Required.
      */
@@ -179,6 +197,10 @@ export interface ViewArgs {
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
     eTag?: pulumi.Input<string>;
+    /**
+     * If true, report includes monetary commitment.
+     */
+    includeMonetaryCommitment?: pulumi.Input<boolean>;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */

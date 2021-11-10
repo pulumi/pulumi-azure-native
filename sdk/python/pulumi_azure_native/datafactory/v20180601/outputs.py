@@ -71669,21 +71669,46 @@ class TransformationResponse(dict):
     """
     A data flow transformation.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedService":
+            suggest = "linked_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TransformationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TransformationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TransformationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
+                 dataset: Optional['outputs.DatasetReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 flowlet: Optional['outputs.DataFlowReferenceResponse'] = None):
+                 flowlet: Optional['outputs.DataFlowReferenceResponse'] = None,
+                 linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None):
         """
         A data flow transformation.
         :param str name: Transformation name.
+        :param 'DatasetReferenceResponse' dataset: Dataset reference.
         :param str description: Transformation description.
         :param 'DataFlowReferenceResponse' flowlet: Flowlet Reference
+        :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
         """
         pulumi.set(__self__, "name", name)
+        if dataset is not None:
+            pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if flowlet is not None:
             pulumi.set(__self__, "flowlet", flowlet)
+        if linked_service is not None:
+            pulumi.set(__self__, "linked_service", linked_service)
 
     @property
     @pulumi.getter
@@ -71692,6 +71717,14 @@ class TransformationResponse(dict):
         Transformation name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def dataset(self) -> Optional['outputs.DatasetReferenceResponse']:
+        """
+        Dataset reference.
+        """
+        return pulumi.get(self, "dataset")
 
     @property
     @pulumi.getter
@@ -71708,6 +71741,14 @@ class TransformationResponse(dict):
         Flowlet Reference
         """
         return pulumi.get(self, "flowlet")
+
+    @property
+    @pulumi.getter(name="linkedService")
+    def linked_service(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service")
 
 
 @pulumi.output_type

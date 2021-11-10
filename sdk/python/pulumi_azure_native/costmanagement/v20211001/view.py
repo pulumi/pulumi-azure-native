@@ -20,9 +20,10 @@ class ViewArgs:
                  type: pulumi.Input[Union[str, 'ReportType']],
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
-                 dataset: Optional[pulumi.Input['ReportConfigDatasetArgs']] = None,
+                 data_set: Optional[pulumi.Input['ReportConfigDatasetArgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
                  kpis: Optional[pulumi.Input[Sequence[pulumi.Input['KpiPropertiesArgs']]]] = None,
                  metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input['PivotPropertiesArgs']]]] = None,
@@ -35,9 +36,10 @@ class ViewArgs:
         :param pulumi.Input[Union[str, 'ReportType']] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
         :param pulumi.Input[Union[str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
         :param pulumi.Input[Union[str, 'ChartType']] chart: Chart type of the main view in Cost Analysis. Required.
-        :param pulumi.Input['ReportConfigDatasetArgs'] dataset: Has definition for data in this report config.
+        :param pulumi.Input['ReportConfigDatasetArgs'] data_set: Has definition for data in this report config.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        :param pulumi.Input[bool] include_monetary_commitment: If true, report includes monetary commitment.
         :param pulumi.Input[Sequence[pulumi.Input['KpiPropertiesArgs']]] kpis: List of KPIs to show in Cost Analysis UI.
         :param pulumi.Input[Union[str, 'MetricType']] metric: Metric to use when displaying costs.
         :param pulumi.Input[Sequence[pulumi.Input['PivotPropertiesArgs']]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
@@ -51,12 +53,14 @@ class ViewArgs:
             pulumi.set(__self__, "accumulated", accumulated)
         if chart is not None:
             pulumi.set(__self__, "chart", chart)
-        if dataset is not None:
-            pulumi.set(__self__, "dataset", dataset)
+        if data_set is not None:
+            pulumi.set(__self__, "data_set", data_set)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
+        if include_monetary_commitment is not None:
+            pulumi.set(__self__, "include_monetary_commitment", include_monetary_commitment)
         if kpis is not None:
             pulumi.set(__self__, "kpis", kpis)
         if metric is not None:
@@ -119,16 +123,16 @@ class ViewArgs:
         pulumi.set(self, "chart", value)
 
     @property
-    @pulumi.getter
-    def dataset(self) -> Optional[pulumi.Input['ReportConfigDatasetArgs']]:
+    @pulumi.getter(name="dataSet")
+    def data_set(self) -> Optional[pulumi.Input['ReportConfigDatasetArgs']]:
         """
         Has definition for data in this report config.
         """
-        return pulumi.get(self, "dataset")
+        return pulumi.get(self, "data_set")
 
-    @dataset.setter
-    def dataset(self, value: Optional[pulumi.Input['ReportConfigDatasetArgs']]):
-        pulumi.set(self, "dataset", value)
+    @data_set.setter
+    def data_set(self, value: Optional[pulumi.Input['ReportConfigDatasetArgs']]):
+        pulumi.set(self, "data_set", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -153,6 +157,18 @@ class ViewArgs:
     @e_tag.setter
     def e_tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "e_tag", value)
+
+    @property
+    @pulumi.getter(name="includeMonetaryCommitment")
+    def include_monetary_commitment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, report includes monetary commitment.
+        """
+        return pulumi.get(self, "include_monetary_commitment")
+
+    @include_monetary_commitment.setter
+    def include_monetary_commitment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_monetary_commitment", value)
 
     @property
     @pulumi.getter
@@ -234,9 +250,10 @@ class View(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
-                 dataset: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
+                 data_set: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
                  kpis: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
                  metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
@@ -253,9 +270,10 @@ class View(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
         :param pulumi.Input[Union[str, 'ChartType']] chart: Chart type of the main view in Cost Analysis. Required.
-        :param pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']] dataset: Has definition for data in this report config.
+        :param pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']] data_set: Has definition for data in this report config.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        :param pulumi.Input[bool] include_monetary_commitment: If true, report includes monetary commitment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]] kpis: List of KPIs to show in Cost Analysis UI.
         :param pulumi.Input[Union[str, 'MetricType']] metric: Metric to use when displaying costs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
@@ -291,9 +309,10 @@ class View(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
-                 dataset: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
+                 data_set: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
                  kpis: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
                  metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
@@ -316,9 +335,10 @@ class View(pulumi.CustomResource):
 
             __props__.__dict__["accumulated"] = accumulated
             __props__.__dict__["chart"] = chart
-            __props__.__dict__["dataset"] = dataset
+            __props__.__dict__["data_set"] = data_set
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["e_tag"] = e_tag
+            __props__.__dict__["include_monetary_commitment"] = include_monetary_commitment
             __props__.__dict__["kpis"] = kpis
             __props__.__dict__["metric"] = metric
             __props__.__dict__["pivots"] = pivots
@@ -332,6 +352,8 @@ class View(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["view_name"] = view_name
             __props__.__dict__["created_on"] = None
+            __props__.__dict__["currency"] = None
+            __props__.__dict__["date_range"] = None
             __props__.__dict__["modified_on"] = None
             __props__.__dict__["name"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:costmanagement/v20211001:View"), pulumi.Alias(type_="azure-native:costmanagement:View"), pulumi.Alias(type_="azure-nextgen:costmanagement:View"), pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:View"), pulumi.Alias(type_="azure-nextgen:costmanagement/v20200601:View")])
@@ -361,9 +383,12 @@ class View(pulumi.CustomResource):
         __props__.__dict__["accumulated"] = None
         __props__.__dict__["chart"] = None
         __props__.__dict__["created_on"] = None
-        __props__.__dict__["dataset"] = None
+        __props__.__dict__["currency"] = None
+        __props__.__dict__["data_set"] = None
+        __props__.__dict__["date_range"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["e_tag"] = None
+        __props__.__dict__["include_monetary_commitment"] = None
         __props__.__dict__["kpis"] = None
         __props__.__dict__["metric"] = None
         __props__.__dict__["modified_on"] = None
@@ -401,11 +426,27 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dataset(self) -> pulumi.Output[Optional['outputs.ReportConfigDatasetResponse']]:
+    def currency(self) -> pulumi.Output[str]:
+        """
+        Currency of the current view.
+        """
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter(name="dataSet")
+    def data_set(self) -> pulumi.Output[Optional['outputs.ReportConfigDatasetResponse']]:
         """
         Has definition for data in this report config.
         """
-        return pulumi.get(self, "dataset")
+        return pulumi.get(self, "data_set")
+
+    @property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> pulumi.Output[str]:
+        """
+        Date range of the current view.
+        """
+        return pulumi.get(self, "date_range")
 
     @property
     @pulumi.getter(name="displayName")
@@ -422,6 +463,14 @@ class View(pulumi.CustomResource):
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter(name="includeMonetaryCommitment")
+    def include_monetary_commitment(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, report includes monetary commitment.
+        """
+        return pulumi.get(self, "include_monetary_commitment")
 
     @property
     @pulumi.getter

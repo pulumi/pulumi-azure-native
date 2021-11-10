@@ -18,7 +18,7 @@ type NodeType struct {
 	ApplicationPorts             EndpointRangeDescriptionResponsePtrOutput `pulumi:"applicationPorts"`
 	Capacities                   pulumi.StringMapOutput                    `pulumi:"capacities"`
 	DataDiskLetter               pulumi.StringPtrOutput                    `pulumi:"dataDiskLetter"`
-	DataDiskSizeGB               pulumi.IntOutput                          `pulumi:"dataDiskSizeGB"`
+	DataDiskSizeGB               pulumi.IntPtrOutput                       `pulumi:"dataDiskSizeGB"`
 	DataDiskType                 pulumi.StringPtrOutput                    `pulumi:"dataDiskType"`
 	EnableAcceleratedNetworking  pulumi.BoolPtrOutput                      `pulumi:"enableAcceleratedNetworking"`
 	EnableEncryptionAtHost       pulumi.BoolPtrOutput                      `pulumi:"enableEncryptionAtHost"`
@@ -36,6 +36,7 @@ type NodeType struct {
 	Tags                         pulumi.StringMapOutput                    `pulumi:"tags"`
 	Type                         pulumi.StringOutput                       `pulumi:"type"`
 	UseDefaultPublicLoadBalancer pulumi.BoolPtrOutput                      `pulumi:"useDefaultPublicLoadBalancer"`
+	UseTempDataDisk              pulumi.BoolPtrOutput                      `pulumi:"useTempDataDisk"`
 	VmExtensions                 VMSSExtensionResponseArrayOutput          `pulumi:"vmExtensions"`
 	VmImageOffer                 pulumi.StringPtrOutput                    `pulumi:"vmImageOffer"`
 	VmImagePublisher             pulumi.StringPtrOutput                    `pulumi:"vmImagePublisher"`
@@ -56,9 +57,6 @@ func NewNodeType(ctx *pulumi.Context,
 
 	if args.ClusterName == nil {
 		return nil, errors.New("invalid value for required argument 'ClusterName'")
-	}
-	if args.DataDiskSizeGB == nil {
-		return nil, errors.New("invalid value for required argument 'DataDiskSizeGB'")
 	}
 	if args.IsPrimary == nil {
 		return nil, errors.New("invalid value for required argument 'IsPrimary'")
@@ -157,7 +155,7 @@ type nodeTypeArgs struct {
 	Capacities                   map[string]string         `pulumi:"capacities"`
 	ClusterName                  string                    `pulumi:"clusterName"`
 	DataDiskLetter               *string                   `pulumi:"dataDiskLetter"`
-	DataDiskSizeGB               int                       `pulumi:"dataDiskSizeGB"`
+	DataDiskSizeGB               *int                      `pulumi:"dataDiskSizeGB"`
 	DataDiskType                 *string                   `pulumi:"dataDiskType"`
 	EnableAcceleratedNetworking  *bool                     `pulumi:"enableAcceleratedNetworking"`
 	EnableEncryptionAtHost       *bool                     `pulumi:"enableEncryptionAtHost"`
@@ -173,6 +171,7 @@ type nodeTypeArgs struct {
 	Sku                          *NodeTypeSku              `pulumi:"sku"`
 	Tags                         map[string]string         `pulumi:"tags"`
 	UseDefaultPublicLoadBalancer *bool                     `pulumi:"useDefaultPublicLoadBalancer"`
+	UseTempDataDisk              *bool                     `pulumi:"useTempDataDisk"`
 	VmExtensions                 []VMSSExtension           `pulumi:"vmExtensions"`
 	VmImageOffer                 *string                   `pulumi:"vmImageOffer"`
 	VmImagePublisher             *string                   `pulumi:"vmImagePublisher"`
@@ -191,7 +190,7 @@ type NodeTypeArgs struct {
 	Capacities                   pulumi.StringMapInput
 	ClusterName                  pulumi.StringInput
 	DataDiskLetter               pulumi.StringPtrInput
-	DataDiskSizeGB               pulumi.IntInput
+	DataDiskSizeGB               pulumi.IntPtrInput
 	DataDiskType                 pulumi.StringPtrInput
 	EnableAcceleratedNetworking  pulumi.BoolPtrInput
 	EnableEncryptionAtHost       pulumi.BoolPtrInput
@@ -207,6 +206,7 @@ type NodeTypeArgs struct {
 	Sku                          NodeTypeSkuPtrInput
 	Tags                         pulumi.StringMapInput
 	UseDefaultPublicLoadBalancer pulumi.BoolPtrInput
+	UseTempDataDisk              pulumi.BoolPtrInput
 	VmExtensions                 VMSSExtensionArrayInput
 	VmImageOffer                 pulumi.StringPtrInput
 	VmImagePublisher             pulumi.StringPtrInput
