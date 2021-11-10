@@ -30,7 +30,7 @@ type LookupApplicationResult struct {
 	CreatedBy               ApplicationClientDetailsResponse            `pulumi:"createdBy"`
 	CustomerSupport         ApplicationPackageContactResponse           `pulumi:"customerSupport"`
 	Id                      string                                      `pulumi:"id"`
-	Identity                *ManagedServiceIdentityResponse             `pulumi:"identity"`
+	Identity                *IdentityResponse                           `pulumi:"identity"`
 	JitAccessPolicy         *ApplicationJitAccessPolicyResponse         `pulumi:"jitAccessPolicy"`
 	Kind                    string                                      `pulumi:"kind"`
 	Location                *string                                     `pulumi:"location"`
@@ -45,7 +45,6 @@ type LookupApplicationResult struct {
 	PublisherTenantId       string                                      `pulumi:"publisherTenantId"`
 	Sku                     *SkuResponse                                `pulumi:"sku"`
 	SupportUrls             ApplicationPackageSupportUrlsResponse       `pulumi:"supportUrls"`
-	SystemData              SystemDataResponse                          `pulumi:"systemData"`
 	Tags                    map[string]string                           `pulumi:"tags"`
 	Type                    string                                      `pulumi:"type"`
 	UpdatedBy               ApplicationClientDetailsResponse            `pulumi:"updatedBy"`

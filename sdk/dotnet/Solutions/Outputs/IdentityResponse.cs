@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.HealthBot.Outputs
+namespace Pulumi.AzureNative.Solutions.Outputs
 {
 
     /// <summary>
@@ -17,22 +17,21 @@ namespace Pulumi.AzureNative.HealthBot.Outputs
     public sealed class IdentityResponse
     {
         /// <summary>
-        /// The principal ID of resource identity. This property will only be provided for a system assigned identity.
+        /// The principal ID of resource identity.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The tenant ID of resource. This property will only be provided for a system assigned identity.
+        /// The tenant ID of resource.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
+        /// The identity type.
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-        /// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedResourceIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private IdentityResponse(
@@ -42,7 +41,7 @@ namespace Pulumi.AzureNative.HealthBot.Outputs
 
             string? type,
 
-            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.UserAssignedResourceIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

@@ -33,7 +33,6 @@ type LookupJitRequestResult struct {
 	Name                     string                             `pulumi:"name"`
 	ProvisioningState        string                             `pulumi:"provisioningState"`
 	PublisherTenantId        string                             `pulumi:"publisherTenantId"`
-	SystemData               SystemDataResponse                 `pulumi:"systemData"`
 	Tags                     map[string]string                  `pulumi:"tags"`
 	Type                     string                             `pulumi:"type"`
 	UpdatedBy                ApplicationClientDetailsResponse   `pulumi:"updatedBy"`

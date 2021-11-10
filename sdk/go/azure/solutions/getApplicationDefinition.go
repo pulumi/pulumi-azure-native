@@ -41,10 +41,7 @@ type LookupApplicationDefinitionResult struct {
 	NotificationPolicy *ApplicationNotificationPolicyResponse             `pulumi:"notificationPolicy"`
 	PackageFileUri     *string                                            `pulumi:"packageFileUri"`
 	Policies           []ApplicationPolicyResponse                        `pulumi:"policies"`
-	ProvisioningState  string                                             `pulumi:"provisioningState"`
 	Sku                *SkuResponse                                       `pulumi:"sku"`
-	StorageAccountId   *string                                            `pulumi:"storageAccountId"`
-	SystemData         SystemDataResponse                                 `pulumi:"systemData"`
 	Tags               map[string]string                                  `pulumi:"tags"`
 	Type               string                                             `pulumi:"type"`
 }

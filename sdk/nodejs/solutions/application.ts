@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about managed application.
- * API Version: 2021-07-01.
+ * API Version: 2019-07-01.
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -63,7 +63,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.solutions.ManagedServiceIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.solutions.IdentityResponse | undefined>;
     /**
      * The managed application Jit access policy.
      */
@@ -121,10 +121,6 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly supportUrls!: pulumi.Output<outputs.solutions.ApplicationPackageSupportUrlsResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.solutions.SystemDataResponse>;
-    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -178,7 +174,6 @@ export class Application extends pulumi.CustomResource {
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publisherTenantId"] = undefined /*out*/;
             inputs["supportUrls"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
         } else {
@@ -203,7 +198,6 @@ export class Application extends pulumi.CustomResource {
             inputs["publisherTenantId"] = undefined /*out*/;
             inputs["sku"] = undefined /*out*/;
             inputs["supportUrls"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
@@ -232,7 +226,7 @@ export interface ApplicationArgs {
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.solutions.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.solutions.IdentityArgs>;
     /**
      * The managed application Jit access policy.
      */

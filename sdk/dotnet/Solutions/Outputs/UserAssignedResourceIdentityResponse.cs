@@ -11,28 +11,28 @@ namespace Pulumi.AzureNative.Solutions.Outputs
 {
 
     /// <summary>
-    /// User assigned identity properties
+    /// Represents the user assigned identity that is contained within the UserAssignedIdentities dictionary on ResourceIdentity
     /// </summary>
     [OutputType]
-    public sealed class UserAssignedIdentityResponse
+    public sealed class UserAssignedResourceIdentityResponse
     {
         /// <summary>
-        /// The client ID of the assigned identity.
-        /// </summary>
-        public readonly string ClientId;
-        /// <summary>
-        /// The principal ID of the assigned identity.
+        /// The principal id of user assigned identity.
         /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// The tenant id of user assigned identity.
+        /// </summary>
+        public readonly string TenantId;
 
         [OutputConstructor]
-        private UserAssignedIdentityResponse(
-            string clientId,
+        private UserAssignedResourceIdentityResponse(
+            string principalId,
 
-            string principalId)
+            string tenantId)
         {
-            ClientId = clientId;
             PrincipalId = principalId;
+            TenantId = tenantId;
         }
     }
 }

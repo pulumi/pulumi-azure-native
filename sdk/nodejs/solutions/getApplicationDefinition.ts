@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about managed application definition.
- * API Version: 2021-07-01.
+ * API Version: 2019-07-01.
  */
 export function getApplicationDefinition(args: GetApplicationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationDefinitionResult> {
     if (!opts) {
@@ -111,21 +111,9 @@ export interface GetApplicationDefinitionResult {
      */
     readonly policies?: outputs.solutions.ApplicationPolicyResponse[];
     /**
-     * Provisioning state.
-     */
-    readonly provisioningState: string;
-    /**
      * The SKU of the resource.
      */
     readonly sku?: outputs.solutions.SkuResponse;
-    /**
-     * The storage account id for bring your own storage scenario.
-     */
-    readonly storageAccountId?: string;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.solutions.SystemDataResponse;
     /**
      * Resource tags
      */

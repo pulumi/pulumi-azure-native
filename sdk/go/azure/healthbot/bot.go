@@ -14,7 +14,6 @@ import (
 type Bot struct {
 	pulumi.CustomResourceState
 
-	Identity   IdentityResponsePtrOutput         `pulumi:"identity"`
 	Location   pulumi.StringOutput               `pulumi:"location"`
 	Name       pulumi.StringOutput               `pulumi:"name"`
 	Properties HealthBotPropertiesResponseOutput `pulumi:"properties"`
@@ -111,21 +110,17 @@ func (BotState) ElementType() reflect.Type {
 }
 
 type botArgs struct {
-	BotName           *string              `pulumi:"botName"`
-	Identity          *Identity            `pulumi:"identity"`
-	Location          *string              `pulumi:"location"`
-	Properties        *HealthBotProperties `pulumi:"properties"`
-	ResourceGroupName string               `pulumi:"resourceGroupName"`
-	Sku               Sku                  `pulumi:"sku"`
-	Tags              map[string]string    `pulumi:"tags"`
+	BotName           *string           `pulumi:"botName"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	Tags              map[string]string `pulumi:"tags"`
 }
 
 
 type BotArgs struct {
 	BotName           pulumi.StringPtrInput
-	Identity          IdentityPtrInput
 	Location          pulumi.StringPtrInput
-	Properties        HealthBotPropertiesPtrInput
 	ResourceGroupName pulumi.StringInput
 	Sku               SkuInput
 	Tags              pulumi.StringMapInput

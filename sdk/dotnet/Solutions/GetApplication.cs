@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Solutions
     {
         /// <summary>
         /// Information about managed application.
-        /// API Version: 2021-07-01.
+        /// API Version: 2019-07-01.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:solutions:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
 
         /// <summary>
         /// Information about managed application.
-        /// API Version: 2021-07-01.
+        /// API Version: 2019-07-01.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:solutions:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithVersion());
@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// The identity of the resource.
         /// </summary>
-        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The managed application Jit access policy.
         /// </summary>
@@ -159,10 +159,6 @@ namespace Pulumi.AzureNative.Solutions
         /// </summary>
         public readonly Outputs.ApplicationPackageSupportUrlsResponse SupportUrls;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -191,7 +187,7 @@ namespace Pulumi.AzureNative.Solutions
 
             string id,
 
-            Outputs.ManagedServiceIdentityResponse? identity,
+            Outputs.IdentityResponse? identity,
 
             Outputs.ApplicationJitAccessPolicyResponse? jitAccessPolicy,
 
@@ -221,8 +217,6 @@ namespace Pulumi.AzureNative.Solutions
 
             Outputs.ApplicationPackageSupportUrlsResponse supportUrls,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -251,7 +245,6 @@ namespace Pulumi.AzureNative.Solutions
             PublisherTenantId = publisherTenantId;
             Sku = sku;
             SupportUrls = supportUrls;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
             UpdatedBy = updatedBy;

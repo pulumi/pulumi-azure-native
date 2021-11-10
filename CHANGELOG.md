@@ -8,6 +8,19 @@ CHANGELOG
 - Fixed replacement of ServiceBus Topics & Queues
   [#940](https://github.com/pulumi/pulumi-azure-native/issues/940)
 
+#### New resources:
+
+- `apimanagement.Schema`
+
+#### New functions:
+
+- `apimanagement.getSchema`
+
+#### Breaking Changes published by Microsoft:
+
+- `iotsecurity.LocationSite` and `iotsecurity.SiteSensor` were removed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16588))
+
 ---
 
 ## 1.45.0 (2021-11-05)

@@ -31,10 +31,7 @@ type ApplicationDefinition struct {
 	NotificationPolicy ApplicationNotificationPolicyResponsePtrOutput             `pulumi:"notificationPolicy"`
 	PackageFileUri     pulumi.StringPtrOutput                                     `pulumi:"packageFileUri"`
 	Policies           ApplicationPolicyResponseArrayOutput                       `pulumi:"policies"`
-	ProvisioningState  pulumi.StringOutput                                        `pulumi:"provisioningState"`
 	Sku                SkuResponsePtrOutput                                       `pulumi:"sku"`
-	StorageAccountId   pulumi.StringPtrOutput                                     `pulumi:"storageAccountId"`
-	SystemData         SystemDataResponseOutput                                   `pulumi:"systemData"`
 	Tags               pulumi.StringMapOutput                                     `pulumi:"tags"`
 	Type               pulumi.StringOutput                                        `pulumi:"type"`
 }
@@ -145,7 +142,6 @@ type applicationDefinitionArgs struct {
 	Policies                  []ApplicationPolicy                        `pulumi:"policies"`
 	ResourceGroupName         string                                     `pulumi:"resourceGroupName"`
 	Sku                       *Sku                                       `pulumi:"sku"`
-	StorageAccountId          *string                                    `pulumi:"storageAccountId"`
 	Tags                      map[string]string                          `pulumi:"tags"`
 }
 
@@ -170,7 +166,6 @@ type ApplicationDefinitionArgs struct {
 	Policies                  ApplicationPolicyArrayInput
 	ResourceGroupName         pulumi.StringInput
 	Sku                       SkuPtrInput
-	StorageAccountId          pulumi.StringPtrInput
 	Tags                      pulumi.StringMapInput
 }
 

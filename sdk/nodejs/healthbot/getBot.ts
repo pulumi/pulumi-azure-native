@@ -6,8 +6,8 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Azure Health Bot resource definition
- * API Version: 2021-08-24.
+ * HealthBot resource definition
+ * API Version: 2020-12-08.
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
     if (!opts) {
@@ -35,17 +35,13 @@ export interface GetBotArgs {
 }
 
 /**
- * Azure Health Bot resource definition
+ * HealthBot resource definition
  */
 export interface GetBotResult {
     /**
      * Fully qualified resource Id for the resource.
      */
     readonly id: string;
-    /**
-     * The identity of the Azure Health Bot.
-     */
-    readonly identity?: outputs.healthbot.IdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -55,11 +51,11 @@ export interface GetBotResult {
      */
     readonly name: string;
     /**
-     * The set of properties specific to Azure Health Bot resource.
+     * The set of properties specific to Healthbot resource.
      */
     readonly properties: outputs.healthbot.HealthBotPropertiesResponse;
     /**
-     * SKU of the Azure Health Bot.
+     * SKU of the HealthBot.
      */
     readonly sku: outputs.healthbot.SkuResponse;
     /**

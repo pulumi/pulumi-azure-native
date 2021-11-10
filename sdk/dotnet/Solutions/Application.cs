@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Solutions
 {
     /// <summary>
     /// Information about managed application.
-    /// API Version: 2021-07-01.
+    /// API Version: 2019-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:Application")]
     public partial class Application : Pulumi.CustomResource
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Solutions
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The managed application Jit access policy.
@@ -141,12 +141,6 @@ namespace Pulumi.AzureNative.Solutions
         /// </summary>
         [Output("supportUrls")]
         public Output<Outputs.ApplicationPackageSupportUrlsResponse> SupportUrls { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -243,7 +237,7 @@ namespace Pulumi.AzureNative.Solutions
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The managed application Jit access policy.

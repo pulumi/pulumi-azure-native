@@ -19,10 +19,10 @@ __all__ = [
     'ApplicationNotificationPolicyArgs',
     'ApplicationPackageLockingPolicyDefinitionArgs',
     'ApplicationPolicyArgs',
+    'IdentityArgs',
     'JitApproverDefinitionArgs',
     'JitAuthorizationPoliciesArgs',
     'JitSchedulingPolicyArgs',
-    'ManagedServiceIdentityArgs',
     'PlanArgs',
     'SkuArgs',
 ]
@@ -363,6 +363,46 @@ class ApplicationPolicyArgs:
 
 
 @pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
 class JitApproverDefinitionArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
@@ -459,16 +499,13 @@ class JitAuthorizationPoliciesArgs:
 class JitSchedulingPolicyArgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[str],
-                 start_time: pulumi.Input[str],
-                 type: pulumi.Input[Union[str, 'JitSchedulingType']]):
+                 start_time: pulumi.Input[str]):
         """
         The JIT scheduling policies.
         :param pulumi.Input[str] start_time: The start time of the request.
-        :param pulumi.Input[Union[str, 'JitSchedulingType']] type: The type of JIT schedule.
         """
         pulumi.set(__self__, "duration", duration)
         pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -490,57 +527,6 @@ class JitSchedulingPolicyArgs:
     @start_time.setter
     def start_time(self, value: pulumi.Input[str]):
         pulumi.set(self, "start_time", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'JitSchedulingType']]:
-        """
-        The type of JIT schedule.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'JitSchedulingType']]):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class ManagedServiceIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
-        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type

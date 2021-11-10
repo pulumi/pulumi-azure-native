@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about JIT request definition.
- * API Version: 2021-07-01.
+ * API Version: 2019-07-01.
  */
 export class JitRequest extends pulumi.CustomResource {
     /**
@@ -73,10 +73,6 @@ export class JitRequest extends pulumi.CustomResource {
      */
     public /*out*/ readonly publisherTenantId!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.solutions.SystemDataResponse>;
-    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -124,7 +120,6 @@ export class JitRequest extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publisherTenantId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;
         } else {
@@ -137,7 +132,6 @@ export class JitRequest extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publisherTenantId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["updatedBy"] = undefined /*out*/;

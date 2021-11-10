@@ -20,7 +20,7 @@ type Application struct {
 	BillingDetails          ApplicationBillingDetailsDefinitionResponseOutput `pulumi:"billingDetails"`
 	CreatedBy               ApplicationClientDetailsResponseOutput            `pulumi:"createdBy"`
 	CustomerSupport         ApplicationPackageContactResponseOutput           `pulumi:"customerSupport"`
-	Identity                ManagedServiceIdentityResponsePtrOutput           `pulumi:"identity"`
+	Identity                IdentityResponsePtrOutput                         `pulumi:"identity"`
 	JitAccessPolicy         ApplicationJitAccessPolicyResponsePtrOutput       `pulumi:"jitAccessPolicy"`
 	Kind                    pulumi.StringOutput                               `pulumi:"kind"`
 	Location                pulumi.StringPtrOutput                            `pulumi:"location"`
@@ -35,7 +35,6 @@ type Application struct {
 	PublisherTenantId       pulumi.StringOutput                               `pulumi:"publisherTenantId"`
 	Sku                     SkuResponsePtrOutput                              `pulumi:"sku"`
 	SupportUrls             ApplicationPackageSupportUrlsResponseOutput       `pulumi:"supportUrls"`
-	SystemData              SystemDataResponseOutput                          `pulumi:"systemData"`
 	Tags                    pulumi.StringMapOutput                            `pulumi:"tags"`
 	Type                    pulumi.StringOutput                               `pulumi:"type"`
 	UpdatedBy               ApplicationClientDetailsResponseOutput            `pulumi:"updatedBy"`
@@ -130,7 +129,7 @@ func (ApplicationState) ElementType() reflect.Type {
 type applicationArgs struct {
 	ApplicationDefinitionId *string                     `pulumi:"applicationDefinitionId"`
 	ApplicationName         *string                     `pulumi:"applicationName"`
-	Identity                *ManagedServiceIdentity     `pulumi:"identity"`
+	Identity                *Identity                   `pulumi:"identity"`
 	JitAccessPolicy         *ApplicationJitAccessPolicy `pulumi:"jitAccessPolicy"`
 	Kind                    string                      `pulumi:"kind"`
 	Location                *string                     `pulumi:"location"`
@@ -147,7 +146,7 @@ type applicationArgs struct {
 type ApplicationArgs struct {
 	ApplicationDefinitionId pulumi.StringPtrInput
 	ApplicationName         pulumi.StringPtrInput
-	Identity                ManagedServiceIdentityPtrInput
+	Identity                IdentityPtrInput
 	JitAccessPolicy         ApplicationJitAccessPolicyPtrInput
 	Kind                    pulumi.StringInput
 	Location                pulumi.StringPtrInput

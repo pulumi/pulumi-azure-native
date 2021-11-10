@@ -21,7 +21,7 @@ class GetApplicationResult:
     """
     Information about managed application.
     """
-    def __init__(__self__, application_definition_id=None, artifacts=None, authorizations=None, billing_details=None, created_by=None, customer_support=None, id=None, identity=None, jit_access_policy=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, management_mode=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, publisher_tenant_id=None, sku=None, support_urls=None, system_data=None, tags=None, type=None, updated_by=None):
+    def __init__(__self__, application_definition_id=None, artifacts=None, authorizations=None, billing_details=None, created_by=None, customer_support=None, id=None, identity=None, jit_access_policy=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, management_mode=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, publisher_tenant_id=None, sku=None, support_urls=None, tags=None, type=None, updated_by=None):
         if application_definition_id and not isinstance(application_definition_id, str):
             raise TypeError("Expected argument 'application_definition_id' to be a str")
         pulumi.set(__self__, "application_definition_id", application_definition_id)
@@ -88,9 +88,6 @@ class GetApplicationResult:
         if support_urls and not isinstance(support_urls, dict):
             raise TypeError("Expected argument 'support_urls' to be a dict")
         pulumi.set(__self__, "support_urls", support_urls)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -159,7 +156,7 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.IdentityResponse']:
         """
         The identity of the resource.
         """
@@ -278,14 +275,6 @@ class GetApplicationResult:
         return pulumi.get(self, "support_urls")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -338,7 +327,6 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             publisher_tenant_id=self.publisher_tenant_id,
             sku=self.sku,
             support_urls=self.support_urls,
-            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             updated_by=self.updated_by)
@@ -349,7 +337,7 @@ def get_application(application_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Information about managed application.
-    API Version: 2021-07-01.
+    API Version: 2019-07-01.
 
 
     :param str application_name: The name of the managed application.
@@ -387,7 +375,6 @@ def get_application(application_name: Optional[str] = None,
         publisher_tenant_id=__ret__.publisher_tenant_id,
         sku=__ret__.sku,
         support_urls=__ret__.support_urls,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         updated_by=__ret__.updated_by)
@@ -399,7 +386,7 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Information about managed application.
-    API Version: 2021-07-01.
+    API Version: 2019-07-01.
 
 
     :param str application_name: The name of the managed application.

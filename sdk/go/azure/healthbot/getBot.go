@@ -24,7 +24,6 @@ type LookupBotArgs struct {
 
 type LookupBotResult struct {
 	Id         string                      `pulumi:"id"`
-	Identity   *IdentityResponse           `pulumi:"identity"`
 	Location   string                      `pulumi:"location"`
 	Name       string                      `pulumi:"name"`
 	Properties HealthBotPropertiesResponse `pulumi:"properties"`

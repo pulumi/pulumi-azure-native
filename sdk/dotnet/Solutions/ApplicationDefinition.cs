@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Solutions
 {
     /// <summary>
     /// Information about managed application definition.
-    /// API Version: 2021-07-01.
+    /// API Version: 2019-07-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:ApplicationDefinition")]
     public partial class ApplicationDefinition : Pulumi.CustomResource
@@ -119,28 +119,10 @@ namespace Pulumi.AzureNative.Solutions
         public Output<ImmutableArray<Outputs.ApplicationPolicyResponse>> Policies { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
-
-        /// <summary>
-        /// The storage account id for bring your own storage scenario.
-        /// </summary>
-        [Output("storageAccountId")]
-        public Output<string?> StorageAccountId { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -346,12 +328,6 @@ namespace Pulumi.AzureNative.Solutions
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
-
-        /// <summary>
-        /// The storage account id for bring your own storage scenario.
-        /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

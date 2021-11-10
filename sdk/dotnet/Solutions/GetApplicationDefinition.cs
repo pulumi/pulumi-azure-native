@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Solutions
     {
         /// <summary>
         /// Information about managed application definition.
-        /// API Version: 2021-07-01.
+        /// API Version: 2019-07-01.
         /// </summary>
         public static Task<GetApplicationDefinitionResult> InvokeAsync(GetApplicationDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithVersion());
 
         /// <summary>
         /// Information about managed application definition.
-        /// API Version: 2021-07-01.
+        /// API Version: 2019-07-01.
         /// </summary>
         public static Output<GetApplicationDefinitionResult> Invoke(GetApplicationDefinitionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionInvokeArgs(), options.WithVersion());
@@ -143,21 +143,9 @@ namespace Pulumi.AzureNative.Solutions
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationPolicyResponse> Policies;
         /// <summary>
-        /// Provisioning state.
-        /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
         /// The SKU of the resource.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
-        /// <summary>
-        /// The storage account id for bring your own storage scenario.
-        /// </summary>
-        public readonly string? StorageAccountId;
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -205,13 +193,7 @@ namespace Pulumi.AzureNative.Solutions
 
             ImmutableArray<Outputs.ApplicationPolicyResponse> policies,
 
-            string provisioningState,
-
             Outputs.SkuResponse? sku,
-
-            string? storageAccountId,
-
-            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -235,10 +217,7 @@ namespace Pulumi.AzureNative.Solutions
             NotificationPolicy = notificationPolicy;
             PackageFileUri = packageFileUri;
             Policies = policies;
-            ProvisioningState = provisioningState;
             Sku = sku;
-            StorageAccountId = storageAccountId;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

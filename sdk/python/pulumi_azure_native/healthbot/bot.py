@@ -19,30 +19,22 @@ class BotArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
                  bot_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['HealthBotPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Bot resource.
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
-        :param pulumi.Input['SkuArgs'] sku: SKU of the Azure Health Bot.
+        :param pulumi.Input['SkuArgs'] sku: SKU of the HealthBot.
         :param pulumi.Input[str] bot_name: The name of the Bot resource.
-        :param pulumi.Input['IdentityArgs'] identity: The identity of the Azure Health Bot.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['HealthBotPropertiesArgs'] properties: The set of properties specific to Azure Health Bot resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if bot_name is not None:
             pulumi.set(__self__, "bot_name", bot_name)
-        if identity is not None:
-            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -62,7 +54,7 @@ class BotArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input['SkuArgs']:
         """
-        SKU of the Azure Health Bot.
+        SKU of the HealthBot.
         """
         return pulumi.get(self, "sku")
 
@@ -84,18 +76,6 @@ class BotArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
-        """
-        The identity of the Azure Health Bot.
-        """
-        return pulumi.get(self, "identity")
-
-    @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
-        pulumi.set(self, "identity", value)
-
-    @property
-    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -105,18 +85,6 @@ class BotArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['HealthBotPropertiesArgs']]:
-        """
-        The set of properties specific to Azure Health Bot resource.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['HealthBotPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
@@ -137,25 +105,21 @@ class Bot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['HealthBotPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Azure Health Bot resource definition
-        API Version: 2021-08-24.
+        HealthBot resource definition
+        API Version: 2020-12-08.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the Bot resource.
-        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the Azure Health Bot.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['HealthBotPropertiesArgs']] properties: The set of properties specific to Azure Health Bot resource.
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SKU of the Azure Health Bot.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SKU of the HealthBot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -165,8 +129,8 @@ class Bot(pulumi.CustomResource):
                  args: BotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Azure Health Bot resource definition
-        API Version: 2021-08-24.
+        HealthBot resource definition
+        API Version: 2020-12-08.
 
         :param str resource_name: The name of the resource.
         :param BotArgs args: The arguments to use to populate this resource's properties.
@@ -184,9 +148,7 @@ class Bot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['HealthBotPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -203,9 +165,7 @@ class Bot(pulumi.CustomResource):
             __props__ = BotArgs.__new__(BotArgs)
 
             __props__.__dict__["bot_name"] = bot_name
-            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -214,6 +174,7 @@ class Bot(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
+            __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:healthbot:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20201020:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201020:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20201020preview:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201020preview:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20201208:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20201208preview:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20201208preview:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20210610:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20210610:Bot"), pulumi.Alias(type_="azure-native:healthbot/v20210824:Bot"), pulumi.Alias(type_="azure-nextgen:healthbot/v20210824:Bot")])
@@ -240,7 +201,6 @@ class Bot(pulumi.CustomResource):
 
         __props__ = BotArgs.__new__(BotArgs)
 
-        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
@@ -249,14 +209,6 @@ class Bot(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Bot(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
-        """
-        The identity of the Azure Health Bot.
-        """
-        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -278,7 +230,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.HealthBotPropertiesResponse']:
         """
-        The set of properties specific to Azure Health Bot resource.
+        The set of properties specific to Healthbot resource.
         """
         return pulumi.get(self, "properties")
 
@@ -286,7 +238,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
-        SKU of the Azure Health Bot.
+        SKU of the HealthBot.
         """
         return pulumi.get(self, "sku")
 

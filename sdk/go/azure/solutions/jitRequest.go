@@ -23,7 +23,6 @@ type JitRequest struct {
 	Name                     pulumi.StringOutput                         `pulumi:"name"`
 	ProvisioningState        pulumi.StringOutput                         `pulumi:"provisioningState"`
 	PublisherTenantId        pulumi.StringOutput                         `pulumi:"publisherTenantId"`
-	SystemData               SystemDataResponseOutput                    `pulumi:"systemData"`
 	Tags                     pulumi.StringMapOutput                      `pulumi:"tags"`
 	Type                     pulumi.StringOutput                         `pulumi:"type"`
 	UpdatedBy                ApplicationClientDetailsResponseOutput      `pulumi:"updatedBy"`
