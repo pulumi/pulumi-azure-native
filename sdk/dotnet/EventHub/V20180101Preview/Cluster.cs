@@ -94,13 +94,9 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:eventhub:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20210601preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20210601preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20211101:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

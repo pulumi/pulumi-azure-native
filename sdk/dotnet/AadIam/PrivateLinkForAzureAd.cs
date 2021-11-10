@@ -95,11 +95,8 @@ namespace Pulumi.AzureNative.AadIam
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:aadiam:privateLinkForAzureAd"},
                     new Pulumi.Alias { Type = "azure-native:aadiam/v20200301:privateLinkForAzureAd"},
-                    new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20200301:privateLinkForAzureAd"},
                     new Pulumi.Alias { Type = "azure-native:aadiam/v20200301preview:privateLinkForAzureAd"},
-                    new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

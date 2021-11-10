@@ -76,21 +76,13 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20170601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20170601preview:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:Replication"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20171001:Replication"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20171001:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20190501:Replication"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190501:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Replication"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20191201preview:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Replication"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20201101preview:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Replication"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20210601preview:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20210801preview:Replication"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20210801preview:Replication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

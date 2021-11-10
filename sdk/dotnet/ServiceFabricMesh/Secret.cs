@@ -71,9 +71,7 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh:Secret"},
                     new Pulumi.Alias { Type = "azure-native:servicefabricmesh/v20180901preview:Secret"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabricmesh/v20180901preview:Secret"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

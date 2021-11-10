@@ -89,9 +89,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple:DedicatedCloudService"},
                     new Pulumi.Alias { Type = "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

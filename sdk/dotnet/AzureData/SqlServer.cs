@@ -83,11 +83,8 @@ namespace Pulumi.AzureNative.AzureData
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:azuredata:SqlServer"},
                     new Pulumi.Alias { Type = "azure-native:azuredata/v20170301preview:SqlServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20170301preview:SqlServer"},
                     new Pulumi.Alias { Type = "azure-native:azuredata/v20190724preview:SqlServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:azuredata/v20190724preview:SqlServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

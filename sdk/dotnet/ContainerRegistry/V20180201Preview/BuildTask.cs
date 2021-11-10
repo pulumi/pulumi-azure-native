@@ -106,15 +106,10 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180201preview:BuildTask"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry:BuildTask"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry:BuildTask"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20180901:BuildTask"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20180901:BuildTask"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20190401:BuildTask"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190401:BuildTask"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20190601preview:BuildTask"},
-                    new Pulumi.Alias { Type = "azure-nextgen:containerregistry/v20190601preview:BuildTask"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

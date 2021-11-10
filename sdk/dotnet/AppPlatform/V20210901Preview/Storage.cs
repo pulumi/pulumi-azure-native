@@ -64,9 +64,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20210901preview:Storage"},
                     new Pulumi.Alias { Type = "azure-native:appplatform:Storage"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform:Storage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

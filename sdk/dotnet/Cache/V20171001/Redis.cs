@@ -154,23 +154,14 @@ namespace Pulumi.AzureNative.Cache.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache:Redis"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20150801:Redis"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20150801:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20160401:Redis"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20160401:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20170201:Redis"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20180301:Redis"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20190701:Redis"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20200601:Redis"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:Redis"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20201201:Redis"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20201201:Redis"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

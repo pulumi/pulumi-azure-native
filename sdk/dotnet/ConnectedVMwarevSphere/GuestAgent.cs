@@ -107,9 +107,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:connectedvmwarevsphere:GuestAgent"},
                     new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:GuestAgent"},
-                    new Pulumi.Alias { Type = "azure-nextgen:connectedvmwarevsphere/v20201001preview:GuestAgent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

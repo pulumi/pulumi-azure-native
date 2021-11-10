@@ -59,11 +59,8 @@ namespace Pulumi.AzureNative.Relay
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:relay:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20160701:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:relay/v20160701:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:relay/v20170401:NamespaceAuthorizationRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:relay/v20170401:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

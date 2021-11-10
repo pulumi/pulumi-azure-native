@@ -221,13 +221,9 @@ namespace Pulumi.AzureNative.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization:AccessReviewScheduleDefinitionById"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180501preview:AccessReviewScheduleDefinitionById"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20210301preview:AccessReviewScheduleDefinitionById"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20210701preview:AccessReviewScheduleDefinitionById"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20210701preview:AccessReviewScheduleDefinitionById"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

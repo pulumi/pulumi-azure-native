@@ -95,9 +95,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis:DicomService"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:DicomService"},
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20210601preview:DicomService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -79,23 +79,14 @@ namespace Pulumi.AzureNative.Web.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210201:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web:WebAppPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20190801:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200601:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20200901:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201001:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:WebAppPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:WebAppPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

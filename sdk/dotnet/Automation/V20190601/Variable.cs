@@ -82,13 +82,9 @@ namespace Pulumi.AzureNative.Automation.V20190601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Variable"},
                     new Pulumi.Alias { Type = "azure-native:automation:Variable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation:Variable"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:Variable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Variable"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Variable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Variable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

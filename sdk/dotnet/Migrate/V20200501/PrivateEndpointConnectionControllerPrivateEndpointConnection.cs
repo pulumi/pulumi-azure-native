@@ -68,10 +68,6 @@ namespace Pulumi.AzureNative.Migrate.V20200501
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                Aliases =
-                {
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection"},
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

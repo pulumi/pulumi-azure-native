@@ -70,15 +70,10 @@ namespace Pulumi.AzureNative.Maps.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:maps/v20210201:Creator"},
                     new Pulumi.Alias { Type = "azure-native:maps:Creator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:maps:Creator"},
                     new Pulumi.Alias { Type = "azure-native:maps/v20200201preview:Creator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:maps/v20200201preview:Creator"},
                     new Pulumi.Alias { Type = "azure-native:maps/v20210701preview:Creator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:maps/v20210701preview:Creator"},
                     new Pulumi.Alias { Type = "azure-native:maps/v20211201preview:Creator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:maps/v20211201preview:Creator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

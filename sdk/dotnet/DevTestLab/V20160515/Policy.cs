@@ -118,13 +118,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:Policy"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:Policy"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20150521preview:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:Policy"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

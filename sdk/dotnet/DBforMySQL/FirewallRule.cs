@@ -65,11 +65,8 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20171201preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

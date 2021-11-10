@@ -64,9 +64,7 @@ namespace Pulumi.AzureNative.Migrate.V20191001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20191001:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:migrate:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

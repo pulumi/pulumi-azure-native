@@ -160,21 +160,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210101preview:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210401preview:GatewayApiEntityTag"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayApiEntityTag"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210801:GatewayApiEntityTag"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

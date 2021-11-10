@@ -106,9 +106,7 @@ namespace Pulumi.AzureNative.Insights.V20150501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20150501:Favorite"},
                     new Pulumi.Alias { Type = "azure-native:insights:Favorite"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights:Favorite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -74,11 +74,8 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:web:Connection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20150801preview:Connection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20150801preview:Connection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20160601:Connection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20160601:Connection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

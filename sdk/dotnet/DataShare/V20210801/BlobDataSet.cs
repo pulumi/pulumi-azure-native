@@ -108,17 +108,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:BlobDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare:BlobDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare:BlobDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:BlobDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:BlobDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20191101:BlobDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:BlobDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:BlobDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:BlobDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:BlobDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:BlobDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

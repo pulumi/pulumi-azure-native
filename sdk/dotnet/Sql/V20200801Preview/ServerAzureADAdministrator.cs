@@ -82,23 +82,14 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:ServerAzureADAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ServerAzureADAdministrator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ServerAzureADAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -210,21 +210,13 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:ManagedInstance"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedInstance"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ManagedInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -132,19 +132,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:LongTermEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:LongTermEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:LongTermEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:LongTermEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:LongTermEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:LongTermEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:LongTermEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:LongTermEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:LongTermEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:LongTermEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210331preview:LongTermEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:LongTermEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210630preview:LongTermEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

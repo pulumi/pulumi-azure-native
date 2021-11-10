@@ -160,19 +160,12 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:media:StreamingEndpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180601preview:StreamingEndpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:StreamingEndpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:media/v20190501preview:StreamingEndpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20190501preview:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:media/v20200501:StreamingEndpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:StreamingEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:media/v20210601:StreamingEndpoint"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20210601:StreamingEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

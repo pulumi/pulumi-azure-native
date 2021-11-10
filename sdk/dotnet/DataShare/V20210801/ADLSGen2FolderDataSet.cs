@@ -108,17 +108,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:ADLSGen2FolderDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare:ADLSGen2FolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare:ADLSGen2FolderDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:ADLSGen2FolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:ADLSGen2FolderDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20191101:ADLSGen2FolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:ADLSGen2FolderDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:ADLSGen2FolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:ADLSGen2FolderDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:ADLSGen2FolderDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:ADLSGen2FolderDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

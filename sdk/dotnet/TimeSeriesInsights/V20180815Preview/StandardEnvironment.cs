@@ -132,19 +132,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:StandardEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:StandardEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:StandardEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:StandardEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:StandardEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:StandardEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:StandardEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:StandardEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:StandardEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:StandardEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210331preview:StandardEnvironment"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:StandardEnvironment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210630preview:StandardEnvironment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

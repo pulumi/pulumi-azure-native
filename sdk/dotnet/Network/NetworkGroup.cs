@@ -101,9 +101,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network:NetworkGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201preview:NetworkGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

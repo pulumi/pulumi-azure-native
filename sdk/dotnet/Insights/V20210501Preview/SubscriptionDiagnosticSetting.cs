@@ -100,11 +100,8 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20210501preview:SubscriptionDiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights:SubscriptionDiagnosticSetting"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights:SubscriptionDiagnosticSetting"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20170501preview:SubscriptionDiagnosticSetting"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

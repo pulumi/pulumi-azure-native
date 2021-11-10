@@ -112,15 +112,10 @@ namespace Pulumi.AzureNative.Logic.V20160601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:Map"},
                     new Pulumi.Alias { Type = "azure-native:logic:Map"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic:Map"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20150801preview:Map"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20150801preview:Map"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20180701preview:Map"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:Map"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20190501:Map"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:Map"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

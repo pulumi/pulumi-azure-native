@@ -167,11 +167,8 @@ namespace Pulumi.AzureNative.CustomerInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights:Kpi"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170101:Kpi"},
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170101:Kpi"},
                     new Pulumi.Alias { Type = "azure-native:customerinsights/v20170426:Kpi"},
-                    new Pulumi.Alias { Type = "azure-nextgen:customerinsights/v20170426:Kpi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

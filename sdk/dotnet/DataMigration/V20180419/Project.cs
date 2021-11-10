@@ -106,19 +106,12 @@ namespace Pulumi.AzureNative.DataMigration.V20180419
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180419:Project"},
                     new Pulumi.Alias { Type = "azure-native:datamigration:Project"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datamigration:Project"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20171115preview:Project"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20171115preview:Project"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20180315preview:Project"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180315preview:Project"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20180331preview:Project"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180331preview:Project"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20180715preview:Project"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20180715preview:Project"},
                     new Pulumi.Alias { Type = "azure-native:datamigration/v20210630:Project"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datamigration/v20210630:Project"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

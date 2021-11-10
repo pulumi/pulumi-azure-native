@@ -102,17 +102,11 @@ namespace Pulumi.AzureNative.DataShare.V20210801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:KustoTableDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare:KustoTableDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare:KustoTableDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:KustoTableDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:KustoTableDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20191101:KustoTableDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:KustoTableDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:KustoTableDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:KustoTableDataSet"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:KustoTableDataSet"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:KustoTableDataSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

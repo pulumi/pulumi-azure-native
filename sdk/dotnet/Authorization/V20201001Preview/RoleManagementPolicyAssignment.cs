@@ -76,9 +76,7 @@ namespace Pulumi.AzureNative.Authorization.V20201001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20201001preview:RoleManagementPolicyAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization:RoleManagementPolicyAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization:RoleManagementPolicyAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

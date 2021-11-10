@@ -120,25 +120,15 @@ namespace Pulumi.AzureNative.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid:Domain"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20180915preview:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20180915preview:Domain"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20190201preview:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190201preview:Domain"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20190601:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20190601:Domain"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200101preview:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200101preview:Domain"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200401preview:Domain"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200601:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20200601:Domain"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20201015preview:Domain"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20210601preview:Domain"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:Domain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventgrid/v20211201:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

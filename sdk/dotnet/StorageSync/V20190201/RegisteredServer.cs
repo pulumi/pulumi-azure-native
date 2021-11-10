@@ -166,27 +166,16 @@ namespace Pulumi.AzureNative.StorageSync.V20190201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190201:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20170605preview:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20170605preview:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20180402:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180402:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20180701:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20180701:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20181001:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20181001:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20190301:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190301:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20190601:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20190601:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20191001:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20191001:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20200301:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200301:RegisteredServer"},
                     new Pulumi.Alias { Type = "azure-native:storagesync/v20200901:RegisteredServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagesync/v20200901:RegisteredServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -77,11 +77,8 @@ namespace Pulumi.AzureNative.Maintenance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:maintenance:ConfigurationAssignmentParent"},
                     new Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent"},
-                    new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20210401preview:ConfigurationAssignmentParent"},
                     new Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent"},
-                    new Pulumi.Alias { Type = "azure-nextgen:maintenance/v20210901preview:ConfigurationAssignmentParent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

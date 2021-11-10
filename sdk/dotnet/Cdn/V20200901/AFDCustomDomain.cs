@@ -97,9 +97,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:AFDCustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:cdn:AFDCustomDomain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn:AFDCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

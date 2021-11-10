@@ -100,15 +100,10 @@ namespace Pulumi.AzureNative.Consumption.V20180331
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180331:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20180131:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180131:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20180630:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180630:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20180831:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20180831:BudgetByResourceGroupName"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20181001:BudgetByResourceGroupName"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20181001:BudgetByResourceGroupName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

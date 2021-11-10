@@ -64,21 +64,13 @@ namespace Pulumi.AzureNative.Sql.V20200202Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:sql:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:FirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

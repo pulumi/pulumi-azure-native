@@ -76,11 +76,8 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200101:ServerKey"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql:ServerKey"},
                     new Pulumi.Alias { Type = "azure-native:dbformysql/v20200101privatepreview:ServerKey"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformysql/v20200101privatepreview:ServerKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

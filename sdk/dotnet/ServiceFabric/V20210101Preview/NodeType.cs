@@ -160,19 +160,12 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210101preview:NodeType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric:NodeType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric:NodeType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20200101preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200101preview:NodeType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210501:NodeType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210501:NodeType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210701preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210701preview:NodeType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210901privatepreview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210901privatepreview:NodeType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20211101preview:NodeType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20211101preview:NodeType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

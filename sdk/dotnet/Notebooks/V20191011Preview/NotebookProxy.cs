@@ -94,9 +94,7 @@ namespace Pulumi.AzureNative.Notebooks.V20191011Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:notebooks/v20191011preview:NotebookProxy"},
                     new Pulumi.Alias { Type = "azure-native:notebooks:NotebookProxy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:notebooks:NotebookProxy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

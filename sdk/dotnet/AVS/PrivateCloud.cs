@@ -155,17 +155,11 @@ namespace Pulumi.AzureNative.AVS
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:avs:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200320:PrivateCloud"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200320:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20200717preview:PrivateCloud"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20200717preview:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210101preview:PrivateCloud"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210101preview:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20210601:PrivateCloud"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20210601:PrivateCloud"},
                     new Pulumi.Alias { Type = "azure-native:avs/v20211201:PrivateCloud"},
-                    new Pulumi.Alias { Type = "azure-nextgen:avs/v20211201:PrivateCloud"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

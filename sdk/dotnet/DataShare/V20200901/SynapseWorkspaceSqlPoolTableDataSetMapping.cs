@@ -96,17 +96,11 @@ namespace Pulumi.AzureNative.DataShare.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

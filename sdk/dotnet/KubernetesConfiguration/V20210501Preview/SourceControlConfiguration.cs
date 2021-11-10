@@ -136,19 +136,12 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20210501preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20191101preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20200701preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20201001preview:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20210301:SourceControlConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kubernetesconfiguration/v20211101preview:SourceControlConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

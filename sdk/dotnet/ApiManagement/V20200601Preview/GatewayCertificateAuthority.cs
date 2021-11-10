@@ -58,17 +58,11 @@ namespace Pulumi.AzureNative.ApiManagement.V20200601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210101preview:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210401preview:GatewayCertificateAuthority"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayCertificateAuthority"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210801:GatewayCertificateAuthority"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

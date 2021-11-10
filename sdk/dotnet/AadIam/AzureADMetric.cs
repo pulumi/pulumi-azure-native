@@ -68,9 +68,7 @@ namespace Pulumi.AzureNative.AadIam
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:aadiam:azureADMetric"},
                     new Pulumi.Alias { Type = "azure-native:aadiam/v20200701preview:azureADMetric"},
-                    new Pulumi.Alias { Type = "azure-nextgen:aadiam/v20200701preview:azureADMetric"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

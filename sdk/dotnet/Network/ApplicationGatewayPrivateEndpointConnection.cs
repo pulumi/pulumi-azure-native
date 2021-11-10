@@ -83,23 +83,14 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:ApplicationGatewayPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:ApplicationGatewayPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:ApplicationGatewayPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:ApplicationGatewayPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210501:ApplicationGatewayPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

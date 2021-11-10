@@ -82,13 +82,9 @@ namespace Pulumi.AzureNative.HDInsight.V20150301Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:hdinsight/v20150301preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:hdinsight:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hdinsight:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hdinsight/v20180601preview:Cluster"},
                     new Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:Cluster"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hdinsight/v20210601:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

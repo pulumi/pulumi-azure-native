@@ -124,23 +124,14 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20200401preview:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20201201:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210301:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210301:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601:SqlPoolsV3"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:SqlPoolsV3"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:SqlPoolsV3"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

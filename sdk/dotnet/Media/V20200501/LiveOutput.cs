@@ -112,19 +112,12 @@ namespace Pulumi.AzureNative.Media.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20200501:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-native:media:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180330preview:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180330preview:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180601preview:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180601preview:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20180701:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-native:media/v20190501preview:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20190501preview:LiveOutput"},
                     new Pulumi.Alias { Type = "azure-native:media/v20210601:LiveOutput"},
-                    new Pulumi.Alias { Type = "azure-nextgen:media/v20210601:LiveOutput"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

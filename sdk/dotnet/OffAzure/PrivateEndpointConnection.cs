@@ -71,9 +71,7 @@ namespace Pulumi.AzureNative.OffAzure
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:offazure:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:offazure/v20200707:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:offazure/v20200707:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

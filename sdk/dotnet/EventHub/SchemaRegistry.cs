@@ -95,9 +95,7 @@ namespace Pulumi.AzureNative.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub:SchemaRegistry"},
                     new Pulumi.Alias { Type = "azure-native:eventhub/v20211101:SchemaRegistry"},
-                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20211101:SchemaRegistry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -77,9 +77,7 @@ namespace Pulumi.AzureNative.ChangeAnalysis
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:changeanalysis:ConfigurationProfile"},
                     new Pulumi.Alias { Type = "azure-native:changeanalysis/v20200401preview:ConfigurationProfile"},
-                    new Pulumi.Alias { Type = "azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

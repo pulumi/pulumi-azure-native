@@ -80,15 +80,10 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:web:StaticSitePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20201201:StaticSitePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20201201:StaticSitePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:StaticSitePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210101:StaticSitePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSitePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210115:StaticSitePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSitePrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:web/v20210201:StaticSitePrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

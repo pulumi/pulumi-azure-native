@@ -76,23 +76,14 @@ namespace Pulumi.AzureNative.Authorization.V20171001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20171001preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20150701:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20150701:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20180101preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180101preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20180901preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20180901preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20200301preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200301preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20200401preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200401preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20200801preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20200801preview:RoleAssignment"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20201001preview:RoleAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:authorization/v20201001preview:RoleAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

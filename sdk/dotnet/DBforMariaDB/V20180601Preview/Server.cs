@@ -142,11 +142,8 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601preview:Server"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb:Server"},
                     new Pulumi.Alias { Type = "azure-native:dbformariadb/v20180601:Server"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbformariadb/v20180601:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

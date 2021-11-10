@@ -118,9 +118,7 @@ namespace Pulumi.AzureNative.Migrate.V20171111Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20171111preview:Project"},
                     new Pulumi.Alias { Type = "azure-native:migrate/v20180202:Project"},
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20180202:Project"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

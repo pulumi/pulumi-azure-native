@@ -115,17 +115,11 @@ namespace Pulumi.AzureNative.Cdn.V20190615Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615preview:Policy"},
                     new Pulumi.Alias { Type = "azure-native:cdn:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn:Policy"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20190615:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20190615:Policy"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200331:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200331:Policy"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200415:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200415:Policy"},
                     new Pulumi.Alias { Type = "azure-native:cdn/v20200901:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cdn/v20200901:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

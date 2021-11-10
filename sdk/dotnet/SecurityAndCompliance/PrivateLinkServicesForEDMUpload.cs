@@ -95,11 +95,8 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance:privateLinkServicesForEDMUpload"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForEDMUpload"},
                     new Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForEDMUpload"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -100,25 +100,15 @@ namespace Pulumi.AzureNative.Network.V20201101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-native:network:LoadBalancerBackendAddressPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:LoadBalancerBackendAddressPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200501:LoadBalancerBackendAddressPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:LoadBalancerBackendAddressPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200701:LoadBalancerBackendAddressPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:LoadBalancerBackendAddressPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:LoadBalancerBackendAddressPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:LoadBalancerBackendAddressPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:LoadBalancerBackendAddressPool"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:LoadBalancerBackendAddressPool"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210501:LoadBalancerBackendAddressPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

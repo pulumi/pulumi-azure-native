@@ -65,17 +65,11 @@ namespace Pulumi.AzureNative.ManagedServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:managedservices:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20180601preview:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20180601preview:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20190401preview:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190401preview:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20190601:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190601:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20190901:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20190901:RegistrationDefinition"},
                     new Pulumi.Alias { Type = "azure-native:managedservices/v20200201preview:RegistrationDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:managedservices/v20200201preview:RegistrationDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

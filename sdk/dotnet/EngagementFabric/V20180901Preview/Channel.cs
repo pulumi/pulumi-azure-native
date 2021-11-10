@@ -70,9 +70,7 @@ namespace Pulumi.AzureNative.EngagementFabric.V20180901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:engagementfabric/v20180901preview:Channel"},
                     new Pulumi.Alias { Type = "azure-native:engagementfabric:Channel"},
-                    new Pulumi.Alias { Type = "azure-nextgen:engagementfabric:Channel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

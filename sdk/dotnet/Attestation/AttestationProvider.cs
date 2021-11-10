@@ -95,13 +95,9 @@ namespace Pulumi.AzureNative.Attestation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:attestation:AttestationProvider"},
                     new Pulumi.Alias { Type = "azure-native:attestation/v20180901preview:AttestationProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:attestation/v20180901preview:AttestationProvider"},
                     new Pulumi.Alias { Type = "azure-native:attestation/v20201001:AttestationProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:attestation/v20201001:AttestationProvider"},
                     new Pulumi.Alias { Type = "azure-native:attestation/v20210601preview:AttestationProvider"},
-                    new Pulumi.Alias { Type = "azure-nextgen:attestation/v20210601preview:AttestationProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

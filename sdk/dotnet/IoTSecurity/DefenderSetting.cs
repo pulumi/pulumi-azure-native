@@ -83,9 +83,7 @@ namespace Pulumi.AzureNative.IoTSecurity
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:iotsecurity:DefenderSetting"},
                     new Pulumi.Alias { Type = "azure-native:iotsecurity/v20210201preview:DefenderSetting"},
-                    new Pulumi.Alias { Type = "azure-nextgen:iotsecurity/v20210201preview:DefenderSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -107,21 +107,13 @@ namespace Pulumi.AzureNative.Sql
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:DatabaseSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:DatabaseSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:DatabaseSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:DatabaseSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:DatabaseSecurityAlertPolicy"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DatabaseSecurityAlertPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:DatabaseSecurityAlertPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -70,15 +70,10 @@ namespace Pulumi.AzureNative.ProviderHub.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210501preview:OperationByProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-native:providerhub:OperationByProviderRegistration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:providerhub:OperationByProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20201120:OperationByProviderRegistration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20201120:OperationByProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20210601preview:OperationByProviderRegistration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210601preview:OperationByProviderRegistration"},
                     new Pulumi.Alias { Type = "azure-native:providerhub/v20210901preview:OperationByProviderRegistration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:providerhub/v20210901preview:OperationByProviderRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

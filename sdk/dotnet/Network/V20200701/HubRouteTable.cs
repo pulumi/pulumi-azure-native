@@ -88,25 +88,15 @@ namespace Pulumi.AzureNative.Network.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200501:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200501:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:HubRouteTable"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:HubRouteTable"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210501:HubRouteTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

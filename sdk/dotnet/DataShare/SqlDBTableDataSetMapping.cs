@@ -115,17 +115,11 @@ namespace Pulumi.AzureNative.DataShare
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare:SqlDBTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20181101preview:SqlDBTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20181101preview:SqlDBTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20191101:SqlDBTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20191101:SqlDBTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20200901:SqlDBTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20200901:SqlDBTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20201001preview:SqlDBTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20201001preview:SqlDBTableDataSetMapping"},
                     new Pulumi.Alias { Type = "azure-native:datashare/v20210801:SqlDBTableDataSetMapping"},
-                    new Pulumi.Alias { Type = "azure-nextgen:datashare/v20210801:SqlDBTableDataSetMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

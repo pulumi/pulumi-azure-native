@@ -77,15 +77,10 @@ namespace Pulumi.AzureNative.WebPubSub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:webpubsub:WebPubSubPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:webpubsub/v20211001:WebPubSubPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

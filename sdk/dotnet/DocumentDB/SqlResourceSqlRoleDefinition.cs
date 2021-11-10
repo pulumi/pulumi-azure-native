@@ -71,23 +71,14 @@ namespace Pulumi.AzureNative.DocumentDB
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210301preview:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210401preview:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210415:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210415:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210515:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210615:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20210701preview:SqlResourceSqlRoleDefinition"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:SqlResourceSqlRoleDefinition"},
-                    new Pulumi.Alias { Type = "azure-nextgen:documentdb/v20211015:SqlResourceSqlRoleDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

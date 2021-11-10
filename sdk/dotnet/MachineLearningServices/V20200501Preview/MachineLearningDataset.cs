@@ -82,9 +82,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices:MachineLearningDataset"},
-                    new Pulumi.Alias { Type = "azure-nextgen:machinelearningservices:MachineLearningDataset"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

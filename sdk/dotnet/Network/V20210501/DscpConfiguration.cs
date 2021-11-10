@@ -136,21 +136,13 @@ namespace Pulumi.AzureNative.Network.V20210501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210501:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200601:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200601:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200701:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200701:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200801:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200801:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20201101:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201:DscpConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:DscpConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210301:DscpConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

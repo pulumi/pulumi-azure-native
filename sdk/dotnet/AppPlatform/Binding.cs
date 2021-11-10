@@ -59,17 +59,11 @@ namespace Pulumi.AzureNative.AppPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform:Binding"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:Binding"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:Binding"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20200701:Binding"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:Binding"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:Binding"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:Binding"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:Binding"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20210601preview:Binding"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:Binding"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20210901preview:Binding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -71,9 +71,7 @@ namespace Pulumi.AzureNative.Network
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network:RoutingIntent"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:RoutingIntent"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210501:RoutingIntent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

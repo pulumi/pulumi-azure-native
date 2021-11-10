@@ -58,19 +58,12 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:JobCredential"},
                     new Pulumi.Alias { Type = "azure-native:sql:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:JobCredential"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20170301preview:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:JobCredential"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:JobCredential"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:JobCredential"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:JobCredential"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:JobCredential"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:JobCredential"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

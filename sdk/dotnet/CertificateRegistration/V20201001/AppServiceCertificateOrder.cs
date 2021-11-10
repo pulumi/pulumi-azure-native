@@ -190,27 +190,16 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20201001:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration:AppServiceCertificateOrder"},
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20150801:AppServiceCertificateOrder"},
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20150801:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20180201:AppServiceCertificateOrder"},
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20180201:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20190801:AppServiceCertificateOrder"},
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20190801:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200601:AppServiceCertificateOrder"},
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20200601:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20200901:AppServiceCertificateOrder"},
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20200901:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20201201:AppServiceCertificateOrder"},
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20201201:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210101:AppServiceCertificateOrder"},
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20210101:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210115:AppServiceCertificateOrder"},
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20210115:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210201:AppServiceCertificateOrder"},
-                    new Pulumi.Alias { Type = "azure-nextgen:certificateregistration/v20210201:AppServiceCertificateOrder"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

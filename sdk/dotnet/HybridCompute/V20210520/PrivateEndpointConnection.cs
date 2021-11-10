@@ -64,21 +64,13 @@ namespace Pulumi.AzureNative.HybridCompute.V20210520
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210520:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20200815preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210128preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210325preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210422preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210422preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210517preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210517preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hybridcompute/v20210610preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -83,9 +83,7 @@ namespace Pulumi.AzureNative.HDInsight
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:hdinsight:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:hdinsight/v20210601:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

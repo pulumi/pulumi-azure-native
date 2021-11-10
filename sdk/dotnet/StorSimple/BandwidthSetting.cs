@@ -71,9 +71,7 @@ namespace Pulumi.AzureNative.StorSimple
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple:BandwidthSetting"},
                     new Pulumi.Alias { Type = "azure-native:storsimple/v20170601:BandwidthSetting"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storsimple/v20170601:BandwidthSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

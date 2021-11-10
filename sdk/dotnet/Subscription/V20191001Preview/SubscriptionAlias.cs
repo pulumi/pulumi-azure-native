@@ -58,11 +58,8 @@ namespace Pulumi.AzureNative.Subscription.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:subscription/v20191001preview:SubscriptionAlias"},
                     new Pulumi.Alias { Type = "azure-native:subscription:SubscriptionAlias"},
-                    new Pulumi.Alias { Type = "azure-nextgen:subscription:SubscriptionAlias"},
                     new Pulumi.Alias { Type = "azure-native:subscription/v20200901:SubscriptionAlias"},
-                    new Pulumi.Alias { Type = "azure-nextgen:subscription/v20200901:SubscriptionAlias"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -76,23 +76,14 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric:ApplicationType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20170701preview:ApplicationType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20170701preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20190301preview:ApplicationType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190301preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20190601preview:ApplicationType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20190601preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20191101preview:ApplicationType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20191101preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20200301:ApplicationType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20200301:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20201201preview:ApplicationType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20201201preview:ApplicationType"},
                     new Pulumi.Alias { Type = "azure-native:servicefabric/v20210601:ApplicationType"},
-                    new Pulumi.Alias { Type = "azure-nextgen:servicefabric/v20210601:ApplicationType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

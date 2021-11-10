@@ -124,15 +124,10 @@ namespace Pulumi.AzureNative.Logic.V20180701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20180701preview:Workflow"},
                     new Pulumi.Alias { Type = "azure-native:logic:Workflow"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic:Workflow"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20150201preview:Workflow"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20150201preview:Workflow"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20160601:Workflow"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20160601:Workflow"},
                     new Pulumi.Alias { Type = "azure-native:logic/v20190501:Workflow"},
-                    new Pulumi.Alias { Type = "azure-nextgen:logic/v20190501:Workflow"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

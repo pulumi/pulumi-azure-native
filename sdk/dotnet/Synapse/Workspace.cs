@@ -173,21 +173,13 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20190601preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20201201:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20201201:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210301:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210301:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210501:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210501:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:Workspace"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

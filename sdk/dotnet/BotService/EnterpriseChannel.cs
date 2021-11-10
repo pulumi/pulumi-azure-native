@@ -89,9 +89,7 @@ namespace Pulumi.AzureNative.BotService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:botservice:EnterpriseChannel"},
                     new Pulumi.Alias { Type = "azure-native:botservice/v20180712:EnterpriseChannel"},
-                    new Pulumi.Alias { Type = "azure-nextgen:botservice/v20180712:EnterpriseChannel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

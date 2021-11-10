@@ -95,9 +95,7 @@ namespace Pulumi.AzureNative.DevTestLab
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ServiceFabric"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ServiceFabric"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:ServiceFabric"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

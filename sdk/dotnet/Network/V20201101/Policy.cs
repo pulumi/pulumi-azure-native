@@ -121,15 +121,10 @@ namespace Pulumi.AzureNative.Network.V20201101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20201101:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20190301:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20190301:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20191001:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20191001:Policy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20200401:Policy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20200401:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

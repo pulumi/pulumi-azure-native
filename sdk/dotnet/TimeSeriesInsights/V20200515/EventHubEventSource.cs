@@ -138,19 +138,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:EventHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:EventHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:EventHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:EventHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:EventHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:EventHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:EventHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:EventHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:EventHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210331preview:EventHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:EventHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210630preview:EventHubEventSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

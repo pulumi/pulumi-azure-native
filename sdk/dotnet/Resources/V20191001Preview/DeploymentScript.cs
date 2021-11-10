@@ -83,11 +83,8 @@ namespace Pulumi.AzureNative.Resources.V20191001Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001preview:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-native:resources:DeploymentScript"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentScript"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentScript"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentScript"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

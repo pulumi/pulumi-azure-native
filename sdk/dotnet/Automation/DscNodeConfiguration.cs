@@ -89,15 +89,10 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:automation:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:DscNodeConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20180115:DscNodeConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20180115:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20190601:DscNodeConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:DscNodeConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:DscNodeConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:DscNodeConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

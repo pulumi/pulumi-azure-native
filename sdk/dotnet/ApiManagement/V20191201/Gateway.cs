@@ -64,21 +64,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20191201
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement:Gateway"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20191201preview:Gateway"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20191201preview:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20200601preview:Gateway"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20200601preview:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20201201:Gateway"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20201201:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210101preview:Gateway"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210101preview:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210401preview:Gateway"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210401preview:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Gateway"},
-                    new Pulumi.Alias { Type = "azure-nextgen:apimanagement/v20210801:Gateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

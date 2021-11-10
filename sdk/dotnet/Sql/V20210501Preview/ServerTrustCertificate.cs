@@ -70,9 +70,7 @@ namespace Pulumi.AzureNative.Sql.V20210501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ServerTrustCertificate"},
                     new Pulumi.Alias { Type = "azure-native:sql:ServerTrustCertificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:ServerTrustCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

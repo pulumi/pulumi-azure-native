@@ -88,13 +88,9 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20150320:SavedSearch"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights:SavedSearch"},
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights:SavedSearch"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200301preview:SavedSearch"},
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200301preview:SavedSearch"},
                     new Pulumi.Alias { Type = "azure-native:operationalinsights/v20200801:SavedSearch"},
-                    new Pulumi.Alias { Type = "azure-nextgen:operationalinsights/v20200801:SavedSearch"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

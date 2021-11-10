@@ -77,11 +77,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:ServerAdministrator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201:ServerAdministrator"},
                     new Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:ServerAdministrator"},
-                    new Pulumi.Alias { Type = "azure-nextgen:dbforpostgresql/v20171201preview:ServerAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -76,11 +76,8 @@ namespace Pulumi.AzureNative.VisualStudio.V20140401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:visualstudio/v20140401preview:Extension"},
                     new Pulumi.Alias { Type = "azure-native:visualstudio:Extension"},
-                    new Pulumi.Alias { Type = "azure-nextgen:visualstudio:Extension"},
                     new Pulumi.Alias { Type = "azure-native:visualstudio/v20171101preview:Extension"},
-                    new Pulumi.Alias { Type = "azure-nextgen:visualstudio/v20171101preview:Extension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -131,9 +131,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:connectedvmwarevsphere:Host"},
                     new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:Host"},
-                    new Pulumi.Alias { Type = "azure-nextgen:connectedvmwarevsphere/v20201001preview:Host"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -106,13 +106,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:ScheduleResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:ScheduleResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:ScheduleResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:ScheduleResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:ScheduleResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:ScheduleResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:ScheduleResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

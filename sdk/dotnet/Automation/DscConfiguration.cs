@@ -131,11 +131,8 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:automation:DscConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:DscConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:DscConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20190601:DscConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:DscConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

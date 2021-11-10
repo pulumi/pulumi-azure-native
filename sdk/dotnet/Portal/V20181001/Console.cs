@@ -46,9 +46,7 @@ namespace Pulumi.AzureNative.Portal.V20181001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:portal/v20181001:Console"},
                     new Pulumi.Alias { Type = "azure-native:portal:Console"},
-                    new Pulumi.Alias { Type = "azure-nextgen:portal:Console"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

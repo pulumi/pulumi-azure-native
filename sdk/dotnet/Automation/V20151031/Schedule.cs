@@ -136,13 +136,9 @@ namespace Pulumi.AzureNative.Automation.V20151031
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Schedule"},
                     new Pulumi.Alias { Type = "azure-native:automation:Schedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation:Schedule"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20190601:Schedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Schedule"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Schedule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Schedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

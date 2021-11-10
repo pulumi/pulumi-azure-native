@@ -79,9 +79,7 @@ namespace Pulumi.AzureNative.PowerBI.V20200601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:powerbi/v20200601:PowerBIResource"},
                     new Pulumi.Alias { Type = "azure-native:powerbi:PowerBIResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:powerbi:PowerBIResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

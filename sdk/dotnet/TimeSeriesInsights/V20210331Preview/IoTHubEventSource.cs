@@ -132,19 +132,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210331preview:IoTHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:IoTHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:IoTHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:IoTHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20171115:IoTHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:IoTHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:IoTHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:IoTHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:IoTHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:IoTHubEventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:IoTHubEventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210630preview:IoTHubEventSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -94,19 +94,12 @@ namespace Pulumi.AzureNative.Kusto.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210101:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20191109:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200215:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200614:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200918:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210827:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210827:DatabasePrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

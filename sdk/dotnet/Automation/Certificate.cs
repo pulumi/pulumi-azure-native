@@ -89,13 +89,9 @@ namespace Pulumi.AzureNative.Automation
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:automation:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20151031:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20151031:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20190601:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20190601:Certificate"},
                     new Pulumi.Alias { Type = "azure-native:automation/v20200113preview:Certificate"},
-                    new Pulumi.Alias { Type = "azure-nextgen:automation/v20200113preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -71,9 +71,7 @@ namespace Pulumi.AzureNative.IoTSecurity
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:iotsecurity:Site"},
                     new Pulumi.Alias { Type = "azure-native:iotsecurity/v20210201preview:Site"},
-                    new Pulumi.Alias { Type = "azure-nextgen:iotsecurity/v20210201preview:Site"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

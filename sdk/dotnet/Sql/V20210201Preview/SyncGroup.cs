@@ -124,21 +124,13 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20150501preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20190601preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20190601preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:SyncGroup"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:SyncGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:SyncGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

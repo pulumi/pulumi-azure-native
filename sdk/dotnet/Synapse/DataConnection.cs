@@ -72,11 +72,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:DataConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:DataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:DataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

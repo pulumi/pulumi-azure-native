@@ -78,11 +78,8 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:Anomalies"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights:Anomalies"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:Anomalies"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:Anomalies"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20210301preview:Anomalies"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -131,9 +131,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:SourceControl"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:SourceControl"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20210301preview:SourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

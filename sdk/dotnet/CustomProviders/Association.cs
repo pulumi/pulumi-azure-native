@@ -65,9 +65,7 @@ namespace Pulumi.AzureNative.CustomProviders
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:customproviders:Association"},
                     new Pulumi.Alias { Type = "azure-native:customproviders/v20180901preview:Association"},
-                    new Pulumi.Alias { Type = "azure-nextgen:customproviders/v20180901preview:Association"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

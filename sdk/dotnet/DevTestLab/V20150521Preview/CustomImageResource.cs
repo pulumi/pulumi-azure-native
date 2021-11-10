@@ -106,13 +106,9 @@ namespace Pulumi.AzureNative.DevTestLab.V20150521Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20150521preview:CustomImageResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab:CustomImageResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab:CustomImageResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20160515:CustomImageResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20160515:CustomImageResource"},
                     new Pulumi.Alias { Type = "azure-native:devtestlab/v20180915:CustomImageResource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:devtestlab/v20180915:CustomImageResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

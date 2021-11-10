@@ -85,19 +85,12 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:sql:ManagedDatabaseSensitivityLabel"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:ManagedDatabaseSensitivityLabel"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:ManagedDatabaseSensitivityLabel"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:ManagedDatabaseSensitivityLabel"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:ManagedDatabaseSensitivityLabel"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:ManagedDatabaseSensitivityLabel"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:ManagedDatabaseSensitivityLabel"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:ManagedDatabaseSensitivityLabel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

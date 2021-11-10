@@ -100,25 +100,15 @@ namespace Pulumi.AzureNative.Consumption.V20190101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20190101:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption:Budget"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20190401preview:Budget"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20190401preview:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20190501:Budget"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20190501:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20190501preview:Budget"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20190501preview:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20190601:Budget"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20190601:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20191001:Budget"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20191001:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20191101:Budget"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20191101:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20210501:Budget"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20210501:Budget"},
                     new Pulumi.Alias { Type = "azure-native:consumption/v20211001:Budget"},
-                    new Pulumi.Alias { Type = "azure-nextgen:consumption/v20211001:Budget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

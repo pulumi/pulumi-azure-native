@@ -58,17 +58,11 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20200701:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:appplatform:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20190501preview:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20190501preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20201101preview:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20201101preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20210601preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:CustomDomain"},
-                    new Pulumi.Alias { Type = "azure-nextgen:appplatform/v20210901preview:CustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

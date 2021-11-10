@@ -71,23 +71,14 @@ namespace Pulumi.AzureNative.Resources
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20210101:DeploymentAtTenantScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20210401:DeploymentAtTenantScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20210401:DeploymentAtTenantScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

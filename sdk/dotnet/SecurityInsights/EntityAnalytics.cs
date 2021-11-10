@@ -85,11 +85,8 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights:EntityAnalytics"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:EntityAnalytics"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20190101preview:EntityAnalytics"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:EntityAnalytics"},
-                    new Pulumi.Alias { Type = "azure-nextgen:securityinsights/v20210301preview:EntityAnalytics"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

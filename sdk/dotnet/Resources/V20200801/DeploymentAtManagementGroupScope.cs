@@ -70,27 +70,16 @@ namespace Pulumi.AzureNative.Resources.V20200801
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190501:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190501:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190510:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190510:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20201001:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20210101:DeploymentAtManagementGroupScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20210401:DeploymentAtManagementGroupScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20210401:DeploymentAtManagementGroupScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

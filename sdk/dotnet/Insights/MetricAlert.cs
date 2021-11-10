@@ -143,9 +143,7 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:insights:MetricAlert"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20180301:MetricAlert"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20180301:MetricAlert"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

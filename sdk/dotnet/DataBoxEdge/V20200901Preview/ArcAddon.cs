@@ -120,21 +120,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:ArcAddon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:ArcAddon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:ArcAddon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:ArcAddon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:ArcAddon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:ArcAddon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:ArcAddon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:ArcAddon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201:ArcAddon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:ArcAddon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201preview:ArcAddon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:ArcAddon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601:ArcAddon"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:ArcAddon"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601preview:ArcAddon"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

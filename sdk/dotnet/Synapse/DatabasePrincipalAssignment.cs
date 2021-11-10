@@ -101,11 +101,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:DatabasePrincipalAssignment"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:DatabasePrincipalAssignment"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:DatabasePrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

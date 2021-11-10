@@ -94,21 +94,13 @@ namespace Pulumi.AzureNative.Peering.V20200401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20200401:Prefix"},
                     new Pulumi.Alias { Type = "azure-native:peering:Prefix"},
-                    new Pulumi.Alias { Type = "azure-nextgen:peering:Prefix"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20190801preview:Prefix"},
-                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20190801preview:Prefix"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20190901preview:Prefix"},
-                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20190901preview:Prefix"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20200101preview:Prefix"},
-                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20200101preview:Prefix"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20201001:Prefix"},
-                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20201001:Prefix"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20210101:Prefix"},
-                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20210101:Prefix"},
                     new Pulumi.Alias { Type = "azure-native:peering/v20210601:Prefix"},
-                    new Pulumi.Alias { Type = "azure-nextgen:peering/v20210601:Prefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

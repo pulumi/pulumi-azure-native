@@ -82,11 +82,8 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20191101preview:ServiceUnit"},
                     new Pulumi.Alias { Type = "azure-native:deploymentmanager:ServiceUnit"},
-                    new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager:ServiceUnit"},
                     new Pulumi.Alias { Type = "azure-native:deploymentmanager/v20180901preview:ServiceUnit"},
-                    new Pulumi.Alias { Type = "azure-nextgen:deploymentmanager/v20180901preview:ServiceUnit"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

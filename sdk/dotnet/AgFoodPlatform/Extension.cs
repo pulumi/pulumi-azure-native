@@ -95,9 +95,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:agfoodplatform:Extension"},
                     new Pulumi.Alias { Type = "azure-native:agfoodplatform/v20200512preview:Extension"},
-                    new Pulumi.Alias { Type = "azure-nextgen:agfoodplatform/v20200512preview:Extension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

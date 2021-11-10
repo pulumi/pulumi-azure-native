@@ -94,9 +94,7 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:network/v20210201preview:SecurityAdminConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network:SecurityAdminConfiguration"},
-                    new Pulumi.Alias { Type = "azure-nextgen:network:SecurityAdminConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

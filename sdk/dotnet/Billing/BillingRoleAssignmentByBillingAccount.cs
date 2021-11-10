@@ -113,9 +113,7 @@ namespace Pulumi.AzureNative.Billing
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:billing:BillingRoleAssignmentByBillingAccount"},
                     new Pulumi.Alias { Type = "azure-native:billing/v20191001preview:BillingRoleAssignmentByBillingAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByBillingAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

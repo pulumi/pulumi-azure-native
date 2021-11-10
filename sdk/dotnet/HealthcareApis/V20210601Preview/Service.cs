@@ -94,19 +94,12 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20210601preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20180820preview:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20180820preview:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20190916:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20190916:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20200315:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200315:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20200330:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20200330:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210111:Service"},
-                    new Pulumi.Alias { Type = "azure-nextgen:healthcareapis/v20210111:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

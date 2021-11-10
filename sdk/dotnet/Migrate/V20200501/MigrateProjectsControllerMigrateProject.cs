@@ -76,11 +76,8 @@ namespace Pulumi.AzureNative.Migrate.V20200501
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20200501:MigrateProjectsControllerMigrateProject"},
                     new Pulumi.Alias { Type = "azure-native:migrate:MigrateProjectsControllerMigrateProject"},
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate:MigrateProjectsControllerMigrateProject"},
                     new Pulumi.Alias { Type = "azure-native:migrate/v20180901preview:MigrateProjectsControllerMigrateProject"},
-                    new Pulumi.Alias { Type = "azure-nextgen:migrate/v20180901preview:MigrateProjectsControllerMigrateProject"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

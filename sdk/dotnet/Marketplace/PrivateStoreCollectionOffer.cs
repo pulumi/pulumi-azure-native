@@ -125,9 +125,7 @@ namespace Pulumi.AzureNative.Marketplace
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:marketplace:PrivateStoreCollectionOffer"},
                     new Pulumi.Alias { Type = "azure-native:marketplace/v20210601:PrivateStoreCollectionOffer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:marketplace/v20210601:PrivateStoreCollectionOffer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

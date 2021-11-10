@@ -71,19 +71,12 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20171115:EventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights:EventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights:EventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20170228preview:EventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20170228preview:EventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20180815preview:EventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20180815preview:EventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20200515:EventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20200515:EventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210331preview:EventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210331preview:EventSource"},
                     new Pulumi.Alias { Type = "azure-native:timeseriesinsights/v20210630preview:EventSource"},
-                    new Pulumi.Alias { Type = "azure-nextgen:timeseriesinsights/v20210630preview:EventSource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

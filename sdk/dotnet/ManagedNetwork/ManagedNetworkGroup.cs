@@ -101,9 +101,7 @@ namespace Pulumi.AzureNative.ManagedNetwork
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:managednetwork:ManagedNetworkGroup"},
                     new Pulumi.Alias { Type = "azure-native:managednetwork/v20190601preview:ManagedNetworkGroup"},
-                    new Pulumi.Alias { Type = "azure-nextgen:managednetwork/v20190601preview:ManagedNetworkGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

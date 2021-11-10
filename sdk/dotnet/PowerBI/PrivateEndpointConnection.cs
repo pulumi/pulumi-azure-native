@@ -76,9 +76,7 @@ namespace Pulumi.AzureNative.PowerBI
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:powerbi:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:powerbi/v20200601:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:powerbi/v20200601:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

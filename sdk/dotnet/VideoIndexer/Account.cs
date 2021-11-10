@@ -107,11 +107,8 @@ namespace Pulumi.AzureNative.VideoIndexer
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:videoindexer:Account"},
                     new Pulumi.Alias { Type = "azure-native:videoindexer/v20211018preview:Account"},
-                    new Pulumi.Alias { Type = "azure-nextgen:videoindexer/v20211018preview:Account"},
                     new Pulumi.Alias { Type = "azure-native:videoindexer/v20211027preview:Account"},
-                    new Pulumi.Alias { Type = "azure-nextgen:videoindexer/v20211027preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

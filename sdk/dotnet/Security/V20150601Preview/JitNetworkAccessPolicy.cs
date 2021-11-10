@@ -76,11 +76,8 @@ namespace Pulumi.AzureNative.Security.V20150601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:security/v20150601preview:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-native:security:JitNetworkAccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security:JitNetworkAccessPolicy"},
                     new Pulumi.Alias { Type = "azure-native:security/v20200101:JitNetworkAccessPolicy"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:JitNetworkAccessPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

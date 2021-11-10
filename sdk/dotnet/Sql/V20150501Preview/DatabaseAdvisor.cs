@@ -100,21 +100,13 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:DatabaseAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql:DatabaseAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql:DatabaseAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20140401:DatabaseAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:DatabaseAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200202preview:DatabaseAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:DatabaseAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20200801preview:DatabaseAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:DatabaseAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20201101preview:DatabaseAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20201101preview:DatabaseAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210201preview:DatabaseAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210201preview:DatabaseAdvisor"},
                     new Pulumi.Alias { Type = "azure-native:sql/v20210501preview:DatabaseAdvisor"},
-                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20210501preview:DatabaseAdvisor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

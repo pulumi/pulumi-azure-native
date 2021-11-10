@@ -120,25 +120,15 @@ namespace Pulumi.AzureNative.Kusto.V20200614
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200614:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20190121:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190121:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20190515:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190515:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20190907:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20190907:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20191109:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20191109:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200215:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200215:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20200918:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20200918:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210101:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210101:EventGridDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:kusto/v20210827:EventGridDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:kusto/v20210827:EventGridDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -71,11 +71,8 @@ namespace Pulumi.AzureNative.Insights
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:insights:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20191017preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20191017preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20210701preview:PrivateEndpointConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:insights/v20210701preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

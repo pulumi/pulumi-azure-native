@@ -127,11 +127,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210401preview:IotHubDataConnection"},
                     new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:IotHubDataConnection"},
-                    new Pulumi.Alias { Type = "azure-nextgen:synapse/v20210601preview:IotHubDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

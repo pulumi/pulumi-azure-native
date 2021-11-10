@@ -70,23 +70,14 @@ namespace Pulumi.AzureNative.Resources.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20201001:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-native:resources:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190701:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190701:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20190801:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20190801:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20191001:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20191001:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20200601:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200601:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20200801:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20200801:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20210101:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20210101:DeploymentAtScope"},
                     new Pulumi.Alias { Type = "azure-native:resources/v20210401:DeploymentAtScope"},
-                    new Pulumi.Alias { Type = "azure-nextgen:resources/v20210401:DeploymentAtScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

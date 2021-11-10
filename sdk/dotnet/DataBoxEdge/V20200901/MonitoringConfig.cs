@@ -58,21 +58,13 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201preview:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601:MonitoringConfig"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:MonitoringConfig"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601preview:MonitoringConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

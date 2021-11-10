@@ -76,19 +76,12 @@ namespace Pulumi.AzureNative.Cache.V20171001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-native:cache:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20170201:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20180301:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20190701:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20200601:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:LinkedServer"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20201201:LinkedServer"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20201201:LinkedServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

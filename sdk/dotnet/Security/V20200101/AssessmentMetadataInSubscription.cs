@@ -118,13 +118,9 @@ namespace Pulumi.AzureNative.Security.V20200101
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:security/v20200101:AssessmentMetadataInSubscription"},
                     new Pulumi.Alias { Type = "azure-native:security:AssessmentMetadataInSubscription"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security:AssessmentMetadataInSubscription"},
                     new Pulumi.Alias { Type = "azure-native:security/v20190101preview:AssessmentMetadataInSubscription"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security/v20190101preview:AssessmentMetadataInSubscription"},
                     new Pulumi.Alias { Type = "azure-native:security/v20210601:AssessmentMetadataInSubscription"},
-                    new Pulumi.Alias { Type = "azure-nextgen:security/v20210601:AssessmentMetadataInSubscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

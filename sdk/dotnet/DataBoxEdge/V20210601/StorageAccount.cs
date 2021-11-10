@@ -94,25 +94,15 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210601
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge:StorageAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20190801:StorageAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20190801:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200501preview:StorageAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200501preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901:StorageAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20200901preview:StorageAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20200901preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20201201:StorageAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20201201:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201:StorageAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210201preview:StorageAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210201preview:StorageAccount"},
                     new Pulumi.Alias { Type = "azure-native:databoxedge/v20210601preview:StorageAccount"},
-                    new Pulumi.Alias { Type = "azure-nextgen:databoxedge/v20210601preview:StorageAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

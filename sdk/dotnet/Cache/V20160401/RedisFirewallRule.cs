@@ -64,21 +64,13 @@ namespace Pulumi.AzureNative.Cache.V20160401
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20160401:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:cache:RedisFirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20170201:RedisFirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20170201:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20171001:RedisFirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20171001:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20180301:RedisFirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20180301:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20190701:RedisFirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20190701:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20200601:RedisFirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20200601:RedisFirewallRule"},
                     new Pulumi.Alias { Type = "azure-native:cache/v20201201:RedisFirewallRule"},
-                    new Pulumi.Alias { Type = "azure-nextgen:cache/v20201201:RedisFirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

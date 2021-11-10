@@ -76,9 +76,7 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance.V20210325Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsComp"},
                     new Pulumi.Alias { Type = "azure-native:m365securityandcompliance:PrivateEndpointConnectionsComp"},
-                    new Pulumi.Alias { Type = "azure-nextgen:m365securityandcompliance:PrivateEndpointConnectionsComp"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

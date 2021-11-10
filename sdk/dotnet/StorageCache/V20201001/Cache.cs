@@ -142,21 +142,13 @@ namespace Pulumi.AzureNative.StorageCache.V20201001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20201001:Cache"},
                     new Pulumi.Alias { Type = "azure-native:storagecache:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagecache:Cache"},
                     new Pulumi.Alias { Type = "azure-native:storagecache/v20190801preview:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20190801preview:Cache"},
                     new Pulumi.Alias { Type = "azure-native:storagecache/v20191101:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20191101:Cache"},
                     new Pulumi.Alias { Type = "azure-native:storagecache/v20200301:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20200301:Cache"},
                     new Pulumi.Alias { Type = "azure-native:storagecache/v20210301:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20210301:Cache"},
                     new Pulumi.Alias { Type = "azure-native:storagecache/v20210501:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20210501:Cache"},
                     new Pulumi.Alias { Type = "azure-native:storagecache/v20210901:Cache"},
-                    new Pulumi.Alias { Type = "azure-nextgen:storagecache/v20210901:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

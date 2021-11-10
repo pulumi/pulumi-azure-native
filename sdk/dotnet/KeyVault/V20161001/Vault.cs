@@ -70,23 +70,14 @@ namespace Pulumi.AzureNative.KeyVault.V20161001
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20161001:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault:Vault"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20150601:Vault"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20150601:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20180214:Vault"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20180214:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20180214preview:Vault"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20180214preview:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20190901:Vault"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20190901:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20200401preview:Vault"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20200401preview:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20210401preview:Vault"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20210401preview:Vault"},
                     new Pulumi.Alias { Type = "azure-native:keyvault/v20210601preview:Vault"},
-                    new Pulumi.Alias { Type = "azure-nextgen:keyvault/v20210601preview:Vault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
