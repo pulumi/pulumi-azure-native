@@ -130,7 +130,7 @@ class ResourceGuardProxy(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["tags"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201preview:ResourceGuardProxy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20210201preview:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ResourceGuardProxy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20210701:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ResourceGuardProxy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20210801:ResourceGuardProxy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20210201preview:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ResourceGuardProxy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ResourceGuardProxy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ResourceGuardProxy, __self__).__init__(
             'azure-native:recoveryservices:ResourceGuardProxy',

@@ -212,7 +212,7 @@ class TemplateSpec(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["versions"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:resources/v20210301preview:TemplateSpec"), pulumi.Alias(type_="azure-native:resources:TemplateSpec"), pulumi.Alias(type_="azure-nextgen:resources:TemplateSpec"), pulumi.Alias(type_="azure-native:resources/v20190601preview:TemplateSpec"), pulumi.Alias(type_="azure-nextgen:resources/v20190601preview:TemplateSpec"), pulumi.Alias(type_="azure-native:resources/v20210501:TemplateSpec"), pulumi.Alias(type_="azure-nextgen:resources/v20210501:TemplateSpec")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resources:TemplateSpec"), pulumi.Alias(type_="azure-native:resources/v20190601preview:TemplateSpec"), pulumi.Alias(type_="azure-native:resources/v20210501:TemplateSpec")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TemplateSpec, __self__).__init__(
             'azure-native:resources/v20210301preview:TemplateSpec',

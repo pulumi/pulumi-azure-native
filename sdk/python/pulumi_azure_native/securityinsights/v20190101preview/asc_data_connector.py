@@ -238,7 +238,7 @@ class ASCDataConnector(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:ASCDataConnector"), pulumi.Alias(type_="azure-native:securityinsights:ASCDataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights:ASCDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:ASCDataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20200101:ASCDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:ASCDataConnector"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:ASCDataConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:ASCDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:ASCDataConnector"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:ASCDataConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ASCDataConnector, __self__).__init__(
             'azure-native:securityinsights/v20190101preview:ASCDataConnector',

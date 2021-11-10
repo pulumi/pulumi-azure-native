@@ -275,7 +275,7 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["standard_type"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:security:Standard"), pulumi.Alias(type_="azure-native:security/v20210801preview:Standard"), pulumi.Alias(type_="azure-nextgen:security/v20210801preview:Standard")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20210801preview:Standard")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Standard, __self__).__init__(
             'azure-native:security:Standard',

@@ -95,7 +95,7 @@ class Partner(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_time"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:managementpartner/v20180201:Partner"), pulumi.Alias(type_="azure-native:managementpartner:Partner"), pulumi.Alias(type_="azure-nextgen:managementpartner:Partner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managementpartner:Partner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Partner, __self__).__init__(
             'azure-native:managementpartner/v20180201:Partner',

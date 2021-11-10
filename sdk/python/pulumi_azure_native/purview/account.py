@@ -229,7 +229,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["sku"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:purview:Account"), pulumi.Alias(type_="azure-native:purview/v20201201preview:Account"), pulumi.Alias(type_="azure-nextgen:purview/v20201201preview:Account"), pulumi.Alias(type_="azure-native:purview/v20210701:Account"), pulumi.Alias(type_="azure-nextgen:purview/v20210701:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:purview/v20201201preview:Account"), pulumi.Alias(type_="azure-native:purview/v20210701:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:purview:Account',

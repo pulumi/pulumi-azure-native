@@ -159,7 +159,7 @@ class PrivateEndpointConnectionsComp(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:m365securityandcompliance:PrivateEndpointConnectionsComp"), pulumi.Alias(type_="azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsComp"), pulumi.Alias(type_="azure-nextgen:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsComp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:m365securityandcompliance/v20210325preview:PrivateEndpointConnectionsComp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionsComp, __self__).__init__(
             'azure-native:m365securityandcompliance:PrivateEndpointConnectionsComp',

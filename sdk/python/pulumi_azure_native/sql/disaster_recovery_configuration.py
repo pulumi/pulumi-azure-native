@@ -140,7 +140,7 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
             __props__.__dict__["role"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql:DisasterRecoveryConfiguration"), pulumi.Alias(type_="azure-native:sql/v20140401:DisasterRecoveryConfiguration"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:DisasterRecoveryConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:DisasterRecoveryConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DisasterRecoveryConfiguration, __self__).__init__(
             'azure-native:sql:DisasterRecoveryConfiguration',

@@ -137,7 +137,7 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:agfoodplatform/v20200512preview:Extension"), pulumi.Alias(type_="azure-native:agfoodplatform:Extension"), pulumi.Alias(type_="azure-nextgen:agfoodplatform:Extension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:agfoodplatform:Extension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Extension, __self__).__init__(
             'azure-native:agfoodplatform/v20200512preview:Extension',

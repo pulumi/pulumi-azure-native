@@ -176,7 +176,7 @@ class ServerKey(pulumi.CustomResource):
             __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql:ServerKey"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200101:ServerKey"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20200101:ServerKey"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200101privatepreview:ServerKey"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20200101privatepreview:ServerKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20200101:ServerKey"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200101privatepreview:ServerKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerKey, __self__).__init__(
             'azure-native:dbforpostgresql:ServerKey',

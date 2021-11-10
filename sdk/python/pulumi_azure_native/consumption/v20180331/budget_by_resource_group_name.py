@@ -257,7 +257,7 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
             __props__.__dict__["current_spend"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:consumption/v20180331:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-native:consumption/v20180131:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20180131:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-native:consumption/v20180630:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20180630:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-native:consumption/v20180831:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20180831:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-native:consumption/v20181001:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-nextgen:consumption/v20181001:BudgetByResourceGroupName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:consumption/v20180131:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-native:consumption/v20180630:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-native:consumption/v20180831:BudgetByResourceGroupName"), pulumi.Alias(type_="azure-native:consumption/v20181001:BudgetByResourceGroupName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BudgetByResourceGroupName, __self__).__init__(
             'azure-native:consumption/v20180331:BudgetByResourceGroupName',

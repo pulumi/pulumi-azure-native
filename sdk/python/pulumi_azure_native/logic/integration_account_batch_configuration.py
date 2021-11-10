@@ -196,7 +196,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountBatchConfiguration"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountBatchConfiguration"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountBatchConfiguration"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountBatchConfiguration"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountBatchConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountBatchConfiguration"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountBatchConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountBatchConfiguration, __self__).__init__(
             'azure-native:logic:IntegrationAccountBatchConfiguration',

@@ -256,7 +256,7 @@ class ServiceUnit(pulumi.CustomResource):
             __props__.__dict__["target_resource_group"] = target_resource_group
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:deploymentmanager/v20191101preview:ServiceUnit"), pulumi.Alias(type_="azure-native:deploymentmanager:ServiceUnit"), pulumi.Alias(type_="azure-nextgen:deploymentmanager:ServiceUnit"), pulumi.Alias(type_="azure-native:deploymentmanager/v20180901preview:ServiceUnit"), pulumi.Alias(type_="azure-nextgen:deploymentmanager/v20180901preview:ServiceUnit")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deploymentmanager:ServiceUnit"), pulumi.Alias(type_="azure-native:deploymentmanager/v20180901preview:ServiceUnit")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceUnit, __self__).__init__(
             'azure-native:deploymentmanager/v20191101preview:ServiceUnit',

@@ -333,7 +333,7 @@ class MyWorkbook(pulumi.CustomResource):
             __props__.__dict__["version"] = version
             __props__.__dict__["time_modified"] = None
             __props__.__dict__["user_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:insights/v20150501:MyWorkbook"), pulumi.Alias(type_="azure-native:insights:MyWorkbook"), pulumi.Alias(type_="azure-nextgen:insights:MyWorkbook"), pulumi.Alias(type_="azure-native:insights/v20201020:MyWorkbook"), pulumi.Alias(type_="azure-nextgen:insights/v20201020:MyWorkbook"), pulumi.Alias(type_="azure-native:insights/v20210308:MyWorkbook"), pulumi.Alias(type_="azure-nextgen:insights/v20210308:MyWorkbook")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:MyWorkbook"), pulumi.Alias(type_="azure-native:insights/v20201020:MyWorkbook"), pulumi.Alias(type_="azure-native:insights/v20210308:MyWorkbook")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MyWorkbook, __self__).__init__(
             'azure-native:insights/v20150501:MyWorkbook',

@@ -276,7 +276,7 @@ class ContainerService(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerservice/v20160330:ContainerService"), pulumi.Alias(type_="azure-native:containerservice/v20151101preview:ContainerService"), pulumi.Alias(type_="azure-nextgen:containerservice/v20151101preview:ContainerService"), pulumi.Alias(type_="azure-native:containerservice/v20160930:ContainerService"), pulumi.Alias(type_="azure-nextgen:containerservice/v20160930:ContainerService"), pulumi.Alias(type_="azure-native:containerservice/v20170131:ContainerService"), pulumi.Alias(type_="azure-nextgen:containerservice/v20170131:ContainerService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20151101preview:ContainerService"), pulumi.Alias(type_="azure-native:containerservice/v20160930:ContainerService"), pulumi.Alias(type_="azure-native:containerservice/v20170131:ContainerService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContainerService, __self__).__init__(
             'azure-native:containerservice/v20160330:ContainerService',

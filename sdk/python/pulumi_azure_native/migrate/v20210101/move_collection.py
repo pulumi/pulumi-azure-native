@@ -193,7 +193,7 @@ class MoveCollection(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate/v20210101:MoveCollection"), pulumi.Alias(type_="azure-native:migrate:MoveCollection"), pulumi.Alias(type_="azure-nextgen:migrate:MoveCollection"), pulumi.Alias(type_="azure-native:migrate/v20191001preview:MoveCollection"), pulumi.Alias(type_="azure-nextgen:migrate/v20191001preview:MoveCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate:MoveCollection"), pulumi.Alias(type_="azure-native:migrate/v20191001preview:MoveCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MoveCollection, __self__).__init__(
             'azure-native:migrate/v20210101:MoveCollection',

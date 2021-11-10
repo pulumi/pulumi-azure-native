@@ -203,7 +203,7 @@ class KustoDatabaseDataSet(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-native:datashare/v20191101:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20191101:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20210801:KustoDatabaseDataSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare/v20181101preview:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-native:datashare/v20191101:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:KustoDatabaseDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:KustoDatabaseDataSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(KustoDatabaseDataSet, __self__).__init__(
             'azure-native:datashare:KustoDatabaseDataSet',

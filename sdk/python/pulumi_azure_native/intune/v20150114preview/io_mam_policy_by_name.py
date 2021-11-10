@@ -452,7 +452,7 @@ class IoMAMPolicyByName(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["num_of_apps"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:intune/v20150114preview:IoMAMPolicyByName"), pulumi.Alias(type_="azure-native:intune:IoMAMPolicyByName"), pulumi.Alias(type_="azure-nextgen:intune:IoMAMPolicyByName"), pulumi.Alias(type_="azure-native:intune/v20150114privatepreview:IoMAMPolicyByName"), pulumi.Alias(type_="azure-nextgen:intune/v20150114privatepreview:IoMAMPolicyByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:intune:IoMAMPolicyByName"), pulumi.Alias(type_="azure-native:intune/v20150114privatepreview:IoMAMPolicyByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IoMAMPolicyByName, __self__).__init__(
             'azure-native:intune/v20150114preview:IoMAMPolicyByName',

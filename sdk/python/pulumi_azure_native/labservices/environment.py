@@ -285,7 +285,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["password_last_reset"] = None
             __props__.__dict__["total_usage"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:labservices:Environment"), pulumi.Alias(type_="azure-native:labservices/v20181015:Environment"), pulumi.Alias(type_="azure-nextgen:labservices/v20181015:Environment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20181015:Environment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Environment, __self__).__init__(
             'azure-native:labservices:Environment',

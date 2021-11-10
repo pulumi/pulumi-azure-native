@@ -133,7 +133,7 @@ class VendorSkuPreview(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20210501:VendorSkuPreview"), pulumi.Alias(type_="azure-native:hybridnetwork:VendorSkuPreview"), pulumi.Alias(type_="azure-nextgen:hybridnetwork:VendorSkuPreview"), pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:VendorSkuPreview"), pulumi.Alias(type_="azure-nextgen:hybridnetwork/v20200101preview:VendorSkuPreview")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridnetwork:VendorSkuPreview"), pulumi.Alias(type_="azure-native:hybridnetwork/v20200101preview:VendorSkuPreview")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VendorSkuPreview, __self__).__init__(
             'azure-native:hybridnetwork/v20210501:VendorSkuPreview',

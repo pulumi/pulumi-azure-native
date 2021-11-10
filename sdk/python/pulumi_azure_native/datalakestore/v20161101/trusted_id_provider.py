@@ -151,7 +151,7 @@ class TrustedIdProvider(pulumi.CustomResource):
             __props__.__dict__["trusted_id_provider_name"] = trusted_id_provider_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datalakestore/v20161101:TrustedIdProvider"), pulumi.Alias(type_="azure-native:datalakestore:TrustedIdProvider"), pulumi.Alias(type_="azure-nextgen:datalakestore:TrustedIdProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datalakestore:TrustedIdProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TrustedIdProvider, __self__).__init__(
             'azure-native:datalakestore/v20161101:TrustedIdProvider',

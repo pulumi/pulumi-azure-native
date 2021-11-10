@@ -177,7 +177,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_token"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/v20201201:StaticSiteCustomDomain"), pulumi.Alias(type_="azure-native:web:StaticSiteCustomDomain"), pulumi.Alias(type_="azure-nextgen:web:StaticSiteCustomDomain"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSiteCustomDomain"), pulumi.Alias(type_="azure-nextgen:web/v20210101:StaticSiteCustomDomain"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSiteCustomDomain"), pulumi.Alias(type_="azure-nextgen:web/v20210115:StaticSiteCustomDomain"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSiteCustomDomain"), pulumi.Alias(type_="azure-nextgen:web/v20210201:StaticSiteCustomDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web:StaticSiteCustomDomain"), pulumi.Alias(type_="azure-native:web/v20210101:StaticSiteCustomDomain"), pulumi.Alias(type_="azure-native:web/v20210115:StaticSiteCustomDomain"), pulumi.Alias(type_="azure-native:web/v20210201:StaticSiteCustomDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticSiteCustomDomain, __self__).__init__(
             'azure-native:web/v20201201:StaticSiteCustomDomain',

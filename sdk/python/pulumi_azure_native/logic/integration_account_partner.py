@@ -239,7 +239,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
             __props__.__dict__["created_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20180701preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountPartner"), pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationAccountPartner")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic/v20150801preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20160601:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20180701preview:IntegrationAccountPartner"), pulumi.Alias(type_="azure-native:logic/v20190501:IntegrationAccountPartner")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationAccountPartner, __self__).__init__(
             'azure-native:logic:IntegrationAccountPartner',

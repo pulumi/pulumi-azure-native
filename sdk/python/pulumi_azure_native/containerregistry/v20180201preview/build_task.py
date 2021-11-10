@@ -282,7 +282,7 @@ class BuildTask(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:containerregistry/v20180201preview:BuildTask"), pulumi.Alias(type_="azure-native:containerregistry:BuildTask"), pulumi.Alias(type_="azure-nextgen:containerregistry:BuildTask"), pulumi.Alias(type_="azure-native:containerregistry/v20180901:BuildTask"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20180901:BuildTask"), pulumi.Alias(type_="azure-native:containerregistry/v20190401:BuildTask"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190401:BuildTask"), pulumi.Alias(type_="azure-native:containerregistry/v20190601preview:BuildTask"), pulumi.Alias(type_="azure-nextgen:containerregistry/v20190601preview:BuildTask")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry:BuildTask"), pulumi.Alias(type_="azure-native:containerregistry/v20180901:BuildTask"), pulumi.Alias(type_="azure-native:containerregistry/v20190401:BuildTask"), pulumi.Alias(type_="azure-native:containerregistry/v20190601preview:BuildTask")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BuildTask, __self__).__init__(
             'azure-native:containerregistry/v20180201preview:BuildTask',

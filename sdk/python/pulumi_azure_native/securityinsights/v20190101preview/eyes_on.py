@@ -196,7 +196,7 @@ class EyesOn(pulumi.CustomResource):
             __props__.__dict__["is_enabled"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityinsights/v20190101preview:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights:EyesOn"), pulumi.Alias(type_="azure-nextgen:securityinsights:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:EyesOn"), pulumi.Alias(type_="azure-nextgen:securityinsights/v20210301preview:EyesOn")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:EyesOn"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:EyesOn")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EyesOn, __self__).__init__(
             'azure-native:securityinsights/v20190101preview:EyesOn',

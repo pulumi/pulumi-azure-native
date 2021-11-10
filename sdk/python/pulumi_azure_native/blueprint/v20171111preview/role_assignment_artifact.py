@@ -276,8 +276,6 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
             __props__.__dict__["role_definition_id"] = role_definition_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:blueprint/v20171111preview:RoleAssignmentArtifact")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoleAssignmentArtifact, __self__).__init__(
             'azure-native:blueprint/v20171111preview:RoleAssignmentArtifact',
             resource_name,

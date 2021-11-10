@@ -260,7 +260,7 @@ class ADLSGen1FileDataSet(pulumi.CustomResource):
             __props__.__dict__["data_set_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:datashare/v20191101:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-native:datashare:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-nextgen:datashare:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20181101preview:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20200901:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20201001preview:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-nextgen:datashare/v20210801:ADLSGen1FileDataSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datashare:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-native:datashare/v20181101preview:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-native:datashare/v20200901:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-native:datashare/v20201001preview:ADLSGen1FileDataSet"), pulumi.Alias(type_="azure-native:datashare/v20210801:ADLSGen1FileDataSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ADLSGen1FileDataSet, __self__).__init__(
             'azure-native:datashare/v20191101:ADLSGen1FileDataSet',

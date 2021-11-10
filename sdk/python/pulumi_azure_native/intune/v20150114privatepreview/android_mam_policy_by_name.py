@@ -452,7 +452,7 @@ class AndroidMAMPolicyByName(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["num_of_apps"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:intune/v20150114privatepreview:AndroidMAMPolicyByName"), pulumi.Alias(type_="azure-native:intune:AndroidMAMPolicyByName"), pulumi.Alias(type_="azure-nextgen:intune:AndroidMAMPolicyByName"), pulumi.Alias(type_="azure-native:intune/v20150114preview:AndroidMAMPolicyByName"), pulumi.Alias(type_="azure-nextgen:intune/v20150114preview:AndroidMAMPolicyByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:intune:AndroidMAMPolicyByName"), pulumi.Alias(type_="azure-native:intune/v20150114preview:AndroidMAMPolicyByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AndroidMAMPolicyByName, __self__).__init__(
             'azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName',

@@ -223,7 +223,7 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["runtime_urls"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:logic/v20190501:IntegrationServiceEnvironmentManagedApi"), pulumi.Alias(type_="azure-native:logic:IntegrationServiceEnvironmentManagedApi"), pulumi.Alias(type_="azure-nextgen:logic:IntegrationServiceEnvironmentManagedApi")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:logic:IntegrationServiceEnvironmentManagedApi")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IntegrationServiceEnvironmentManagedApi, __self__).__init__(
             'azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi',

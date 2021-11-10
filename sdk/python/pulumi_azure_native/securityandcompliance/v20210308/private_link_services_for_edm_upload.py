@@ -234,7 +234,7 @@ class PrivateLinkServicesForEDMUpload(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210308:privateLinkServicesForEDMUpload"), pulumi.Alias(type_="azure-native:securityandcompliance:privateLinkServicesForEDMUpload"), pulumi.Alias(type_="azure-nextgen:securityandcompliance:privateLinkServicesForEDMUpload"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload"), pulumi.Alias(type_="azure-nextgen:securityandcompliance/v20210111:privateLinkServicesForEDMUpload")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityandcompliance:privateLinkServicesForEDMUpload"), pulumi.Alias(type_="azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkServicesForEDMUpload, __self__).__init__(
             'azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload',

@@ -411,7 +411,7 @@ class Assessment(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_timestamp"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:migrate/v20171111preview:Assessment"), pulumi.Alias(type_="azure-native:migrate/v20180202:Assessment"), pulumi.Alias(type_="azure-nextgen:migrate/v20180202:Assessment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20180202:Assessment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assessment, __self__).__init__(
             'azure-native:migrate/v20171111preview:Assessment',

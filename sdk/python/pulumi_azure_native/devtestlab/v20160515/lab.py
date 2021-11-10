@@ -241,7 +241,7 @@ class Lab(pulumi.CustomResource):
             __props__.__dict__["premium_data_disk_storage_account"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vault_name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:Lab"), pulumi.Alias(type_="azure-native:devtestlab:Lab"), pulumi.Alias(type_="azure-nextgen:devtestlab:Lab"), pulumi.Alias(type_="azure-native:devtestlab/v20150521preview:Lab"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:Lab"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:Lab"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:Lab")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab:Lab"), pulumi.Alias(type_="azure-native:devtestlab/v20150521preview:Lab"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:Lab")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Lab, __self__).__init__(
             'azure-native:devtestlab/v20160515:Lab',

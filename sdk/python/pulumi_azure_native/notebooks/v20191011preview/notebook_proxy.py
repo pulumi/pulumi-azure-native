@@ -232,7 +232,7 @@ class NotebookProxy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:notebooks/v20191011preview:NotebookProxy"), pulumi.Alias(type_="azure-native:notebooks:NotebookProxy"), pulumi.Alias(type_="azure-nextgen:notebooks:NotebookProxy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:notebooks:NotebookProxy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotebookProxy, __self__).__init__(
             'azure-native:notebooks/v20191011preview:NotebookProxy',

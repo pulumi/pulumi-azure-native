@@ -218,7 +218,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["status_details"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:servicefabricmesh:Volume"), pulumi.Alias(type_="azure-native:servicefabricmesh/v20180701preview:Volume"), pulumi.Alias(type_="azure-nextgen:servicefabricmesh/v20180701preview:Volume"), pulumi.Alias(type_="azure-native:servicefabricmesh/v20180901preview:Volume"), pulumi.Alias(type_="azure-nextgen:servicefabricmesh/v20180901preview:Volume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicefabricmesh/v20180701preview:Volume"), pulumi.Alias(type_="azure-native:servicefabricmesh/v20180901preview:Volume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Volume, __self__).__init__(
             'azure-native:servicefabricmesh:Volume',

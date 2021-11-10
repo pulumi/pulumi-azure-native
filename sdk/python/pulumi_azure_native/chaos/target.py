@@ -217,7 +217,7 @@ class Target(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:chaos:Target"), pulumi.Alias(type_="azure-native:chaos/v20210915preview:Target"), pulumi.Alias(type_="azure-nextgen:chaos/v20210915preview:Target")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:chaos/v20210915preview:Target")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Target, __self__).__init__(
             'azure-native:chaos:Target',

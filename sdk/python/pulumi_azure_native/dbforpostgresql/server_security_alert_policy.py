@@ -274,7 +274,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
             __props__.__dict__["storage_endpoint"] = storage_endpoint
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:dbforpostgresql:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-nextgen:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerSecurityAlertPolicy, __self__).__init__(
             'azure-native:dbforpostgresql:ServerSecurityAlertPolicy',

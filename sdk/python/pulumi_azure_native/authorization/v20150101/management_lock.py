@@ -148,7 +148,7 @@ class ManagementLock(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["notes"] = notes
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:authorization/v20150101:ManagementLock"), pulumi.Alias(type_="azure-native:authorization:ManagementLock"), pulumi.Alias(type_="azure-nextgen:authorization:ManagementLock"), pulumi.Alias(type_="azure-native:authorization/v20160901:ManagementLock"), pulumi.Alias(type_="azure-nextgen:authorization/v20160901:ManagementLock"), pulumi.Alias(type_="azure-native:authorization/v20170401:ManagementLock"), pulumi.Alias(type_="azure-nextgen:authorization/v20170401:ManagementLock"), pulumi.Alias(type_="azure-native:authorization/v20200501:ManagementLock"), pulumi.Alias(type_="azure-nextgen:authorization/v20200501:ManagementLock")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization:ManagementLock"), pulumi.Alias(type_="azure-native:authorization/v20160901:ManagementLock"), pulumi.Alias(type_="azure-native:authorization/v20170401:ManagementLock"), pulumi.Alias(type_="azure-native:authorization/v20200501:ManagementLock")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagementLock, __self__).__init__(
             'azure-native:authorization/v20150101:ManagementLock',

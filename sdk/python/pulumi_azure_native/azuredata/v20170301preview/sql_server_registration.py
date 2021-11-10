@@ -209,7 +209,7 @@ class SqlServerRegistration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:azuredata/v20170301preview:SqlServerRegistration"), pulumi.Alias(type_="azure-native:azuredata:SqlServerRegistration"), pulumi.Alias(type_="azure-nextgen:azuredata:SqlServerRegistration"), pulumi.Alias(type_="azure-native:azuredata/v20190724preview:SqlServerRegistration"), pulumi.Alias(type_="azure-nextgen:azuredata/v20190724preview:SqlServerRegistration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azuredata:SqlServerRegistration"), pulumi.Alias(type_="azure-native:azuredata/v20190724preview:SqlServerRegistration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlServerRegistration, __self__).__init__(
             'azure-native:azuredata/v20170301preview:SqlServerRegistration',

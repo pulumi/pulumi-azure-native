@@ -189,7 +189,7 @@ class SchemaRegistry(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_at_utc"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:eventhub:SchemaRegistry"), pulumi.Alias(type_="azure-native:eventhub/v20211101:SchemaRegistry"), pulumi.Alias(type_="azure-nextgen:eventhub/v20211101:SchemaRegistry")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20211101:SchemaRegistry")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SchemaRegistry, __self__).__init__(
             'azure-native:eventhub:SchemaRegistry',

@@ -313,7 +313,7 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["unique_identifier"] = unique_identifier
             __props__.__dict__["created_date"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:devtestlab/v20160515:VirtualNetwork"), pulumi.Alias(type_="azure-native:devtestlab:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:devtestlab:VirtualNetwork"), pulumi.Alias(type_="azure-native:devtestlab/v20150521preview:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20150521preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:VirtualNetwork"), pulumi.Alias(type_="azure-nextgen:devtestlab/v20180915:VirtualNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devtestlab:VirtualNetwork"), pulumi.Alias(type_="azure-native:devtestlab/v20150521preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:devtestlab/v20180915:VirtualNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetwork, __self__).__init__(
             'azure-native:devtestlab/v20160515:VirtualNetwork',

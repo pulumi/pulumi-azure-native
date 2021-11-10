@@ -299,7 +299,7 @@ class Assignment(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:blueprint:Assignment"), pulumi.Alias(type_="azure-native:blueprint/v20181101preview:Assignment"), pulumi.Alias(type_="azure-nextgen:blueprint/v20181101preview:Assignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:blueprint/v20181101preview:Assignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Assignment, __self__).__init__(
             'azure-native:blueprint:Assignment',

@@ -210,7 +210,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:visualstudio/v20171101preview:Account"), pulumi.Alias(type_="azure-native:visualstudio:Account"), pulumi.Alias(type_="azure-nextgen:visualstudio:Account"), pulumi.Alias(type_="azure-native:visualstudio/v20140401preview:Account"), pulumi.Alias(type_="azure-nextgen:visualstudio/v20140401preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:visualstudio:Account"), pulumi.Alias(type_="azure-native:visualstudio/v20140401preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:visualstudio/v20171101preview:Account',
