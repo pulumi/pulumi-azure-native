@@ -1,0 +1,42 @@
+
+
+
+package v20210401preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func GetkustoPool(ctx *pulumi.Context, args *GetkustoPoolArgs, opts ...pulumi.InvokeOption) (*GetkustoPoolResult, error) {
+	var rv GetkustoPoolResult
+	err := ctx.Invoke("azure-native:synapse/v20210401preview:getkustoPool", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type GetkustoPoolArgs struct {
+	KustoPoolName     string `pulumi:"kustoPoolName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
+}
+
+
+type GetkustoPoolResult struct {
+	DataIngestionUri  string             `pulumi:"dataIngestionUri"`
+	EngineType        *string            `pulumi:"engineType"`
+	Etag              string             `pulumi:"etag"`
+	Id                string             `pulumi:"id"`
+	Location          string             `pulumi:"location"`
+	Name              string             `pulumi:"name"`
+	ProvisioningState string             `pulumi:"provisioningState"`
+	Sku               AzureSkuResponse   `pulumi:"sku"`
+	State             string             `pulumi:"state"`
+	StateReason       string             `pulumi:"stateReason"`
+	SystemData        SystemDataResponse `pulumi:"systemData"`
+	Tags              map[string]string  `pulumi:"tags"`
+	Type              string             `pulumi:"type"`
+	Uri               string             `pulumi:"uri"`
+	WorkspaceUid      *string            `pulumi:"workspaceUid"`
+}

@@ -1,0 +1,35 @@
+
+
+
+package v20210401preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupTableResourceTable(ctx *pulumi.Context, args *LookupTableResourceTableArgs, opts ...pulumi.InvokeOption) (*LookupTableResourceTableResult, error) {
+	var rv LookupTableResourceTableResult
+	err := ctx.Invoke("azure-native:documentdb/v20210401preview:getTableResourceTable", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupTableResourceTableArgs struct {
+	AccountName       string `pulumi:"accountName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	TableName         string `pulumi:"tableName"`
+}
+
+
+type LookupTableResourceTableResult struct {
+	Id       string                              `pulumi:"id"`
+	Identity *ManagedServiceIdentityResponse     `pulumi:"identity"`
+	Location *string                             `pulumi:"location"`
+	Name     string                              `pulumi:"name"`
+	Options  *TableGetPropertiesResponseOptions  `pulumi:"options"`
+	Resource *TableGetPropertiesResponseResource `pulumi:"resource"`
+	Tags     map[string]string                   `pulumi:"tags"`
+	Type     string                              `pulumi:"type"`
+}
