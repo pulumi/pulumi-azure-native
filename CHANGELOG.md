@@ -25,6 +25,8 @@ CHANGELOG
 
 - `iotsecurity.LocationSite` and `iotsecurity.SiteSensor` were removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16588))
+- `botservice.WebChatSite` property `enablePreview` renamed to `isWebchatPreviewEnabled`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16377))
 
 ---
 
