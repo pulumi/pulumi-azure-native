@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly string ChannelName;
         /// <summary>
+        /// Entity Tag of the resource
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
         /// The set of properties specific to DirectLine Speech channel resource
         /// </summary>
         public readonly Outputs.DirectLineSpeechChannelPropertiesResponse? Properties;
@@ -30,9 +34,12 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         private DirectLineSpeechChannelResponse(
             string channelName,
 
+            string? etag,
+
             Outputs.DirectLineSpeechChannelPropertiesResponse? properties)
         {
             ChannelName = channelName;
+            Etag = etag;
             Properties = properties;
         }
     }

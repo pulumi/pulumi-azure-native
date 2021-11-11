@@ -8,6 +8,7 @@ __all__ = [
     'EnterpriseChannelNodeState',
     'EnterpriseChannelState',
     'Kind',
+    'MsaAppType',
     'PrivateEndpointServiceConnectionStatus',
     'SkuName',
 ]
@@ -53,6 +54,15 @@ class Kind(str, Enum):
     DESIGNER = "designer"
     BOT = "bot"
     FUNCTION = "function"
+
+
+class MsaAppType(str, Enum):
+    """
+    Microsoft App Type for the bot
+    """
+    USER_ASSIGNED_MSI = "UserAssignedMSI"
+    SINGLE_TENANT = "SingleTenant"
+    MULTI_TENANT = "MultiTenant"
 
 
 class PrivateEndpointServiceConnectionStatus(str, Enum):

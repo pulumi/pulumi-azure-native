@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly string? GroupsMode;
         /// <summary>
+        /// Incoming call route for Skype channel
+        /// </summary>
+        public readonly string? IncomingCallRoute;
+        /// <summary>
         /// Whether this channel is enabled for the bot
         /// </summary>
         public readonly bool IsEnabled;
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             string? groupsMode,
 
+            string? incomingCallRoute,
+
             bool isEnabled)
         {
             CallingWebHook = callingWebHook;
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
             EnableScreenSharing = enableScreenSharing;
             EnableVideo = enableVideo;
             GroupsMode = groupsMode;
+            IncomingCallRoute = incomingCallRoute;
             IsEnabled = isEnabled;
         }
     }

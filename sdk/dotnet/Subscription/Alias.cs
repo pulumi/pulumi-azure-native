@@ -61,6 +61,7 @@ namespace Pulumi.AzureNative.Subscription
                 {
                     new Pulumi.Alias { Type = "azure-native:subscription/v20191001preview:Alias"},
                     new Pulumi.Alias { Type = "azure-native:subscription/v20200901:Alias"},
+                    new Pulumi.Alias { Type = "azure-native:subscription/v20211001:Alias"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

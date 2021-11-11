@@ -16,16 +16,16 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
     public sealed class WebChatSiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether this site is enabled for preview versions of Webchat
-        /// </summary>
-        [Input("enablePreview", required: true)]
-        public Input<bool> EnablePreview { get; set; } = null!;
-
-        /// <summary>
         /// Whether this site is enabled for DirectLine channel
         /// </summary>
         [Input("isEnabled", required: true)]
         public Input<bool> IsEnabled { get; set; } = null!;
+
+        /// <summary>
+        /// Whether this site is enabled for preview versions of Webchat
+        /// </summary>
+        [Input("isWebchatPreviewEnabled", required: true)]
+        public Input<bool> IsWebchatPreviewEnabled { get; set; } = null!;
 
         /// <summary>
         /// Site name

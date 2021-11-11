@@ -398,9 +398,10 @@ func (o AlexaChannelPropertiesResponsePtrOutput) UrlFragment() pulumi.StringPtrO
 }
 
 type AlexaChannelResponse struct {
-	ChannelName string                          `pulumi:"channelName"`
-	Etag        *string                         `pulumi:"etag"`
-	Properties  *AlexaChannelPropertiesResponse `pulumi:"properties"`
+	ChannelName       string                          `pulumi:"channelName"`
+	Etag              *string                         `pulumi:"etag"`
+	Properties        *AlexaChannelPropertiesResponse `pulumi:"properties"`
+	ProvisioningState string                          `pulumi:"provisioningState"`
 }
 
 
@@ -415,9 +416,10 @@ type AlexaChannelResponseInput interface {
 }
 
 type AlexaChannelResponseArgs struct {
-	ChannelName pulumi.StringInput                     `pulumi:"channelName"`
-	Etag        pulumi.StringPtrInput                  `pulumi:"etag"`
-	Properties  AlexaChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ChannelName       pulumi.StringInput                     `pulumi:"channelName"`
+	Etag              pulumi.StringPtrInput                  `pulumi:"etag"`
+	Properties        AlexaChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ProvisioningState pulumi.StringInput                     `pulumi:"provisioningState"`
 }
 
 func (AlexaChannelResponseArgs) ElementType() reflect.Type {
@@ -458,28 +460,38 @@ func (o AlexaChannelResponseOutput) Properties() AlexaChannelPropertiesResponseP
 	return o.ApplyT(func(v AlexaChannelResponse) *AlexaChannelPropertiesResponse { return v.Properties }).(AlexaChannelPropertiesResponsePtrOutput)
 }
 
+func (o AlexaChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AlexaChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 type BotProperties struct {
-	AppPasswordHint                   *string  `pulumi:"appPasswordHint"`
-	CmekKeyVaultUrl                   *string  `pulumi:"cmekKeyVaultUrl"`
-	Description                       *string  `pulumi:"description"`
-	DeveloperAppInsightKey            *string  `pulumi:"developerAppInsightKey"`
-	DeveloperAppInsightsApiKey        *string  `pulumi:"developerAppInsightsApiKey"`
-	DeveloperAppInsightsApplicationId *string  `pulumi:"developerAppInsightsApplicationId"`
-	DisableLocalAuth                  *bool    `pulumi:"disableLocalAuth"`
-	DisplayName                       string   `pulumi:"displayName"`
-	Endpoint                          string   `pulumi:"endpoint"`
-	IconUrl                           *string  `pulumi:"iconUrl"`
-	IsCmekEnabled                     *bool    `pulumi:"isCmekEnabled"`
-	IsDeveloperAppInsightsApiKeySet   *bool    `pulumi:"isDeveloperAppInsightsApiKeySet"`
-	IsIsolated                        *bool    `pulumi:"isIsolated"`
-	LuisAppIds                        []string `pulumi:"luisAppIds"`
-	LuisKey                           *string  `pulumi:"luisKey"`
-	MsaAppId                          string   `pulumi:"msaAppId"`
-	MsaAppMSIResourceId               *string  `pulumi:"msaAppMSIResourceId"`
-	MsaAppTenantId                    *string  `pulumi:"msaAppTenantId"`
-	MsaAppType                        *string  `pulumi:"msaAppType"`
-	OpenWithHint                      *string  `pulumi:"openWithHint"`
-	SchemaTransformationVersion       *string  `pulumi:"schemaTransformationVersion"`
+	AllSettings                       map[string]string `pulumi:"allSettings"`
+	AppPasswordHint                   *string           `pulumi:"appPasswordHint"`
+	CmekEncryptionStatus              *string           `pulumi:"cmekEncryptionStatus"`
+	CmekKeyVaultUrl                   *string           `pulumi:"cmekKeyVaultUrl"`
+	Description                       *string           `pulumi:"description"`
+	DeveloperAppInsightKey            *string           `pulumi:"developerAppInsightKey"`
+	DeveloperAppInsightsApiKey        *string           `pulumi:"developerAppInsightsApiKey"`
+	DeveloperAppInsightsApplicationId *string           `pulumi:"developerAppInsightsApplicationId"`
+	DisableLocalAuth                  *bool             `pulumi:"disableLocalAuth"`
+	DisplayName                       string            `pulumi:"displayName"`
+	Endpoint                          string            `pulumi:"endpoint"`
+	IconUrl                           *string           `pulumi:"iconUrl"`
+	IsCmekEnabled                     *bool             `pulumi:"isCmekEnabled"`
+	IsDeveloperAppInsightsApiKeySet   *bool             `pulumi:"isDeveloperAppInsightsApiKeySet"`
+	IsIsolated                        *bool             `pulumi:"isIsolated"`
+	IsStreamingSupported              *bool             `pulumi:"isStreamingSupported"`
+	LuisAppIds                        []string          `pulumi:"luisAppIds"`
+	LuisKey                           *string           `pulumi:"luisKey"`
+	ManifestUrl                       *string           `pulumi:"manifestUrl"`
+	MsaAppId                          string            `pulumi:"msaAppId"`
+	MsaAppMSIResourceId               *string           `pulumi:"msaAppMSIResourceId"`
+	MsaAppTenantId                    *string           `pulumi:"msaAppTenantId"`
+	MsaAppType                        *string           `pulumi:"msaAppType"`
+	OpenWithHint                      *string           `pulumi:"openWithHint"`
+	Parameters                        map[string]string `pulumi:"parameters"`
+	PublishingCredentials             *string           `pulumi:"publishingCredentials"`
+	SchemaTransformationVersion       *string           `pulumi:"schemaTransformationVersion"`
 }
 
 
@@ -494,7 +506,9 @@ type BotPropertiesInput interface {
 }
 
 type BotPropertiesArgs struct {
+	AllSettings                       pulumi.StringMapInput   `pulumi:"allSettings"`
 	AppPasswordHint                   pulumi.StringPtrInput   `pulumi:"appPasswordHint"`
+	CmekEncryptionStatus              pulumi.StringPtrInput   `pulumi:"cmekEncryptionStatus"`
 	CmekKeyVaultUrl                   pulumi.StringPtrInput   `pulumi:"cmekKeyVaultUrl"`
 	Description                       pulumi.StringPtrInput   `pulumi:"description"`
 	DeveloperAppInsightKey            pulumi.StringPtrInput   `pulumi:"developerAppInsightKey"`
@@ -507,13 +521,17 @@ type BotPropertiesArgs struct {
 	IsCmekEnabled                     pulumi.BoolPtrInput     `pulumi:"isCmekEnabled"`
 	IsDeveloperAppInsightsApiKeySet   pulumi.BoolPtrInput     `pulumi:"isDeveloperAppInsightsApiKeySet"`
 	IsIsolated                        pulumi.BoolPtrInput     `pulumi:"isIsolated"`
+	IsStreamingSupported              pulumi.BoolPtrInput     `pulumi:"isStreamingSupported"`
 	LuisAppIds                        pulumi.StringArrayInput `pulumi:"luisAppIds"`
 	LuisKey                           pulumi.StringPtrInput   `pulumi:"luisKey"`
+	ManifestUrl                       pulumi.StringPtrInput   `pulumi:"manifestUrl"`
 	MsaAppId                          pulumi.StringInput      `pulumi:"msaAppId"`
 	MsaAppMSIResourceId               pulumi.StringPtrInput   `pulumi:"msaAppMSIResourceId"`
 	MsaAppTenantId                    pulumi.StringPtrInput   `pulumi:"msaAppTenantId"`
 	MsaAppType                        pulumi.StringPtrInput   `pulumi:"msaAppType"`
 	OpenWithHint                      pulumi.StringPtrInput   `pulumi:"openWithHint"`
+	Parameters                        pulumi.StringMapInput   `pulumi:"parameters"`
+	PublishingCredentials             pulumi.StringPtrInput   `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       pulumi.StringPtrInput   `pulumi:"schemaTransformationVersion"`
 }
 
@@ -594,8 +612,16 @@ func (o BotPropertiesOutput) ToBotPropertiesPtrOutputWithContext(ctx context.Con
 	}).(BotPropertiesPtrOutput)
 }
 
+func (o BotPropertiesOutput) AllSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BotProperties) map[string]string { return v.AllSettings }).(pulumi.StringMapOutput)
+}
+
 func (o BotPropertiesOutput) AppPasswordHint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotProperties) *string { return v.AppPasswordHint }).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesOutput) CmekEncryptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotProperties) *string { return v.CmekEncryptionStatus }).(pulumi.StringPtrOutput)
 }
 
 func (o BotPropertiesOutput) CmekKeyVaultUrl() pulumi.StringPtrOutput {
@@ -646,12 +672,20 @@ func (o BotPropertiesOutput) IsIsolated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotProperties) *bool { return v.IsIsolated }).(pulumi.BoolPtrOutput)
 }
 
+func (o BotPropertiesOutput) IsStreamingSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BotProperties) *bool { return v.IsStreamingSupported }).(pulumi.BoolPtrOutput)
+}
+
 func (o BotPropertiesOutput) LuisAppIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BotProperties) []string { return v.LuisAppIds }).(pulumi.StringArrayOutput)
 }
 
 func (o BotPropertiesOutput) LuisKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotProperties) *string { return v.LuisKey }).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesOutput) ManifestUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotProperties) *string { return v.ManifestUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o BotPropertiesOutput) MsaAppId() pulumi.StringOutput {
@@ -672,6 +706,14 @@ func (o BotPropertiesOutput) MsaAppType() pulumi.StringPtrOutput {
 
 func (o BotPropertiesOutput) OpenWithHint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotProperties) *string { return v.OpenWithHint }).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BotProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+func (o BotPropertiesOutput) PublishingCredentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotProperties) *string { return v.PublishingCredentials }).(pulumi.StringPtrOutput)
 }
 
 func (o BotPropertiesOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
@@ -702,12 +744,30 @@ func (o BotPropertiesPtrOutput) Elem() BotPropertiesOutput {
 	}).(BotPropertiesOutput)
 }
 
+func (o BotPropertiesPtrOutput) AllSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BotProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AllSettings
+	}).(pulumi.StringMapOutput)
+}
+
 func (o BotPropertiesPtrOutput) AppPasswordHint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.AppPasswordHint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesPtrOutput) CmekEncryptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CmekEncryptionStatus
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -819,6 +879,15 @@ func (o BotPropertiesPtrOutput) IsIsolated() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o BotPropertiesPtrOutput) IsStreamingSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsStreamingSupported
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o BotPropertiesPtrOutput) LuisAppIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BotProperties) []string {
 		if v == nil {
@@ -834,6 +903,15 @@ func (o BotPropertiesPtrOutput) LuisKey() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.LuisKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesPtrOutput) ManifestUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -882,6 +960,24 @@ func (o BotPropertiesPtrOutput) OpenWithHint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o BotPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BotProperties) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+func (o BotPropertiesPtrOutput) PublishingCredentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublishingCredentials
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o BotPropertiesPtrOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotProperties) *string {
 		if v == nil {
@@ -892,7 +988,9 @@ func (o BotPropertiesPtrOutput) SchemaTransformationVersion() pulumi.StringPtrOu
 }
 
 type BotPropertiesResponse struct {
+	AllSettings                       map[string]string                   `pulumi:"allSettings"`
 	AppPasswordHint                   *string                             `pulumi:"appPasswordHint"`
+	CmekEncryptionStatus              *string                             `pulumi:"cmekEncryptionStatus"`
 	CmekKeyVaultUrl                   *string                             `pulumi:"cmekKeyVaultUrl"`
 	ConfiguredChannels                []string                            `pulumi:"configuredChannels"`
 	Description                       *string                             `pulumi:"description"`
@@ -908,15 +1006,20 @@ type BotPropertiesResponse struct {
 	IsCmekEnabled                     *bool                               `pulumi:"isCmekEnabled"`
 	IsDeveloperAppInsightsApiKeySet   *bool                               `pulumi:"isDeveloperAppInsightsApiKeySet"`
 	IsIsolated                        *bool                               `pulumi:"isIsolated"`
+	IsStreamingSupported              *bool                               `pulumi:"isStreamingSupported"`
 	LuisAppIds                        []string                            `pulumi:"luisAppIds"`
 	LuisKey                           *string                             `pulumi:"luisKey"`
+	ManifestUrl                       *string                             `pulumi:"manifestUrl"`
 	MigrationToken                    string                              `pulumi:"migrationToken"`
 	MsaAppId                          string                              `pulumi:"msaAppId"`
 	MsaAppMSIResourceId               *string                             `pulumi:"msaAppMSIResourceId"`
 	MsaAppTenantId                    *string                             `pulumi:"msaAppTenantId"`
 	MsaAppType                        *string                             `pulumi:"msaAppType"`
 	OpenWithHint                      *string                             `pulumi:"openWithHint"`
+	Parameters                        map[string]string                   `pulumi:"parameters"`
 	PrivateEndpointConnections        []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	ProvisioningState                 string                              `pulumi:"provisioningState"`
+	PublishingCredentials             *string                             `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       *string                             `pulumi:"schemaTransformationVersion"`
 }
 
@@ -932,7 +1035,9 @@ type BotPropertiesResponseInput interface {
 }
 
 type BotPropertiesResponseArgs struct {
+	AllSettings                       pulumi.StringMapInput                       `pulumi:"allSettings"`
 	AppPasswordHint                   pulumi.StringPtrInput                       `pulumi:"appPasswordHint"`
+	CmekEncryptionStatus              pulumi.StringPtrInput                       `pulumi:"cmekEncryptionStatus"`
 	CmekKeyVaultUrl                   pulumi.StringPtrInput                       `pulumi:"cmekKeyVaultUrl"`
 	ConfiguredChannels                pulumi.StringArrayInput                     `pulumi:"configuredChannels"`
 	Description                       pulumi.StringPtrInput                       `pulumi:"description"`
@@ -948,15 +1053,20 @@ type BotPropertiesResponseArgs struct {
 	IsCmekEnabled                     pulumi.BoolPtrInput                         `pulumi:"isCmekEnabled"`
 	IsDeveloperAppInsightsApiKeySet   pulumi.BoolPtrInput                         `pulumi:"isDeveloperAppInsightsApiKeySet"`
 	IsIsolated                        pulumi.BoolPtrInput                         `pulumi:"isIsolated"`
+	IsStreamingSupported              pulumi.BoolPtrInput                         `pulumi:"isStreamingSupported"`
 	LuisAppIds                        pulumi.StringArrayInput                     `pulumi:"luisAppIds"`
 	LuisKey                           pulumi.StringPtrInput                       `pulumi:"luisKey"`
+	ManifestUrl                       pulumi.StringPtrInput                       `pulumi:"manifestUrl"`
 	MigrationToken                    pulumi.StringInput                          `pulumi:"migrationToken"`
 	MsaAppId                          pulumi.StringInput                          `pulumi:"msaAppId"`
 	MsaAppMSIResourceId               pulumi.StringPtrInput                       `pulumi:"msaAppMSIResourceId"`
 	MsaAppTenantId                    pulumi.StringPtrInput                       `pulumi:"msaAppTenantId"`
 	MsaAppType                        pulumi.StringPtrInput                       `pulumi:"msaAppType"`
 	OpenWithHint                      pulumi.StringPtrInput                       `pulumi:"openWithHint"`
+	Parameters                        pulumi.StringMapInput                       `pulumi:"parameters"`
 	PrivateEndpointConnections        PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
+	ProvisioningState                 pulumi.StringInput                          `pulumi:"provisioningState"`
+	PublishingCredentials             pulumi.StringPtrInput                       `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       pulumi.StringPtrInput                       `pulumi:"schemaTransformationVersion"`
 }
 
@@ -1037,8 +1147,16 @@ func (o BotPropertiesResponseOutput) ToBotPropertiesResponsePtrOutputWithContext
 	}).(BotPropertiesResponsePtrOutput)
 }
 
+func (o BotPropertiesResponseOutput) AllSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) map[string]string { return v.AllSettings }).(pulumi.StringMapOutput)
+}
+
 func (o BotPropertiesResponseOutput) AppPasswordHint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.AppPasswordHint }).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesResponseOutput) CmekEncryptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.CmekEncryptionStatus }).(pulumi.StringPtrOutput)
 }
 
 func (o BotPropertiesResponseOutput) CmekKeyVaultUrl() pulumi.StringPtrOutput {
@@ -1101,12 +1219,20 @@ func (o BotPropertiesResponseOutput) IsIsolated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) *bool { return v.IsIsolated }).(pulumi.BoolPtrOutput)
 }
 
+func (o BotPropertiesResponseOutput) IsStreamingSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *bool { return v.IsStreamingSupported }).(pulumi.BoolPtrOutput)
+}
+
 func (o BotPropertiesResponseOutput) LuisAppIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) []string { return v.LuisAppIds }).(pulumi.StringArrayOutput)
 }
 
 func (o BotPropertiesResponseOutput) LuisKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.LuisKey }).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesResponseOutput) ManifestUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.ManifestUrl }).(pulumi.StringPtrOutput)
 }
 
 func (o BotPropertiesResponseOutput) MigrationToken() pulumi.StringOutput {
@@ -1133,8 +1259,20 @@ func (o BotPropertiesResponseOutput) OpenWithHint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.OpenWithHint }).(pulumi.StringPtrOutput)
 }
 
+func (o BotPropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
 func (o BotPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) []PrivateEndpointConnectionResponse { return v.PrivateEndpointConnections }).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+func (o BotPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o BotPropertiesResponseOutput) PublishingCredentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.PublishingCredentials }).(pulumi.StringPtrOutput)
 }
 
 func (o BotPropertiesResponseOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
@@ -1165,12 +1303,30 @@ func (o BotPropertiesResponsePtrOutput) Elem() BotPropertiesResponseOutput {
 	}).(BotPropertiesResponseOutput)
 }
 
+func (o BotPropertiesResponsePtrOutput) AllSettings() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AllSettings
+	}).(pulumi.StringMapOutput)
+}
+
 func (o BotPropertiesResponsePtrOutput) AppPasswordHint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return v.AppPasswordHint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesResponsePtrOutput) CmekEncryptionStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CmekEncryptionStatus
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1309,6 +1465,15 @@ func (o BotPropertiesResponsePtrOutput) IsIsolated() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+func (o BotPropertiesResponsePtrOutput) IsStreamingSupported() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsStreamingSupported
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o BotPropertiesResponsePtrOutput) LuisAppIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BotPropertiesResponse) []string {
 		if v == nil {
@@ -1324,6 +1489,15 @@ func (o BotPropertiesResponsePtrOutput) LuisKey() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.LuisKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesResponsePtrOutput) ManifestUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManifestUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1381,6 +1555,15 @@ func (o BotPropertiesResponsePtrOutput) OpenWithHint() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o BotPropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
 func (o BotPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v *BotPropertiesResponse) []PrivateEndpointConnectionResponse {
 		if v == nil {
@@ -1388,6 +1571,24 @@ func (o BotPropertiesResponsePtrOutput) PrivateEndpointConnections() PrivateEndp
 		}
 		return v.PrivateEndpointConnections
 	}).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+func (o BotPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesResponsePtrOutput) PublishingCredentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublishingCredentials
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o BotPropertiesResponsePtrOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
@@ -1603,6 +1804,7 @@ type ConnectionSettingProperties struct {
 	ClientId                   *string                      `pulumi:"clientId"`
 	ClientSecret               *string                      `pulumi:"clientSecret"`
 	Parameters                 []ConnectionSettingParameter `pulumi:"parameters"`
+	ProvisioningState          *string                      `pulumi:"provisioningState"`
 	Scopes                     *string                      `pulumi:"scopes"`
 	ServiceProviderDisplayName *string                      `pulumi:"serviceProviderDisplayName"`
 	ServiceProviderId          *string                      `pulumi:"serviceProviderId"`
@@ -1623,6 +1825,7 @@ type ConnectionSettingPropertiesArgs struct {
 	ClientId                   pulumi.StringPtrInput                `pulumi:"clientId"`
 	ClientSecret               pulumi.StringPtrInput                `pulumi:"clientSecret"`
 	Parameters                 ConnectionSettingParameterArrayInput `pulumi:"parameters"`
+	ProvisioningState          pulumi.StringPtrInput                `pulumi:"provisioningState"`
 	Scopes                     pulumi.StringPtrInput                `pulumi:"scopes"`
 	ServiceProviderDisplayName pulumi.StringPtrInput                `pulumi:"serviceProviderDisplayName"`
 	ServiceProviderId          pulumi.StringPtrInput                `pulumi:"serviceProviderId"`
@@ -1717,6 +1920,10 @@ func (o ConnectionSettingPropertiesOutput) Parameters() ConnectionSettingParamet
 	return o.ApplyT(func(v ConnectionSettingProperties) []ConnectionSettingParameter { return v.Parameters }).(ConnectionSettingParameterArrayOutput)
 }
 
+func (o ConnectionSettingPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
 func (o ConnectionSettingPropertiesOutput) Scopes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionSettingProperties) *string { return v.Scopes }).(pulumi.StringPtrOutput)
 }
@@ -1780,6 +1987,15 @@ func (o ConnectionSettingPropertiesPtrOutput) Parameters() ConnectionSettingPara
 	}).(ConnectionSettingParameterArrayOutput)
 }
 
+func (o ConnectionSettingPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSettingProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o ConnectionSettingPropertiesPtrOutput) Scopes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionSettingProperties) *string {
 		if v == nil {
@@ -1811,6 +2027,7 @@ type ConnectionSettingPropertiesResponse struct {
 	ClientId                   *string                              `pulumi:"clientId"`
 	ClientSecret               *string                              `pulumi:"clientSecret"`
 	Parameters                 []ConnectionSettingParameterResponse `pulumi:"parameters"`
+	ProvisioningState          *string                              `pulumi:"provisioningState"`
 	Scopes                     *string                              `pulumi:"scopes"`
 	ServiceProviderDisplayName *string                              `pulumi:"serviceProviderDisplayName"`
 	ServiceProviderId          *string                              `pulumi:"serviceProviderId"`
@@ -1832,6 +2049,7 @@ type ConnectionSettingPropertiesResponseArgs struct {
 	ClientId                   pulumi.StringPtrInput                        `pulumi:"clientId"`
 	ClientSecret               pulumi.StringPtrInput                        `pulumi:"clientSecret"`
 	Parameters                 ConnectionSettingParameterResponseArrayInput `pulumi:"parameters"`
+	ProvisioningState          pulumi.StringPtrInput                        `pulumi:"provisioningState"`
 	Scopes                     pulumi.StringPtrInput                        `pulumi:"scopes"`
 	ServiceProviderDisplayName pulumi.StringPtrInput                        `pulumi:"serviceProviderDisplayName"`
 	ServiceProviderId          pulumi.StringPtrInput                        `pulumi:"serviceProviderId"`
@@ -1927,6 +2145,10 @@ func (o ConnectionSettingPropertiesResponseOutput) Parameters() ConnectionSettin
 	return o.ApplyT(func(v ConnectionSettingPropertiesResponse) []ConnectionSettingParameterResponse { return v.Parameters }).(ConnectionSettingParameterResponseArrayOutput)
 }
 
+func (o ConnectionSettingPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
 func (o ConnectionSettingPropertiesResponseOutput) Scopes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionSettingPropertiesResponse) *string { return v.Scopes }).(pulumi.StringPtrOutput)
 }
@@ -1994,6 +2216,15 @@ func (o ConnectionSettingPropertiesResponsePtrOutput) Parameters() ConnectionSet
 	}).(ConnectionSettingParameterResponseArrayOutput)
 }
 
+func (o ConnectionSettingPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSettingPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o ConnectionSettingPropertiesResponsePtrOutput) Scopes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionSettingPropertiesResponse) *string {
 		if v == nil {
@@ -2033,6 +2264,7 @@ func (o ConnectionSettingPropertiesResponsePtrOutput) SettingId() pulumi.StringP
 type DirectLineChannel struct {
 	ChannelName       string                       `pulumi:"channelName"`
 	Etag              *string                      `pulumi:"etag"`
+	Location          *string                      `pulumi:"location"`
 	Properties        *DirectLineChannelProperties `pulumi:"properties"`
 	ProvisioningState *string                      `pulumi:"provisioningState"`
 }
@@ -2051,6 +2283,7 @@ type DirectLineChannelInput interface {
 type DirectLineChannelArgs struct {
 	ChannelName       pulumi.StringInput                  `pulumi:"channelName"`
 	Etag              pulumi.StringPtrInput               `pulumi:"etag"`
+	Location          pulumi.StringPtrInput               `pulumi:"location"`
 	Properties        DirectLineChannelPropertiesPtrInput `pulumi:"properties"`
 	ProvisioningState pulumi.StringPtrInput               `pulumi:"provisioningState"`
 }
@@ -2087,6 +2320,10 @@ func (o DirectLineChannelOutput) ChannelName() pulumi.StringOutput {
 
 func (o DirectLineChannelOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectLineChannel) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+func (o DirectLineChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectLineChannel) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 func (o DirectLineChannelOutput) Properties() DirectLineChannelPropertiesPtrOutput {
@@ -2396,6 +2633,7 @@ func (o DirectLineChannelPropertiesResponsePtrOutput) Sites() DirectLineSiteResp
 type DirectLineChannelResponse struct {
 	ChannelName       string                               `pulumi:"channelName"`
 	Etag              *string                              `pulumi:"etag"`
+	Location          *string                              `pulumi:"location"`
 	Properties        *DirectLineChannelPropertiesResponse `pulumi:"properties"`
 	ProvisioningState *string                              `pulumi:"provisioningState"`
 }
@@ -2414,6 +2652,7 @@ type DirectLineChannelResponseInput interface {
 type DirectLineChannelResponseArgs struct {
 	ChannelName       pulumi.StringInput                          `pulumi:"channelName"`
 	Etag              pulumi.StringPtrInput                       `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                       `pulumi:"location"`
 	Properties        DirectLineChannelPropertiesResponsePtrInput `pulumi:"properties"`
 	ProvisioningState pulumi.StringPtrInput                       `pulumi:"provisioningState"`
 }
@@ -2450,6 +2689,10 @@ func (o DirectLineChannelResponseOutput) ChannelName() pulumi.StringOutput {
 
 func (o DirectLineChannelResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectLineChannelResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+func (o DirectLineChannelResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectLineChannelResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 func (o DirectLineChannelResponseOutput) Properties() DirectLineChannelPropertiesResponsePtrOutput {
@@ -5587,6 +5830,7 @@ func (o LineRegistrationResponseArrayOutput) Index(i pulumi.IntInput) LineRegist
 type MsTeamsChannel struct {
 	ChannelName       string                    `pulumi:"channelName"`
 	Etag              *string                   `pulumi:"etag"`
+	Location          *string                   `pulumi:"location"`
 	Properties        *MsTeamsChannelProperties `pulumi:"properties"`
 	ProvisioningState *string                   `pulumi:"provisioningState"`
 }
@@ -5605,6 +5849,7 @@ type MsTeamsChannelInput interface {
 type MsTeamsChannelArgs struct {
 	ChannelName       pulumi.StringInput               `pulumi:"channelName"`
 	Etag              pulumi.StringPtrInput            `pulumi:"etag"`
+	Location          pulumi.StringPtrInput            `pulumi:"location"`
 	Properties        MsTeamsChannelPropertiesPtrInput `pulumi:"properties"`
 	ProvisioningState pulumi.StringPtrInput            `pulumi:"provisioningState"`
 }
@@ -5643,6 +5888,10 @@ func (o MsTeamsChannelOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsTeamsChannel) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+func (o MsTeamsChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsTeamsChannel) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 func (o MsTeamsChannelOutput) Properties() MsTeamsChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v MsTeamsChannel) *MsTeamsChannelProperties { return v.Properties }).(MsTeamsChannelPropertiesPtrOutput)
 }
@@ -5652,10 +5901,12 @@ func (o MsTeamsChannelOutput) ProvisioningState() pulumi.StringPtrOutput {
 }
 
 type MsTeamsChannelProperties struct {
-	CallingWebHook    *string `pulumi:"callingWebHook"`
-	EnableCalling     *bool   `pulumi:"enableCalling"`
-	IncomingCallRoute *string `pulumi:"incomingCallRoute"`
-	IsEnabled         bool    `pulumi:"isEnabled"`
+	AcceptedTerms         *bool   `pulumi:"acceptedTerms"`
+	CallingWebHook        *string `pulumi:"callingWebHook"`
+	DeploymentEnvironment *string `pulumi:"deploymentEnvironment"`
+	EnableCalling         *bool   `pulumi:"enableCalling"`
+	IncomingCallRoute     *string `pulumi:"incomingCallRoute"`
+	IsEnabled             bool    `pulumi:"isEnabled"`
 }
 
 
@@ -5670,10 +5921,12 @@ type MsTeamsChannelPropertiesInput interface {
 }
 
 type MsTeamsChannelPropertiesArgs struct {
-	CallingWebHook    pulumi.StringPtrInput `pulumi:"callingWebHook"`
-	EnableCalling     pulumi.BoolPtrInput   `pulumi:"enableCalling"`
-	IncomingCallRoute pulumi.StringPtrInput `pulumi:"incomingCallRoute"`
-	IsEnabled         pulumi.BoolInput      `pulumi:"isEnabled"`
+	AcceptedTerms         pulumi.BoolPtrInput   `pulumi:"acceptedTerms"`
+	CallingWebHook        pulumi.StringPtrInput `pulumi:"callingWebHook"`
+	DeploymentEnvironment pulumi.StringPtrInput `pulumi:"deploymentEnvironment"`
+	EnableCalling         pulumi.BoolPtrInput   `pulumi:"enableCalling"`
+	IncomingCallRoute     pulumi.StringPtrInput `pulumi:"incomingCallRoute"`
+	IsEnabled             pulumi.BoolInput      `pulumi:"isEnabled"`
 }
 
 func (MsTeamsChannelPropertiesArgs) ElementType() reflect.Type {
@@ -5753,8 +6006,16 @@ func (o MsTeamsChannelPropertiesOutput) ToMsTeamsChannelPropertiesPtrOutputWithC
 	}).(MsTeamsChannelPropertiesPtrOutput)
 }
 
+func (o MsTeamsChannelPropertiesOutput) AcceptedTerms() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelProperties) *bool { return v.AcceptedTerms }).(pulumi.BoolPtrOutput)
+}
+
 func (o MsTeamsChannelPropertiesOutput) CallingWebHook() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsTeamsChannelProperties) *string { return v.CallingWebHook }).(pulumi.StringPtrOutput)
+}
+
+func (o MsTeamsChannelPropertiesOutput) DeploymentEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelProperties) *string { return v.DeploymentEnvironment }).(pulumi.StringPtrOutput)
 }
 
 func (o MsTeamsChannelPropertiesOutput) EnableCalling() pulumi.BoolPtrOutput {
@@ -5793,12 +6054,30 @@ func (o MsTeamsChannelPropertiesPtrOutput) Elem() MsTeamsChannelPropertiesOutput
 	}).(MsTeamsChannelPropertiesOutput)
 }
 
+func (o MsTeamsChannelPropertiesPtrOutput) AcceptedTerms() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MsTeamsChannelProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptedTerms
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o MsTeamsChannelPropertiesPtrOutput) CallingWebHook() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MsTeamsChannelProperties) *string {
 		if v == nil {
 			return nil
 		}
 		return v.CallingWebHook
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MsTeamsChannelPropertiesPtrOutput) DeploymentEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MsTeamsChannelProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentEnvironment
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5830,10 +6109,12 @@ func (o MsTeamsChannelPropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
 }
 
 type MsTeamsChannelPropertiesResponse struct {
-	CallingWebHook    *string `pulumi:"callingWebHook"`
-	EnableCalling     *bool   `pulumi:"enableCalling"`
-	IncomingCallRoute *string `pulumi:"incomingCallRoute"`
-	IsEnabled         bool    `pulumi:"isEnabled"`
+	AcceptedTerms         *bool   `pulumi:"acceptedTerms"`
+	CallingWebHook        *string `pulumi:"callingWebHook"`
+	DeploymentEnvironment *string `pulumi:"deploymentEnvironment"`
+	EnableCalling         *bool   `pulumi:"enableCalling"`
+	IncomingCallRoute     *string `pulumi:"incomingCallRoute"`
+	IsEnabled             bool    `pulumi:"isEnabled"`
 }
 
 
@@ -5848,10 +6129,12 @@ type MsTeamsChannelPropertiesResponseInput interface {
 }
 
 type MsTeamsChannelPropertiesResponseArgs struct {
-	CallingWebHook    pulumi.StringPtrInput `pulumi:"callingWebHook"`
-	EnableCalling     pulumi.BoolPtrInput   `pulumi:"enableCalling"`
-	IncomingCallRoute pulumi.StringPtrInput `pulumi:"incomingCallRoute"`
-	IsEnabled         pulumi.BoolInput      `pulumi:"isEnabled"`
+	AcceptedTerms         pulumi.BoolPtrInput   `pulumi:"acceptedTerms"`
+	CallingWebHook        pulumi.StringPtrInput `pulumi:"callingWebHook"`
+	DeploymentEnvironment pulumi.StringPtrInput `pulumi:"deploymentEnvironment"`
+	EnableCalling         pulumi.BoolPtrInput   `pulumi:"enableCalling"`
+	IncomingCallRoute     pulumi.StringPtrInput `pulumi:"incomingCallRoute"`
+	IsEnabled             pulumi.BoolInput      `pulumi:"isEnabled"`
 }
 
 func (MsTeamsChannelPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5931,8 +6214,16 @@ func (o MsTeamsChannelPropertiesResponseOutput) ToMsTeamsChannelPropertiesRespon
 	}).(MsTeamsChannelPropertiesResponsePtrOutput)
 }
 
+func (o MsTeamsChannelPropertiesResponseOutput) AcceptedTerms() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelPropertiesResponse) *bool { return v.AcceptedTerms }).(pulumi.BoolPtrOutput)
+}
+
 func (o MsTeamsChannelPropertiesResponseOutput) CallingWebHook() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsTeamsChannelPropertiesResponse) *string { return v.CallingWebHook }).(pulumi.StringPtrOutput)
+}
+
+func (o MsTeamsChannelPropertiesResponseOutput) DeploymentEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelPropertiesResponse) *string { return v.DeploymentEnvironment }).(pulumi.StringPtrOutput)
 }
 
 func (o MsTeamsChannelPropertiesResponseOutput) EnableCalling() pulumi.BoolPtrOutput {
@@ -5971,12 +6262,30 @@ func (o MsTeamsChannelPropertiesResponsePtrOutput) Elem() MsTeamsChannelProperti
 	}).(MsTeamsChannelPropertiesResponseOutput)
 }
 
+func (o MsTeamsChannelPropertiesResponsePtrOutput) AcceptedTerms() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MsTeamsChannelPropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptedTerms
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o MsTeamsChannelPropertiesResponsePtrOutput) CallingWebHook() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MsTeamsChannelPropertiesResponse) *string {
 		if v == nil {
 			return nil
 		}
 		return v.CallingWebHook
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MsTeamsChannelPropertiesResponsePtrOutput) DeploymentEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MsTeamsChannelPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeploymentEnvironment
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6010,6 +6319,7 @@ func (o MsTeamsChannelPropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOut
 type MsTeamsChannelResponse struct {
 	ChannelName       string                            `pulumi:"channelName"`
 	Etag              *string                           `pulumi:"etag"`
+	Location          *string                           `pulumi:"location"`
 	Properties        *MsTeamsChannelPropertiesResponse `pulumi:"properties"`
 	ProvisioningState *string                           `pulumi:"provisioningState"`
 }
@@ -6028,6 +6338,7 @@ type MsTeamsChannelResponseInput interface {
 type MsTeamsChannelResponseArgs struct {
 	ChannelName       pulumi.StringInput                       `pulumi:"channelName"`
 	Etag              pulumi.StringPtrInput                    `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                    `pulumi:"location"`
 	Properties        MsTeamsChannelPropertiesResponsePtrInput `pulumi:"properties"`
 	ProvisioningState pulumi.StringPtrInput                    `pulumi:"provisioningState"`
 }
@@ -6064,6 +6375,10 @@ func (o MsTeamsChannelResponseOutput) ChannelName() pulumi.StringOutput {
 
 func (o MsTeamsChannelResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MsTeamsChannelResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+func (o MsTeamsChannelResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MsTeamsChannelResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 func (o MsTeamsChannelResponseOutput) Properties() MsTeamsChannelPropertiesResponsePtrOutput {
@@ -6660,12 +6975,13 @@ func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.Stri
 }
 
 type ServiceProviderParameterResponse struct {
-	Default     string `pulumi:"default"`
-	Description string `pulumi:"description"`
-	DisplayName string `pulumi:"displayName"`
-	HelpUrl     string `pulumi:"helpUrl"`
-	Name        string `pulumi:"name"`
-	Type        string `pulumi:"type"`
+	Default     string                                   `pulumi:"default"`
+	Description string                                   `pulumi:"description"`
+	DisplayName string                                   `pulumi:"displayName"`
+	HelpUrl     string                                   `pulumi:"helpUrl"`
+	Metadata    ServiceProviderParameterResponseMetadata `pulumi:"metadata"`
+	Name        string                                   `pulumi:"name"`
+	Type        string                                   `pulumi:"type"`
 }
 
 
@@ -6680,12 +6996,13 @@ type ServiceProviderParameterResponseInput interface {
 }
 
 type ServiceProviderParameterResponseArgs struct {
-	Default     pulumi.StringInput `pulumi:"default"`
-	Description pulumi.StringInput `pulumi:"description"`
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	HelpUrl     pulumi.StringInput `pulumi:"helpUrl"`
-	Name        pulumi.StringInput `pulumi:"name"`
-	Type        pulumi.StringInput `pulumi:"type"`
+	Default     pulumi.StringInput                            `pulumi:"default"`
+	Description pulumi.StringInput                            `pulumi:"description"`
+	DisplayName pulumi.StringInput                            `pulumi:"displayName"`
+	HelpUrl     pulumi.StringInput                            `pulumi:"helpUrl"`
+	Metadata    ServiceProviderParameterResponseMetadataInput `pulumi:"metadata"`
+	Name        pulumi.StringInput                            `pulumi:"name"`
+	Type        pulumi.StringInput                            `pulumi:"type"`
 }
 
 func (ServiceProviderParameterResponseArgs) ElementType() reflect.Type {
@@ -6755,6 +7072,10 @@ func (o ServiceProviderParameterResponseOutput) HelpUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.HelpUrl }).(pulumi.StringOutput)
 }
 
+func (o ServiceProviderParameterResponseOutput) Metadata() ServiceProviderParameterResponseMetadataOutput {
+	return o.ApplyT(func(v ServiceProviderParameterResponse) ServiceProviderParameterResponseMetadata { return v.Metadata }).(ServiceProviderParameterResponseMetadataOutput)
+}
+
 func (o ServiceProviderParameterResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceProviderParameterResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6781,6 +7102,190 @@ func (o ServiceProviderParameterResponseArrayOutput) Index(i pulumi.IntInput) Se
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceProviderParameterResponse {
 		return vs[0].([]ServiceProviderParameterResponse)[vs[1].(int)]
 	}).(ServiceProviderParameterResponseOutput)
+}
+
+type ServiceProviderParameterResponseConstraints struct {
+	Required *bool `pulumi:"required"`
+}
+
+
+
+
+
+type ServiceProviderParameterResponseConstraintsInput interface {
+	pulumi.Input
+
+	ToServiceProviderParameterResponseConstraintsOutput() ServiceProviderParameterResponseConstraintsOutput
+	ToServiceProviderParameterResponseConstraintsOutputWithContext(context.Context) ServiceProviderParameterResponseConstraintsOutput
+}
+
+type ServiceProviderParameterResponseConstraintsArgs struct {
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+}
+
+func (ServiceProviderParameterResponseConstraintsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderParameterResponseConstraints)(nil)).Elem()
+}
+
+func (i ServiceProviderParameterResponseConstraintsArgs) ToServiceProviderParameterResponseConstraintsOutput() ServiceProviderParameterResponseConstraintsOutput {
+	return i.ToServiceProviderParameterResponseConstraintsOutputWithContext(context.Background())
+}
+
+func (i ServiceProviderParameterResponseConstraintsArgs) ToServiceProviderParameterResponseConstraintsOutputWithContext(ctx context.Context) ServiceProviderParameterResponseConstraintsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderParameterResponseConstraintsOutput)
+}
+
+func (i ServiceProviderParameterResponseConstraintsArgs) ToServiceProviderParameterResponseConstraintsPtrOutput() ServiceProviderParameterResponseConstraintsPtrOutput {
+	return i.ToServiceProviderParameterResponseConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceProviderParameterResponseConstraintsArgs) ToServiceProviderParameterResponseConstraintsPtrOutputWithContext(ctx context.Context) ServiceProviderParameterResponseConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderParameterResponseConstraintsOutput).ToServiceProviderParameterResponseConstraintsPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ServiceProviderParameterResponseConstraintsPtrInput interface {
+	pulumi.Input
+
+	ToServiceProviderParameterResponseConstraintsPtrOutput() ServiceProviderParameterResponseConstraintsPtrOutput
+	ToServiceProviderParameterResponseConstraintsPtrOutputWithContext(context.Context) ServiceProviderParameterResponseConstraintsPtrOutput
+}
+
+type serviceProviderParameterResponseConstraintsPtrType ServiceProviderParameterResponseConstraintsArgs
+
+func ServiceProviderParameterResponseConstraintsPtr(v *ServiceProviderParameterResponseConstraintsArgs) ServiceProviderParameterResponseConstraintsPtrInput {
+	return (*serviceProviderParameterResponseConstraintsPtrType)(v)
+}
+
+func (*serviceProviderParameterResponseConstraintsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceProviderParameterResponseConstraints)(nil)).Elem()
+}
+
+func (i *serviceProviderParameterResponseConstraintsPtrType) ToServiceProviderParameterResponseConstraintsPtrOutput() ServiceProviderParameterResponseConstraintsPtrOutput {
+	return i.ToServiceProviderParameterResponseConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceProviderParameterResponseConstraintsPtrType) ToServiceProviderParameterResponseConstraintsPtrOutputWithContext(ctx context.Context) ServiceProviderParameterResponseConstraintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderParameterResponseConstraintsPtrOutput)
+}
+
+type ServiceProviderParameterResponseConstraintsOutput struct{ *pulumi.OutputState }
+
+func (ServiceProviderParameterResponseConstraintsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderParameterResponseConstraints)(nil)).Elem()
+}
+
+func (o ServiceProviderParameterResponseConstraintsOutput) ToServiceProviderParameterResponseConstraintsOutput() ServiceProviderParameterResponseConstraintsOutput {
+	return o
+}
+
+func (o ServiceProviderParameterResponseConstraintsOutput) ToServiceProviderParameterResponseConstraintsOutputWithContext(ctx context.Context) ServiceProviderParameterResponseConstraintsOutput {
+	return o
+}
+
+func (o ServiceProviderParameterResponseConstraintsOutput) ToServiceProviderParameterResponseConstraintsPtrOutput() ServiceProviderParameterResponseConstraintsPtrOutput {
+	return o.ToServiceProviderParameterResponseConstraintsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceProviderParameterResponseConstraintsOutput) ToServiceProviderParameterResponseConstraintsPtrOutputWithContext(ctx context.Context) ServiceProviderParameterResponseConstraintsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceProviderParameterResponseConstraints) *ServiceProviderParameterResponseConstraints {
+		return &v
+	}).(ServiceProviderParameterResponseConstraintsPtrOutput)
+}
+
+func (o ServiceProviderParameterResponseConstraintsOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceProviderParameterResponseConstraints) *bool { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+type ServiceProviderParameterResponseConstraintsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceProviderParameterResponseConstraintsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceProviderParameterResponseConstraints)(nil)).Elem()
+}
+
+func (o ServiceProviderParameterResponseConstraintsPtrOutput) ToServiceProviderParameterResponseConstraintsPtrOutput() ServiceProviderParameterResponseConstraintsPtrOutput {
+	return o
+}
+
+func (o ServiceProviderParameterResponseConstraintsPtrOutput) ToServiceProviderParameterResponseConstraintsPtrOutputWithContext(ctx context.Context) ServiceProviderParameterResponseConstraintsPtrOutput {
+	return o
+}
+
+func (o ServiceProviderParameterResponseConstraintsPtrOutput) Elem() ServiceProviderParameterResponseConstraintsOutput {
+	return o.ApplyT(func(v *ServiceProviderParameterResponseConstraints) ServiceProviderParameterResponseConstraints {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceProviderParameterResponseConstraints
+		return ret
+	}).(ServiceProviderParameterResponseConstraintsOutput)
+}
+
+func (o ServiceProviderParameterResponseConstraintsPtrOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceProviderParameterResponseConstraints) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Required
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ServiceProviderParameterResponseMetadata struct {
+	Constraints *ServiceProviderParameterResponseConstraints `pulumi:"constraints"`
+}
+
+
+
+
+
+type ServiceProviderParameterResponseMetadataInput interface {
+	pulumi.Input
+
+	ToServiceProviderParameterResponseMetadataOutput() ServiceProviderParameterResponseMetadataOutput
+	ToServiceProviderParameterResponseMetadataOutputWithContext(context.Context) ServiceProviderParameterResponseMetadataOutput
+}
+
+type ServiceProviderParameterResponseMetadataArgs struct {
+	Constraints ServiceProviderParameterResponseConstraintsPtrInput `pulumi:"constraints"`
+}
+
+func (ServiceProviderParameterResponseMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderParameterResponseMetadata)(nil)).Elem()
+}
+
+func (i ServiceProviderParameterResponseMetadataArgs) ToServiceProviderParameterResponseMetadataOutput() ServiceProviderParameterResponseMetadataOutput {
+	return i.ToServiceProviderParameterResponseMetadataOutputWithContext(context.Background())
+}
+
+func (i ServiceProviderParameterResponseMetadataArgs) ToServiceProviderParameterResponseMetadataOutputWithContext(ctx context.Context) ServiceProviderParameterResponseMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceProviderParameterResponseMetadataOutput)
+}
+
+type ServiceProviderParameterResponseMetadataOutput struct{ *pulumi.OutputState }
+
+func (ServiceProviderParameterResponseMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceProviderParameterResponseMetadata)(nil)).Elem()
+}
+
+func (o ServiceProviderParameterResponseMetadataOutput) ToServiceProviderParameterResponseMetadataOutput() ServiceProviderParameterResponseMetadataOutput {
+	return o
+}
+
+func (o ServiceProviderParameterResponseMetadataOutput) ToServiceProviderParameterResponseMetadataOutputWithContext(ctx context.Context) ServiceProviderParameterResponseMetadataOutput {
+	return o
+}
+
+func (o ServiceProviderParameterResponseMetadataOutput) Constraints() ServiceProviderParameterResponseConstraintsPtrOutput {
+	return o.ApplyT(func(v ServiceProviderParameterResponseMetadata) *ServiceProviderParameterResponseConstraints {
+		return v.Constraints
+	}).(ServiceProviderParameterResponseConstraintsPtrOutput)
 }
 
 type ServiceProviderPropertiesResponse struct {
@@ -9633,10 +10138,11 @@ func (o TelegramChannelResponseOutput) ProvisioningState() pulumi.StringPtrOutpu
 }
 
 type WebChatChannel struct {
-	ChannelName string                    `pulumi:"channelName"`
-	Etag        *string                   `pulumi:"etag"`
-	Location    *string                   `pulumi:"location"`
-	Properties  *WebChatChannelProperties `pulumi:"properties"`
+	ChannelName       string                    `pulumi:"channelName"`
+	Etag              *string                   `pulumi:"etag"`
+	Location          *string                   `pulumi:"location"`
+	Properties        *WebChatChannelProperties `pulumi:"properties"`
+	ProvisioningState *string                   `pulumi:"provisioningState"`
 }
 
 
@@ -9651,10 +10157,11 @@ type WebChatChannelInput interface {
 }
 
 type WebChatChannelArgs struct {
-	ChannelName pulumi.StringInput               `pulumi:"channelName"`
-	Etag        pulumi.StringPtrInput            `pulumi:"etag"`
-	Location    pulumi.StringPtrInput            `pulumi:"location"`
-	Properties  WebChatChannelPropertiesPtrInput `pulumi:"properties"`
+	ChannelName       pulumi.StringInput               `pulumi:"channelName"`
+	Etag              pulumi.StringPtrInput            `pulumi:"etag"`
+	Location          pulumi.StringPtrInput            `pulumi:"location"`
+	Properties        WebChatChannelPropertiesPtrInput `pulumi:"properties"`
+	ProvisioningState pulumi.StringPtrInput            `pulumi:"provisioningState"`
 }
 
 func (WebChatChannelArgs) ElementType() reflect.Type {
@@ -9697,6 +10204,10 @@ func (o WebChatChannelOutput) Location() pulumi.StringPtrOutput {
 
 func (o WebChatChannelOutput) Properties() WebChatChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v WebChatChannel) *WebChatChannelProperties { return v.Properties }).(WebChatChannelPropertiesPtrOutput)
+}
+
+func (o WebChatChannelOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebChatChannel) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 type WebChatChannelProperties struct {
@@ -9981,10 +10492,11 @@ func (o WebChatChannelPropertiesResponsePtrOutput) WebChatEmbedCode() pulumi.Str
 }
 
 type WebChatChannelResponse struct {
-	ChannelName string                            `pulumi:"channelName"`
-	Etag        *string                           `pulumi:"etag"`
-	Location    *string                           `pulumi:"location"`
-	Properties  *WebChatChannelPropertiesResponse `pulumi:"properties"`
+	ChannelName       string                            `pulumi:"channelName"`
+	Etag              *string                           `pulumi:"etag"`
+	Location          *string                           `pulumi:"location"`
+	Properties        *WebChatChannelPropertiesResponse `pulumi:"properties"`
+	ProvisioningState *string                           `pulumi:"provisioningState"`
 }
 
 
@@ -9999,10 +10511,11 @@ type WebChatChannelResponseInput interface {
 }
 
 type WebChatChannelResponseArgs struct {
-	ChannelName pulumi.StringInput                       `pulumi:"channelName"`
-	Etag        pulumi.StringPtrInput                    `pulumi:"etag"`
-	Location    pulumi.StringPtrInput                    `pulumi:"location"`
-	Properties  WebChatChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ChannelName       pulumi.StringInput                       `pulumi:"channelName"`
+	Etag              pulumi.StringPtrInput                    `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                    `pulumi:"location"`
+	Properties        WebChatChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ProvisioningState pulumi.StringPtrInput                    `pulumi:"provisioningState"`
 }
 
 func (WebChatChannelResponseArgs) ElementType() reflect.Type {
@@ -10045,6 +10558,10 @@ func (o WebChatChannelResponseOutput) Location() pulumi.StringPtrOutput {
 
 func (o WebChatChannelResponseOutput) Properties() WebChatChannelPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v WebChatChannelResponse) *WebChatChannelPropertiesResponse { return v.Properties }).(WebChatChannelPropertiesResponsePtrOutput)
+}
+
+func (o WebChatChannelResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebChatChannelResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 type WebChatSite struct {
@@ -10360,6 +10877,9 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceProviderParameterResponseOutput{})
 	pulumi.RegisterOutputType(ServiceProviderParameterResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServiceProviderParameterResponseConstraintsOutput{})
+	pulumi.RegisterOutputType(ServiceProviderParameterResponseConstraintsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceProviderParameterResponseMetadataOutput{})
 	pulumi.RegisterOutputType(ServiceProviderPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServiceProviderPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceProviderResponseOutput{})

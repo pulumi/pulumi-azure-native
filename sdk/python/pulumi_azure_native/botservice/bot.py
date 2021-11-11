@@ -234,6 +234,7 @@ class Bot(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["zones"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:botservice/v20171201:Bot"), pulumi.Alias(type_="azure-native:botservice/v20180712:Bot"), pulumi.Alias(type_="azure-native:botservice/v20200602:Bot"), pulumi.Alias(type_="azure-native:botservice/v20210301:Bot"), pulumi.Alias(type_="azure-native:botservice/v20210501preview:Bot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Bot, __self__).__init__(
@@ -266,6 +267,7 @@ class Bot(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["zones"] = None
         return Bot(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -331,4 +333,12 @@ class Bot(pulumi.CustomResource):
         Specifies the type of the resource.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Entity zones
+        """
+        return pulumi.get(self, "zones")
 

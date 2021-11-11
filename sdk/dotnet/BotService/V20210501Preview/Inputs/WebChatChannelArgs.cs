@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         [Input("properties")]
         public Input<Inputs.WebChatChannelPropertiesArgs>? Properties { get; set; }
 
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
         public WebChatChannelArgs()
         {
         }

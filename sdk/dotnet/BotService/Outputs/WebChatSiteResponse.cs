@@ -17,13 +17,13 @@ namespace Pulumi.AzureNative.BotService.Outputs
     public sealed class WebChatSiteResponse
     {
         /// <summary>
-        /// Whether this site is enabled for preview versions of Webchat
-        /// </summary>
-        public readonly bool EnablePreview;
-        /// <summary>
         /// Whether this site is enabled for DirectLine channel
         /// </summary>
         public readonly bool IsEnabled;
+        /// <summary>
+        /// Whether this site is enabled for preview versions of Webchat
+        /// </summary>
+        public readonly bool IsWebchatPreviewEnabled;
         /// <summary>
         /// Primary key. Value only returned through POST to the action Channel List API, otherwise empty.
         /// </summary>
@@ -43,9 +43,9 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
         [OutputConstructor]
         private WebChatSiteResponse(
-            bool enablePreview,
-
             bool isEnabled,
+
+            bool isWebchatPreviewEnabled,
 
             string key,
 
@@ -55,8 +55,8 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             string siteName)
         {
-            EnablePreview = enablePreview;
             IsEnabled = isEnabled;
+            IsWebchatPreviewEnabled = isWebchatPreviewEnabled;
             Key = key;
             Key2 = key2;
             SiteId = siteId;

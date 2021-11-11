@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// The set of properties specific to Web Chat channel resource
         /// </summary>
         public readonly Outputs.WebChatChannelPropertiesResponse? Properties;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private WebChatChannelResponse(
@@ -42,12 +46,15 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             string? location,
 
-            Outputs.WebChatChannelPropertiesResponse? properties)
+            Outputs.WebChatChannelPropertiesResponse? properties,
+
+            string? provisioningState)
         {
             ChannelName = channelName;
             Etag = etag;
             Location = location;
             Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

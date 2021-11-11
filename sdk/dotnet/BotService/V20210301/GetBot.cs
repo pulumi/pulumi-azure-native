@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.BotService.V20210301
         /// Specifies the type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Entity zones
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetBotResult(
@@ -123,7 +127,9 @@ namespace Pulumi.AzureNative.BotService.V20210301
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<string> zones)
         {
             Etag = etag;
             Id = id;
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNative.BotService.V20210301
             Sku = sku;
             Tags = tags;
             Type = type;
+            Zones = zones;
         }
     }
 }

@@ -22,18 +22,39 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly string ChannelName;
         /// <summary>
+        /// Entity Tag of the resource
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
+        /// Location of the resource
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The set of properties specific to Direct Line channel resource
         /// </summary>
         public readonly Outputs.DirectLineChannelPropertiesResponse? Properties;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private DirectLineChannelResponse(
             string channelName,
 
-            Outputs.DirectLineChannelPropertiesResponse? properties)
+            string? etag,
+
+            string? location,
+
+            Outputs.DirectLineChannelPropertiesResponse? properties,
+
+            string? provisioningState)
         {
             ChannelName = channelName;
+            Etag = etag;
+            Location = location;
             Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

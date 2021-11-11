@@ -16290,6 +16290,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "subscription/v20211001",
+  "fqn": "pulumi_azure_native.subscription.v20211001",
+  "classes": {
+   "azure-native:subscription/v20211001:Alias": "Alias"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "synapse",
   "fqn": "pulumi_azure_native.synapse",
   "classes": {

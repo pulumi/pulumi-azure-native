@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
     public sealed class BotPropertiesResponse
     {
         /// <summary>
+        /// Contains resource all settings defined as key/value pairs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? AllSettings;
+        /// <summary>
         /// The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
         /// </summary>
         public readonly string? AppPasswordHint;
+        /// <summary>
+        /// The CMK encryption status
+        /// </summary>
+        public readonly string? CmekEncryptionStatus;
         /// <summary>
         /// The CMK Url
         /// </summary>
@@ -45,6 +53,10 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly string? DeveloperAppInsightsApplicationId;
         /// <summary>
+        /// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
         /// The Name of the bot
         /// </summary>
         public readonly string DisplayName;
@@ -69,9 +81,17 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly bool? IsCmekEnabled;
         /// <summary>
+        /// Whether the bot is developerAppInsightsApiKey set
+        /// </summary>
+        public readonly bool? IsDeveloperAppInsightsApiKeySet;
+        /// <summary>
         /// Whether the bot is in an isolated network
         /// </summary>
         public readonly bool? IsIsolated;
+        /// <summary>
+        /// Whether the bot is streaming supported
+        /// </summary>
+        public readonly bool? IsStreamingSupported;
         /// <summary>
         /// Collection of LUIS App Ids
         /// </summary>
@@ -81,13 +101,45 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly string? LuisKey;
         /// <summary>
+        /// The bot's manifest url
+        /// </summary>
+        public readonly string? ManifestUrl;
+        /// <summary>
+        /// Token used to migrate non Azure bot to azure subscription
+        /// </summary>
+        public readonly string MigrationToken;
+        /// <summary>
         /// Microsoft App Id for the bot
         /// </summary>
         public readonly string MsaAppId;
         /// <summary>
+        /// Microsoft App Managed Identity Resource Id for the bot
+        /// </summary>
+        public readonly string? MsaAppMSIResourceId;
+        /// <summary>
+        /// Microsoft App Tenant Id for the bot
+        /// </summary>
+        public readonly string? MsaAppTenantId;
+        /// <summary>
+        /// Microsoft App Type for the bot
+        /// </summary>
+        public readonly string? MsaAppType;
+        /// <summary>
         /// The hint to browser (e.g. protocol handler) on how to open the bot for authoring
         /// </summary>
         public readonly string? OpenWithHint;
+        /// <summary>
+        /// Contains resource parameters defined as key/value pairs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Parameters;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Publishing credentials of the resource
+        /// </summary>
+        public readonly string? PublishingCredentials;
         /// <summary>
         /// The channel schema transformation version for the bot
         /// </summary>
@@ -95,7 +147,11 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
         [OutputConstructor]
         private BotPropertiesResponse(
+            ImmutableDictionary<string, string>? allSettings,
+
             string? appPasswordHint,
+
+            string? cmekEncryptionStatus,
 
             string? cmekKeyVaultUrl,
 
@@ -109,6 +165,8 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             string? developerAppInsightsApplicationId,
 
+            bool? disableLocalAuth,
+
             string displayName,
 
             ImmutableArray<string> enabledChannels,
@@ -121,36 +179,69 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             bool? isCmekEnabled,
 
+            bool? isDeveloperAppInsightsApiKeySet,
+
             bool? isIsolated,
+
+            bool? isStreamingSupported,
 
             ImmutableArray<string> luisAppIds,
 
             string? luisKey,
 
+            string? manifestUrl,
+
+            string migrationToken,
+
             string msaAppId,
+
+            string? msaAppMSIResourceId,
+
+            string? msaAppTenantId,
+
+            string? msaAppType,
 
             string? openWithHint,
 
+            ImmutableDictionary<string, string>? parameters,
+
+            string provisioningState,
+
+            string? publishingCredentials,
+
             string? schemaTransformationVersion)
         {
+            AllSettings = allSettings;
             AppPasswordHint = appPasswordHint;
+            CmekEncryptionStatus = cmekEncryptionStatus;
             CmekKeyVaultUrl = cmekKeyVaultUrl;
             ConfiguredChannels = configuredChannels;
             Description = description;
             DeveloperAppInsightKey = developerAppInsightKey;
             DeveloperAppInsightsApiKey = developerAppInsightsApiKey;
             DeveloperAppInsightsApplicationId = developerAppInsightsApplicationId;
+            DisableLocalAuth = disableLocalAuth;
             DisplayName = displayName;
             EnabledChannels = enabledChannels;
             Endpoint = endpoint;
             EndpointVersion = endpointVersion;
             IconUrl = iconUrl;
             IsCmekEnabled = isCmekEnabled;
+            IsDeveloperAppInsightsApiKeySet = isDeveloperAppInsightsApiKeySet;
             IsIsolated = isIsolated;
+            IsStreamingSupported = isStreamingSupported;
             LuisAppIds = luisAppIds;
             LuisKey = luisKey;
+            ManifestUrl = manifestUrl;
+            MigrationToken = migrationToken;
             MsaAppId = msaAppId;
+            MsaAppMSIResourceId = msaAppMSIResourceId;
+            MsaAppTenantId = msaAppTenantId;
+            MsaAppType = msaAppType;
             OpenWithHint = openWithHint;
+            Parameters = parameters;
+            ProvisioningState = provisioningState;
+            PublishingCredentials = publishingCredentials;
             SchemaTransformationVersion = schemaTransformationVersion;
         }
     }

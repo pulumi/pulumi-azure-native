@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// </summary>
         public readonly string ChannelName;
         /// <summary>
+        /// Entity Tag of the resource
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
         /// The set of properties specific to Sms channel resource
         /// </summary>
         public readonly Outputs.SmsChannelPropertiesResponse? Properties;
@@ -30,9 +34,12 @@ namespace Pulumi.AzureNative.BotService.Outputs
         private SmsChannelResponse(
             string channelName,
 
+            string? etag,
+
             Outputs.SmsChannelPropertiesResponse? properties)
         {
             ChannelName = channelName;
+            Etag = etag;
             Properties = properties;
         }
     }

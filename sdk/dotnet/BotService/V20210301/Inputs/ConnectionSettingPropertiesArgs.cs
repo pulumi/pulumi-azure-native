@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         }
 
         /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
         /// Scopes associated with the Connection Setting
         /// </summary>
         [Input("scopes")]

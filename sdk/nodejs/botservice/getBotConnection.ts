@@ -79,6 +79,10 @@ export interface GetBotConnectionResult {
      * Specifies the type of the resource.
      */
     readonly type: string;
+    /**
+     * Entity zones
+     */
+    readonly zones: string[];
 }
 
 export function getBotConnectionOutput(args: GetBotConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotConnectionResult> {

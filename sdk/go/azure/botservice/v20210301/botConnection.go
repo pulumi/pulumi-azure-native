@@ -22,6 +22,7 @@ type BotConnection struct {
 	Sku        SkuResponsePtrOutput                      `pulumi:"sku"`
 	Tags       pulumi.StringMapOutput                    `pulumi:"tags"`
 	Type       pulumi.StringOutput                       `pulumi:"type"`
+	Zones      pulumi.StringArrayOutput                  `pulumi:"zones"`
 }
 
 

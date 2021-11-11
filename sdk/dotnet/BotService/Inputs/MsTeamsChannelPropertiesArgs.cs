@@ -16,16 +16,34 @@ namespace Pulumi.AzureNative.BotService.Inputs
     public sealed class MsTeamsChannelPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether this channel accepted terms
+        /// </summary>
+        [Input("acceptedTerms")]
+        public Input<bool>? AcceptedTerms { get; set; }
+
+        /// <summary>
         /// Webhook for Microsoft Teams channel calls
         /// </summary>
         [Input("callingWebHook")]
         public Input<string>? CallingWebHook { get; set; }
 
         /// <summary>
+        /// Deployment environment for Microsoft Teams channel calls
+        /// </summary>
+        [Input("deploymentEnvironment")]
+        public Input<string>? DeploymentEnvironment { get; set; }
+
+        /// <summary>
         /// Enable calling for Microsoft Teams channel
         /// </summary>
         [Input("enableCalling")]
         public Input<bool>? EnableCalling { get; set; }
+
+        /// <summary>
+        /// Webhook for Microsoft Teams channel calls
+        /// </summary>
+        [Input("incomingCallRoute")]
+        public Input<string>? IncomingCallRoute { get; set; }
 
         /// <summary>
         /// Whether this channel is enabled for the bot

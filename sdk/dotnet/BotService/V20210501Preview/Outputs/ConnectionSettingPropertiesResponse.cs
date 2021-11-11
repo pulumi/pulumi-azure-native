@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ConnectionSettingParameterResponse> Parameters;
         /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
         /// Scopes associated with the Connection Setting
         /// </summary>
         public readonly string? Scopes;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             ImmutableArray<Outputs.ConnectionSettingParameterResponse> parameters,
 
+            string? provisioningState,
+
             string? scopes,
 
             string? serviceProviderDisplayName,
@@ -64,6 +70,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
             ClientId = clientId;
             ClientSecret = clientSecret;
             Parameters = parameters;
+            ProvisioningState = provisioningState;
             Scopes = scopes;
             ServiceProviderDisplayName = serviceProviderDisplayName;
             ServiceProviderId = serviceProviderId;

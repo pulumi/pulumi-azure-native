@@ -17,13 +17,25 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
     public sealed class MsTeamsChannelPropertiesResponse
     {
         /// <summary>
+        /// Whether this channel accepted terms
+        /// </summary>
+        public readonly bool? AcceptedTerms;
+        /// <summary>
         /// Webhook for Microsoft Teams channel calls
         /// </summary>
         public readonly string? CallingWebHook;
         /// <summary>
+        /// Deployment environment for Microsoft Teams channel calls
+        /// </summary>
+        public readonly string? DeploymentEnvironment;
+        /// <summary>
         /// Enable calling for Microsoft Teams channel
         /// </summary>
         public readonly bool? EnableCalling;
+        /// <summary>
+        /// Webhook for Microsoft Teams channel calls
+        /// </summary>
+        public readonly string? IncomingCallRoute;
         /// <summary>
         /// Whether this channel is enabled for the bot
         /// </summary>
@@ -31,14 +43,23 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
         [OutputConstructor]
         private MsTeamsChannelPropertiesResponse(
+            bool? acceptedTerms,
+
             string? callingWebHook,
+
+            string? deploymentEnvironment,
 
             bool? enableCalling,
 
+            string? incomingCallRoute,
+
             bool isEnabled)
         {
+            AcceptedTerms = acceptedTerms;
             CallingWebHook = callingWebHook;
+            DeploymentEnvironment = deploymentEnvironment;
             EnableCalling = enableCalling;
+            IncomingCallRoute = incomingCallRoute;
             IsEnabled = isEnabled;
         }
     }

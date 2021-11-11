@@ -88,14 +88,18 @@ class AlexaChannelPropertiesArgs:
 class AlexaChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['AlexaChannelPropertiesArgs']] = None):
         """
         Alexa channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'AlexaChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input['AlexaChannelPropertiesArgs'] properties: The set of properties specific to Alexa channel resource
         """
         pulumi.set(__self__, "channel_name", 'AlexaChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -111,6 +115,18 @@ class AlexaChannelArgs:
     @channel_name.setter
     def channel_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -131,43 +147,69 @@ class BotPropertiesArgs:
                  display_name: pulumi.Input[str],
                  endpoint: pulumi.Input[str],
                  msa_app_id: pulumi.Input[str],
+                 all_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  app_password_hint: Optional[pulumi.Input[str]] = None,
+                 cmek_encryption_status: Optional[pulumi.Input[str]] = None,
                  cmek_key_vault_url: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  developer_app_insight_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
                  is_cmek_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_developer_app_insights_api_key_set: Optional[pulumi.Input[bool]] = None,
                  is_isolated: Optional[pulumi.Input[bool]] = None,
+                 is_streaming_supported: Optional[pulumi.Input[bool]] = None,
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
+                 manifest_url: Optional[pulumi.Input[str]] = None,
+                 msa_app_msi_resource_id: Optional[pulumi.Input[str]] = None,
+                 msa_app_tenant_id: Optional[pulumi.Input[str]] = None,
+                 msa_app_type: Optional[pulumi.Input[Union[str, 'MsaAppType']]] = None,
                  open_with_hint: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 publishing_credentials: Optional[pulumi.Input[str]] = None,
                  schema_transformation_version: Optional[pulumi.Input[str]] = None):
         """
         The parameters to provide for the Bot.
         :param pulumi.Input[str] display_name: The Name of the bot
         :param pulumi.Input[str] endpoint: The bot's endpoint
         :param pulumi.Input[str] msa_app_id: Microsoft App Id for the bot
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] all_settings: Contains resource all settings defined as key/value pairs.
         :param pulumi.Input[str] app_password_hint: The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
+        :param pulumi.Input[str] cmek_encryption_status: The CMK encryption status
         :param pulumi.Input[str] cmek_key_vault_url: The CMK Url
         :param pulumi.Input[str] description: The description of the bot
         :param pulumi.Input[str] developer_app_insight_key: The Application Insights key
         :param pulumi.Input[str] developer_app_insights_api_key: The Application Insights Api Key
         :param pulumi.Input[str] developer_app_insights_application_id: The Application Insights App Id
+        :param pulumi.Input[bool] disable_local_auth: Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
         :param pulumi.Input[str] icon_url: The Icon Url of the bot
         :param pulumi.Input[bool] is_cmek_enabled: Whether Cmek is enabled
+        :param pulumi.Input[bool] is_developer_app_insights_api_key_set: Whether the bot is developerAppInsightsApiKey set
         :param pulumi.Input[bool] is_isolated: Whether the bot is in an isolated network
+        :param pulumi.Input[bool] is_streaming_supported: Whether the bot is streaming supported
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: Collection of LUIS App Ids
         :param pulumi.Input[str] luis_key: The LUIS Key
+        :param pulumi.Input[str] manifest_url: The bot's manifest url
+        :param pulumi.Input[str] msa_app_msi_resource_id: Microsoft App Managed Identity Resource Id for the bot
+        :param pulumi.Input[str] msa_app_tenant_id: Microsoft App Tenant Id for the bot
+        :param pulumi.Input[Union[str, 'MsaAppType']] msa_app_type: Microsoft App Type for the bot
         :param pulumi.Input[str] open_with_hint: The hint to browser (e.g. protocol handler) on how to open the bot for authoring
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Contains resource parameters defined as key/value pairs.
+        :param pulumi.Input[str] publishing_credentials: Publishing credentials of the resource
         :param pulumi.Input[str] schema_transformation_version: The channel schema transformation version for the bot
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "msa_app_id", msa_app_id)
+        if all_settings is not None:
+            pulumi.set(__self__, "all_settings", all_settings)
         if app_password_hint is not None:
             pulumi.set(__self__, "app_password_hint", app_password_hint)
+        if cmek_encryption_status is not None:
+            pulumi.set(__self__, "cmek_encryption_status", cmek_encryption_status)
         if cmek_key_vault_url is not None:
             pulumi.set(__self__, "cmek_key_vault_url", cmek_key_vault_url)
         if description is not None:
@@ -178,18 +220,36 @@ class BotPropertiesArgs:
             pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
             pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if icon_url is not None:
             pulumi.set(__self__, "icon_url", icon_url)
         if is_cmek_enabled is not None:
             pulumi.set(__self__, "is_cmek_enabled", is_cmek_enabled)
+        if is_developer_app_insights_api_key_set is not None:
+            pulumi.set(__self__, "is_developer_app_insights_api_key_set", is_developer_app_insights_api_key_set)
         if is_isolated is not None:
             pulumi.set(__self__, "is_isolated", is_isolated)
+        if is_streaming_supported is not None:
+            pulumi.set(__self__, "is_streaming_supported", is_streaming_supported)
         if luis_app_ids is not None:
             pulumi.set(__self__, "luis_app_ids", luis_app_ids)
         if luis_key is not None:
             pulumi.set(__self__, "luis_key", luis_key)
+        if manifest_url is not None:
+            pulumi.set(__self__, "manifest_url", manifest_url)
+        if msa_app_msi_resource_id is not None:
+            pulumi.set(__self__, "msa_app_msi_resource_id", msa_app_msi_resource_id)
+        if msa_app_tenant_id is not None:
+            pulumi.set(__self__, "msa_app_tenant_id", msa_app_tenant_id)
+        if msa_app_type is not None:
+            pulumi.set(__self__, "msa_app_type", msa_app_type)
         if open_with_hint is not None:
             pulumi.set(__self__, "open_with_hint", open_with_hint)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if publishing_credentials is not None:
+            pulumi.set(__self__, "publishing_credentials", publishing_credentials)
         if schema_transformation_version is not None:
             pulumi.set(__self__, "schema_transformation_version", schema_transformation_version)
 
@@ -230,6 +290,18 @@ class BotPropertiesArgs:
         pulumi.set(self, "msa_app_id", value)
 
     @property
+    @pulumi.getter(name="allSettings")
+    def all_settings(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Contains resource all settings defined as key/value pairs.
+        """
+        return pulumi.get(self, "all_settings")
+
+    @all_settings.setter
+    def all_settings(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "all_settings", value)
+
+    @property
     @pulumi.getter(name="appPasswordHint")
     def app_password_hint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -240,6 +312,18 @@ class BotPropertiesArgs:
     @app_password_hint.setter
     def app_password_hint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_password_hint", value)
+
+    @property
+    @pulumi.getter(name="cmekEncryptionStatus")
+    def cmek_encryption_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The CMK encryption status
+        """
+        return pulumi.get(self, "cmek_encryption_status")
+
+    @cmek_encryption_status.setter
+    def cmek_encryption_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cmek_encryption_status", value)
 
     @property
     @pulumi.getter(name="cmekKeyVaultUrl")
@@ -302,6 +386,18 @@ class BotPropertiesArgs:
         pulumi.set(self, "developer_app_insights_application_id", value)
 
     @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
     @pulumi.getter(name="iconUrl")
     def icon_url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -326,6 +422,18 @@ class BotPropertiesArgs:
         pulumi.set(self, "is_cmek_enabled", value)
 
     @property
+    @pulumi.getter(name="isDeveloperAppInsightsApiKeySet")
+    def is_developer_app_insights_api_key_set(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the bot is developerAppInsightsApiKey set
+        """
+        return pulumi.get(self, "is_developer_app_insights_api_key_set")
+
+    @is_developer_app_insights_api_key_set.setter
+    def is_developer_app_insights_api_key_set(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_developer_app_insights_api_key_set", value)
+
+    @property
     @pulumi.getter(name="isIsolated")
     def is_isolated(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -336,6 +444,18 @@ class BotPropertiesArgs:
     @is_isolated.setter
     def is_isolated(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_isolated", value)
+
+    @property
+    @pulumi.getter(name="isStreamingSupported")
+    def is_streaming_supported(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the bot is streaming supported
+        """
+        return pulumi.get(self, "is_streaming_supported")
+
+    @is_streaming_supported.setter
+    def is_streaming_supported(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_streaming_supported", value)
 
     @property
     @pulumi.getter(name="luisAppIds")
@@ -362,6 +482,54 @@ class BotPropertiesArgs:
         pulumi.set(self, "luis_key", value)
 
     @property
+    @pulumi.getter(name="manifestUrl")
+    def manifest_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The bot's manifest url
+        """
+        return pulumi.get(self, "manifest_url")
+
+    @manifest_url.setter
+    def manifest_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "manifest_url", value)
+
+    @property
+    @pulumi.getter(name="msaAppMSIResourceId")
+    def msa_app_msi_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Microsoft App Managed Identity Resource Id for the bot
+        """
+        return pulumi.get(self, "msa_app_msi_resource_id")
+
+    @msa_app_msi_resource_id.setter
+    def msa_app_msi_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "msa_app_msi_resource_id", value)
+
+    @property
+    @pulumi.getter(name="msaAppTenantId")
+    def msa_app_tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Microsoft App Tenant Id for the bot
+        """
+        return pulumi.get(self, "msa_app_tenant_id")
+
+    @msa_app_tenant_id.setter
+    def msa_app_tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "msa_app_tenant_id", value)
+
+    @property
+    @pulumi.getter(name="msaAppType")
+    def msa_app_type(self) -> Optional[pulumi.Input[Union[str, 'MsaAppType']]]:
+        """
+        Microsoft App Type for the bot
+        """
+        return pulumi.get(self, "msa_app_type")
+
+    @msa_app_type.setter
+    def msa_app_type(self, value: Optional[pulumi.Input[Union[str, 'MsaAppType']]]):
+        pulumi.set(self, "msa_app_type", value)
+
+    @property
     @pulumi.getter(name="openWithHint")
     def open_with_hint(self) -> Optional[pulumi.Input[str]]:
         """
@@ -372,6 +540,30 @@ class BotPropertiesArgs:
     @open_with_hint.setter
     def open_with_hint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "open_with_hint", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Contains resource parameters defined as key/value pairs.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="publishingCredentials")
+    def publishing_credentials(self) -> Optional[pulumi.Input[str]]:
+        """
+        Publishing credentials of the resource
+        """
+        return pulumi.get(self, "publishing_credentials")
+
+    @publishing_credentials.setter
+    def publishing_credentials(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "publishing_credentials", value)
 
     @property
     @pulumi.getter(name="schemaTransformationVersion")
@@ -432,6 +624,7 @@ class ConnectionSettingPropertiesArgs:
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]]] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[str]] = None,
                  service_provider_display_name: Optional[pulumi.Input[str]] = None,
                  service_provider_id: Optional[pulumi.Input[str]] = None):
@@ -440,6 +633,7 @@ class ConnectionSettingPropertiesArgs:
         :param pulumi.Input[str] client_id: Client Id associated with the Connection Setting.
         :param pulumi.Input[str] client_secret: Client Secret associated with the Connection Setting
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]] parameters: Service Provider Parameters associated with the Connection Setting
+        :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         :param pulumi.Input[str] scopes: Scopes associated with the Connection Setting
         :param pulumi.Input[str] service_provider_display_name: Service Provider Display Name associated with the Connection Setting
         :param pulumi.Input[str] service_provider_id: Service Provider Id associated with the Connection Setting
@@ -450,6 +644,8 @@ class ConnectionSettingPropertiesArgs:
             pulumi.set(__self__, "client_secret", client_secret)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
         if service_provider_display_name is not None:
@@ -494,6 +690,18 @@ class ConnectionSettingPropertiesArgs:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning state of the resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
+    @property
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[str]]:
         """
@@ -533,13 +741,29 @@ class ConnectionSettingPropertiesArgs:
 @pulumi.input_type
 class DirectLineChannelPropertiesArgs:
     def __init__(__self__, *,
+                 direct_line_embed_code: Optional[pulumi.Input[str]] = None,
                  sites: Optional[pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]]] = None):
         """
         The parameters to provide for the Direct Line channel.
+        :param pulumi.Input[str] direct_line_embed_code: Direct Line embed code of the resource
         :param pulumi.Input[Sequence[pulumi.Input['DirectLineSiteArgs']]] sites: The list of Direct Line sites
         """
+        if direct_line_embed_code is not None:
+            pulumi.set(__self__, "direct_line_embed_code", direct_line_embed_code)
         if sites is not None:
             pulumi.set(__self__, "sites", sites)
+
+    @property
+    @pulumi.getter(name="directLineEmbedCode")
+    def direct_line_embed_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        Direct Line embed code of the resource
+        """
+        return pulumi.get(self, "direct_line_embed_code")
+
+    @direct_line_embed_code.setter
+    def direct_line_embed_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "direct_line_embed_code", value)
 
     @property
     @pulumi.getter
@@ -558,16 +782,28 @@ class DirectLineChannelPropertiesArgs:
 class DirectLineChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['DirectLineChannelPropertiesArgs']] = None):
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['DirectLineChannelPropertiesArgs']] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None):
         """
         Direct Line channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'DirectLineChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
+        :param pulumi.Input[str] location: Location of the resource
         :param pulumi.Input['DirectLineChannelPropertiesArgs'] properties: The set of properties specific to Direct Line channel resource
+        :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         """
         pulumi.set(__self__, "channel_name", 'DirectLineChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="channelName")
@@ -584,6 +820,30 @@ class DirectLineChannelArgs:
 
     @property
     @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of the resource
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['DirectLineChannelPropertiesArgs']]:
         """
         The set of properties specific to Direct Line channel resource
@@ -594,6 +854,18 @@ class DirectLineChannelArgs:
     def properties(self, value: Optional[pulumi.Input['DirectLineChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning state of the resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
 
 @pulumi.input_type
 class DirectLineSiteArgs:
@@ -602,6 +874,7 @@ class DirectLineSiteArgs:
                  is_v1_enabled: pulumi.Input[bool],
                  is_v3_enabled: pulumi.Input[bool],
                  site_name: pulumi.Input[str],
+                 is_block_user_upload_enabled: Optional[pulumi.Input[bool]] = None,
                  is_secure_site_enabled: Optional[pulumi.Input[bool]] = None,
                  trusted_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -610,6 +883,7 @@ class DirectLineSiteArgs:
         :param pulumi.Input[bool] is_v1_enabled: Whether this site is enabled for Bot Framework V1 protocol.
         :param pulumi.Input[bool] is_v3_enabled: Whether this site is enabled for Bot Framework V1 protocol.
         :param pulumi.Input[str] site_name: Site name
+        :param pulumi.Input[bool] is_block_user_upload_enabled: Whether this site is enabled for block user upload.
         :param pulumi.Input[bool] is_secure_site_enabled: Whether this site is enabled for authentication with Bot Framework.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_origins: List of Trusted Origin URLs for this site. This field is applicable only if isSecureSiteEnabled is True.
         """
@@ -617,6 +891,8 @@ class DirectLineSiteArgs:
         pulumi.set(__self__, "is_v1_enabled", is_v1_enabled)
         pulumi.set(__self__, "is_v3_enabled", is_v3_enabled)
         pulumi.set(__self__, "site_name", site_name)
+        if is_block_user_upload_enabled is not None:
+            pulumi.set(__self__, "is_block_user_upload_enabled", is_block_user_upload_enabled)
         if is_secure_site_enabled is not None:
             pulumi.set(__self__, "is_secure_site_enabled", is_secure_site_enabled)
         if trusted_origins is not None:
@@ -669,6 +945,18 @@ class DirectLineSiteArgs:
     @site_name.setter
     def site_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "site_name", value)
+
+    @property
+    @pulumi.getter(name="isBlockUserUploadEnabled")
+    def is_block_user_upload_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this site is enabled for block user upload.
+        """
+        return pulumi.get(self, "is_block_user_upload_enabled")
+
+    @is_block_user_upload_enabled.setter
+    def is_block_user_upload_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_block_user_upload_enabled", value)
 
     @property
     @pulumi.getter(name="isSecureSiteEnabled")
@@ -801,14 +1089,18 @@ class DirectLineSpeechChannelPropertiesArgs:
 class DirectLineSpeechChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']] = None):
         """
         DirectLine Speech channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'DirectLineSpeechChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input['DirectLineSpeechChannelPropertiesArgs'] properties: The set of properties specific to DirectLine Speech channel resource
         """
         pulumi.set(__self__, "channel_name", 'DirectLineSpeechChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -824,6 +1116,18 @@ class DirectLineSpeechChannelArgs:
     @channel_name.setter
     def channel_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -896,14 +1200,18 @@ class EmailChannelPropertiesArgs:
 class EmailChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['EmailChannelPropertiesArgs']] = None):
         """
         Email channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'EmailChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input['EmailChannelPropertiesArgs'] properties: The set of properties specific to email channel resource
         """
         pulumi.set(__self__, "channel_name", 'EmailChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -919,6 +1227,18 @@ class EmailChannelArgs:
     @channel_name.setter
     def channel_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -1007,14 +1327,18 @@ class FacebookChannelPropertiesArgs:
 class FacebookChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['FacebookChannelPropertiesArgs']] = None):
         """
         Facebook channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'FacebookChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input['FacebookChannelPropertiesArgs'] properties: The set of properties specific to bot facebook channel
         """
         pulumi.set(__self__, "channel_name", 'FacebookChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1030,6 +1354,18 @@ class FacebookChannelArgs:
     @channel_name.setter
     def channel_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -1157,14 +1493,18 @@ class KikChannelPropertiesArgs:
 class KikChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['KikChannelPropertiesArgs']] = None):
         """
         Kik channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'KikChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input['KikChannelPropertiesArgs'] properties: The set of properties specific to Kik channel resource
         """
         pulumi.set(__self__, "channel_name", 'KikChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1180,6 +1520,18 @@ class KikChannelArgs:
     @channel_name.setter
     def channel_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -1221,14 +1573,18 @@ class LineChannelPropertiesArgs:
 class LineChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['LineChannelPropertiesArgs']] = None):
         """
         Line channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'LineChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input['LineChannelPropertiesArgs'] properties: The set of properties specific to line channel resource
         """
         pulumi.set(__self__, "channel_name", 'LineChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1244,6 +1600,18 @@ class LineChannelArgs:
     @channel_name.setter
     def channel_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -1302,19 +1670,31 @@ class LineRegistrationArgs:
 class MsTeamsChannelPropertiesArgs:
     def __init__(__self__, *,
                  is_enabled: pulumi.Input[bool],
+                 accepted_terms: Optional[pulumi.Input[bool]] = None,
                  calling_web_hook: Optional[pulumi.Input[str]] = None,
-                 enable_calling: Optional[pulumi.Input[bool]] = None):
+                 deployment_environment: Optional[pulumi.Input[str]] = None,
+                 enable_calling: Optional[pulumi.Input[bool]] = None,
+                 incoming_call_route: Optional[pulumi.Input[str]] = None):
         """
         The parameters to provide for the Microsoft Teams channel.
         :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
+        :param pulumi.Input[bool] accepted_terms: Whether this channel accepted terms
         :param pulumi.Input[str] calling_web_hook: Webhook for Microsoft Teams channel calls
+        :param pulumi.Input[str] deployment_environment: Deployment environment for Microsoft Teams channel calls
         :param pulumi.Input[bool] enable_calling: Enable calling for Microsoft Teams channel
+        :param pulumi.Input[str] incoming_call_route: Webhook for Microsoft Teams channel calls
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
+        if accepted_terms is not None:
+            pulumi.set(__self__, "accepted_terms", accepted_terms)
         if calling_web_hook is not None:
             pulumi.set(__self__, "calling_web_hook", calling_web_hook)
+        if deployment_environment is not None:
+            pulumi.set(__self__, "deployment_environment", deployment_environment)
         if enable_calling is not None:
             pulumi.set(__self__, "enable_calling", enable_calling)
+        if incoming_call_route is not None:
+            pulumi.set(__self__, "incoming_call_route", incoming_call_route)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -1329,6 +1709,18 @@ class MsTeamsChannelPropertiesArgs:
         pulumi.set(self, "is_enabled", value)
 
     @property
+    @pulumi.getter(name="acceptedTerms")
+    def accepted_terms(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether this channel accepted terms
+        """
+        return pulumi.get(self, "accepted_terms")
+
+    @accepted_terms.setter
+    def accepted_terms(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "accepted_terms", value)
+
+    @property
     @pulumi.getter(name="callingWebHook")
     def calling_web_hook(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1339,6 +1731,18 @@ class MsTeamsChannelPropertiesArgs:
     @calling_web_hook.setter
     def calling_web_hook(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "calling_web_hook", value)
+
+    @property
+    @pulumi.getter(name="deploymentEnvironment")
+    def deployment_environment(self) -> Optional[pulumi.Input[str]]:
+        """
+        Deployment environment for Microsoft Teams channel calls
+        """
+        return pulumi.get(self, "deployment_environment")
+
+    @deployment_environment.setter
+    def deployment_environment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deployment_environment", value)
 
     @property
     @pulumi.getter(name="enableCalling")
@@ -1352,21 +1756,45 @@ class MsTeamsChannelPropertiesArgs:
     def enable_calling(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_calling", value)
 
+    @property
+    @pulumi.getter(name="incomingCallRoute")
+    def incoming_call_route(self) -> Optional[pulumi.Input[str]]:
+        """
+        Webhook for Microsoft Teams channel calls
+        """
+        return pulumi.get(self, "incoming_call_route")
+
+    @incoming_call_route.setter
+    def incoming_call_route(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "incoming_call_route", value)
+
 
 @pulumi.input_type
 class MsTeamsChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']] = None):
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None):
         """
         Microsoft Teams channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'MsTeamsChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
+        :param pulumi.Input[str] location: Location of the resource
         :param pulumi.Input['MsTeamsChannelPropertiesArgs'] properties: The set of properties specific to Microsoft Teams channel resource
+        :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         """
         pulumi.set(__self__, "channel_name", 'MsTeamsChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1383,6 +1811,30 @@ class MsTeamsChannelArgs:
 
     @property
     @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of the resource
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']]:
         """
         The set of properties specific to Microsoft Teams channel resource
@@ -1392,6 +1844,18 @@ class MsTeamsChannelArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning state of the resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -1428,7 +1892,8 @@ class SkypeChannelPropertiesArgs:
                  enable_messaging: Optional[pulumi.Input[bool]] = None,
                  enable_screen_sharing: Optional[pulumi.Input[bool]] = None,
                  enable_video: Optional[pulumi.Input[bool]] = None,
-                 groups_mode: Optional[pulumi.Input[str]] = None):
+                 groups_mode: Optional[pulumi.Input[str]] = None,
+                 incoming_call_route: Optional[pulumi.Input[str]] = None):
         """
         The parameters to provide for the Microsoft Teams channel.
         :param pulumi.Input[bool] is_enabled: Whether this channel is enabled for the bot
@@ -1440,6 +1905,7 @@ class SkypeChannelPropertiesArgs:
         :param pulumi.Input[bool] enable_screen_sharing: Enable screen sharing for Skype channel
         :param pulumi.Input[bool] enable_video: Enable video for Skype channel
         :param pulumi.Input[str] groups_mode: Group mode for Skype channel
+        :param pulumi.Input[str] incoming_call_route: Incoming call route for Skype channel
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
         if calling_web_hook is not None:
@@ -1458,6 +1924,8 @@ class SkypeChannelPropertiesArgs:
             pulumi.set(__self__, "enable_video", enable_video)
         if groups_mode is not None:
             pulumi.set(__self__, "groups_mode", groups_mode)
+        if incoming_call_route is not None:
+            pulumi.set(__self__, "incoming_call_route", incoming_call_route)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -1567,19 +2035,35 @@ class SkypeChannelPropertiesArgs:
     def groups_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "groups_mode", value)
 
+    @property
+    @pulumi.getter(name="incomingCallRoute")
+    def incoming_call_route(self) -> Optional[pulumi.Input[str]]:
+        """
+        Incoming call route for Skype channel
+        """
+        return pulumi.get(self, "incoming_call_route")
+
+    @incoming_call_route.setter
+    def incoming_call_route(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "incoming_call_route", value)
+
 
 @pulumi.input_type
 class SkypeChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['SkypeChannelPropertiesArgs']] = None):
         """
         Skype channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'SkypeChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input['SkypeChannelPropertiesArgs'] properties: The set of properties specific to Skype channel resource
         """
         pulumi.set(__self__, "channel_name", 'SkypeChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1595,6 +2079,18 @@ class SkypeChannelArgs:
     @channel_name.setter
     def channel_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -1716,14 +2212,18 @@ class SlackChannelPropertiesArgs:
 class SlackChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['SlackChannelPropertiesArgs']] = None):
         """
         Slack channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'SlackChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input['SlackChannelPropertiesArgs'] properties: The set of properties specific to Slack channel resource
         """
         pulumi.set(__self__, "channel_name", 'SlackChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1739,6 +2239,18 @@ class SlackChannelArgs:
     @channel_name.setter
     def channel_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -1842,14 +2354,18 @@ class SmsChannelPropertiesArgs:
 class SmsChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['SmsChannelPropertiesArgs']] = None):
         """
         Sms channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'SmsChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input['SmsChannelPropertiesArgs'] properties: The set of properties specific to Sms channel resource
         """
         pulumi.set(__self__, "channel_name", 'SmsChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1865,6 +2381,18 @@ class SmsChannelArgs:
     @channel_name.setter
     def channel_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -1938,14 +2466,18 @@ class TelegramChannelPropertiesArgs:
 class TelegramChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
+                 etag: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['TelegramChannelPropertiesArgs']] = None):
         """
         Telegram channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'TelegramChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
         :param pulumi.Input['TelegramChannelPropertiesArgs'] properties: The set of properties specific to Telegram channel resource
         """
         pulumi.set(__self__, "channel_name", 'TelegramChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1961,6 +2493,18 @@ class TelegramChannelArgs:
     @channel_name.setter
     def channel_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "channel_name", value)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -2003,16 +2547,28 @@ class WebChatChannelPropertiesArgs:
 class WebChatChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
-                 properties: Optional[pulumi.Input['WebChatChannelPropertiesArgs']] = None):
+                 etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['WebChatChannelPropertiesArgs']] = None,
+                 provisioning_state: Optional[pulumi.Input[str]] = None):
         """
         Web Chat channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'WebChatChannel'.
+        :param pulumi.Input[str] etag: Entity Tag of the resource
+        :param pulumi.Input[str] location: Location of the resource
         :param pulumi.Input['WebChatChannelPropertiesArgs'] properties: The set of properties specific to Web Chat channel resource
+        :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         """
         pulumi.set(__self__, "channel_name", 'WebChatChannel')
+        if etag is not None:
+            pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2029,6 +2585,30 @@ class WebChatChannelArgs:
 
     @property
     @pulumi.getter
+    def etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Entity Tag of the resource
+        """
+        return pulumi.get(self, "etag")
+
+    @etag.setter
+    def etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location of the resource
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['WebChatChannelPropertiesArgs']]:
         """
         The set of properties specific to Web Chat channel resource
@@ -2039,34 +2619,34 @@ class WebChatChannelArgs:
     def properties(self, value: Optional[pulumi.Input['WebChatChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provisioning state of the resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "provisioning_state", value)
+
 
 @pulumi.input_type
 class WebChatSiteArgs:
     def __init__(__self__, *,
-                 enable_preview: pulumi.Input[bool],
                  is_enabled: pulumi.Input[bool],
+                 is_webchat_preview_enabled: pulumi.Input[bool],
                  site_name: pulumi.Input[str]):
         """
         A site for the Webchat channel
-        :param pulumi.Input[bool] enable_preview: Whether this site is enabled for preview versions of Webchat
         :param pulumi.Input[bool] is_enabled: Whether this site is enabled for DirectLine channel
+        :param pulumi.Input[bool] is_webchat_preview_enabled: Whether this site is enabled for preview versions of Webchat
         :param pulumi.Input[str] site_name: Site name
         """
-        pulumi.set(__self__, "enable_preview", enable_preview)
         pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "is_webchat_preview_enabled", is_webchat_preview_enabled)
         pulumi.set(__self__, "site_name", site_name)
-
-    @property
-    @pulumi.getter(name="enablePreview")
-    def enable_preview(self) -> pulumi.Input[bool]:
-        """
-        Whether this site is enabled for preview versions of Webchat
-        """
-        return pulumi.get(self, "enable_preview")
-
-    @enable_preview.setter
-    def enable_preview(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enable_preview", value)
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -2079,6 +2659,18 @@ class WebChatSiteArgs:
     @is_enabled.setter
     def is_enabled(self, value: pulumi.Input[bool]):
         pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter(name="isWebchatPreviewEnabled")
+    def is_webchat_preview_enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether this site is enabled for preview versions of Webchat
+        """
+        return pulumi.get(self, "is_webchat_preview_enabled")
+
+    @is_webchat_preview_enabled.setter
+    def is_webchat_preview_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_webchat_preview_enabled", value)
 
     @property
     @pulumi.getter(name="siteName")

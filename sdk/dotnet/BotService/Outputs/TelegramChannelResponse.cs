@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// </summary>
         public readonly string ChannelName;
         /// <summary>
+        /// Entity Tag of the resource
+        /// </summary>
+        public readonly string? Etag;
+        /// <summary>
         /// The set of properties specific to Telegram channel resource
         /// </summary>
         public readonly Outputs.TelegramChannelPropertiesResponse? Properties;
@@ -30,9 +34,12 @@ namespace Pulumi.AzureNative.BotService.Outputs
         private TelegramChannelResponse(
             string channelName,
 
+            string? etag,
+
             Outputs.TelegramChannelPropertiesResponse? properties)
         {
             ChannelName = channelName;
+            Etag = etag;
             Properties = properties;
         }
     }

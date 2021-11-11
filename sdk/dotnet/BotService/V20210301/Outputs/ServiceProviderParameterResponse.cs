@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly string HelpUrl;
         /// <summary>
+        /// Meta data for the Service Provider
+        /// </summary>
+        public readonly Outputs.ServiceProviderParameterResponseMetadata Metadata;
+        /// <summary>
         /// Name of the Service Provider
         /// </summary>
         public readonly string Name;
@@ -51,6 +55,8 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             string helpUrl,
 
+            Outputs.ServiceProviderParameterResponseMetadata metadata,
+
             string name,
 
             string type)
@@ -59,6 +65,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
             Description = description;
             DisplayName = displayName;
             HelpUrl = helpUrl;
+            Metadata = metadata;
             Name = name;
             Type = type;
         }

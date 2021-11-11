@@ -14,14 +14,15 @@ import (
 type Channel struct {
 	pulumi.CustomResourceState
 
-	Etag       pulumi.StringPtrOutput `pulumi:"etag"`
-	Kind       pulumi.StringPtrOutput `pulumi:"kind"`
-	Location   pulumi.StringPtrOutput `pulumi:"location"`
-	Name       pulumi.StringOutput    `pulumi:"name"`
-	Properties pulumi.AnyOutput       `pulumi:"properties"`
-	Sku        SkuResponsePtrOutput   `pulumi:"sku"`
-	Tags       pulumi.StringMapOutput `pulumi:"tags"`
-	Type       pulumi.StringOutput    `pulumi:"type"`
+	Etag       pulumi.StringPtrOutput   `pulumi:"etag"`
+	Kind       pulumi.StringPtrOutput   `pulumi:"kind"`
+	Location   pulumi.StringPtrOutput   `pulumi:"location"`
+	Name       pulumi.StringOutput      `pulumi:"name"`
+	Properties pulumi.AnyOutput         `pulumi:"properties"`
+	Sku        SkuResponsePtrOutput     `pulumi:"sku"`
+	Tags       pulumi.StringMapOutput   `pulumi:"tags"`
+	Type       pulumi.StringOutput      `pulumi:"type"`
+	Zones      pulumi.StringArrayOutput `pulumi:"zones"`
 }
 
 

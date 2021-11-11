@@ -36,6 +36,9 @@ func NewAlias(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:subscription/v20191001preview:Alias"),
 		},
+		{
+			Type: pulumi.String("azure-native:subscription/v20211001:Alias"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Alias

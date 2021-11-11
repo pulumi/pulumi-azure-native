@@ -520,6 +520,171 @@ func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput
 	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
 }
 
+type MsaAppType string
+
+const (
+	MsaAppTypeUserAssignedMSI = MsaAppType("UserAssignedMSI")
+	MsaAppTypeSingleTenant    = MsaAppType("SingleTenant")
+	MsaAppTypeMultiTenant     = MsaAppType("MultiTenant")
+)
+
+func (MsaAppType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsaAppType)(nil)).Elem()
+}
+
+func (e MsaAppType) ToMsaAppTypeOutput() MsaAppTypeOutput {
+	return pulumi.ToOutput(e).(MsaAppTypeOutput)
+}
+
+func (e MsaAppType) ToMsaAppTypeOutputWithContext(ctx context.Context) MsaAppTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MsaAppTypeOutput)
+}
+
+func (e MsaAppType) ToMsaAppTypePtrOutput() MsaAppTypePtrOutput {
+	return e.ToMsaAppTypePtrOutputWithContext(context.Background())
+}
+
+func (e MsaAppType) ToMsaAppTypePtrOutputWithContext(ctx context.Context) MsaAppTypePtrOutput {
+	return MsaAppType(e).ToMsaAppTypeOutputWithContext(ctx).ToMsaAppTypePtrOutputWithContext(ctx)
+}
+
+func (e MsaAppType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MsaAppType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MsaAppType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MsaAppType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MsaAppTypeOutput struct{ *pulumi.OutputState }
+
+func (MsaAppTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MsaAppType)(nil)).Elem()
+}
+
+func (o MsaAppTypeOutput) ToMsaAppTypeOutput() MsaAppTypeOutput {
+	return o
+}
+
+func (o MsaAppTypeOutput) ToMsaAppTypeOutputWithContext(ctx context.Context) MsaAppTypeOutput {
+	return o
+}
+
+func (o MsaAppTypeOutput) ToMsaAppTypePtrOutput() MsaAppTypePtrOutput {
+	return o.ToMsaAppTypePtrOutputWithContext(context.Background())
+}
+
+func (o MsaAppTypeOutput) ToMsaAppTypePtrOutputWithContext(ctx context.Context) MsaAppTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MsaAppType) *MsaAppType {
+		return &v
+	}).(MsaAppTypePtrOutput)
+}
+
+func (o MsaAppTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MsaAppTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MsaAppType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MsaAppTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MsaAppTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MsaAppType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MsaAppTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MsaAppTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MsaAppType)(nil)).Elem()
+}
+
+func (o MsaAppTypePtrOutput) ToMsaAppTypePtrOutput() MsaAppTypePtrOutput {
+	return o
+}
+
+func (o MsaAppTypePtrOutput) ToMsaAppTypePtrOutputWithContext(ctx context.Context) MsaAppTypePtrOutput {
+	return o
+}
+
+func (o MsaAppTypePtrOutput) Elem() MsaAppTypeOutput {
+	return o.ApplyT(func(v *MsaAppType) MsaAppType {
+		if v != nil {
+			return *v
+		}
+		var ret MsaAppType
+		return ret
+	}).(MsaAppTypeOutput)
+}
+
+func (o MsaAppTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MsaAppTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MsaAppType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type MsaAppTypeInput interface {
+	pulumi.Input
+
+	ToMsaAppTypeOutput() MsaAppTypeOutput
+	ToMsaAppTypeOutputWithContext(context.Context) MsaAppTypeOutput
+}
+
+var msaAppTypePtrType = reflect.TypeOf((**MsaAppType)(nil)).Elem()
+
+type MsaAppTypePtrInput interface {
+	pulumi.Input
+
+	ToMsaAppTypePtrOutput() MsaAppTypePtrOutput
+	ToMsaAppTypePtrOutputWithContext(context.Context) MsaAppTypePtrOutput
+}
+
+type msaAppTypePtr string
+
+func MsaAppTypePtr(v string) MsaAppTypePtrInput {
+	return (*msaAppTypePtr)(&v)
+}
+
+func (*msaAppTypePtr) ElementType() reflect.Type {
+	return msaAppTypePtrType
+}
+
+func (in *msaAppTypePtr) ToMsaAppTypePtrOutput() MsaAppTypePtrOutput {
+	return pulumi.ToOutput(in).(MsaAppTypePtrOutput)
+}
+
+func (in *msaAppTypePtr) ToMsaAppTypePtrOutputWithContext(ctx context.Context) MsaAppTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MsaAppTypePtrOutput)
+}
+
 type PrivateEndpointServiceConnectionStatus string
 
 const (
@@ -856,6 +1021,8 @@ func init() {
 	pulumi.RegisterOutputType(EnterpriseChannelStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(KindOutput{})
 	pulumi.RegisterOutputType(KindPtrOutput{})
+	pulumi.RegisterOutputType(MsaAppTypeOutput{})
+	pulumi.RegisterOutputType(MsaAppTypePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointServiceConnectionStatusOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointServiceConnectionStatusPtrOutput{})
 	pulumi.RegisterOutputType(SkuNameOutput{})

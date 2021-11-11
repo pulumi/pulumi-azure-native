@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// The set of properties specific to Alexa channel resource
         /// </summary>
         public readonly Outputs.AlexaChannelPropertiesResponse? Properties;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private AlexaChannelResponse(
@@ -36,11 +40,14 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             string? etag,
 
-            Outputs.AlexaChannelPropertiesResponse? properties)
+            Outputs.AlexaChannelPropertiesResponse? properties,
+
+            string provisioningState)
         {
             ChannelName = channelName;
             Etag = etag;
             Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

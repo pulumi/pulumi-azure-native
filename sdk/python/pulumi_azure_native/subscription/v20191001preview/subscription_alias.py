@@ -111,7 +111,7 @@ class SubscriptionAlias(pulumi.CustomResource):
             __props__.__dict__["properties"] = properties
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:subscription:SubscriptionAlias"), pulumi.Alias(type_="azure-native:subscription/v20200901:SubscriptionAlias")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:subscription:SubscriptionAlias"), pulumi.Alias(type_="azure-native:subscription/v20200901:SubscriptionAlias"), pulumi.Alias(type_="azure-native:subscription/v20211001:SubscriptionAlias")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SubscriptionAlias, __self__).__init__(
             'azure-native:subscription/v20191001preview:SubscriptionAlias',

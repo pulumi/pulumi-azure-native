@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.BotService.Inputs
     public sealed class DirectLineSiteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether this site is enabled for block user upload.
+        /// </summary>
+        [Input("isBlockUserUploadEnabled")]
+        public Input<bool>? IsBlockUserUploadEnabled { get; set; }
+
+        /// <summary>
         /// Whether this site is enabled for DirectLine channel.
         /// </summary>
         [Input("isEnabled", required: true)]

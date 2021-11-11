@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// Location of the resource
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The set of properties specific to Direct Line channel resource
         /// </summary>
         [Input("properties")]

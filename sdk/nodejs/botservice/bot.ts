@@ -68,6 +68,10 @@ export class Bot extends pulumi.CustomResource {
      * Specifies the type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Entity zones
+     */
+    public /*out*/ readonly zones!: pulumi.Output<string[]>;
 
     /**
      * Create a Bot resource with the given unique name, arguments, and options.
@@ -93,6 +97,7 @@ export class Bot extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["zones"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
@@ -102,6 +107,7 @@ export class Bot extends pulumi.CustomResource {
             inputs["sku"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["zones"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});

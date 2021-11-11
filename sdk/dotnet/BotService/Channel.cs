@@ -64,6 +64,12 @@ namespace Pulumi.AzureNative.BotService
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Entity zones
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Channel resource with the given unique name, arguments, and options.

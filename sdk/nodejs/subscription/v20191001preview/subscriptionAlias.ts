@@ -71,7 +71,7 @@ export class SubscriptionAlias extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:subscription:SubscriptionAlias" }, { type: "azure-native:subscription/v20200901:SubscriptionAlias" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:subscription:SubscriptionAlias" }, { type: "azure-native:subscription/v20200901:SubscriptionAlias" }, { type: "azure-native:subscription/v20211001:SubscriptionAlias" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubscriptionAlias.__pulumiType, name, inputs, opts);
     }

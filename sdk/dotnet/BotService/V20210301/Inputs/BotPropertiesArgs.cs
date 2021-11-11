@@ -15,11 +15,29 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
     /// </summary>
     public sealed class BotPropertiesArgs : Pulumi.ResourceArgs
     {
+        [Input("allSettings")]
+        private InputMap<string>? _allSettings;
+
+        /// <summary>
+        /// Contains resource all settings defined as key/value pairs.
+        /// </summary>
+        public InputMap<string> AllSettings
+        {
+            get => _allSettings ?? (_allSettings = new InputMap<string>());
+            set => _allSettings = value;
+        }
+
         /// <summary>
         /// The hint (e.g. keyVault secret resourceId) on how to fetch the app secret
         /// </summary>
         [Input("appPasswordHint")]
         public Input<string>? AppPasswordHint { get; set; }
+
+        /// <summary>
+        /// The CMK encryption status
+        /// </summary>
+        [Input("cmekEncryptionStatus")]
+        public Input<string>? CmekEncryptionStatus { get; set; }
 
         /// <summary>
         /// The CMK Url
@@ -52,6 +70,12 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         public Input<string>? DeveloperAppInsightsApplicationId { get; set; }
 
         /// <summary>
+        /// Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
         /// The Name of the bot
         /// </summary>
         [Input("displayName", required: true)]
@@ -76,10 +100,22 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         public Input<bool>? IsCmekEnabled { get; set; }
 
         /// <summary>
+        /// Whether the bot is developerAppInsightsApiKey set
+        /// </summary>
+        [Input("isDeveloperAppInsightsApiKeySet")]
+        public Input<bool>? IsDeveloperAppInsightsApiKeySet { get; set; }
+
+        /// <summary>
         /// Whether the bot is in an isolated network
         /// </summary>
         [Input("isIsolated")]
         public Input<bool>? IsIsolated { get; set; }
+
+        /// <summary>
+        /// Whether the bot is streaming supported
+        /// </summary>
+        [Input("isStreamingSupported")]
+        public Input<bool>? IsStreamingSupported { get; set; }
 
         [Input("luisAppIds")]
         private InputList<string>? _luisAppIds;
@@ -100,16 +136,58 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         public Input<string>? LuisKey { get; set; }
 
         /// <summary>
+        /// The bot's manifest url
+        /// </summary>
+        [Input("manifestUrl")]
+        public Input<string>? ManifestUrl { get; set; }
+
+        /// <summary>
         /// Microsoft App Id for the bot
         /// </summary>
         [Input("msaAppId", required: true)]
         public Input<string> MsaAppId { get; set; } = null!;
 
         /// <summary>
+        /// Microsoft App Managed Identity Resource Id for the bot
+        /// </summary>
+        [Input("msaAppMSIResourceId")]
+        public Input<string>? MsaAppMSIResourceId { get; set; }
+
+        /// <summary>
+        /// Microsoft App Tenant Id for the bot
+        /// </summary>
+        [Input("msaAppTenantId")]
+        public Input<string>? MsaAppTenantId { get; set; }
+
+        /// <summary>
+        /// Microsoft App Type for the bot
+        /// </summary>
+        [Input("msaAppType")]
+        public InputUnion<string, Pulumi.AzureNative.BotService.V20210301.MsaAppType>? MsaAppType { get; set; }
+
+        /// <summary>
         /// The hint to browser (e.g. protocol handler) on how to open the bot for authoring
         /// </summary>
         [Input("openWithHint")]
         public Input<string>? OpenWithHint { get; set; }
+
+        [Input("parameters")]
+        private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// Contains resource parameters defined as key/value pairs.
+        /// </summary>
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
+
+        /// <summary>
+        /// Publishing credentials of the resource
+        /// </summary>
+        [Input("publishingCredentials")]
+        public Input<string>? PublishingCredentials { get; set; }
 
         /// <summary>
         /// The channel schema transformation version for the bot

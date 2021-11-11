@@ -64,6 +64,17 @@ export const Kind = {
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
+export const MsaAppType = {
+    UserAssignedMSI: "UserAssignedMSI",
+    SingleTenant: "SingleTenant",
+    MultiTenant: "MultiTenant",
+} as const;
+
+/**
+ * Microsoft App Type for the bot
+ */
+export type MsaAppType = (typeof MsaAppType)[keyof typeof MsaAppType];
+
 export const PrivateEndpointServiceConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",

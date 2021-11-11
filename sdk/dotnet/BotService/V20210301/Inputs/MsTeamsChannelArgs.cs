@@ -23,10 +23,28 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         public Input<string> ChannelName { get; set; } = null!;
 
         /// <summary>
+        /// Entity Tag of the resource
+        /// </summary>
+        [Input("etag")]
+        public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Location of the resource
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The set of properties specific to Microsoft Teams channel resource
         /// </summary>
         [Input("properties")]
         public Input<Inputs.MsTeamsChannelPropertiesArgs>? Properties { get; set; }
+
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public MsTeamsChannelArgs()
         {

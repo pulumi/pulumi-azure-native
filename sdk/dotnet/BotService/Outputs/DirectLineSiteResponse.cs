@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.BotService.Outputs
     public sealed class DirectLineSiteResponse
     {
         /// <summary>
+        /// Whether this site is enabled for block user upload.
+        /// </summary>
+        public readonly bool? IsBlockUserUploadEnabled;
+        /// <summary>
         /// Whether this site is enabled for DirectLine channel.
         /// </summary>
         public readonly bool IsEnabled;
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
         [OutputConstructor]
         private DirectLineSiteResponse(
+            bool? isBlockUserUploadEnabled,
+
             bool isEnabled,
 
             bool? isSecureSiteEnabled,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             ImmutableArray<string> trustedOrigins)
         {
+            IsBlockUserUploadEnabled = isBlockUserUploadEnabled;
             IsEnabled = isEnabled;
             IsSecureSiteEnabled = isSecureSiteEnabled;
             IsV1Enabled = isV1Enabled;
