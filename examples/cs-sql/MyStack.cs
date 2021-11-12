@@ -2,6 +2,7 @@
 
 using System.Threading.Tasks;
 using Pulumi;
+using Pulumi.AzureNative.Authorization;
 using Pulumi.AzureNative.Network;
 using Pulumi.AzureNative.Network.Inputs;
 using SubnetArgs = Pulumi.AzureNative.Network.Inputs.SubnetArgs;
@@ -112,6 +113,27 @@ class MyStack : Stack
             ResourceGroupName = resourceGroup.Name,
             PrivateEndpointName = privateEndpoint.Name,
         });
+
+        var config = Output.Create(GetClientConfig.InvokeAsync());
+
+        var serverAzureAdAdministrator = new ServerAzureADAdministrator("ad-admin",new ServerAzureADAdministratorArgs
+        {
+            ResourceGroupName = resourceGroup.Name,
+            ServerName = server.Name,
+            AdministratorName = "ActiveDirectory",
+            AdministratorType = AdministratorType.ActiveDirectory,
+            Login = "foo@example.com",
+            Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            TenantId = config.Apply(c => c.TenantId)
+        });
+
+        var serverAzureAdOnlyAuth = new ServerAzureADOnlyAuthentication("ad-only-auth", new ServerAzureADOnlyAuthenticationArgs
+        {
+            ResourceGroupName = resourceGroup.Name,
+            ServerName = server.Name,
+            AuthenticationName = "Default",
+            AzureADOnlyAuthentication = false
+        }, new CustomResourceOptions {DependsOn = { serverAzureAdAdministrator }});
     }
     
     private static async Task<string> GetStorageAccountPrimaryKey(string resourceGroupName, string accountName)

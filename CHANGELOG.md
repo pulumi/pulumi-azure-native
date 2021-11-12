@@ -8,6 +8,11 @@ CHANGELOG
   update to later versions.
   [#1284](https://github.com/pulumi/pulumi-azure-native/issues/1284)
 
+### Bug fixes:
+
+- Fix creation of `sql.ServerAzureADOnlyAuthentication` resource
+  [#1042](https://github.com/pulumi/pulumi-azure-native/issues/1042)
+
 #### Enhancements:
 
 - Fixed replacement of ServiceBus Topics & Queues
