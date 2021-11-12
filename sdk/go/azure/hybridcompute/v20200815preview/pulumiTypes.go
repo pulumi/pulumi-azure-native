@@ -1,0 +1,2618 @@
+
+
+
+package v20200815preview
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type ErrorDetailResponse struct {
+	Code    string                `pulumi:"code"`
+	Details []ErrorDetailResponse `pulumi:"details"`
+	Message string                `pulumi:"message"`
+	Target  *string               `pulumi:"target"`
+}
+
+
+
+
+
+type ErrorDetailResponseInput interface {
+	pulumi.Input
+
+	ToErrorDetailResponseOutput() ErrorDetailResponseOutput
+	ToErrorDetailResponseOutputWithContext(context.Context) ErrorDetailResponseOutput
+}
+
+type ErrorDetailResponseArgs struct {
+	Code    pulumi.StringInput            `pulumi:"code"`
+	Details ErrorDetailResponseArrayInput `pulumi:"details"`
+	Message pulumi.StringInput            `pulumi:"message"`
+	Target  pulumi.StringPtrInput         `pulumi:"target"`
+}
+
+func (ErrorDetailResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDetailResponse)(nil)).Elem()
+}
+
+func (i ErrorDetailResponseArgs) ToErrorDetailResponseOutput() ErrorDetailResponseOutput {
+	return i.ToErrorDetailResponseOutputWithContext(context.Background())
+}
+
+func (i ErrorDetailResponseArgs) ToErrorDetailResponseOutputWithContext(ctx context.Context) ErrorDetailResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseOutput)
+}
+
+
+
+
+
+type ErrorDetailResponseArrayInput interface {
+	pulumi.Input
+
+	ToErrorDetailResponseArrayOutput() ErrorDetailResponseArrayOutput
+	ToErrorDetailResponseArrayOutputWithContext(context.Context) ErrorDetailResponseArrayOutput
+}
+
+type ErrorDetailResponseArray []ErrorDetailResponseInput
+
+func (ErrorDetailResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorDetailResponse)(nil)).Elem()
+}
+
+func (i ErrorDetailResponseArray) ToErrorDetailResponseArrayOutput() ErrorDetailResponseArrayOutput {
+	return i.ToErrorDetailResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ErrorDetailResponseArray) ToErrorDetailResponseArrayOutputWithContext(ctx context.Context) ErrorDetailResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailResponseArrayOutput)
+}
+
+type ErrorDetailResponseOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ErrorDetailResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailResponseOutput) ToErrorDetailResponseOutput() ErrorDetailResponseOutput {
+	return o
+}
+
+func (o ErrorDetailResponseOutput) ToErrorDetailResponseOutputWithContext(ctx context.Context) ErrorDetailResponseOutput {
+	return o
+}
+
+func (o ErrorDetailResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+func (o ErrorDetailResponseOutput) Details() ErrorDetailResponseArrayOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) []ErrorDetailResponse { return v.Details }).(ErrorDetailResponseArrayOutput)
+}
+
+func (o ErrorDetailResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+func (o ErrorDetailResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ErrorDetailResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type ErrorDetailResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ErrorDetailResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ErrorDetailResponse)(nil)).Elem()
+}
+
+func (o ErrorDetailResponseArrayOutput) ToErrorDetailResponseArrayOutput() ErrorDetailResponseArrayOutput {
+	return o
+}
+
+func (o ErrorDetailResponseArrayOutput) ToErrorDetailResponseArrayOutputWithContext(ctx context.Context) ErrorDetailResponseArrayOutput {
+	return o
+}
+
+func (o ErrorDetailResponseArrayOutput) Index(i pulumi.IntInput) ErrorDetailResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ErrorDetailResponse {
+		return vs[0].([]ErrorDetailResponse)[vs[1].(int)]
+	}).(ErrorDetailResponseOutput)
+}
+
+type LocationData struct {
+	City            *string `pulumi:"city"`
+	CountryOrRegion *string `pulumi:"countryOrRegion"`
+	District        *string `pulumi:"district"`
+	Name            string  `pulumi:"name"`
+}
+
+
+
+
+
+type LocationDataInput interface {
+	pulumi.Input
+
+	ToLocationDataOutput() LocationDataOutput
+	ToLocationDataOutputWithContext(context.Context) LocationDataOutput
+}
+
+type LocationDataArgs struct {
+	City            pulumi.StringPtrInput `pulumi:"city"`
+	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
+	District        pulumi.StringPtrInput `pulumi:"district"`
+	Name            pulumi.StringInput    `pulumi:"name"`
+}
+
+func (LocationDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationData)(nil)).Elem()
+}
+
+func (i LocationDataArgs) ToLocationDataOutput() LocationDataOutput {
+	return i.ToLocationDataOutputWithContext(context.Background())
+}
+
+func (i LocationDataArgs) ToLocationDataOutputWithContext(ctx context.Context) LocationDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataOutput)
+}
+
+func (i LocationDataArgs) ToLocationDataPtrOutput() LocationDataPtrOutput {
+	return i.ToLocationDataPtrOutputWithContext(context.Background())
+}
+
+func (i LocationDataArgs) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataOutput).ToLocationDataPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type LocationDataPtrInput interface {
+	pulumi.Input
+
+	ToLocationDataPtrOutput() LocationDataPtrOutput
+	ToLocationDataPtrOutputWithContext(context.Context) LocationDataPtrOutput
+}
+
+type locationDataPtrType LocationDataArgs
+
+func LocationDataPtr(v *LocationDataArgs) LocationDataPtrInput {
+	return (*locationDataPtrType)(v)
+}
+
+func (*locationDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationData)(nil)).Elem()
+}
+
+func (i *locationDataPtrType) ToLocationDataPtrOutput() LocationDataPtrOutput {
+	return i.ToLocationDataPtrOutputWithContext(context.Background())
+}
+
+func (i *locationDataPtrType) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataPtrOutput)
+}
+
+type LocationDataOutput struct{ *pulumi.OutputState }
+
+func (LocationDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationData)(nil)).Elem()
+}
+
+func (o LocationDataOutput) ToLocationDataOutput() LocationDataOutput {
+	return o
+}
+
+func (o LocationDataOutput) ToLocationDataOutputWithContext(ctx context.Context) LocationDataOutput {
+	return o
+}
+
+func (o LocationDataOutput) ToLocationDataPtrOutput() LocationDataPtrOutput {
+	return o.ToLocationDataPtrOutputWithContext(context.Background())
+}
+
+func (o LocationDataOutput) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationData) *LocationData {
+		return &v
+	}).(LocationDataPtrOutput)
+}
+
+func (o LocationDataOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationData) *string { return v.City }).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataOutput) CountryOrRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationData) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataOutput) District() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationData) *string { return v.District }).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationData) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type LocationDataPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationData)(nil)).Elem()
+}
+
+func (o LocationDataPtrOutput) ToLocationDataPtrOutput() LocationDataPtrOutput {
+	return o
+}
+
+func (o LocationDataPtrOutput) ToLocationDataPtrOutputWithContext(ctx context.Context) LocationDataPtrOutput {
+	return o
+}
+
+func (o LocationDataPtrOutput) Elem() LocationDataOutput {
+	return o.ApplyT(func(v *LocationData) LocationData {
+		if v != nil {
+			return *v
+		}
+		var ret LocationData
+		return ret
+	}).(LocationDataOutput)
+}
+
+func (o LocationDataPtrOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.City
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataPtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CountryOrRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataPtrOutput) District() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationData) *string {
+		if v == nil {
+			return nil
+		}
+		return v.District
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type LocationDataResponse struct {
+	City            *string `pulumi:"city"`
+	CountryOrRegion *string `pulumi:"countryOrRegion"`
+	District        *string `pulumi:"district"`
+	Name            string  `pulumi:"name"`
+}
+
+
+
+
+
+type LocationDataResponseInput interface {
+	pulumi.Input
+
+	ToLocationDataResponseOutput() LocationDataResponseOutput
+	ToLocationDataResponseOutputWithContext(context.Context) LocationDataResponseOutput
+}
+
+type LocationDataResponseArgs struct {
+	City            pulumi.StringPtrInput `pulumi:"city"`
+	CountryOrRegion pulumi.StringPtrInput `pulumi:"countryOrRegion"`
+	District        pulumi.StringPtrInput `pulumi:"district"`
+	Name            pulumi.StringInput    `pulumi:"name"`
+}
+
+func (LocationDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationDataResponse)(nil)).Elem()
+}
+
+func (i LocationDataResponseArgs) ToLocationDataResponseOutput() LocationDataResponseOutput {
+	return i.ToLocationDataResponseOutputWithContext(context.Background())
+}
+
+func (i LocationDataResponseArgs) ToLocationDataResponseOutputWithContext(ctx context.Context) LocationDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponseOutput)
+}
+
+func (i LocationDataResponseArgs) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
+	return i.ToLocationDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i LocationDataResponseArgs) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponseOutput).ToLocationDataResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type LocationDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput
+	ToLocationDataResponsePtrOutputWithContext(context.Context) LocationDataResponsePtrOutput
+}
+
+type locationDataResponsePtrType LocationDataResponseArgs
+
+func LocationDataResponsePtr(v *LocationDataResponseArgs) LocationDataResponsePtrInput {
+	return (*locationDataResponsePtrType)(v)
+}
+
+func (*locationDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationDataResponse)(nil)).Elem()
+}
+
+func (i *locationDataResponsePtrType) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
+	return i.ToLocationDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *locationDataResponsePtrType) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationDataResponsePtrOutput)
+}
+
+type LocationDataResponseOutput struct{ *pulumi.OutputState }
+
+func (LocationDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationDataResponse)(nil)).Elem()
+}
+
+func (o LocationDataResponseOutput) ToLocationDataResponseOutput() LocationDataResponseOutput {
+	return o
+}
+
+func (o LocationDataResponseOutput) ToLocationDataResponseOutputWithContext(ctx context.Context) LocationDataResponseOutput {
+	return o
+}
+
+func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
+	return o.ToLocationDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o LocationDataResponseOutput) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationDataResponse) *LocationDataResponse {
+		return &v
+	}).(LocationDataResponsePtrOutput)
+}
+
+func (o LocationDataResponseOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationDataResponse) *string { return v.City }).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataResponseOutput) CountryOrRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationDataResponse) *string { return v.CountryOrRegion }).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataResponseOutput) District() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationDataResponse) *string { return v.District }).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationDataResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type LocationDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (LocationDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationDataResponse)(nil)).Elem()
+}
+
+func (o LocationDataResponsePtrOutput) ToLocationDataResponsePtrOutput() LocationDataResponsePtrOutput {
+	return o
+}
+
+func (o LocationDataResponsePtrOutput) ToLocationDataResponsePtrOutputWithContext(ctx context.Context) LocationDataResponsePtrOutput {
+	return o
+}
+
+func (o LocationDataResponsePtrOutput) Elem() LocationDataResponseOutput {
+	return o.ApplyT(func(v *LocationDataResponse) LocationDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret LocationDataResponse
+		return ret
+	}).(LocationDataResponseOutput)
+}
+
+func (o LocationDataResponsePtrOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.City
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataResponsePtrOutput) CountryOrRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CountryOrRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataResponsePtrOutput) District() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.District
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LocationDataResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionInstanceView struct {
+	Name               *string                             `pulumi:"name"`
+	Status             *MachineExtensionInstanceViewStatus `pulumi:"status"`
+	Type               *string                             `pulumi:"type"`
+	TypeHandlerVersion *string                             `pulumi:"typeHandlerVersion"`
+}
+
+
+
+
+
+type MachineExtensionInstanceViewInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewOutput() MachineExtensionInstanceViewOutput
+	ToMachineExtensionInstanceViewOutputWithContext(context.Context) MachineExtensionInstanceViewOutput
+}
+
+type MachineExtensionInstanceViewArgs struct {
+	Name               pulumi.StringPtrInput                      `pulumi:"name"`
+	Status             MachineExtensionInstanceViewStatusPtrInput `pulumi:"status"`
+	Type               pulumi.StringPtrInput                      `pulumi:"type"`
+	TypeHandlerVersion pulumi.StringPtrInput                      `pulumi:"typeHandlerVersion"`
+}
+
+func (MachineExtensionInstanceViewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceView)(nil)).Elem()
+}
+
+func (i MachineExtensionInstanceViewArgs) ToMachineExtensionInstanceViewOutput() MachineExtensionInstanceViewOutput {
+	return i.ToMachineExtensionInstanceViewOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewArgs) ToMachineExtensionInstanceViewOutputWithContext(ctx context.Context) MachineExtensionInstanceViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewOutput)
+}
+
+
+
+
+
+type MachineExtensionInstanceViewArrayInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewArrayOutput() MachineExtensionInstanceViewArrayOutput
+	ToMachineExtensionInstanceViewArrayOutputWithContext(context.Context) MachineExtensionInstanceViewArrayOutput
+}
+
+type MachineExtensionInstanceViewArray []MachineExtensionInstanceViewInput
+
+func (MachineExtensionInstanceViewArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MachineExtensionInstanceView)(nil)).Elem()
+}
+
+func (i MachineExtensionInstanceViewArray) ToMachineExtensionInstanceViewArrayOutput() MachineExtensionInstanceViewArrayOutput {
+	return i.ToMachineExtensionInstanceViewArrayOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewArray) ToMachineExtensionInstanceViewArrayOutputWithContext(ctx context.Context) MachineExtensionInstanceViewArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewArrayOutput)
+}
+
+type MachineExtensionInstanceViewOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceView)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewOutput) ToMachineExtensionInstanceViewOutput() MachineExtensionInstanceViewOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewOutput) ToMachineExtensionInstanceViewOutputWithContext(ctx context.Context) MachineExtensionInstanceViewOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceView) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewOutput) Status() MachineExtensionInstanceViewStatusPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceView) *MachineExtensionInstanceViewStatus { return v.Status }).(MachineExtensionInstanceViewStatusPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceView) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceView) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionInstanceViewArrayOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MachineExtensionInstanceView)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewArrayOutput) ToMachineExtensionInstanceViewArrayOutput() MachineExtensionInstanceViewArrayOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewArrayOutput) ToMachineExtensionInstanceViewArrayOutputWithContext(ctx context.Context) MachineExtensionInstanceViewArrayOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewArrayOutput) Index(i pulumi.IntInput) MachineExtensionInstanceViewOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MachineExtensionInstanceView {
+		return vs[0].([]MachineExtensionInstanceView)[vs[1].(int)]
+	}).(MachineExtensionInstanceViewOutput)
+}
+
+type MachineExtensionInstanceViewResponse struct {
+	Name               *string                                     `pulumi:"name"`
+	Status             *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
+	Type               *string                                     `pulumi:"type"`
+	TypeHandlerVersion *string                                     `pulumi:"typeHandlerVersion"`
+}
+
+
+
+
+
+type MachineExtensionInstanceViewResponseInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewResponseOutput() MachineExtensionInstanceViewResponseOutput
+	ToMachineExtensionInstanceViewResponseOutputWithContext(context.Context) MachineExtensionInstanceViewResponseOutput
+}
+
+type MachineExtensionInstanceViewResponseArgs struct {
+	Name               pulumi.StringPtrInput                              `pulumi:"name"`
+	Status             MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
+	Type               pulumi.StringPtrInput                              `pulumi:"type"`
+	TypeHandlerVersion pulumi.StringPtrInput                              `pulumi:"typeHandlerVersion"`
+}
+
+func (MachineExtensionInstanceViewResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceViewResponse)(nil)).Elem()
+}
+
+func (i MachineExtensionInstanceViewResponseArgs) ToMachineExtensionInstanceViewResponseOutput() MachineExtensionInstanceViewResponseOutput {
+	return i.ToMachineExtensionInstanceViewResponseOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewResponseArgs) ToMachineExtensionInstanceViewResponseOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseOutput)
+}
+
+
+
+
+
+type MachineExtensionInstanceViewResponseArrayInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewResponseArrayOutput() MachineExtensionInstanceViewResponseArrayOutput
+	ToMachineExtensionInstanceViewResponseArrayOutputWithContext(context.Context) MachineExtensionInstanceViewResponseArrayOutput
+}
+
+type MachineExtensionInstanceViewResponseArray []MachineExtensionInstanceViewResponseInput
+
+func (MachineExtensionInstanceViewResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MachineExtensionInstanceViewResponse)(nil)).Elem()
+}
+
+func (i MachineExtensionInstanceViewResponseArray) ToMachineExtensionInstanceViewResponseArrayOutput() MachineExtensionInstanceViewResponseArrayOutput {
+	return i.ToMachineExtensionInstanceViewResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewResponseArray) ToMachineExtensionInstanceViewResponseArrayOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseArrayOutput)
+}
+
+type MachineExtensionInstanceViewResponseOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceViewResponse)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewResponseOutput) ToMachineExtensionInstanceViewResponseOutput() MachineExtensionInstanceViewResponseOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewResponseOutput) ToMachineExtensionInstanceViewResponseOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseOutput) Status() MachineExtensionInstanceViewResponseStatusPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *MachineExtensionInstanceViewResponseStatus {
+		return v.Status
+	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponse) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionInstanceViewResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MachineExtensionInstanceViewResponse)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewResponseArrayOutput) ToMachineExtensionInstanceViewResponseArrayOutput() MachineExtensionInstanceViewResponseArrayOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewResponseArrayOutput) ToMachineExtensionInstanceViewResponseArrayOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseArrayOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewResponseArrayOutput) Index(i pulumi.IntInput) MachineExtensionInstanceViewResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MachineExtensionInstanceViewResponse {
+		return vs[0].([]MachineExtensionInstanceViewResponse)[vs[1].(int)]
+	}).(MachineExtensionInstanceViewResponseOutput)
+}
+
+type MachineExtensionInstanceViewResponseStatus struct {
+	Code          *string `pulumi:"code"`
+	DisplayStatus *string `pulumi:"displayStatus"`
+	Level         *string `pulumi:"level"`
+	Message       *string `pulumi:"message"`
+	Time          *string `pulumi:"time"`
+}
+
+
+
+
+
+type MachineExtensionInstanceViewResponseStatusInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewResponseStatusOutput() MachineExtensionInstanceViewResponseStatusOutput
+	ToMachineExtensionInstanceViewResponseStatusOutputWithContext(context.Context) MachineExtensionInstanceViewResponseStatusOutput
+}
+
+type MachineExtensionInstanceViewResponseStatusArgs struct {
+	Code          pulumi.StringPtrInput `pulumi:"code"`
+	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
+	Level         pulumi.StringPtrInput `pulumi:"level"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Time          pulumi.StringPtrInput `pulumi:"time"`
+}
+
+func (MachineExtensionInstanceViewResponseStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceViewResponseStatus)(nil)).Elem()
+}
+
+func (i MachineExtensionInstanceViewResponseStatusArgs) ToMachineExtensionInstanceViewResponseStatusOutput() MachineExtensionInstanceViewResponseStatusOutput {
+	return i.ToMachineExtensionInstanceViewResponseStatusOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewResponseStatusArgs) ToMachineExtensionInstanceViewResponseStatusOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseStatusOutput)
+}
+
+func (i MachineExtensionInstanceViewResponseStatusArgs) ToMachineExtensionInstanceViewResponseStatusPtrOutput() MachineExtensionInstanceViewResponseStatusPtrOutput {
+	return i.ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewResponseStatusArgs) ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseStatusOutput).ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type MachineExtensionInstanceViewResponseStatusPtrInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewResponseStatusPtrOutput() MachineExtensionInstanceViewResponseStatusPtrOutput
+	ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput
+}
+
+type machineExtensionInstanceViewResponseStatusPtrType MachineExtensionInstanceViewResponseStatusArgs
+
+func MachineExtensionInstanceViewResponseStatusPtr(v *MachineExtensionInstanceViewResponseStatusArgs) MachineExtensionInstanceViewResponseStatusPtrInput {
+	return (*machineExtensionInstanceViewResponseStatusPtrType)(v)
+}
+
+func (*machineExtensionInstanceViewResponseStatusPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineExtensionInstanceViewResponseStatus)(nil)).Elem()
+}
+
+func (i *machineExtensionInstanceViewResponseStatusPtrType) ToMachineExtensionInstanceViewResponseStatusPtrOutput() MachineExtensionInstanceViewResponseStatusPtrOutput {
+	return i.ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(context.Background())
+}
+
+func (i *machineExtensionInstanceViewResponseStatusPtrType) ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewResponseStatusPtrOutput)
+}
+
+type MachineExtensionInstanceViewResponseStatusOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewResponseStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceViewResponseStatus)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInstanceViewResponseStatusOutput() MachineExtensionInstanceViewResponseStatusOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInstanceViewResponseStatusOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInstanceViewResponseStatusPtrOutput() MachineExtensionInstanceViewResponseStatusPtrOutput {
+	return o.ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MachineExtensionInstanceViewResponseStatusOutput) ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewResponseStatus) *MachineExtensionInstanceViewResponseStatus {
+		return &v
+	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseStatusOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseStatusOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseStatusOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseStatusOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewResponseStatus) *string { return v.Time }).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionInstanceViewResponseStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewResponseStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineExtensionInstanceViewResponseStatus)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewResponseStatusPtrOutput) ToMachineExtensionInstanceViewResponseStatusPtrOutput() MachineExtensionInstanceViewResponseStatusPtrOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewResponseStatusPtrOutput) ToMachineExtensionInstanceViewResponseStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewResponseStatusPtrOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Elem() MachineExtensionInstanceViewResponseStatusOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) MachineExtensionInstanceViewResponseStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionInstanceViewResponseStatus
+		return ret
+	}).(MachineExtensionInstanceViewResponseStatusOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseStatusPtrOutput) DisplayStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewResponseStatusPtrOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewResponseStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Time
+	}).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionInstanceViewStatus struct {
+	Code          *string `pulumi:"code"`
+	DisplayStatus *string `pulumi:"displayStatus"`
+	Level         *string `pulumi:"level"`
+	Message       *string `pulumi:"message"`
+	Time          *string `pulumi:"time"`
+}
+
+
+
+
+
+type MachineExtensionInstanceViewStatusInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewStatusOutput() MachineExtensionInstanceViewStatusOutput
+	ToMachineExtensionInstanceViewStatusOutputWithContext(context.Context) MachineExtensionInstanceViewStatusOutput
+}
+
+type MachineExtensionInstanceViewStatusArgs struct {
+	Code          pulumi.StringPtrInput `pulumi:"code"`
+	DisplayStatus pulumi.StringPtrInput `pulumi:"displayStatus"`
+	Level         pulumi.StringPtrInput `pulumi:"level"`
+	Message       pulumi.StringPtrInput `pulumi:"message"`
+	Time          pulumi.StringPtrInput `pulumi:"time"`
+}
+
+func (MachineExtensionInstanceViewStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceViewStatus)(nil)).Elem()
+}
+
+func (i MachineExtensionInstanceViewStatusArgs) ToMachineExtensionInstanceViewStatusOutput() MachineExtensionInstanceViewStatusOutput {
+	return i.ToMachineExtensionInstanceViewStatusOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewStatusArgs) ToMachineExtensionInstanceViewStatusOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewStatusOutput)
+}
+
+func (i MachineExtensionInstanceViewStatusArgs) ToMachineExtensionInstanceViewStatusPtrOutput() MachineExtensionInstanceViewStatusPtrOutput {
+	return i.ToMachineExtensionInstanceViewStatusPtrOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionInstanceViewStatusArgs) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewStatusOutput).ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type MachineExtensionInstanceViewStatusPtrInput interface {
+	pulumi.Input
+
+	ToMachineExtensionInstanceViewStatusPtrOutput() MachineExtensionInstanceViewStatusPtrOutput
+	ToMachineExtensionInstanceViewStatusPtrOutputWithContext(context.Context) MachineExtensionInstanceViewStatusPtrOutput
+}
+
+type machineExtensionInstanceViewStatusPtrType MachineExtensionInstanceViewStatusArgs
+
+func MachineExtensionInstanceViewStatusPtr(v *MachineExtensionInstanceViewStatusArgs) MachineExtensionInstanceViewStatusPtrInput {
+	return (*machineExtensionInstanceViewStatusPtrType)(v)
+}
+
+func (*machineExtensionInstanceViewStatusPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineExtensionInstanceViewStatus)(nil)).Elem()
+}
+
+func (i *machineExtensionInstanceViewStatusPtrType) ToMachineExtensionInstanceViewStatusPtrOutput() MachineExtensionInstanceViewStatusPtrOutput {
+	return i.ToMachineExtensionInstanceViewStatusPtrOutputWithContext(context.Background())
+}
+
+func (i *machineExtensionInstanceViewStatusPtrType) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionInstanceViewStatusPtrOutput)
+}
+
+type MachineExtensionInstanceViewStatusOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionInstanceViewStatus)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusOutput() MachineExtensionInstanceViewStatusOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusPtrOutput() MachineExtensionInstanceViewStatusPtrOutput {
+	return o.ToMachineExtensionInstanceViewStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MachineExtensionInstanceViewStatusOutput) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionInstanceViewStatus) *MachineExtensionInstanceViewStatus {
+		return &v
+	}).(MachineExtensionInstanceViewStatusPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewStatusOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewStatusOutput) DisplayStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.DisplayStatus }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewStatusOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewStatusOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewStatusOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionInstanceViewStatus) *string { return v.Time }).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionInstanceViewStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionInstanceViewStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineExtensionInstanceViewStatus)(nil)).Elem()
+}
+
+func (o MachineExtensionInstanceViewStatusPtrOutput) ToMachineExtensionInstanceViewStatusPtrOutput() MachineExtensionInstanceViewStatusPtrOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewStatusPtrOutput) ToMachineExtensionInstanceViewStatusPtrOutputWithContext(ctx context.Context) MachineExtensionInstanceViewStatusPtrOutput {
+	return o
+}
+
+func (o MachineExtensionInstanceViewStatusPtrOutput) Elem() MachineExtensionInstanceViewStatusOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) MachineExtensionInstanceViewStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionInstanceViewStatus
+		return ret
+	}).(MachineExtensionInstanceViewStatusOutput)
+}
+
+func (o MachineExtensionInstanceViewStatusPtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewStatusPtrOutput) DisplayStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewStatusPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewStatusPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionInstanceViewStatusPtrOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionInstanceViewStatus) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Time
+	}).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionPropertiesInstanceView struct {
+	Name               *string                             `pulumi:"name"`
+	Status             *MachineExtensionInstanceViewStatus `pulumi:"status"`
+	Type               *string                             `pulumi:"type"`
+	TypeHandlerVersion *string                             `pulumi:"typeHandlerVersion"`
+}
+
+
+
+
+
+type MachineExtensionPropertiesInstanceViewInput interface {
+	pulumi.Input
+
+	ToMachineExtensionPropertiesInstanceViewOutput() MachineExtensionPropertiesInstanceViewOutput
+	ToMachineExtensionPropertiesInstanceViewOutputWithContext(context.Context) MachineExtensionPropertiesInstanceViewOutput
+}
+
+type MachineExtensionPropertiesInstanceViewArgs struct {
+	Name               pulumi.StringPtrInput                      `pulumi:"name"`
+	Status             MachineExtensionInstanceViewStatusPtrInput `pulumi:"status"`
+	Type               pulumi.StringPtrInput                      `pulumi:"type"`
+	TypeHandlerVersion pulumi.StringPtrInput                      `pulumi:"typeHandlerVersion"`
+}
+
+func (MachineExtensionPropertiesInstanceViewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionPropertiesInstanceView)(nil)).Elem()
+}
+
+func (i MachineExtensionPropertiesInstanceViewArgs) ToMachineExtensionPropertiesInstanceViewOutput() MachineExtensionPropertiesInstanceViewOutput {
+	return i.ToMachineExtensionPropertiesInstanceViewOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionPropertiesInstanceViewArgs) ToMachineExtensionPropertiesInstanceViewOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesInstanceViewOutput)
+}
+
+func (i MachineExtensionPropertiesInstanceViewArgs) ToMachineExtensionPropertiesInstanceViewPtrOutput() MachineExtensionPropertiesInstanceViewPtrOutput {
+	return i.ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionPropertiesInstanceViewArgs) ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesInstanceViewOutput).ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type MachineExtensionPropertiesInstanceViewPtrInput interface {
+	pulumi.Input
+
+	ToMachineExtensionPropertiesInstanceViewPtrOutput() MachineExtensionPropertiesInstanceViewPtrOutput
+	ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(context.Context) MachineExtensionPropertiesInstanceViewPtrOutput
+}
+
+type machineExtensionPropertiesInstanceViewPtrType MachineExtensionPropertiesInstanceViewArgs
+
+func MachineExtensionPropertiesInstanceViewPtr(v *MachineExtensionPropertiesInstanceViewArgs) MachineExtensionPropertiesInstanceViewPtrInput {
+	return (*machineExtensionPropertiesInstanceViewPtrType)(v)
+}
+
+func (*machineExtensionPropertiesInstanceViewPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineExtensionPropertiesInstanceView)(nil)).Elem()
+}
+
+func (i *machineExtensionPropertiesInstanceViewPtrType) ToMachineExtensionPropertiesInstanceViewPtrOutput() MachineExtensionPropertiesInstanceViewPtrOutput {
+	return i.ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(context.Background())
+}
+
+func (i *machineExtensionPropertiesInstanceViewPtrType) ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesInstanceViewPtrOutput)
+}
+
+type MachineExtensionPropertiesInstanceViewOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionPropertiesInstanceViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionPropertiesInstanceView)(nil)).Elem()
+}
+
+func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionPropertiesInstanceViewOutput() MachineExtensionPropertiesInstanceViewOutput {
+	return o
+}
+
+func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionPropertiesInstanceViewOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewOutput {
+	return o
+}
+
+func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionPropertiesInstanceViewPtrOutput() MachineExtensionPropertiesInstanceViewPtrOutput {
+	return o.ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(context.Background())
+}
+
+func (o MachineExtensionPropertiesInstanceViewOutput) ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionPropertiesInstanceView) *MachineExtensionPropertiesInstanceView {
+		return &v
+	}).(MachineExtensionPropertiesInstanceViewPtrOutput)
+}
+
+func (o MachineExtensionPropertiesInstanceViewOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionPropertiesInstanceViewOutput) Status() MachineExtensionInstanceViewStatusPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *MachineExtensionInstanceViewStatus { return v.Status }).(MachineExtensionInstanceViewStatusPtrOutput)
+}
+
+func (o MachineExtensionPropertiesInstanceViewOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionPropertiesInstanceViewOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesInstanceView) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionPropertiesInstanceViewPtrOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionPropertiesInstanceViewPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineExtensionPropertiesInstanceView)(nil)).Elem()
+}
+
+func (o MachineExtensionPropertiesInstanceViewPtrOutput) ToMachineExtensionPropertiesInstanceViewPtrOutput() MachineExtensionPropertiesInstanceViewPtrOutput {
+	return o
+}
+
+func (o MachineExtensionPropertiesInstanceViewPtrOutput) ToMachineExtensionPropertiesInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesInstanceViewPtrOutput {
+	return o
+}
+
+func (o MachineExtensionPropertiesInstanceViewPtrOutput) Elem() MachineExtensionPropertiesInstanceViewOutput {
+	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) MachineExtensionPropertiesInstanceView {
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionPropertiesInstanceView
+		return ret
+	}).(MachineExtensionPropertiesInstanceViewOutput)
+}
+
+func (o MachineExtensionPropertiesInstanceViewPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionPropertiesInstanceViewPtrOutput) Status() MachineExtensionInstanceViewStatusPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *MachineExtensionInstanceViewStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(MachineExtensionInstanceViewStatusPtrOutput)
+}
+
+func (o MachineExtensionPropertiesInstanceViewPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionPropertiesInstanceViewPtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionPropertiesInstanceView) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TypeHandlerVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionPropertiesResponseInstanceView struct {
+	Name               *string                                     `pulumi:"name"`
+	Status             *MachineExtensionInstanceViewResponseStatus `pulumi:"status"`
+	Type               *string                                     `pulumi:"type"`
+	TypeHandlerVersion *string                                     `pulumi:"typeHandlerVersion"`
+}
+
+
+
+
+
+type MachineExtensionPropertiesResponseInstanceViewInput interface {
+	pulumi.Input
+
+	ToMachineExtensionPropertiesResponseInstanceViewOutput() MachineExtensionPropertiesResponseInstanceViewOutput
+	ToMachineExtensionPropertiesResponseInstanceViewOutputWithContext(context.Context) MachineExtensionPropertiesResponseInstanceViewOutput
+}
+
+type MachineExtensionPropertiesResponseInstanceViewArgs struct {
+	Name               pulumi.StringPtrInput                              `pulumi:"name"`
+	Status             MachineExtensionInstanceViewResponseStatusPtrInput `pulumi:"status"`
+	Type               pulumi.StringPtrInput                              `pulumi:"type"`
+	TypeHandlerVersion pulumi.StringPtrInput                              `pulumi:"typeHandlerVersion"`
+}
+
+func (MachineExtensionPropertiesResponseInstanceViewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionPropertiesResponseInstanceView)(nil)).Elem()
+}
+
+func (i MachineExtensionPropertiesResponseInstanceViewArgs) ToMachineExtensionPropertiesResponseInstanceViewOutput() MachineExtensionPropertiesResponseInstanceViewOutput {
+	return i.ToMachineExtensionPropertiesResponseInstanceViewOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionPropertiesResponseInstanceViewArgs) ToMachineExtensionPropertiesResponseInstanceViewOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesResponseInstanceViewOutput)
+}
+
+func (i MachineExtensionPropertiesResponseInstanceViewArgs) ToMachineExtensionPropertiesResponseInstanceViewPtrOutput() MachineExtensionPropertiesResponseInstanceViewPtrOutput {
+	return i.ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(context.Background())
+}
+
+func (i MachineExtensionPropertiesResponseInstanceViewArgs) ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesResponseInstanceViewOutput).ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type MachineExtensionPropertiesResponseInstanceViewPtrInput interface {
+	pulumi.Input
+
+	ToMachineExtensionPropertiesResponseInstanceViewPtrOutput() MachineExtensionPropertiesResponseInstanceViewPtrOutput
+	ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(context.Context) MachineExtensionPropertiesResponseInstanceViewPtrOutput
+}
+
+type machineExtensionPropertiesResponseInstanceViewPtrType MachineExtensionPropertiesResponseInstanceViewArgs
+
+func MachineExtensionPropertiesResponseInstanceViewPtr(v *MachineExtensionPropertiesResponseInstanceViewArgs) MachineExtensionPropertiesResponseInstanceViewPtrInput {
+	return (*machineExtensionPropertiesResponseInstanceViewPtrType)(v)
+}
+
+func (*machineExtensionPropertiesResponseInstanceViewPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineExtensionPropertiesResponseInstanceView)(nil)).Elem()
+}
+
+func (i *machineExtensionPropertiesResponseInstanceViewPtrType) ToMachineExtensionPropertiesResponseInstanceViewPtrOutput() MachineExtensionPropertiesResponseInstanceViewPtrOutput {
+	return i.ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(context.Background())
+}
+
+func (i *machineExtensionPropertiesResponseInstanceViewPtrType) ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineExtensionPropertiesResponseInstanceViewPtrOutput)
+}
+
+type MachineExtensionPropertiesResponseInstanceViewOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionPropertiesResponseInstanceViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineExtensionPropertiesResponseInstanceView)(nil)).Elem()
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtensionPropertiesResponseInstanceViewOutput() MachineExtensionPropertiesResponseInstanceViewOutput {
+	return o
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtensionPropertiesResponseInstanceViewOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewOutput {
+	return o
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtensionPropertiesResponseInstanceViewPtrOutput() MachineExtensionPropertiesResponseInstanceViewPtrOutput {
+	return o.ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(context.Background())
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewOutput) ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineExtensionPropertiesResponseInstanceView) *MachineExtensionPropertiesResponseInstanceView {
+		return &v
+	}).(MachineExtensionPropertiesResponseInstanceViewPtrOutput)
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewOutput) Status() MachineExtensionInstanceViewResponseStatusPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *MachineExtensionInstanceViewResponseStatus {
+		return v.Status
+	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineExtensionPropertiesResponseInstanceView) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+type MachineExtensionPropertiesResponseInstanceViewPtrOutput struct{ *pulumi.OutputState }
+
+func (MachineExtensionPropertiesResponseInstanceViewPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineExtensionPropertiesResponseInstanceView)(nil)).Elem()
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) ToMachineExtensionPropertiesResponseInstanceViewPtrOutput() MachineExtensionPropertiesResponseInstanceViewPtrOutput {
+	return o
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) ToMachineExtensionPropertiesResponseInstanceViewPtrOutputWithContext(ctx context.Context) MachineExtensionPropertiesResponseInstanceViewPtrOutput {
+	return o
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Elem() MachineExtensionPropertiesResponseInstanceViewOutput {
+	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) MachineExtensionPropertiesResponseInstanceView {
+		if v != nil {
+			return *v
+		}
+		var ret MachineExtensionPropertiesResponseInstanceView
+		return ret
+	}).(MachineExtensionPropertiesResponseInstanceViewOutput)
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Status() MachineExtensionInstanceViewResponseStatusPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *MachineExtensionInstanceViewResponseStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(MachineExtensionInstanceViewResponseStatusPtrOutput)
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineExtensionPropertiesResponseInstanceViewPtrOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineExtensionPropertiesResponseInstanceView) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TypeHandlerVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type MachineIdentity struct {
+	Type *string `pulumi:"type"`
+}
+
+
+
+
+
+type MachineIdentityInput interface {
+	pulumi.Input
+
+	ToMachineIdentityOutput() MachineIdentityOutput
+	ToMachineIdentityOutputWithContext(context.Context) MachineIdentityOutput
+}
+
+type MachineIdentityArgs struct {
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (MachineIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineIdentity)(nil)).Elem()
+}
+
+func (i MachineIdentityArgs) ToMachineIdentityOutput() MachineIdentityOutput {
+	return i.ToMachineIdentityOutputWithContext(context.Background())
+}
+
+func (i MachineIdentityArgs) ToMachineIdentityOutputWithContext(ctx context.Context) MachineIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineIdentityOutput)
+}
+
+func (i MachineIdentityArgs) ToMachineIdentityPtrOutput() MachineIdentityPtrOutput {
+	return i.ToMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i MachineIdentityArgs) ToMachineIdentityPtrOutputWithContext(ctx context.Context) MachineIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineIdentityOutput).ToMachineIdentityPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type MachineIdentityPtrInput interface {
+	pulumi.Input
+
+	ToMachineIdentityPtrOutput() MachineIdentityPtrOutput
+	ToMachineIdentityPtrOutputWithContext(context.Context) MachineIdentityPtrOutput
+}
+
+type machineIdentityPtrType MachineIdentityArgs
+
+func MachineIdentityPtr(v *MachineIdentityArgs) MachineIdentityPtrInput {
+	return (*machineIdentityPtrType)(v)
+}
+
+func (*machineIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineIdentity)(nil)).Elem()
+}
+
+func (i *machineIdentityPtrType) ToMachineIdentityPtrOutput() MachineIdentityPtrOutput {
+	return i.ToMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *machineIdentityPtrType) ToMachineIdentityPtrOutputWithContext(ctx context.Context) MachineIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineIdentityPtrOutput)
+}
+
+type MachineIdentityOutput struct{ *pulumi.OutputState }
+
+func (MachineIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineIdentity)(nil)).Elem()
+}
+
+func (o MachineIdentityOutput) ToMachineIdentityOutput() MachineIdentityOutput {
+	return o
+}
+
+func (o MachineIdentityOutput) ToMachineIdentityOutputWithContext(ctx context.Context) MachineIdentityOutput {
+	return o
+}
+
+func (o MachineIdentityOutput) ToMachineIdentityPtrOutput() MachineIdentityPtrOutput {
+	return o.ToMachineIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o MachineIdentityOutput) ToMachineIdentityPtrOutputWithContext(ctx context.Context) MachineIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineIdentity) *MachineIdentity {
+		return &v
+	}).(MachineIdentityPtrOutput)
+}
+
+func (o MachineIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type MachineIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (MachineIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineIdentity)(nil)).Elem()
+}
+
+func (o MachineIdentityPtrOutput) ToMachineIdentityPtrOutput() MachineIdentityPtrOutput {
+	return o
+}
+
+func (o MachineIdentityPtrOutput) ToMachineIdentityPtrOutputWithContext(ctx context.Context) MachineIdentityPtrOutput {
+	return o
+}
+
+func (o MachineIdentityPtrOutput) Elem() MachineIdentityOutput {
+	return o.ApplyT(func(v *MachineIdentity) MachineIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MachineIdentity
+		return ret
+	}).(MachineIdentityOutput)
+}
+
+func (o MachineIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type MachinePropertiesResponseOsProfile struct {
+	ComputerName string `pulumi:"computerName"`
+}
+
+
+
+
+
+type MachinePropertiesResponseOsProfileInput interface {
+	pulumi.Input
+
+	ToMachinePropertiesResponseOsProfileOutput() MachinePropertiesResponseOsProfileOutput
+	ToMachinePropertiesResponseOsProfileOutputWithContext(context.Context) MachinePropertiesResponseOsProfileOutput
+}
+
+type MachinePropertiesResponseOsProfileArgs struct {
+	ComputerName pulumi.StringInput `pulumi:"computerName"`
+}
+
+func (MachinePropertiesResponseOsProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachinePropertiesResponseOsProfile)(nil)).Elem()
+}
+
+func (i MachinePropertiesResponseOsProfileArgs) ToMachinePropertiesResponseOsProfileOutput() MachinePropertiesResponseOsProfileOutput {
+	return i.ToMachinePropertiesResponseOsProfileOutputWithContext(context.Background())
+}
+
+func (i MachinePropertiesResponseOsProfileArgs) ToMachinePropertiesResponseOsProfileOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachinePropertiesResponseOsProfileOutput)
+}
+
+func (i MachinePropertiesResponseOsProfileArgs) ToMachinePropertiesResponseOsProfilePtrOutput() MachinePropertiesResponseOsProfilePtrOutput {
+	return i.ToMachinePropertiesResponseOsProfilePtrOutputWithContext(context.Background())
+}
+
+func (i MachinePropertiesResponseOsProfileArgs) ToMachinePropertiesResponseOsProfilePtrOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachinePropertiesResponseOsProfileOutput).ToMachinePropertiesResponseOsProfilePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type MachinePropertiesResponseOsProfilePtrInput interface {
+	pulumi.Input
+
+	ToMachinePropertiesResponseOsProfilePtrOutput() MachinePropertiesResponseOsProfilePtrOutput
+	ToMachinePropertiesResponseOsProfilePtrOutputWithContext(context.Context) MachinePropertiesResponseOsProfilePtrOutput
+}
+
+type machinePropertiesResponseOsProfilePtrType MachinePropertiesResponseOsProfileArgs
+
+func MachinePropertiesResponseOsProfilePtr(v *MachinePropertiesResponseOsProfileArgs) MachinePropertiesResponseOsProfilePtrInput {
+	return (*machinePropertiesResponseOsProfilePtrType)(v)
+}
+
+func (*machinePropertiesResponseOsProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachinePropertiesResponseOsProfile)(nil)).Elem()
+}
+
+func (i *machinePropertiesResponseOsProfilePtrType) ToMachinePropertiesResponseOsProfilePtrOutput() MachinePropertiesResponseOsProfilePtrOutput {
+	return i.ToMachinePropertiesResponseOsProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *machinePropertiesResponseOsProfilePtrType) ToMachinePropertiesResponseOsProfilePtrOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachinePropertiesResponseOsProfilePtrOutput)
+}
+
+type MachinePropertiesResponseOsProfileOutput struct{ *pulumi.OutputState }
+
+func (MachinePropertiesResponseOsProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachinePropertiesResponseOsProfile)(nil)).Elem()
+}
+
+func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsProfileOutput() MachinePropertiesResponseOsProfileOutput {
+	return o
+}
+
+func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsProfileOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfileOutput {
+	return o
+}
+
+func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsProfilePtrOutput() MachinePropertiesResponseOsProfilePtrOutput {
+	return o.ToMachinePropertiesResponseOsProfilePtrOutputWithContext(context.Background())
+}
+
+func (o MachinePropertiesResponseOsProfileOutput) ToMachinePropertiesResponseOsProfilePtrOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachinePropertiesResponseOsProfile) *MachinePropertiesResponseOsProfile {
+		return &v
+	}).(MachinePropertiesResponseOsProfilePtrOutput)
+}
+
+func (o MachinePropertiesResponseOsProfileOutput) ComputerName() pulumi.StringOutput {
+	return o.ApplyT(func(v MachinePropertiesResponseOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
+}
+
+type MachinePropertiesResponseOsProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (MachinePropertiesResponseOsProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachinePropertiesResponseOsProfile)(nil)).Elem()
+}
+
+func (o MachinePropertiesResponseOsProfilePtrOutput) ToMachinePropertiesResponseOsProfilePtrOutput() MachinePropertiesResponseOsProfilePtrOutput {
+	return o
+}
+
+func (o MachinePropertiesResponseOsProfilePtrOutput) ToMachinePropertiesResponseOsProfilePtrOutputWithContext(ctx context.Context) MachinePropertiesResponseOsProfilePtrOutput {
+	return o
+}
+
+func (o MachinePropertiesResponseOsProfilePtrOutput) Elem() MachinePropertiesResponseOsProfileOutput {
+	return o.ApplyT(func(v *MachinePropertiesResponseOsProfile) MachinePropertiesResponseOsProfile {
+		if v != nil {
+			return *v
+		}
+		var ret MachinePropertiesResponseOsProfile
+		return ret
+	}).(MachinePropertiesResponseOsProfileOutput)
+}
+
+func (o MachinePropertiesResponseOsProfilePtrOutput) ComputerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachinePropertiesResponseOsProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComputerName
+	}).(pulumi.StringPtrOutput)
+}
+
+type MachineResponseIdentity struct {
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
+}
+
+
+
+
+
+type MachineResponseIdentityInput interface {
+	pulumi.Input
+
+	ToMachineResponseIdentityOutput() MachineResponseIdentityOutput
+	ToMachineResponseIdentityOutputWithContext(context.Context) MachineResponseIdentityOutput
+}
+
+type MachineResponseIdentityArgs struct {
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (MachineResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineResponseIdentity)(nil)).Elem()
+}
+
+func (i MachineResponseIdentityArgs) ToMachineResponseIdentityOutput() MachineResponseIdentityOutput {
+	return i.ToMachineResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i MachineResponseIdentityArgs) ToMachineResponseIdentityOutputWithContext(ctx context.Context) MachineResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineResponseIdentityOutput)
+}
+
+func (i MachineResponseIdentityArgs) ToMachineResponseIdentityPtrOutput() MachineResponseIdentityPtrOutput {
+	return i.ToMachineResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i MachineResponseIdentityArgs) ToMachineResponseIdentityPtrOutputWithContext(ctx context.Context) MachineResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineResponseIdentityOutput).ToMachineResponseIdentityPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type MachineResponseIdentityPtrInput interface {
+	pulumi.Input
+
+	ToMachineResponseIdentityPtrOutput() MachineResponseIdentityPtrOutput
+	ToMachineResponseIdentityPtrOutputWithContext(context.Context) MachineResponseIdentityPtrOutput
+}
+
+type machineResponseIdentityPtrType MachineResponseIdentityArgs
+
+func MachineResponseIdentityPtr(v *MachineResponseIdentityArgs) MachineResponseIdentityPtrInput {
+	return (*machineResponseIdentityPtrType)(v)
+}
+
+func (*machineResponseIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineResponseIdentity)(nil)).Elem()
+}
+
+func (i *machineResponseIdentityPtrType) ToMachineResponseIdentityPtrOutput() MachineResponseIdentityPtrOutput {
+	return i.ToMachineResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *machineResponseIdentityPtrType) ToMachineResponseIdentityPtrOutputWithContext(ctx context.Context) MachineResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MachineResponseIdentityPtrOutput)
+}
+
+type MachineResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (MachineResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MachineResponseIdentity)(nil)).Elem()
+}
+
+func (o MachineResponseIdentityOutput) ToMachineResponseIdentityOutput() MachineResponseIdentityOutput {
+	return o
+}
+
+func (o MachineResponseIdentityOutput) ToMachineResponseIdentityOutputWithContext(ctx context.Context) MachineResponseIdentityOutput {
+	return o
+}
+
+func (o MachineResponseIdentityOutput) ToMachineResponseIdentityPtrOutput() MachineResponseIdentityPtrOutput {
+	return o.ToMachineResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o MachineResponseIdentityOutput) ToMachineResponseIdentityPtrOutputWithContext(ctx context.Context) MachineResponseIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineResponseIdentity) *MachineResponseIdentity {
+		return &v
+	}).(MachineResponseIdentityPtrOutput)
+}
+
+func (o MachineResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o MachineResponseIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v MachineResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o MachineResponseIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MachineResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type MachineResponseIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (MachineResponseIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MachineResponseIdentity)(nil)).Elem()
+}
+
+func (o MachineResponseIdentityPtrOutput) ToMachineResponseIdentityPtrOutput() MachineResponseIdentityPtrOutput {
+	return o
+}
+
+func (o MachineResponseIdentityPtrOutput) ToMachineResponseIdentityPtrOutputWithContext(ctx context.Context) MachineResponseIdentityPtrOutput {
+	return o
+}
+
+func (o MachineResponseIdentityPtrOutput) Elem() MachineResponseIdentityOutput {
+	return o.ApplyT(func(v *MachineResponseIdentity) MachineResponseIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MachineResponseIdentity
+		return ret
+	}).(MachineResponseIdentityOutput)
+}
+
+func (o MachineResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MachineResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MachineResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointConnectionResponse struct {
+	Id                                string                                             `pulumi:"id"`
+	Name                              string                                             `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointPropertyResponse                   `pulumi:"privateEndpoint"`
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
+	ProvisioningState                 string                                             `pulumi:"provisioningState"`
+	Type                              string                                             `pulumi:"type"`
+}
+
+
+
+
+
+type PrivateEndpointConnectionResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput
+	ToPrivateEndpointConnectionResponseOutputWithContext(context.Context) PrivateEndpointConnectionResponseOutput
+}
+
+type PrivateEndpointConnectionResponseArgs struct {
+	Id                                pulumi.StringInput                                        `pulumi:"id"`
+	Name                              pulumi.StringInput                                        `pulumi:"name"`
+	PrivateEndpoint                   PrivateEndpointPropertyResponsePtrInput                   `pulumi:"privateEndpoint"`
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePropertyResponsePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	ProvisioningState                 pulumi.StringInput                                        `pulumi:"provisioningState"`
+	Type                              pulumi.StringInput                                        `pulumi:"type"`
+}
+
+func (PrivateEndpointConnectionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionResponseArgs) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return i.ToPrivateEndpointConnectionResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionResponseArgs) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseOutput)
+}
+
+
+
+
+
+type PrivateEndpointConnectionResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput
+	ToPrivateEndpointConnectionResponseArrayOutputWithContext(context.Context) PrivateEndpointConnectionResponseArrayOutput
+}
+
+type PrivateEndpointConnectionResponseArray []PrivateEndpointConnectionResponseInput
+
+func (PrivateEndpointConnectionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return i.ToPrivateEndpointConnectionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointConnectionResponseArray) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionResponseArrayOutput)
+}
+
+type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointPropertyResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointPropertyResponse { return v.PrivateEndpoint }).(PrivateEndpointPropertyResponsePtrOutput)
+}
+
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
+		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionResponseOutput)
+}
+
+type PrivateEndpointProperty struct {
+	Id *string `pulumi:"id"`
+}
+
+
+
+
+
+type PrivateEndpointPropertyInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertyOutput() PrivateEndpointPropertyOutput
+	ToPrivateEndpointPropertyOutputWithContext(context.Context) PrivateEndpointPropertyOutput
+}
+
+type PrivateEndpointPropertyArgs struct {
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointProperty)(nil)).Elem()
+}
+
+func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyOutput() PrivateEndpointPropertyOutput {
+	return i.ToPrivateEndpointPropertyOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyOutputWithContext(ctx context.Context) PrivateEndpointPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyOutput)
+}
+
+func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyPtrOutput() PrivateEndpointPropertyPtrOutput {
+	return i.ToPrivateEndpointPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertyArgs) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyOutput).ToPrivateEndpointPropertyPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PrivateEndpointPropertyPtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertyPtrOutput() PrivateEndpointPropertyPtrOutput
+	ToPrivateEndpointPropertyPtrOutputWithContext(context.Context) PrivateEndpointPropertyPtrOutput
+}
+
+type privateEndpointPropertyPtrType PrivateEndpointPropertyArgs
+
+func PrivateEndpointPropertyPtr(v *PrivateEndpointPropertyArgs) PrivateEndpointPropertyPtrInput {
+	return (*privateEndpointPropertyPtrType)(v)
+}
+
+func (*privateEndpointPropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointProperty)(nil)).Elem()
+}
+
+func (i *privateEndpointPropertyPtrType) ToPrivateEndpointPropertyPtrOutput() PrivateEndpointPropertyPtrOutput {
+	return i.ToPrivateEndpointPropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointPropertyPtrType) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyPtrOutput)
+}
+
+type PrivateEndpointPropertyOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointProperty)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyOutput() PrivateEndpointPropertyOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyOutputWithContext(ctx context.Context) PrivateEndpointPropertyOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutput() PrivateEndpointPropertyPtrOutput {
+	return o.ToPrivateEndpointPropertyPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointPropertyOutput) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointProperty) *PrivateEndpointProperty {
+		return &v
+	}).(PrivateEndpointPropertyPtrOutput)
+}
+
+func (o PrivateEndpointPropertyOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointProperty) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointPropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointProperty)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertyPtrOutput) ToPrivateEndpointPropertyPtrOutput() PrivateEndpointPropertyPtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyPtrOutput) ToPrivateEndpointPropertyPtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyPtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyPtrOutput) Elem() PrivateEndpointPropertyOutput {
+	return o.ApplyT(func(v *PrivateEndpointProperty) PrivateEndpointProperty {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointProperty
+		return ret
+	}).(PrivateEndpointPropertyOutput)
+}
+
+func (o PrivateEndpointPropertyPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointPropertyResponse struct {
+	Id *string `pulumi:"id"`
+}
+
+
+
+
+
+type PrivateEndpointPropertyResponseInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertyResponseOutput() PrivateEndpointPropertyResponseOutput
+	ToPrivateEndpointPropertyResponseOutputWithContext(context.Context) PrivateEndpointPropertyResponseOutput
+}
+
+type PrivateEndpointPropertyResponseArgs struct {
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (PrivateEndpointPropertyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointPropertyResponse)(nil)).Elem()
+}
+
+func (i PrivateEndpointPropertyResponseArgs) ToPrivateEndpointPropertyResponseOutput() PrivateEndpointPropertyResponseOutput {
+	return i.ToPrivateEndpointPropertyResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertyResponseArgs) ToPrivateEndpointPropertyResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyResponseOutput)
+}
+
+func (i PrivateEndpointPropertyResponseArgs) ToPrivateEndpointPropertyResponsePtrOutput() PrivateEndpointPropertyResponsePtrOutput {
+	return i.ToPrivateEndpointPropertyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateEndpointPropertyResponseArgs) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyResponseOutput).ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PrivateEndpointPropertyResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateEndpointPropertyResponsePtrOutput() PrivateEndpointPropertyResponsePtrOutput
+	ToPrivateEndpointPropertyResponsePtrOutputWithContext(context.Context) PrivateEndpointPropertyResponsePtrOutput
+}
+
+type privateEndpointPropertyResponsePtrType PrivateEndpointPropertyResponseArgs
+
+func PrivateEndpointPropertyResponsePtr(v *PrivateEndpointPropertyResponseArgs) PrivateEndpointPropertyResponsePtrInput {
+	return (*privateEndpointPropertyResponsePtrType)(v)
+}
+
+func (*privateEndpointPropertyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointPropertyResponse)(nil)).Elem()
+}
+
+func (i *privateEndpointPropertyResponsePtrType) ToPrivateEndpointPropertyResponsePtrOutput() PrivateEndpointPropertyResponsePtrOutput {
+	return i.ToPrivateEndpointPropertyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateEndpointPropertyResponsePtrType) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPropertyResponsePtrOutput)
+}
+
+type PrivateEndpointPropertyResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointPropertyResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponseOutput() PrivateEndpointPropertyResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponseOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponsePtrOutput() PrivateEndpointPropertyResponsePtrOutput {
+	return o.ToPrivateEndpointPropertyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateEndpointPropertyResponseOutput) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointPropertyResponse) *PrivateEndpointPropertyResponse {
+		return &v
+	}).(PrivateEndpointPropertyResponsePtrOutput)
+}
+
+func (o PrivateEndpointPropertyResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointPropertyResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type PrivateEndpointPropertyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointPropertyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointPropertyResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointPropertyResponsePtrOutput) ToPrivateEndpointPropertyResponsePtrOutput() PrivateEndpointPropertyResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyResponsePtrOutput) ToPrivateEndpointPropertyResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointPropertyResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointPropertyResponsePtrOutput) Elem() PrivateEndpointPropertyResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) PrivateEndpointPropertyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointPropertyResponse
+		return ret
+	}).(PrivateEndpointPropertyResponseOutput)
+}
+
+func (o PrivateEndpointPropertyResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointPropertyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStateProperty struct {
+	Description string `pulumi:"description"`
+	Status      string `pulumi:"status"`
+}
+
+
+
+
+
+type PrivateLinkServiceConnectionStatePropertyInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePropertyOutput() PrivateLinkServiceConnectionStatePropertyOutput
+	ToPrivateLinkServiceConnectionStatePropertyOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyOutput
+}
+
+type PrivateLinkServiceConnectionStatePropertyArgs struct {
+	Description pulumi.StringInput `pulumi:"description"`
+	Status      pulumi.StringInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStatePropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateProperty)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConnectionStatePropertyOutput() PrivateLinkServiceConnectionStatePropertyOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConnectionStatePropertyOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyOutput)
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConnectionStatePropertyPtrOutput() PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyArgs) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyOutput).ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PrivateLinkServiceConnectionStatePropertyPtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePropertyPtrOutput() PrivateLinkServiceConnectionStatePropertyPtrOutput
+	ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput
+}
+
+type privateLinkServiceConnectionStatePropertyPtrType PrivateLinkServiceConnectionStatePropertyArgs
+
+func PrivateLinkServiceConnectionStatePropertyPtr(v *PrivateLinkServiceConnectionStatePropertyArgs) PrivateLinkServiceConnectionStatePropertyPtrInput {
+	return (*privateLinkServiceConnectionStatePropertyPtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStatePropertyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateProperty)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStatePropertyPtrType) ToPrivateLinkServiceConnectionStatePropertyPtrOutput() PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStatePropertyPtrType) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStatePropertyOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateProperty)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyOutput() PrivateLinkServiceConnectionStatePropertyOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutput() PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return o.ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateProperty) *PrivateLinkServiceConnectionStateProperty {
+		return &v
+	}).(PrivateLinkServiceConnectionStatePropertyPtrOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateProperty) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type PrivateLinkServiceConnectionStatePropertyPtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePropertyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStateProperty)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutput() PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) ToPrivateLinkServiceConnectionStatePropertyPtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyPtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) PrivateLinkServiceConnectionStateProperty {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStateProperty
+		return ret
+	}).(PrivateLinkServiceConnectionStatePropertyOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateProperty) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivateLinkServiceConnectionStatePropertyResponse struct {
+	ActionsRequired string `pulumi:"actionsRequired"`
+	Description     string `pulumi:"description"`
+	Status          string `pulumi:"status"`
+}
+
+
+
+
+
+type PrivateLinkServiceConnectionStatePropertyResponseInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePropertyResponseOutput() PrivateLinkServiceConnectionStatePropertyResponseOutput
+	ToPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyResponseOutput
+}
+
+type PrivateLinkServiceConnectionStatePropertyResponseArgs struct {
+	ActionsRequired pulumi.StringInput `pulumi:"actionsRequired"`
+	Description     pulumi.StringInput `pulumi:"description"`
+	Status          pulumi.StringInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStatePropertyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyResponseArgs) ToPrivateLinkServiceConnectionStatePropertyResponseOutput() PrivateLinkServiceConnectionStatePropertyResponseOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyResponseArgs) ToPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyResponseArgs) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStatePropertyResponseArgs) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyResponseOutput).ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PrivateLinkServiceConnectionStatePropertyResponsePtrInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput
+	ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput
+}
+
+type privateLinkServiceConnectionStatePropertyResponsePtrType PrivateLinkServiceConnectionStatePropertyResponseArgs
+
+func PrivateLinkServiceConnectionStatePropertyResponsePtr(v *PrivateLinkServiceConnectionStatePropertyResponseArgs) PrivateLinkServiceConnectionStatePropertyResponsePtrInput {
+	return (*privateLinkServiceConnectionStatePropertyResponsePtrType)(v)
+}
+
+func (*privateLinkServiceConnectionStatePropertyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
+}
+
+func (i *privateLinkServiceConnectionStatePropertyResponsePtrType) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+	return i.ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *privateLinkServiceConnectionStatePropertyResponsePtrType) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
+}
+
+type PrivateLinkServiceConnectionStatePropertyResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePropertyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponseOutput() PrivateLinkServiceConnectionStatePropertyResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+	return o.ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStatePropertyResponse) *PrivateLinkServiceConnectionStatePropertyResponse {
+		return &v
+	}).(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) ActionsRequired() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.ActionsRequired }).(pulumi.StringOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStatePropertyResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type PrivateLinkServiceConnectionStatePropertyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateLinkServiceConnectionStatePropertyResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutput() PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ToPrivateLinkServiceConnectionStatePropertyResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePropertyResponsePtrOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Elem() PrivateLinkServiceConnectionStatePropertyResponseOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) PrivateLinkServiceConnectionStatePropertyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateLinkServiceConnectionStatePropertyResponse
+		return ret
+	}).(PrivateLinkServiceConnectionStatePropertyResponseOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ActionsRequired
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateLinkServiceConnectionStatePropertyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ErrorDetailResponseOutput{})
+	pulumi.RegisterOutputType(ErrorDetailResponseArrayOutput{})
+	pulumi.RegisterOutputType(LocationDataOutput{})
+	pulumi.RegisterOutputType(LocationDataPtrOutput{})
+	pulumi.RegisterOutputType(LocationDataResponseOutput{})
+	pulumi.RegisterOutputType(LocationDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewArrayOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseArrayOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseStatusOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewResponseStatusPtrOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewStatusOutput{})
+	pulumi.RegisterOutputType(MachineExtensionInstanceViewStatusPtrOutput{})
+	pulumi.RegisterOutputType(MachineExtensionPropertiesInstanceViewOutput{})
+	pulumi.RegisterOutputType(MachineExtensionPropertiesInstanceViewPtrOutput{})
+	pulumi.RegisterOutputType(MachineExtensionPropertiesResponseInstanceViewOutput{})
+	pulumi.RegisterOutputType(MachineExtensionPropertiesResponseInstanceViewPtrOutput{})
+	pulumi.RegisterOutputType(MachineIdentityOutput{})
+	pulumi.RegisterOutputType(MachineIdentityPtrOutput{})
+	pulumi.RegisterOutputType(MachinePropertiesResponseOsProfileOutput{})
+	pulumi.RegisterOutputType(MachinePropertiesResponseOsProfilePtrOutput{})
+	pulumi.RegisterOutputType(MachineResponseIdentityOutput{})
+	pulumi.RegisterOutputType(MachineResponseIdentityPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertyOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertyPtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertyResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointPropertyResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
+}
