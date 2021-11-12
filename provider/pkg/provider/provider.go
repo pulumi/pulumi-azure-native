@@ -1344,12 +1344,10 @@ func (k *azureNativeProvider) azureDelete(ctx context.Context, id string, apiVer
 		}
 	}
 
-	var result map[string]interface{}
 	err = autorest.Respond(
 		resp,
 		k.client.ByInspecting(),
 		azure.WithErrorUnlessStatusCode(http.StatusOK, http.StatusAccepted, http.StatusNoContent, http.StatusNotFound),
-		autorest.ByUnmarshallingJSON(&result),
 		autorest.ByClosing(),
 	)
 	if err != nil {
