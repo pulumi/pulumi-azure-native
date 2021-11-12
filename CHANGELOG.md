@@ -7,6 +7,8 @@ CHANGELOG
 
 - Make Deletion of DNS zone more robust
   [#969](https://github.com/pulumi/pulumi-azure-native/issues/969)
+- Fix creation of `sql.ServerAzureADOnlyAuthentication` resource
+  [#1042](https://github.com/pulumi/pulumi-azure-native/issues/1042)
 
 #### Enhancements:
 
