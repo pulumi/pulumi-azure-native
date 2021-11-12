@@ -21,12 +21,18 @@ CHANGELOG
 
 - `apimanagement.getSchema`
 
+#### Updated API versions for top-level resources
+
+- `edgeorder` resources updated from `2020-12-01-preview` to `2020-12-01`
+
 #### Breaking Changes published by Microsoft:
 
 - `iotsecurity.LocationSite` and `iotsecurity.SiteSensor` were removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16588))
 - `botservice.WebChatSite` property `enablePreview` renamed to `isWebchatPreviewEnabled`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16377))
+- `datafactory.Flowlet` property `additionalProperties` removed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16652))
 
 ---
 
