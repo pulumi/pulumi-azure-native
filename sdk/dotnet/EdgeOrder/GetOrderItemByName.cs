@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.EdgeOrder
     {
         /// <summary>
         /// Represents order item contract
-        /// API Version: 2020-12-01-preview.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Task<GetOrderItemByNameResult> InvokeAsync(GetOrderItemByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderItemByNameResult>("azure-native:edgeorder:getOrderItemByName", args ?? new GetOrderItemByNameArgs(), options.WithVersion());
 
         /// <summary>
         /// Represents order item contract
-        /// API Version: 2020-12-01-preview.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Output<GetOrderItemByNameResult> Invoke(GetOrderItemByNameInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetOrderItemByNameResult>("azure-native:edgeorder:getOrderItemByName", args ?? new GetOrderItemByNameInvokeArgs(), options.WithVersion());

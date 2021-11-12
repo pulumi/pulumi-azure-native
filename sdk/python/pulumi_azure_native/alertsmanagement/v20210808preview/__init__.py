@@ -6,7 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .action_rule_by_name import *
-from .get_action_rule_by_name import *
+from .alert_processing_rule_by_name import *
+from .get_alert_processing_rule_by_name import *
 from ._inputs import *
 from . import outputs

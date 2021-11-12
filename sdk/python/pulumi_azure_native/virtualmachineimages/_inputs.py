@@ -937,7 +937,7 @@ class ImageTemplateVmProfileArgs:
         """
         Describes the virtual machine used to build, customize and capture images
         :param pulumi.Input[int] os_disk_size_gb: Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
-        :param pulumi.Input[str] vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
+        :param pulumi.Input[str] vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         :param pulumi.Input['VirtualNetworkConfigArgs'] vnet_config: Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
         """
         if os_disk_size_gb is None:
@@ -967,7 +967,7 @@ class ImageTemplateVmProfileArgs:
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[pulumi.Input[str]]:
         """
-        Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
+        Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         """
         return pulumi.get(self, "vm_size")
 

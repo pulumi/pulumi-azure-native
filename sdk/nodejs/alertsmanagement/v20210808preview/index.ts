@@ -5,21 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export * from "./actionRuleByName";
-export * from "./getActionRuleByName";
+export * from "./alertProcessingRuleByName";
+export * from "./getAlertProcessingRuleByName";
 
 // Export enums:
 export * from "../../types/enums/alertsmanagement/v20210808preview";
 
 // Import resources to register:
-import { ActionRuleByName } from "./actionRuleByName";
+import { AlertProcessingRuleByName } from "./alertProcessingRuleByName";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:alertsmanagement/v20210808preview:ActionRuleByName":
-                return new ActionRuleByName(name, <any>undefined, { urn })
+            case "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName":
+                return new AlertProcessingRuleByName(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

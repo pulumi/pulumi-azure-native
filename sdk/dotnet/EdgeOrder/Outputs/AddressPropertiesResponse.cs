@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
     public sealed class AddressPropertiesResponse
     {
         /// <summary>
+        /// Status of address validation
+        /// </summary>
+        public readonly string AddressValidationStatus;
+        /// <summary>
         /// Contact details for the address
         /// </summary>
         public readonly Outputs.ContactDetailsResponse ContactDetails;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
         [OutputConstructor]
         private AddressPropertiesResponse(
+            string addressValidationStatus,
+
             Outputs.ContactDetailsResponse contactDetails,
 
             Outputs.ShippingAddressResponse? shippingAddress)
         {
+            AddressValidationStatus = addressValidationStatus;
             ContactDetails = contactDetails;
             ShippingAddress = shippingAddress;
         }

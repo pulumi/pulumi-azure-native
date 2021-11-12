@@ -21,8 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure-native:alertsmanagement/v20210808preview:ActionRuleByName":
-		r = &ActionRuleByName{}
+	case "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName":
+		r = &AlertProcessingRuleByName{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

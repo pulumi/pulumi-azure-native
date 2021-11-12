@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
 {
 
     /// <summary>
-    /// Condition to trigger an action rule
+    /// Condition to trigger an alert processing rule.
     /// </summary>
     public sealed class ConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Field for a given condition
+        /// Field for a given condition.
         /// </summary>
         [Input("field")]
         public InputUnion<string, Pulumi.AzureNative.AlertsManagement.V20210808Preview.Field>? Field { get; set; }
 
         /// <summary>
-        /// Operator for a given condition
+        /// Operator for a given condition.
         /// </summary>
         [Input("operator")]
         public InputUnion<string, Pulumi.AzureNative.AlertsManagement.V20210808Preview.Operator>? Operator { get; set; }

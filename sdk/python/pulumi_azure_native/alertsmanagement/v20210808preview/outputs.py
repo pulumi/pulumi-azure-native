@@ -11,8 +11,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
-    'ActionRulePropertiesResponse',
     'AddActionGroupsResponse',
+    'AlertProcessingRulePropertiesResponse',
     'ConditionResponse',
     'DailyRecurrenceResponse',
     'MonthlyRecurrenceResponse',
@@ -23,92 +23,9 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ActionRulePropertiesResponse(dict):
-    """
-    Action rule properties defining scopes, conditions and scheduling logic for action rule
-    """
-    def __init__(__self__, *,
-                 actions: Sequence[Any],
-                 scopes: Sequence[str],
-                 conditions: Optional[Sequence['outputs.ConditionResponse']] = None,
-                 description: Optional[str] = None,
-                 enabled: Optional[bool] = None,
-                 schedule: Optional['outputs.ScheduleResponse'] = None):
-        """
-        Action rule properties defining scopes, conditions and scheduling logic for action rule
-        :param Sequence[Union['AddActionGroupsResponse', 'RemoveAllActionGroupsResponse']] actions: Actions to be applied
-        :param Sequence[str] scopes: Scopes on which action rule will apply
-        :param Sequence['ConditionResponse'] conditions: Conditions on which alerts will be filtered
-        :param str description: Description of action rule
-        :param bool enabled: Indicates if the given action rule is enabled or disabled
-        :param 'ScheduleResponse' schedule: Scheduling for action rule
-        """
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "scopes", scopes)
-        if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if enabled is None:
-            enabled = True
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Sequence[Any]:
-        """
-        Actions to be applied
-        """
-        return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter
-    def scopes(self) -> Sequence[str]:
-        """
-        Scopes on which action rule will apply
-        """
-        return pulumi.get(self, "scopes")
-
-    @property
-    @pulumi.getter
-    def conditions(self) -> Optional[Sequence['outputs.ConditionResponse']]:
-        """
-        Conditions on which alerts will be filtered
-        """
-        return pulumi.get(self, "conditions")
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        Description of action rule
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        Indicates if the given action rule is enabled or disabled
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def schedule(self) -> Optional['outputs.ScheduleResponse']:
-        """
-        Scheduling for action rule
-        """
-        return pulumi.get(self, "schedule")
-
-
-@pulumi.output_type
 class AddActionGroupsResponse(dict):
     """
-    Add action groups to action rule
+    Add action groups to alert processing rule.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -133,9 +50,9 @@ class AddActionGroupsResponse(dict):
                  action_group_ids: Sequence[str],
                  action_type: str):
         """
-        Add action groups to action rule
-        :param Sequence[str] action_group_ids: List of action group Ids to add to action rule
-        :param str action_type: Action that should be applied
+        Add action groups to alert processing rule.
+        :param Sequence[str] action_group_ids: List of action group Ids to add to alert processing rule.
+        :param str action_type: Action that should be applied.
                Expected value is 'AddActionGroups'.
         """
         pulumi.set(__self__, "action_group_ids", action_group_ids)
@@ -145,7 +62,7 @@ class AddActionGroupsResponse(dict):
     @pulumi.getter(name="actionGroupIds")
     def action_group_ids(self) -> Sequence[str]:
         """
-        List of action group Ids to add to action rule
+        List of action group Ids to add to alert processing rule.
         """
         return pulumi.get(self, "action_group_ids")
 
@@ -153,25 +70,108 @@ class AddActionGroupsResponse(dict):
     @pulumi.getter(name="actionType")
     def action_type(self) -> str:
         """
-        Action that should be applied
+        Action that should be applied.
         Expected value is 'AddActionGroups'.
         """
         return pulumi.get(self, "action_type")
 
 
 @pulumi.output_type
+class AlertProcessingRulePropertiesResponse(dict):
+    """
+    Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
+    """
+    def __init__(__self__, *,
+                 actions: Sequence[Any],
+                 scopes: Sequence[str],
+                 conditions: Optional[Sequence['outputs.ConditionResponse']] = None,
+                 description: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 schedule: Optional['outputs.ScheduleResponse'] = None):
+        """
+        Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
+        :param Sequence[Union['AddActionGroupsResponse', 'RemoveAllActionGroupsResponse']] actions: Actions to be applied.
+        :param Sequence[str] scopes: Scopes on which alert processing rule will apply.
+        :param Sequence['ConditionResponse'] conditions: Conditions on which alerts will be filtered.
+        :param str description: Description of alert processing rule.
+        :param bool enabled: Indicates if the given alert processing rule is enabled or disabled.
+        :param 'ScheduleResponse' schedule: Scheduling for alert processing rule.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "scopes", scopes)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is None:
+            enabled = True
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[Any]:
+        """
+        Actions to be applied.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence[str]:
+        """
+        Scopes on which alert processing rule will apply.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.ConditionResponse']]:
+        """
+        Conditions on which alerts will be filtered.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of alert processing rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates if the given alert processing rule is enabled or disabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.ScheduleResponse']:
+        """
+        Scheduling for alert processing rule.
+        """
+        return pulumi.get(self, "schedule")
+
+
+@pulumi.output_type
 class ConditionResponse(dict):
     """
-    Condition to trigger an action rule
+    Condition to trigger an alert processing rule.
     """
     def __init__(__self__, *,
                  field: Optional[str] = None,
                  operator: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
         """
-        Condition to trigger an action rule
-        :param str field: Field for a given condition
-        :param str operator: Operator for a given condition
+        Condition to trigger an alert processing rule.
+        :param str field: Field for a given condition.
+        :param str operator: Operator for a given condition.
         :param Sequence[str] values: List of values to match for a given condition.
         """
         if field is not None:
@@ -185,7 +185,7 @@ class ConditionResponse(dict):
     @pulumi.getter
     def field(self) -> Optional[str]:
         """
-        Field for a given condition
+        Field for a given condition.
         """
         return pulumi.get(self, "field")
 
@@ -193,7 +193,7 @@ class ConditionResponse(dict):
     @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        Operator for a given condition
+        Operator for a given condition.
         """
         return pulumi.get(self, "operator")
 
@@ -209,7 +209,7 @@ class ConditionResponse(dict):
 @pulumi.output_type
 class DailyRecurrenceResponse(dict):
     """
-    Daily recurrence object
+    Daily recurrence object.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -237,11 +237,11 @@ class DailyRecurrenceResponse(dict):
                  recurrence_type: str,
                  start_time: str):
         """
-        Daily recurrence object
-        :param str end_time: End time for recurrence
-        :param str recurrence_type: Specifies when the recurrence should be applied
+        Daily recurrence object.
+        :param str end_time: End time for recurrence.
+        :param str recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Daily'.
-        :param str start_time: Start time for recurrence
+        :param str start_time: Start time for recurrence.
         """
         pulumi.set(__self__, "end_time", end_time)
         pulumi.set(__self__, "recurrence_type", 'Daily')
@@ -251,7 +251,7 @@ class DailyRecurrenceResponse(dict):
     @pulumi.getter(name="endTime")
     def end_time(self) -> str:
         """
-        End time for recurrence
+        End time for recurrence.
         """
         return pulumi.get(self, "end_time")
 
@@ -259,7 +259,7 @@ class DailyRecurrenceResponse(dict):
     @pulumi.getter(name="recurrenceType")
     def recurrence_type(self) -> str:
         """
-        Specifies when the recurrence should be applied
+        Specifies when the recurrence should be applied.
         Expected value is 'Daily'.
         """
         return pulumi.get(self, "recurrence_type")
@@ -268,7 +268,7 @@ class DailyRecurrenceResponse(dict):
     @pulumi.getter(name="startTime")
     def start_time(self) -> str:
         """
-        Start time for recurrence
+        Start time for recurrence.
         """
         return pulumi.get(self, "start_time")
 
@@ -276,7 +276,7 @@ class DailyRecurrenceResponse(dict):
 @pulumi.output_type
 class MonthlyRecurrenceResponse(dict):
     """
-    Monthly recurrence object
+    Monthly recurrence object.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -307,12 +307,12 @@ class MonthlyRecurrenceResponse(dict):
                  end_time: Optional[str] = None,
                  start_time: Optional[str] = None):
         """
-        Monthly recurrence object
-        :param Sequence[int] days_of_month: Specifies the values for monthly recurrence pattern
-        :param str recurrence_type: Specifies when the recurrence should be applied
+        Monthly recurrence object.
+        :param Sequence[int] days_of_month: Specifies the values for monthly recurrence pattern.
+        :param str recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Monthly'.
-        :param str end_time: End time for recurrence
-        :param str start_time: Start time for recurrence
+        :param str end_time: End time for recurrence.
+        :param str start_time: Start time for recurrence.
         """
         pulumi.set(__self__, "days_of_month", days_of_month)
         pulumi.set(__self__, "recurrence_type", 'Monthly')
@@ -325,7 +325,7 @@ class MonthlyRecurrenceResponse(dict):
     @pulumi.getter(name="daysOfMonth")
     def days_of_month(self) -> Sequence[int]:
         """
-        Specifies the values for monthly recurrence pattern
+        Specifies the values for monthly recurrence pattern.
         """
         return pulumi.get(self, "days_of_month")
 
@@ -333,7 +333,7 @@ class MonthlyRecurrenceResponse(dict):
     @pulumi.getter(name="recurrenceType")
     def recurrence_type(self) -> str:
         """
-        Specifies when the recurrence should be applied
+        Specifies when the recurrence should be applied.
         Expected value is 'Monthly'.
         """
         return pulumi.get(self, "recurrence_type")
@@ -342,7 +342,7 @@ class MonthlyRecurrenceResponse(dict):
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[str]:
         """
-        End time for recurrence
+        End time for recurrence.
         """
         return pulumi.get(self, "end_time")
 
@@ -350,7 +350,7 @@ class MonthlyRecurrenceResponse(dict):
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[str]:
         """
-        Start time for recurrence
+        Start time for recurrence.
         """
         return pulumi.get(self, "start_time")
 
@@ -358,7 +358,7 @@ class MonthlyRecurrenceResponse(dict):
 @pulumi.output_type
 class RemoveAllActionGroupsResponse(dict):
     """
-    Indicates if all action groups should be removed
+    Indicates if all action groups should be removed.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -380,8 +380,8 @@ class RemoveAllActionGroupsResponse(dict):
     def __init__(__self__, *,
                  action_type: str):
         """
-        Indicates if all action groups should be removed
-        :param str action_type: Action that should be applied
+        Indicates if all action groups should be removed.
+        :param str action_type: Action that should be applied.
                Expected value is 'RemoveAllActionGroups'.
         """
         pulumi.set(__self__, "action_type", 'RemoveAllActionGroups')
@@ -390,7 +390,7 @@ class RemoveAllActionGroupsResponse(dict):
     @pulumi.getter(name="actionType")
     def action_type(self) -> str:
         """
-        Action that should be applied
+        Action that should be applied.
         Expected value is 'RemoveAllActionGroups'.
         """
         return pulumi.get(self, "action_type")
@@ -399,7 +399,7 @@ class RemoveAllActionGroupsResponse(dict):
 @pulumi.output_type
 class ScheduleResponse(dict):
     """
-    Scheduling configuration for a given action rule
+    Scheduling configuration for a given alert processing rule.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -428,11 +428,11 @@ class ScheduleResponse(dict):
                  recurrences: Optional[Sequence[Any]] = None,
                  time_zone: Optional[str] = None):
         """
-        Scheduling configuration for a given action rule
+        Scheduling configuration for a given alert processing rule.
         :param str effective_from: Scheduling effective from time. Date-Time in ISO-8601 format without timezone suffix.
         :param str effective_until: Scheduling effective until time. Date-Time in ISO-8601 format without timezone suffix.
-        :param Sequence[Union['DailyRecurrenceResponse', 'MonthlyRecurrenceResponse', 'WeeklyRecurrenceResponse']] recurrences: List of recurrences
-        :param str time_zone: Scheduling time zone
+        :param Sequence[Union['DailyRecurrenceResponse', 'MonthlyRecurrenceResponse', 'WeeklyRecurrenceResponse']] recurrences: List of recurrences.
+        :param str time_zone: Scheduling time zone.
         """
         if effective_from is not None:
             pulumi.set(__self__, "effective_from", effective_from)
@@ -463,7 +463,7 @@ class ScheduleResponse(dict):
     @pulumi.getter
     def recurrences(self) -> Optional[Sequence[Any]]:
         """
-        List of recurrences
+        List of recurrences.
         """
         return pulumi.get(self, "recurrences")
 
@@ -471,7 +471,7 @@ class ScheduleResponse(dict):
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[str]:
         """
-        Scheduling time zone
+        Scheduling time zone.
         """
         return pulumi.get(self, "time_zone")
 
@@ -589,7 +589,7 @@ class SystemDataResponse(dict):
 @pulumi.output_type
 class WeeklyRecurrenceResponse(dict):
     """
-    Weekly recurrence object
+    Weekly recurrence object.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -620,12 +620,12 @@ class WeeklyRecurrenceResponse(dict):
                  end_time: Optional[str] = None,
                  start_time: Optional[str] = None):
         """
-        Weekly recurrence object
-        :param Sequence[str] days_of_week: Specifies the values for weekly recurrence pattern
-        :param str recurrence_type: Specifies when the recurrence should be applied
+        Weekly recurrence object.
+        :param Sequence[str] days_of_week: Specifies the values for weekly recurrence pattern.
+        :param str recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Weekly'.
-        :param str end_time: End time for recurrence
-        :param str start_time: Start time for recurrence
+        :param str end_time: End time for recurrence.
+        :param str start_time: Start time for recurrence.
         """
         pulumi.set(__self__, "days_of_week", days_of_week)
         pulumi.set(__self__, "recurrence_type", 'Weekly')
@@ -638,7 +638,7 @@ class WeeklyRecurrenceResponse(dict):
     @pulumi.getter(name="daysOfWeek")
     def days_of_week(self) -> Sequence[str]:
         """
-        Specifies the values for weekly recurrence pattern
+        Specifies the values for weekly recurrence pattern.
         """
         return pulumi.get(self, "days_of_week")
 
@@ -646,7 +646,7 @@ class WeeklyRecurrenceResponse(dict):
     @pulumi.getter(name="recurrenceType")
     def recurrence_type(self) -> str:
         """
-        Specifies when the recurrence should be applied
+        Specifies when the recurrence should be applied.
         Expected value is 'Weekly'.
         """
         return pulumi.get(self, "recurrence_type")
@@ -655,7 +655,7 @@ class WeeklyRecurrenceResponse(dict):
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[str]:
         """
-        End time for recurrence
+        End time for recurrence.
         """
         return pulumi.get(self, "end_time")
 
@@ -663,7 +663,7 @@ class WeeklyRecurrenceResponse(dict):
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[str]:
         """
-        Start time for recurrence
+        Start time for recurrence.
         """
         return pulumi.get(self, "start_time")
 

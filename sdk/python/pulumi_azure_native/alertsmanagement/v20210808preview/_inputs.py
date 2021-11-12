@@ -10,8 +10,8 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ActionRulePropertiesArgs',
     'AddActionGroupsArgs',
+    'AlertProcessingRulePropertiesArgs',
     'ConditionArgs',
     'DailyRecurrenceArgs',
     'MonthlyRecurrenceArgs',
@@ -21,7 +21,47 @@ __all__ = [
 ]
 
 @pulumi.input_type
-class ActionRulePropertiesArgs:
+class AddActionGroupsArgs:
+    def __init__(__self__, *,
+                 action_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 action_type: pulumi.Input[str]):
+        """
+        Add action groups to alert processing rule.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] action_group_ids: List of action group Ids to add to alert processing rule.
+        :param pulumi.Input[str] action_type: Action that should be applied.
+               Expected value is 'AddActionGroups'.
+        """
+        pulumi.set(__self__, "action_group_ids", action_group_ids)
+        pulumi.set(__self__, "action_type", 'AddActionGroups')
+
+    @property
+    @pulumi.getter(name="actionGroupIds")
+    def action_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of action group Ids to add to alert processing rule.
+        """
+        return pulumi.get(self, "action_group_ids")
+
+    @action_group_ids.setter
+    def action_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "action_group_ids", value)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> pulumi.Input[str]:
+        """
+        Action that should be applied.
+        Expected value is 'AddActionGroups'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @action_type.setter
+    def action_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action_type", value)
+
+
+@pulumi.input_type
+class AlertProcessingRulePropertiesArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'RemoveAllActionGroupsArgs']]]],
                  scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -30,13 +70,13 @@ class ActionRulePropertiesArgs:
                  enabled: Optional[pulumi.Input[bool]] = None,
                  schedule: Optional[pulumi.Input['ScheduleArgs']] = None):
         """
-        Action rule properties defining scopes, conditions and scheduling logic for action rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'RemoveAllActionGroupsArgs']]]] actions: Actions to be applied
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes on which action rule will apply
-        :param pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]] conditions: Conditions on which alerts will be filtered
-        :param pulumi.Input[str] description: Description of action rule
-        :param pulumi.Input[bool] enabled: Indicates if the given action rule is enabled or disabled
-        :param pulumi.Input['ScheduleArgs'] schedule: Scheduling for action rule
+        Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'RemoveAllActionGroupsArgs']]]] actions: Actions to be applied.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Scopes on which alert processing rule will apply.
+        :param pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]] conditions: Conditions on which alerts will be filtered.
+        :param pulumi.Input[str] description: Description of alert processing rule.
+        :param pulumi.Input[bool] enabled: Indicates if the given alert processing rule is enabled or disabled.
+        :param pulumi.Input['ScheduleArgs'] schedule: Scheduling for alert processing rule.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "scopes", scopes)
@@ -55,7 +95,7 @@ class ActionRulePropertiesArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AddActionGroupsArgs', 'RemoveAllActionGroupsArgs']]]]:
         """
-        Actions to be applied
+        Actions to be applied.
         """
         return pulumi.get(self, "actions")
 
@@ -67,7 +107,7 @@ class ActionRulePropertiesArgs:
     @pulumi.getter
     def scopes(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Scopes on which action rule will apply
+        Scopes on which alert processing rule will apply.
         """
         return pulumi.get(self, "scopes")
 
@@ -79,7 +119,7 @@ class ActionRulePropertiesArgs:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConditionArgs']]]]:
         """
-        Conditions on which alerts will be filtered
+        Conditions on which alerts will be filtered.
         """
         return pulumi.get(self, "conditions")
 
@@ -91,7 +131,7 @@ class ActionRulePropertiesArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Description of action rule
+        Description of alert processing rule.
         """
         return pulumi.get(self, "description")
 
@@ -103,7 +143,7 @@ class ActionRulePropertiesArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates if the given action rule is enabled or disabled
+        Indicates if the given alert processing rule is enabled or disabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -115,7 +155,7 @@ class ActionRulePropertiesArgs:
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['ScheduleArgs']]:
         """
-        Scheduling for action rule
+        Scheduling for alert processing rule.
         """
         return pulumi.get(self, "schedule")
 
@@ -125,55 +165,15 @@ class ActionRulePropertiesArgs:
 
 
 @pulumi.input_type
-class AddActionGroupsArgs:
-    def __init__(__self__, *,
-                 action_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 action_type: pulumi.Input[str]):
-        """
-        Add action groups to action rule
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] action_group_ids: List of action group Ids to add to action rule
-        :param pulumi.Input[str] action_type: Action that should be applied
-               Expected value is 'AddActionGroups'.
-        """
-        pulumi.set(__self__, "action_group_ids", action_group_ids)
-        pulumi.set(__self__, "action_type", 'AddActionGroups')
-
-    @property
-    @pulumi.getter(name="actionGroupIds")
-    def action_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        List of action group Ids to add to action rule
-        """
-        return pulumi.get(self, "action_group_ids")
-
-    @action_group_ids.setter
-    def action_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "action_group_ids", value)
-
-    @property
-    @pulumi.getter(name="actionType")
-    def action_type(self) -> pulumi.Input[str]:
-        """
-        Action that should be applied
-        Expected value is 'AddActionGroups'.
-        """
-        return pulumi.get(self, "action_type")
-
-    @action_type.setter
-    def action_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "action_type", value)
-
-
-@pulumi.input_type
 class ConditionArgs:
     def __init__(__self__, *,
                  field: Optional[pulumi.Input[Union[str, 'Field']]] = None,
                  operator: Optional[pulumi.Input[Union[str, 'Operator']]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        Condition to trigger an action rule
-        :param pulumi.Input[Union[str, 'Field']] field: Field for a given condition
-        :param pulumi.Input[Union[str, 'Operator']] operator: Operator for a given condition
+        Condition to trigger an alert processing rule.
+        :param pulumi.Input[Union[str, 'Field']] field: Field for a given condition.
+        :param pulumi.Input[Union[str, 'Operator']] operator: Operator for a given condition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of values to match for a given condition.
         """
         if field is not None:
@@ -187,7 +187,7 @@ class ConditionArgs:
     @pulumi.getter
     def field(self) -> Optional[pulumi.Input[Union[str, 'Field']]]:
         """
-        Field for a given condition
+        Field for a given condition.
         """
         return pulumi.get(self, "field")
 
@@ -199,7 +199,7 @@ class ConditionArgs:
     @pulumi.getter
     def operator(self) -> Optional[pulumi.Input[Union[str, 'Operator']]]:
         """
-        Operator for a given condition
+        Operator for a given condition.
         """
         return pulumi.get(self, "operator")
 
@@ -227,11 +227,11 @@ class DailyRecurrenceArgs:
                  recurrence_type: pulumi.Input[str],
                  start_time: pulumi.Input[str]):
         """
-        Daily recurrence object
-        :param pulumi.Input[str] end_time: End time for recurrence
-        :param pulumi.Input[str] recurrence_type: Specifies when the recurrence should be applied
+        Daily recurrence object.
+        :param pulumi.Input[str] end_time: End time for recurrence.
+        :param pulumi.Input[str] recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Daily'.
-        :param pulumi.Input[str] start_time: Start time for recurrence
+        :param pulumi.Input[str] start_time: Start time for recurrence.
         """
         pulumi.set(__self__, "end_time", end_time)
         pulumi.set(__self__, "recurrence_type", 'Daily')
@@ -241,7 +241,7 @@ class DailyRecurrenceArgs:
     @pulumi.getter(name="endTime")
     def end_time(self) -> pulumi.Input[str]:
         """
-        End time for recurrence
+        End time for recurrence.
         """
         return pulumi.get(self, "end_time")
 
@@ -253,7 +253,7 @@ class DailyRecurrenceArgs:
     @pulumi.getter(name="recurrenceType")
     def recurrence_type(self) -> pulumi.Input[str]:
         """
-        Specifies when the recurrence should be applied
+        Specifies when the recurrence should be applied.
         Expected value is 'Daily'.
         """
         return pulumi.get(self, "recurrence_type")
@@ -266,7 +266,7 @@ class DailyRecurrenceArgs:
     @pulumi.getter(name="startTime")
     def start_time(self) -> pulumi.Input[str]:
         """
-        Start time for recurrence
+        Start time for recurrence.
         """
         return pulumi.get(self, "start_time")
 
@@ -283,12 +283,12 @@ class MonthlyRecurrenceArgs:
                  end_time: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
-        Monthly recurrence object
-        :param pulumi.Input[Sequence[pulumi.Input[int]]] days_of_month: Specifies the values for monthly recurrence pattern
-        :param pulumi.Input[str] recurrence_type: Specifies when the recurrence should be applied
+        Monthly recurrence object.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] days_of_month: Specifies the values for monthly recurrence pattern.
+        :param pulumi.Input[str] recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Monthly'.
-        :param pulumi.Input[str] end_time: End time for recurrence
-        :param pulumi.Input[str] start_time: Start time for recurrence
+        :param pulumi.Input[str] end_time: End time for recurrence.
+        :param pulumi.Input[str] start_time: Start time for recurrence.
         """
         pulumi.set(__self__, "days_of_month", days_of_month)
         pulumi.set(__self__, "recurrence_type", 'Monthly')
@@ -301,7 +301,7 @@ class MonthlyRecurrenceArgs:
     @pulumi.getter(name="daysOfMonth")
     def days_of_month(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
         """
-        Specifies the values for monthly recurrence pattern
+        Specifies the values for monthly recurrence pattern.
         """
         return pulumi.get(self, "days_of_month")
 
@@ -313,7 +313,7 @@ class MonthlyRecurrenceArgs:
     @pulumi.getter(name="recurrenceType")
     def recurrence_type(self) -> pulumi.Input[str]:
         """
-        Specifies when the recurrence should be applied
+        Specifies when the recurrence should be applied.
         Expected value is 'Monthly'.
         """
         return pulumi.get(self, "recurrence_type")
@@ -326,7 +326,7 @@ class MonthlyRecurrenceArgs:
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[pulumi.Input[str]]:
         """
-        End time for recurrence
+        End time for recurrence.
         """
         return pulumi.get(self, "end_time")
 
@@ -338,7 +338,7 @@ class MonthlyRecurrenceArgs:
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[str]]:
         """
-        Start time for recurrence
+        Start time for recurrence.
         """
         return pulumi.get(self, "start_time")
 
@@ -352,8 +352,8 @@ class RemoveAllActionGroupsArgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[str]):
         """
-        Indicates if all action groups should be removed
-        :param pulumi.Input[str] action_type: Action that should be applied
+        Indicates if all action groups should be removed.
+        :param pulumi.Input[str] action_type: Action that should be applied.
                Expected value is 'RemoveAllActionGroups'.
         """
         pulumi.set(__self__, "action_type", 'RemoveAllActionGroups')
@@ -362,7 +362,7 @@ class RemoveAllActionGroupsArgs:
     @pulumi.getter(name="actionType")
     def action_type(self) -> pulumi.Input[str]:
         """
-        Action that should be applied
+        Action that should be applied.
         Expected value is 'RemoveAllActionGroups'.
         """
         return pulumi.get(self, "action_type")
@@ -380,11 +380,11 @@ class ScheduleArgs:
                  recurrences: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgs', 'MonthlyRecurrenceArgs', 'WeeklyRecurrenceArgs']]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
-        Scheduling configuration for a given action rule
+        Scheduling configuration for a given alert processing rule.
         :param pulumi.Input[str] effective_from: Scheduling effective from time. Date-Time in ISO-8601 format without timezone suffix.
         :param pulumi.Input[str] effective_until: Scheduling effective until time. Date-Time in ISO-8601 format without timezone suffix.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgs', 'MonthlyRecurrenceArgs', 'WeeklyRecurrenceArgs']]]] recurrences: List of recurrences
-        :param pulumi.Input[str] time_zone: Scheduling time zone
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgs', 'MonthlyRecurrenceArgs', 'WeeklyRecurrenceArgs']]]] recurrences: List of recurrences.
+        :param pulumi.Input[str] time_zone: Scheduling time zone.
         """
         if effective_from is not None:
             pulumi.set(__self__, "effective_from", effective_from)
@@ -423,7 +423,7 @@ class ScheduleArgs:
     @pulumi.getter
     def recurrences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['DailyRecurrenceArgs', 'MonthlyRecurrenceArgs', 'WeeklyRecurrenceArgs']]]]]:
         """
-        List of recurrences
+        List of recurrences.
         """
         return pulumi.get(self, "recurrences")
 
@@ -435,7 +435,7 @@ class ScheduleArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        Scheduling time zone
+        Scheduling time zone.
         """
         return pulumi.get(self, "time_zone")
 
@@ -452,12 +452,12 @@ class WeeklyRecurrenceArgs:
                  end_time: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
-        Weekly recurrence object
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]] days_of_week: Specifies the values for weekly recurrence pattern
-        :param pulumi.Input[str] recurrence_type: Specifies when the recurrence should be applied
+        Weekly recurrence object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]] days_of_week: Specifies the values for weekly recurrence pattern.
+        :param pulumi.Input[str] recurrence_type: Specifies when the recurrence should be applied.
                Expected value is 'Weekly'.
-        :param pulumi.Input[str] end_time: End time for recurrence
-        :param pulumi.Input[str] start_time: Start time for recurrence
+        :param pulumi.Input[str] end_time: End time for recurrence.
+        :param pulumi.Input[str] start_time: Start time for recurrence.
         """
         pulumi.set(__self__, "days_of_week", days_of_week)
         pulumi.set(__self__, "recurrence_type", 'Weekly')
@@ -470,7 +470,7 @@ class WeeklyRecurrenceArgs:
     @pulumi.getter(name="daysOfWeek")
     def days_of_week(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]:
         """
-        Specifies the values for weekly recurrence pattern
+        Specifies the values for weekly recurrence pattern.
         """
         return pulumi.get(self, "days_of_week")
 
@@ -482,7 +482,7 @@ class WeeklyRecurrenceArgs:
     @pulumi.getter(name="recurrenceType")
     def recurrence_type(self) -> pulumi.Input[str]:
         """
-        Specifies when the recurrence should be applied
+        Specifies when the recurrence should be applied.
         Expected value is 'Weekly'.
         """
         return pulumi.get(self, "recurrence_type")
@@ -495,7 +495,7 @@ class WeeklyRecurrenceArgs:
     @pulumi.getter(name="endTime")
     def end_time(self) -> Optional[pulumi.Input[str]]:
         """
-        End time for recurrence
+        End time for recurrence.
         """
         return pulumi.get(self, "end_time")
 
@@ -507,7 +507,7 @@ class WeeklyRecurrenceArgs:
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[str]]:
         """
-        Start time for recurrence
+        Start time for recurrence.
         """
         return pulumi.get(self, "start_time")
 

@@ -109,7 +109,9 @@ class AddressPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "contactDetails":
+        if key == "addressValidationStatus":
+            suggest = "address_validation_status"
+        elif key == "contactDetails":
             suggest = "contact_details"
         elif key == "shippingAddress":
             suggest = "shipping_address"
@@ -126,16 +128,27 @@ class AddressPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 address_validation_status: str,
                  contact_details: 'outputs.ContactDetailsResponse',
                  shipping_address: Optional['outputs.ShippingAddressResponse'] = None):
         """
         Address Properties
+        :param str address_validation_status: Status of address validation
         :param 'ContactDetailsResponse' contact_details: Contact details for the address
         :param 'ShippingAddressResponse' shipping_address: Shipping details for the address
         """
+        pulumi.set(__self__, "address_validation_status", address_validation_status)
         pulumi.set(__self__, "contact_details", contact_details)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
+
+    @property
+    @pulumi.getter(name="addressValidationStatus")
+    def address_validation_status(self) -> str:
+        """
+        Status of address validation
+        """
+        return pulumi.get(self, "address_validation_status")
 
     @property
     @pulumi.getter(name="contactDetails")

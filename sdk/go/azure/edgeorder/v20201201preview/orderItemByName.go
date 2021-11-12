@@ -48,6 +48,9 @@ func NewOrderItemByName(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:edgeorder:OrderItemByName"),
 		},
+		{
+			Type: pulumi.String("azure-native:edgeorder/v20211201:OrderItemByName"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource OrderItemByName

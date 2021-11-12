@@ -11,26 +11,26 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Outputs
 {
 
     /// <summary>
-    /// Weekly recurrence object
+    /// Weekly recurrence object.
     /// </summary>
     [OutputType]
     public sealed class WeeklyRecurrenceResponse
     {
         /// <summary>
-        /// Specifies the values for weekly recurrence pattern
+        /// Specifies the values for weekly recurrence pattern.
         /// </summary>
         public readonly ImmutableArray<string> DaysOfWeek;
         /// <summary>
-        /// End time for recurrence
+        /// End time for recurrence.
         /// </summary>
         public readonly string? EndTime;
         /// <summary>
-        /// Specifies when the recurrence should be applied
+        /// Specifies when the recurrence should be applied.
         /// Expected value is 'Weekly'.
         /// </summary>
         public readonly string RecurrenceType;
         /// <summary>
-        /// Start time for recurrence
+        /// Start time for recurrence.
         /// </summary>
         public readonly string? StartTime;
 

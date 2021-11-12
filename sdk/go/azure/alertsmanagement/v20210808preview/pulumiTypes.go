@@ -10,422 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-type ActionRuleProperties struct {
-	Actions     []interface{} `pulumi:"actions"`
-	Conditions  []Condition   `pulumi:"conditions"`
-	Description *string       `pulumi:"description"`
-	Enabled     *bool         `pulumi:"enabled"`
-	Schedule    *Schedule     `pulumi:"schedule"`
-	Scopes      []string      `pulumi:"scopes"`
-}
-
-
-
-
-
-type ActionRulePropertiesInput interface {
-	pulumi.Input
-
-	ToActionRulePropertiesOutput() ActionRulePropertiesOutput
-	ToActionRulePropertiesOutputWithContext(context.Context) ActionRulePropertiesOutput
-}
-
-type ActionRulePropertiesArgs struct {
-	Actions     pulumi.ArrayInput       `pulumi:"actions"`
-	Conditions  ConditionArrayInput     `pulumi:"conditions"`
-	Description pulumi.StringPtrInput   `pulumi:"description"`
-	Enabled     pulumi.BoolPtrInput     `pulumi:"enabled"`
-	Schedule    SchedulePtrInput        `pulumi:"schedule"`
-	Scopes      pulumi.StringArrayInput `pulumi:"scopes"`
-}
-
-func (ActionRulePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleProperties)(nil)).Elem()
-}
-
-func (i ActionRulePropertiesArgs) ToActionRulePropertiesOutput() ActionRulePropertiesOutput {
-	return i.ToActionRulePropertiesOutputWithContext(context.Background())
-}
-
-func (i ActionRulePropertiesArgs) ToActionRulePropertiesOutputWithContext(ctx context.Context) ActionRulePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionRulePropertiesOutput)
-}
-
-func (i ActionRulePropertiesArgs) ToActionRulePropertiesPtrOutput() ActionRulePropertiesPtrOutput {
-	return i.ToActionRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ActionRulePropertiesArgs) ToActionRulePropertiesPtrOutputWithContext(ctx context.Context) ActionRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionRulePropertiesOutput).ToActionRulePropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ActionRulePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToActionRulePropertiesPtrOutput() ActionRulePropertiesPtrOutput
-	ToActionRulePropertiesPtrOutputWithContext(context.Context) ActionRulePropertiesPtrOutput
-}
-
-type actionRulePropertiesPtrType ActionRulePropertiesArgs
-
-func ActionRulePropertiesPtr(v *ActionRulePropertiesArgs) ActionRulePropertiesPtrInput {
-	return (*actionRulePropertiesPtrType)(v)
-}
-
-func (*actionRulePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionRuleProperties)(nil)).Elem()
-}
-
-func (i *actionRulePropertiesPtrType) ToActionRulePropertiesPtrOutput() ActionRulePropertiesPtrOutput {
-	return i.ToActionRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *actionRulePropertiesPtrType) ToActionRulePropertiesPtrOutputWithContext(ctx context.Context) ActionRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionRulePropertiesPtrOutput)
-}
-
-type ActionRulePropertiesOutput struct{ *pulumi.OutputState }
-
-func (ActionRulePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRuleProperties)(nil)).Elem()
-}
-
-func (o ActionRulePropertiesOutput) ToActionRulePropertiesOutput() ActionRulePropertiesOutput {
-	return o
-}
-
-func (o ActionRulePropertiesOutput) ToActionRulePropertiesOutputWithContext(ctx context.Context) ActionRulePropertiesOutput {
-	return o
-}
-
-func (o ActionRulePropertiesOutput) ToActionRulePropertiesPtrOutput() ActionRulePropertiesPtrOutput {
-	return o.ToActionRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ActionRulePropertiesOutput) ToActionRulePropertiesPtrOutputWithContext(ctx context.Context) ActionRulePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRuleProperties) *ActionRuleProperties {
-		return &v
-	}).(ActionRulePropertiesPtrOutput)
-}
-
-func (o ActionRulePropertiesOutput) Actions() pulumi.ArrayOutput {
-	return o.ApplyT(func(v ActionRuleProperties) []interface{} { return v.Actions }).(pulumi.ArrayOutput)
-}
-
-func (o ActionRulePropertiesOutput) Conditions() ConditionArrayOutput {
-	return o.ApplyT(func(v ActionRuleProperties) []Condition { return v.Conditions }).(ConditionArrayOutput)
-}
-
-func (o ActionRulePropertiesOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActionRuleProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ActionRulePropertiesOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ActionRuleProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o ActionRulePropertiesOutput) Schedule() SchedulePtrOutput {
-	return o.ApplyT(func(v ActionRuleProperties) *Schedule { return v.Schedule }).(SchedulePtrOutput)
-}
-
-func (o ActionRulePropertiesOutput) Scopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ActionRuleProperties) []string { return v.Scopes }).(pulumi.StringArrayOutput)
-}
-
-type ActionRulePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ActionRulePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionRuleProperties)(nil)).Elem()
-}
-
-func (o ActionRulePropertiesPtrOutput) ToActionRulePropertiesPtrOutput() ActionRulePropertiesPtrOutput {
-	return o
-}
-
-func (o ActionRulePropertiesPtrOutput) ToActionRulePropertiesPtrOutputWithContext(ctx context.Context) ActionRulePropertiesPtrOutput {
-	return o
-}
-
-func (o ActionRulePropertiesPtrOutput) Elem() ActionRulePropertiesOutput {
-	return o.ApplyT(func(v *ActionRuleProperties) ActionRuleProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ActionRuleProperties
-		return ret
-	}).(ActionRulePropertiesOutput)
-}
-
-func (o ActionRulePropertiesPtrOutput) Actions() pulumi.ArrayOutput {
-	return o.ApplyT(func(v *ActionRuleProperties) []interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(pulumi.ArrayOutput)
-}
-
-func (o ActionRulePropertiesPtrOutput) Conditions() ConditionArrayOutput {
-	return o.ApplyT(func(v *ActionRuleProperties) []Condition {
-		if v == nil {
-			return nil
-		}
-		return v.Conditions
-	}).(ConditionArrayOutput)
-}
-
-func (o ActionRulePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionRuleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionRulePropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ActionRuleProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ActionRulePropertiesPtrOutput) Schedule() SchedulePtrOutput {
-	return o.ApplyT(func(v *ActionRuleProperties) *Schedule {
-		if v == nil {
-			return nil
-		}
-		return v.Schedule
-	}).(SchedulePtrOutput)
-}
-
-func (o ActionRulePropertiesPtrOutput) Scopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ActionRuleProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Scopes
-	}).(pulumi.StringArrayOutput)
-}
-
-type ActionRulePropertiesResponse struct {
-	Actions     []interface{}       `pulumi:"actions"`
-	Conditions  []ConditionResponse `pulumi:"conditions"`
-	Description *string             `pulumi:"description"`
-	Enabled     *bool               `pulumi:"enabled"`
-	Schedule    *ScheduleResponse   `pulumi:"schedule"`
-	Scopes      []string            `pulumi:"scopes"`
-}
-
-
-
-
-
-type ActionRulePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToActionRulePropertiesResponseOutput() ActionRulePropertiesResponseOutput
-	ToActionRulePropertiesResponseOutputWithContext(context.Context) ActionRulePropertiesResponseOutput
-}
-
-type ActionRulePropertiesResponseArgs struct {
-	Actions     pulumi.ArrayInput           `pulumi:"actions"`
-	Conditions  ConditionResponseArrayInput `pulumi:"conditions"`
-	Description pulumi.StringPtrInput       `pulumi:"description"`
-	Enabled     pulumi.BoolPtrInput         `pulumi:"enabled"`
-	Schedule    ScheduleResponsePtrInput    `pulumi:"schedule"`
-	Scopes      pulumi.StringArrayInput     `pulumi:"scopes"`
-}
-
-func (ActionRulePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i ActionRulePropertiesResponseArgs) ToActionRulePropertiesResponseOutput() ActionRulePropertiesResponseOutput {
-	return i.ToActionRulePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ActionRulePropertiesResponseArgs) ToActionRulePropertiesResponseOutputWithContext(ctx context.Context) ActionRulePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionRulePropertiesResponseOutput)
-}
-
-func (i ActionRulePropertiesResponseArgs) ToActionRulePropertiesResponsePtrOutput() ActionRulePropertiesResponsePtrOutput {
-	return i.ToActionRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ActionRulePropertiesResponseArgs) ToActionRulePropertiesResponsePtrOutputWithContext(ctx context.Context) ActionRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionRulePropertiesResponseOutput).ToActionRulePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ActionRulePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToActionRulePropertiesResponsePtrOutput() ActionRulePropertiesResponsePtrOutput
-	ToActionRulePropertiesResponsePtrOutputWithContext(context.Context) ActionRulePropertiesResponsePtrOutput
-}
-
-type actionRulePropertiesResponsePtrType ActionRulePropertiesResponseArgs
-
-func ActionRulePropertiesResponsePtr(v *ActionRulePropertiesResponseArgs) ActionRulePropertiesResponsePtrInput {
-	return (*actionRulePropertiesResponsePtrType)(v)
-}
-
-func (*actionRulePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i *actionRulePropertiesResponsePtrType) ToActionRulePropertiesResponsePtrOutput() ActionRulePropertiesResponsePtrOutput {
-	return i.ToActionRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *actionRulePropertiesResponsePtrType) ToActionRulePropertiesResponsePtrOutputWithContext(ctx context.Context) ActionRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionRulePropertiesResponsePtrOutput)
-}
-
-type ActionRulePropertiesResponseOutput struct{ *pulumi.OutputState }
-
-func (ActionRulePropertiesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionRulePropertiesResponse)(nil)).Elem()
-}
-
-func (o ActionRulePropertiesResponseOutput) ToActionRulePropertiesResponseOutput() ActionRulePropertiesResponseOutput {
-	return o
-}
-
-func (o ActionRulePropertiesResponseOutput) ToActionRulePropertiesResponseOutputWithContext(ctx context.Context) ActionRulePropertiesResponseOutput {
-	return o
-}
-
-func (o ActionRulePropertiesResponseOutput) ToActionRulePropertiesResponsePtrOutput() ActionRulePropertiesResponsePtrOutput {
-	return o.ToActionRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ActionRulePropertiesResponseOutput) ToActionRulePropertiesResponsePtrOutputWithContext(ctx context.Context) ActionRulePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActionRulePropertiesResponse) *ActionRulePropertiesResponse {
-		return &v
-	}).(ActionRulePropertiesResponsePtrOutput)
-}
-
-func (o ActionRulePropertiesResponseOutput) Actions() pulumi.ArrayOutput {
-	return o.ApplyT(func(v ActionRulePropertiesResponse) []interface{} { return v.Actions }).(pulumi.ArrayOutput)
-}
-
-func (o ActionRulePropertiesResponseOutput) Conditions() ConditionResponseArrayOutput {
-	return o.ApplyT(func(v ActionRulePropertiesResponse) []ConditionResponse { return v.Conditions }).(ConditionResponseArrayOutput)
-}
-
-func (o ActionRulePropertiesResponseOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ActionRulePropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o ActionRulePropertiesResponseOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ActionRulePropertiesResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o ActionRulePropertiesResponseOutput) Schedule() ScheduleResponsePtrOutput {
-	return o.ApplyT(func(v ActionRulePropertiesResponse) *ScheduleResponse { return v.Schedule }).(ScheduleResponsePtrOutput)
-}
-
-func (o ActionRulePropertiesResponseOutput) Scopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ActionRulePropertiesResponse) []string { return v.Scopes }).(pulumi.StringArrayOutput)
-}
-
-type ActionRulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ActionRulePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActionRulePropertiesResponse)(nil)).Elem()
-}
-
-func (o ActionRulePropertiesResponsePtrOutput) ToActionRulePropertiesResponsePtrOutput() ActionRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ActionRulePropertiesResponsePtrOutput) ToActionRulePropertiesResponsePtrOutputWithContext(ctx context.Context) ActionRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ActionRulePropertiesResponsePtrOutput) Elem() ActionRulePropertiesResponseOutput {
-	return o.ApplyT(func(v *ActionRulePropertiesResponse) ActionRulePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActionRulePropertiesResponse
-		return ret
-	}).(ActionRulePropertiesResponseOutput)
-}
-
-func (o ActionRulePropertiesResponsePtrOutput) Actions() pulumi.ArrayOutput {
-	return o.ApplyT(func(v *ActionRulePropertiesResponse) []interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(pulumi.ArrayOutput)
-}
-
-func (o ActionRulePropertiesResponsePtrOutput) Conditions() ConditionResponseArrayOutput {
-	return o.ApplyT(func(v *ActionRulePropertiesResponse) []ConditionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Conditions
-	}).(ConditionResponseArrayOutput)
-}
-
-func (o ActionRulePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ActionRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ActionRulePropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ActionRulePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o ActionRulePropertiesResponsePtrOutput) Schedule() ScheduleResponsePtrOutput {
-	return o.ApplyT(func(v *ActionRulePropertiesResponse) *ScheduleResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Schedule
-	}).(ScheduleResponsePtrOutput)
-}
-
-func (o ActionRulePropertiesResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ActionRulePropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Scopes
-	}).(pulumi.StringArrayOutput)
-}
-
 type AddActionGroups struct {
 	ActionGroupIds []string `pulumi:"actionGroupIds"`
 	ActionType     string   `pulumi:"actionType"`
@@ -534,6 +118,422 @@ func (o AddActionGroupsResponseOutput) ActionGroupIds() pulumi.StringArrayOutput
 
 func (o AddActionGroupsResponseOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v AddActionGroupsResponse) string { return v.ActionType }).(pulumi.StringOutput)
+}
+
+type AlertProcessingRuleProperties struct {
+	Actions     []interface{} `pulumi:"actions"`
+	Conditions  []Condition   `pulumi:"conditions"`
+	Description *string       `pulumi:"description"`
+	Enabled     *bool         `pulumi:"enabled"`
+	Schedule    *Schedule     `pulumi:"schedule"`
+	Scopes      []string      `pulumi:"scopes"`
+}
+
+
+
+
+
+type AlertProcessingRulePropertiesInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRulePropertiesOutput() AlertProcessingRulePropertiesOutput
+	ToAlertProcessingRulePropertiesOutputWithContext(context.Context) AlertProcessingRulePropertiesOutput
+}
+
+type AlertProcessingRulePropertiesArgs struct {
+	Actions     pulumi.ArrayInput       `pulumi:"actions"`
+	Conditions  ConditionArrayInput     `pulumi:"conditions"`
+	Description pulumi.StringPtrInput   `pulumi:"description"`
+	Enabled     pulumi.BoolPtrInput     `pulumi:"enabled"`
+	Schedule    SchedulePtrInput        `pulumi:"schedule"`
+	Scopes      pulumi.StringArrayInput `pulumi:"scopes"`
+}
+
+func (AlertProcessingRulePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleProperties)(nil)).Elem()
+}
+
+func (i AlertProcessingRulePropertiesArgs) ToAlertProcessingRulePropertiesOutput() AlertProcessingRulePropertiesOutput {
+	return i.ToAlertProcessingRulePropertiesOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRulePropertiesArgs) ToAlertProcessingRulePropertiesOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRulePropertiesOutput)
+}
+
+func (i AlertProcessingRulePropertiesArgs) ToAlertProcessingRulePropertiesPtrOutput() AlertProcessingRulePropertiesPtrOutput {
+	return i.ToAlertProcessingRulePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRulePropertiesArgs) ToAlertProcessingRulePropertiesPtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRulePropertiesOutput).ToAlertProcessingRulePropertiesPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type AlertProcessingRulePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRulePropertiesPtrOutput() AlertProcessingRulePropertiesPtrOutput
+	ToAlertProcessingRulePropertiesPtrOutputWithContext(context.Context) AlertProcessingRulePropertiesPtrOutput
+}
+
+type alertProcessingRulePropertiesPtrType AlertProcessingRulePropertiesArgs
+
+func AlertProcessingRulePropertiesPtr(v *AlertProcessingRulePropertiesArgs) AlertProcessingRulePropertiesPtrInput {
+	return (*alertProcessingRulePropertiesPtrType)(v)
+}
+
+func (*alertProcessingRulePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleProperties)(nil)).Elem()
+}
+
+func (i *alertProcessingRulePropertiesPtrType) ToAlertProcessingRulePropertiesPtrOutput() AlertProcessingRulePropertiesPtrOutput {
+	return i.ToAlertProcessingRulePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRulePropertiesPtrType) ToAlertProcessingRulePropertiesPtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRulePropertiesPtrOutput)
+}
+
+type AlertProcessingRulePropertiesOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRulePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleProperties)(nil)).Elem()
+}
+
+func (o AlertProcessingRulePropertiesOutput) ToAlertProcessingRulePropertiesOutput() AlertProcessingRulePropertiesOutput {
+	return o
+}
+
+func (o AlertProcessingRulePropertiesOutput) ToAlertProcessingRulePropertiesOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesOutput {
+	return o
+}
+
+func (o AlertProcessingRulePropertiesOutput) ToAlertProcessingRulePropertiesPtrOutput() AlertProcessingRulePropertiesPtrOutput {
+	return o.ToAlertProcessingRulePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRulePropertiesOutput) ToAlertProcessingRulePropertiesPtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleProperties) *AlertProcessingRuleProperties {
+		return &v
+	}).(AlertProcessingRulePropertiesPtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleProperties) []interface{} { return v.Actions }).(pulumi.ArrayOutput)
+}
+
+func (o AlertProcessingRulePropertiesOutput) Conditions() ConditionArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleProperties) []Condition { return v.Conditions }).(ConditionArrayOutput)
+}
+
+func (o AlertProcessingRulePropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesOutput) Schedule() SchedulePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleProperties) *Schedule { return v.Schedule }).(SchedulePtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleProperties) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRulePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRulePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleProperties)(nil)).Elem()
+}
+
+func (o AlertProcessingRulePropertiesPtrOutput) ToAlertProcessingRulePropertiesPtrOutput() AlertProcessingRulePropertiesPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRulePropertiesPtrOutput) ToAlertProcessingRulePropertiesPtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRulePropertiesPtrOutput) Elem() AlertProcessingRulePropertiesOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleProperties) AlertProcessingRuleProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleProperties
+		return ret
+	}).(AlertProcessingRulePropertiesOutput)
+}
+
+func (o AlertProcessingRulePropertiesPtrOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleProperties) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(pulumi.ArrayOutput)
+}
+
+func (o AlertProcessingRulePropertiesPtrOutput) Conditions() ConditionArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleProperties) []Condition {
+		if v == nil {
+			return nil
+		}
+		return v.Conditions
+	}).(ConditionArrayOutput)
+}
+
+func (o AlertProcessingRulePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesPtrOutput) Schedule() SchedulePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleProperties) *Schedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(SchedulePtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesPtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRulePropertiesResponse struct {
+	Actions     []interface{}       `pulumi:"actions"`
+	Conditions  []ConditionResponse `pulumi:"conditions"`
+	Description *string             `pulumi:"description"`
+	Enabled     *bool               `pulumi:"enabled"`
+	Schedule    *ScheduleResponse   `pulumi:"schedule"`
+	Scopes      []string            `pulumi:"scopes"`
+}
+
+
+
+
+
+type AlertProcessingRulePropertiesResponseInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRulePropertiesResponseOutput() AlertProcessingRulePropertiesResponseOutput
+	ToAlertProcessingRulePropertiesResponseOutputWithContext(context.Context) AlertProcessingRulePropertiesResponseOutput
+}
+
+type AlertProcessingRulePropertiesResponseArgs struct {
+	Actions     pulumi.ArrayInput           `pulumi:"actions"`
+	Conditions  ConditionResponseArrayInput `pulumi:"conditions"`
+	Description pulumi.StringPtrInput       `pulumi:"description"`
+	Enabled     pulumi.BoolPtrInput         `pulumi:"enabled"`
+	Schedule    ScheduleResponsePtrInput    `pulumi:"schedule"`
+	Scopes      pulumi.StringArrayInput     `pulumi:"scopes"`
+}
+
+func (AlertProcessingRulePropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRulePropertiesResponse)(nil)).Elem()
+}
+
+func (i AlertProcessingRulePropertiesResponseArgs) ToAlertProcessingRulePropertiesResponseOutput() AlertProcessingRulePropertiesResponseOutput {
+	return i.ToAlertProcessingRulePropertiesResponseOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRulePropertiesResponseArgs) ToAlertProcessingRulePropertiesResponseOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRulePropertiesResponseOutput)
+}
+
+func (i AlertProcessingRulePropertiesResponseArgs) ToAlertProcessingRulePropertiesResponsePtrOutput() AlertProcessingRulePropertiesResponsePtrOutput {
+	return i.ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRulePropertiesResponseArgs) ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRulePropertiesResponseOutput).ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type AlertProcessingRulePropertiesResponsePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRulePropertiesResponsePtrOutput() AlertProcessingRulePropertiesResponsePtrOutput
+	ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(context.Context) AlertProcessingRulePropertiesResponsePtrOutput
+}
+
+type alertProcessingRulePropertiesResponsePtrType AlertProcessingRulePropertiesResponseArgs
+
+func AlertProcessingRulePropertiesResponsePtr(v *AlertProcessingRulePropertiesResponseArgs) AlertProcessingRulePropertiesResponsePtrInput {
+	return (*alertProcessingRulePropertiesResponsePtrType)(v)
+}
+
+func (*alertProcessingRulePropertiesResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRulePropertiesResponse)(nil)).Elem()
+}
+
+func (i *alertProcessingRulePropertiesResponsePtrType) ToAlertProcessingRulePropertiesResponsePtrOutput() AlertProcessingRulePropertiesResponsePtrOutput {
+	return i.ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRulePropertiesResponsePtrType) ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRulePropertiesResponsePtrOutput)
+}
+
+type AlertProcessingRulePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRulePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRulePropertiesResponse)(nil)).Elem()
+}
+
+func (o AlertProcessingRulePropertiesResponseOutput) ToAlertProcessingRulePropertiesResponseOutput() AlertProcessingRulePropertiesResponseOutput {
+	return o
+}
+
+func (o AlertProcessingRulePropertiesResponseOutput) ToAlertProcessingRulePropertiesResponseOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponseOutput {
+	return o
+}
+
+func (o AlertProcessingRulePropertiesResponseOutput) ToAlertProcessingRulePropertiesResponsePtrOutput() AlertProcessingRulePropertiesResponsePtrOutput {
+	return o.ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRulePropertiesResponseOutput) ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRulePropertiesResponse) *AlertProcessingRulePropertiesResponse {
+		return &v
+	}).(AlertProcessingRulePropertiesResponsePtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponseOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRulePropertiesResponse) []interface{} { return v.Actions }).(pulumi.ArrayOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponseOutput) Conditions() ConditionResponseArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRulePropertiesResponse) []ConditionResponse { return v.Conditions }).(ConditionResponseArrayOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRulePropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRulePropertiesResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponseOutput) Schedule() ScheduleResponsePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRulePropertiesResponse) *ScheduleResponse { return v.Schedule }).(ScheduleResponsePtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponseOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRulePropertiesResponse) []string { return v.Scopes }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRulePropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRulePropertiesResponse)(nil)).Elem()
+}
+
+func (o AlertProcessingRulePropertiesResponsePtrOutput) ToAlertProcessingRulePropertiesResponsePtrOutput() AlertProcessingRulePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRulePropertiesResponsePtrOutput) ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponsePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRulePropertiesResponsePtrOutput) Elem() AlertProcessingRulePropertiesResponseOutput {
+	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) AlertProcessingRulePropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRulePropertiesResponse
+		return ret
+	}).(AlertProcessingRulePropertiesResponseOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponsePtrOutput) Actions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(pulumi.ArrayOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponsePtrOutput) Conditions() ConditionResponseArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) []ConditionResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Conditions
+	}).(ConditionResponseArrayOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponsePtrOutput) Schedule() ScheduleResponsePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) *ScheduleResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Schedule
+	}).(ScheduleResponsePtrOutput)
+}
+
+func (o AlertProcessingRulePropertiesResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(pulumi.StringArrayOutput)
 }
 
 type Condition struct {
@@ -1801,12 +1801,12 @@ func (o WeeklyRecurrenceResponseOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ActionRulePropertiesOutput{})
-	pulumi.RegisterOutputType(ActionRulePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ActionRulePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ActionRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AddActionGroupsOutput{})
 	pulumi.RegisterOutputType(AddActionGroupsResponseOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRulePropertiesOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRulePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRulePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConditionOutput{})
 	pulumi.RegisterOutputType(ConditionArrayOutput{})
 	pulumi.RegisterOutputType(ConditionResponseOutput{})

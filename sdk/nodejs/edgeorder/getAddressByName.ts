@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Address Resource.
- * API Version: 2020-12-01-preview.
+ * API Version: 2021-12-01.
  */
 export function getAddressByName(args: GetAddressByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAddressByNameResult> {
     if (!opts) {
@@ -38,6 +38,10 @@ export interface GetAddressByNameArgs {
  * Address Resource.
  */
 export interface GetAddressByNameResult {
+    /**
+     * Status of address validation
+     */
+    readonly addressValidationStatus: string;
     /**
      * Contact details for the address
      */

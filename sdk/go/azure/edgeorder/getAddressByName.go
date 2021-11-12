@@ -23,12 +23,13 @@ type LookupAddressByNameArgs struct {
 
 
 type LookupAddressByNameResult struct {
-	ContactDetails  ContactDetailsResponse   `pulumi:"contactDetails"`
-	Id              string                   `pulumi:"id"`
-	Location        string                   `pulumi:"location"`
-	Name            string                   `pulumi:"name"`
-	ShippingAddress *ShippingAddressResponse `pulumi:"shippingAddress"`
-	SystemData      SystemDataResponse       `pulumi:"systemData"`
-	Tags            map[string]string        `pulumi:"tags"`
-	Type            string                   `pulumi:"type"`
+	AddressValidationStatus string                   `pulumi:"addressValidationStatus"`
+	ContactDetails          ContactDetailsResponse   `pulumi:"contactDetails"`
+	Id                      string                   `pulumi:"id"`
+	Location                string                   `pulumi:"location"`
+	Name                    string                   `pulumi:"name"`
+	ShippingAddress         *ShippingAddressResponse `pulumi:"shippingAddress"`
+	SystemData              SystemDataResponse       `pulumi:"systemData"`
+	Tags                    map[string]string        `pulumi:"tags"`
+	Type                    string                   `pulumi:"type"`
 }

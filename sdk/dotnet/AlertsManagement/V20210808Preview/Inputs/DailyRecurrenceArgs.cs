@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
 {
 
     /// <summary>
-    /// Daily recurrence object
+    /// Daily recurrence object.
     /// </summary>
     public sealed class DailyRecurrenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// End time for recurrence
+        /// End time for recurrence.
         /// </summary>
         [Input("endTime", required: true)]
         public Input<string> EndTime { get; set; } = null!;
 
         /// <summary>
-        /// Specifies when the recurrence should be applied
+        /// Specifies when the recurrence should be applied.
         /// Expected value is 'Daily'.
         /// </summary>
         [Input("recurrenceType", required: true)]
         public Input<string> RecurrenceType { get; set; } = null!;
 
         /// <summary>
-        /// Start time for recurrence
+        /// Start time for recurrence.
         /// </summary>
         [Input("startTime", required: true)]
         public Input<string> StartTime { get; set; } = null!;

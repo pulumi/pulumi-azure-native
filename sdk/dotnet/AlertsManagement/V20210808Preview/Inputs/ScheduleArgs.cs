@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
 {
 
     /// <summary>
-    /// Scheduling configuration for a given action rule
+    /// Scheduling configuration for a given alert processing rule.
     /// </summary>
     public sealed class ScheduleArgs : Pulumi.ResourceArgs
     {
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
         private InputList<object>? _recurrences;
 
         /// <summary>
-        /// List of recurrences
+        /// List of recurrences.
         /// </summary>
         public InputList<object> Recurrences
         {
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
         }
 
         /// <summary>
-        /// Scheduling time zone
+        /// Scheduling time zone.
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }

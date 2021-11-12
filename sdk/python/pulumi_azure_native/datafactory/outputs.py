@@ -21994,17 +21994,21 @@ class DataFlowReferenceResponse(dict):
     def __init__(__self__, *,
                  reference_name: str,
                  type: str,
-                 dataset_parameters: Optional[Any] = None):
+                 dataset_parameters: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, Any]] = None):
         """
         Data flow reference type.
         :param str reference_name: Reference data flow name.
         :param str type: Data flow reference type.
         :param Any dataset_parameters: Reference data flow parameters from dataset.
+        :param Mapping[str, Any] parameters: Data flow parameters
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
         if dataset_parameters is not None:
             pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="referenceName")
@@ -22029,6 +22033,14 @@ class DataFlowReferenceResponse(dict):
         Reference data flow parameters from dataset.
         """
         return pulumi.get(self, "dataset_parameters")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, Any]]:
+        """
+        Data flow parameters
+        """
+        return pulumi.get(self, "parameters")
 
 
 @pulumi.output_type
@@ -30672,9 +30684,7 @@ class FlowletResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "additionalProperties":
-            suggest = "additional_properties"
-        elif key == "scriptLines":
+        if key == "scriptLines":
             suggest = "script_lines"
 
         if suggest:
@@ -30689,7 +30699,6 @@ class FlowletResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 additional_properties: Optional[Any] = None,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DataFlowResponseFolder'] = None,
@@ -30712,8 +30721,6 @@ class FlowletResponse(dict):
         :param str type: Type of data flow.
                Expected value is 'Flowlet'.
         """
-        if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -30732,11 +30739,6 @@ class FlowletResponse(dict):
             pulumi.set(__self__, "transformations", transformations)
         if type is not None:
             pulumi.set(__self__, "type", 'Flowlet')
-
-    @property
-    @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[Any]:
-        return pulumi.get(self, "additional_properties")
 
     @property
     @pulumi.getter

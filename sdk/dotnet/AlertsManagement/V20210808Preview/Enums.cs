@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
 {
     /// <summary>
-    /// Action that should be applied
+    /// Action that should be applied.
     /// </summary>
     [EnumType]
     public readonly struct ActionType : IEquatable<ActionType>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
     }
 
     /// <summary>
-    /// Days of week
+    /// Days of week.
     /// </summary>
     [EnumType]
     public readonly struct DaysOfWeek : IEquatable<DaysOfWeek>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
     }
 
     /// <summary>
-    /// Field for a given condition
+    /// Field for a given condition.
     /// </summary>
     [EnumType]
     public readonly struct Field : IEquatable<Field>
@@ -115,7 +115,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
     }
 
     /// <summary>
-    /// Operator for a given condition
+    /// Operator for a given condition.
     /// </summary>
     [EnumType]
     public readonly struct Operator : IEquatable<Operator>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview
     }
 
     /// <summary>
-    /// Specifies when the recurrence should be applied
+    /// Specifies when the recurrence should be applied.
     /// </summary>
     [EnumType]
     public readonly struct RecurrenceType : IEquatable<RecurrenceType>

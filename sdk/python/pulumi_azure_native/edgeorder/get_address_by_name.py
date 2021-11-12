@@ -21,7 +21,10 @@ class GetAddressByNameResult:
     """
     Address Resource.
     """
-    def __init__(__self__, contact_details=None, id=None, location=None, name=None, shipping_address=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, address_validation_status=None, contact_details=None, id=None, location=None, name=None, shipping_address=None, system_data=None, tags=None, type=None):
+        if address_validation_status and not isinstance(address_validation_status, str):
+            raise TypeError("Expected argument 'address_validation_status' to be a str")
+        pulumi.set(__self__, "address_validation_status", address_validation_status)
         if contact_details and not isinstance(contact_details, dict):
             raise TypeError("Expected argument 'contact_details' to be a dict")
         pulumi.set(__self__, "contact_details", contact_details)
@@ -46,6 +49,14 @@ class GetAddressByNameResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="addressValidationStatus")
+    def address_validation_status(self) -> str:
+        """
+        Status of address validation
+        """
+        return pulumi.get(self, "address_validation_status")
 
     @property
     @pulumi.getter(name="contactDetails")
@@ -118,6 +129,7 @@ class AwaitableGetAddressByNameResult(GetAddressByNameResult):
         if False:
             yield self
         return GetAddressByNameResult(
+            address_validation_status=self.address_validation_status,
             contact_details=self.contact_details,
             id=self.id,
             location=self.location,
@@ -133,7 +145,7 @@ def get_address_by_name(address_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddressByNameResult:
     """
     Address Resource.
-    API Version: 2020-12-01-preview.
+    API Version: 2021-12-01.
 
 
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -149,6 +161,7 @@ def get_address_by_name(address_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:edgeorder:getAddressByName', __args__, opts=opts, typ=GetAddressByNameResult).value
 
     return AwaitableGetAddressByNameResult(
+        address_validation_status=__ret__.address_validation_status,
         contact_details=__ret__.contact_details,
         id=__ret__.id,
         location=__ret__.location,
@@ -165,7 +178,7 @@ def get_address_by_name_output(address_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddressByNameResult]:
     """
     Address Resource.
-    API Version: 2020-12-01-preview.
+    API Version: 2021-12-01.
 
 
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only

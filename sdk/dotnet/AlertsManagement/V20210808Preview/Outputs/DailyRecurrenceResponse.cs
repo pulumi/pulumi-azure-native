@@ -11,22 +11,22 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Outputs
 {
 
     /// <summary>
-    /// Daily recurrence object
+    /// Daily recurrence object.
     /// </summary>
     [OutputType]
     public sealed class DailyRecurrenceResponse
     {
         /// <summary>
-        /// End time for recurrence
+        /// End time for recurrence.
         /// </summary>
         public readonly string EndTime;
         /// <summary>
-        /// Specifies when the recurrence should be applied
+        /// Specifies when the recurrence should be applied.
         /// Expected value is 'Daily'.
         /// </summary>
         public readonly string RecurrenceType;
         /// <summary>
-        /// Start time for recurrence
+        /// Start time for recurrence.
         /// </summary>
         public readonly string StartTime;
 

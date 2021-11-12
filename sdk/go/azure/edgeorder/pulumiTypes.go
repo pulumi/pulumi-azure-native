@@ -440,8 +440,9 @@ func (o AddressPropertiesPtrOutput) ShippingAddress() ShippingAddressPtrOutput {
 }
 
 type AddressPropertiesResponse struct {
-	ContactDetails  ContactDetailsResponse   `pulumi:"contactDetails"`
-	ShippingAddress *ShippingAddressResponse `pulumi:"shippingAddress"`
+	AddressValidationStatus string                   `pulumi:"addressValidationStatus"`
+	ContactDetails          ContactDetailsResponse   `pulumi:"contactDetails"`
+	ShippingAddress         *ShippingAddressResponse `pulumi:"shippingAddress"`
 }
 
 
@@ -456,8 +457,9 @@ type AddressPropertiesResponseInput interface {
 }
 
 type AddressPropertiesResponseArgs struct {
-	ContactDetails  ContactDetailsResponseInput     `pulumi:"contactDetails"`
-	ShippingAddress ShippingAddressResponsePtrInput `pulumi:"shippingAddress"`
+	AddressValidationStatus pulumi.StringInput              `pulumi:"addressValidationStatus"`
+	ContactDetails          ContactDetailsResponseInput     `pulumi:"contactDetails"`
+	ShippingAddress         ShippingAddressResponsePtrInput `pulumi:"shippingAddress"`
 }
 
 func (AddressPropertiesResponseArgs) ElementType() reflect.Type {
@@ -537,6 +539,10 @@ func (o AddressPropertiesResponseOutput) ToAddressPropertiesResponsePtrOutputWit
 	}).(AddressPropertiesResponsePtrOutput)
 }
 
+func (o AddressPropertiesResponseOutput) AddressValidationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v AddressPropertiesResponse) string { return v.AddressValidationStatus }).(pulumi.StringOutput)
+}
+
 func (o AddressPropertiesResponseOutput) ContactDetails() ContactDetailsResponseOutput {
 	return o.ApplyT(func(v AddressPropertiesResponse) ContactDetailsResponse { return v.ContactDetails }).(ContactDetailsResponseOutput)
 }
@@ -567,6 +573,15 @@ func (o AddressPropertiesResponsePtrOutput) Elem() AddressPropertiesResponseOutp
 		var ret AddressPropertiesResponse
 		return ret
 	}).(AddressPropertiesResponseOutput)
+}
+
+func (o AddressPropertiesResponsePtrOutput) AddressValidationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AddressPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AddressValidationStatus
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o AddressPropertiesResponsePtrOutput) ContactDetails() ContactDetailsResponsePtrOutput {

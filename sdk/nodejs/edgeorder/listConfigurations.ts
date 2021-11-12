@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list of configurations.
- * API Version: 2020-12-01-preview.
+ * API Version: 2021-12-01.
  */
 export function listConfigurations(args: ListConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListConfigurationsResult> {
     if (!opts) {

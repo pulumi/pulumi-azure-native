@@ -8,7 +8,7 @@ export const ActionType = {
 } as const;
 
 /**
- * Action that should be applied
+ * Action that should be applied.
  */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
@@ -23,7 +23,7 @@ export const DaysOfWeek = {
 } as const;
 
 /**
- * Days of week
+ * Days of week.
  */
 export type DaysOfWeek = (typeof DaysOfWeek)[keyof typeof DaysOfWeek];
 
@@ -42,7 +42,7 @@ export const Field = {
 } as const;
 
 /**
- * Field for a given condition
+ * Field for a given condition.
  */
 export type Field = (typeof Field)[keyof typeof Field];
 
@@ -54,7 +54,7 @@ export const Operator = {
 } as const;
 
 /**
- * Operator for a given condition
+ * Operator for a given condition.
  */
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
@@ -65,6 +65,6 @@ export const RecurrenceType = {
 } as const;
 
 /**
- * Specifies when the recurrence should be applied
+ * Specifies when the recurrence should be applied.
  */
 export type RecurrenceType = (typeof RecurrenceType)[keyof typeof RecurrenceType];

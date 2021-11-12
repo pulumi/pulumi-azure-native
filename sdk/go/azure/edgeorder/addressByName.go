@@ -14,13 +14,14 @@ import (
 type AddressByName struct {
 	pulumi.CustomResourceState
 
-	ContactDetails  ContactDetailsResponseOutput     `pulumi:"contactDetails"`
-	Location        pulumi.StringOutput              `pulumi:"location"`
-	Name            pulumi.StringOutput              `pulumi:"name"`
-	ShippingAddress ShippingAddressResponsePtrOutput `pulumi:"shippingAddress"`
-	SystemData      SystemDataResponseOutput         `pulumi:"systemData"`
-	Tags            pulumi.StringMapOutput           `pulumi:"tags"`
-	Type            pulumi.StringOutput              `pulumi:"type"`
+	AddressValidationStatus pulumi.StringOutput              `pulumi:"addressValidationStatus"`
+	ContactDetails          ContactDetailsResponseOutput     `pulumi:"contactDetails"`
+	Location                pulumi.StringOutput              `pulumi:"location"`
+	Name                    pulumi.StringOutput              `pulumi:"name"`
+	ShippingAddress         ShippingAddressResponsePtrOutput `pulumi:"shippingAddress"`
+	SystemData              SystemDataResponseOutput         `pulumi:"systemData"`
+	Tags                    pulumi.StringMapOutput           `pulumi:"tags"`
+	Type                    pulumi.StringOutput              `pulumi:"type"`
 }
 
 
@@ -39,6 +40,9 @@ func NewAddressByName(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:edgeorder/v20201201preview:AddressByName"),
+		},
+		{
+			Type: pulumi.String("azure-native:edgeorder/v20211201:AddressByName"),
 		},
 	})
 	opts = append(opts, aliases)

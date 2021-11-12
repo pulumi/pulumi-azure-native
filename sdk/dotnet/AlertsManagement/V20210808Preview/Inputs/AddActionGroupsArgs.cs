@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
 {
 
     /// <summary>
-    /// Add action groups to action rule
+    /// Add action groups to alert processing rule.
     /// </summary>
     public sealed class AddActionGroupsArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
         private InputList<string>? _actionGroupIds;
 
         /// <summary>
-        /// List of action group Ids to add to action rule
+        /// List of action group Ids to add to alert processing rule.
         /// </summary>
         public InputList<string> ActionGroupIds
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
         }
 
         /// <summary>
-        /// Action that should be applied
+        /// Action that should be applied.
         /// Expected value is 'AddActionGroups'.
         /// </summary>
         [Input("actionType", required: true)]

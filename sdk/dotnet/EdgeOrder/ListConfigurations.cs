@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.EdgeOrder
     {
         /// <summary>
         /// The list of configurations.
-        /// API Version: 2020-12-01-preview.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Task<ListConfigurationsResult> InvokeAsync(ListConfigurationsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListConfigurationsResult>("azure-native:edgeorder:listConfigurations", args ?? new ListConfigurationsArgs(), options.WithVersion());
 
         /// <summary>
         /// The list of configurations.
-        /// API Version: 2020-12-01-preview.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Output<ListConfigurationsResult> Invoke(ListConfigurationsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListConfigurationsResult>("azure-native:edgeorder:listConfigurations", args ?? new ListConfigurationsInvokeArgs(), options.WithVersion());

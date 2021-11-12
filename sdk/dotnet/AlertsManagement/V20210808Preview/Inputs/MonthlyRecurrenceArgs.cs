@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
 {
 
     /// <summary>
-    /// Monthly recurrence object
+    /// Monthly recurrence object.
     /// </summary>
     public sealed class MonthlyRecurrenceArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
         private InputList<int>? _daysOfMonth;
 
         /// <summary>
-        /// Specifies the values for monthly recurrence pattern
+        /// Specifies the values for monthly recurrence pattern.
         /// </summary>
         public InputList<int> DaysOfMonth
         {
@@ -28,20 +28,20 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Inputs
         }
 
         /// <summary>
-        /// End time for recurrence
+        /// End time for recurrence.
         /// </summary>
         [Input("endTime")]
         public Input<string>? EndTime { get; set; }
 
         /// <summary>
-        /// Specifies when the recurrence should be applied
+        /// Specifies when the recurrence should be applied.
         /// Expected value is 'Monthly'.
         /// </summary>
         [Input("recurrenceType", required: true)]
         public Input<string> RecurrenceType { get; set; } = null!;
 
         /// <summary>
-        /// Start time for recurrence
+        /// Start time for recurrence.
         /// </summary>
         [Input("startTime")]
         public Input<string>? StartTime { get; set; }

@@ -23046,17 +23046,21 @@ class DataFlowReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 dataset_parameters: Optional[Any] = None):
+                 dataset_parameters: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Data flow reference type.
         :param pulumi.Input[str] reference_name: Reference data flow name.
         :param pulumi.Input[str] type: Data flow reference type.
         :param Any dataset_parameters: Reference data flow parameters from dataset.
+        :param pulumi.Input[Mapping[str, Any]] parameters: Data flow parameters
         """
         pulumi.set(__self__, "reference_name", reference_name)
         pulumi.set(__self__, "type", type)
         if dataset_parameters is not None:
             pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="referenceName")
@@ -23093,6 +23097,18 @@ class DataFlowReferenceArgs:
     @dataset_parameters.setter
     def dataset_parameters(self, value: Optional[Any]):
         pulumi.set(self, "dataset_parameters", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        Data flow parameters
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
@@ -32137,7 +32153,6 @@ class FilterActivityArgs:
 @pulumi.input_type
 class FlowletArgs:
     def __init__(__self__, *,
-                 additional_properties: Optional[Any] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DataFlowFolderArgs']] = None,
@@ -32160,8 +32175,6 @@ class FlowletArgs:
         :param pulumi.Input[str] type: Type of data flow.
                Expected value is 'Flowlet'.
         """
-        if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -32180,15 +32193,6 @@ class FlowletArgs:
             pulumi.set(__self__, "transformations", transformations)
         if type is not None:
             pulumi.set(__self__, "type", 'Flowlet')
-
-    @property
-    @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[Any]:
-        return pulumi.get(self, "additional_properties")
-
-    @additional_properties.setter
-    def additional_properties(self, value: Optional[Any]):
-        pulumi.set(self, "additional_properties", value)
 
     @property
     @pulumi.getter

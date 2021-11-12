@@ -65,7 +65,7 @@ def list_product_families(customer_subscription_details: Optional[pulumi.InputTy
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListProductFamiliesResult:
     """
     The list of product families.
-    API Version: 2020-12-01-preview.
+    API Version: 2021-12-01.
 
 
     :param pulumi.InputType['CustomerSubscriptionDetails'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details
@@ -97,7 +97,7 @@ def list_product_families_output(customer_subscription_details: Optional[pulumi.
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListProductFamiliesResult]:
     """
     The list of product families.
-    API Version: 2020-12-01-preview.
+    API Version: 2021-12-01.
 
 
     :param pulumi.InputType['CustomerSubscriptionDetails'] customer_subscription_details: Customer subscription properties. Clients can display available products to unregistered customers by explicitly passing subscription details

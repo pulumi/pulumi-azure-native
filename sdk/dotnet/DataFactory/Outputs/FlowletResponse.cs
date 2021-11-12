@@ -16,7 +16,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     [OutputType]
     public sealed class FlowletResponse
     {
-        public readonly object? AdditionalProperties;
         /// <summary>
         /// List of tags that can be used for describing the data flow.
         /// </summary>
@@ -57,8 +56,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
         [OutputConstructor]
         private FlowletResponse(
-            object? additionalProperties,
-
             ImmutableArray<object> annotations,
 
             string? description,
@@ -77,7 +74,6 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? type)
         {
-            AdditionalProperties = additionalProperties;
             Annotations = annotations;
             Description = description;
             Folder = folder;

@@ -11,26 +11,26 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Outputs
 {
 
     /// <summary>
-    /// Monthly recurrence object
+    /// Monthly recurrence object.
     /// </summary>
     [OutputType]
     public sealed class MonthlyRecurrenceResponse
     {
         /// <summary>
-        /// Specifies the values for monthly recurrence pattern
+        /// Specifies the values for monthly recurrence pattern.
         /// </summary>
         public readonly ImmutableArray<int> DaysOfMonth;
         /// <summary>
-        /// End time for recurrence
+        /// End time for recurrence.
         /// </summary>
         public readonly string? EndTime;
         /// <summary>
-        /// Specifies when the recurrence should be applied
+        /// Specifies when the recurrence should be applied.
         /// Expected value is 'Monthly'.
         /// </summary>
         public readonly string RecurrenceType;
         /// <summary>
-        /// Start time for recurrence
+        /// Start time for recurrence.
         /// </summary>
         public readonly string? StartTime;
 

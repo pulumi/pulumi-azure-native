@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.EdgeOrder
     {
         /// <summary>
         /// Address Resource.
-        /// API Version: 2020-12-01-preview.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Task<GetAddressByNameResult> InvokeAsync(GetAddressByNameArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAddressByNameResult>("azure-native:edgeorder:getAddressByName", args ?? new GetAddressByNameArgs(), options.WithVersion());
 
         /// <summary>
         /// Address Resource.
-        /// API Version: 2020-12-01-preview.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Output<GetAddressByNameResult> Invoke(GetAddressByNameInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAddressByNameResult>("azure-native:edgeorder:getAddressByName", args ?? new GetAddressByNameInvokeArgs(), options.WithVersion());
@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.EdgeOrder
     public sealed class GetAddressByNameResult
     {
         /// <summary>
+        /// Status of address validation
+        /// </summary>
+        public readonly string AddressValidationStatus;
+        /// <summary>
         /// Contact details for the address
         /// </summary>
         public readonly Outputs.ContactDetailsResponse ContactDetails;
@@ -105,6 +109,8 @@ namespace Pulumi.AzureNative.EdgeOrder
 
         [OutputConstructor]
         private GetAddressByNameResult(
+            string addressValidationStatus,
+
             Outputs.ContactDetailsResponse contactDetails,
 
             string id,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.EdgeOrder
 
             string type)
         {
+            AddressValidationStatus = addressValidationStatus;
             ContactDetails = contactDetails;
             Id = id;
             Location = location;

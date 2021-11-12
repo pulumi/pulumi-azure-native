@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20200214.Inputs
         public Input<int>? OsDiskSizeGB { get; set; }
 
         /// <summary>
-        /// Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2).
+        /// Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }

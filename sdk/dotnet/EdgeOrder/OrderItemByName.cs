@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder
 {
     /// <summary>
     /// Represents order item contract
-    /// API Version: 2020-12-01-preview.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder:OrderItemByName")]
     public partial class OrderItemByName : Pulumi.CustomResource
@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.EdgeOrder
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:OrderItemByName"},
+                    new Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:OrderItemByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

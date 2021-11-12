@@ -15,9 +15,6 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     /// </summary>
     public sealed class FlowletArgs : Pulumi.ResourceArgs
     {
-        [Input("additionalProperties")]
-        public Input<object>? AdditionalProperties { get; set; }
-
         [Input("annotations")]
         private InputList<object>? _annotations;
 

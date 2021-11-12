@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents order item contract
- * API Version: 2020-12-01-preview.
+ * API Version: 2021-12-01.
  */
 export class OrderItemByName extends pulumi.CustomResource {
     /**
@@ -121,7 +121,7 @@ export class OrderItemByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:OrderItemByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:OrderItemByName" }, { type: "azure-native:edgeorder/v20211201:OrderItemByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OrderItemByName.__pulumiType, name, inputs, opts);
     }

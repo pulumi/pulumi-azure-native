@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.EdgeOrder
 {
     /// <summary>
     /// Address Resource.
-    /// API Version: 2020-12-01-preview.
+    /// API Version: 2021-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder:AddressByName")]
     public partial class AddressByName : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Status of address validation
+        /// </summary>
+        [Output("addressValidationStatus")]
+        public Output<string> AddressValidationStatus { get; private set; } = null!;
+
         /// <summary>
         /// Contact details for the address
         /// </summary>
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNative.EdgeOrder
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:edgeorder/v20201201preview:AddressByName"},
+                    new Pulumi.Alias { Type = "azure-native:edgeorder/v20211201:AddressByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

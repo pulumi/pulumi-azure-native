@@ -15,7 +15,7 @@ __all__ = [
 
 class ActionType(str, Enum):
     """
-    Action that should be applied
+    Action that should be applied.
     """
     ADD_ACTION_GROUPS = "AddActionGroups"
     REMOVE_ALL_ACTION_GROUPS = "RemoveAllActionGroups"
@@ -23,7 +23,7 @@ class ActionType(str, Enum):
 
 class DaysOfWeek(str, Enum):
     """
-    Days of week
+    Days of week.
     """
     SUNDAY = "Sunday"
     MONDAY = "Monday"
@@ -36,7 +36,7 @@ class DaysOfWeek(str, Enum):
 
 class Field(str, Enum):
     """
-    Field for a given condition
+    Field for a given condition.
     """
     SEVERITY = "Severity"
     MONITOR_SERVICE = "MonitorService"
@@ -53,7 +53,7 @@ class Field(str, Enum):
 
 class Operator(str, Enum):
     """
-    Operator for a given condition
+    Operator for a given condition.
     """
     EQUALS = "Equals"
     NOT_EQUALS = "NotEquals"
@@ -63,7 +63,7 @@ class Operator(str, Enum):
 
 class RecurrenceType(str, Enum):
     """
-    Specifies when the recurrence should be applied
+    Specifies when the recurrence should be applied.
     """
     DAILY = "Daily"
     WEEKLY = "Weekly"

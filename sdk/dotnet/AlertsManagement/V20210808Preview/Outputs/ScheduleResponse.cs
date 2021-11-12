@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Outputs
 {
 
     /// <summary>
-    /// Scheduling configuration for a given action rule
+    /// Scheduling configuration for a given alert processing rule.
     /// </summary>
     [OutputType]
     public sealed class ScheduleResponse
@@ -25,11 +25,11 @@ namespace Pulumi.AzureNative.AlertsManagement.V20210808Preview.Outputs
         /// </summary>
         public readonly string? EffectiveUntil;
         /// <summary>
-        /// List of recurrences
+        /// List of recurrences.
         /// </summary>
         public readonly ImmutableArray<object> Recurrences;
         /// <summary>
-        /// Scheduling time zone
+        /// Scheduling time zone.
         /// </summary>
         public readonly string? TimeZone;
 

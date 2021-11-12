@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Address Resource.
- * API Version: 2020-12-01-preview.
+ * API Version: 2021-12-01.
  */
 export class AddressByName extends pulumi.CustomResource {
     /**
@@ -36,6 +36,10 @@ export class AddressByName extends pulumi.CustomResource {
         return obj['__pulumiType'] === AddressByName.__pulumiType;
     }
 
+    /**
+     * Status of address validation
+     */
+    public /*out*/ readonly addressValidationStatus!: pulumi.Output<string>;
     /**
      * Contact details for the address
      */
@@ -88,10 +92,12 @@ export class AddressByName extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shippingAddress"] = args ? args.shippingAddress : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["addressValidationStatus"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["addressValidationStatus"] = undefined /*out*/;
             inputs["contactDetails"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -103,7 +109,7 @@ export class AddressByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:AddressByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder/v20201201preview:AddressByName" }, { type: "azure-native:edgeorder/v20211201:AddressByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AddressByName.__pulumiType, name, inputs, opts);
     }

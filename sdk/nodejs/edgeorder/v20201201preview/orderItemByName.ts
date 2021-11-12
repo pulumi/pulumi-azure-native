@@ -120,7 +120,7 @@ export class OrderItemByName extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder:OrderItemByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:edgeorder:OrderItemByName" }, { type: "azure-native:edgeorder/v20211201:OrderItemByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OrderItemByName.__pulumiType, name, inputs, opts);
     }

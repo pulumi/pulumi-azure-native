@@ -129,7 +129,7 @@ class AddressByName(pulumi.CustomResource):
                  __props__=None):
         """
         Address Resource.
-        API Version: 2020-12-01-preview.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +148,7 @@ class AddressByName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Address Resource.
-        API Version: 2020-12-01-preview.
+        API Version: 2021-12-01.
 
         :param str resource_name: The name of the resource.
         :param AddressByNameArgs args: The arguments to use to populate this resource's properties.
@@ -193,10 +193,11 @@ class AddressByName(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["shipping_address"] = shipping_address
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["address_validation_status"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20201201preview:AddressByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:edgeorder/v20201201preview:AddressByName"), pulumi.Alias(type_="azure-native:edgeorder/v20211201:AddressByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AddressByName, __self__).__init__(
             'azure-native:edgeorder:AddressByName',
@@ -220,6 +221,7 @@ class AddressByName(pulumi.CustomResource):
 
         __props__ = AddressByNameArgs.__new__(AddressByNameArgs)
 
+        __props__.__dict__["address_validation_status"] = None
         __props__.__dict__["contact_details"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -228,6 +230,14 @@ class AddressByName(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return AddressByName(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="addressValidationStatus")
+    def address_validation_status(self) -> pulumi.Output[str]:
+        """
+        Status of address validation
+        """
+        return pulumi.get(self, "address_validation_status")
 
     @property
     @pulumi.getter(name="contactDetails")

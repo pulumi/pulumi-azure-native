@@ -789,7 +789,7 @@ _utilities.register(
   "mod": "alertsmanagement/v20210808preview",
   "fqn": "pulumi_azure_native.alertsmanagement.v20210808preview",
   "classes": {
-   "azure-native:alertsmanagement/v20210808preview:ActionRuleByName": "ActionRuleByName"
+   "azure-native:alertsmanagement/v20210808preview:AlertProcessingRuleByName": "AlertProcessingRuleByName"
   }
  },
  {
@@ -7284,6 +7284,15 @@ _utilities.register(
   "classes": {
    "azure-native:edgeorder/v20201201preview:AddressByName": "AddressByName",
    "azure-native:edgeorder/v20201201preview:OrderItemByName": "OrderItemByName"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "edgeorder/v20211201",
+  "fqn": "pulumi_azure_native.edgeorder.v20211201",
+  "classes": {
+   "azure-native:edgeorder/v20211201:AddressByName": "AddressByName",
+   "azure-native:edgeorder/v20211201:OrderItemByName": "OrderItemByName"
   }
  },
  {

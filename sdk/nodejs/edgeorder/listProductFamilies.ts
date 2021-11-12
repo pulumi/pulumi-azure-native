@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list of product families.
- * API Version: 2020-12-01-preview.
+ * API Version: 2021-12-01.
  */
 export function listProductFamilies(args: ListProductFamiliesArgs, opts?: pulumi.InvokeOptions): Promise<ListProductFamiliesResult> {
     if (!opts) {
