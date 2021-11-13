@@ -1,0 +1,347 @@
+
+
+
+package v20200101preview
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type ProbeProtocol string
+
+const (
+	ProbeProtocolTcp   = ProbeProtocol("tcp")
+	ProbeProtocolHttp  = ProbeProtocol("http")
+	ProbeProtocolHttps = ProbeProtocol("https")
+)
+
+func (ProbeProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProbeProtocol)(nil)).Elem()
+}
+
+func (e ProbeProtocol) ToProbeProtocolOutput() ProbeProtocolOutput {
+	return pulumi.ToOutput(e).(ProbeProtocolOutput)
+}
+
+func (e ProbeProtocol) ToProbeProtocolOutputWithContext(ctx context.Context) ProbeProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProbeProtocolOutput)
+}
+
+func (e ProbeProtocol) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return e.ToProbeProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ProbeProtocol) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return ProbeProtocol(e).ToProbeProtocolOutputWithContext(ctx).ToProbeProtocolPtrOutputWithContext(ctx)
+}
+
+func (e ProbeProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProbeProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ProbeProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ProbeProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProbeProtocolOutput struct{ *pulumi.OutputState }
+
+func (ProbeProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProbeProtocol)(nil)).Elem()
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolOutput() ProbeProtocolOutput {
+	return o
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolOutputWithContext(ctx context.Context) ProbeProtocolOutput {
+	return o
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return o.ToProbeProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolOutput) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProbeProtocol) *ProbeProtocol {
+		return &v
+	}).(ProbeProtocolPtrOutput)
+}
+
+func (o ProbeProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProbeProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProbeProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ProbeProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProbeProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ProbeProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProbeProtocol)(nil)).Elem()
+}
+
+func (o ProbeProtocolPtrOutput) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return o
+}
+
+func (o ProbeProtocolPtrOutput) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return o
+}
+
+func (o ProbeProtocolPtrOutput) Elem() ProbeProtocolOutput {
+	return o.ApplyT(func(v *ProbeProtocol) ProbeProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ProbeProtocol
+		return ret
+	}).(ProbeProtocolOutput)
+}
+
+func (o ProbeProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProbeProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ProbeProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type ProbeProtocolInput interface {
+	pulumi.Input
+
+	ToProbeProtocolOutput() ProbeProtocolOutput
+	ToProbeProtocolOutputWithContext(context.Context) ProbeProtocolOutput
+}
+
+var probeProtocolPtrType = reflect.TypeOf((**ProbeProtocol)(nil)).Elem()
+
+type ProbeProtocolPtrInput interface {
+	pulumi.Input
+
+	ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput
+	ToProbeProtocolPtrOutputWithContext(context.Context) ProbeProtocolPtrOutput
+}
+
+type probeProtocolPtr string
+
+func ProbeProtocolPtr(v string) ProbeProtocolPtrInput {
+	return (*probeProtocolPtr)(&v)
+}
+
+func (*probeProtocolPtr) ElementType() reflect.Type {
+	return probeProtocolPtrType
+}
+
+func (in *probeProtocolPtr) ToProbeProtocolPtrOutput() ProbeProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ProbeProtocolPtrOutput)
+}
+
+func (in *probeProtocolPtr) ToProbeProtocolPtrOutputWithContext(ctx context.Context) ProbeProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProbeProtocolPtrOutput)
+}
+
+type Protocol string
+
+const (
+	ProtocolTcp = Protocol("tcp")
+	ProtocolUdp = Protocol("udp")
+)
+
+func (Protocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*Protocol)(nil)).Elem()
+}
+
+func (e Protocol) ToProtocolOutput() ProtocolOutput {
+	return pulumi.ToOutput(e).(ProtocolOutput)
+}
+
+func (e Protocol) ToProtocolOutputWithContext(ctx context.Context) ProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ProtocolOutput)
+}
+
+func (e Protocol) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return e.ToProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e Protocol) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return Protocol(e).ToProtocolOutputWithContext(ctx).ToProtocolPtrOutputWithContext(ctx)
+}
+
+func (e Protocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Protocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Protocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Protocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ProtocolOutput struct{ *pulumi.OutputState }
+
+func (ProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Protocol)(nil)).Elem()
+}
+
+func (o ProtocolOutput) ToProtocolOutput() ProtocolOutput {
+	return o
+}
+
+func (o ProtocolOutput) ToProtocolOutputWithContext(ctx context.Context) ProtocolOutput {
+	return o
+}
+
+func (o ProtocolOutput) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return o.ToProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolOutput) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Protocol) *Protocol {
+		return &v
+	}).(ProtocolPtrOutput)
+}
+
+func (o ProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Protocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Protocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Protocol)(nil)).Elem()
+}
+
+func (o ProtocolPtrOutput) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return o
+}
+
+func (o ProtocolPtrOutput) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return o
+}
+
+func (o ProtocolPtrOutput) Elem() ProtocolOutput {
+	return o.ApplyT(func(v *Protocol) Protocol {
+		if v != nil {
+			return *v
+		}
+		var ret Protocol
+		return ret
+	}).(ProtocolOutput)
+}
+
+func (o ProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Protocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type ProtocolInput interface {
+	pulumi.Input
+
+	ToProtocolOutput() ProtocolOutput
+	ToProtocolOutputWithContext(context.Context) ProtocolOutput
+}
+
+var protocolPtrType = reflect.TypeOf((**Protocol)(nil)).Elem()
+
+type ProtocolPtrInput interface {
+	pulumi.Input
+
+	ToProtocolPtrOutput() ProtocolPtrOutput
+	ToProtocolPtrOutputWithContext(context.Context) ProtocolPtrOutput
+}
+
+type protocolPtr string
+
+func ProtocolPtr(v string) ProtocolPtrInput {
+	return (*protocolPtr)(&v)
+}
+
+func (*protocolPtr) ElementType() reflect.Type {
+	return protocolPtrType
+}
+
+func (in *protocolPtr) ToProtocolPtrOutput() ProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ProtocolPtrOutput)
+}
+
+func (in *protocolPtr) ToProtocolPtrOutputWithContext(ctx context.Context) ProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ProtocolPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProbeProtocolOutput{})
+	pulumi.RegisterOutputType(ProbeProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ProtocolOutput{})
+	pulumi.RegisterOutputType(ProtocolPtrOutput{})
+}

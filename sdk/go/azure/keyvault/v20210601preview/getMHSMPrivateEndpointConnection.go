@@ -1,0 +1,38 @@
+
+
+
+package v20210601preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupMHSMPrivateEndpointConnection(ctx *pulumi.Context, args *LookupMHSMPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupMHSMPrivateEndpointConnectionResult, error) {
+	var rv LookupMHSMPrivateEndpointConnectionResult
+	err := ctx.Invoke("azure-native:keyvault/v20210601preview:getMHSMPrivateEndpointConnection", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupMHSMPrivateEndpointConnectionArgs struct {
+	Name                          string `pulumi:"name"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupMHSMPrivateEndpointConnectionResult struct {
+	Etag                              *string                                        `pulumi:"etag"`
+	Id                                string                                         `pulumi:"id"`
+	Location                          *string                                        `pulumi:"location"`
+	Name                              string                                         `pulumi:"name"`
+	PrivateEndpoint                   *MHSMPrivateEndpointResponse                   `pulumi:"privateEndpoint"`
+	PrivateLinkServiceConnectionState *MHSMPrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	ProvisioningState                 string                                         `pulumi:"provisioningState"`
+	Sku                               *ManagedHsmSkuResponse                         `pulumi:"sku"`
+	SystemData                        SystemDataResponse                             `pulumi:"systemData"`
+	Tags                              map[string]string                              `pulumi:"tags"`
+	Type                              string                                         `pulumi:"type"`
+}
