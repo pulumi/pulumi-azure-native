@@ -1,0 +1,26 @@
+
+
+
+package portal
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupUserSettings(ctx *pulumi.Context, args *LookupUserSettingsArgs, opts ...pulumi.InvokeOption) (*LookupUserSettingsResult, error) {
+	var rv LookupUserSettingsResult
+	err := ctx.Invoke("azure-native:portal:getUserSettings", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupUserSettingsArgs struct {
+	UserSettingsName string `pulumi:"userSettingsName"`
+}
+
+
+type LookupUserSettingsResult struct {
+	Properties UserPropertiesResponse `pulumi:"properties"`
+}
