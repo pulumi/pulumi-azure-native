@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.46.0 (2021-11-15)
+
 #### Bug fixes:
 
 - Make Deletion of DNS zone more robust
@@ -43,8 +49,6 @@ CHANGELOG
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16377))
 - `datafactory.Flowlet` property `additionalProperties` removed
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16652))
-
----
 
 ## 1.45.0 (2021-11-05)
 
