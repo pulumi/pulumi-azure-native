@@ -22,10 +22,14 @@ CHANGELOG
 #### New resources:
 
 - `apimanagement.Schema`
+- `documentdb.MongoDBResourceMongoRoleDefinition`
+- `documentdb.MongoDBResourceMongoUserDefinition`
 
 #### New functions:
 
 - `apimanagement.getSchema`
+- `documentdb.getMongoDBResourceMongoRoleDefinition`
+- `documentdb.getMongoDBResourceMongoUserDefinition`
 
 #### Updated API versions for top-level resources
 

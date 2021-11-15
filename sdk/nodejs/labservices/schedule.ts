@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schedule for automatically turning virtual machines in a lab on and off at specified times.
- * API Version: 2021-11-15-preview.
+ * API Version: 2021-10-01-preview.
  */
 export class Schedule extends pulumi.CustomResource {
     /**
