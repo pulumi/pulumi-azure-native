@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210515:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210615:SqlResourceSqlDatabase"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015:SqlResourceSqlDatabase"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:SqlResourceSqlDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

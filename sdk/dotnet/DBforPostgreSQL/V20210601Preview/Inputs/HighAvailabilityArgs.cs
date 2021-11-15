@@ -29,6 +29,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview.Inputs
 
         public HighAvailabilityArgs()
         {
+            Mode = "Disabled";
+            StandbyAvailabilityZone = "";
         }
     }
 }

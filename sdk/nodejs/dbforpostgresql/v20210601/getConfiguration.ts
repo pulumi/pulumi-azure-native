@@ -59,9 +59,25 @@ export interface GetConfigurationResult {
      */
     readonly description: string;
     /**
+     * Configuration documentation link.
+     */
+    readonly documentationLink: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Configuration is pending restart or not.
+     */
+    readonly isConfigPendingRestart: boolean;
+    /**
+     * Configuration dynamic or static.
+     */
+    readonly isDynamicConfig: boolean;
+    /**
+     * Configuration read-only or not.
+     */
+    readonly isReadOnly: boolean;
     /**
      * The name of the resource
      */
@@ -78,6 +94,10 @@ export interface GetConfigurationResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Configuration unit.
+     */
+    readonly unit: string;
     /**
      * Value of the configuration.
      */

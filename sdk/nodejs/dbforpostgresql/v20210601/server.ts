@@ -120,7 +120,7 @@ export class Server extends pulumi.CustomResource {
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            inputs["availabilityZone"] = (args ? args.availabilityZone : undefined) ?? "";
             inputs["backup"] = args ? args.backup : undefined;
             inputs["createMode"] = args ? args.createMode : undefined;
             inputs["highAvailability"] = args ? args.highAvailability : undefined;

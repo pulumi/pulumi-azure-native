@@ -22,6 +22,8 @@ export * from "./getGremlinResourceGremlinDatabase";
 export * from "./getGremlinResourceGremlinGraph";
 export * from "./getMongoDBResourceMongoDBCollection";
 export * from "./getMongoDBResourceMongoDBDatabase";
+export * from "./getMongoDBResourceMongoRoleDefinition";
+export * from "./getMongoDBResourceMongoUserDefinition";
 export * from "./getNotebookWorkspace";
 export * from "./getPrivateEndpointConnection";
 export * from "./getService";
@@ -41,6 +43,8 @@ export * from "./listDatabaseAccountKeys";
 export * from "./listNotebookWorkspaceConnectionInfo";
 export * from "./mongoDBResourceMongoDBCollection";
 export * from "./mongoDBResourceMongoDBDatabase";
+export * from "./mongoDBResourceMongoRoleDefinition";
+export * from "./mongoDBResourceMongoUserDefinition";
 export * from "./notebookWorkspace";
 export * from "./privateEndpointConnection";
 export * from "./service";
@@ -78,6 +82,7 @@ import * as v20210515 from "./v20210515";
 import * as v20210615 from "./v20210615";
 import * as v20210701preview from "./v20210701preview";
 import * as v20211015 from "./v20211015";
+import * as v20211015preview from "./v20211015preview";
 
 export {
     v20150401,
@@ -101,6 +106,7 @@ export {
     v20210615,
     v20210701preview,
     v20211015,
+    v20211015preview,
 };
 
 // Import resources to register:
@@ -115,6 +121,8 @@ import { GremlinResourceGremlinDatabase } from "./gremlinResourceGremlinDatabase
 import { GremlinResourceGremlinGraph } from "./gremlinResourceGremlinGraph";
 import { MongoDBResourceMongoDBCollection } from "./mongoDBResourceMongoDBCollection";
 import { MongoDBResourceMongoDBDatabase } from "./mongoDBResourceMongoDBDatabase";
+import { MongoDBResourceMongoRoleDefinition } from "./mongoDBResourceMongoRoleDefinition";
+import { MongoDBResourceMongoUserDefinition } from "./mongoDBResourceMongoUserDefinition";
 import { NotebookWorkspace } from "./notebookWorkspace";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Service } from "./service";
@@ -153,6 +161,10 @@ const _module = {
                 return new MongoDBResourceMongoDBCollection(name, <any>undefined, { urn })
             case "azure-native:documentdb:MongoDBResourceMongoDBDatabase":
                 return new MongoDBResourceMongoDBDatabase(name, <any>undefined, { urn })
+            case "azure-native:documentdb:MongoDBResourceMongoRoleDefinition":
+                return new MongoDBResourceMongoRoleDefinition(name, <any>undefined, { urn })
+            case "azure-native:documentdb:MongoDBResourceMongoUserDefinition":
+                return new MongoDBResourceMongoUserDefinition(name, <any>undefined, { urn })
             case "azure-native:documentdb:NotebookWorkspace":
                 return new NotebookWorkspace(name, <any>undefined, { urn })
             case "azure-native:documentdb:PrivateEndpointConnection":

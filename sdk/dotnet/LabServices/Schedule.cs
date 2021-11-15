@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.LabServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:Schedule"},
+                    new Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:Schedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

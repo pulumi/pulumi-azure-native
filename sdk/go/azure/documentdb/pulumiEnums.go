@@ -1990,6 +1990,170 @@ func (in *managedCassandraProvisioningStatePtr) ToManagedCassandraProvisioningSt
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedCassandraProvisioningStatePtrOutput)
 }
 
+type MongoRoleDefinitionType string
+
+const (
+	MongoRoleDefinitionTypeBuiltInRole = MongoRoleDefinitionType("BuiltInRole")
+	MongoRoleDefinitionTypeCustomRole  = MongoRoleDefinitionType("CustomRole")
+)
+
+func (MongoRoleDefinitionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoRoleDefinitionType)(nil)).Elem()
+}
+
+func (e MongoRoleDefinitionType) ToMongoRoleDefinitionTypeOutput() MongoRoleDefinitionTypeOutput {
+	return pulumi.ToOutput(e).(MongoRoleDefinitionTypeOutput)
+}
+
+func (e MongoRoleDefinitionType) ToMongoRoleDefinitionTypeOutputWithContext(ctx context.Context) MongoRoleDefinitionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MongoRoleDefinitionTypeOutput)
+}
+
+func (e MongoRoleDefinitionType) ToMongoRoleDefinitionTypePtrOutput() MongoRoleDefinitionTypePtrOutput {
+	return e.ToMongoRoleDefinitionTypePtrOutputWithContext(context.Background())
+}
+
+func (e MongoRoleDefinitionType) ToMongoRoleDefinitionTypePtrOutputWithContext(ctx context.Context) MongoRoleDefinitionTypePtrOutput {
+	return MongoRoleDefinitionType(e).ToMongoRoleDefinitionTypeOutputWithContext(ctx).ToMongoRoleDefinitionTypePtrOutputWithContext(ctx)
+}
+
+func (e MongoRoleDefinitionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MongoRoleDefinitionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MongoRoleDefinitionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MongoRoleDefinitionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MongoRoleDefinitionTypeOutput struct{ *pulumi.OutputState }
+
+func (MongoRoleDefinitionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoRoleDefinitionType)(nil)).Elem()
+}
+
+func (o MongoRoleDefinitionTypeOutput) ToMongoRoleDefinitionTypeOutput() MongoRoleDefinitionTypeOutput {
+	return o
+}
+
+func (o MongoRoleDefinitionTypeOutput) ToMongoRoleDefinitionTypeOutputWithContext(ctx context.Context) MongoRoleDefinitionTypeOutput {
+	return o
+}
+
+func (o MongoRoleDefinitionTypeOutput) ToMongoRoleDefinitionTypePtrOutput() MongoRoleDefinitionTypePtrOutput {
+	return o.ToMongoRoleDefinitionTypePtrOutputWithContext(context.Background())
+}
+
+func (o MongoRoleDefinitionTypeOutput) ToMongoRoleDefinitionTypePtrOutputWithContext(ctx context.Context) MongoRoleDefinitionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MongoRoleDefinitionType) *MongoRoleDefinitionType {
+		return &v
+	}).(MongoRoleDefinitionTypePtrOutput)
+}
+
+func (o MongoRoleDefinitionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MongoRoleDefinitionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MongoRoleDefinitionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MongoRoleDefinitionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MongoRoleDefinitionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MongoRoleDefinitionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MongoRoleDefinitionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (MongoRoleDefinitionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoRoleDefinitionType)(nil)).Elem()
+}
+
+func (o MongoRoleDefinitionTypePtrOutput) ToMongoRoleDefinitionTypePtrOutput() MongoRoleDefinitionTypePtrOutput {
+	return o
+}
+
+func (o MongoRoleDefinitionTypePtrOutput) ToMongoRoleDefinitionTypePtrOutputWithContext(ctx context.Context) MongoRoleDefinitionTypePtrOutput {
+	return o
+}
+
+func (o MongoRoleDefinitionTypePtrOutput) Elem() MongoRoleDefinitionTypeOutput {
+	return o.ApplyT(func(v *MongoRoleDefinitionType) MongoRoleDefinitionType {
+		if v != nil {
+			return *v
+		}
+		var ret MongoRoleDefinitionType
+		return ret
+	}).(MongoRoleDefinitionTypeOutput)
+}
+
+func (o MongoRoleDefinitionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MongoRoleDefinitionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MongoRoleDefinitionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type MongoRoleDefinitionTypeInput interface {
+	pulumi.Input
+
+	ToMongoRoleDefinitionTypeOutput() MongoRoleDefinitionTypeOutput
+	ToMongoRoleDefinitionTypeOutputWithContext(context.Context) MongoRoleDefinitionTypeOutput
+}
+
+var mongoRoleDefinitionTypePtrType = reflect.TypeOf((**MongoRoleDefinitionType)(nil)).Elem()
+
+type MongoRoleDefinitionTypePtrInput interface {
+	pulumi.Input
+
+	ToMongoRoleDefinitionTypePtrOutput() MongoRoleDefinitionTypePtrOutput
+	ToMongoRoleDefinitionTypePtrOutputWithContext(context.Context) MongoRoleDefinitionTypePtrOutput
+}
+
+type mongoRoleDefinitionTypePtr string
+
+func MongoRoleDefinitionTypePtr(v string) MongoRoleDefinitionTypePtrInput {
+	return (*mongoRoleDefinitionTypePtr)(&v)
+}
+
+func (*mongoRoleDefinitionTypePtr) ElementType() reflect.Type {
+	return mongoRoleDefinitionTypePtrType
+}
+
+func (in *mongoRoleDefinitionTypePtr) ToMongoRoleDefinitionTypePtrOutput() MongoRoleDefinitionTypePtrOutput {
+	return pulumi.ToOutput(in).(MongoRoleDefinitionTypePtrOutput)
+}
+
+func (in *mongoRoleDefinitionTypePtr) ToMongoRoleDefinitionTypePtrOutputWithContext(ctx context.Context) MongoRoleDefinitionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MongoRoleDefinitionTypePtrOutput)
+}
+
 type NetworkAclBypass string
 
 const (
@@ -3829,6 +3993,8 @@ func init() {
 	pulumi.RegisterOutputType(IndexingModePtrOutput{})
 	pulumi.RegisterOutputType(ManagedCassandraProvisioningStateOutput{})
 	pulumi.RegisterOutputType(ManagedCassandraProvisioningStatePtrOutput{})
+	pulumi.RegisterOutputType(MongoRoleDefinitionTypeOutput{})
+	pulumi.RegisterOutputType(MongoRoleDefinitionTypePtrOutput{})
 	pulumi.RegisterOutputType(NetworkAclBypassOutput{})
 	pulumi.RegisterOutputType(NetworkAclBypassPtrOutput{})
 	pulumi.RegisterOutputType(PartitionKindOutput{})

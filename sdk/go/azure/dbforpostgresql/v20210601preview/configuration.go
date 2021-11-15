@@ -14,15 +14,20 @@ import (
 type Configuration struct {
 	pulumi.CustomResourceState
 
-	AllowedValues pulumi.StringOutput      `pulumi:"allowedValues"`
-	DataType      pulumi.StringOutput      `pulumi:"dataType"`
-	DefaultValue  pulumi.StringOutput      `pulumi:"defaultValue"`
-	Description   pulumi.StringOutput      `pulumi:"description"`
-	Name          pulumi.StringOutput      `pulumi:"name"`
-	Source        pulumi.StringPtrOutput   `pulumi:"source"`
-	SystemData    SystemDataResponseOutput `pulumi:"systemData"`
-	Type          pulumi.StringOutput      `pulumi:"type"`
-	Value         pulumi.StringPtrOutput   `pulumi:"value"`
+	AllowedValues          pulumi.StringOutput      `pulumi:"allowedValues"`
+	DataType               pulumi.StringOutput      `pulumi:"dataType"`
+	DefaultValue           pulumi.StringOutput      `pulumi:"defaultValue"`
+	Description            pulumi.StringOutput      `pulumi:"description"`
+	DocumentationLink      pulumi.StringOutput      `pulumi:"documentationLink"`
+	IsConfigPendingRestart pulumi.BoolOutput        `pulumi:"isConfigPendingRestart"`
+	IsDynamicConfig        pulumi.BoolOutput        `pulumi:"isDynamicConfig"`
+	IsReadOnly             pulumi.BoolOutput        `pulumi:"isReadOnly"`
+	Name                   pulumi.StringOutput      `pulumi:"name"`
+	Source                 pulumi.StringPtrOutput   `pulumi:"source"`
+	SystemData             SystemDataResponseOutput `pulumi:"systemData"`
+	Type                   pulumi.StringOutput      `pulumi:"type"`
+	Unit                   pulumi.StringOutput      `pulumi:"unit"`
+	Value                  pulumi.StringPtrOutput   `pulumi:"value"`
 }
 
 

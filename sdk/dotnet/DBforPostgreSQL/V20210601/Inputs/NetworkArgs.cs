@@ -29,6 +29,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601.Inputs
 
         public NetworkArgs()
         {
+            DelegatedSubnetResourceId = "";
+            PrivateDnsZoneArmResourceId = "";
         }
     }
 }

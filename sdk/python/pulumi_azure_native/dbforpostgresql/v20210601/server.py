@@ -58,6 +58,8 @@ class ServerArgs:
             pulumi.set(__self__, "administrator_login", administrator_login)
         if administrator_login_password is not None:
             pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        if availability_zone is None:
+            availability_zone = ''
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if backup is not None:
@@ -393,6 +395,8 @@ class Server(pulumi.CustomResource):
 
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_login_password"] = administrator_login_password
+            if availability_zone is None:
+                availability_zone = ''
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup"] = backup
             __props__.__dict__["create_mode"] = create_mode

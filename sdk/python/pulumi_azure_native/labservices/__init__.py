@@ -38,7 +38,10 @@ if typing.TYPE_CHECKING:
     v20181015 = __v20181015
     import pulumi_azure_native.labservices.v20211001preview as __v20211001preview
     v20211001preview = __v20211001preview
+    import pulumi_azure_native.labservices.v20211115preview as __v20211115preview
+    v20211115preview = __v20211115preview
 else:
     v20181015 = _utilities.lazy_import('pulumi_azure_native.labservices.v20181015')
     v20211001preview = _utilities.lazy_import('pulumi_azure_native.labservices.v20211001preview')
+    v20211115preview = _utilities.lazy_import('pulumi_azure_native.labservices.v20211115preview')
 

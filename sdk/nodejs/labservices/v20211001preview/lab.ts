@@ -165,6 +165,8 @@ export class Lab extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211115preview:Lab" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Lab.__pulumiType, name, inputs, opts);
     }
 }

@@ -17,6 +17,7 @@ __all__ = [
     'IndexKind',
     'IndexingMode',
     'ManagedCassandraProvisioningState',
+    'MongoRoleDefinitionType',
     'NetworkAclBypass',
     'PartitionKind',
     'PublicNetworkAccess',
@@ -137,6 +138,14 @@ class ManagedCassandraProvisioningState(str, Enum):
     SUCCEEDED = "Succeeded"
     FAILED = "Failed"
     CANCELED = "Canceled"
+
+
+class MongoRoleDefinitionType(str, Enum):
+    """
+    Indicates whether the Role Definition was built-in or user created.
+    """
+    BUILT_IN_ROLE = "BuiltInRole"
+    CUSTOM_ROLE = "CustomRole"
 
 
 class NetworkAclBypass(str, Enum):

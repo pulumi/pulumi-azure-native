@@ -12920,6 +12920,702 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+type Privilege struct {
+	Actions  []string           `pulumi:"actions"`
+	Resource *PrivilegeResource `pulumi:"resource"`
+}
+
+
+
+
+
+type PrivilegeInput interface {
+	pulumi.Input
+
+	ToPrivilegeOutput() PrivilegeOutput
+	ToPrivilegeOutputWithContext(context.Context) PrivilegeOutput
+}
+
+type PrivilegeArgs struct {
+	Actions  pulumi.StringArrayInput   `pulumi:"actions"`
+	Resource PrivilegeResourcePtrInput `pulumi:"resource"`
+}
+
+func (PrivilegeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Privilege)(nil)).Elem()
+}
+
+func (i PrivilegeArgs) ToPrivilegeOutput() PrivilegeOutput {
+	return i.ToPrivilegeOutputWithContext(context.Background())
+}
+
+func (i PrivilegeArgs) ToPrivilegeOutputWithContext(ctx context.Context) PrivilegeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivilegeOutput)
+}
+
+
+
+
+
+type PrivilegeArrayInput interface {
+	pulumi.Input
+
+	ToPrivilegeArrayOutput() PrivilegeArrayOutput
+	ToPrivilegeArrayOutputWithContext(context.Context) PrivilegeArrayOutput
+}
+
+type PrivilegeArray []PrivilegeInput
+
+func (PrivilegeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Privilege)(nil)).Elem()
+}
+
+func (i PrivilegeArray) ToPrivilegeArrayOutput() PrivilegeArrayOutput {
+	return i.ToPrivilegeArrayOutputWithContext(context.Background())
+}
+
+func (i PrivilegeArray) ToPrivilegeArrayOutputWithContext(ctx context.Context) PrivilegeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivilegeArrayOutput)
+}
+
+type PrivilegeOutput struct{ *pulumi.OutputState }
+
+func (PrivilegeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Privilege)(nil)).Elem()
+}
+
+func (o PrivilegeOutput) ToPrivilegeOutput() PrivilegeOutput {
+	return o
+}
+
+func (o PrivilegeOutput) ToPrivilegeOutputWithContext(ctx context.Context) PrivilegeOutput {
+	return o
+}
+
+func (o PrivilegeOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v Privilege) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+func (o PrivilegeOutput) Resource() PrivilegeResourcePtrOutput {
+	return o.ApplyT(func(v Privilege) *PrivilegeResource { return v.Resource }).(PrivilegeResourcePtrOutput)
+}
+
+type PrivilegeArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivilegeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Privilege)(nil)).Elem()
+}
+
+func (o PrivilegeArrayOutput) ToPrivilegeArrayOutput() PrivilegeArrayOutput {
+	return o
+}
+
+func (o PrivilegeArrayOutput) ToPrivilegeArrayOutputWithContext(ctx context.Context) PrivilegeArrayOutput {
+	return o
+}
+
+func (o PrivilegeArrayOutput) Index(i pulumi.IntInput) PrivilegeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Privilege {
+		return vs[0].([]Privilege)[vs[1].(int)]
+	}).(PrivilegeOutput)
+}
+
+type PrivilegeResource struct {
+	Collection *string `pulumi:"collection"`
+	Db         *string `pulumi:"db"`
+}
+
+
+
+
+
+type PrivilegeResourceInput interface {
+	pulumi.Input
+
+	ToPrivilegeResourceOutput() PrivilegeResourceOutput
+	ToPrivilegeResourceOutputWithContext(context.Context) PrivilegeResourceOutput
+}
+
+type PrivilegeResourceArgs struct {
+	Collection pulumi.StringPtrInput `pulumi:"collection"`
+	Db         pulumi.StringPtrInput `pulumi:"db"`
+}
+
+func (PrivilegeResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivilegeResource)(nil)).Elem()
+}
+
+func (i PrivilegeResourceArgs) ToPrivilegeResourceOutput() PrivilegeResourceOutput {
+	return i.ToPrivilegeResourceOutputWithContext(context.Background())
+}
+
+func (i PrivilegeResourceArgs) ToPrivilegeResourceOutputWithContext(ctx context.Context) PrivilegeResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivilegeResourceOutput)
+}
+
+func (i PrivilegeResourceArgs) ToPrivilegeResourcePtrOutput() PrivilegeResourcePtrOutput {
+	return i.ToPrivilegeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i PrivilegeResourceArgs) ToPrivilegeResourcePtrOutputWithContext(ctx context.Context) PrivilegeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivilegeResourceOutput).ToPrivilegeResourcePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PrivilegeResourcePtrInput interface {
+	pulumi.Input
+
+	ToPrivilegeResourcePtrOutput() PrivilegeResourcePtrOutput
+	ToPrivilegeResourcePtrOutputWithContext(context.Context) PrivilegeResourcePtrOutput
+}
+
+type privilegeResourcePtrType PrivilegeResourceArgs
+
+func PrivilegeResourcePtr(v *PrivilegeResourceArgs) PrivilegeResourcePtrInput {
+	return (*privilegeResourcePtrType)(v)
+}
+
+func (*privilegeResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivilegeResource)(nil)).Elem()
+}
+
+func (i *privilegeResourcePtrType) ToPrivilegeResourcePtrOutput() PrivilegeResourcePtrOutput {
+	return i.ToPrivilegeResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *privilegeResourcePtrType) ToPrivilegeResourcePtrOutputWithContext(ctx context.Context) PrivilegeResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivilegeResourcePtrOutput)
+}
+
+type PrivilegeResourceOutput struct{ *pulumi.OutputState }
+
+func (PrivilegeResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivilegeResource)(nil)).Elem()
+}
+
+func (o PrivilegeResourceOutput) ToPrivilegeResourceOutput() PrivilegeResourceOutput {
+	return o
+}
+
+func (o PrivilegeResourceOutput) ToPrivilegeResourceOutputWithContext(ctx context.Context) PrivilegeResourceOutput {
+	return o
+}
+
+func (o PrivilegeResourceOutput) ToPrivilegeResourcePtrOutput() PrivilegeResourcePtrOutput {
+	return o.ToPrivilegeResourcePtrOutputWithContext(context.Background())
+}
+
+func (o PrivilegeResourceOutput) ToPrivilegeResourcePtrOutputWithContext(ctx context.Context) PrivilegeResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivilegeResource) *PrivilegeResource {
+		return &v
+	}).(PrivilegeResourcePtrOutput)
+}
+
+func (o PrivilegeResourceOutput) Collection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivilegeResource) *string { return v.Collection }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivilegeResourceOutput) Db() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivilegeResource) *string { return v.Db }).(pulumi.StringPtrOutput)
+}
+
+type PrivilegeResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivilegeResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivilegeResource)(nil)).Elem()
+}
+
+func (o PrivilegeResourcePtrOutput) ToPrivilegeResourcePtrOutput() PrivilegeResourcePtrOutput {
+	return o
+}
+
+func (o PrivilegeResourcePtrOutput) ToPrivilegeResourcePtrOutputWithContext(ctx context.Context) PrivilegeResourcePtrOutput {
+	return o
+}
+
+func (o PrivilegeResourcePtrOutput) Elem() PrivilegeResourceOutput {
+	return o.ApplyT(func(v *PrivilegeResource) PrivilegeResource {
+		if v != nil {
+			return *v
+		}
+		var ret PrivilegeResource
+		return ret
+	}).(PrivilegeResourceOutput)
+}
+
+func (o PrivilegeResourcePtrOutput) Collection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivilegeResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Collection
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrivilegeResourcePtrOutput) Db() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivilegeResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Db
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrivilegeResponse struct {
+	Actions  []string                   `pulumi:"actions"`
+	Resource *PrivilegeResponseResource `pulumi:"resource"`
+}
+
+
+
+
+
+type PrivilegeResponseInput interface {
+	pulumi.Input
+
+	ToPrivilegeResponseOutput() PrivilegeResponseOutput
+	ToPrivilegeResponseOutputWithContext(context.Context) PrivilegeResponseOutput
+}
+
+type PrivilegeResponseArgs struct {
+	Actions  pulumi.StringArrayInput           `pulumi:"actions"`
+	Resource PrivilegeResponseResourcePtrInput `pulumi:"resource"`
+}
+
+func (PrivilegeResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivilegeResponse)(nil)).Elem()
+}
+
+func (i PrivilegeResponseArgs) ToPrivilegeResponseOutput() PrivilegeResponseOutput {
+	return i.ToPrivilegeResponseOutputWithContext(context.Background())
+}
+
+func (i PrivilegeResponseArgs) ToPrivilegeResponseOutputWithContext(ctx context.Context) PrivilegeResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivilegeResponseOutput)
+}
+
+
+
+
+
+type PrivilegeResponseArrayInput interface {
+	pulumi.Input
+
+	ToPrivilegeResponseArrayOutput() PrivilegeResponseArrayOutput
+	ToPrivilegeResponseArrayOutputWithContext(context.Context) PrivilegeResponseArrayOutput
+}
+
+type PrivilegeResponseArray []PrivilegeResponseInput
+
+func (PrivilegeResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivilegeResponse)(nil)).Elem()
+}
+
+func (i PrivilegeResponseArray) ToPrivilegeResponseArrayOutput() PrivilegeResponseArrayOutput {
+	return i.ToPrivilegeResponseArrayOutputWithContext(context.Background())
+}
+
+func (i PrivilegeResponseArray) ToPrivilegeResponseArrayOutputWithContext(ctx context.Context) PrivilegeResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivilegeResponseArrayOutput)
+}
+
+type PrivilegeResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivilegeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivilegeResponse)(nil)).Elem()
+}
+
+func (o PrivilegeResponseOutput) ToPrivilegeResponseOutput() PrivilegeResponseOutput {
+	return o
+}
+
+func (o PrivilegeResponseOutput) ToPrivilegeResponseOutputWithContext(ctx context.Context) PrivilegeResponseOutput {
+	return o
+}
+
+func (o PrivilegeResponseOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivilegeResponse) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+func (o PrivilegeResponseOutput) Resource() PrivilegeResponseResourcePtrOutput {
+	return o.ApplyT(func(v PrivilegeResponse) *PrivilegeResponseResource { return v.Resource }).(PrivilegeResponseResourcePtrOutput)
+}
+
+type PrivilegeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivilegeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivilegeResponse)(nil)).Elem()
+}
+
+func (o PrivilegeResponseArrayOutput) ToPrivilegeResponseArrayOutput() PrivilegeResponseArrayOutput {
+	return o
+}
+
+func (o PrivilegeResponseArrayOutput) ToPrivilegeResponseArrayOutputWithContext(ctx context.Context) PrivilegeResponseArrayOutput {
+	return o
+}
+
+func (o PrivilegeResponseArrayOutput) Index(i pulumi.IntInput) PrivilegeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivilegeResponse {
+		return vs[0].([]PrivilegeResponse)[vs[1].(int)]
+	}).(PrivilegeResponseOutput)
+}
+
+type PrivilegeResponseResource struct {
+	Collection *string `pulumi:"collection"`
+	Db         *string `pulumi:"db"`
+}
+
+
+
+
+
+type PrivilegeResponseResourceInput interface {
+	pulumi.Input
+
+	ToPrivilegeResponseResourceOutput() PrivilegeResponseResourceOutput
+	ToPrivilegeResponseResourceOutputWithContext(context.Context) PrivilegeResponseResourceOutput
+}
+
+type PrivilegeResponseResourceArgs struct {
+	Collection pulumi.StringPtrInput `pulumi:"collection"`
+	Db         pulumi.StringPtrInput `pulumi:"db"`
+}
+
+func (PrivilegeResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivilegeResponseResource)(nil)).Elem()
+}
+
+func (i PrivilegeResponseResourceArgs) ToPrivilegeResponseResourceOutput() PrivilegeResponseResourceOutput {
+	return i.ToPrivilegeResponseResourceOutputWithContext(context.Background())
+}
+
+func (i PrivilegeResponseResourceArgs) ToPrivilegeResponseResourceOutputWithContext(ctx context.Context) PrivilegeResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivilegeResponseResourceOutput)
+}
+
+func (i PrivilegeResponseResourceArgs) ToPrivilegeResponseResourcePtrOutput() PrivilegeResponseResourcePtrOutput {
+	return i.ToPrivilegeResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i PrivilegeResponseResourceArgs) ToPrivilegeResponseResourcePtrOutputWithContext(ctx context.Context) PrivilegeResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivilegeResponseResourceOutput).ToPrivilegeResponseResourcePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PrivilegeResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToPrivilegeResponseResourcePtrOutput() PrivilegeResponseResourcePtrOutput
+	ToPrivilegeResponseResourcePtrOutputWithContext(context.Context) PrivilegeResponseResourcePtrOutput
+}
+
+type privilegeResponseResourcePtrType PrivilegeResponseResourceArgs
+
+func PrivilegeResponseResourcePtr(v *PrivilegeResponseResourceArgs) PrivilegeResponseResourcePtrInput {
+	return (*privilegeResponseResourcePtrType)(v)
+}
+
+func (*privilegeResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivilegeResponseResource)(nil)).Elem()
+}
+
+func (i *privilegeResponseResourcePtrType) ToPrivilegeResponseResourcePtrOutput() PrivilegeResponseResourcePtrOutput {
+	return i.ToPrivilegeResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *privilegeResponseResourcePtrType) ToPrivilegeResponseResourcePtrOutputWithContext(ctx context.Context) PrivilegeResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivilegeResponseResourcePtrOutput)
+}
+
+type PrivilegeResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (PrivilegeResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivilegeResponseResource)(nil)).Elem()
+}
+
+func (o PrivilegeResponseResourceOutput) ToPrivilegeResponseResourceOutput() PrivilegeResponseResourceOutput {
+	return o
+}
+
+func (o PrivilegeResponseResourceOutput) ToPrivilegeResponseResourceOutputWithContext(ctx context.Context) PrivilegeResponseResourceOutput {
+	return o
+}
+
+func (o PrivilegeResponseResourceOutput) ToPrivilegeResponseResourcePtrOutput() PrivilegeResponseResourcePtrOutput {
+	return o.ToPrivilegeResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o PrivilegeResponseResourceOutput) ToPrivilegeResponseResourcePtrOutputWithContext(ctx context.Context) PrivilegeResponseResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivilegeResponseResource) *PrivilegeResponseResource {
+		return &v
+	}).(PrivilegeResponseResourcePtrOutput)
+}
+
+func (o PrivilegeResponseResourceOutput) Collection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivilegeResponseResource) *string { return v.Collection }).(pulumi.StringPtrOutput)
+}
+
+func (o PrivilegeResponseResourceOutput) Db() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivilegeResponseResource) *string { return v.Db }).(pulumi.StringPtrOutput)
+}
+
+type PrivilegeResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivilegeResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivilegeResponseResource)(nil)).Elem()
+}
+
+func (o PrivilegeResponseResourcePtrOutput) ToPrivilegeResponseResourcePtrOutput() PrivilegeResponseResourcePtrOutput {
+	return o
+}
+
+func (o PrivilegeResponseResourcePtrOutput) ToPrivilegeResponseResourcePtrOutputWithContext(ctx context.Context) PrivilegeResponseResourcePtrOutput {
+	return o
+}
+
+func (o PrivilegeResponseResourcePtrOutput) Elem() PrivilegeResponseResourceOutput {
+	return o.ApplyT(func(v *PrivilegeResponseResource) PrivilegeResponseResource {
+		if v != nil {
+			return *v
+		}
+		var ret PrivilegeResponseResource
+		return ret
+	}).(PrivilegeResponseResourceOutput)
+}
+
+func (o PrivilegeResponseResourcePtrOutput) Collection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivilegeResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Collection
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PrivilegeResponseResourcePtrOutput) Db() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivilegeResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Db
+	}).(pulumi.StringPtrOutput)
+}
+
+type Role struct {
+	Db   *string `pulumi:"db"`
+	Role *string `pulumi:"role"`
+}
+
+
+
+
+
+type RoleInput interface {
+	pulumi.Input
+
+	ToRoleOutput() RoleOutput
+	ToRoleOutputWithContext(context.Context) RoleOutput
+}
+
+type RoleArgs struct {
+	Db   pulumi.StringPtrInput `pulumi:"db"`
+	Role pulumi.StringPtrInput `pulumi:"role"`
+}
+
+func (RoleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Role)(nil)).Elem()
+}
+
+func (i RoleArgs) ToRoleOutput() RoleOutput {
+	return i.ToRoleOutputWithContext(context.Background())
+}
+
+func (i RoleArgs) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleOutput)
+}
+
+
+
+
+
+type RoleArrayInput interface {
+	pulumi.Input
+
+	ToRoleArrayOutput() RoleArrayOutput
+	ToRoleArrayOutputWithContext(context.Context) RoleArrayOutput
+}
+
+type RoleArray []RoleInput
+
+func (RoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Role)(nil)).Elem()
+}
+
+func (i RoleArray) ToRoleArrayOutput() RoleArrayOutput {
+	return i.ToRoleArrayOutputWithContext(context.Background())
+}
+
+func (i RoleArray) ToRoleArrayOutputWithContext(ctx context.Context) RoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleArrayOutput)
+}
+
+type RoleOutput struct{ *pulumi.OutputState }
+
+func (RoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Role)(nil)).Elem()
+}
+
+func (o RoleOutput) ToRoleOutput() RoleOutput {
+	return o
+}
+
+func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
+	return o
+}
+
+func (o RoleOutput) Db() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Role) *string { return v.Db }).(pulumi.StringPtrOutput)
+}
+
+func (o RoleOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Role) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+type RoleArrayOutput struct{ *pulumi.OutputState }
+
+func (RoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Role)(nil)).Elem()
+}
+
+func (o RoleArrayOutput) ToRoleArrayOutput() RoleArrayOutput {
+	return o
+}
+
+func (o RoleArrayOutput) ToRoleArrayOutputWithContext(ctx context.Context) RoleArrayOutput {
+	return o
+}
+
+func (o RoleArrayOutput) Index(i pulumi.IntInput) RoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Role {
+		return vs[0].([]Role)[vs[1].(int)]
+	}).(RoleOutput)
+}
+
+type RoleResponse struct {
+	Db   *string `pulumi:"db"`
+	Role *string `pulumi:"role"`
+}
+
+
+
+
+
+type RoleResponseInput interface {
+	pulumi.Input
+
+	ToRoleResponseOutput() RoleResponseOutput
+	ToRoleResponseOutputWithContext(context.Context) RoleResponseOutput
+}
+
+type RoleResponseArgs struct {
+	Db   pulumi.StringPtrInput `pulumi:"db"`
+	Role pulumi.StringPtrInput `pulumi:"role"`
+}
+
+func (RoleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleResponse)(nil)).Elem()
+}
+
+func (i RoleResponseArgs) ToRoleResponseOutput() RoleResponseOutput {
+	return i.ToRoleResponseOutputWithContext(context.Background())
+}
+
+func (i RoleResponseArgs) ToRoleResponseOutputWithContext(ctx context.Context) RoleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleResponseOutput)
+}
+
+
+
+
+
+type RoleResponseArrayInput interface {
+	pulumi.Input
+
+	ToRoleResponseArrayOutput() RoleResponseArrayOutput
+	ToRoleResponseArrayOutputWithContext(context.Context) RoleResponseArrayOutput
+}
+
+type RoleResponseArray []RoleResponseInput
+
+func (RoleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleResponse)(nil)).Elem()
+}
+
+func (i RoleResponseArray) ToRoleResponseArrayOutput() RoleResponseArrayOutput {
+	return i.ToRoleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i RoleResponseArray) ToRoleResponseArrayOutputWithContext(ctx context.Context) RoleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleResponseArrayOutput)
+}
+
+type RoleResponseOutput struct{ *pulumi.OutputState }
+
+func (RoleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleResponse)(nil)).Elem()
+}
+
+func (o RoleResponseOutput) ToRoleResponseOutput() RoleResponseOutput {
+	return o
+}
+
+func (o RoleResponseOutput) ToRoleResponseOutputWithContext(ctx context.Context) RoleResponseOutput {
+	return o
+}
+
+func (o RoleResponseOutput) Db() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleResponse) *string { return v.Db }).(pulumi.StringPtrOutput)
+}
+
+func (o RoleResponseOutput) Role() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleResponse) *string { return v.Role }).(pulumi.StringPtrOutput)
+}
+
+type RoleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RoleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleResponse)(nil)).Elem()
+}
+
+func (o RoleResponseArrayOutput) ToRoleResponseArrayOutput() RoleResponseArrayOutput {
+	return o
+}
+
+func (o RoleResponseArrayOutput) ToRoleResponseArrayOutputWithContext(ctx context.Context) RoleResponseArrayOutput {
+	return o
+}
+
+func (o RoleResponseArrayOutput) Index(i pulumi.IntInput) RoleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleResponse {
+		return vs[0].([]RoleResponse)[vs[1].(int)]
+	}).(RoleResponseOutput)
+}
+
 type SeedNode struct {
 	IpAddress *string `pulumi:"ipAddress"`
 }
@@ -17281,6 +17977,18 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivilegeOutput{})
+	pulumi.RegisterOutputType(PrivilegeArrayOutput{})
+	pulumi.RegisterOutputType(PrivilegeResourceOutput{})
+	pulumi.RegisterOutputType(PrivilegeResourcePtrOutput{})
+	pulumi.RegisterOutputType(PrivilegeResponseOutput{})
+	pulumi.RegisterOutputType(PrivilegeResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivilegeResponseResourceOutput{})
+	pulumi.RegisterOutputType(PrivilegeResponseResourcePtrOutput{})
+	pulumi.RegisterOutputType(RoleOutput{})
+	pulumi.RegisterOutputType(RoleArrayOutput{})
+	pulumi.RegisterOutputType(RoleResponseOutput{})
+	pulumi.RegisterOutputType(RoleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SeedNodeOutput{})
 	pulumi.RegisterOutputType(SeedNodePtrOutput{})
 	pulumi.RegisterOutputType(SeedNodeArrayOutput{})

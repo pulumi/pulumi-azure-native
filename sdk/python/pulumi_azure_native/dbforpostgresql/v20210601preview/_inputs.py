@@ -32,6 +32,8 @@ class BackupArgs:
             backup_retention_days = 7
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+        if geo_redundant_backup is None:
+            geo_redundant_backup = 'Disabled'
         if geo_redundant_backup is not None:
             pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
 
@@ -70,8 +72,12 @@ class HighAvailabilityArgs:
         :param pulumi.Input[Union[str, 'HighAvailabilityMode']] mode: The HA mode for the server.
         :param pulumi.Input[str] standby_availability_zone: availability zone information of the standby.
         """
+        if mode is None:
+            mode = 'Disabled'
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if standby_availability_zone is None:
+            standby_availability_zone = ''
         if standby_availability_zone is not None:
             pulumi.set(__self__, "standby_availability_zone", standby_availability_zone)
 
@@ -114,12 +120,20 @@ class MaintenanceWindowArgs:
         :param pulumi.Input[int] start_hour: start hour for maintenance window
         :param pulumi.Input[int] start_minute: start minute for maintenance window
         """
+        if custom_window is None:
+            custom_window = 'Disabled'
         if custom_window is not None:
             pulumi.set(__self__, "custom_window", custom_window)
+        if day_of_week is None:
+            day_of_week = 0
         if day_of_week is not None:
             pulumi.set(__self__, "day_of_week", day_of_week)
+        if start_hour is None:
+            start_hour = 0
         if start_hour is not None:
             pulumi.set(__self__, "start_hour", start_hour)
+        if start_minute is None:
+            start_minute = 0
         if start_minute is not None:
             pulumi.set(__self__, "start_minute", start_minute)
 
@@ -182,8 +196,12 @@ class NetworkArgs:
         :param pulumi.Input[str] delegated_subnet_resource_id: delegated subnet arm resource id.
         :param pulumi.Input[str] private_dns_zone_arm_resource_id: private dns zone arm resource id.
         """
+        if delegated_subnet_resource_id is None:
+            delegated_subnet_resource_id = ''
         if delegated_subnet_resource_id is not None:
             pulumi.set(__self__, "delegated_subnet_resource_id", delegated_subnet_resource_id)
+        if private_dns_zone_arm_resource_id is None:
+            private_dns_zone_arm_resource_id = ''
         if private_dns_zone_arm_resource_id is not None:
             pulumi.set(__self__, "private_dns_zone_arm_resource_id", private_dns_zone_arm_resource_id)
 

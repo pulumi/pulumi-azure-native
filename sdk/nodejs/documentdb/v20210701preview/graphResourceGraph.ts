@@ -100,7 +100,7 @@ export class GraphResourceGraph extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:GraphResourceGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb:GraphResourceGraph" }, { type: "azure-native:documentdb/v20211015preview:GraphResourceGraph" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GraphResourceGraph.__pulumiType, name, inputs, opts);
     }

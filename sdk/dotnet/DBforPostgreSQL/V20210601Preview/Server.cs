@@ -280,6 +280,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview
 
         public ServerArgs()
         {
+            AvailabilityZone = "";
         }
     }
 }

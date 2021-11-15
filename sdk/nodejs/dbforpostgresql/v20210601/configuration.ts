@@ -52,6 +52,22 @@ export class Configuration extends pulumi.CustomResource {
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
+     * Configuration documentation link.
+     */
+    public /*out*/ readonly documentationLink!: pulumi.Output<string>;
+    /**
+     * Configuration is pending restart or not.
+     */
+    public /*out*/ readonly isConfigPendingRestart!: pulumi.Output<boolean>;
+    /**
+     * Configuration dynamic or static.
+     */
+    public /*out*/ readonly isDynamicConfig!: pulumi.Output<boolean>;
+    /**
+     * Configuration read-only or not.
+     */
+    public /*out*/ readonly isReadOnly!: pulumi.Output<boolean>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -67,6 +83,10 @@ export class Configuration extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Configuration unit.
+     */
+    public /*out*/ readonly unit!: pulumi.Output<string>;
     /**
      * Value of the configuration.
      */
@@ -98,18 +118,28 @@ export class Configuration extends pulumi.CustomResource {
             inputs["dataType"] = undefined /*out*/;
             inputs["defaultValue"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["documentationLink"] = undefined /*out*/;
+            inputs["isConfigPendingRestart"] = undefined /*out*/;
+            inputs["isDynamicConfig"] = undefined /*out*/;
+            inputs["isReadOnly"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["unit"] = undefined /*out*/;
         } else {
             inputs["allowedValues"] = undefined /*out*/;
             inputs["dataType"] = undefined /*out*/;
             inputs["defaultValue"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
+            inputs["documentationLink"] = undefined /*out*/;
+            inputs["isConfigPendingRestart"] = undefined /*out*/;
+            inputs["isDynamicConfig"] = undefined /*out*/;
+            inputs["isReadOnly"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["source"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
+            inputs["unit"] = undefined /*out*/;
             inputs["value"] = undefined /*out*/;
         }
         if (!opts.version) {

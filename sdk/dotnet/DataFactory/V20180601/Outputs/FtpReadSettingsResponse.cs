@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? DeleteFilesAfterCompletion;
         /// <summary>
+        /// If true, disable parallel reading within each file. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? DisableChunking;
+        /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         public readonly object? DisableMetricsCollection;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         private FtpReadSettingsResponse(
             object? deleteFilesAfterCompletion,
 
+            object? disableChunking,
+
             object? disableMetricsCollection,
 
             bool? enablePartitionDiscovery,
@@ -87,6 +93,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             object? wildcardFolderPath)
         {
             DeleteFilesAfterCompletion = deleteFilesAfterCompletion;
+            DisableChunking = disableChunking;
             DisableMetricsCollection = disableMetricsCollection;
             EnablePartitionDiscovery = enablePartitionDiscovery;
             FileListPath = fileListPath;

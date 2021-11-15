@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview.Inputs
 
         public MaintenanceWindowArgs()
         {
+            CustomWindow = "Disabled";
+            DayOfWeek = 0;
+            StartHour = 0;
+            StartMinute = 0;
         }
     }
 }

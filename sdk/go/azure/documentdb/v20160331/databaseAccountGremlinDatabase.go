@@ -103,6 +103,9 @@ func NewDatabaseAccountGremlinDatabase(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:documentdb/v20211015:DatabaseAccountGremlinDatabase"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20211015preview:DatabaseAccountGremlinDatabase"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DatabaseAccountGremlinDatabase

@@ -32459,6 +32459,7 @@ class FtpReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_chunking: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
@@ -32473,6 +32474,7 @@ class FtpReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'FtpReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_chunking: If true, disable parallel reading within each file. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
@@ -32486,6 +32488,8 @@ class FtpReadSettingsArgs:
         pulumi.set(__self__, "type", 'FtpReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_chunking is not None:
+            pulumi.set(__self__, "disable_chunking", disable_chunking)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
@@ -32529,6 +32533,18 @@ class FtpReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableChunking")
+    def disable_chunking(self) -> Optional[Any]:
+        """
+        If true, disable parallel reading within each file. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_chunking")
+
+    @disable_chunking.setter
+    def disable_chunking(self, value: Optional[Any]):
+        pulumi.set(self, "disable_chunking", value)
 
     @property
     @pulumi.getter(name="disableMetricsCollection")
@@ -65950,6 +65966,7 @@ class SftpReadSettingsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  delete_files_after_completion: Optional[Any] = None,
+                 disable_chunking: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  enable_partition_discovery: Optional[pulumi.Input[bool]] = None,
                  file_list_path: Optional[Any] = None,
@@ -65965,6 +65982,7 @@ class SftpReadSettingsArgs:
         :param pulumi.Input[str] type: The read setting type.
                Expected value is 'SftpReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any disable_chunking: If true, disable parallel reading within each file. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[bool] enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
@@ -65979,6 +65997,8 @@ class SftpReadSettingsArgs:
         pulumi.set(__self__, "type", 'SftpReadSettings')
         if delete_files_after_completion is not None:
             pulumi.set(__self__, "delete_files_after_completion", delete_files_after_completion)
+        if disable_chunking is not None:
+            pulumi.set(__self__, "disable_chunking", disable_chunking)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
         if enable_partition_discovery is not None:
@@ -66024,6 +66044,18 @@ class SftpReadSettingsArgs:
     @delete_files_after_completion.setter
     def delete_files_after_completion(self, value: Optional[Any]):
         pulumi.set(self, "delete_files_after_completion", value)
+
+    @property
+    @pulumi.getter(name="disableChunking")
+    def disable_chunking(self) -> Optional[Any]:
+        """
+        If true, disable parallel reading within each file. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_chunking")
+
+    @disable_chunking.setter
+    def disable_chunking(self, value: Optional[Any]):
+        pulumi.set(self, "disable_chunking", value)
 
     @property
     @pulumi.getter(name="disableMetricsCollection")

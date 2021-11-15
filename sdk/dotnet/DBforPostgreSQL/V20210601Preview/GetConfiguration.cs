@@ -97,9 +97,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// Configuration documentation link.
+        /// </summary>
+        public readonly string DocumentationLink;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Configuration is pending restart or not.
+        /// </summary>
+        public readonly bool IsConfigPendingRestart;
+        /// <summary>
+        /// Configuration dynamic or static.
+        /// </summary>
+        public readonly bool IsDynamicConfig;
+        /// <summary>
+        /// Configuration read-only or not.
+        /// </summary>
+        public readonly bool IsReadOnly;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -117,6 +133,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Configuration unit.
+        /// </summary>
+        public readonly string Unit;
+        /// <summary>
         /// Value of the configuration.
         /// </summary>
         public readonly string? Value;
@@ -131,7 +151,15 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview
 
             string description,
 
+            string documentationLink,
+
             string id,
+
+            bool isConfigPendingRestart,
+
+            bool isDynamicConfig,
+
+            bool isReadOnly,
 
             string name,
 
@@ -141,17 +169,24 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601Preview
 
             string type,
 
+            string unit,
+
             string? value)
         {
             AllowedValues = allowedValues;
             DataType = dataType;
             DefaultValue = defaultValue;
             Description = description;
+            DocumentationLink = documentationLink;
             Id = id;
+            IsConfigPendingRestart = isConfigPendingRestart;
+            IsDynamicConfig = isDynamicConfig;
+            IsReadOnly = isReadOnly;
             Name = name;
             Source = source;
             SystemData = systemData;
             Type = type;
+            Unit = unit;
             Value = value;
         }
     }

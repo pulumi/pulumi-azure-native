@@ -43,6 +43,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MongoDBResourceMongoDBCollection{}
 	case "azure-native:documentdb:MongoDBResourceMongoDBDatabase":
 		r = &MongoDBResourceMongoDBDatabase{}
+	case "azure-native:documentdb:MongoDBResourceMongoRoleDefinition":
+		r = &MongoDBResourceMongoRoleDefinition{}
+	case "azure-native:documentdb:MongoDBResourceMongoUserDefinition":
+		r = &MongoDBResourceMongoUserDefinition{}
 	case "azure-native:documentdb:NotebookWorkspace":
 		r = &NotebookWorkspace{}
 	case "azure-native:documentdb:PrivateEndpointConnection":

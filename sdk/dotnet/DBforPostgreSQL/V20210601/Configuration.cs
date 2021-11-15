@@ -40,6 +40,30 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration documentation link.
+        /// </summary>
+        [Output("documentationLink")]
+        public Output<string> DocumentationLink { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration is pending restart or not.
+        /// </summary>
+        [Output("isConfigPendingRestart")]
+        public Output<bool> IsConfigPendingRestart { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration dynamic or static.
+        /// </summary>
+        [Output("isDynamicConfig")]
+        public Output<bool> IsDynamicConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration read-only or not.
+        /// </summary>
+        [Output("isReadOnly")]
+        public Output<bool> IsReadOnly { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -62,6 +86,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210601
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration unit.
+        /// </summary>
+        [Output("unit")]
+        public Output<string> Unit { get; private set; } = null!;
 
         /// <summary>
         /// Value of the configuration.

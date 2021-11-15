@@ -64,6 +64,9 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
+    'PrivilegeResponse',
+    'PrivilegeResponseResource',
+    'RoleResponse',
     'SeedNodeResponse',
     'SpatialSpecResponse',
     'SqlContainerGetPropertiesResponseOptions',
@@ -3283,6 +3286,111 @@ class PrivateLinkServiceConnectionStatePropertyResponse(dict):
         The private link service connection status.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class PrivilegeResponse(dict):
+    """
+    The set of data plane operations permitted through this Role Definition.
+    """
+    def __init__(__self__, *,
+                 actions: Optional[Sequence[str]] = None,
+                 resource: Optional['outputs.PrivilegeResponseResource'] = None):
+        """
+        The set of data plane operations permitted through this Role Definition.
+        :param Sequence[str] actions: An array of actions that are allowed.
+        :param 'PrivilegeResponseResource' resource: An Azure Cosmos DB Mongo DB Resource.
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence[str]]:
+        """
+        An array of actions that are allowed.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional['outputs.PrivilegeResponseResource']:
+        """
+        An Azure Cosmos DB Mongo DB Resource.
+        """
+        return pulumi.get(self, "resource")
+
+
+@pulumi.output_type
+class PrivilegeResponseResource(dict):
+    """
+    An Azure Cosmos DB Mongo DB Resource.
+    """
+    def __init__(__self__, *,
+                 collection: Optional[str] = None,
+                 db: Optional[str] = None):
+        """
+        An Azure Cosmos DB Mongo DB Resource.
+        :param str collection: The collection name the role is applied.
+        :param str db: The database name the role is applied.
+        """
+        if collection is not None:
+            pulumi.set(__self__, "collection", collection)
+        if db is not None:
+            pulumi.set(__self__, "db", db)
+
+    @property
+    @pulumi.getter
+    def collection(self) -> Optional[str]:
+        """
+        The collection name the role is applied.
+        """
+        return pulumi.get(self, "collection")
+
+    @property
+    @pulumi.getter
+    def db(self) -> Optional[str]:
+        """
+        The database name the role is applied.
+        """
+        return pulumi.get(self, "db")
+
+
+@pulumi.output_type
+class RoleResponse(dict):
+    """
+    The set of roles permitted through this Role Definition.
+    """
+    def __init__(__self__, *,
+                 db: Optional[str] = None,
+                 role: Optional[str] = None):
+        """
+        The set of roles permitted through this Role Definition.
+        :param str db: The database name the role is applied.
+        :param str role: The role name.
+        """
+        if db is not None:
+            pulumi.set(__self__, "db", db)
+        if role is not None:
+            pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def db(self) -> Optional[str]:
+        """
+        The database name the role is applied.
+        """
+        return pulumi.get(self, "db")
+
+    @property
+    @pulumi.getter
+    def role(self) -> Optional[str]:
+        """
+        The role name.
+        """
+        return pulumi.get(self, "role")
 
 
 @pulumi.output_type

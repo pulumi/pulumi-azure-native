@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? DeleteFilesAfterCompletion { get; set; }
 
         /// <summary>
+        /// If true, disable parallel reading within each file. Default is false. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("disableChunking")]
+        public Input<object>? DisableChunking { get; set; }
+
+        /// <summary>
         /// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         [Input("disableMetricsCollection")]

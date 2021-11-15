@@ -54,6 +54,12 @@ func NewLab(ctx *pulumi.Context,
 	if args.VirtualMachineProfile == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineProfile'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:labservices/v20211115preview:Lab"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource Lab
 	err := ctx.RegisterResource("azure-native:labservices/v20211001preview:Lab", name, args, &resource, opts...)
 	if err != nil {

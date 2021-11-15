@@ -24,14 +24,19 @@ type LookupConfigurationArgs struct {
 
 
 type LookupConfigurationResult struct {
-	AllowedValues string             `pulumi:"allowedValues"`
-	DataType      string             `pulumi:"dataType"`
-	DefaultValue  string             `pulumi:"defaultValue"`
-	Description   string             `pulumi:"description"`
-	Id            string             `pulumi:"id"`
-	Name          string             `pulumi:"name"`
-	Source        *string            `pulumi:"source"`
-	SystemData    SystemDataResponse `pulumi:"systemData"`
-	Type          string             `pulumi:"type"`
-	Value         *string            `pulumi:"value"`
+	AllowedValues          string             `pulumi:"allowedValues"`
+	DataType               string             `pulumi:"dataType"`
+	DefaultValue           string             `pulumi:"defaultValue"`
+	Description            string             `pulumi:"description"`
+	DocumentationLink      string             `pulumi:"documentationLink"`
+	Id                     string             `pulumi:"id"`
+	IsConfigPendingRestart bool               `pulumi:"isConfigPendingRestart"`
+	IsDynamicConfig        bool               `pulumi:"isDynamicConfig"`
+	IsReadOnly             bool               `pulumi:"isReadOnly"`
+	Name                   string             `pulumi:"name"`
+	Source                 *string            `pulumi:"source"`
+	SystemData             SystemDataResponse `pulumi:"systemData"`
+	Type                   string             `pulumi:"type"`
+	Unit                   string             `pulumi:"unit"`
+	Value                  *string            `pulumi:"value"`
 }

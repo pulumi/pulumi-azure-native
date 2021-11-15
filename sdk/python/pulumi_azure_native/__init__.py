@@ -6695,6 +6695,8 @@ _utilities.register(
    "azure-native:documentdb:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
    "azure-native:documentdb:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
    "azure-native:documentdb:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb:MongoDBResourceMongoRoleDefinition": "MongoDBResourceMongoRoleDefinition",
+   "azure-native:documentdb:MongoDBResourceMongoUserDefinition": "MongoDBResourceMongoUserDefinition",
    "azure-native:documentdb:NotebookWorkspace": "NotebookWorkspace",
    "azure-native:documentdb:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:documentdb:Service": "Service",
@@ -7151,6 +7153,37 @@ _utilities.register(
    "azure-native:documentdb/v20211015:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
    "azure-native:documentdb/v20211015:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
    "azure-native:documentdb/v20211015:TableResourceTable": "TableResourceTable"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "documentdb/v20211015preview",
+  "fqn": "pulumi_azure_native.documentdb.v20211015preview",
+  "classes": {
+   "azure-native:documentdb/v20211015preview:CassandraCluster": "CassandraCluster",
+   "azure-native:documentdb/v20211015preview:CassandraDataCenter": "CassandraDataCenter",
+   "azure-native:documentdb/v20211015preview:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20211015preview:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20211015preview:CassandraResourceCassandraView": "CassandraResourceCassandraView",
+   "azure-native:documentdb/v20211015preview:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20211015preview:GraphResourceGraph": "GraphResourceGraph",
+   "azure-native:documentdb/v20211015preview:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20211015preview:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20211015preview:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20211015preview:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20211015preview:MongoDBResourceMongoRoleDefinition": "MongoDBResourceMongoRoleDefinition",
+   "azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition": "MongoDBResourceMongoUserDefinition",
+   "azure-native:documentdb/v20211015preview:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20211015preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20211015preview:Service": "Service",
+   "azure-native:documentdb/v20211015preview:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20211015preview:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20211015preview:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20211015preview:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20211015preview:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20211015preview:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20211015preview:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20211015preview:TableResourceTable": "TableResourceTable"
   }
  },
  {
@@ -9072,6 +9105,17 @@ _utilities.register(
    "azure-native:labservices/v20211001preview:LabPlan": "LabPlan",
    "azure-native:labservices/v20211001preview:Schedule": "Schedule",
    "azure-native:labservices/v20211001preview:User": "User"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "labservices/v20211115preview",
+  "fqn": "pulumi_azure_native.labservices.v20211115preview",
+  "classes": {
+   "azure-native:labservices/v20211115preview:Lab": "Lab",
+   "azure-native:labservices/v20211115preview:LabPlan": "LabPlan",
+   "azure-native:labservices/v20211115preview:Schedule": "Schedule",
+   "azure-native:labservices/v20211115preview:User": "User"
   }
  },
  {

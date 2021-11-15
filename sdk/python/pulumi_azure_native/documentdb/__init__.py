@@ -23,6 +23,8 @@ from .get_gremlin_resource_gremlin_database import *
 from .get_gremlin_resource_gremlin_graph import *
 from .get_mongo_db_resource_mongo_db_collection import *
 from .get_mongo_db_resource_mongo_db_database import *
+from .get_mongo_db_resource_mongo_role_definition import *
+from .get_mongo_db_resource_mongo_user_definition import *
 from .get_notebook_workspace import *
 from .get_private_endpoint_connection import *
 from .get_service import *
@@ -42,6 +44,8 @@ from .list_database_account_keys import *
 from .list_notebook_workspace_connection_info import *
 from .mongo_db_resource_mongo_db_collection import *
 from .mongo_db_resource_mongo_db_database import *
+from .mongo_db_resource_mongo_role_definition import *
+from .mongo_db_resource_mongo_user_definition import *
 from .notebook_workspace import *
 from .private_endpoint_connection import *
 from .service import *
@@ -100,6 +104,8 @@ if typing.TYPE_CHECKING:
     v20210701preview = __v20210701preview
     import pulumi_azure_native.documentdb.v20211015 as __v20211015
     v20211015 = __v20211015
+    import pulumi_azure_native.documentdb.v20211015preview as __v20211015preview
+    v20211015preview = __v20211015preview
 else:
     v20150401 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20150401')
     v20150408 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20150408')
@@ -122,4 +128,5 @@ else:
     v20210615 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210615')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20210701preview')
     v20211015 = _utilities.lazy_import('pulumi_azure_native.documentdb.v20211015')
+    v20211015preview = _utilities.lazy_import('pulumi_azure_native.documentdb.v20211015preview')
 

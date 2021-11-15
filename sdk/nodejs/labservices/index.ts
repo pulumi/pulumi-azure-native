@@ -35,10 +35,12 @@ export * from "../types/enums/labservices";
 // Export sub-modules:
 import * as v20181015 from "./v20181015";
 import * as v20211001preview from "./v20211001preview";
+import * as v20211115preview from "./v20211115preview";
 
 export {
     v20181015,
     v20211001preview,
+    v20211115preview,
 };
 
 // Import resources to register:

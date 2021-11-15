@@ -173,9 +173,14 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["data_type"] = None
             __props__.__dict__["default_value"] = None
             __props__.__dict__["description"] = None
+            __props__.__dict__["documentation_link"] = None
+            __props__.__dict__["is_config_pending_restart"] = None
+            __props__.__dict__["is_dynamic_config"] = None
+            __props__.__dict__["is_read_only"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["unit"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210410privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Configuration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Configuration, __self__).__init__(
@@ -204,10 +209,15 @@ class Configuration(pulumi.CustomResource):
         __props__.__dict__["data_type"] = None
         __props__.__dict__["default_value"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["documentation_link"] = None
+        __props__.__dict__["is_config_pending_restart"] = None
+        __props__.__dict__["is_dynamic_config"] = None
+        __props__.__dict__["is_read_only"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["source"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["unit"] = None
         __props__.__dict__["value"] = None
         return Configuration(resource_name, opts=opts, __props__=__props__)
 
@@ -244,6 +254,38 @@ class Configuration(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="documentationLink")
+    def documentation_link(self) -> pulumi.Output[str]:
+        """
+        Configuration documentation link.
+        """
+        return pulumi.get(self, "documentation_link")
+
+    @property
+    @pulumi.getter(name="isConfigPendingRestart")
+    def is_config_pending_restart(self) -> pulumi.Output[bool]:
+        """
+        Configuration is pending restart or not.
+        """
+        return pulumi.get(self, "is_config_pending_restart")
+
+    @property
+    @pulumi.getter(name="isDynamicConfig")
+    def is_dynamic_config(self) -> pulumi.Output[bool]:
+        """
+        Configuration dynamic or static.
+        """
+        return pulumi.get(self, "is_dynamic_config")
+
+    @property
+    @pulumi.getter(name="isReadOnly")
+    def is_read_only(self) -> pulumi.Output[bool]:
+        """
+        Configuration read-only or not.
+        """
+        return pulumi.get(self, "is_read_only")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -274,6 +316,14 @@ class Configuration(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Output[str]:
+        """
+        Configuration unit.
+        """
+        return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter

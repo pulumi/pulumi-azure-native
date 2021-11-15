@@ -43,6 +43,9 @@ func NewServer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.AvailabilityZone == nil {
+		args.AvailabilityZone = pulumi.StringPtr("")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:dbforpostgresql/v20200214preview:Server"),

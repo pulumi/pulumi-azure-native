@@ -136,6 +136,7 @@ var cutoffProviderVersions = map[string]string{
 	"kubernetes":              "v20210401preview",
 	"kubernetesconfiguration": "v20210301",
 	"kusto":                   "v20210101",
+	"labservices":             "v20211001preview",
 	"machinelearningservices": "v20210101",
 	"maintenance":             "v20210401preview",
 	"management":              "v20200501",

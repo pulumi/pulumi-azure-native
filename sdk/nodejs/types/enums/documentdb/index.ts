@@ -22,6 +22,7 @@ import * as v20210515 from "./v20210515";
 import * as v20210615 from "./v20210615";
 import * as v20210701preview from "./v20210701preview";
 import * as v20211015 from "./v20211015";
+import * as v20211015preview from "./v20211015preview";
 
 export {
     v20150401,
@@ -44,6 +45,7 @@ export {
     v20210615,
     v20210701preview,
     v20211015,
+    v20211015preview,
 };
 
 export const AuthenticationMethod = {
@@ -177,6 +179,16 @@ export const ManagedCassandraProvisioningState = {
  * The status of the resource at the time the operation was called.
  */
 export type ManagedCassandraProvisioningState = (typeof ManagedCassandraProvisioningState)[keyof typeof ManagedCassandraProvisioningState];
+
+export const MongoRoleDefinitionType = {
+    BuiltInRole: "BuiltInRole",
+    CustomRole: "CustomRole",
+} as const;
+
+/**
+ * Indicates whether the Role Definition was built-in or user created.
+ */
+export type MongoRoleDefinitionType = (typeof MongoRoleDefinitionType)[keyof typeof MongoRoleDefinitionType];
 
 export const NetworkAclBypass = {
     None: "None",
