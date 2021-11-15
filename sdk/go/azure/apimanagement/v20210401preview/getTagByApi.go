@@ -1,0 +1,32 @@
+
+
+
+package v20210401preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupTagByApi(ctx *pulumi.Context, args *LookupTagByApiArgs, opts ...pulumi.InvokeOption) (*LookupTagByApiResult, error) {
+	var rv LookupTagByApiResult
+	err := ctx.Invoke("azure-native:apimanagement/v20210401preview:getTagByApi", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupTagByApiArgs struct {
+	ApiId             string `pulumi:"apiId"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ServiceName       string `pulumi:"serviceName"`
+	TagId             string `pulumi:"tagId"`
+}
+
+
+type LookupTagByApiResult struct {
+	DisplayName string `pulumi:"displayName"`
+	Id          string `pulumi:"id"`
+	Name        string `pulumi:"name"`
+	Type        string `pulumi:"type"`
+}

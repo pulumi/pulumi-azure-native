@@ -1,0 +1,38 @@
+
+
+
+package v20151101preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
+	var rv LookupWorkspaceResult
+	err := ctx.Invoke("azure-native:operationalinsights/v20151101preview:getWorkspace", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupWorkspaceArgs struct {
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
+}
+
+
+type LookupWorkspaceResult struct {
+	CustomerId        string            `pulumi:"customerId"`
+	ETag              *string           `pulumi:"eTag"`
+	Id                string            `pulumi:"id"`
+	Location          *string           `pulumi:"location"`
+	Name              string            `pulumi:"name"`
+	PortalUrl         string            `pulumi:"portalUrl"`
+	ProvisioningState *string           `pulumi:"provisioningState"`
+	RetentionInDays   *int              `pulumi:"retentionInDays"`
+	Sku               *SkuResponse      `pulumi:"sku"`
+	Source            string            `pulumi:"source"`
+	Tags              map[string]string `pulumi:"tags"`
+	Type              string            `pulumi:"type"`
+}
