@@ -1,0 +1,39 @@
+
+
+
+package v20190401
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupP2sVpnGateway(ctx *pulumi.Context, args *LookupP2sVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupP2sVpnGatewayResult, error) {
+	var rv LookupP2sVpnGatewayResult
+	err := ctx.Invoke("azure-native:network/v20190401:getP2sVpnGateway", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupP2sVpnGatewayArgs struct {
+	GatewayName       string `pulumi:"gatewayName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupP2sVpnGatewayResult struct {
+	CustomRoutes              *AddressSpaceResponse             `pulumi:"customRoutes"`
+	Etag                      string                            `pulumi:"etag"`
+	Id                        *string                           `pulumi:"id"`
+	Location                  string                            `pulumi:"location"`
+	Name                      string                            `pulumi:"name"`
+	P2SVpnServerConfiguration *SubResourceResponse              `pulumi:"p2SVpnServerConfiguration"`
+	ProvisioningState         string                            `pulumi:"provisioningState"`
+	Tags                      map[string]string                 `pulumi:"tags"`
+	Type                      string                            `pulumi:"type"`
+	VirtualHub                *SubResourceResponse              `pulumi:"virtualHub"`
+	VpnClientAddressPool      *AddressSpaceResponse             `pulumi:"vpnClientAddressPool"`
+	VpnClientConnectionHealth VpnClientConnectionHealthResponse `pulumi:"vpnClientConnectionHealth"`
+	VpnGatewayScaleUnit       *int                              `pulumi:"vpnGatewayScaleUnit"`
+}

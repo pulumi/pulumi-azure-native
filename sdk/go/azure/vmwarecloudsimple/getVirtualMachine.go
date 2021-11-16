@@ -1,0 +1,53 @@
+
+
+
+package vmwarecloudsimple
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupVirtualMachine(ctx *pulumi.Context, args *LookupVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineResult, error) {
+	var rv LookupVirtualMachineResult
+	err := ctx.Invoke("azure-native:vmwarecloudsimple:getVirtualMachine", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupVirtualMachineArgs struct {
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
+	VirtualMachineName string `pulumi:"virtualMachineName"`
+}
+
+
+type LookupVirtualMachineResult struct {
+	AmountOfRam       int                             `pulumi:"amountOfRam"`
+	Controllers       []VirtualDiskControllerResponse `pulumi:"controllers"`
+	Customization     *GuestOSCustomizationResponse   `pulumi:"customization"`
+	Disks             []VirtualDiskResponse           `pulumi:"disks"`
+	Dnsname           string                          `pulumi:"dnsname"`
+	ExposeToGuestVM   *bool                           `pulumi:"exposeToGuestVM"`
+	Folder            string                          `pulumi:"folder"`
+	GuestOS           string                          `pulumi:"guestOS"`
+	GuestOSType       string                          `pulumi:"guestOSType"`
+	Id                string                          `pulumi:"id"`
+	Location          string                          `pulumi:"location"`
+	Name              string                          `pulumi:"name"`
+	Nics              []VirtualNicResponse            `pulumi:"nics"`
+	NumberOfCores     int                             `pulumi:"numberOfCores"`
+	Password          *string                         `pulumi:"password"`
+	PrivateCloudId    string                          `pulumi:"privateCloudId"`
+	ProvisioningState string                          `pulumi:"provisioningState"`
+	PublicIP          string                          `pulumi:"publicIP"`
+	ResourcePool      *ResourcePoolResponse           `pulumi:"resourcePool"`
+	Status            string                          `pulumi:"status"`
+	Tags              map[string]string               `pulumi:"tags"`
+	TemplateId        *string                         `pulumi:"templateId"`
+	Type              string                          `pulumi:"type"`
+	Username          *string                         `pulumi:"username"`
+	VSphereNetworks   []string                        `pulumi:"vSphereNetworks"`
+	VmId              string                          `pulumi:"vmId"`
+	Vmwaretools       string                          `pulumi:"vmwaretools"`
+}
