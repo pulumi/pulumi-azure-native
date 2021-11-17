@@ -1,0 +1,41 @@
+
+
+
+package v20140401
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupElasticPool(ctx *pulumi.Context, args *LookupElasticPoolArgs, opts ...pulumi.InvokeOption) (*LookupElasticPoolResult, error) {
+	var rv LookupElasticPoolResult
+	err := ctx.Invoke("azure-native:sql/v20140401:getElasticPool", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupElasticPoolArgs struct {
+	ElasticPoolName   string `pulumi:"elasticPoolName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ServerName        string `pulumi:"serverName"`
+}
+
+
+type LookupElasticPoolResult struct {
+	CreationDate   string            `pulumi:"creationDate"`
+	DatabaseDtuMax *int              `pulumi:"databaseDtuMax"`
+	DatabaseDtuMin *int              `pulumi:"databaseDtuMin"`
+	Dtu            *int              `pulumi:"dtu"`
+	Edition        *string           `pulumi:"edition"`
+	Id             string            `pulumi:"id"`
+	Kind           string            `pulumi:"kind"`
+	Location       string            `pulumi:"location"`
+	Name           string            `pulumi:"name"`
+	State          string            `pulumi:"state"`
+	StorageMB      *int              `pulumi:"storageMB"`
+	Tags           map[string]string `pulumi:"tags"`
+	Type           string            `pulumi:"type"`
+	ZoneRedundant  *bool             `pulumi:"zoneRedundant"`
+}

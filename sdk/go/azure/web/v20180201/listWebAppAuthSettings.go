@@ -1,0 +1,55 @@
+
+
+
+package v20180201
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func ListWebAppAuthSettings(ctx *pulumi.Context, args *ListWebAppAuthSettingsArgs, opts ...pulumi.InvokeOption) (*ListWebAppAuthSettingsResult, error) {
+	var rv ListWebAppAuthSettingsResult
+	err := ctx.Invoke("azure-native:web/v20180201:listWebAppAuthSettings", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type ListWebAppAuthSettingsArgs struct {
+	Name              string `pulumi:"name"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type ListWebAppAuthSettingsResult struct {
+	AdditionalLoginParams             []string `pulumi:"additionalLoginParams"`
+	AllowedAudiences                  []string `pulumi:"allowedAudiences"`
+	AllowedExternalRedirectUrls       []string `pulumi:"allowedExternalRedirectUrls"`
+	ClientId                          *string  `pulumi:"clientId"`
+	ClientSecret                      *string  `pulumi:"clientSecret"`
+	ClientSecretCertificateThumbprint *string  `pulumi:"clientSecretCertificateThumbprint"`
+	DefaultProvider                   *string  `pulumi:"defaultProvider"`
+	Enabled                           *bool    `pulumi:"enabled"`
+	FacebookAppId                     *string  `pulumi:"facebookAppId"`
+	FacebookAppSecret                 *string  `pulumi:"facebookAppSecret"`
+	FacebookOAuthScopes               []string `pulumi:"facebookOAuthScopes"`
+	GoogleClientId                    *string  `pulumi:"googleClientId"`
+	GoogleClientSecret                *string  `pulumi:"googleClientSecret"`
+	GoogleOAuthScopes                 []string `pulumi:"googleOAuthScopes"`
+	Id                                string   `pulumi:"id"`
+	Issuer                            *string  `pulumi:"issuer"`
+	Kind                              *string  `pulumi:"kind"`
+	MicrosoftAccountClientId          *string  `pulumi:"microsoftAccountClientId"`
+	MicrosoftAccountClientSecret      *string  `pulumi:"microsoftAccountClientSecret"`
+	MicrosoftAccountOAuthScopes       []string `pulumi:"microsoftAccountOAuthScopes"`
+	Name                              string   `pulumi:"name"`
+	RuntimeVersion                    *string  `pulumi:"runtimeVersion"`
+	TokenRefreshExtensionHours        *float64 `pulumi:"tokenRefreshExtensionHours"`
+	TokenStoreEnabled                 *bool    `pulumi:"tokenStoreEnabled"`
+	TwitterConsumerKey                *string  `pulumi:"twitterConsumerKey"`
+	TwitterConsumerSecret             *string  `pulumi:"twitterConsumerSecret"`
+	Type                              string   `pulumi:"type"`
+	UnauthenticatedClientAction       *string  `pulumi:"unauthenticatedClientAction"`
+	ValidateIssuer                    *bool    `pulumi:"validateIssuer"`
+}

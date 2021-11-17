@@ -1,0 +1,34 @@
+
+
+
+package v20190601preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupHybridUseBenefit(ctx *pulumi.Context, args *LookupHybridUseBenefitArgs, opts ...pulumi.InvokeOption) (*LookupHybridUseBenefitResult, error) {
+	var rv LookupHybridUseBenefitResult
+	err := ctx.Invoke("azure-native:softwareplan/v20190601preview:getHybridUseBenefit", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupHybridUseBenefitArgs struct {
+	PlanId string `pulumi:"planId"`
+	Scope  string `pulumi:"scope"`
+}
+
+
+type LookupHybridUseBenefitResult struct {
+	CreatedDate       string      `pulumi:"createdDate"`
+	Etag              int         `pulumi:"etag"`
+	Id                string      `pulumi:"id"`
+	LastUpdatedDate   string      `pulumi:"lastUpdatedDate"`
+	Name              string      `pulumi:"name"`
+	ProvisioningState string      `pulumi:"provisioningState"`
+	Sku               SkuResponse `pulumi:"sku"`
+	Type              string      `pulumi:"type"`
+}

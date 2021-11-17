@@ -1,0 +1,34 @@
+
+
+
+package network
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupFirewallPolicyRuleGroup(ctx *pulumi.Context, args *LookupFirewallPolicyRuleGroupArgs, opts ...pulumi.InvokeOption) (*LookupFirewallPolicyRuleGroupResult, error) {
+	var rv LookupFirewallPolicyRuleGroupResult
+	err := ctx.Invoke("azure-native:network:getFirewallPolicyRuleGroup", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupFirewallPolicyRuleGroupArgs struct {
+	FirewallPolicyName string `pulumi:"firewallPolicyName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
+	RuleGroupName      string `pulumi:"ruleGroupName"`
+}
+
+
+type LookupFirewallPolicyRuleGroupResult struct {
+	Etag              string        `pulumi:"etag"`
+	Id                *string       `pulumi:"id"`
+	Name              *string       `pulumi:"name"`
+	Priority          *int          `pulumi:"priority"`
+	ProvisioningState string        `pulumi:"provisioningState"`
+	Rules             []interface{} `pulumi:"rules"`
+	Type              string        `pulumi:"type"`
+}
