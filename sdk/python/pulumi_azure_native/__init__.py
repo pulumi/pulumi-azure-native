@@ -8571,7 +8571,8 @@ _utilities.register(
   "mod": "insights/v20210801",
   "fqn": "pulumi_azure_native.insights.v20210801",
   "classes": {
-   "azure-native:insights/v20210801:ScheduledQueryRule": "ScheduledQueryRule"
+   "azure-native:insights/v20210801:ScheduledQueryRule": "ScheduledQueryRule",
+   "azure-native:insights/v20210801:Workbook": "Workbook"
   }
  },
  {
@@ -16767,6 +16768,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.videoindexer.v20211027preview",
   "classes": {
    "azure-native:videoindexer/v20211027preview:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "videoindexer/v20211110preview",
+  "fqn": "pulumi_azure_native.videoindexer.v20211110preview",
+  "classes": {
+   "azure-native:videoindexer/v20211110preview:Account": "Account"
   }
  },
  {

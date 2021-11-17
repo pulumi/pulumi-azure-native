@@ -1572,6 +1572,434 @@ func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserAssignedIdentityResponse struct {
+	ClientId    string `pulumi:"clientId"`
+	PrincipalId string `pulumi:"principalId"`
+}
+
+
+
+
+
+type UserAssignedIdentityResponseInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput
+	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
+}
+
+type UserAssignedIdentityResponseArgs struct {
+	ClientId    pulumi.StringInput `pulumi:"clientId"`
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (UserAssignedIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return i.ToUserAssignedIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseOutput)
+}
+
+
+
+
+
+type UserAssignedIdentityResponseMapInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput
+	ToUserAssignedIdentityResponseMapOutputWithContext(context.Context) UserAssignedIdentityResponseMapOutput
+}
+
+type UserAssignedIdentityResponseMap map[string]UserAssignedIdentityResponseInput
+
+func (UserAssignedIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return i.ToUserAssignedIdentityResponseMapOutputWithContext(context.Background())
+}
+
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
+}
+
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
+}
+
+type WorkbookResourceIdentity struct {
+	Type                   string                 `pulumi:"type"`
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+}
+
+
+
+
+
+type WorkbookResourceIdentityInput interface {
+	pulumi.Input
+
+	ToWorkbookResourceIdentityOutput() WorkbookResourceIdentityOutput
+	ToWorkbookResourceIdentityOutputWithContext(context.Context) WorkbookResourceIdentityOutput
+}
+
+type WorkbookResourceIdentityArgs struct {
+	Type                   pulumi.StringInput `pulumi:"type"`
+	UserAssignedIdentities pulumi.MapInput    `pulumi:"userAssignedIdentities"`
+}
+
+func (WorkbookResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookResourceIdentity)(nil)).Elem()
+}
+
+func (i WorkbookResourceIdentityArgs) ToWorkbookResourceIdentityOutput() WorkbookResourceIdentityOutput {
+	return i.ToWorkbookResourceIdentityOutputWithContext(context.Background())
+}
+
+func (i WorkbookResourceIdentityArgs) ToWorkbookResourceIdentityOutputWithContext(ctx context.Context) WorkbookResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookResourceIdentityOutput)
+}
+
+func (i WorkbookResourceIdentityArgs) ToWorkbookResourceIdentityPtrOutput() WorkbookResourceIdentityPtrOutput {
+	return i.ToWorkbookResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i WorkbookResourceIdentityArgs) ToWorkbookResourceIdentityPtrOutputWithContext(ctx context.Context) WorkbookResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookResourceIdentityOutput).ToWorkbookResourceIdentityPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type WorkbookResourceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToWorkbookResourceIdentityPtrOutput() WorkbookResourceIdentityPtrOutput
+	ToWorkbookResourceIdentityPtrOutputWithContext(context.Context) WorkbookResourceIdentityPtrOutput
+}
+
+type workbookResourceIdentityPtrType WorkbookResourceIdentityArgs
+
+func WorkbookResourceIdentityPtr(v *WorkbookResourceIdentityArgs) WorkbookResourceIdentityPtrInput {
+	return (*workbookResourceIdentityPtrType)(v)
+}
+
+func (*workbookResourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkbookResourceIdentity)(nil)).Elem()
+}
+
+func (i *workbookResourceIdentityPtrType) ToWorkbookResourceIdentityPtrOutput() WorkbookResourceIdentityPtrOutput {
+	return i.ToWorkbookResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *workbookResourceIdentityPtrType) ToWorkbookResourceIdentityPtrOutputWithContext(ctx context.Context) WorkbookResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookResourceIdentityPtrOutput)
+}
+
+type WorkbookResourceIdentityOutput struct{ *pulumi.OutputState }
+
+func (WorkbookResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookResourceIdentity)(nil)).Elem()
+}
+
+func (o WorkbookResourceIdentityOutput) ToWorkbookResourceIdentityOutput() WorkbookResourceIdentityOutput {
+	return o
+}
+
+func (o WorkbookResourceIdentityOutput) ToWorkbookResourceIdentityOutputWithContext(ctx context.Context) WorkbookResourceIdentityOutput {
+	return o
+}
+
+func (o WorkbookResourceIdentityOutput) ToWorkbookResourceIdentityPtrOutput() WorkbookResourceIdentityPtrOutput {
+	return o.ToWorkbookResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o WorkbookResourceIdentityOutput) ToWorkbookResourceIdentityPtrOutputWithContext(ctx context.Context) WorkbookResourceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookResourceIdentity) *WorkbookResourceIdentity {
+		return &v
+	}).(WorkbookResourceIdentityPtrOutput)
+}
+
+func (o WorkbookResourceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkbookResourceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o WorkbookResourceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v WorkbookResourceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
+type WorkbookResourceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkbookResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkbookResourceIdentity)(nil)).Elem()
+}
+
+func (o WorkbookResourceIdentityPtrOutput) ToWorkbookResourceIdentityPtrOutput() WorkbookResourceIdentityPtrOutput {
+	return o
+}
+
+func (o WorkbookResourceIdentityPtrOutput) ToWorkbookResourceIdentityPtrOutputWithContext(ctx context.Context) WorkbookResourceIdentityPtrOutput {
+	return o
+}
+
+func (o WorkbookResourceIdentityPtrOutput) Elem() WorkbookResourceIdentityOutput {
+	return o.ApplyT(func(v *WorkbookResourceIdentity) WorkbookResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret WorkbookResourceIdentity
+		return ret
+	}).(WorkbookResourceIdentityOutput)
+}
+
+func (o WorkbookResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkbookResourceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkbookResourceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *WorkbookResourceIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
+type WorkbookResourceResponseIdentity struct {
+	PrincipalId            string                                  `pulumi:"principalId"`
+	TenantId               string                                  `pulumi:"tenantId"`
+	Type                   string                                  `pulumi:"type"`
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+
+
+
+
+type WorkbookResourceResponseIdentityInput interface {
+	pulumi.Input
+
+	ToWorkbookResourceResponseIdentityOutput() WorkbookResourceResponseIdentityOutput
+	ToWorkbookResourceResponseIdentityOutputWithContext(context.Context) WorkbookResourceResponseIdentityOutput
+}
+
+type WorkbookResourceResponseIdentityArgs struct {
+	PrincipalId            pulumi.StringInput                   `pulumi:"principalId"`
+	TenantId               pulumi.StringInput                   `pulumi:"tenantId"`
+	Type                   pulumi.StringInput                   `pulumi:"type"`
+	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (WorkbookResourceResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookResourceResponseIdentity)(nil)).Elem()
+}
+
+func (i WorkbookResourceResponseIdentityArgs) ToWorkbookResourceResponseIdentityOutput() WorkbookResourceResponseIdentityOutput {
+	return i.ToWorkbookResourceResponseIdentityOutputWithContext(context.Background())
+}
+
+func (i WorkbookResourceResponseIdentityArgs) ToWorkbookResourceResponseIdentityOutputWithContext(ctx context.Context) WorkbookResourceResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookResourceResponseIdentityOutput)
+}
+
+func (i WorkbookResourceResponseIdentityArgs) ToWorkbookResourceResponseIdentityPtrOutput() WorkbookResourceResponseIdentityPtrOutput {
+	return i.ToWorkbookResourceResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i WorkbookResourceResponseIdentityArgs) ToWorkbookResourceResponseIdentityPtrOutputWithContext(ctx context.Context) WorkbookResourceResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookResourceResponseIdentityOutput).ToWorkbookResourceResponseIdentityPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type WorkbookResourceResponseIdentityPtrInput interface {
+	pulumi.Input
+
+	ToWorkbookResourceResponseIdentityPtrOutput() WorkbookResourceResponseIdentityPtrOutput
+	ToWorkbookResourceResponseIdentityPtrOutputWithContext(context.Context) WorkbookResourceResponseIdentityPtrOutput
+}
+
+type workbookResourceResponseIdentityPtrType WorkbookResourceResponseIdentityArgs
+
+func WorkbookResourceResponseIdentityPtr(v *WorkbookResourceResponseIdentityArgs) WorkbookResourceResponseIdentityPtrInput {
+	return (*workbookResourceResponseIdentityPtrType)(v)
+}
+
+func (*workbookResourceResponseIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkbookResourceResponseIdentity)(nil)).Elem()
+}
+
+func (i *workbookResourceResponseIdentityPtrType) ToWorkbookResourceResponseIdentityPtrOutput() WorkbookResourceResponseIdentityPtrOutput {
+	return i.ToWorkbookResourceResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *workbookResourceResponseIdentityPtrType) ToWorkbookResourceResponseIdentityPtrOutputWithContext(ctx context.Context) WorkbookResourceResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkbookResourceResponseIdentityPtrOutput)
+}
+
+type WorkbookResourceResponseIdentityOutput struct{ *pulumi.OutputState }
+
+func (WorkbookResourceResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkbookResourceResponseIdentity)(nil)).Elem()
+}
+
+func (o WorkbookResourceResponseIdentityOutput) ToWorkbookResourceResponseIdentityOutput() WorkbookResourceResponseIdentityOutput {
+	return o
+}
+
+func (o WorkbookResourceResponseIdentityOutput) ToWorkbookResourceResponseIdentityOutputWithContext(ctx context.Context) WorkbookResourceResponseIdentityOutput {
+	return o
+}
+
+func (o WorkbookResourceResponseIdentityOutput) ToWorkbookResourceResponseIdentityPtrOutput() WorkbookResourceResponseIdentityPtrOutput {
+	return o.ToWorkbookResourceResponseIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o WorkbookResourceResponseIdentityOutput) ToWorkbookResourceResponseIdentityPtrOutputWithContext(ctx context.Context) WorkbookResourceResponseIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookResourceResponseIdentity) *WorkbookResourceResponseIdentity {
+		return &v
+	}).(WorkbookResourceResponseIdentityPtrOutput)
+}
+
+func (o WorkbookResourceResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkbookResourceResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o WorkbookResourceResponseIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkbookResourceResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o WorkbookResourceResponseIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkbookResourceResponseIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o WorkbookResourceResponseIdentityOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v WorkbookResourceResponseIdentity) map[string]UserAssignedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
+type WorkbookResourceResponseIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkbookResourceResponseIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkbookResourceResponseIdentity)(nil)).Elem()
+}
+
+func (o WorkbookResourceResponseIdentityPtrOutput) ToWorkbookResourceResponseIdentityPtrOutput() WorkbookResourceResponseIdentityPtrOutput {
+	return o
+}
+
+func (o WorkbookResourceResponseIdentityPtrOutput) ToWorkbookResourceResponseIdentityPtrOutputWithContext(ctx context.Context) WorkbookResourceResponseIdentityPtrOutput {
+	return o
+}
+
+func (o WorkbookResourceResponseIdentityPtrOutput) Elem() WorkbookResourceResponseIdentityOutput {
+	return o.ApplyT(func(v *WorkbookResourceResponseIdentity) WorkbookResourceResponseIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret WorkbookResourceResponseIdentity
+		return ret
+	}).(WorkbookResourceResponseIdentityOutput)
+}
+
+func (o WorkbookResourceResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkbookResourceResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkbookResourceResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkbookResourceResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkbookResourceResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkbookResourceResponseIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkbookResourceResponseIdentityPtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *WorkbookResourceResponseIdentity) map[string]UserAssignedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ActionsOutput{})
 	pulumi.RegisterOutputType(ActionsPtrOutput{})
@@ -1595,4 +2023,10 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledQueryRuleCriteriaResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
+	pulumi.RegisterOutputType(WorkbookResourceIdentityOutput{})
+	pulumi.RegisterOutputType(WorkbookResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(WorkbookResourceResponseIdentityOutput{})
+	pulumi.RegisterOutputType(WorkbookResourceResponseIdentityPtrOutput{})
 }

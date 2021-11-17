@@ -6,13 +6,16 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./getScheduledQueryRule";
+export * from "./getWorkbook";
 export * from "./scheduledQueryRule";
+export * from "./workbook";
 
 // Export enums:
 export * from "../../types/enums/insights/v20210801";
 
 // Import resources to register:
 import { ScheduledQueryRule } from "./scheduledQueryRule";
+import { Workbook } from "./workbook";
 
 const _module = {
     version: utilities.getVersion(),
@@ -20,6 +23,8 @@ const _module = {
         switch (type) {
             case "azure-native:insights/v20210801:ScheduledQueryRule":
                 return new ScheduledQueryRule(name, <any>undefined, { urn })
+            case "azure-native:insights/v20210801:Workbook":
+                return new Workbook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

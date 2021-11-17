@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'Kind',
     'MsaAppType',
+    'PublicNetworkAccess',
     'SkuName',
 ]
 
@@ -29,6 +30,14 @@ class MsaAppType(str, Enum):
     USER_ASSIGNED_MSI = "UserAssignedMSI"
     SINGLE_TENANT = "SingleTenant"
     MULTI_TENANT = "MultiTenant"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether the bot is in an isolated network
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SkuName(str, Enum):

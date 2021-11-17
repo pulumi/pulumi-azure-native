@@ -8,6 +8,7 @@ __all__ = [
     'ConditionOperator',
     'DimensionOperator',
     'Kind',
+    'ManagedServiceIdentityType',
     'TimeAggregation',
 ]
 
@@ -33,10 +34,20 @@ class DimensionOperator(str, Enum):
 
 class Kind(str, Enum):
     """
-    Indicates the type of scheduled query rule. The default is LogAlert.
+    The kind of workbook. Choices are user and shared.
     """
-    LOG_ALERT = "LogAlert"
-    LOG_TO_METRIC = "LogToMetric"
+    USER = "user"
+    SHARED = "shared"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class TimeAggregation(str, Enum):

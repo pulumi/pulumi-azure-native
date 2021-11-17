@@ -26,6 +26,16 @@ export const MsaAppType = {
  */
 export type MsaAppType = (typeof MsaAppType)[keyof typeof MsaAppType];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether the bot is in an isolated network
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const SkuName = {
     F0: "F0",
     S1: "S1",

@@ -106,12 +106,6 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         public Input<bool>? IsDeveloperAppInsightsApiKeySet { get; set; }
 
         /// <summary>
-        /// Whether the bot is in an isolated network
-        /// </summary>
-        [Input("isIsolated")]
-        public Input<bool>? IsIsolated { get; set; }
-
-        /// <summary>
         /// Whether the bot is streaming supported
         /// </summary>
         [Input("isStreamingSupported")]
@@ -184,6 +178,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         }
 
         /// <summary>
+        /// Whether the bot is in an isolated network
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.BotService.V20210501Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// Publishing credentials of the resource
         /// </summary>
         [Input("publishingCredentials")]
@@ -197,6 +197,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
 
         public BotPropertiesArgs()
         {
+            PublicNetworkAccess = "Enabled";
         }
     }
 }

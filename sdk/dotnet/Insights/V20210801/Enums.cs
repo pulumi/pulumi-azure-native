@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.Insights.V20210801
     }
 
     /// <summary>
-    /// Indicates the type of scheduled query rule. The default is LogAlert.
+    /// The kind of workbook. Choices are user and shared.
     /// </summary>
     [EnumType]
     public readonly struct Kind : IEquatable<Kind>
@@ -85,8 +85,8 @@ namespace Pulumi.AzureNative.Insights.V20210801
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Kind LogAlert { get; } = new Kind("LogAlert");
-        public static Kind LogToMetric { get; } = new Kind("LogToMetric");
+        public static Kind User { get; } = new Kind("user");
+        public static Kind Shared { get; } = new Kind("shared");
 
         public static bool operator ==(Kind left, Kind right) => left.Equals(right);
         public static bool operator !=(Kind left, Kind right) => !left.Equals(right);
@@ -96,6 +96,39 @@ namespace Pulumi.AzureNative.Insights.V20210801
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Kind other && Equals(other);
         public bool Equals(Kind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

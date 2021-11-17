@@ -10,6 +10,7 @@ __all__ = [
     'Kind',
     'MsaAppType',
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'SkuName',
 ]
 
@@ -72,6 +73,14 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether the bot is in an isolated network
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SkuName(str, Enum):

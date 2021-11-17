@@ -479,7 +479,6 @@ type BotProperties struct {
 	IconUrl                           *string           `pulumi:"iconUrl"`
 	IsCmekEnabled                     *bool             `pulumi:"isCmekEnabled"`
 	IsDeveloperAppInsightsApiKeySet   *bool             `pulumi:"isDeveloperAppInsightsApiKeySet"`
-	IsIsolated                        *bool             `pulumi:"isIsolated"`
 	IsStreamingSupported              *bool             `pulumi:"isStreamingSupported"`
 	LuisAppIds                        []string          `pulumi:"luisAppIds"`
 	LuisKey                           *string           `pulumi:"luisKey"`
@@ -490,6 +489,7 @@ type BotProperties struct {
 	MsaAppType                        *string           `pulumi:"msaAppType"`
 	OpenWithHint                      *string           `pulumi:"openWithHint"`
 	Parameters                        map[string]string `pulumi:"parameters"`
+	PublicNetworkAccess               *string           `pulumi:"publicNetworkAccess"`
 	PublishingCredentials             *string           `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       *string           `pulumi:"schemaTransformationVersion"`
 }
@@ -520,7 +520,6 @@ type BotPropertiesArgs struct {
 	IconUrl                           pulumi.StringPtrInput   `pulumi:"iconUrl"`
 	IsCmekEnabled                     pulumi.BoolPtrInput     `pulumi:"isCmekEnabled"`
 	IsDeveloperAppInsightsApiKeySet   pulumi.BoolPtrInput     `pulumi:"isDeveloperAppInsightsApiKeySet"`
-	IsIsolated                        pulumi.BoolPtrInput     `pulumi:"isIsolated"`
 	IsStreamingSupported              pulumi.BoolPtrInput     `pulumi:"isStreamingSupported"`
 	LuisAppIds                        pulumi.StringArrayInput `pulumi:"luisAppIds"`
 	LuisKey                           pulumi.StringPtrInput   `pulumi:"luisKey"`
@@ -531,6 +530,7 @@ type BotPropertiesArgs struct {
 	MsaAppType                        pulumi.StringPtrInput   `pulumi:"msaAppType"`
 	OpenWithHint                      pulumi.StringPtrInput   `pulumi:"openWithHint"`
 	Parameters                        pulumi.StringMapInput   `pulumi:"parameters"`
+	PublicNetworkAccess               pulumi.StringPtrInput   `pulumi:"publicNetworkAccess"`
 	PublishingCredentials             pulumi.StringPtrInput   `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       pulumi.StringPtrInput   `pulumi:"schemaTransformationVersion"`
 }
@@ -668,10 +668,6 @@ func (o BotPropertiesOutput) IsDeveloperAppInsightsApiKeySet() pulumi.BoolPtrOut
 	return o.ApplyT(func(v BotProperties) *bool { return v.IsDeveloperAppInsightsApiKeySet }).(pulumi.BoolPtrOutput)
 }
 
-func (o BotPropertiesOutput) IsIsolated() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BotProperties) *bool { return v.IsIsolated }).(pulumi.BoolPtrOutput)
-}
-
 func (o BotPropertiesOutput) IsStreamingSupported() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotProperties) *bool { return v.IsStreamingSupported }).(pulumi.BoolPtrOutput)
 }
@@ -710,6 +706,10 @@ func (o BotPropertiesOutput) OpenWithHint() pulumi.StringPtrOutput {
 
 func (o BotPropertiesOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v BotProperties) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+func (o BotPropertiesOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotProperties) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 func (o BotPropertiesOutput) PublishingCredentials() pulumi.StringPtrOutput {
@@ -870,15 +870,6 @@ func (o BotPropertiesPtrOutput) IsDeveloperAppInsightsApiKeySet() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o BotPropertiesPtrOutput) IsIsolated() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BotProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsIsolated
-	}).(pulumi.BoolPtrOutput)
-}
-
 func (o BotPropertiesPtrOutput) IsStreamingSupported() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotProperties) *bool {
 		if v == nil {
@@ -969,6 +960,15 @@ func (o BotPropertiesPtrOutput) Parameters() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+func (o BotPropertiesPtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o BotPropertiesPtrOutput) PublishingCredentials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotProperties) *string {
 		if v == nil {
@@ -1005,7 +1005,6 @@ type BotPropertiesResponse struct {
 	IconUrl                           *string                             `pulumi:"iconUrl"`
 	IsCmekEnabled                     *bool                               `pulumi:"isCmekEnabled"`
 	IsDeveloperAppInsightsApiKeySet   *bool                               `pulumi:"isDeveloperAppInsightsApiKeySet"`
-	IsIsolated                        *bool                               `pulumi:"isIsolated"`
 	IsStreamingSupported              *bool                               `pulumi:"isStreamingSupported"`
 	LuisAppIds                        []string                            `pulumi:"luisAppIds"`
 	LuisKey                           *string                             `pulumi:"luisKey"`
@@ -1019,6 +1018,7 @@ type BotPropertiesResponse struct {
 	Parameters                        map[string]string                   `pulumi:"parameters"`
 	PrivateEndpointConnections        []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	ProvisioningState                 string                              `pulumi:"provisioningState"`
+	PublicNetworkAccess               *string                             `pulumi:"publicNetworkAccess"`
 	PublishingCredentials             *string                             `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       *string                             `pulumi:"schemaTransformationVersion"`
 }
@@ -1052,7 +1052,6 @@ type BotPropertiesResponseArgs struct {
 	IconUrl                           pulumi.StringPtrInput                       `pulumi:"iconUrl"`
 	IsCmekEnabled                     pulumi.BoolPtrInput                         `pulumi:"isCmekEnabled"`
 	IsDeveloperAppInsightsApiKeySet   pulumi.BoolPtrInput                         `pulumi:"isDeveloperAppInsightsApiKeySet"`
-	IsIsolated                        pulumi.BoolPtrInput                         `pulumi:"isIsolated"`
 	IsStreamingSupported              pulumi.BoolPtrInput                         `pulumi:"isStreamingSupported"`
 	LuisAppIds                        pulumi.StringArrayInput                     `pulumi:"luisAppIds"`
 	LuisKey                           pulumi.StringPtrInput                       `pulumi:"luisKey"`
@@ -1066,6 +1065,7 @@ type BotPropertiesResponseArgs struct {
 	Parameters                        pulumi.StringMapInput                       `pulumi:"parameters"`
 	PrivateEndpointConnections        PrivateEndpointConnectionResponseArrayInput `pulumi:"privateEndpointConnections"`
 	ProvisioningState                 pulumi.StringInput                          `pulumi:"provisioningState"`
+	PublicNetworkAccess               pulumi.StringPtrInput                       `pulumi:"publicNetworkAccess"`
 	PublishingCredentials             pulumi.StringPtrInput                       `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       pulumi.StringPtrInput                       `pulumi:"schemaTransformationVersion"`
 }
@@ -1215,10 +1215,6 @@ func (o BotPropertiesResponseOutput) IsDeveloperAppInsightsApiKeySet() pulumi.Bo
 	return o.ApplyT(func(v BotPropertiesResponse) *bool { return v.IsDeveloperAppInsightsApiKeySet }).(pulumi.BoolPtrOutput)
 }
 
-func (o BotPropertiesResponseOutput) IsIsolated() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BotPropertiesResponse) *bool { return v.IsIsolated }).(pulumi.BoolPtrOutput)
-}
-
 func (o BotPropertiesResponseOutput) IsStreamingSupported() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) *bool { return v.IsStreamingSupported }).(pulumi.BoolPtrOutput)
 }
@@ -1269,6 +1265,10 @@ func (o BotPropertiesResponseOutput) PrivateEndpointConnections() PrivateEndpoin
 
 func (o BotPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o BotPropertiesResponseOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 func (o BotPropertiesResponseOutput) PublishingCredentials() pulumi.StringPtrOutput {
@@ -1456,15 +1456,6 @@ func (o BotPropertiesResponsePtrOutput) IsDeveloperAppInsightsApiKeySet() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-func (o BotPropertiesResponsePtrOutput) IsIsolated() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BotPropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsIsolated
-	}).(pulumi.BoolPtrOutput)
-}
-
 func (o BotPropertiesResponsePtrOutput) IsStreamingSupported() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BotPropertiesResponse) *bool {
 		if v == nil {
@@ -1579,6 +1570,15 @@ func (o BotPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutp
 			return nil
 		}
 		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccess
 	}).(pulumi.StringPtrOutput)
 }
 

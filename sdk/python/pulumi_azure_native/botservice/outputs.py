@@ -256,8 +256,6 @@ class BotPropertiesResponse(dict):
             suggest = "is_cmek_enabled"
         elif key == "isDeveloperAppInsightsApiKeySet":
             suggest = "is_developer_app_insights_api_key_set"
-        elif key == "isIsolated":
-            suggest = "is_isolated"
         elif key == "isStreamingSupported":
             suggest = "is_streaming_supported"
         elif key == "luisAppIds":
@@ -274,6 +272,8 @@ class BotPropertiesResponse(dict):
             suggest = "msa_app_type"
         elif key == "openWithHint":
             suggest = "open_with_hint"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
         elif key == "publishingCredentials":
             suggest = "publishing_credentials"
         elif key == "schemaTransformationVersion":
@@ -311,7 +311,6 @@ class BotPropertiesResponse(dict):
                  icon_url: Optional[str] = None,
                  is_cmek_enabled: Optional[bool] = None,
                  is_developer_app_insights_api_key_set: Optional[bool] = None,
-                 is_isolated: Optional[bool] = None,
                  is_streaming_supported: Optional[bool] = None,
                  luis_app_ids: Optional[Sequence[str]] = None,
                  luis_key: Optional[str] = None,
@@ -321,6 +320,7 @@ class BotPropertiesResponse(dict):
                  msa_app_type: Optional[str] = None,
                  open_with_hint: Optional[str] = None,
                  parameters: Optional[Mapping[str, str]] = None,
+                 public_network_access: Optional[str] = None,
                  publishing_credentials: Optional[str] = None,
                  schema_transformation_version: Optional[str] = None):
         """
@@ -345,7 +345,6 @@ class BotPropertiesResponse(dict):
         :param str icon_url: The Icon Url of the bot
         :param bool is_cmek_enabled: Whether Cmek is enabled
         :param bool is_developer_app_insights_api_key_set: Whether the bot is developerAppInsightsApiKey set
-        :param bool is_isolated: Whether the bot is in an isolated network
         :param bool is_streaming_supported: Whether the bot is streaming supported
         :param Sequence[str] luis_app_ids: Collection of LUIS App Ids
         :param str luis_key: The LUIS Key
@@ -355,6 +354,7 @@ class BotPropertiesResponse(dict):
         :param str msa_app_type: Microsoft App Type for the bot
         :param str open_with_hint: The hint to browser (e.g. protocol handler) on how to open the bot for authoring
         :param Mapping[str, str] parameters: Contains resource parameters defined as key/value pairs.
+        :param str public_network_access: Whether the bot is in an isolated network
         :param str publishing_credentials: Publishing credentials of the resource
         :param str schema_transformation_version: The channel schema transformation version for the bot
         """
@@ -390,8 +390,6 @@ class BotPropertiesResponse(dict):
             pulumi.set(__self__, "is_cmek_enabled", is_cmek_enabled)
         if is_developer_app_insights_api_key_set is not None:
             pulumi.set(__self__, "is_developer_app_insights_api_key_set", is_developer_app_insights_api_key_set)
-        if is_isolated is not None:
-            pulumi.set(__self__, "is_isolated", is_isolated)
         if is_streaming_supported is not None:
             pulumi.set(__self__, "is_streaming_supported", is_streaming_supported)
         if luis_app_ids is not None:
@@ -410,6 +408,10 @@ class BotPropertiesResponse(dict):
             pulumi.set(__self__, "open_with_hint", open_with_hint)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if publishing_credentials is not None:
             pulumi.set(__self__, "publishing_credentials", publishing_credentials)
         if schema_transformation_version is not None:
@@ -576,14 +578,6 @@ class BotPropertiesResponse(dict):
         return pulumi.get(self, "is_developer_app_insights_api_key_set")
 
     @property
-    @pulumi.getter(name="isIsolated")
-    def is_isolated(self) -> Optional[bool]:
-        """
-        Whether the bot is in an isolated network
-        """
-        return pulumi.get(self, "is_isolated")
-
-    @property
     @pulumi.getter(name="isStreamingSupported")
     def is_streaming_supported(self) -> Optional[bool]:
         """
@@ -654,6 +648,14 @@ class BotPropertiesResponse(dict):
         Contains resource parameters defined as key/value pairs.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether the bot is in an isolated network
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="publishingCredentials")

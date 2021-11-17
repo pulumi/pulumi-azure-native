@@ -159,7 +159,6 @@ class BotPropertiesArgs:
                  icon_url: Optional[pulumi.Input[str]] = None,
                  is_cmek_enabled: Optional[pulumi.Input[bool]] = None,
                  is_developer_app_insights_api_key_set: Optional[pulumi.Input[bool]] = None,
-                 is_isolated: Optional[pulumi.Input[bool]] = None,
                  is_streaming_supported: Optional[pulumi.Input[bool]] = None,
                  luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  luis_key: Optional[pulumi.Input[str]] = None,
@@ -169,6 +168,7 @@ class BotPropertiesArgs:
                  msa_app_type: Optional[pulumi.Input[Union[str, 'MsaAppType']]] = None,
                  open_with_hint: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  publishing_credentials: Optional[pulumi.Input[str]] = None,
                  schema_transformation_version: Optional[pulumi.Input[str]] = None):
         """
@@ -188,7 +188,6 @@ class BotPropertiesArgs:
         :param pulumi.Input[str] icon_url: The Icon Url of the bot
         :param pulumi.Input[bool] is_cmek_enabled: Whether Cmek is enabled
         :param pulumi.Input[bool] is_developer_app_insights_api_key_set: Whether the bot is developerAppInsightsApiKey set
-        :param pulumi.Input[bool] is_isolated: Whether the bot is in an isolated network
         :param pulumi.Input[bool] is_streaming_supported: Whether the bot is streaming supported
         :param pulumi.Input[Sequence[pulumi.Input[str]]] luis_app_ids: Collection of LUIS App Ids
         :param pulumi.Input[str] luis_key: The LUIS Key
@@ -198,6 +197,7 @@ class BotPropertiesArgs:
         :param pulumi.Input[Union[str, 'MsaAppType']] msa_app_type: Microsoft App Type for the bot
         :param pulumi.Input[str] open_with_hint: The hint to browser (e.g. protocol handler) on how to open the bot for authoring
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Contains resource parameters defined as key/value pairs.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether the bot is in an isolated network
         :param pulumi.Input[str] publishing_credentials: Publishing credentials of the resource
         :param pulumi.Input[str] schema_transformation_version: The channel schema transformation version for the bot
         """
@@ -228,8 +228,6 @@ class BotPropertiesArgs:
             pulumi.set(__self__, "is_cmek_enabled", is_cmek_enabled)
         if is_developer_app_insights_api_key_set is not None:
             pulumi.set(__self__, "is_developer_app_insights_api_key_set", is_developer_app_insights_api_key_set)
-        if is_isolated is not None:
-            pulumi.set(__self__, "is_isolated", is_isolated)
         if is_streaming_supported is not None:
             pulumi.set(__self__, "is_streaming_supported", is_streaming_supported)
         if luis_app_ids is not None:
@@ -248,6 +246,10 @@ class BotPropertiesArgs:
             pulumi.set(__self__, "open_with_hint", open_with_hint)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if publishing_credentials is not None:
             pulumi.set(__self__, "publishing_credentials", publishing_credentials)
         if schema_transformation_version is not None:
@@ -434,18 +436,6 @@ class BotPropertiesArgs:
         pulumi.set(self, "is_developer_app_insights_api_key_set", value)
 
     @property
-    @pulumi.getter(name="isIsolated")
-    def is_isolated(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether the bot is in an isolated network
-        """
-        return pulumi.get(self, "is_isolated")
-
-    @is_isolated.setter
-    def is_isolated(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "is_isolated", value)
-
-    @property
     @pulumi.getter(name="isStreamingSupported")
     def is_streaming_supported(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -552,6 +542,18 @@ class BotPropertiesArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether the bot is in an isolated network
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="publishingCredentials")

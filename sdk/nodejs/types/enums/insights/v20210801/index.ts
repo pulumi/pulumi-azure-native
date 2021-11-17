@@ -26,14 +26,26 @@ export const DimensionOperator = {
 export type DimensionOperator = (typeof DimensionOperator)[keyof typeof DimensionOperator];
 
 export const Kind = {
-    LogAlert: "LogAlert",
-    LogToMetric: "LogToMetric",
+    User: "user",
+    Shared: "shared",
 } as const;
 
 /**
- * Indicates the type of scheduled query rule. The default is LogAlert.
+ * The kind of workbook. Choices are user and shared.
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const TimeAggregation = {
     Count: "Count",

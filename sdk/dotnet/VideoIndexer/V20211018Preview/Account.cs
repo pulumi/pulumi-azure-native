@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.VideoIndexer.V20211018Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:videoindexer:Account"},
                     new Pulumi.Alias { Type = "azure-native:videoindexer/v20211027preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:videoindexer/v20211110preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

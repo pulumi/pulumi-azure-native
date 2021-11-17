@@ -134,6 +134,7 @@ namespace Pulumi.AzureNative.Insights.V20201020
                     new Pulumi.Alias { Type = "azure-native:insights/v20150501:Workbook"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20180617preview:Workbook"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20210308:Workbook"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20210801:Workbook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

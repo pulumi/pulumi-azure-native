@@ -85,10 +85,6 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly bool? IsDeveloperAppInsightsApiKeySet;
         /// <summary>
-        /// Whether the bot is in an isolated network
-        /// </summary>
-        public readonly bool? IsIsolated;
-        /// <summary>
         /// Whether the bot is streaming supported
         /// </summary>
         public readonly bool? IsStreamingSupported;
@@ -137,6 +133,10 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Whether the bot is in an isolated network
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// Publishing credentials of the resource
         /// </summary>
         public readonly string? PublishingCredentials;
@@ -181,8 +181,6 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             bool? isDeveloperAppInsightsApiKeySet,
 
-            bool? isIsolated,
-
             bool? isStreamingSupported,
 
             ImmutableArray<string> luisAppIds,
@@ -207,6 +205,8 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             string provisioningState,
 
+            string? publicNetworkAccess,
+
             string? publishingCredentials,
 
             string? schemaTransformationVersion)
@@ -228,7 +228,6 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
             IconUrl = iconUrl;
             IsCmekEnabled = isCmekEnabled;
             IsDeveloperAppInsightsApiKeySet = isDeveloperAppInsightsApiKeySet;
-            IsIsolated = isIsolated;
             IsStreamingSupported = isStreamingSupported;
             LuisAppIds = luisAppIds;
             LuisKey = luisKey;
@@ -241,6 +240,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
             OpenWithHint = openWithHint;
             Parameters = parameters;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             PublishingCredentials = publishingCredentials;
             SchemaTransformationVersion = schemaTransformationVersion;
         }
