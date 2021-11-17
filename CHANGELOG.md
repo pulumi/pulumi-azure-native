@@ -3,7 +3,10 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### Breaking Changes published by Microsoft:
+
+- `botservice.BotProperties` replaced `isIsolated` property with `publicNetworkAccess`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16760))
 
 ---
 
