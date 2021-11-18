@@ -1,0 +1,7084 @@
+
+
+
+package v20210201preview
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type AbsoluteDeleteOption struct {
+	Duration   string `pulumi:"duration"`
+	ObjectType string `pulumi:"objectType"`
+}
+
+
+
+
+
+type AbsoluteDeleteOptionInput interface {
+	pulumi.Input
+
+	ToAbsoluteDeleteOptionOutput() AbsoluteDeleteOptionOutput
+	ToAbsoluteDeleteOptionOutputWithContext(context.Context) AbsoluteDeleteOptionOutput
+}
+
+type AbsoluteDeleteOptionArgs struct {
+	Duration   pulumi.StringInput `pulumi:"duration"`
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (AbsoluteDeleteOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AbsoluteDeleteOption)(nil)).Elem()
+}
+
+func (i AbsoluteDeleteOptionArgs) ToAbsoluteDeleteOptionOutput() AbsoluteDeleteOptionOutput {
+	return i.ToAbsoluteDeleteOptionOutputWithContext(context.Background())
+}
+
+func (i AbsoluteDeleteOptionArgs) ToAbsoluteDeleteOptionOutputWithContext(ctx context.Context) AbsoluteDeleteOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteDeleteOptionOutput)
+}
+
+type AbsoluteDeleteOptionOutput struct{ *pulumi.OutputState }
+
+func (AbsoluteDeleteOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AbsoluteDeleteOption)(nil)).Elem()
+}
+
+func (o AbsoluteDeleteOptionOutput) ToAbsoluteDeleteOptionOutput() AbsoluteDeleteOptionOutput {
+	return o
+}
+
+func (o AbsoluteDeleteOptionOutput) ToAbsoluteDeleteOptionOutputWithContext(ctx context.Context) AbsoluteDeleteOptionOutput {
+	return o
+}
+
+func (o AbsoluteDeleteOptionOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v AbsoluteDeleteOption) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+func (o AbsoluteDeleteOptionOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AbsoluteDeleteOption) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type AbsoluteDeleteOptionResponse struct {
+	Duration   string `pulumi:"duration"`
+	ObjectType string `pulumi:"objectType"`
+}
+
+
+
+
+
+type AbsoluteDeleteOptionResponseInput interface {
+	pulumi.Input
+
+	ToAbsoluteDeleteOptionResponseOutput() AbsoluteDeleteOptionResponseOutput
+	ToAbsoluteDeleteOptionResponseOutputWithContext(context.Context) AbsoluteDeleteOptionResponseOutput
+}
+
+type AbsoluteDeleteOptionResponseArgs struct {
+	Duration   pulumi.StringInput `pulumi:"duration"`
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (AbsoluteDeleteOptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AbsoluteDeleteOptionResponse)(nil)).Elem()
+}
+
+func (i AbsoluteDeleteOptionResponseArgs) ToAbsoluteDeleteOptionResponseOutput() AbsoluteDeleteOptionResponseOutput {
+	return i.ToAbsoluteDeleteOptionResponseOutputWithContext(context.Background())
+}
+
+func (i AbsoluteDeleteOptionResponseArgs) ToAbsoluteDeleteOptionResponseOutputWithContext(ctx context.Context) AbsoluteDeleteOptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AbsoluteDeleteOptionResponseOutput)
+}
+
+type AbsoluteDeleteOptionResponseOutput struct{ *pulumi.OutputState }
+
+func (AbsoluteDeleteOptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AbsoluteDeleteOptionResponse)(nil)).Elem()
+}
+
+func (o AbsoluteDeleteOptionResponseOutput) ToAbsoluteDeleteOptionResponseOutput() AbsoluteDeleteOptionResponseOutput {
+	return o
+}
+
+func (o AbsoluteDeleteOptionResponseOutput) ToAbsoluteDeleteOptionResponseOutputWithContext(ctx context.Context) AbsoluteDeleteOptionResponseOutput {
+	return o
+}
+
+func (o AbsoluteDeleteOptionResponseOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v AbsoluteDeleteOptionResponse) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+func (o AbsoluteDeleteOptionResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AbsoluteDeleteOptionResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type AdhocBasedTaggingCriteria struct {
+	TagInfo *RetentionTag `pulumi:"tagInfo"`
+}
+
+
+
+
+
+type AdhocBasedTaggingCriteriaInput interface {
+	pulumi.Input
+
+	ToAdhocBasedTaggingCriteriaOutput() AdhocBasedTaggingCriteriaOutput
+	ToAdhocBasedTaggingCriteriaOutputWithContext(context.Context) AdhocBasedTaggingCriteriaOutput
+}
+
+type AdhocBasedTaggingCriteriaArgs struct {
+	TagInfo RetentionTagPtrInput `pulumi:"tagInfo"`
+}
+
+func (AdhocBasedTaggingCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdhocBasedTaggingCriteria)(nil)).Elem()
+}
+
+func (i AdhocBasedTaggingCriteriaArgs) ToAdhocBasedTaggingCriteriaOutput() AdhocBasedTaggingCriteriaOutput {
+	return i.ToAdhocBasedTaggingCriteriaOutputWithContext(context.Background())
+}
+
+func (i AdhocBasedTaggingCriteriaArgs) ToAdhocBasedTaggingCriteriaOutputWithContext(ctx context.Context) AdhocBasedTaggingCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdhocBasedTaggingCriteriaOutput)
+}
+
+type AdhocBasedTaggingCriteriaOutput struct{ *pulumi.OutputState }
+
+func (AdhocBasedTaggingCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdhocBasedTaggingCriteria)(nil)).Elem()
+}
+
+func (o AdhocBasedTaggingCriteriaOutput) ToAdhocBasedTaggingCriteriaOutput() AdhocBasedTaggingCriteriaOutput {
+	return o
+}
+
+func (o AdhocBasedTaggingCriteriaOutput) ToAdhocBasedTaggingCriteriaOutputWithContext(ctx context.Context) AdhocBasedTaggingCriteriaOutput {
+	return o
+}
+
+func (o AdhocBasedTaggingCriteriaOutput) TagInfo() RetentionTagPtrOutput {
+	return o.ApplyT(func(v AdhocBasedTaggingCriteria) *RetentionTag { return v.TagInfo }).(RetentionTagPtrOutput)
+}
+
+type AdhocBasedTaggingCriteriaResponse struct {
+	TagInfo *RetentionTagResponse `pulumi:"tagInfo"`
+}
+
+
+
+
+
+type AdhocBasedTaggingCriteriaResponseInput interface {
+	pulumi.Input
+
+	ToAdhocBasedTaggingCriteriaResponseOutput() AdhocBasedTaggingCriteriaResponseOutput
+	ToAdhocBasedTaggingCriteriaResponseOutputWithContext(context.Context) AdhocBasedTaggingCriteriaResponseOutput
+}
+
+type AdhocBasedTaggingCriteriaResponseArgs struct {
+	TagInfo RetentionTagResponsePtrInput `pulumi:"tagInfo"`
+}
+
+func (AdhocBasedTaggingCriteriaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdhocBasedTaggingCriteriaResponse)(nil)).Elem()
+}
+
+func (i AdhocBasedTaggingCriteriaResponseArgs) ToAdhocBasedTaggingCriteriaResponseOutput() AdhocBasedTaggingCriteriaResponseOutput {
+	return i.ToAdhocBasedTaggingCriteriaResponseOutputWithContext(context.Background())
+}
+
+func (i AdhocBasedTaggingCriteriaResponseArgs) ToAdhocBasedTaggingCriteriaResponseOutputWithContext(ctx context.Context) AdhocBasedTaggingCriteriaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdhocBasedTaggingCriteriaResponseOutput)
+}
+
+type AdhocBasedTaggingCriteriaResponseOutput struct{ *pulumi.OutputState }
+
+func (AdhocBasedTaggingCriteriaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdhocBasedTaggingCriteriaResponse)(nil)).Elem()
+}
+
+func (o AdhocBasedTaggingCriteriaResponseOutput) ToAdhocBasedTaggingCriteriaResponseOutput() AdhocBasedTaggingCriteriaResponseOutput {
+	return o
+}
+
+func (o AdhocBasedTaggingCriteriaResponseOutput) ToAdhocBasedTaggingCriteriaResponseOutputWithContext(ctx context.Context) AdhocBasedTaggingCriteriaResponseOutput {
+	return o
+}
+
+func (o AdhocBasedTaggingCriteriaResponseOutput) TagInfo() RetentionTagResponsePtrOutput {
+	return o.ApplyT(func(v AdhocBasedTaggingCriteriaResponse) *RetentionTagResponse { return v.TagInfo }).(RetentionTagResponsePtrOutput)
+}
+
+type AdhocBasedTriggerContext struct {
+	ObjectType      string                    `pulumi:"objectType"`
+	TaggingCriteria AdhocBasedTaggingCriteria `pulumi:"taggingCriteria"`
+}
+
+
+
+
+
+type AdhocBasedTriggerContextInput interface {
+	pulumi.Input
+
+	ToAdhocBasedTriggerContextOutput() AdhocBasedTriggerContextOutput
+	ToAdhocBasedTriggerContextOutputWithContext(context.Context) AdhocBasedTriggerContextOutput
+}
+
+type AdhocBasedTriggerContextArgs struct {
+	ObjectType      pulumi.StringInput             `pulumi:"objectType"`
+	TaggingCriteria AdhocBasedTaggingCriteriaInput `pulumi:"taggingCriteria"`
+}
+
+func (AdhocBasedTriggerContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdhocBasedTriggerContext)(nil)).Elem()
+}
+
+func (i AdhocBasedTriggerContextArgs) ToAdhocBasedTriggerContextOutput() AdhocBasedTriggerContextOutput {
+	return i.ToAdhocBasedTriggerContextOutputWithContext(context.Background())
+}
+
+func (i AdhocBasedTriggerContextArgs) ToAdhocBasedTriggerContextOutputWithContext(ctx context.Context) AdhocBasedTriggerContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdhocBasedTriggerContextOutput)
+}
+
+type AdhocBasedTriggerContextOutput struct{ *pulumi.OutputState }
+
+func (AdhocBasedTriggerContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdhocBasedTriggerContext)(nil)).Elem()
+}
+
+func (o AdhocBasedTriggerContextOutput) ToAdhocBasedTriggerContextOutput() AdhocBasedTriggerContextOutput {
+	return o
+}
+
+func (o AdhocBasedTriggerContextOutput) ToAdhocBasedTriggerContextOutputWithContext(ctx context.Context) AdhocBasedTriggerContextOutput {
+	return o
+}
+
+func (o AdhocBasedTriggerContextOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AdhocBasedTriggerContext) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o AdhocBasedTriggerContextOutput) TaggingCriteria() AdhocBasedTaggingCriteriaOutput {
+	return o.ApplyT(func(v AdhocBasedTriggerContext) AdhocBasedTaggingCriteria { return v.TaggingCriteria }).(AdhocBasedTaggingCriteriaOutput)
+}
+
+type AdhocBasedTriggerContextResponse struct {
+	ObjectType      string                            `pulumi:"objectType"`
+	TaggingCriteria AdhocBasedTaggingCriteriaResponse `pulumi:"taggingCriteria"`
+}
+
+
+
+
+
+type AdhocBasedTriggerContextResponseInput interface {
+	pulumi.Input
+
+	ToAdhocBasedTriggerContextResponseOutput() AdhocBasedTriggerContextResponseOutput
+	ToAdhocBasedTriggerContextResponseOutputWithContext(context.Context) AdhocBasedTriggerContextResponseOutput
+}
+
+type AdhocBasedTriggerContextResponseArgs struct {
+	ObjectType      pulumi.StringInput                     `pulumi:"objectType"`
+	TaggingCriteria AdhocBasedTaggingCriteriaResponseInput `pulumi:"taggingCriteria"`
+}
+
+func (AdhocBasedTriggerContextResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdhocBasedTriggerContextResponse)(nil)).Elem()
+}
+
+func (i AdhocBasedTriggerContextResponseArgs) ToAdhocBasedTriggerContextResponseOutput() AdhocBasedTriggerContextResponseOutput {
+	return i.ToAdhocBasedTriggerContextResponseOutputWithContext(context.Background())
+}
+
+func (i AdhocBasedTriggerContextResponseArgs) ToAdhocBasedTriggerContextResponseOutputWithContext(ctx context.Context) AdhocBasedTriggerContextResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AdhocBasedTriggerContextResponseOutput)
+}
+
+type AdhocBasedTriggerContextResponseOutput struct{ *pulumi.OutputState }
+
+func (AdhocBasedTriggerContextResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AdhocBasedTriggerContextResponse)(nil)).Elem()
+}
+
+func (o AdhocBasedTriggerContextResponseOutput) ToAdhocBasedTriggerContextResponseOutput() AdhocBasedTriggerContextResponseOutput {
+	return o
+}
+
+func (o AdhocBasedTriggerContextResponseOutput) ToAdhocBasedTriggerContextResponseOutputWithContext(ctx context.Context) AdhocBasedTriggerContextResponseOutput {
+	return o
+}
+
+func (o AdhocBasedTriggerContextResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AdhocBasedTriggerContextResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o AdhocBasedTriggerContextResponseOutput) TaggingCriteria() AdhocBasedTaggingCriteriaResponseOutput {
+	return o.ApplyT(func(v AdhocBasedTriggerContextResponse) AdhocBasedTaggingCriteriaResponse { return v.TaggingCriteria }).(AdhocBasedTaggingCriteriaResponseOutput)
+}
+
+type AzureBackupParams struct {
+	BackupType string `pulumi:"backupType"`
+	ObjectType string `pulumi:"objectType"`
+}
+
+
+
+
+
+type AzureBackupParamsInput interface {
+	pulumi.Input
+
+	ToAzureBackupParamsOutput() AzureBackupParamsOutput
+	ToAzureBackupParamsOutputWithContext(context.Context) AzureBackupParamsOutput
+}
+
+type AzureBackupParamsArgs struct {
+	BackupType pulumi.StringInput `pulumi:"backupType"`
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (AzureBackupParamsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupParams)(nil)).Elem()
+}
+
+func (i AzureBackupParamsArgs) ToAzureBackupParamsOutput() AzureBackupParamsOutput {
+	return i.ToAzureBackupParamsOutputWithContext(context.Background())
+}
+
+func (i AzureBackupParamsArgs) ToAzureBackupParamsOutputWithContext(ctx context.Context) AzureBackupParamsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupParamsOutput)
+}
+
+func (i AzureBackupParamsArgs) ToAzureBackupParamsPtrOutput() AzureBackupParamsPtrOutput {
+	return i.ToAzureBackupParamsPtrOutputWithContext(context.Background())
+}
+
+func (i AzureBackupParamsArgs) ToAzureBackupParamsPtrOutputWithContext(ctx context.Context) AzureBackupParamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupParamsOutput).ToAzureBackupParamsPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type AzureBackupParamsPtrInput interface {
+	pulumi.Input
+
+	ToAzureBackupParamsPtrOutput() AzureBackupParamsPtrOutput
+	ToAzureBackupParamsPtrOutputWithContext(context.Context) AzureBackupParamsPtrOutput
+}
+
+type azureBackupParamsPtrType AzureBackupParamsArgs
+
+func AzureBackupParamsPtr(v *AzureBackupParamsArgs) AzureBackupParamsPtrInput {
+	return (*azureBackupParamsPtrType)(v)
+}
+
+func (*azureBackupParamsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBackupParams)(nil)).Elem()
+}
+
+func (i *azureBackupParamsPtrType) ToAzureBackupParamsPtrOutput() AzureBackupParamsPtrOutput {
+	return i.ToAzureBackupParamsPtrOutputWithContext(context.Background())
+}
+
+func (i *azureBackupParamsPtrType) ToAzureBackupParamsPtrOutputWithContext(ctx context.Context) AzureBackupParamsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupParamsPtrOutput)
+}
+
+type AzureBackupParamsOutput struct{ *pulumi.OutputState }
+
+func (AzureBackupParamsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupParams)(nil)).Elem()
+}
+
+func (o AzureBackupParamsOutput) ToAzureBackupParamsOutput() AzureBackupParamsOutput {
+	return o
+}
+
+func (o AzureBackupParamsOutput) ToAzureBackupParamsOutputWithContext(ctx context.Context) AzureBackupParamsOutput {
+	return o
+}
+
+func (o AzureBackupParamsOutput) ToAzureBackupParamsPtrOutput() AzureBackupParamsPtrOutput {
+	return o.ToAzureBackupParamsPtrOutputWithContext(context.Background())
+}
+
+func (o AzureBackupParamsOutput) ToAzureBackupParamsPtrOutputWithContext(ctx context.Context) AzureBackupParamsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBackupParams) *AzureBackupParams {
+		return &v
+	}).(AzureBackupParamsPtrOutput)
+}
+
+func (o AzureBackupParamsOutput) BackupType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureBackupParams) string { return v.BackupType }).(pulumi.StringOutput)
+}
+
+func (o AzureBackupParamsOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureBackupParams) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type AzureBackupParamsPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureBackupParamsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBackupParams)(nil)).Elem()
+}
+
+func (o AzureBackupParamsPtrOutput) ToAzureBackupParamsPtrOutput() AzureBackupParamsPtrOutput {
+	return o
+}
+
+func (o AzureBackupParamsPtrOutput) ToAzureBackupParamsPtrOutputWithContext(ctx context.Context) AzureBackupParamsPtrOutput {
+	return o
+}
+
+func (o AzureBackupParamsPtrOutput) Elem() AzureBackupParamsOutput {
+	return o.ApplyT(func(v *AzureBackupParams) AzureBackupParams {
+		if v != nil {
+			return *v
+		}
+		var ret AzureBackupParams
+		return ret
+	}).(AzureBackupParamsOutput)
+}
+
+func (o AzureBackupParamsPtrOutput) BackupType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBackupParams) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BackupType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AzureBackupParamsPtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBackupParams) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureBackupParamsResponse struct {
+	BackupType string `pulumi:"backupType"`
+	ObjectType string `pulumi:"objectType"`
+}
+
+
+
+
+
+type AzureBackupParamsResponseInput interface {
+	pulumi.Input
+
+	ToAzureBackupParamsResponseOutput() AzureBackupParamsResponseOutput
+	ToAzureBackupParamsResponseOutputWithContext(context.Context) AzureBackupParamsResponseOutput
+}
+
+type AzureBackupParamsResponseArgs struct {
+	BackupType pulumi.StringInput `pulumi:"backupType"`
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (AzureBackupParamsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupParamsResponse)(nil)).Elem()
+}
+
+func (i AzureBackupParamsResponseArgs) ToAzureBackupParamsResponseOutput() AzureBackupParamsResponseOutput {
+	return i.ToAzureBackupParamsResponseOutputWithContext(context.Background())
+}
+
+func (i AzureBackupParamsResponseArgs) ToAzureBackupParamsResponseOutputWithContext(ctx context.Context) AzureBackupParamsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupParamsResponseOutput)
+}
+
+func (i AzureBackupParamsResponseArgs) ToAzureBackupParamsResponsePtrOutput() AzureBackupParamsResponsePtrOutput {
+	return i.ToAzureBackupParamsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureBackupParamsResponseArgs) ToAzureBackupParamsResponsePtrOutputWithContext(ctx context.Context) AzureBackupParamsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupParamsResponseOutput).ToAzureBackupParamsResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type AzureBackupParamsResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureBackupParamsResponsePtrOutput() AzureBackupParamsResponsePtrOutput
+	ToAzureBackupParamsResponsePtrOutputWithContext(context.Context) AzureBackupParamsResponsePtrOutput
+}
+
+type azureBackupParamsResponsePtrType AzureBackupParamsResponseArgs
+
+func AzureBackupParamsResponsePtr(v *AzureBackupParamsResponseArgs) AzureBackupParamsResponsePtrInput {
+	return (*azureBackupParamsResponsePtrType)(v)
+}
+
+func (*azureBackupParamsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBackupParamsResponse)(nil)).Elem()
+}
+
+func (i *azureBackupParamsResponsePtrType) ToAzureBackupParamsResponsePtrOutput() AzureBackupParamsResponsePtrOutput {
+	return i.ToAzureBackupParamsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureBackupParamsResponsePtrType) ToAzureBackupParamsResponsePtrOutputWithContext(ctx context.Context) AzureBackupParamsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupParamsResponsePtrOutput)
+}
+
+type AzureBackupParamsResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureBackupParamsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupParamsResponse)(nil)).Elem()
+}
+
+func (o AzureBackupParamsResponseOutput) ToAzureBackupParamsResponseOutput() AzureBackupParamsResponseOutput {
+	return o
+}
+
+func (o AzureBackupParamsResponseOutput) ToAzureBackupParamsResponseOutputWithContext(ctx context.Context) AzureBackupParamsResponseOutput {
+	return o
+}
+
+func (o AzureBackupParamsResponseOutput) ToAzureBackupParamsResponsePtrOutput() AzureBackupParamsResponsePtrOutput {
+	return o.ToAzureBackupParamsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureBackupParamsResponseOutput) ToAzureBackupParamsResponsePtrOutputWithContext(ctx context.Context) AzureBackupParamsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureBackupParamsResponse) *AzureBackupParamsResponse {
+		return &v
+	}).(AzureBackupParamsResponsePtrOutput)
+}
+
+func (o AzureBackupParamsResponseOutput) BackupType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureBackupParamsResponse) string { return v.BackupType }).(pulumi.StringOutput)
+}
+
+func (o AzureBackupParamsResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureBackupParamsResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type AzureBackupParamsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureBackupParamsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBackupParamsResponse)(nil)).Elem()
+}
+
+func (o AzureBackupParamsResponsePtrOutput) ToAzureBackupParamsResponsePtrOutput() AzureBackupParamsResponsePtrOutput {
+	return o
+}
+
+func (o AzureBackupParamsResponsePtrOutput) ToAzureBackupParamsResponsePtrOutputWithContext(ctx context.Context) AzureBackupParamsResponsePtrOutput {
+	return o
+}
+
+func (o AzureBackupParamsResponsePtrOutput) Elem() AzureBackupParamsResponseOutput {
+	return o.ApplyT(func(v *AzureBackupParamsResponse) AzureBackupParamsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureBackupParamsResponse
+		return ret
+	}).(AzureBackupParamsResponseOutput)
+}
+
+func (o AzureBackupParamsResponsePtrOutput) BackupType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBackupParamsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BackupType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AzureBackupParamsResponsePtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBackupParamsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureBackupRule struct {
+	BackupParameters *AzureBackupParams `pulumi:"backupParameters"`
+	DataStore        DataStoreInfoBase  `pulumi:"dataStore"`
+	Name             string             `pulumi:"name"`
+	ObjectType       string             `pulumi:"objectType"`
+	Trigger          interface{}        `pulumi:"trigger"`
+}
+
+
+
+
+
+type AzureBackupRuleInput interface {
+	pulumi.Input
+
+	ToAzureBackupRuleOutput() AzureBackupRuleOutput
+	ToAzureBackupRuleOutputWithContext(context.Context) AzureBackupRuleOutput
+}
+
+type AzureBackupRuleArgs struct {
+	BackupParameters AzureBackupParamsPtrInput `pulumi:"backupParameters"`
+	DataStore        DataStoreInfoBaseInput    `pulumi:"dataStore"`
+	Name             pulumi.StringInput        `pulumi:"name"`
+	ObjectType       pulumi.StringInput        `pulumi:"objectType"`
+	Trigger          pulumi.Input              `pulumi:"trigger"`
+}
+
+func (AzureBackupRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupRule)(nil)).Elem()
+}
+
+func (i AzureBackupRuleArgs) ToAzureBackupRuleOutput() AzureBackupRuleOutput {
+	return i.ToAzureBackupRuleOutputWithContext(context.Background())
+}
+
+func (i AzureBackupRuleArgs) ToAzureBackupRuleOutputWithContext(ctx context.Context) AzureBackupRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupRuleOutput)
+}
+
+type AzureBackupRuleOutput struct{ *pulumi.OutputState }
+
+func (AzureBackupRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupRule)(nil)).Elem()
+}
+
+func (o AzureBackupRuleOutput) ToAzureBackupRuleOutput() AzureBackupRuleOutput {
+	return o
+}
+
+func (o AzureBackupRuleOutput) ToAzureBackupRuleOutputWithContext(ctx context.Context) AzureBackupRuleOutput {
+	return o
+}
+
+func (o AzureBackupRuleOutput) BackupParameters() AzureBackupParamsPtrOutput {
+	return o.ApplyT(func(v AzureBackupRule) *AzureBackupParams { return v.BackupParameters }).(AzureBackupParamsPtrOutput)
+}
+
+func (o AzureBackupRuleOutput) DataStore() DataStoreInfoBaseOutput {
+	return o.ApplyT(func(v AzureBackupRule) DataStoreInfoBase { return v.DataStore }).(DataStoreInfoBaseOutput)
+}
+
+func (o AzureBackupRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureBackupRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AzureBackupRuleOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureBackupRule) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o AzureBackupRuleOutput) Trigger() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureBackupRule) interface{} { return v.Trigger }).(pulumi.AnyOutput)
+}
+
+type AzureBackupRuleResponse struct {
+	BackupParameters *AzureBackupParamsResponse `pulumi:"backupParameters"`
+	DataStore        DataStoreInfoBaseResponse  `pulumi:"dataStore"`
+	Name             string                     `pulumi:"name"`
+	ObjectType       string                     `pulumi:"objectType"`
+	Trigger          interface{}                `pulumi:"trigger"`
+}
+
+
+
+
+
+type AzureBackupRuleResponseInput interface {
+	pulumi.Input
+
+	ToAzureBackupRuleResponseOutput() AzureBackupRuleResponseOutput
+	ToAzureBackupRuleResponseOutputWithContext(context.Context) AzureBackupRuleResponseOutput
+}
+
+type AzureBackupRuleResponseArgs struct {
+	BackupParameters AzureBackupParamsResponsePtrInput `pulumi:"backupParameters"`
+	DataStore        DataStoreInfoBaseResponseInput    `pulumi:"dataStore"`
+	Name             pulumi.StringInput                `pulumi:"name"`
+	ObjectType       pulumi.StringInput                `pulumi:"objectType"`
+	Trigger          pulumi.Input                      `pulumi:"trigger"`
+}
+
+func (AzureBackupRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupRuleResponse)(nil)).Elem()
+}
+
+func (i AzureBackupRuleResponseArgs) ToAzureBackupRuleResponseOutput() AzureBackupRuleResponseOutput {
+	return i.ToAzureBackupRuleResponseOutputWithContext(context.Background())
+}
+
+func (i AzureBackupRuleResponseArgs) ToAzureBackupRuleResponseOutputWithContext(ctx context.Context) AzureBackupRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBackupRuleResponseOutput)
+}
+
+type AzureBackupRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureBackupRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBackupRuleResponse)(nil)).Elem()
+}
+
+func (o AzureBackupRuleResponseOutput) ToAzureBackupRuleResponseOutput() AzureBackupRuleResponseOutput {
+	return o
+}
+
+func (o AzureBackupRuleResponseOutput) ToAzureBackupRuleResponseOutputWithContext(ctx context.Context) AzureBackupRuleResponseOutput {
+	return o
+}
+
+func (o AzureBackupRuleResponseOutput) BackupParameters() AzureBackupParamsResponsePtrOutput {
+	return o.ApplyT(func(v AzureBackupRuleResponse) *AzureBackupParamsResponse { return v.BackupParameters }).(AzureBackupParamsResponsePtrOutput)
+}
+
+func (o AzureBackupRuleResponseOutput) DataStore() DataStoreInfoBaseResponseOutput {
+	return o.ApplyT(func(v AzureBackupRuleResponse) DataStoreInfoBaseResponse { return v.DataStore }).(DataStoreInfoBaseResponseOutput)
+}
+
+func (o AzureBackupRuleResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureBackupRuleResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AzureBackupRuleResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureBackupRuleResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o AzureBackupRuleResponseOutput) Trigger() pulumi.AnyOutput {
+	return o.ApplyT(func(v AzureBackupRuleResponse) interface{} { return v.Trigger }).(pulumi.AnyOutput)
+}
+
+type AzureOperationalStoreParameters struct {
+	DataStoreType   string  `pulumi:"dataStoreType"`
+	ObjectType      string  `pulumi:"objectType"`
+	ResourceGroupId *string `pulumi:"resourceGroupId"`
+}
+
+
+
+
+
+type AzureOperationalStoreParametersInput interface {
+	pulumi.Input
+
+	ToAzureOperationalStoreParametersOutput() AzureOperationalStoreParametersOutput
+	ToAzureOperationalStoreParametersOutputWithContext(context.Context) AzureOperationalStoreParametersOutput
+}
+
+type AzureOperationalStoreParametersArgs struct {
+	DataStoreType   pulumi.StringInput    `pulumi:"dataStoreType"`
+	ObjectType      pulumi.StringInput    `pulumi:"objectType"`
+	ResourceGroupId pulumi.StringPtrInput `pulumi:"resourceGroupId"`
+}
+
+func (AzureOperationalStoreParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureOperationalStoreParameters)(nil)).Elem()
+}
+
+func (i AzureOperationalStoreParametersArgs) ToAzureOperationalStoreParametersOutput() AzureOperationalStoreParametersOutput {
+	return i.ToAzureOperationalStoreParametersOutputWithContext(context.Background())
+}
+
+func (i AzureOperationalStoreParametersArgs) ToAzureOperationalStoreParametersOutputWithContext(ctx context.Context) AzureOperationalStoreParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureOperationalStoreParametersOutput)
+}
+
+
+
+
+
+type AzureOperationalStoreParametersArrayInput interface {
+	pulumi.Input
+
+	ToAzureOperationalStoreParametersArrayOutput() AzureOperationalStoreParametersArrayOutput
+	ToAzureOperationalStoreParametersArrayOutputWithContext(context.Context) AzureOperationalStoreParametersArrayOutput
+}
+
+type AzureOperationalStoreParametersArray []AzureOperationalStoreParametersInput
+
+func (AzureOperationalStoreParametersArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureOperationalStoreParameters)(nil)).Elem()
+}
+
+func (i AzureOperationalStoreParametersArray) ToAzureOperationalStoreParametersArrayOutput() AzureOperationalStoreParametersArrayOutput {
+	return i.ToAzureOperationalStoreParametersArrayOutputWithContext(context.Background())
+}
+
+func (i AzureOperationalStoreParametersArray) ToAzureOperationalStoreParametersArrayOutputWithContext(ctx context.Context) AzureOperationalStoreParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureOperationalStoreParametersArrayOutput)
+}
+
+type AzureOperationalStoreParametersOutput struct{ *pulumi.OutputState }
+
+func (AzureOperationalStoreParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureOperationalStoreParameters)(nil)).Elem()
+}
+
+func (o AzureOperationalStoreParametersOutput) ToAzureOperationalStoreParametersOutput() AzureOperationalStoreParametersOutput {
+	return o
+}
+
+func (o AzureOperationalStoreParametersOutput) ToAzureOperationalStoreParametersOutputWithContext(ctx context.Context) AzureOperationalStoreParametersOutput {
+	return o
+}
+
+func (o AzureOperationalStoreParametersOutput) DataStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureOperationalStoreParameters) string { return v.DataStoreType }).(pulumi.StringOutput)
+}
+
+func (o AzureOperationalStoreParametersOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureOperationalStoreParameters) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o AzureOperationalStoreParametersOutput) ResourceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureOperationalStoreParameters) *string { return v.ResourceGroupId }).(pulumi.StringPtrOutput)
+}
+
+type AzureOperationalStoreParametersArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureOperationalStoreParametersArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureOperationalStoreParameters)(nil)).Elem()
+}
+
+func (o AzureOperationalStoreParametersArrayOutput) ToAzureOperationalStoreParametersArrayOutput() AzureOperationalStoreParametersArrayOutput {
+	return o
+}
+
+func (o AzureOperationalStoreParametersArrayOutput) ToAzureOperationalStoreParametersArrayOutputWithContext(ctx context.Context) AzureOperationalStoreParametersArrayOutput {
+	return o
+}
+
+func (o AzureOperationalStoreParametersArrayOutput) Index(i pulumi.IntInput) AzureOperationalStoreParametersOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureOperationalStoreParameters {
+		return vs[0].([]AzureOperationalStoreParameters)[vs[1].(int)]
+	}).(AzureOperationalStoreParametersOutput)
+}
+
+type AzureOperationalStoreParametersResponse struct {
+	DataStoreType   string  `pulumi:"dataStoreType"`
+	ObjectType      string  `pulumi:"objectType"`
+	ResourceGroupId *string `pulumi:"resourceGroupId"`
+}
+
+
+
+
+
+type AzureOperationalStoreParametersResponseInput interface {
+	pulumi.Input
+
+	ToAzureOperationalStoreParametersResponseOutput() AzureOperationalStoreParametersResponseOutput
+	ToAzureOperationalStoreParametersResponseOutputWithContext(context.Context) AzureOperationalStoreParametersResponseOutput
+}
+
+type AzureOperationalStoreParametersResponseArgs struct {
+	DataStoreType   pulumi.StringInput    `pulumi:"dataStoreType"`
+	ObjectType      pulumi.StringInput    `pulumi:"objectType"`
+	ResourceGroupId pulumi.StringPtrInput `pulumi:"resourceGroupId"`
+}
+
+func (AzureOperationalStoreParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureOperationalStoreParametersResponse)(nil)).Elem()
+}
+
+func (i AzureOperationalStoreParametersResponseArgs) ToAzureOperationalStoreParametersResponseOutput() AzureOperationalStoreParametersResponseOutput {
+	return i.ToAzureOperationalStoreParametersResponseOutputWithContext(context.Background())
+}
+
+func (i AzureOperationalStoreParametersResponseArgs) ToAzureOperationalStoreParametersResponseOutputWithContext(ctx context.Context) AzureOperationalStoreParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureOperationalStoreParametersResponseOutput)
+}
+
+
+
+
+
+type AzureOperationalStoreParametersResponseArrayInput interface {
+	pulumi.Input
+
+	ToAzureOperationalStoreParametersResponseArrayOutput() AzureOperationalStoreParametersResponseArrayOutput
+	ToAzureOperationalStoreParametersResponseArrayOutputWithContext(context.Context) AzureOperationalStoreParametersResponseArrayOutput
+}
+
+type AzureOperationalStoreParametersResponseArray []AzureOperationalStoreParametersResponseInput
+
+func (AzureOperationalStoreParametersResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureOperationalStoreParametersResponse)(nil)).Elem()
+}
+
+func (i AzureOperationalStoreParametersResponseArray) ToAzureOperationalStoreParametersResponseArrayOutput() AzureOperationalStoreParametersResponseArrayOutput {
+	return i.ToAzureOperationalStoreParametersResponseArrayOutputWithContext(context.Background())
+}
+
+func (i AzureOperationalStoreParametersResponseArray) ToAzureOperationalStoreParametersResponseArrayOutputWithContext(ctx context.Context) AzureOperationalStoreParametersResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureOperationalStoreParametersResponseArrayOutput)
+}
+
+type AzureOperationalStoreParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureOperationalStoreParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureOperationalStoreParametersResponse)(nil)).Elem()
+}
+
+func (o AzureOperationalStoreParametersResponseOutput) ToAzureOperationalStoreParametersResponseOutput() AzureOperationalStoreParametersResponseOutput {
+	return o
+}
+
+func (o AzureOperationalStoreParametersResponseOutput) ToAzureOperationalStoreParametersResponseOutputWithContext(ctx context.Context) AzureOperationalStoreParametersResponseOutput {
+	return o
+}
+
+func (o AzureOperationalStoreParametersResponseOutput) DataStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureOperationalStoreParametersResponse) string { return v.DataStoreType }).(pulumi.StringOutput)
+}
+
+func (o AzureOperationalStoreParametersResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureOperationalStoreParametersResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o AzureOperationalStoreParametersResponseOutput) ResourceGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureOperationalStoreParametersResponse) *string { return v.ResourceGroupId }).(pulumi.StringPtrOutput)
+}
+
+type AzureOperationalStoreParametersResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureOperationalStoreParametersResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureOperationalStoreParametersResponse)(nil)).Elem()
+}
+
+func (o AzureOperationalStoreParametersResponseArrayOutput) ToAzureOperationalStoreParametersResponseArrayOutput() AzureOperationalStoreParametersResponseArrayOutput {
+	return o
+}
+
+func (o AzureOperationalStoreParametersResponseArrayOutput) ToAzureOperationalStoreParametersResponseArrayOutputWithContext(ctx context.Context) AzureOperationalStoreParametersResponseArrayOutput {
+	return o
+}
+
+func (o AzureOperationalStoreParametersResponseArrayOutput) Index(i pulumi.IntInput) AzureOperationalStoreParametersResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureOperationalStoreParametersResponse {
+		return vs[0].([]AzureOperationalStoreParametersResponse)[vs[1].(int)]
+	}).(AzureOperationalStoreParametersResponseOutput)
+}
+
+type AzureRetentionRule struct {
+	IsDefault  *bool             `pulumi:"isDefault"`
+	Lifecycles []SourceLifeCycle `pulumi:"lifecycles"`
+	Name       string            `pulumi:"name"`
+	ObjectType string            `pulumi:"objectType"`
+}
+
+
+
+
+
+type AzureRetentionRuleInput interface {
+	pulumi.Input
+
+	ToAzureRetentionRuleOutput() AzureRetentionRuleOutput
+	ToAzureRetentionRuleOutputWithContext(context.Context) AzureRetentionRuleOutput
+}
+
+type AzureRetentionRuleArgs struct {
+	IsDefault  pulumi.BoolPtrInput       `pulumi:"isDefault"`
+	Lifecycles SourceLifeCycleArrayInput `pulumi:"lifecycles"`
+	Name       pulumi.StringInput        `pulumi:"name"`
+	ObjectType pulumi.StringInput        `pulumi:"objectType"`
+}
+
+func (AzureRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureRetentionRule)(nil)).Elem()
+}
+
+func (i AzureRetentionRuleArgs) ToAzureRetentionRuleOutput() AzureRetentionRuleOutput {
+	return i.ToAzureRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i AzureRetentionRuleArgs) ToAzureRetentionRuleOutputWithContext(ctx context.Context) AzureRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureRetentionRuleOutput)
+}
+
+type AzureRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (AzureRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureRetentionRule)(nil)).Elem()
+}
+
+func (o AzureRetentionRuleOutput) ToAzureRetentionRuleOutput() AzureRetentionRuleOutput {
+	return o
+}
+
+func (o AzureRetentionRuleOutput) ToAzureRetentionRuleOutputWithContext(ctx context.Context) AzureRetentionRuleOutput {
+	return o
+}
+
+func (o AzureRetentionRuleOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureRetentionRule) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
+}
+
+func (o AzureRetentionRuleOutput) Lifecycles() SourceLifeCycleArrayOutput {
+	return o.ApplyT(func(v AzureRetentionRule) []SourceLifeCycle { return v.Lifecycles }).(SourceLifeCycleArrayOutput)
+}
+
+func (o AzureRetentionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureRetentionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AzureRetentionRuleOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureRetentionRule) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type AzureRetentionRuleResponse struct {
+	IsDefault  *bool                     `pulumi:"isDefault"`
+	Lifecycles []SourceLifeCycleResponse `pulumi:"lifecycles"`
+	Name       string                    `pulumi:"name"`
+	ObjectType string                    `pulumi:"objectType"`
+}
+
+
+
+
+
+type AzureRetentionRuleResponseInput interface {
+	pulumi.Input
+
+	ToAzureRetentionRuleResponseOutput() AzureRetentionRuleResponseOutput
+	ToAzureRetentionRuleResponseOutputWithContext(context.Context) AzureRetentionRuleResponseOutput
+}
+
+type AzureRetentionRuleResponseArgs struct {
+	IsDefault  pulumi.BoolPtrInput               `pulumi:"isDefault"`
+	Lifecycles SourceLifeCycleResponseArrayInput `pulumi:"lifecycles"`
+	Name       pulumi.StringInput                `pulumi:"name"`
+	ObjectType pulumi.StringInput                `pulumi:"objectType"`
+}
+
+func (AzureRetentionRuleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureRetentionRuleResponse)(nil)).Elem()
+}
+
+func (i AzureRetentionRuleResponseArgs) ToAzureRetentionRuleResponseOutput() AzureRetentionRuleResponseOutput {
+	return i.ToAzureRetentionRuleResponseOutputWithContext(context.Background())
+}
+
+func (i AzureRetentionRuleResponseArgs) ToAzureRetentionRuleResponseOutputWithContext(ctx context.Context) AzureRetentionRuleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureRetentionRuleResponseOutput)
+}
+
+type AzureRetentionRuleResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureRetentionRuleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureRetentionRuleResponse)(nil)).Elem()
+}
+
+func (o AzureRetentionRuleResponseOutput) ToAzureRetentionRuleResponseOutput() AzureRetentionRuleResponseOutput {
+	return o
+}
+
+func (o AzureRetentionRuleResponseOutput) ToAzureRetentionRuleResponseOutputWithContext(ctx context.Context) AzureRetentionRuleResponseOutput {
+	return o
+}
+
+func (o AzureRetentionRuleResponseOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureRetentionRuleResponse) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
+}
+
+func (o AzureRetentionRuleResponseOutput) Lifecycles() SourceLifeCycleResponseArrayOutput {
+	return o.ApplyT(func(v AzureRetentionRuleResponse) []SourceLifeCycleResponse { return v.Lifecycles }).(SourceLifeCycleResponseArrayOutput)
+}
+
+func (o AzureRetentionRuleResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureRetentionRuleResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AzureRetentionRuleResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureRetentionRuleResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type BackupInstanceType struct {
+	DataSourceInfo    Datasource     `pulumi:"dataSourceInfo"`
+	DataSourceSetInfo *DatasourceSet `pulumi:"dataSourceSetInfo"`
+	FriendlyName      *string        `pulumi:"friendlyName"`
+	ObjectType        string         `pulumi:"objectType"`
+	PolicyInfo        PolicyInfo     `pulumi:"policyInfo"`
+}
+
+
+
+
+
+type BackupInstanceTypeInput interface {
+	pulumi.Input
+
+	ToBackupInstanceTypeOutput() BackupInstanceTypeOutput
+	ToBackupInstanceTypeOutputWithContext(context.Context) BackupInstanceTypeOutput
+}
+
+type BackupInstanceTypeArgs struct {
+	DataSourceInfo    DatasourceInput       `pulumi:"dataSourceInfo"`
+	DataSourceSetInfo DatasourceSetPtrInput `pulumi:"dataSourceSetInfo"`
+	FriendlyName      pulumi.StringPtrInput `pulumi:"friendlyName"`
+	ObjectType        pulumi.StringInput    `pulumi:"objectType"`
+	PolicyInfo        PolicyInfoInput       `pulumi:"policyInfo"`
+}
+
+func (BackupInstanceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupInstanceType)(nil)).Elem()
+}
+
+func (i BackupInstanceTypeArgs) ToBackupInstanceTypeOutput() BackupInstanceTypeOutput {
+	return i.ToBackupInstanceTypeOutputWithContext(context.Background())
+}
+
+func (i BackupInstanceTypeArgs) ToBackupInstanceTypeOutputWithContext(ctx context.Context) BackupInstanceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceTypeOutput)
+}
+
+func (i BackupInstanceTypeArgs) ToBackupInstanceTypePtrOutput() BackupInstanceTypePtrOutput {
+	return i.ToBackupInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (i BackupInstanceTypeArgs) ToBackupInstanceTypePtrOutputWithContext(ctx context.Context) BackupInstanceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceTypeOutput).ToBackupInstanceTypePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type BackupInstanceTypePtrInput interface {
+	pulumi.Input
+
+	ToBackupInstanceTypePtrOutput() BackupInstanceTypePtrOutput
+	ToBackupInstanceTypePtrOutputWithContext(context.Context) BackupInstanceTypePtrOutput
+}
+
+type backupInstanceTypePtrType BackupInstanceTypeArgs
+
+func BackupInstanceTypePtr(v *BackupInstanceTypeArgs) BackupInstanceTypePtrInput {
+	return (*backupInstanceTypePtrType)(v)
+}
+
+func (*backupInstanceTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupInstanceType)(nil)).Elem()
+}
+
+func (i *backupInstanceTypePtrType) ToBackupInstanceTypePtrOutput() BackupInstanceTypePtrOutput {
+	return i.ToBackupInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (i *backupInstanceTypePtrType) ToBackupInstanceTypePtrOutputWithContext(ctx context.Context) BackupInstanceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceTypePtrOutput)
+}
+
+type BackupInstanceTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupInstanceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupInstanceType)(nil)).Elem()
+}
+
+func (o BackupInstanceTypeOutput) ToBackupInstanceTypeOutput() BackupInstanceTypeOutput {
+	return o
+}
+
+func (o BackupInstanceTypeOutput) ToBackupInstanceTypeOutputWithContext(ctx context.Context) BackupInstanceTypeOutput {
+	return o
+}
+
+func (o BackupInstanceTypeOutput) ToBackupInstanceTypePtrOutput() BackupInstanceTypePtrOutput {
+	return o.ToBackupInstanceTypePtrOutputWithContext(context.Background())
+}
+
+func (o BackupInstanceTypeOutput) ToBackupInstanceTypePtrOutputWithContext(ctx context.Context) BackupInstanceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupInstanceType) *BackupInstanceType {
+		return &v
+	}).(BackupInstanceTypePtrOutput)
+}
+
+func (o BackupInstanceTypeOutput) DataSourceInfo() DatasourceOutput {
+	return o.ApplyT(func(v BackupInstanceType) Datasource { return v.DataSourceInfo }).(DatasourceOutput)
+}
+
+func (o BackupInstanceTypeOutput) DataSourceSetInfo() DatasourceSetPtrOutput {
+	return o.ApplyT(func(v BackupInstanceType) *DatasourceSet { return v.DataSourceSetInfo }).(DatasourceSetPtrOutput)
+}
+
+func (o BackupInstanceTypeOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupInstanceType) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupInstanceTypeOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupInstanceType) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o BackupInstanceTypeOutput) PolicyInfo() PolicyInfoOutput {
+	return o.ApplyT(func(v BackupInstanceType) PolicyInfo { return v.PolicyInfo }).(PolicyInfoOutput)
+}
+
+type BackupInstanceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupInstanceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupInstanceType)(nil)).Elem()
+}
+
+func (o BackupInstanceTypePtrOutput) ToBackupInstanceTypePtrOutput() BackupInstanceTypePtrOutput {
+	return o
+}
+
+func (o BackupInstanceTypePtrOutput) ToBackupInstanceTypePtrOutputWithContext(ctx context.Context) BackupInstanceTypePtrOutput {
+	return o
+}
+
+func (o BackupInstanceTypePtrOutput) Elem() BackupInstanceTypeOutput {
+	return o.ApplyT(func(v *BackupInstanceType) BackupInstanceType {
+		if v != nil {
+			return *v
+		}
+		var ret BackupInstanceType
+		return ret
+	}).(BackupInstanceTypeOutput)
+}
+
+func (o BackupInstanceTypePtrOutput) DataSourceInfo() DatasourcePtrOutput {
+	return o.ApplyT(func(v *BackupInstanceType) *Datasource {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceInfo
+	}).(DatasourcePtrOutput)
+}
+
+func (o BackupInstanceTypePtrOutput) DataSourceSetInfo() DatasourceSetPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceType) *DatasourceSet {
+		if v == nil {
+			return nil
+		}
+		return v.DataSourceSetInfo
+	}).(DatasourceSetPtrOutput)
+}
+
+func (o BackupInstanceTypePtrOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FriendlyName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BackupInstanceTypePtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BackupInstanceTypePtrOutput) PolicyInfo() PolicyInfoPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceType) *PolicyInfo {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyInfo
+	}).(PolicyInfoPtrOutput)
+}
+
+type BackupInstanceResponse struct {
+	CurrentProtectionState string                          `pulumi:"currentProtectionState"`
+	DataSourceInfo         DatasourceResponse              `pulumi:"dataSourceInfo"`
+	DataSourceSetInfo      *DatasourceSetResponse          `pulumi:"dataSourceSetInfo"`
+	FriendlyName           *string                         `pulumi:"friendlyName"`
+	ObjectType             string                          `pulumi:"objectType"`
+	PolicyInfo             PolicyInfoResponse              `pulumi:"policyInfo"`
+	ProtectionErrorDetails UserFacingErrorResponse         `pulumi:"protectionErrorDetails"`
+	ProtectionStatus       ProtectionStatusDetailsResponse `pulumi:"protectionStatus"`
+	ProvisioningState      string                          `pulumi:"provisioningState"`
+}
+
+
+
+
+
+type BackupInstanceResponseInput interface {
+	pulumi.Input
+
+	ToBackupInstanceResponseOutput() BackupInstanceResponseOutput
+	ToBackupInstanceResponseOutputWithContext(context.Context) BackupInstanceResponseOutput
+}
+
+type BackupInstanceResponseArgs struct {
+	CurrentProtectionState pulumi.StringInput                   `pulumi:"currentProtectionState"`
+	DataSourceInfo         DatasourceResponseInput              `pulumi:"dataSourceInfo"`
+	DataSourceSetInfo      DatasourceSetResponsePtrInput        `pulumi:"dataSourceSetInfo"`
+	FriendlyName           pulumi.StringPtrInput                `pulumi:"friendlyName"`
+	ObjectType             pulumi.StringInput                   `pulumi:"objectType"`
+	PolicyInfo             PolicyInfoResponseInput              `pulumi:"policyInfo"`
+	ProtectionErrorDetails UserFacingErrorResponseInput         `pulumi:"protectionErrorDetails"`
+	ProtectionStatus       ProtectionStatusDetailsResponseInput `pulumi:"protectionStatus"`
+	ProvisioningState      pulumi.StringInput                   `pulumi:"provisioningState"`
+}
+
+func (BackupInstanceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupInstanceResponse)(nil)).Elem()
+}
+
+func (i BackupInstanceResponseArgs) ToBackupInstanceResponseOutput() BackupInstanceResponseOutput {
+	return i.ToBackupInstanceResponseOutputWithContext(context.Background())
+}
+
+func (i BackupInstanceResponseArgs) ToBackupInstanceResponseOutputWithContext(ctx context.Context) BackupInstanceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceResponseOutput)
+}
+
+func (i BackupInstanceResponseArgs) ToBackupInstanceResponsePtrOutput() BackupInstanceResponsePtrOutput {
+	return i.ToBackupInstanceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BackupInstanceResponseArgs) ToBackupInstanceResponsePtrOutputWithContext(ctx context.Context) BackupInstanceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceResponseOutput).ToBackupInstanceResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type BackupInstanceResponsePtrInput interface {
+	pulumi.Input
+
+	ToBackupInstanceResponsePtrOutput() BackupInstanceResponsePtrOutput
+	ToBackupInstanceResponsePtrOutputWithContext(context.Context) BackupInstanceResponsePtrOutput
+}
+
+type backupInstanceResponsePtrType BackupInstanceResponseArgs
+
+func BackupInstanceResponsePtr(v *BackupInstanceResponseArgs) BackupInstanceResponsePtrInput {
+	return (*backupInstanceResponsePtrType)(v)
+}
+
+func (*backupInstanceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupInstanceResponse)(nil)).Elem()
+}
+
+func (i *backupInstanceResponsePtrType) ToBackupInstanceResponsePtrOutput() BackupInstanceResponsePtrOutput {
+	return i.ToBackupInstanceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *backupInstanceResponsePtrType) ToBackupInstanceResponsePtrOutputWithContext(ctx context.Context) BackupInstanceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupInstanceResponsePtrOutput)
+}
+
+type BackupInstanceResponseOutput struct{ *pulumi.OutputState }
+
+func (BackupInstanceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupInstanceResponse)(nil)).Elem()
+}
+
+func (o BackupInstanceResponseOutput) ToBackupInstanceResponseOutput() BackupInstanceResponseOutput {
+	return o
+}
+
+func (o BackupInstanceResponseOutput) ToBackupInstanceResponseOutputWithContext(ctx context.Context) BackupInstanceResponseOutput {
+	return o
+}
+
+func (o BackupInstanceResponseOutput) ToBackupInstanceResponsePtrOutput() BackupInstanceResponsePtrOutput {
+	return o.ToBackupInstanceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BackupInstanceResponseOutput) ToBackupInstanceResponsePtrOutputWithContext(ctx context.Context) BackupInstanceResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupInstanceResponse) *BackupInstanceResponse {
+		return &v
+	}).(BackupInstanceResponsePtrOutput)
+}
+
+func (o BackupInstanceResponseOutput) CurrentProtectionState() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupInstanceResponse) string { return v.CurrentProtectionState }).(pulumi.StringOutput)
+}
+
+func (o BackupInstanceResponseOutput) DataSourceInfo() DatasourceResponseOutput {
+	return o.ApplyT(func(v BackupInstanceResponse) DatasourceResponse { return v.DataSourceInfo }).(DatasourceResponseOutput)
+}
+
+func (o BackupInstanceResponseOutput) DataSourceSetInfo() DatasourceSetResponsePtrOutput {
+	return o.ApplyT(func(v BackupInstanceResponse) *DatasourceSetResponse { return v.DataSourceSetInfo }).(DatasourceSetResponsePtrOutput)
+}
+
+func (o BackupInstanceResponseOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupInstanceResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
+}
+
+func (o BackupInstanceResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupInstanceResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o BackupInstanceResponseOutput) PolicyInfo() PolicyInfoResponseOutput {
+	return o.ApplyT(func(v BackupInstanceResponse) PolicyInfoResponse { return v.PolicyInfo }).(PolicyInfoResponseOutput)
+}
+
+func (o BackupInstanceResponseOutput) ProtectionErrorDetails() UserFacingErrorResponseOutput {
+	return o.ApplyT(func(v BackupInstanceResponse) UserFacingErrorResponse { return v.ProtectionErrorDetails }).(UserFacingErrorResponseOutput)
+}
+
+func (o BackupInstanceResponseOutput) ProtectionStatus() ProtectionStatusDetailsResponseOutput {
+	return o.ApplyT(func(v BackupInstanceResponse) ProtectionStatusDetailsResponse { return v.ProtectionStatus }).(ProtectionStatusDetailsResponseOutput)
+}
+
+func (o BackupInstanceResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupInstanceResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+type BackupInstanceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupInstanceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupInstanceResponse)(nil)).Elem()
+}
+
+func (o BackupInstanceResponsePtrOutput) ToBackupInstanceResponsePtrOutput() BackupInstanceResponsePtrOutput {
+	return o
+}
+
+func (o BackupInstanceResponsePtrOutput) ToBackupInstanceResponsePtrOutputWithContext(ctx context.Context) BackupInstanceResponsePtrOutput {
+	return o
+}
+
+func (o BackupInstanceResponsePtrOutput) Elem() BackupInstanceResponseOutput {
+	return o.ApplyT(func(v *BackupInstanceResponse) BackupInstanceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackupInstanceResponse
+		return ret
+	}).(BackupInstanceResponseOutput)
+}
+
+func (o BackupInstanceResponsePtrOutput) CurrentProtectionState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CurrentProtectionState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BackupInstanceResponsePtrOutput) DataSourceInfo() DatasourceResponsePtrOutput {
+	return o.ApplyT(func(v *BackupInstanceResponse) *DatasourceResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceInfo
+	}).(DatasourceResponsePtrOutput)
+}
+
+func (o BackupInstanceResponsePtrOutput) DataSourceSetInfo() DatasourceSetResponsePtrOutput {
+	return o.ApplyT(func(v *BackupInstanceResponse) *DatasourceSetResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DataSourceSetInfo
+	}).(DatasourceSetResponsePtrOutput)
+}
+
+func (o BackupInstanceResponsePtrOutput) FriendlyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FriendlyName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BackupInstanceResponsePtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BackupInstanceResponsePtrOutput) PolicyInfo() PolicyInfoResponsePtrOutput {
+	return o.ApplyT(func(v *BackupInstanceResponse) *PolicyInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyInfo
+	}).(PolicyInfoResponsePtrOutput)
+}
+
+func (o BackupInstanceResponsePtrOutput) ProtectionErrorDetails() UserFacingErrorResponsePtrOutput {
+	return o.ApplyT(func(v *BackupInstanceResponse) *UserFacingErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ProtectionErrorDetails
+	}).(UserFacingErrorResponsePtrOutput)
+}
+
+func (o BackupInstanceResponsePtrOutput) ProtectionStatus() ProtectionStatusDetailsResponsePtrOutput {
+	return o.ApplyT(func(v *BackupInstanceResponse) *ProtectionStatusDetailsResponse {
+		if v == nil {
+			return nil
+		}
+		return &v.ProtectionStatus
+	}).(ProtectionStatusDetailsResponsePtrOutput)
+}
+
+func (o BackupInstanceResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupInstanceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackupPolicyType struct {
+	DatasourceTypes []string      `pulumi:"datasourceTypes"`
+	ObjectType      string        `pulumi:"objectType"`
+	PolicyRules     []interface{} `pulumi:"policyRules"`
+}
+
+
+
+
+
+type BackupPolicyTypeInput interface {
+	pulumi.Input
+
+	ToBackupPolicyTypeOutput() BackupPolicyTypeOutput
+	ToBackupPolicyTypeOutputWithContext(context.Context) BackupPolicyTypeOutput
+}
+
+type BackupPolicyTypeArgs struct {
+	DatasourceTypes pulumi.StringArrayInput `pulumi:"datasourceTypes"`
+	ObjectType      pulumi.StringInput      `pulumi:"objectType"`
+	PolicyRules     pulumi.ArrayInput       `pulumi:"policyRules"`
+}
+
+func (BackupPolicyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyType)(nil)).Elem()
+}
+
+func (i BackupPolicyTypeArgs) ToBackupPolicyTypeOutput() BackupPolicyTypeOutput {
+	return i.ToBackupPolicyTypeOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyTypeArgs) ToBackupPolicyTypeOutputWithContext(ctx context.Context) BackupPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyTypeOutput)
+}
+
+func (i BackupPolicyTypeArgs) ToBackupPolicyTypePtrOutput() BackupPolicyTypePtrOutput {
+	return i.ToBackupPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyTypeArgs) ToBackupPolicyTypePtrOutputWithContext(ctx context.Context) BackupPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyTypeOutput).ToBackupPolicyTypePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type BackupPolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToBackupPolicyTypePtrOutput() BackupPolicyTypePtrOutput
+	ToBackupPolicyTypePtrOutputWithContext(context.Context) BackupPolicyTypePtrOutput
+}
+
+type backupPolicyTypePtrType BackupPolicyTypeArgs
+
+func BackupPolicyTypePtr(v *BackupPolicyTypeArgs) BackupPolicyTypePtrInput {
+	return (*backupPolicyTypePtrType)(v)
+}
+
+func (*backupPolicyTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyType)(nil)).Elem()
+}
+
+func (i *backupPolicyTypePtrType) ToBackupPolicyTypePtrOutput() BackupPolicyTypePtrOutput {
+	return i.ToBackupPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (i *backupPolicyTypePtrType) ToBackupPolicyTypePtrOutputWithContext(ctx context.Context) BackupPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyTypePtrOutput)
+}
+
+type BackupPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyType)(nil)).Elem()
+}
+
+func (o BackupPolicyTypeOutput) ToBackupPolicyTypeOutput() BackupPolicyTypeOutput {
+	return o
+}
+
+func (o BackupPolicyTypeOutput) ToBackupPolicyTypeOutputWithContext(ctx context.Context) BackupPolicyTypeOutput {
+	return o
+}
+
+func (o BackupPolicyTypeOutput) ToBackupPolicyTypePtrOutput() BackupPolicyTypePtrOutput {
+	return o.ToBackupPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o BackupPolicyTypeOutput) ToBackupPolicyTypePtrOutputWithContext(ctx context.Context) BackupPolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyType) *BackupPolicyType {
+		return &v
+	}).(BackupPolicyTypePtrOutput)
+}
+
+func (o BackupPolicyTypeOutput) DatasourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyType) []string { return v.DatasourceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o BackupPolicyTypeOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyType) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o BackupPolicyTypeOutput) PolicyRules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v BackupPolicyType) []interface{} { return v.PolicyRules }).(pulumi.ArrayOutput)
+}
+
+type BackupPolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyType)(nil)).Elem()
+}
+
+func (o BackupPolicyTypePtrOutput) ToBackupPolicyTypePtrOutput() BackupPolicyTypePtrOutput {
+	return o
+}
+
+func (o BackupPolicyTypePtrOutput) ToBackupPolicyTypePtrOutputWithContext(ctx context.Context) BackupPolicyTypePtrOutput {
+	return o
+}
+
+func (o BackupPolicyTypePtrOutput) Elem() BackupPolicyTypeOutput {
+	return o.ApplyT(func(v *BackupPolicyType) BackupPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicyType
+		return ret
+	}).(BackupPolicyTypeOutput)
+}
+
+func (o BackupPolicyTypePtrOutput) DatasourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o BackupPolicyTypePtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyTypePtrOutput) PolicyRules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyType) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyRules
+	}).(pulumi.ArrayOutput)
+}
+
+type BackupPolicyResponse struct {
+	DatasourceTypes []string      `pulumi:"datasourceTypes"`
+	ObjectType      string        `pulumi:"objectType"`
+	PolicyRules     []interface{} `pulumi:"policyRules"`
+}
+
+
+
+
+
+type BackupPolicyResponseInput interface {
+	pulumi.Input
+
+	ToBackupPolicyResponseOutput() BackupPolicyResponseOutput
+	ToBackupPolicyResponseOutputWithContext(context.Context) BackupPolicyResponseOutput
+}
+
+type BackupPolicyResponseArgs struct {
+	DatasourceTypes pulumi.StringArrayInput `pulumi:"datasourceTypes"`
+	ObjectType      pulumi.StringInput      `pulumi:"objectType"`
+	PolicyRules     pulumi.ArrayInput       `pulumi:"policyRules"`
+}
+
+func (BackupPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyResponse)(nil)).Elem()
+}
+
+func (i BackupPolicyResponseArgs) ToBackupPolicyResponseOutput() BackupPolicyResponseOutput {
+	return i.ToBackupPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyResponseArgs) ToBackupPolicyResponseOutputWithContext(ctx context.Context) BackupPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyResponseOutput)
+}
+
+func (i BackupPolicyResponseArgs) ToBackupPolicyResponsePtrOutput() BackupPolicyResponsePtrOutput {
+	return i.ToBackupPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyResponseArgs) ToBackupPolicyResponsePtrOutputWithContext(ctx context.Context) BackupPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyResponseOutput).ToBackupPolicyResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type BackupPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToBackupPolicyResponsePtrOutput() BackupPolicyResponsePtrOutput
+	ToBackupPolicyResponsePtrOutputWithContext(context.Context) BackupPolicyResponsePtrOutput
+}
+
+type backupPolicyResponsePtrType BackupPolicyResponseArgs
+
+func BackupPolicyResponsePtr(v *BackupPolicyResponseArgs) BackupPolicyResponsePtrInput {
+	return (*backupPolicyResponsePtrType)(v)
+}
+
+func (*backupPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyResponse)(nil)).Elem()
+}
+
+func (i *backupPolicyResponsePtrType) ToBackupPolicyResponsePtrOutput() BackupPolicyResponsePtrOutput {
+	return i.ToBackupPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *backupPolicyResponsePtrType) ToBackupPolicyResponsePtrOutputWithContext(ctx context.Context) BackupPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyResponsePtrOutput)
+}
+
+type BackupPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyResponse)(nil)).Elem()
+}
+
+func (o BackupPolicyResponseOutput) ToBackupPolicyResponseOutput() BackupPolicyResponseOutput {
+	return o
+}
+
+func (o BackupPolicyResponseOutput) ToBackupPolicyResponseOutputWithContext(ctx context.Context) BackupPolicyResponseOutput {
+	return o
+}
+
+func (o BackupPolicyResponseOutput) ToBackupPolicyResponsePtrOutput() BackupPolicyResponsePtrOutput {
+	return o.ToBackupPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BackupPolicyResponseOutput) ToBackupPolicyResponsePtrOutputWithContext(ctx context.Context) BackupPolicyResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyResponse) *BackupPolicyResponse {
+		return &v
+	}).(BackupPolicyResponsePtrOutput)
+}
+
+func (o BackupPolicyResponseOutput) DatasourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyResponse) []string { return v.DatasourceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o BackupPolicyResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o BackupPolicyResponseOutput) PolicyRules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v BackupPolicyResponse) []interface{} { return v.PolicyRules }).(pulumi.ArrayOutput)
+}
+
+type BackupPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyResponse)(nil)).Elem()
+}
+
+func (o BackupPolicyResponsePtrOutput) ToBackupPolicyResponsePtrOutput() BackupPolicyResponsePtrOutput {
+	return o
+}
+
+func (o BackupPolicyResponsePtrOutput) ToBackupPolicyResponsePtrOutputWithContext(ctx context.Context) BackupPolicyResponsePtrOutput {
+	return o
+}
+
+func (o BackupPolicyResponsePtrOutput) Elem() BackupPolicyResponseOutput {
+	return o.ApplyT(func(v *BackupPolicyResponse) BackupPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicyResponse
+		return ret
+	}).(BackupPolicyResponseOutput)
+}
+
+func (o BackupPolicyResponsePtrOutput) DatasourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o BackupPolicyResponsePtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BackupPolicyResponsePtrOutput) PolicyRules() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyResponse) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyRules
+	}).(pulumi.ArrayOutput)
+}
+
+type BackupSchedule struct {
+	RepeatingTimeIntervals []string `pulumi:"repeatingTimeIntervals"`
+}
+
+
+
+
+
+type BackupScheduleInput interface {
+	pulumi.Input
+
+	ToBackupScheduleOutput() BackupScheduleOutput
+	ToBackupScheduleOutputWithContext(context.Context) BackupScheduleOutput
+}
+
+type BackupScheduleArgs struct {
+	RepeatingTimeIntervals pulumi.StringArrayInput `pulumi:"repeatingTimeIntervals"`
+}
+
+func (BackupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupSchedule)(nil)).Elem()
+}
+
+func (i BackupScheduleArgs) ToBackupScheduleOutput() BackupScheduleOutput {
+	return i.ToBackupScheduleOutputWithContext(context.Background())
+}
+
+func (i BackupScheduleArgs) ToBackupScheduleOutputWithContext(ctx context.Context) BackupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput)
+}
+
+type BackupScheduleOutput struct{ *pulumi.OutputState }
+
+func (BackupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupSchedule)(nil)).Elem()
+}
+
+func (o BackupScheduleOutput) ToBackupScheduleOutput() BackupScheduleOutput {
+	return o
+}
+
+func (o BackupScheduleOutput) ToBackupScheduleOutputWithContext(ctx context.Context) BackupScheduleOutput {
+	return o
+}
+
+func (o BackupScheduleOutput) RepeatingTimeIntervals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupSchedule) []string { return v.RepeatingTimeIntervals }).(pulumi.StringArrayOutput)
+}
+
+type BackupScheduleResponse struct {
+	RepeatingTimeIntervals []string `pulumi:"repeatingTimeIntervals"`
+}
+
+
+
+
+
+type BackupScheduleResponseInput interface {
+	pulumi.Input
+
+	ToBackupScheduleResponseOutput() BackupScheduleResponseOutput
+	ToBackupScheduleResponseOutputWithContext(context.Context) BackupScheduleResponseOutput
+}
+
+type BackupScheduleResponseArgs struct {
+	RepeatingTimeIntervals pulumi.StringArrayInput `pulumi:"repeatingTimeIntervals"`
+}
+
+func (BackupScheduleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupScheduleResponse)(nil)).Elem()
+}
+
+func (i BackupScheduleResponseArgs) ToBackupScheduleResponseOutput() BackupScheduleResponseOutput {
+	return i.ToBackupScheduleResponseOutputWithContext(context.Background())
+}
+
+func (i BackupScheduleResponseArgs) ToBackupScheduleResponseOutputWithContext(ctx context.Context) BackupScheduleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleResponseOutput)
+}
+
+type BackupScheduleResponseOutput struct{ *pulumi.OutputState }
+
+func (BackupScheduleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupScheduleResponse)(nil)).Elem()
+}
+
+func (o BackupScheduleResponseOutput) ToBackupScheduleResponseOutput() BackupScheduleResponseOutput {
+	return o
+}
+
+func (o BackupScheduleResponseOutput) ToBackupScheduleResponseOutputWithContext(ctx context.Context) BackupScheduleResponseOutput {
+	return o
+}
+
+func (o BackupScheduleResponseOutput) RepeatingTimeIntervals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupScheduleResponse) []string { return v.RepeatingTimeIntervals }).(pulumi.StringArrayOutput)
+}
+
+type BackupVaultType struct {
+	StorageSettings []StorageSetting `pulumi:"storageSettings"`
+}
+
+
+
+
+
+type BackupVaultTypeInput interface {
+	pulumi.Input
+
+	ToBackupVaultTypeOutput() BackupVaultTypeOutput
+	ToBackupVaultTypeOutputWithContext(context.Context) BackupVaultTypeOutput
+}
+
+type BackupVaultTypeArgs struct {
+	StorageSettings StorageSettingArrayInput `pulumi:"storageSettings"`
+}
+
+func (BackupVaultTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupVaultType)(nil)).Elem()
+}
+
+func (i BackupVaultTypeArgs) ToBackupVaultTypeOutput() BackupVaultTypeOutput {
+	return i.ToBackupVaultTypeOutputWithContext(context.Background())
+}
+
+func (i BackupVaultTypeArgs) ToBackupVaultTypeOutputWithContext(ctx context.Context) BackupVaultTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultTypeOutput)
+}
+
+func (i BackupVaultTypeArgs) ToBackupVaultTypePtrOutput() BackupVaultTypePtrOutput {
+	return i.ToBackupVaultTypePtrOutputWithContext(context.Background())
+}
+
+func (i BackupVaultTypeArgs) ToBackupVaultTypePtrOutputWithContext(ctx context.Context) BackupVaultTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultTypeOutput).ToBackupVaultTypePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type BackupVaultTypePtrInput interface {
+	pulumi.Input
+
+	ToBackupVaultTypePtrOutput() BackupVaultTypePtrOutput
+	ToBackupVaultTypePtrOutputWithContext(context.Context) BackupVaultTypePtrOutput
+}
+
+type backupVaultTypePtrType BackupVaultTypeArgs
+
+func BackupVaultTypePtr(v *BackupVaultTypeArgs) BackupVaultTypePtrInput {
+	return (*backupVaultTypePtrType)(v)
+}
+
+func (*backupVaultTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupVaultType)(nil)).Elem()
+}
+
+func (i *backupVaultTypePtrType) ToBackupVaultTypePtrOutput() BackupVaultTypePtrOutput {
+	return i.ToBackupVaultTypePtrOutputWithContext(context.Background())
+}
+
+func (i *backupVaultTypePtrType) ToBackupVaultTypePtrOutputWithContext(ctx context.Context) BackupVaultTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultTypePtrOutput)
+}
+
+type BackupVaultTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupVaultTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupVaultType)(nil)).Elem()
+}
+
+func (o BackupVaultTypeOutput) ToBackupVaultTypeOutput() BackupVaultTypeOutput {
+	return o
+}
+
+func (o BackupVaultTypeOutput) ToBackupVaultTypeOutputWithContext(ctx context.Context) BackupVaultTypeOutput {
+	return o
+}
+
+func (o BackupVaultTypeOutput) ToBackupVaultTypePtrOutput() BackupVaultTypePtrOutput {
+	return o.ToBackupVaultTypePtrOutputWithContext(context.Background())
+}
+
+func (o BackupVaultTypeOutput) ToBackupVaultTypePtrOutputWithContext(ctx context.Context) BackupVaultTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupVaultType) *BackupVaultType {
+		return &v
+	}).(BackupVaultTypePtrOutput)
+}
+
+func (o BackupVaultTypeOutput) StorageSettings() StorageSettingArrayOutput {
+	return o.ApplyT(func(v BackupVaultType) []StorageSetting { return v.StorageSettings }).(StorageSettingArrayOutput)
+}
+
+type BackupVaultTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupVaultTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupVaultType)(nil)).Elem()
+}
+
+func (o BackupVaultTypePtrOutput) ToBackupVaultTypePtrOutput() BackupVaultTypePtrOutput {
+	return o
+}
+
+func (o BackupVaultTypePtrOutput) ToBackupVaultTypePtrOutputWithContext(ctx context.Context) BackupVaultTypePtrOutput {
+	return o
+}
+
+func (o BackupVaultTypePtrOutput) Elem() BackupVaultTypeOutput {
+	return o.ApplyT(func(v *BackupVaultType) BackupVaultType {
+		if v != nil {
+			return *v
+		}
+		var ret BackupVaultType
+		return ret
+	}).(BackupVaultTypeOutput)
+}
+
+func (o BackupVaultTypePtrOutput) StorageSettings() StorageSettingArrayOutput {
+	return o.ApplyT(func(v *BackupVaultType) []StorageSetting {
+		if v == nil {
+			return nil
+		}
+		return v.StorageSettings
+	}).(StorageSettingArrayOutput)
+}
+
+type BackupVaultResponse struct {
+	ProvisioningState string                   `pulumi:"provisioningState"`
+	StorageSettings   []StorageSettingResponse `pulumi:"storageSettings"`
+}
+
+
+
+
+
+type BackupVaultResponseInput interface {
+	pulumi.Input
+
+	ToBackupVaultResponseOutput() BackupVaultResponseOutput
+	ToBackupVaultResponseOutputWithContext(context.Context) BackupVaultResponseOutput
+}
+
+type BackupVaultResponseArgs struct {
+	ProvisioningState pulumi.StringInput               `pulumi:"provisioningState"`
+	StorageSettings   StorageSettingResponseArrayInput `pulumi:"storageSettings"`
+}
+
+func (BackupVaultResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupVaultResponse)(nil)).Elem()
+}
+
+func (i BackupVaultResponseArgs) ToBackupVaultResponseOutput() BackupVaultResponseOutput {
+	return i.ToBackupVaultResponseOutputWithContext(context.Background())
+}
+
+func (i BackupVaultResponseArgs) ToBackupVaultResponseOutputWithContext(ctx context.Context) BackupVaultResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultResponseOutput)
+}
+
+func (i BackupVaultResponseArgs) ToBackupVaultResponsePtrOutput() BackupVaultResponsePtrOutput {
+	return i.ToBackupVaultResponsePtrOutputWithContext(context.Background())
+}
+
+func (i BackupVaultResponseArgs) ToBackupVaultResponsePtrOutputWithContext(ctx context.Context) BackupVaultResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultResponseOutput).ToBackupVaultResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type BackupVaultResponsePtrInput interface {
+	pulumi.Input
+
+	ToBackupVaultResponsePtrOutput() BackupVaultResponsePtrOutput
+	ToBackupVaultResponsePtrOutputWithContext(context.Context) BackupVaultResponsePtrOutput
+}
+
+type backupVaultResponsePtrType BackupVaultResponseArgs
+
+func BackupVaultResponsePtr(v *BackupVaultResponseArgs) BackupVaultResponsePtrInput {
+	return (*backupVaultResponsePtrType)(v)
+}
+
+func (*backupVaultResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupVaultResponse)(nil)).Elem()
+}
+
+func (i *backupVaultResponsePtrType) ToBackupVaultResponsePtrOutput() BackupVaultResponsePtrOutput {
+	return i.ToBackupVaultResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *backupVaultResponsePtrType) ToBackupVaultResponsePtrOutputWithContext(ctx context.Context) BackupVaultResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultResponsePtrOutput)
+}
+
+type BackupVaultResponseOutput struct{ *pulumi.OutputState }
+
+func (BackupVaultResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupVaultResponse)(nil)).Elem()
+}
+
+func (o BackupVaultResponseOutput) ToBackupVaultResponseOutput() BackupVaultResponseOutput {
+	return o
+}
+
+func (o BackupVaultResponseOutput) ToBackupVaultResponseOutputWithContext(ctx context.Context) BackupVaultResponseOutput {
+	return o
+}
+
+func (o BackupVaultResponseOutput) ToBackupVaultResponsePtrOutput() BackupVaultResponsePtrOutput {
+	return o.ToBackupVaultResponsePtrOutputWithContext(context.Background())
+}
+
+func (o BackupVaultResponseOutput) ToBackupVaultResponsePtrOutputWithContext(ctx context.Context) BackupVaultResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupVaultResponse) *BackupVaultResponse {
+		return &v
+	}).(BackupVaultResponsePtrOutput)
+}
+
+func (o BackupVaultResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupVaultResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+func (o BackupVaultResponseOutput) StorageSettings() StorageSettingResponseArrayOutput {
+	return o.ApplyT(func(v BackupVaultResponse) []StorageSettingResponse { return v.StorageSettings }).(StorageSettingResponseArrayOutput)
+}
+
+type BackupVaultResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupVaultResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupVaultResponse)(nil)).Elem()
+}
+
+func (o BackupVaultResponsePtrOutput) ToBackupVaultResponsePtrOutput() BackupVaultResponsePtrOutput {
+	return o
+}
+
+func (o BackupVaultResponsePtrOutput) ToBackupVaultResponsePtrOutputWithContext(ctx context.Context) BackupVaultResponsePtrOutput {
+	return o
+}
+
+func (o BackupVaultResponsePtrOutput) Elem() BackupVaultResponseOutput {
+	return o.ApplyT(func(v *BackupVaultResponse) BackupVaultResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BackupVaultResponse
+		return ret
+	}).(BackupVaultResponseOutput)
+}
+
+func (o BackupVaultResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackupVaultResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProvisioningState
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BackupVaultResponsePtrOutput) StorageSettings() StorageSettingResponseArrayOutput {
+	return o.ApplyT(func(v *BackupVaultResponse) []StorageSettingResponse {
+		if v == nil {
+			return nil
+		}
+		return v.StorageSettings
+	}).(StorageSettingResponseArrayOutput)
+}
+
+type CopyOnExpiryOption struct {
+	ObjectType string `pulumi:"objectType"`
+}
+
+
+
+
+
+type CopyOnExpiryOptionInput interface {
+	pulumi.Input
+
+	ToCopyOnExpiryOptionOutput() CopyOnExpiryOptionOutput
+	ToCopyOnExpiryOptionOutputWithContext(context.Context) CopyOnExpiryOptionOutput
+}
+
+type CopyOnExpiryOptionArgs struct {
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (CopyOnExpiryOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CopyOnExpiryOption)(nil)).Elem()
+}
+
+func (i CopyOnExpiryOptionArgs) ToCopyOnExpiryOptionOutput() CopyOnExpiryOptionOutput {
+	return i.ToCopyOnExpiryOptionOutputWithContext(context.Background())
+}
+
+func (i CopyOnExpiryOptionArgs) ToCopyOnExpiryOptionOutputWithContext(ctx context.Context) CopyOnExpiryOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CopyOnExpiryOptionOutput)
+}
+
+type CopyOnExpiryOptionOutput struct{ *pulumi.OutputState }
+
+func (CopyOnExpiryOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CopyOnExpiryOption)(nil)).Elem()
+}
+
+func (o CopyOnExpiryOptionOutput) ToCopyOnExpiryOptionOutput() CopyOnExpiryOptionOutput {
+	return o
+}
+
+func (o CopyOnExpiryOptionOutput) ToCopyOnExpiryOptionOutputWithContext(ctx context.Context) CopyOnExpiryOptionOutput {
+	return o
+}
+
+func (o CopyOnExpiryOptionOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyOnExpiryOption) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type CopyOnExpiryOptionResponse struct {
+	ObjectType string `pulumi:"objectType"`
+}
+
+
+
+
+
+type CopyOnExpiryOptionResponseInput interface {
+	pulumi.Input
+
+	ToCopyOnExpiryOptionResponseOutput() CopyOnExpiryOptionResponseOutput
+	ToCopyOnExpiryOptionResponseOutputWithContext(context.Context) CopyOnExpiryOptionResponseOutput
+}
+
+type CopyOnExpiryOptionResponseArgs struct {
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (CopyOnExpiryOptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CopyOnExpiryOptionResponse)(nil)).Elem()
+}
+
+func (i CopyOnExpiryOptionResponseArgs) ToCopyOnExpiryOptionResponseOutput() CopyOnExpiryOptionResponseOutput {
+	return i.ToCopyOnExpiryOptionResponseOutputWithContext(context.Background())
+}
+
+func (i CopyOnExpiryOptionResponseArgs) ToCopyOnExpiryOptionResponseOutputWithContext(ctx context.Context) CopyOnExpiryOptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CopyOnExpiryOptionResponseOutput)
+}
+
+type CopyOnExpiryOptionResponseOutput struct{ *pulumi.OutputState }
+
+func (CopyOnExpiryOptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CopyOnExpiryOptionResponse)(nil)).Elem()
+}
+
+func (o CopyOnExpiryOptionResponseOutput) ToCopyOnExpiryOptionResponseOutput() CopyOnExpiryOptionResponseOutput {
+	return o
+}
+
+func (o CopyOnExpiryOptionResponseOutput) ToCopyOnExpiryOptionResponseOutputWithContext(ctx context.Context) CopyOnExpiryOptionResponseOutput {
+	return o
+}
+
+func (o CopyOnExpiryOptionResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v CopyOnExpiryOptionResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type CustomCopyOption struct {
+	Duration   *string `pulumi:"duration"`
+	ObjectType string  `pulumi:"objectType"`
+}
+
+
+
+
+
+type CustomCopyOptionInput interface {
+	pulumi.Input
+
+	ToCustomCopyOptionOutput() CustomCopyOptionOutput
+	ToCustomCopyOptionOutputWithContext(context.Context) CustomCopyOptionOutput
+}
+
+type CustomCopyOptionArgs struct {
+	Duration   pulumi.StringPtrInput `pulumi:"duration"`
+	ObjectType pulumi.StringInput    `pulumi:"objectType"`
+}
+
+func (CustomCopyOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomCopyOption)(nil)).Elem()
+}
+
+func (i CustomCopyOptionArgs) ToCustomCopyOptionOutput() CustomCopyOptionOutput {
+	return i.ToCustomCopyOptionOutputWithContext(context.Background())
+}
+
+func (i CustomCopyOptionArgs) ToCustomCopyOptionOutputWithContext(ctx context.Context) CustomCopyOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomCopyOptionOutput)
+}
+
+type CustomCopyOptionOutput struct{ *pulumi.OutputState }
+
+func (CustomCopyOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomCopyOption)(nil)).Elem()
+}
+
+func (o CustomCopyOptionOutput) ToCustomCopyOptionOutput() CustomCopyOptionOutput {
+	return o
+}
+
+func (o CustomCopyOptionOutput) ToCustomCopyOptionOutputWithContext(ctx context.Context) CustomCopyOptionOutput {
+	return o
+}
+
+func (o CustomCopyOptionOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomCopyOption) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomCopyOptionOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomCopyOption) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type CustomCopyOptionResponse struct {
+	Duration   *string `pulumi:"duration"`
+	ObjectType string  `pulumi:"objectType"`
+}
+
+
+
+
+
+type CustomCopyOptionResponseInput interface {
+	pulumi.Input
+
+	ToCustomCopyOptionResponseOutput() CustomCopyOptionResponseOutput
+	ToCustomCopyOptionResponseOutputWithContext(context.Context) CustomCopyOptionResponseOutput
+}
+
+type CustomCopyOptionResponseArgs struct {
+	Duration   pulumi.StringPtrInput `pulumi:"duration"`
+	ObjectType pulumi.StringInput    `pulumi:"objectType"`
+}
+
+func (CustomCopyOptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomCopyOptionResponse)(nil)).Elem()
+}
+
+func (i CustomCopyOptionResponseArgs) ToCustomCopyOptionResponseOutput() CustomCopyOptionResponseOutput {
+	return i.ToCustomCopyOptionResponseOutputWithContext(context.Background())
+}
+
+func (i CustomCopyOptionResponseArgs) ToCustomCopyOptionResponseOutputWithContext(ctx context.Context) CustomCopyOptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomCopyOptionResponseOutput)
+}
+
+type CustomCopyOptionResponseOutput struct{ *pulumi.OutputState }
+
+func (CustomCopyOptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomCopyOptionResponse)(nil)).Elem()
+}
+
+func (o CustomCopyOptionResponseOutput) ToCustomCopyOptionResponseOutput() CustomCopyOptionResponseOutput {
+	return o
+}
+
+func (o CustomCopyOptionResponseOutput) ToCustomCopyOptionResponseOutputWithContext(ctx context.Context) CustomCopyOptionResponseOutput {
+	return o
+}
+
+func (o CustomCopyOptionResponseOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomCopyOptionResponse) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomCopyOptionResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomCopyOptionResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type DataStoreInfoBase struct {
+	DataStoreType string `pulumi:"dataStoreType"`
+	ObjectType    string `pulumi:"objectType"`
+}
+
+
+
+
+
+type DataStoreInfoBaseInput interface {
+	pulumi.Input
+
+	ToDataStoreInfoBaseOutput() DataStoreInfoBaseOutput
+	ToDataStoreInfoBaseOutputWithContext(context.Context) DataStoreInfoBaseOutput
+}
+
+type DataStoreInfoBaseArgs struct {
+	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
+	ObjectType    pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (DataStoreInfoBaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataStoreInfoBase)(nil)).Elem()
+}
+
+func (i DataStoreInfoBaseArgs) ToDataStoreInfoBaseOutput() DataStoreInfoBaseOutput {
+	return i.ToDataStoreInfoBaseOutputWithContext(context.Background())
+}
+
+func (i DataStoreInfoBaseArgs) ToDataStoreInfoBaseOutputWithContext(ctx context.Context) DataStoreInfoBaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataStoreInfoBaseOutput)
+}
+
+type DataStoreInfoBaseOutput struct{ *pulumi.OutputState }
+
+func (DataStoreInfoBaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataStoreInfoBase)(nil)).Elem()
+}
+
+func (o DataStoreInfoBaseOutput) ToDataStoreInfoBaseOutput() DataStoreInfoBaseOutput {
+	return o
+}
+
+func (o DataStoreInfoBaseOutput) ToDataStoreInfoBaseOutputWithContext(ctx context.Context) DataStoreInfoBaseOutput {
+	return o
+}
+
+func (o DataStoreInfoBaseOutput) DataStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataStoreInfoBase) string { return v.DataStoreType }).(pulumi.StringOutput)
+}
+
+func (o DataStoreInfoBaseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataStoreInfoBase) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type DataStoreInfoBaseResponse struct {
+	DataStoreType string `pulumi:"dataStoreType"`
+	ObjectType    string `pulumi:"objectType"`
+}
+
+
+
+
+
+type DataStoreInfoBaseResponseInput interface {
+	pulumi.Input
+
+	ToDataStoreInfoBaseResponseOutput() DataStoreInfoBaseResponseOutput
+	ToDataStoreInfoBaseResponseOutputWithContext(context.Context) DataStoreInfoBaseResponseOutput
+}
+
+type DataStoreInfoBaseResponseArgs struct {
+	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
+	ObjectType    pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (DataStoreInfoBaseResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataStoreInfoBaseResponse)(nil)).Elem()
+}
+
+func (i DataStoreInfoBaseResponseArgs) ToDataStoreInfoBaseResponseOutput() DataStoreInfoBaseResponseOutput {
+	return i.ToDataStoreInfoBaseResponseOutputWithContext(context.Background())
+}
+
+func (i DataStoreInfoBaseResponseArgs) ToDataStoreInfoBaseResponseOutputWithContext(ctx context.Context) DataStoreInfoBaseResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataStoreInfoBaseResponseOutput)
+}
+
+type DataStoreInfoBaseResponseOutput struct{ *pulumi.OutputState }
+
+func (DataStoreInfoBaseResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataStoreInfoBaseResponse)(nil)).Elem()
+}
+
+func (o DataStoreInfoBaseResponseOutput) ToDataStoreInfoBaseResponseOutput() DataStoreInfoBaseResponseOutput {
+	return o
+}
+
+func (o DataStoreInfoBaseResponseOutput) ToDataStoreInfoBaseResponseOutputWithContext(ctx context.Context) DataStoreInfoBaseResponseOutput {
+	return o
+}
+
+func (o DataStoreInfoBaseResponseOutput) DataStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataStoreInfoBaseResponse) string { return v.DataStoreType }).(pulumi.StringOutput)
+}
+
+func (o DataStoreInfoBaseResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataStoreInfoBaseResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type Datasource struct {
+	DatasourceType   *string `pulumi:"datasourceType"`
+	ObjectType       *string `pulumi:"objectType"`
+	ResourceID       string  `pulumi:"resourceID"`
+	ResourceLocation *string `pulumi:"resourceLocation"`
+	ResourceName     *string `pulumi:"resourceName"`
+	ResourceType     *string `pulumi:"resourceType"`
+	ResourceUri      *string `pulumi:"resourceUri"`
+}
+
+
+
+
+
+type DatasourceInput interface {
+	pulumi.Input
+
+	ToDatasourceOutput() DatasourceOutput
+	ToDatasourceOutputWithContext(context.Context) DatasourceOutput
+}
+
+type DatasourceArgs struct {
+	DatasourceType   pulumi.StringPtrInput `pulumi:"datasourceType"`
+	ObjectType       pulumi.StringPtrInput `pulumi:"objectType"`
+	ResourceID       pulumi.StringInput    `pulumi:"resourceID"`
+	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
+	ResourceName     pulumi.StringPtrInput `pulumi:"resourceName"`
+	ResourceType     pulumi.StringPtrInput `pulumi:"resourceType"`
+	ResourceUri      pulumi.StringPtrInput `pulumi:"resourceUri"`
+}
+
+func (DatasourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Datasource)(nil)).Elem()
+}
+
+func (i DatasourceArgs) ToDatasourceOutput() DatasourceOutput {
+	return i.ToDatasourceOutputWithContext(context.Background())
+}
+
+func (i DatasourceArgs) ToDatasourceOutputWithContext(ctx context.Context) DatasourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourceOutput)
+}
+
+func (i DatasourceArgs) ToDatasourcePtrOutput() DatasourcePtrOutput {
+	return i.ToDatasourcePtrOutputWithContext(context.Background())
+}
+
+func (i DatasourceArgs) ToDatasourcePtrOutputWithContext(ctx context.Context) DatasourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourceOutput).ToDatasourcePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DatasourcePtrInput interface {
+	pulumi.Input
+
+	ToDatasourcePtrOutput() DatasourcePtrOutput
+	ToDatasourcePtrOutputWithContext(context.Context) DatasourcePtrOutput
+}
+
+type datasourcePtrType DatasourceArgs
+
+func DatasourcePtr(v *DatasourceArgs) DatasourcePtrInput {
+	return (*datasourcePtrType)(v)
+}
+
+func (*datasourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Datasource)(nil)).Elem()
+}
+
+func (i *datasourcePtrType) ToDatasourcePtrOutput() DatasourcePtrOutput {
+	return i.ToDatasourcePtrOutputWithContext(context.Background())
+}
+
+func (i *datasourcePtrType) ToDatasourcePtrOutputWithContext(ctx context.Context) DatasourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourcePtrOutput)
+}
+
+type DatasourceOutput struct{ *pulumi.OutputState }
+
+func (DatasourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Datasource)(nil)).Elem()
+}
+
+func (o DatasourceOutput) ToDatasourceOutput() DatasourceOutput {
+	return o
+}
+
+func (o DatasourceOutput) ToDatasourceOutputWithContext(ctx context.Context) DatasourceOutput {
+	return o
+}
+
+func (o DatasourceOutput) ToDatasourcePtrOutput() DatasourcePtrOutput {
+	return o.ToDatasourcePtrOutputWithContext(context.Background())
+}
+
+func (o DatasourceOutput) ToDatasourcePtrOutputWithContext(ctx context.Context) DatasourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Datasource) *Datasource {
+		return &v
+	}).(DatasourcePtrOutput)
+}
+
+func (o DatasourceOutput) DatasourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Datasource) *string { return v.DatasourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Datasource) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceOutput) ResourceID() pulumi.StringOutput {
+	return o.ApplyT(func(v Datasource) string { return v.ResourceID }).(pulumi.StringOutput)
+}
+
+func (o DatasourceOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Datasource) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Datasource) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Datasource) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Datasource) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+type DatasourcePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Datasource)(nil)).Elem()
+}
+
+func (o DatasourcePtrOutput) ToDatasourcePtrOutput() DatasourcePtrOutput {
+	return o
+}
+
+func (o DatasourcePtrOutput) ToDatasourcePtrOutputWithContext(ctx context.Context) DatasourcePtrOutput {
+	return o
+}
+
+func (o DatasourcePtrOutput) Elem() DatasourceOutput {
+	return o.ApplyT(func(v *Datasource) Datasource {
+		if v != nil {
+			return *v
+		}
+		var ret Datasource
+		return ret
+	}).(DatasourceOutput)
+}
+
+func (o DatasourcePtrOutput) DatasourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Datasource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourcePtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Datasource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourcePtrOutput) ResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Datasource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceID
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourcePtrOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Datasource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourcePtrOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Datasource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourcePtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Datasource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourcePtrOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Datasource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasourceResponse struct {
+	DatasourceType   *string `pulumi:"datasourceType"`
+	ObjectType       *string `pulumi:"objectType"`
+	ResourceID       string  `pulumi:"resourceID"`
+	ResourceLocation *string `pulumi:"resourceLocation"`
+	ResourceName     *string `pulumi:"resourceName"`
+	ResourceType     *string `pulumi:"resourceType"`
+	ResourceUri      *string `pulumi:"resourceUri"`
+}
+
+
+
+
+
+type DatasourceResponseInput interface {
+	pulumi.Input
+
+	ToDatasourceResponseOutput() DatasourceResponseOutput
+	ToDatasourceResponseOutputWithContext(context.Context) DatasourceResponseOutput
+}
+
+type DatasourceResponseArgs struct {
+	DatasourceType   pulumi.StringPtrInput `pulumi:"datasourceType"`
+	ObjectType       pulumi.StringPtrInput `pulumi:"objectType"`
+	ResourceID       pulumi.StringInput    `pulumi:"resourceID"`
+	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
+	ResourceName     pulumi.StringPtrInput `pulumi:"resourceName"`
+	ResourceType     pulumi.StringPtrInput `pulumi:"resourceType"`
+	ResourceUri      pulumi.StringPtrInput `pulumi:"resourceUri"`
+}
+
+func (DatasourceResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasourceResponse)(nil)).Elem()
+}
+
+func (i DatasourceResponseArgs) ToDatasourceResponseOutput() DatasourceResponseOutput {
+	return i.ToDatasourceResponseOutputWithContext(context.Background())
+}
+
+func (i DatasourceResponseArgs) ToDatasourceResponseOutputWithContext(ctx context.Context) DatasourceResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourceResponseOutput)
+}
+
+func (i DatasourceResponseArgs) ToDatasourceResponsePtrOutput() DatasourceResponsePtrOutput {
+	return i.ToDatasourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DatasourceResponseArgs) ToDatasourceResponsePtrOutputWithContext(ctx context.Context) DatasourceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourceResponseOutput).ToDatasourceResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DatasourceResponsePtrInput interface {
+	pulumi.Input
+
+	ToDatasourceResponsePtrOutput() DatasourceResponsePtrOutput
+	ToDatasourceResponsePtrOutputWithContext(context.Context) DatasourceResponsePtrOutput
+}
+
+type datasourceResponsePtrType DatasourceResponseArgs
+
+func DatasourceResponsePtr(v *DatasourceResponseArgs) DatasourceResponsePtrInput {
+	return (*datasourceResponsePtrType)(v)
+}
+
+func (*datasourceResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasourceResponse)(nil)).Elem()
+}
+
+func (i *datasourceResponsePtrType) ToDatasourceResponsePtrOutput() DatasourceResponsePtrOutput {
+	return i.ToDatasourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *datasourceResponsePtrType) ToDatasourceResponsePtrOutputWithContext(ctx context.Context) DatasourceResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourceResponsePtrOutput)
+}
+
+type DatasourceResponseOutput struct{ *pulumi.OutputState }
+
+func (DatasourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasourceResponse)(nil)).Elem()
+}
+
+func (o DatasourceResponseOutput) ToDatasourceResponseOutput() DatasourceResponseOutput {
+	return o
+}
+
+func (o DatasourceResponseOutput) ToDatasourceResponseOutputWithContext(ctx context.Context) DatasourceResponseOutput {
+	return o
+}
+
+func (o DatasourceResponseOutput) ToDatasourceResponsePtrOutput() DatasourceResponsePtrOutput {
+	return o.ToDatasourceResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DatasourceResponseOutput) ToDatasourceResponsePtrOutputWithContext(ctx context.Context) DatasourceResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasourceResponse) *DatasourceResponse {
+		return &v
+	}).(DatasourceResponsePtrOutput)
+}
+
+func (o DatasourceResponseOutput) DatasourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceResponse) *string { return v.DatasourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceResponseOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceResponse) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceResponseOutput) ResourceID() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasourceResponse) string { return v.ResourceID }).(pulumi.StringOutput)
+}
+
+func (o DatasourceResponseOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceResponse) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceResponseOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceResponse) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceResponseOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceResponseOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+type DatasourceResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasourceResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasourceResponse)(nil)).Elem()
+}
+
+func (o DatasourceResponsePtrOutput) ToDatasourceResponsePtrOutput() DatasourceResponsePtrOutput {
+	return o
+}
+
+func (o DatasourceResponsePtrOutput) ToDatasourceResponsePtrOutputWithContext(ctx context.Context) DatasourceResponsePtrOutput {
+	return o
+}
+
+func (o DatasourceResponsePtrOutput) Elem() DatasourceResponseOutput {
+	return o.ApplyT(func(v *DatasourceResponse) DatasourceResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatasourceResponse
+		return ret
+	}).(DatasourceResponseOutput)
+}
+
+func (o DatasourceResponsePtrOutput) DatasourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceResponsePtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceResponsePtrOutput) ResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceID
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceResponsePtrOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceResponsePtrOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceResponsePtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasourceSet struct {
+	DatasourceType   *string `pulumi:"datasourceType"`
+	ObjectType       *string `pulumi:"objectType"`
+	ResourceID       string  `pulumi:"resourceID"`
+	ResourceLocation *string `pulumi:"resourceLocation"`
+	ResourceName     *string `pulumi:"resourceName"`
+	ResourceType     *string `pulumi:"resourceType"`
+	ResourceUri      *string `pulumi:"resourceUri"`
+}
+
+
+
+
+
+type DatasourceSetInput interface {
+	pulumi.Input
+
+	ToDatasourceSetOutput() DatasourceSetOutput
+	ToDatasourceSetOutputWithContext(context.Context) DatasourceSetOutput
+}
+
+type DatasourceSetArgs struct {
+	DatasourceType   pulumi.StringPtrInput `pulumi:"datasourceType"`
+	ObjectType       pulumi.StringPtrInput `pulumi:"objectType"`
+	ResourceID       pulumi.StringInput    `pulumi:"resourceID"`
+	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
+	ResourceName     pulumi.StringPtrInput `pulumi:"resourceName"`
+	ResourceType     pulumi.StringPtrInput `pulumi:"resourceType"`
+	ResourceUri      pulumi.StringPtrInput `pulumi:"resourceUri"`
+}
+
+func (DatasourceSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasourceSet)(nil)).Elem()
+}
+
+func (i DatasourceSetArgs) ToDatasourceSetOutput() DatasourceSetOutput {
+	return i.ToDatasourceSetOutputWithContext(context.Background())
+}
+
+func (i DatasourceSetArgs) ToDatasourceSetOutputWithContext(ctx context.Context) DatasourceSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourceSetOutput)
+}
+
+func (i DatasourceSetArgs) ToDatasourceSetPtrOutput() DatasourceSetPtrOutput {
+	return i.ToDatasourceSetPtrOutputWithContext(context.Background())
+}
+
+func (i DatasourceSetArgs) ToDatasourceSetPtrOutputWithContext(ctx context.Context) DatasourceSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourceSetOutput).ToDatasourceSetPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DatasourceSetPtrInput interface {
+	pulumi.Input
+
+	ToDatasourceSetPtrOutput() DatasourceSetPtrOutput
+	ToDatasourceSetPtrOutputWithContext(context.Context) DatasourceSetPtrOutput
+}
+
+type datasourceSetPtrType DatasourceSetArgs
+
+func DatasourceSetPtr(v *DatasourceSetArgs) DatasourceSetPtrInput {
+	return (*datasourceSetPtrType)(v)
+}
+
+func (*datasourceSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasourceSet)(nil)).Elem()
+}
+
+func (i *datasourceSetPtrType) ToDatasourceSetPtrOutput() DatasourceSetPtrOutput {
+	return i.ToDatasourceSetPtrOutputWithContext(context.Background())
+}
+
+func (i *datasourceSetPtrType) ToDatasourceSetPtrOutputWithContext(ctx context.Context) DatasourceSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourceSetPtrOutput)
+}
+
+type DatasourceSetOutput struct{ *pulumi.OutputState }
+
+func (DatasourceSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasourceSet)(nil)).Elem()
+}
+
+func (o DatasourceSetOutput) ToDatasourceSetOutput() DatasourceSetOutput {
+	return o
+}
+
+func (o DatasourceSetOutput) ToDatasourceSetOutputWithContext(ctx context.Context) DatasourceSetOutput {
+	return o
+}
+
+func (o DatasourceSetOutput) ToDatasourceSetPtrOutput() DatasourceSetPtrOutput {
+	return o.ToDatasourceSetPtrOutputWithContext(context.Background())
+}
+
+func (o DatasourceSetOutput) ToDatasourceSetPtrOutputWithContext(ctx context.Context) DatasourceSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasourceSet) *DatasourceSet {
+		return &v
+	}).(DatasourceSetPtrOutput)
+}
+
+func (o DatasourceSetOutput) DatasourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSet) *string { return v.DatasourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSet) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetOutput) ResourceID() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasourceSet) string { return v.ResourceID }).(pulumi.StringOutput)
+}
+
+func (o DatasourceSetOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSet) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSet) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSet) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSet) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+type DatasourceSetPtrOutput struct{ *pulumi.OutputState }
+
+func (DatasourceSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasourceSet)(nil)).Elem()
+}
+
+func (o DatasourceSetPtrOutput) ToDatasourceSetPtrOutput() DatasourceSetPtrOutput {
+	return o
+}
+
+func (o DatasourceSetPtrOutput) ToDatasourceSetPtrOutputWithContext(ctx context.Context) DatasourceSetPtrOutput {
+	return o
+}
+
+func (o DatasourceSetPtrOutput) Elem() DatasourceSetOutput {
+	return o.ApplyT(func(v *DatasourceSet) DatasourceSet {
+		if v != nil {
+			return *v
+		}
+		var ret DatasourceSet
+		return ret
+	}).(DatasourceSetOutput)
+}
+
+func (o DatasourceSetPtrOutput) DatasourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetPtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetPtrOutput) ResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceID
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetPtrOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetPtrOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetPtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetPtrOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatasourceSetResponse struct {
+	DatasourceType   *string `pulumi:"datasourceType"`
+	ObjectType       *string `pulumi:"objectType"`
+	ResourceID       string  `pulumi:"resourceID"`
+	ResourceLocation *string `pulumi:"resourceLocation"`
+	ResourceName     *string `pulumi:"resourceName"`
+	ResourceType     *string `pulumi:"resourceType"`
+	ResourceUri      *string `pulumi:"resourceUri"`
+}
+
+
+
+
+
+type DatasourceSetResponseInput interface {
+	pulumi.Input
+
+	ToDatasourceSetResponseOutput() DatasourceSetResponseOutput
+	ToDatasourceSetResponseOutputWithContext(context.Context) DatasourceSetResponseOutput
+}
+
+type DatasourceSetResponseArgs struct {
+	DatasourceType   pulumi.StringPtrInput `pulumi:"datasourceType"`
+	ObjectType       pulumi.StringPtrInput `pulumi:"objectType"`
+	ResourceID       pulumi.StringInput    `pulumi:"resourceID"`
+	ResourceLocation pulumi.StringPtrInput `pulumi:"resourceLocation"`
+	ResourceName     pulumi.StringPtrInput `pulumi:"resourceName"`
+	ResourceType     pulumi.StringPtrInput `pulumi:"resourceType"`
+	ResourceUri      pulumi.StringPtrInput `pulumi:"resourceUri"`
+}
+
+func (DatasourceSetResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasourceSetResponse)(nil)).Elem()
+}
+
+func (i DatasourceSetResponseArgs) ToDatasourceSetResponseOutput() DatasourceSetResponseOutput {
+	return i.ToDatasourceSetResponseOutputWithContext(context.Background())
+}
+
+func (i DatasourceSetResponseArgs) ToDatasourceSetResponseOutputWithContext(ctx context.Context) DatasourceSetResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourceSetResponseOutput)
+}
+
+func (i DatasourceSetResponseArgs) ToDatasourceSetResponsePtrOutput() DatasourceSetResponsePtrOutput {
+	return i.ToDatasourceSetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DatasourceSetResponseArgs) ToDatasourceSetResponsePtrOutputWithContext(ctx context.Context) DatasourceSetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourceSetResponseOutput).ToDatasourceSetResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DatasourceSetResponsePtrInput interface {
+	pulumi.Input
+
+	ToDatasourceSetResponsePtrOutput() DatasourceSetResponsePtrOutput
+	ToDatasourceSetResponsePtrOutputWithContext(context.Context) DatasourceSetResponsePtrOutput
+}
+
+type datasourceSetResponsePtrType DatasourceSetResponseArgs
+
+func DatasourceSetResponsePtr(v *DatasourceSetResponseArgs) DatasourceSetResponsePtrInput {
+	return (*datasourceSetResponsePtrType)(v)
+}
+
+func (*datasourceSetResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasourceSetResponse)(nil)).Elem()
+}
+
+func (i *datasourceSetResponsePtrType) ToDatasourceSetResponsePtrOutput() DatasourceSetResponsePtrOutput {
+	return i.ToDatasourceSetResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *datasourceSetResponsePtrType) ToDatasourceSetResponsePtrOutputWithContext(ctx context.Context) DatasourceSetResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatasourceSetResponsePtrOutput)
+}
+
+type DatasourceSetResponseOutput struct{ *pulumi.OutputState }
+
+func (DatasourceSetResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatasourceSetResponse)(nil)).Elem()
+}
+
+func (o DatasourceSetResponseOutput) ToDatasourceSetResponseOutput() DatasourceSetResponseOutput {
+	return o
+}
+
+func (o DatasourceSetResponseOutput) ToDatasourceSetResponseOutputWithContext(ctx context.Context) DatasourceSetResponseOutput {
+	return o
+}
+
+func (o DatasourceSetResponseOutput) ToDatasourceSetResponsePtrOutput() DatasourceSetResponsePtrOutput {
+	return o.ToDatasourceSetResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DatasourceSetResponseOutput) ToDatasourceSetResponsePtrOutputWithContext(ctx context.Context) DatasourceSetResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasourceSetResponse) *DatasourceSetResponse {
+		return &v
+	}).(DatasourceSetResponsePtrOutput)
+}
+
+func (o DatasourceSetResponseOutput) DatasourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSetResponse) *string { return v.DatasourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetResponseOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSetResponse) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetResponseOutput) ResourceID() pulumi.StringOutput {
+	return o.ApplyT(func(v DatasourceSetResponse) string { return v.ResourceID }).(pulumi.StringOutput)
+}
+
+func (o DatasourceSetResponseOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSetResponse) *string { return v.ResourceLocation }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetResponseOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSetResponse) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetResponseOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSetResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetResponseOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatasourceSetResponse) *string { return v.ResourceUri }).(pulumi.StringPtrOutput)
+}
+
+type DatasourceSetResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DatasourceSetResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatasourceSetResponse)(nil)).Elem()
+}
+
+func (o DatasourceSetResponsePtrOutput) ToDatasourceSetResponsePtrOutput() DatasourceSetResponsePtrOutput {
+	return o
+}
+
+func (o DatasourceSetResponsePtrOutput) ToDatasourceSetResponsePtrOutputWithContext(ctx context.Context) DatasourceSetResponsePtrOutput {
+	return o
+}
+
+func (o DatasourceSetResponsePtrOutput) Elem() DatasourceSetResponseOutput {
+	return o.ApplyT(func(v *DatasourceSetResponse) DatasourceSetResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DatasourceSetResponse
+		return ret
+	}).(DatasourceSetResponseOutput)
+}
+
+func (o DatasourceSetResponsePtrOutput) DatasourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetResponsePtrOutput) ObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetResponsePtrOutput) ResourceID() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceID
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetResponsePtrOutput) ResourceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetResponsePtrOutput) ResourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetResponsePtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DatasourceSetResponsePtrOutput) ResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatasourceSetResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type Day struct {
+	Date   *int  `pulumi:"date"`
+	IsLast *bool `pulumi:"isLast"`
+}
+
+
+
+
+
+type DayInput interface {
+	pulumi.Input
+
+	ToDayOutput() DayOutput
+	ToDayOutputWithContext(context.Context) DayOutput
+}
+
+type DayArgs struct {
+	Date   pulumi.IntPtrInput  `pulumi:"date"`
+	IsLast pulumi.BoolPtrInput `pulumi:"isLast"`
+}
+
+func (DayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Day)(nil)).Elem()
+}
+
+func (i DayArgs) ToDayOutput() DayOutput {
+	return i.ToDayOutputWithContext(context.Background())
+}
+
+func (i DayArgs) ToDayOutputWithContext(ctx context.Context) DayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DayOutput)
+}
+
+
+
+
+
+type DayArrayInput interface {
+	pulumi.Input
+
+	ToDayArrayOutput() DayArrayOutput
+	ToDayArrayOutputWithContext(context.Context) DayArrayOutput
+}
+
+type DayArray []DayInput
+
+func (DayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Day)(nil)).Elem()
+}
+
+func (i DayArray) ToDayArrayOutput() DayArrayOutput {
+	return i.ToDayArrayOutputWithContext(context.Background())
+}
+
+func (i DayArray) ToDayArrayOutputWithContext(ctx context.Context) DayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DayArrayOutput)
+}
+
+type DayOutput struct{ *pulumi.OutputState }
+
+func (DayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Day)(nil)).Elem()
+}
+
+func (o DayOutput) ToDayOutput() DayOutput {
+	return o
+}
+
+func (o DayOutput) ToDayOutputWithContext(ctx context.Context) DayOutput {
+	return o
+}
+
+func (o DayOutput) Date() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v Day) *int { return v.Date }).(pulumi.IntPtrOutput)
+}
+
+func (o DayOutput) IsLast() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Day) *bool { return v.IsLast }).(pulumi.BoolPtrOutput)
+}
+
+type DayArrayOutput struct{ *pulumi.OutputState }
+
+func (DayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Day)(nil)).Elem()
+}
+
+func (o DayArrayOutput) ToDayArrayOutput() DayArrayOutput {
+	return o
+}
+
+func (o DayArrayOutput) ToDayArrayOutputWithContext(ctx context.Context) DayArrayOutput {
+	return o
+}
+
+func (o DayArrayOutput) Index(i pulumi.IntInput) DayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Day {
+		return vs[0].([]Day)[vs[1].(int)]
+	}).(DayOutput)
+}
+
+type DayResponse struct {
+	Date   *int  `pulumi:"date"`
+	IsLast *bool `pulumi:"isLast"`
+}
+
+
+
+
+
+type DayResponseInput interface {
+	pulumi.Input
+
+	ToDayResponseOutput() DayResponseOutput
+	ToDayResponseOutputWithContext(context.Context) DayResponseOutput
+}
+
+type DayResponseArgs struct {
+	Date   pulumi.IntPtrInput  `pulumi:"date"`
+	IsLast pulumi.BoolPtrInput `pulumi:"isLast"`
+}
+
+func (DayResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DayResponse)(nil)).Elem()
+}
+
+func (i DayResponseArgs) ToDayResponseOutput() DayResponseOutput {
+	return i.ToDayResponseOutputWithContext(context.Background())
+}
+
+func (i DayResponseArgs) ToDayResponseOutputWithContext(ctx context.Context) DayResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DayResponseOutput)
+}
+
+
+
+
+
+type DayResponseArrayInput interface {
+	pulumi.Input
+
+	ToDayResponseArrayOutput() DayResponseArrayOutput
+	ToDayResponseArrayOutputWithContext(context.Context) DayResponseArrayOutput
+}
+
+type DayResponseArray []DayResponseInput
+
+func (DayResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DayResponse)(nil)).Elem()
+}
+
+func (i DayResponseArray) ToDayResponseArrayOutput() DayResponseArrayOutput {
+	return i.ToDayResponseArrayOutputWithContext(context.Background())
+}
+
+func (i DayResponseArray) ToDayResponseArrayOutputWithContext(ctx context.Context) DayResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DayResponseArrayOutput)
+}
+
+type DayResponseOutput struct{ *pulumi.OutputState }
+
+func (DayResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DayResponse)(nil)).Elem()
+}
+
+func (o DayResponseOutput) ToDayResponseOutput() DayResponseOutput {
+	return o
+}
+
+func (o DayResponseOutput) ToDayResponseOutputWithContext(ctx context.Context) DayResponseOutput {
+	return o
+}
+
+func (o DayResponseOutput) Date() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DayResponse) *int { return v.Date }).(pulumi.IntPtrOutput)
+}
+
+func (o DayResponseOutput) IsLast() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DayResponse) *bool { return v.IsLast }).(pulumi.BoolPtrOutput)
+}
+
+type DayResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DayResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DayResponse)(nil)).Elem()
+}
+
+func (o DayResponseArrayOutput) ToDayResponseArrayOutput() DayResponseArrayOutput {
+	return o
+}
+
+func (o DayResponseArrayOutput) ToDayResponseArrayOutputWithContext(ctx context.Context) DayResponseArrayOutput {
+	return o
+}
+
+func (o DayResponseArrayOutput) Index(i pulumi.IntInput) DayResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DayResponse {
+		return vs[0].([]DayResponse)[vs[1].(int)]
+	}).(DayResponseOutput)
+}
+
+type DppIdentityDetails struct {
+	Type *string `pulumi:"type"`
+}
+
+
+
+
+
+type DppIdentityDetailsInput interface {
+	pulumi.Input
+
+	ToDppIdentityDetailsOutput() DppIdentityDetailsOutput
+	ToDppIdentityDetailsOutputWithContext(context.Context) DppIdentityDetailsOutput
+}
+
+type DppIdentityDetailsArgs struct {
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DppIdentityDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DppIdentityDetails)(nil)).Elem()
+}
+
+func (i DppIdentityDetailsArgs) ToDppIdentityDetailsOutput() DppIdentityDetailsOutput {
+	return i.ToDppIdentityDetailsOutputWithContext(context.Background())
+}
+
+func (i DppIdentityDetailsArgs) ToDppIdentityDetailsOutputWithContext(ctx context.Context) DppIdentityDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DppIdentityDetailsOutput)
+}
+
+func (i DppIdentityDetailsArgs) ToDppIdentityDetailsPtrOutput() DppIdentityDetailsPtrOutput {
+	return i.ToDppIdentityDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i DppIdentityDetailsArgs) ToDppIdentityDetailsPtrOutputWithContext(ctx context.Context) DppIdentityDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DppIdentityDetailsOutput).ToDppIdentityDetailsPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DppIdentityDetailsPtrInput interface {
+	pulumi.Input
+
+	ToDppIdentityDetailsPtrOutput() DppIdentityDetailsPtrOutput
+	ToDppIdentityDetailsPtrOutputWithContext(context.Context) DppIdentityDetailsPtrOutput
+}
+
+type dppIdentityDetailsPtrType DppIdentityDetailsArgs
+
+func DppIdentityDetailsPtr(v *DppIdentityDetailsArgs) DppIdentityDetailsPtrInput {
+	return (*dppIdentityDetailsPtrType)(v)
+}
+
+func (*dppIdentityDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DppIdentityDetails)(nil)).Elem()
+}
+
+func (i *dppIdentityDetailsPtrType) ToDppIdentityDetailsPtrOutput() DppIdentityDetailsPtrOutput {
+	return i.ToDppIdentityDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *dppIdentityDetailsPtrType) ToDppIdentityDetailsPtrOutputWithContext(ctx context.Context) DppIdentityDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DppIdentityDetailsPtrOutput)
+}
+
+type DppIdentityDetailsOutput struct{ *pulumi.OutputState }
+
+func (DppIdentityDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DppIdentityDetails)(nil)).Elem()
+}
+
+func (o DppIdentityDetailsOutput) ToDppIdentityDetailsOutput() DppIdentityDetailsOutput {
+	return o
+}
+
+func (o DppIdentityDetailsOutput) ToDppIdentityDetailsOutputWithContext(ctx context.Context) DppIdentityDetailsOutput {
+	return o
+}
+
+func (o DppIdentityDetailsOutput) ToDppIdentityDetailsPtrOutput() DppIdentityDetailsPtrOutput {
+	return o.ToDppIdentityDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o DppIdentityDetailsOutput) ToDppIdentityDetailsPtrOutputWithContext(ctx context.Context) DppIdentityDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DppIdentityDetails) *DppIdentityDetails {
+		return &v
+	}).(DppIdentityDetailsPtrOutput)
+}
+
+func (o DppIdentityDetailsOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DppIdentityDetails) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DppIdentityDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (DppIdentityDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DppIdentityDetails)(nil)).Elem()
+}
+
+func (o DppIdentityDetailsPtrOutput) ToDppIdentityDetailsPtrOutput() DppIdentityDetailsPtrOutput {
+	return o
+}
+
+func (o DppIdentityDetailsPtrOutput) ToDppIdentityDetailsPtrOutputWithContext(ctx context.Context) DppIdentityDetailsPtrOutput {
+	return o
+}
+
+func (o DppIdentityDetailsPtrOutput) Elem() DppIdentityDetailsOutput {
+	return o.ApplyT(func(v *DppIdentityDetails) DppIdentityDetails {
+		if v != nil {
+			return *v
+		}
+		var ret DppIdentityDetails
+		return ret
+	}).(DppIdentityDetailsOutput)
+}
+
+func (o DppIdentityDetailsPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DppIdentityDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type DppIdentityDetailsResponse struct {
+	PrincipalId string  `pulumi:"principalId"`
+	TenantId    string  `pulumi:"tenantId"`
+	Type        *string `pulumi:"type"`
+}
+
+
+
+
+
+type DppIdentityDetailsResponseInput interface {
+	pulumi.Input
+
+	ToDppIdentityDetailsResponseOutput() DppIdentityDetailsResponseOutput
+	ToDppIdentityDetailsResponseOutputWithContext(context.Context) DppIdentityDetailsResponseOutput
+}
+
+type DppIdentityDetailsResponseArgs struct {
+	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
+	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
+	Type        pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DppIdentityDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DppIdentityDetailsResponse)(nil)).Elem()
+}
+
+func (i DppIdentityDetailsResponseArgs) ToDppIdentityDetailsResponseOutput() DppIdentityDetailsResponseOutput {
+	return i.ToDppIdentityDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i DppIdentityDetailsResponseArgs) ToDppIdentityDetailsResponseOutputWithContext(ctx context.Context) DppIdentityDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DppIdentityDetailsResponseOutput)
+}
+
+func (i DppIdentityDetailsResponseArgs) ToDppIdentityDetailsResponsePtrOutput() DppIdentityDetailsResponsePtrOutput {
+	return i.ToDppIdentityDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DppIdentityDetailsResponseArgs) ToDppIdentityDetailsResponsePtrOutputWithContext(ctx context.Context) DppIdentityDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DppIdentityDetailsResponseOutput).ToDppIdentityDetailsResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type DppIdentityDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToDppIdentityDetailsResponsePtrOutput() DppIdentityDetailsResponsePtrOutput
+	ToDppIdentityDetailsResponsePtrOutputWithContext(context.Context) DppIdentityDetailsResponsePtrOutput
+}
+
+type dppIdentityDetailsResponsePtrType DppIdentityDetailsResponseArgs
+
+func DppIdentityDetailsResponsePtr(v *DppIdentityDetailsResponseArgs) DppIdentityDetailsResponsePtrInput {
+	return (*dppIdentityDetailsResponsePtrType)(v)
+}
+
+func (*dppIdentityDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DppIdentityDetailsResponse)(nil)).Elem()
+}
+
+func (i *dppIdentityDetailsResponsePtrType) ToDppIdentityDetailsResponsePtrOutput() DppIdentityDetailsResponsePtrOutput {
+	return i.ToDppIdentityDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *dppIdentityDetailsResponsePtrType) ToDppIdentityDetailsResponsePtrOutputWithContext(ctx context.Context) DppIdentityDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DppIdentityDetailsResponsePtrOutput)
+}
+
+type DppIdentityDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (DppIdentityDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DppIdentityDetailsResponse)(nil)).Elem()
+}
+
+func (o DppIdentityDetailsResponseOutput) ToDppIdentityDetailsResponseOutput() DppIdentityDetailsResponseOutput {
+	return o
+}
+
+func (o DppIdentityDetailsResponseOutput) ToDppIdentityDetailsResponseOutputWithContext(ctx context.Context) DppIdentityDetailsResponseOutput {
+	return o
+}
+
+func (o DppIdentityDetailsResponseOutput) ToDppIdentityDetailsResponsePtrOutput() DppIdentityDetailsResponsePtrOutput {
+	return o.ToDppIdentityDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DppIdentityDetailsResponseOutput) ToDppIdentityDetailsResponsePtrOutputWithContext(ctx context.Context) DppIdentityDetailsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DppIdentityDetailsResponse) *DppIdentityDetailsResponse {
+		return &v
+	}).(DppIdentityDetailsResponsePtrOutput)
+}
+
+func (o DppIdentityDetailsResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v DppIdentityDetailsResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o DppIdentityDetailsResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v DppIdentityDetailsResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o DppIdentityDetailsResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DppIdentityDetailsResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DppIdentityDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DppIdentityDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DppIdentityDetailsResponse)(nil)).Elem()
+}
+
+func (o DppIdentityDetailsResponsePtrOutput) ToDppIdentityDetailsResponsePtrOutput() DppIdentityDetailsResponsePtrOutput {
+	return o
+}
+
+func (o DppIdentityDetailsResponsePtrOutput) ToDppIdentityDetailsResponsePtrOutputWithContext(ctx context.Context) DppIdentityDetailsResponsePtrOutput {
+	return o
+}
+
+func (o DppIdentityDetailsResponsePtrOutput) Elem() DppIdentityDetailsResponseOutput {
+	return o.ApplyT(func(v *DppIdentityDetailsResponse) DppIdentityDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret DppIdentityDetailsResponse
+		return ret
+	}).(DppIdentityDetailsResponseOutput)
+}
+
+func (o DppIdentityDetailsResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DppIdentityDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DppIdentityDetailsResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DppIdentityDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DppIdentityDetailsResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DppIdentityDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImmediateCopyOption struct {
+	ObjectType string `pulumi:"objectType"`
+}
+
+
+
+
+
+type ImmediateCopyOptionInput interface {
+	pulumi.Input
+
+	ToImmediateCopyOptionOutput() ImmediateCopyOptionOutput
+	ToImmediateCopyOptionOutputWithContext(context.Context) ImmediateCopyOptionOutput
+}
+
+type ImmediateCopyOptionArgs struct {
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (ImmediateCopyOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmediateCopyOption)(nil)).Elem()
+}
+
+func (i ImmediateCopyOptionArgs) ToImmediateCopyOptionOutput() ImmediateCopyOptionOutput {
+	return i.ToImmediateCopyOptionOutputWithContext(context.Background())
+}
+
+func (i ImmediateCopyOptionArgs) ToImmediateCopyOptionOutputWithContext(ctx context.Context) ImmediateCopyOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImmediateCopyOptionOutput)
+}
+
+type ImmediateCopyOptionOutput struct{ *pulumi.OutputState }
+
+func (ImmediateCopyOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmediateCopyOption)(nil)).Elem()
+}
+
+func (o ImmediateCopyOptionOutput) ToImmediateCopyOptionOutput() ImmediateCopyOptionOutput {
+	return o
+}
+
+func (o ImmediateCopyOptionOutput) ToImmediateCopyOptionOutputWithContext(ctx context.Context) ImmediateCopyOptionOutput {
+	return o
+}
+
+func (o ImmediateCopyOptionOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v ImmediateCopyOption) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type ImmediateCopyOptionResponse struct {
+	ObjectType string `pulumi:"objectType"`
+}
+
+
+
+
+
+type ImmediateCopyOptionResponseInput interface {
+	pulumi.Input
+
+	ToImmediateCopyOptionResponseOutput() ImmediateCopyOptionResponseOutput
+	ToImmediateCopyOptionResponseOutputWithContext(context.Context) ImmediateCopyOptionResponseOutput
+}
+
+type ImmediateCopyOptionResponseArgs struct {
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
+}
+
+func (ImmediateCopyOptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmediateCopyOptionResponse)(nil)).Elem()
+}
+
+func (i ImmediateCopyOptionResponseArgs) ToImmediateCopyOptionResponseOutput() ImmediateCopyOptionResponseOutput {
+	return i.ToImmediateCopyOptionResponseOutputWithContext(context.Background())
+}
+
+func (i ImmediateCopyOptionResponseArgs) ToImmediateCopyOptionResponseOutputWithContext(ctx context.Context) ImmediateCopyOptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImmediateCopyOptionResponseOutput)
+}
+
+type ImmediateCopyOptionResponseOutput struct{ *pulumi.OutputState }
+
+func (ImmediateCopyOptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImmediateCopyOptionResponse)(nil)).Elem()
+}
+
+func (o ImmediateCopyOptionResponseOutput) ToImmediateCopyOptionResponseOutput() ImmediateCopyOptionResponseOutput {
+	return o
+}
+
+func (o ImmediateCopyOptionResponseOutput) ToImmediateCopyOptionResponseOutputWithContext(ctx context.Context) ImmediateCopyOptionResponseOutput {
+	return o
+}
+
+func (o ImmediateCopyOptionResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v ImmediateCopyOptionResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+type InnerErrorResponse struct {
+	AdditionalInfo     map[string]string   `pulumi:"additionalInfo"`
+	Code               *string             `pulumi:"code"`
+	EmbeddedInnerError *InnerErrorResponse `pulumi:"embeddedInnerError"`
+}
+
+
+
+
+
+type InnerErrorResponseInput interface {
+	pulumi.Input
+
+	ToInnerErrorResponseOutput() InnerErrorResponseOutput
+	ToInnerErrorResponseOutputWithContext(context.Context) InnerErrorResponseOutput
+}
+
+type InnerErrorResponseArgs struct {
+	AdditionalInfo     pulumi.StringMapInput      `pulumi:"additionalInfo"`
+	Code               pulumi.StringPtrInput      `pulumi:"code"`
+	EmbeddedInnerError InnerErrorResponsePtrInput `pulumi:"embeddedInnerError"`
+}
+
+func (InnerErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InnerErrorResponse)(nil)).Elem()
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponseOutput() InnerErrorResponseOutput {
+	return i.ToInnerErrorResponseOutputWithContext(context.Background())
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponseOutputWithContext(ctx context.Context) InnerErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InnerErrorResponseOutput)
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return i.ToInnerErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i InnerErrorResponseArgs) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InnerErrorResponseOutput).ToInnerErrorResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type InnerErrorResponsePtrInput interface {
+	pulumi.Input
+
+	ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput
+	ToInnerErrorResponsePtrOutputWithContext(context.Context) InnerErrorResponsePtrOutput
+}
+
+type innerErrorResponsePtrType InnerErrorResponseArgs
+
+func InnerErrorResponsePtr(v *InnerErrorResponseArgs) InnerErrorResponsePtrInput {
+	return (*innerErrorResponsePtrType)(v)
+}
+
+func (*innerErrorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InnerErrorResponse)(nil)).Elem()
+}
+
+func (i *innerErrorResponsePtrType) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return i.ToInnerErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *innerErrorResponsePtrType) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InnerErrorResponsePtrOutput)
+}
+
+type InnerErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (InnerErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InnerErrorResponse)(nil)).Elem()
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponseOutput() InnerErrorResponseOutput {
+	return o
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponseOutputWithContext(ctx context.Context) InnerErrorResponseOutput {
+	return o
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return o.ToInnerErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o InnerErrorResponseOutput) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InnerErrorResponse) *InnerErrorResponse {
+		return &v
+	}).(InnerErrorResponsePtrOutput)
+}
+
+func (o InnerErrorResponseOutput) AdditionalInfo() pulumi.StringMapOutput {
+	return o.ApplyT(func(v InnerErrorResponse) map[string]string { return v.AdditionalInfo }).(pulumi.StringMapOutput)
+}
+
+func (o InnerErrorResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InnerErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+func (o InnerErrorResponseOutput) EmbeddedInnerError() InnerErrorResponsePtrOutput {
+	return o.ApplyT(func(v InnerErrorResponse) *InnerErrorResponse { return v.EmbeddedInnerError }).(InnerErrorResponsePtrOutput)
+}
+
+type InnerErrorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (InnerErrorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InnerErrorResponse)(nil)).Elem()
+}
+
+func (o InnerErrorResponsePtrOutput) ToInnerErrorResponsePtrOutput() InnerErrorResponsePtrOutput {
+	return o
+}
+
+func (o InnerErrorResponsePtrOutput) ToInnerErrorResponsePtrOutputWithContext(ctx context.Context) InnerErrorResponsePtrOutput {
+	return o
+}
+
+func (o InnerErrorResponsePtrOutput) Elem() InnerErrorResponseOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) InnerErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret InnerErrorResponse
+		return ret
+	}).(InnerErrorResponseOutput)
+}
+
+func (o InnerErrorResponsePtrOutput) AdditionalInfo() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalInfo
+	}).(pulumi.StringMapOutput)
+}
+
+func (o InnerErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o InnerErrorResponsePtrOutput) EmbeddedInnerError() InnerErrorResponsePtrOutput {
+	return o.ApplyT(func(v *InnerErrorResponse) *InnerErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EmbeddedInnerError
+	}).(InnerErrorResponsePtrOutput)
+}
+
+type PolicyInfo struct {
+	PolicyId         string            `pulumi:"policyId"`
+	PolicyParameters *PolicyParameters `pulumi:"policyParameters"`
+}
+
+
+
+
+
+type PolicyInfoInput interface {
+	pulumi.Input
+
+	ToPolicyInfoOutput() PolicyInfoOutput
+	ToPolicyInfoOutputWithContext(context.Context) PolicyInfoOutput
+}
+
+type PolicyInfoArgs struct {
+	PolicyId         pulumi.StringInput       `pulumi:"policyId"`
+	PolicyParameters PolicyParametersPtrInput `pulumi:"policyParameters"`
+}
+
+func (PolicyInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyInfo)(nil)).Elem()
+}
+
+func (i PolicyInfoArgs) ToPolicyInfoOutput() PolicyInfoOutput {
+	return i.ToPolicyInfoOutputWithContext(context.Background())
+}
+
+func (i PolicyInfoArgs) ToPolicyInfoOutputWithContext(ctx context.Context) PolicyInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyInfoOutput)
+}
+
+func (i PolicyInfoArgs) ToPolicyInfoPtrOutput() PolicyInfoPtrOutput {
+	return i.ToPolicyInfoPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyInfoArgs) ToPolicyInfoPtrOutputWithContext(ctx context.Context) PolicyInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyInfoOutput).ToPolicyInfoPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PolicyInfoPtrInput interface {
+	pulumi.Input
+
+	ToPolicyInfoPtrOutput() PolicyInfoPtrOutput
+	ToPolicyInfoPtrOutputWithContext(context.Context) PolicyInfoPtrOutput
+}
+
+type policyInfoPtrType PolicyInfoArgs
+
+func PolicyInfoPtr(v *PolicyInfoArgs) PolicyInfoPtrInput {
+	return (*policyInfoPtrType)(v)
+}
+
+func (*policyInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyInfo)(nil)).Elem()
+}
+
+func (i *policyInfoPtrType) ToPolicyInfoPtrOutput() PolicyInfoPtrOutput {
+	return i.ToPolicyInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *policyInfoPtrType) ToPolicyInfoPtrOutputWithContext(ctx context.Context) PolicyInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyInfoPtrOutput)
+}
+
+type PolicyInfoOutput struct{ *pulumi.OutputState }
+
+func (PolicyInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyInfo)(nil)).Elem()
+}
+
+func (o PolicyInfoOutput) ToPolicyInfoOutput() PolicyInfoOutput {
+	return o
+}
+
+func (o PolicyInfoOutput) ToPolicyInfoOutputWithContext(ctx context.Context) PolicyInfoOutput {
+	return o
+}
+
+func (o PolicyInfoOutput) ToPolicyInfoPtrOutput() PolicyInfoPtrOutput {
+	return o.ToPolicyInfoPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyInfoOutput) ToPolicyInfoPtrOutputWithContext(ctx context.Context) PolicyInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyInfo) *PolicyInfo {
+		return &v
+	}).(PolicyInfoPtrOutput)
+}
+
+func (o PolicyInfoOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyInfo) string { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+func (o PolicyInfoOutput) PolicyParameters() PolicyParametersPtrOutput {
+	return o.ApplyT(func(v PolicyInfo) *PolicyParameters { return v.PolicyParameters }).(PolicyParametersPtrOutput)
+}
+
+type PolicyInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyInfo)(nil)).Elem()
+}
+
+func (o PolicyInfoPtrOutput) ToPolicyInfoPtrOutput() PolicyInfoPtrOutput {
+	return o
+}
+
+func (o PolicyInfoPtrOutput) ToPolicyInfoPtrOutputWithContext(ctx context.Context) PolicyInfoPtrOutput {
+	return o
+}
+
+func (o PolicyInfoPtrOutput) Elem() PolicyInfoOutput {
+	return o.ApplyT(func(v *PolicyInfo) PolicyInfo {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyInfo
+		return ret
+	}).(PolicyInfoOutput)
+}
+
+func (o PolicyInfoPtrOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyInfoPtrOutput) PolicyParameters() PolicyParametersPtrOutput {
+	return o.ApplyT(func(v *PolicyInfo) *PolicyParameters {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyParameters
+	}).(PolicyParametersPtrOutput)
+}
+
+type PolicyInfoResponse struct {
+	PolicyId         string                    `pulumi:"policyId"`
+	PolicyParameters *PolicyParametersResponse `pulumi:"policyParameters"`
+	PolicyVersion    string                    `pulumi:"policyVersion"`
+}
+
+
+
+
+
+type PolicyInfoResponseInput interface {
+	pulumi.Input
+
+	ToPolicyInfoResponseOutput() PolicyInfoResponseOutput
+	ToPolicyInfoResponseOutputWithContext(context.Context) PolicyInfoResponseOutput
+}
+
+type PolicyInfoResponseArgs struct {
+	PolicyId         pulumi.StringInput               `pulumi:"policyId"`
+	PolicyParameters PolicyParametersResponsePtrInput `pulumi:"policyParameters"`
+	PolicyVersion    pulumi.StringInput               `pulumi:"policyVersion"`
+}
+
+func (PolicyInfoResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyInfoResponse)(nil)).Elem()
+}
+
+func (i PolicyInfoResponseArgs) ToPolicyInfoResponseOutput() PolicyInfoResponseOutput {
+	return i.ToPolicyInfoResponseOutputWithContext(context.Background())
+}
+
+func (i PolicyInfoResponseArgs) ToPolicyInfoResponseOutputWithContext(ctx context.Context) PolicyInfoResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyInfoResponseOutput)
+}
+
+func (i PolicyInfoResponseArgs) ToPolicyInfoResponsePtrOutput() PolicyInfoResponsePtrOutput {
+	return i.ToPolicyInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PolicyInfoResponseArgs) ToPolicyInfoResponsePtrOutputWithContext(ctx context.Context) PolicyInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyInfoResponseOutput).ToPolicyInfoResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PolicyInfoResponsePtrInput interface {
+	pulumi.Input
+
+	ToPolicyInfoResponsePtrOutput() PolicyInfoResponsePtrOutput
+	ToPolicyInfoResponsePtrOutputWithContext(context.Context) PolicyInfoResponsePtrOutput
+}
+
+type policyInfoResponsePtrType PolicyInfoResponseArgs
+
+func PolicyInfoResponsePtr(v *PolicyInfoResponseArgs) PolicyInfoResponsePtrInput {
+	return (*policyInfoResponsePtrType)(v)
+}
+
+func (*policyInfoResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyInfoResponse)(nil)).Elem()
+}
+
+func (i *policyInfoResponsePtrType) ToPolicyInfoResponsePtrOutput() PolicyInfoResponsePtrOutput {
+	return i.ToPolicyInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *policyInfoResponsePtrType) ToPolicyInfoResponsePtrOutputWithContext(ctx context.Context) PolicyInfoResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyInfoResponsePtrOutput)
+}
+
+type PolicyInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (PolicyInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyInfoResponse)(nil)).Elem()
+}
+
+func (o PolicyInfoResponseOutput) ToPolicyInfoResponseOutput() PolicyInfoResponseOutput {
+	return o
+}
+
+func (o PolicyInfoResponseOutput) ToPolicyInfoResponseOutputWithContext(ctx context.Context) PolicyInfoResponseOutput {
+	return o
+}
+
+func (o PolicyInfoResponseOutput) ToPolicyInfoResponsePtrOutput() PolicyInfoResponsePtrOutput {
+	return o.ToPolicyInfoResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyInfoResponseOutput) ToPolicyInfoResponsePtrOutputWithContext(ctx context.Context) PolicyInfoResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyInfoResponse) *PolicyInfoResponse {
+		return &v
+	}).(PolicyInfoResponsePtrOutput)
+}
+
+func (o PolicyInfoResponseOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyInfoResponse) string { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+func (o PolicyInfoResponseOutput) PolicyParameters() PolicyParametersResponsePtrOutput {
+	return o.ApplyT(func(v PolicyInfoResponse) *PolicyParametersResponse { return v.PolicyParameters }).(PolicyParametersResponsePtrOutput)
+}
+
+func (o PolicyInfoResponseOutput) PolicyVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyInfoResponse) string { return v.PolicyVersion }).(pulumi.StringOutput)
+}
+
+type PolicyInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyInfoResponse)(nil)).Elem()
+}
+
+func (o PolicyInfoResponsePtrOutput) ToPolicyInfoResponsePtrOutput() PolicyInfoResponsePtrOutput {
+	return o
+}
+
+func (o PolicyInfoResponsePtrOutput) ToPolicyInfoResponsePtrOutputWithContext(ctx context.Context) PolicyInfoResponsePtrOutput {
+	return o
+}
+
+func (o PolicyInfoResponsePtrOutput) Elem() PolicyInfoResponseOutput {
+	return o.ApplyT(func(v *PolicyInfoResponse) PolicyInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyInfoResponse
+		return ret
+	}).(PolicyInfoResponseOutput)
+}
+
+func (o PolicyInfoResponsePtrOutput) PolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyInfoResponsePtrOutput) PolicyParameters() PolicyParametersResponsePtrOutput {
+	return o.ApplyT(func(v *PolicyInfoResponse) *PolicyParametersResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyParameters
+	}).(PolicyParametersResponsePtrOutput)
+}
+
+func (o PolicyInfoResponsePtrOutput) PolicyVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyParameters struct {
+	DataStoreParametersList []AzureOperationalStoreParameters `pulumi:"dataStoreParametersList"`
+}
+
+
+
+
+
+type PolicyParametersInput interface {
+	pulumi.Input
+
+	ToPolicyParametersOutput() PolicyParametersOutput
+	ToPolicyParametersOutputWithContext(context.Context) PolicyParametersOutput
+}
+
+type PolicyParametersArgs struct {
+	DataStoreParametersList AzureOperationalStoreParametersArrayInput `pulumi:"dataStoreParametersList"`
+}
+
+func (PolicyParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyParameters)(nil)).Elem()
+}
+
+func (i PolicyParametersArgs) ToPolicyParametersOutput() PolicyParametersOutput {
+	return i.ToPolicyParametersOutputWithContext(context.Background())
+}
+
+func (i PolicyParametersArgs) ToPolicyParametersOutputWithContext(ctx context.Context) PolicyParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyParametersOutput)
+}
+
+func (i PolicyParametersArgs) ToPolicyParametersPtrOutput() PolicyParametersPtrOutput {
+	return i.ToPolicyParametersPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyParametersArgs) ToPolicyParametersPtrOutputWithContext(ctx context.Context) PolicyParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyParametersOutput).ToPolicyParametersPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PolicyParametersPtrInput interface {
+	pulumi.Input
+
+	ToPolicyParametersPtrOutput() PolicyParametersPtrOutput
+	ToPolicyParametersPtrOutputWithContext(context.Context) PolicyParametersPtrOutput
+}
+
+type policyParametersPtrType PolicyParametersArgs
+
+func PolicyParametersPtr(v *PolicyParametersArgs) PolicyParametersPtrInput {
+	return (*policyParametersPtrType)(v)
+}
+
+func (*policyParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyParameters)(nil)).Elem()
+}
+
+func (i *policyParametersPtrType) ToPolicyParametersPtrOutput() PolicyParametersPtrOutput {
+	return i.ToPolicyParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *policyParametersPtrType) ToPolicyParametersPtrOutputWithContext(ctx context.Context) PolicyParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyParametersPtrOutput)
+}
+
+type PolicyParametersOutput struct{ *pulumi.OutputState }
+
+func (PolicyParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyParameters)(nil)).Elem()
+}
+
+func (o PolicyParametersOutput) ToPolicyParametersOutput() PolicyParametersOutput {
+	return o
+}
+
+func (o PolicyParametersOutput) ToPolicyParametersOutputWithContext(ctx context.Context) PolicyParametersOutput {
+	return o
+}
+
+func (o PolicyParametersOutput) ToPolicyParametersPtrOutput() PolicyParametersPtrOutput {
+	return o.ToPolicyParametersPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyParametersOutput) ToPolicyParametersPtrOutputWithContext(ctx context.Context) PolicyParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyParameters) *PolicyParameters {
+		return &v
+	}).(PolicyParametersPtrOutput)
+}
+
+func (o PolicyParametersOutput) DataStoreParametersList() AzureOperationalStoreParametersArrayOutput {
+	return o.ApplyT(func(v PolicyParameters) []AzureOperationalStoreParameters { return v.DataStoreParametersList }).(AzureOperationalStoreParametersArrayOutput)
+}
+
+type PolicyParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyParameters)(nil)).Elem()
+}
+
+func (o PolicyParametersPtrOutput) ToPolicyParametersPtrOutput() PolicyParametersPtrOutput {
+	return o
+}
+
+func (o PolicyParametersPtrOutput) ToPolicyParametersPtrOutputWithContext(ctx context.Context) PolicyParametersPtrOutput {
+	return o
+}
+
+func (o PolicyParametersPtrOutput) Elem() PolicyParametersOutput {
+	return o.ApplyT(func(v *PolicyParameters) PolicyParameters {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyParameters
+		return ret
+	}).(PolicyParametersOutput)
+}
+
+func (o PolicyParametersPtrOutput) DataStoreParametersList() AzureOperationalStoreParametersArrayOutput {
+	return o.ApplyT(func(v *PolicyParameters) []AzureOperationalStoreParameters {
+		if v == nil {
+			return nil
+		}
+		return v.DataStoreParametersList
+	}).(AzureOperationalStoreParametersArrayOutput)
+}
+
+type PolicyParametersResponse struct {
+	DataStoreParametersList []AzureOperationalStoreParametersResponse `pulumi:"dataStoreParametersList"`
+}
+
+
+
+
+
+type PolicyParametersResponseInput interface {
+	pulumi.Input
+
+	ToPolicyParametersResponseOutput() PolicyParametersResponseOutput
+	ToPolicyParametersResponseOutputWithContext(context.Context) PolicyParametersResponseOutput
+}
+
+type PolicyParametersResponseArgs struct {
+	DataStoreParametersList AzureOperationalStoreParametersResponseArrayInput `pulumi:"dataStoreParametersList"`
+}
+
+func (PolicyParametersResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyParametersResponse)(nil)).Elem()
+}
+
+func (i PolicyParametersResponseArgs) ToPolicyParametersResponseOutput() PolicyParametersResponseOutput {
+	return i.ToPolicyParametersResponseOutputWithContext(context.Background())
+}
+
+func (i PolicyParametersResponseArgs) ToPolicyParametersResponseOutputWithContext(ctx context.Context) PolicyParametersResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyParametersResponseOutput)
+}
+
+func (i PolicyParametersResponseArgs) ToPolicyParametersResponsePtrOutput() PolicyParametersResponsePtrOutput {
+	return i.ToPolicyParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PolicyParametersResponseArgs) ToPolicyParametersResponsePtrOutputWithContext(ctx context.Context) PolicyParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyParametersResponseOutput).ToPolicyParametersResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type PolicyParametersResponsePtrInput interface {
+	pulumi.Input
+
+	ToPolicyParametersResponsePtrOutput() PolicyParametersResponsePtrOutput
+	ToPolicyParametersResponsePtrOutputWithContext(context.Context) PolicyParametersResponsePtrOutput
+}
+
+type policyParametersResponsePtrType PolicyParametersResponseArgs
+
+func PolicyParametersResponsePtr(v *PolicyParametersResponseArgs) PolicyParametersResponsePtrInput {
+	return (*policyParametersResponsePtrType)(v)
+}
+
+func (*policyParametersResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyParametersResponse)(nil)).Elem()
+}
+
+func (i *policyParametersResponsePtrType) ToPolicyParametersResponsePtrOutput() PolicyParametersResponsePtrOutput {
+	return i.ToPolicyParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *policyParametersResponsePtrType) ToPolicyParametersResponsePtrOutputWithContext(ctx context.Context) PolicyParametersResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyParametersResponsePtrOutput)
+}
+
+type PolicyParametersResponseOutput struct{ *pulumi.OutputState }
+
+func (PolicyParametersResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyParametersResponse)(nil)).Elem()
+}
+
+func (o PolicyParametersResponseOutput) ToPolicyParametersResponseOutput() PolicyParametersResponseOutput {
+	return o
+}
+
+func (o PolicyParametersResponseOutput) ToPolicyParametersResponseOutputWithContext(ctx context.Context) PolicyParametersResponseOutput {
+	return o
+}
+
+func (o PolicyParametersResponseOutput) ToPolicyParametersResponsePtrOutput() PolicyParametersResponsePtrOutput {
+	return o.ToPolicyParametersResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyParametersResponseOutput) ToPolicyParametersResponsePtrOutputWithContext(ctx context.Context) PolicyParametersResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyParametersResponse) *PolicyParametersResponse {
+		return &v
+	}).(PolicyParametersResponsePtrOutput)
+}
+
+func (o PolicyParametersResponseOutput) DataStoreParametersList() AzureOperationalStoreParametersResponseArrayOutput {
+	return o.ApplyT(func(v PolicyParametersResponse) []AzureOperationalStoreParametersResponse {
+		return v.DataStoreParametersList
+	}).(AzureOperationalStoreParametersResponseArrayOutput)
+}
+
+type PolicyParametersResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyParametersResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyParametersResponse)(nil)).Elem()
+}
+
+func (o PolicyParametersResponsePtrOutput) ToPolicyParametersResponsePtrOutput() PolicyParametersResponsePtrOutput {
+	return o
+}
+
+func (o PolicyParametersResponsePtrOutput) ToPolicyParametersResponsePtrOutputWithContext(ctx context.Context) PolicyParametersResponsePtrOutput {
+	return o
+}
+
+func (o PolicyParametersResponsePtrOutput) Elem() PolicyParametersResponseOutput {
+	return o.ApplyT(func(v *PolicyParametersResponse) PolicyParametersResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyParametersResponse
+		return ret
+	}).(PolicyParametersResponseOutput)
+}
+
+func (o PolicyParametersResponsePtrOutput) DataStoreParametersList() AzureOperationalStoreParametersResponseArrayOutput {
+	return o.ApplyT(func(v *PolicyParametersResponse) []AzureOperationalStoreParametersResponse {
+		if v == nil {
+			return nil
+		}
+		return v.DataStoreParametersList
+	}).(AzureOperationalStoreParametersResponseArrayOutput)
+}
+
+type ProtectionStatusDetailsResponse struct {
+	ErrorDetails *UserFacingErrorResponse `pulumi:"errorDetails"`
+	Status       *string                  `pulumi:"status"`
+}
+
+
+
+
+
+type ProtectionStatusDetailsResponseInput interface {
+	pulumi.Input
+
+	ToProtectionStatusDetailsResponseOutput() ProtectionStatusDetailsResponseOutput
+	ToProtectionStatusDetailsResponseOutputWithContext(context.Context) ProtectionStatusDetailsResponseOutput
+}
+
+type ProtectionStatusDetailsResponseArgs struct {
+	ErrorDetails UserFacingErrorResponsePtrInput `pulumi:"errorDetails"`
+	Status       pulumi.StringPtrInput           `pulumi:"status"`
+}
+
+func (ProtectionStatusDetailsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionStatusDetailsResponse)(nil)).Elem()
+}
+
+func (i ProtectionStatusDetailsResponseArgs) ToProtectionStatusDetailsResponseOutput() ProtectionStatusDetailsResponseOutput {
+	return i.ToProtectionStatusDetailsResponseOutputWithContext(context.Background())
+}
+
+func (i ProtectionStatusDetailsResponseArgs) ToProtectionStatusDetailsResponseOutputWithContext(ctx context.Context) ProtectionStatusDetailsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionStatusDetailsResponseOutput)
+}
+
+func (i ProtectionStatusDetailsResponseArgs) ToProtectionStatusDetailsResponsePtrOutput() ProtectionStatusDetailsResponsePtrOutput {
+	return i.ToProtectionStatusDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ProtectionStatusDetailsResponseArgs) ToProtectionStatusDetailsResponsePtrOutputWithContext(ctx context.Context) ProtectionStatusDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionStatusDetailsResponseOutput).ToProtectionStatusDetailsResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ProtectionStatusDetailsResponsePtrInput interface {
+	pulumi.Input
+
+	ToProtectionStatusDetailsResponsePtrOutput() ProtectionStatusDetailsResponsePtrOutput
+	ToProtectionStatusDetailsResponsePtrOutputWithContext(context.Context) ProtectionStatusDetailsResponsePtrOutput
+}
+
+type protectionStatusDetailsResponsePtrType ProtectionStatusDetailsResponseArgs
+
+func ProtectionStatusDetailsResponsePtr(v *ProtectionStatusDetailsResponseArgs) ProtectionStatusDetailsResponsePtrInput {
+	return (*protectionStatusDetailsResponsePtrType)(v)
+}
+
+func (*protectionStatusDetailsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionStatusDetailsResponse)(nil)).Elem()
+}
+
+func (i *protectionStatusDetailsResponsePtrType) ToProtectionStatusDetailsResponsePtrOutput() ProtectionStatusDetailsResponsePtrOutput {
+	return i.ToProtectionStatusDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *protectionStatusDetailsResponsePtrType) ToProtectionStatusDetailsResponsePtrOutputWithContext(ctx context.Context) ProtectionStatusDetailsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProtectionStatusDetailsResponsePtrOutput)
+}
+
+type ProtectionStatusDetailsResponseOutput struct{ *pulumi.OutputState }
+
+func (ProtectionStatusDetailsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProtectionStatusDetailsResponse)(nil)).Elem()
+}
+
+func (o ProtectionStatusDetailsResponseOutput) ToProtectionStatusDetailsResponseOutput() ProtectionStatusDetailsResponseOutput {
+	return o
+}
+
+func (o ProtectionStatusDetailsResponseOutput) ToProtectionStatusDetailsResponseOutputWithContext(ctx context.Context) ProtectionStatusDetailsResponseOutput {
+	return o
+}
+
+func (o ProtectionStatusDetailsResponseOutput) ToProtectionStatusDetailsResponsePtrOutput() ProtectionStatusDetailsResponsePtrOutput {
+	return o.ToProtectionStatusDetailsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ProtectionStatusDetailsResponseOutput) ToProtectionStatusDetailsResponsePtrOutputWithContext(ctx context.Context) ProtectionStatusDetailsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionStatusDetailsResponse) *ProtectionStatusDetailsResponse {
+		return &v
+	}).(ProtectionStatusDetailsResponsePtrOutput)
+}
+
+func (o ProtectionStatusDetailsResponseOutput) ErrorDetails() UserFacingErrorResponsePtrOutput {
+	return o.ApplyT(func(v ProtectionStatusDetailsResponse) *UserFacingErrorResponse { return v.ErrorDetails }).(UserFacingErrorResponsePtrOutput)
+}
+
+func (o ProtectionStatusDetailsResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProtectionStatusDetailsResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ProtectionStatusDetailsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ProtectionStatusDetailsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProtectionStatusDetailsResponse)(nil)).Elem()
+}
+
+func (o ProtectionStatusDetailsResponsePtrOutput) ToProtectionStatusDetailsResponsePtrOutput() ProtectionStatusDetailsResponsePtrOutput {
+	return o
+}
+
+func (o ProtectionStatusDetailsResponsePtrOutput) ToProtectionStatusDetailsResponsePtrOutputWithContext(ctx context.Context) ProtectionStatusDetailsResponsePtrOutput {
+	return o
+}
+
+func (o ProtectionStatusDetailsResponsePtrOutput) Elem() ProtectionStatusDetailsResponseOutput {
+	return o.ApplyT(func(v *ProtectionStatusDetailsResponse) ProtectionStatusDetailsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ProtectionStatusDetailsResponse
+		return ret
+	}).(ProtectionStatusDetailsResponseOutput)
+}
+
+func (o ProtectionStatusDetailsResponsePtrOutput) ErrorDetails() UserFacingErrorResponsePtrOutput {
+	return o.ApplyT(func(v *ProtectionStatusDetailsResponse) *UserFacingErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorDetails
+	}).(UserFacingErrorResponsePtrOutput)
+}
+
+func (o ProtectionStatusDetailsResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProtectionStatusDetailsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type RetentionTag struct {
+	TagName string `pulumi:"tagName"`
+}
+
+
+
+
+
+type RetentionTagInput interface {
+	pulumi.Input
+
+	ToRetentionTagOutput() RetentionTagOutput
+	ToRetentionTagOutputWithContext(context.Context) RetentionTagOutput
+}
+
+type RetentionTagArgs struct {
+	TagName pulumi.StringInput `pulumi:"tagName"`
+}
+
+func (RetentionTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionTag)(nil)).Elem()
+}
+
+func (i RetentionTagArgs) ToRetentionTagOutput() RetentionTagOutput {
+	return i.ToRetentionTagOutputWithContext(context.Background())
+}
+
+func (i RetentionTagArgs) ToRetentionTagOutputWithContext(ctx context.Context) RetentionTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionTagOutput)
+}
+
+func (i RetentionTagArgs) ToRetentionTagPtrOutput() RetentionTagPtrOutput {
+	return i.ToRetentionTagPtrOutputWithContext(context.Background())
+}
+
+func (i RetentionTagArgs) ToRetentionTagPtrOutputWithContext(ctx context.Context) RetentionTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionTagOutput).ToRetentionTagPtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type RetentionTagPtrInput interface {
+	pulumi.Input
+
+	ToRetentionTagPtrOutput() RetentionTagPtrOutput
+	ToRetentionTagPtrOutputWithContext(context.Context) RetentionTagPtrOutput
+}
+
+type retentionTagPtrType RetentionTagArgs
+
+func RetentionTagPtr(v *RetentionTagArgs) RetentionTagPtrInput {
+	return (*retentionTagPtrType)(v)
+}
+
+func (*retentionTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionTag)(nil)).Elem()
+}
+
+func (i *retentionTagPtrType) ToRetentionTagPtrOutput() RetentionTagPtrOutput {
+	return i.ToRetentionTagPtrOutputWithContext(context.Background())
+}
+
+func (i *retentionTagPtrType) ToRetentionTagPtrOutputWithContext(ctx context.Context) RetentionTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionTagPtrOutput)
+}
+
+type RetentionTagOutput struct{ *pulumi.OutputState }
+
+func (RetentionTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionTag)(nil)).Elem()
+}
+
+func (o RetentionTagOutput) ToRetentionTagOutput() RetentionTagOutput {
+	return o
+}
+
+func (o RetentionTagOutput) ToRetentionTagOutputWithContext(ctx context.Context) RetentionTagOutput {
+	return o
+}
+
+func (o RetentionTagOutput) ToRetentionTagPtrOutput() RetentionTagPtrOutput {
+	return o.ToRetentionTagPtrOutputWithContext(context.Background())
+}
+
+func (o RetentionTagOutput) ToRetentionTagPtrOutputWithContext(ctx context.Context) RetentionTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionTag) *RetentionTag {
+		return &v
+	}).(RetentionTagPtrOutput)
+}
+
+func (o RetentionTagOutput) TagName() pulumi.StringOutput {
+	return o.ApplyT(func(v RetentionTag) string { return v.TagName }).(pulumi.StringOutput)
+}
+
+type RetentionTagPtrOutput struct{ *pulumi.OutputState }
+
+func (RetentionTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionTag)(nil)).Elem()
+}
+
+func (o RetentionTagPtrOutput) ToRetentionTagPtrOutput() RetentionTagPtrOutput {
+	return o
+}
+
+func (o RetentionTagPtrOutput) ToRetentionTagPtrOutputWithContext(ctx context.Context) RetentionTagPtrOutput {
+	return o
+}
+
+func (o RetentionTagPtrOutput) Elem() RetentionTagOutput {
+	return o.ApplyT(func(v *RetentionTag) RetentionTag {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionTag
+		return ret
+	}).(RetentionTagOutput)
+}
+
+func (o RetentionTagPtrOutput) TagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetentionTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TagName
+	}).(pulumi.StringPtrOutput)
+}
+
+type RetentionTagResponse struct {
+	ETag    string `pulumi:"eTag"`
+	Id      string `pulumi:"id"`
+	TagName string `pulumi:"tagName"`
+}
+
+
+
+
+
+type RetentionTagResponseInput interface {
+	pulumi.Input
+
+	ToRetentionTagResponseOutput() RetentionTagResponseOutput
+	ToRetentionTagResponseOutputWithContext(context.Context) RetentionTagResponseOutput
+}
+
+type RetentionTagResponseArgs struct {
+	ETag    pulumi.StringInput `pulumi:"eTag"`
+	Id      pulumi.StringInput `pulumi:"id"`
+	TagName pulumi.StringInput `pulumi:"tagName"`
+}
+
+func (RetentionTagResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionTagResponse)(nil)).Elem()
+}
+
+func (i RetentionTagResponseArgs) ToRetentionTagResponseOutput() RetentionTagResponseOutput {
+	return i.ToRetentionTagResponseOutputWithContext(context.Background())
+}
+
+func (i RetentionTagResponseArgs) ToRetentionTagResponseOutputWithContext(ctx context.Context) RetentionTagResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionTagResponseOutput)
+}
+
+func (i RetentionTagResponseArgs) ToRetentionTagResponsePtrOutput() RetentionTagResponsePtrOutput {
+	return i.ToRetentionTagResponsePtrOutputWithContext(context.Background())
+}
+
+func (i RetentionTagResponseArgs) ToRetentionTagResponsePtrOutputWithContext(ctx context.Context) RetentionTagResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionTagResponseOutput).ToRetentionTagResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type RetentionTagResponsePtrInput interface {
+	pulumi.Input
+
+	ToRetentionTagResponsePtrOutput() RetentionTagResponsePtrOutput
+	ToRetentionTagResponsePtrOutputWithContext(context.Context) RetentionTagResponsePtrOutput
+}
+
+type retentionTagResponsePtrType RetentionTagResponseArgs
+
+func RetentionTagResponsePtr(v *RetentionTagResponseArgs) RetentionTagResponsePtrInput {
+	return (*retentionTagResponsePtrType)(v)
+}
+
+func (*retentionTagResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionTagResponse)(nil)).Elem()
+}
+
+func (i *retentionTagResponsePtrType) ToRetentionTagResponsePtrOutput() RetentionTagResponsePtrOutput {
+	return i.ToRetentionTagResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *retentionTagResponsePtrType) ToRetentionTagResponsePtrOutputWithContext(ctx context.Context) RetentionTagResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RetentionTagResponsePtrOutput)
+}
+
+type RetentionTagResponseOutput struct{ *pulumi.OutputState }
+
+func (RetentionTagResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RetentionTagResponse)(nil)).Elem()
+}
+
+func (o RetentionTagResponseOutput) ToRetentionTagResponseOutput() RetentionTagResponseOutput {
+	return o
+}
+
+func (o RetentionTagResponseOutput) ToRetentionTagResponseOutputWithContext(ctx context.Context) RetentionTagResponseOutput {
+	return o
+}
+
+func (o RetentionTagResponseOutput) ToRetentionTagResponsePtrOutput() RetentionTagResponsePtrOutput {
+	return o.ToRetentionTagResponsePtrOutputWithContext(context.Background())
+}
+
+func (o RetentionTagResponseOutput) ToRetentionTagResponsePtrOutputWithContext(ctx context.Context) RetentionTagResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionTagResponse) *RetentionTagResponse {
+		return &v
+	}).(RetentionTagResponsePtrOutput)
+}
+
+func (o RetentionTagResponseOutput) ETag() pulumi.StringOutput {
+	return o.ApplyT(func(v RetentionTagResponse) string { return v.ETag }).(pulumi.StringOutput)
+}
+
+func (o RetentionTagResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RetentionTagResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o RetentionTagResponseOutput) TagName() pulumi.StringOutput {
+	return o.ApplyT(func(v RetentionTagResponse) string { return v.TagName }).(pulumi.StringOutput)
+}
+
+type RetentionTagResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (RetentionTagResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RetentionTagResponse)(nil)).Elem()
+}
+
+func (o RetentionTagResponsePtrOutput) ToRetentionTagResponsePtrOutput() RetentionTagResponsePtrOutput {
+	return o
+}
+
+func (o RetentionTagResponsePtrOutput) ToRetentionTagResponsePtrOutputWithContext(ctx context.Context) RetentionTagResponsePtrOutput {
+	return o
+}
+
+func (o RetentionTagResponsePtrOutput) Elem() RetentionTagResponseOutput {
+	return o.ApplyT(func(v *RetentionTagResponse) RetentionTagResponse {
+		if v != nil {
+			return *v
+		}
+		var ret RetentionTagResponse
+		return ret
+	}).(RetentionTagResponseOutput)
+}
+
+func (o RetentionTagResponsePtrOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetentionTagResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ETag
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RetentionTagResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetentionTagResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RetentionTagResponsePtrOutput) TagName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RetentionTagResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TagName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScheduleBasedBackupCriteria struct {
+	AbsoluteCriteria []string `pulumi:"absoluteCriteria"`
+	DaysOfMonth      []Day    `pulumi:"daysOfMonth"`
+	DaysOfTheWeek    []string `pulumi:"daysOfTheWeek"`
+	MonthsOfYear     []string `pulumi:"monthsOfYear"`
+	ObjectType       string   `pulumi:"objectType"`
+	ScheduleTimes    []string `pulumi:"scheduleTimes"`
+	WeeksOfTheMonth  []string `pulumi:"weeksOfTheMonth"`
+}
+
+
+
+
+
+type ScheduleBasedBackupCriteriaInput interface {
+	pulumi.Input
+
+	ToScheduleBasedBackupCriteriaOutput() ScheduleBasedBackupCriteriaOutput
+	ToScheduleBasedBackupCriteriaOutputWithContext(context.Context) ScheduleBasedBackupCriteriaOutput
+}
+
+type ScheduleBasedBackupCriteriaArgs struct {
+	AbsoluteCriteria pulumi.StringArrayInput `pulumi:"absoluteCriteria"`
+	DaysOfMonth      DayArrayInput           `pulumi:"daysOfMonth"`
+	DaysOfTheWeek    pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
+	MonthsOfYear     pulumi.StringArrayInput `pulumi:"monthsOfYear"`
+	ObjectType       pulumi.StringInput      `pulumi:"objectType"`
+	ScheduleTimes    pulumi.StringArrayInput `pulumi:"scheduleTimes"`
+	WeeksOfTheMonth  pulumi.StringArrayInput `pulumi:"weeksOfTheMonth"`
+}
+
+func (ScheduleBasedBackupCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleBasedBackupCriteria)(nil)).Elem()
+}
+
+func (i ScheduleBasedBackupCriteriaArgs) ToScheduleBasedBackupCriteriaOutput() ScheduleBasedBackupCriteriaOutput {
+	return i.ToScheduleBasedBackupCriteriaOutputWithContext(context.Background())
+}
+
+func (i ScheduleBasedBackupCriteriaArgs) ToScheduleBasedBackupCriteriaOutputWithContext(ctx context.Context) ScheduleBasedBackupCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleBasedBackupCriteriaOutput)
+}
+
+
+
+
+
+type ScheduleBasedBackupCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToScheduleBasedBackupCriteriaArrayOutput() ScheduleBasedBackupCriteriaArrayOutput
+	ToScheduleBasedBackupCriteriaArrayOutputWithContext(context.Context) ScheduleBasedBackupCriteriaArrayOutput
+}
+
+type ScheduleBasedBackupCriteriaArray []ScheduleBasedBackupCriteriaInput
+
+func (ScheduleBasedBackupCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleBasedBackupCriteria)(nil)).Elem()
+}
+
+func (i ScheduleBasedBackupCriteriaArray) ToScheduleBasedBackupCriteriaArrayOutput() ScheduleBasedBackupCriteriaArrayOutput {
+	return i.ToScheduleBasedBackupCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduleBasedBackupCriteriaArray) ToScheduleBasedBackupCriteriaArrayOutputWithContext(ctx context.Context) ScheduleBasedBackupCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleBasedBackupCriteriaArrayOutput)
+}
+
+type ScheduleBasedBackupCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ScheduleBasedBackupCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleBasedBackupCriteria)(nil)).Elem()
+}
+
+func (o ScheduleBasedBackupCriteriaOutput) ToScheduleBasedBackupCriteriaOutput() ScheduleBasedBackupCriteriaOutput {
+	return o
+}
+
+func (o ScheduleBasedBackupCriteriaOutput) ToScheduleBasedBackupCriteriaOutputWithContext(ctx context.Context) ScheduleBasedBackupCriteriaOutput {
+	return o
+}
+
+func (o ScheduleBasedBackupCriteriaOutput) AbsoluteCriteria() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteria) []string { return v.AbsoluteCriteria }).(pulumi.StringArrayOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaOutput) DaysOfMonth() DayArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteria) []Day { return v.DaysOfMonth }).(DayArrayOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteria) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaOutput) MonthsOfYear() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteria) []string { return v.MonthsOfYear }).(pulumi.StringArrayOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteria) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaOutput) ScheduleTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteria) []string { return v.ScheduleTimes }).(pulumi.StringArrayOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteria) []string { return v.WeeksOfTheMonth }).(pulumi.StringArrayOutput)
+}
+
+type ScheduleBasedBackupCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduleBasedBackupCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleBasedBackupCriteria)(nil)).Elem()
+}
+
+func (o ScheduleBasedBackupCriteriaArrayOutput) ToScheduleBasedBackupCriteriaArrayOutput() ScheduleBasedBackupCriteriaArrayOutput {
+	return o
+}
+
+func (o ScheduleBasedBackupCriteriaArrayOutput) ToScheduleBasedBackupCriteriaArrayOutputWithContext(ctx context.Context) ScheduleBasedBackupCriteriaArrayOutput {
+	return o
+}
+
+func (o ScheduleBasedBackupCriteriaArrayOutput) Index(i pulumi.IntInput) ScheduleBasedBackupCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleBasedBackupCriteria {
+		return vs[0].([]ScheduleBasedBackupCriteria)[vs[1].(int)]
+	}).(ScheduleBasedBackupCriteriaOutput)
+}
+
+type ScheduleBasedBackupCriteriaResponse struct {
+	AbsoluteCriteria []string      `pulumi:"absoluteCriteria"`
+	DaysOfMonth      []DayResponse `pulumi:"daysOfMonth"`
+	DaysOfTheWeek    []string      `pulumi:"daysOfTheWeek"`
+	MonthsOfYear     []string      `pulumi:"monthsOfYear"`
+	ObjectType       string        `pulumi:"objectType"`
+	ScheduleTimes    []string      `pulumi:"scheduleTimes"`
+	WeeksOfTheMonth  []string      `pulumi:"weeksOfTheMonth"`
+}
+
+
+
+
+
+type ScheduleBasedBackupCriteriaResponseInput interface {
+	pulumi.Input
+
+	ToScheduleBasedBackupCriteriaResponseOutput() ScheduleBasedBackupCriteriaResponseOutput
+	ToScheduleBasedBackupCriteriaResponseOutputWithContext(context.Context) ScheduleBasedBackupCriteriaResponseOutput
+}
+
+type ScheduleBasedBackupCriteriaResponseArgs struct {
+	AbsoluteCriteria pulumi.StringArrayInput `pulumi:"absoluteCriteria"`
+	DaysOfMonth      DayResponseArrayInput   `pulumi:"daysOfMonth"`
+	DaysOfTheWeek    pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
+	MonthsOfYear     pulumi.StringArrayInput `pulumi:"monthsOfYear"`
+	ObjectType       pulumi.StringInput      `pulumi:"objectType"`
+	ScheduleTimes    pulumi.StringArrayInput `pulumi:"scheduleTimes"`
+	WeeksOfTheMonth  pulumi.StringArrayInput `pulumi:"weeksOfTheMonth"`
+}
+
+func (ScheduleBasedBackupCriteriaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleBasedBackupCriteriaResponse)(nil)).Elem()
+}
+
+func (i ScheduleBasedBackupCriteriaResponseArgs) ToScheduleBasedBackupCriteriaResponseOutput() ScheduleBasedBackupCriteriaResponseOutput {
+	return i.ToScheduleBasedBackupCriteriaResponseOutputWithContext(context.Background())
+}
+
+func (i ScheduleBasedBackupCriteriaResponseArgs) ToScheduleBasedBackupCriteriaResponseOutputWithContext(ctx context.Context) ScheduleBasedBackupCriteriaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleBasedBackupCriteriaResponseOutput)
+}
+
+
+
+
+
+type ScheduleBasedBackupCriteriaResponseArrayInput interface {
+	pulumi.Input
+
+	ToScheduleBasedBackupCriteriaResponseArrayOutput() ScheduleBasedBackupCriteriaResponseArrayOutput
+	ToScheduleBasedBackupCriteriaResponseArrayOutputWithContext(context.Context) ScheduleBasedBackupCriteriaResponseArrayOutput
+}
+
+type ScheduleBasedBackupCriteriaResponseArray []ScheduleBasedBackupCriteriaResponseInput
+
+func (ScheduleBasedBackupCriteriaResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleBasedBackupCriteriaResponse)(nil)).Elem()
+}
+
+func (i ScheduleBasedBackupCriteriaResponseArray) ToScheduleBasedBackupCriteriaResponseArrayOutput() ScheduleBasedBackupCriteriaResponseArrayOutput {
+	return i.ToScheduleBasedBackupCriteriaResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduleBasedBackupCriteriaResponseArray) ToScheduleBasedBackupCriteriaResponseArrayOutputWithContext(ctx context.Context) ScheduleBasedBackupCriteriaResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleBasedBackupCriteriaResponseArrayOutput)
+}
+
+type ScheduleBasedBackupCriteriaResponseOutput struct{ *pulumi.OutputState }
+
+func (ScheduleBasedBackupCriteriaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleBasedBackupCriteriaResponse)(nil)).Elem()
+}
+
+func (o ScheduleBasedBackupCriteriaResponseOutput) ToScheduleBasedBackupCriteriaResponseOutput() ScheduleBasedBackupCriteriaResponseOutput {
+	return o
+}
+
+func (o ScheduleBasedBackupCriteriaResponseOutput) ToScheduleBasedBackupCriteriaResponseOutputWithContext(ctx context.Context) ScheduleBasedBackupCriteriaResponseOutput {
+	return o
+}
+
+func (o ScheduleBasedBackupCriteriaResponseOutput) AbsoluteCriteria() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteriaResponse) []string { return v.AbsoluteCriteria }).(pulumi.StringArrayOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaResponseOutput) DaysOfMonth() DayResponseArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteriaResponse) []DayResponse { return v.DaysOfMonth }).(DayResponseArrayOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaResponseOutput) DaysOfTheWeek() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteriaResponse) []string { return v.DaysOfTheWeek }).(pulumi.StringArrayOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaResponseOutput) MonthsOfYear() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteriaResponse) []string { return v.MonthsOfYear }).(pulumi.StringArrayOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteriaResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaResponseOutput) ScheduleTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteriaResponse) []string { return v.ScheduleTimes }).(pulumi.StringArrayOutput)
+}
+
+func (o ScheduleBasedBackupCriteriaResponseOutput) WeeksOfTheMonth() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedBackupCriteriaResponse) []string { return v.WeeksOfTheMonth }).(pulumi.StringArrayOutput)
+}
+
+type ScheduleBasedBackupCriteriaResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduleBasedBackupCriteriaResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduleBasedBackupCriteriaResponse)(nil)).Elem()
+}
+
+func (o ScheduleBasedBackupCriteriaResponseArrayOutput) ToScheduleBasedBackupCriteriaResponseArrayOutput() ScheduleBasedBackupCriteriaResponseArrayOutput {
+	return o
+}
+
+func (o ScheduleBasedBackupCriteriaResponseArrayOutput) ToScheduleBasedBackupCriteriaResponseArrayOutputWithContext(ctx context.Context) ScheduleBasedBackupCriteriaResponseArrayOutput {
+	return o
+}
+
+func (o ScheduleBasedBackupCriteriaResponseArrayOutput) Index(i pulumi.IntInput) ScheduleBasedBackupCriteriaResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduleBasedBackupCriteriaResponse {
+		return vs[0].([]ScheduleBasedBackupCriteriaResponse)[vs[1].(int)]
+	}).(ScheduleBasedBackupCriteriaResponseOutput)
+}
+
+type ScheduleBasedTriggerContext struct {
+	ObjectType      string            `pulumi:"objectType"`
+	Schedule        BackupSchedule    `pulumi:"schedule"`
+	TaggingCriteria []TaggingCriteria `pulumi:"taggingCriteria"`
+}
+
+
+
+
+
+type ScheduleBasedTriggerContextInput interface {
+	pulumi.Input
+
+	ToScheduleBasedTriggerContextOutput() ScheduleBasedTriggerContextOutput
+	ToScheduleBasedTriggerContextOutputWithContext(context.Context) ScheduleBasedTriggerContextOutput
+}
+
+type ScheduleBasedTriggerContextArgs struct {
+	ObjectType      pulumi.StringInput        `pulumi:"objectType"`
+	Schedule        BackupScheduleInput       `pulumi:"schedule"`
+	TaggingCriteria TaggingCriteriaArrayInput `pulumi:"taggingCriteria"`
+}
+
+func (ScheduleBasedTriggerContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleBasedTriggerContext)(nil)).Elem()
+}
+
+func (i ScheduleBasedTriggerContextArgs) ToScheduleBasedTriggerContextOutput() ScheduleBasedTriggerContextOutput {
+	return i.ToScheduleBasedTriggerContextOutputWithContext(context.Background())
+}
+
+func (i ScheduleBasedTriggerContextArgs) ToScheduleBasedTriggerContextOutputWithContext(ctx context.Context) ScheduleBasedTriggerContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleBasedTriggerContextOutput)
+}
+
+type ScheduleBasedTriggerContextOutput struct{ *pulumi.OutputState }
+
+func (ScheduleBasedTriggerContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleBasedTriggerContext)(nil)).Elem()
+}
+
+func (o ScheduleBasedTriggerContextOutput) ToScheduleBasedTriggerContextOutput() ScheduleBasedTriggerContextOutput {
+	return o
+}
+
+func (o ScheduleBasedTriggerContextOutput) ToScheduleBasedTriggerContextOutputWithContext(ctx context.Context) ScheduleBasedTriggerContextOutput {
+	return o
+}
+
+func (o ScheduleBasedTriggerContextOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleBasedTriggerContext) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o ScheduleBasedTriggerContextOutput) Schedule() BackupScheduleOutput {
+	return o.ApplyT(func(v ScheduleBasedTriggerContext) BackupSchedule { return v.Schedule }).(BackupScheduleOutput)
+}
+
+func (o ScheduleBasedTriggerContextOutput) TaggingCriteria() TaggingCriteriaArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedTriggerContext) []TaggingCriteria { return v.TaggingCriteria }).(TaggingCriteriaArrayOutput)
+}
+
+type ScheduleBasedTriggerContextResponse struct {
+	ObjectType      string                    `pulumi:"objectType"`
+	Schedule        BackupScheduleResponse    `pulumi:"schedule"`
+	TaggingCriteria []TaggingCriteriaResponse `pulumi:"taggingCriteria"`
+}
+
+
+
+
+
+type ScheduleBasedTriggerContextResponseInput interface {
+	pulumi.Input
+
+	ToScheduleBasedTriggerContextResponseOutput() ScheduleBasedTriggerContextResponseOutput
+	ToScheduleBasedTriggerContextResponseOutputWithContext(context.Context) ScheduleBasedTriggerContextResponseOutput
+}
+
+type ScheduleBasedTriggerContextResponseArgs struct {
+	ObjectType      pulumi.StringInput                `pulumi:"objectType"`
+	Schedule        BackupScheduleResponseInput       `pulumi:"schedule"`
+	TaggingCriteria TaggingCriteriaResponseArrayInput `pulumi:"taggingCriteria"`
+}
+
+func (ScheduleBasedTriggerContextResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleBasedTriggerContextResponse)(nil)).Elem()
+}
+
+func (i ScheduleBasedTriggerContextResponseArgs) ToScheduleBasedTriggerContextResponseOutput() ScheduleBasedTriggerContextResponseOutput {
+	return i.ToScheduleBasedTriggerContextResponseOutputWithContext(context.Background())
+}
+
+func (i ScheduleBasedTriggerContextResponseArgs) ToScheduleBasedTriggerContextResponseOutputWithContext(ctx context.Context) ScheduleBasedTriggerContextResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduleBasedTriggerContextResponseOutput)
+}
+
+type ScheduleBasedTriggerContextResponseOutput struct{ *pulumi.OutputState }
+
+func (ScheduleBasedTriggerContextResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduleBasedTriggerContextResponse)(nil)).Elem()
+}
+
+func (o ScheduleBasedTriggerContextResponseOutput) ToScheduleBasedTriggerContextResponseOutput() ScheduleBasedTriggerContextResponseOutput {
+	return o
+}
+
+func (o ScheduleBasedTriggerContextResponseOutput) ToScheduleBasedTriggerContextResponseOutputWithContext(ctx context.Context) ScheduleBasedTriggerContextResponseOutput {
+	return o
+}
+
+func (o ScheduleBasedTriggerContextResponseOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduleBasedTriggerContextResponse) string { return v.ObjectType }).(pulumi.StringOutput)
+}
+
+func (o ScheduleBasedTriggerContextResponseOutput) Schedule() BackupScheduleResponseOutput {
+	return o.ApplyT(func(v ScheduleBasedTriggerContextResponse) BackupScheduleResponse { return v.Schedule }).(BackupScheduleResponseOutput)
+}
+
+func (o ScheduleBasedTriggerContextResponseOutput) TaggingCriteria() TaggingCriteriaResponseArrayOutput {
+	return o.ApplyT(func(v ScheduleBasedTriggerContextResponse) []TaggingCriteriaResponse { return v.TaggingCriteria }).(TaggingCriteriaResponseArrayOutput)
+}
+
+type SourceLifeCycle struct {
+	DeleteAfter                 AbsoluteDeleteOption `pulumi:"deleteAfter"`
+	SourceDataStore             DataStoreInfoBase    `pulumi:"sourceDataStore"`
+	TargetDataStoreCopySettings []TargetCopySetting  `pulumi:"targetDataStoreCopySettings"`
+}
+
+
+
+
+
+type SourceLifeCycleInput interface {
+	pulumi.Input
+
+	ToSourceLifeCycleOutput() SourceLifeCycleOutput
+	ToSourceLifeCycleOutputWithContext(context.Context) SourceLifeCycleOutput
+}
+
+type SourceLifeCycleArgs struct {
+	DeleteAfter                 AbsoluteDeleteOptionInput   `pulumi:"deleteAfter"`
+	SourceDataStore             DataStoreInfoBaseInput      `pulumi:"sourceDataStore"`
+	TargetDataStoreCopySettings TargetCopySettingArrayInput `pulumi:"targetDataStoreCopySettings"`
+}
+
+func (SourceLifeCycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLifeCycle)(nil)).Elem()
+}
+
+func (i SourceLifeCycleArgs) ToSourceLifeCycleOutput() SourceLifeCycleOutput {
+	return i.ToSourceLifeCycleOutputWithContext(context.Background())
+}
+
+func (i SourceLifeCycleArgs) ToSourceLifeCycleOutputWithContext(ctx context.Context) SourceLifeCycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLifeCycleOutput)
+}
+
+
+
+
+
+type SourceLifeCycleArrayInput interface {
+	pulumi.Input
+
+	ToSourceLifeCycleArrayOutput() SourceLifeCycleArrayOutput
+	ToSourceLifeCycleArrayOutputWithContext(context.Context) SourceLifeCycleArrayOutput
+}
+
+type SourceLifeCycleArray []SourceLifeCycleInput
+
+func (SourceLifeCycleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceLifeCycle)(nil)).Elem()
+}
+
+func (i SourceLifeCycleArray) ToSourceLifeCycleArrayOutput() SourceLifeCycleArrayOutput {
+	return i.ToSourceLifeCycleArrayOutputWithContext(context.Background())
+}
+
+func (i SourceLifeCycleArray) ToSourceLifeCycleArrayOutputWithContext(ctx context.Context) SourceLifeCycleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLifeCycleArrayOutput)
+}
+
+type SourceLifeCycleOutput struct{ *pulumi.OutputState }
+
+func (SourceLifeCycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLifeCycle)(nil)).Elem()
+}
+
+func (o SourceLifeCycleOutput) ToSourceLifeCycleOutput() SourceLifeCycleOutput {
+	return o
+}
+
+func (o SourceLifeCycleOutput) ToSourceLifeCycleOutputWithContext(ctx context.Context) SourceLifeCycleOutput {
+	return o
+}
+
+func (o SourceLifeCycleOutput) DeleteAfter() AbsoluteDeleteOptionOutput {
+	return o.ApplyT(func(v SourceLifeCycle) AbsoluteDeleteOption { return v.DeleteAfter }).(AbsoluteDeleteOptionOutput)
+}
+
+func (o SourceLifeCycleOutput) SourceDataStore() DataStoreInfoBaseOutput {
+	return o.ApplyT(func(v SourceLifeCycle) DataStoreInfoBase { return v.SourceDataStore }).(DataStoreInfoBaseOutput)
+}
+
+func (o SourceLifeCycleOutput) TargetDataStoreCopySettings() TargetCopySettingArrayOutput {
+	return o.ApplyT(func(v SourceLifeCycle) []TargetCopySetting { return v.TargetDataStoreCopySettings }).(TargetCopySettingArrayOutput)
+}
+
+type SourceLifeCycleArrayOutput struct{ *pulumi.OutputState }
+
+func (SourceLifeCycleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceLifeCycle)(nil)).Elem()
+}
+
+func (o SourceLifeCycleArrayOutput) ToSourceLifeCycleArrayOutput() SourceLifeCycleArrayOutput {
+	return o
+}
+
+func (o SourceLifeCycleArrayOutput) ToSourceLifeCycleArrayOutputWithContext(ctx context.Context) SourceLifeCycleArrayOutput {
+	return o
+}
+
+func (o SourceLifeCycleArrayOutput) Index(i pulumi.IntInput) SourceLifeCycleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceLifeCycle {
+		return vs[0].([]SourceLifeCycle)[vs[1].(int)]
+	}).(SourceLifeCycleOutput)
+}
+
+type SourceLifeCycleResponse struct {
+	DeleteAfter                 AbsoluteDeleteOptionResponse `pulumi:"deleteAfter"`
+	SourceDataStore             DataStoreInfoBaseResponse    `pulumi:"sourceDataStore"`
+	TargetDataStoreCopySettings []TargetCopySettingResponse  `pulumi:"targetDataStoreCopySettings"`
+}
+
+
+
+
+
+type SourceLifeCycleResponseInput interface {
+	pulumi.Input
+
+	ToSourceLifeCycleResponseOutput() SourceLifeCycleResponseOutput
+	ToSourceLifeCycleResponseOutputWithContext(context.Context) SourceLifeCycleResponseOutput
+}
+
+type SourceLifeCycleResponseArgs struct {
+	DeleteAfter                 AbsoluteDeleteOptionResponseInput   `pulumi:"deleteAfter"`
+	SourceDataStore             DataStoreInfoBaseResponseInput      `pulumi:"sourceDataStore"`
+	TargetDataStoreCopySettings TargetCopySettingResponseArrayInput `pulumi:"targetDataStoreCopySettings"`
+}
+
+func (SourceLifeCycleResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLifeCycleResponse)(nil)).Elem()
+}
+
+func (i SourceLifeCycleResponseArgs) ToSourceLifeCycleResponseOutput() SourceLifeCycleResponseOutput {
+	return i.ToSourceLifeCycleResponseOutputWithContext(context.Background())
+}
+
+func (i SourceLifeCycleResponseArgs) ToSourceLifeCycleResponseOutputWithContext(ctx context.Context) SourceLifeCycleResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLifeCycleResponseOutput)
+}
+
+
+
+
+
+type SourceLifeCycleResponseArrayInput interface {
+	pulumi.Input
+
+	ToSourceLifeCycleResponseArrayOutput() SourceLifeCycleResponseArrayOutput
+	ToSourceLifeCycleResponseArrayOutputWithContext(context.Context) SourceLifeCycleResponseArrayOutput
+}
+
+type SourceLifeCycleResponseArray []SourceLifeCycleResponseInput
+
+func (SourceLifeCycleResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceLifeCycleResponse)(nil)).Elem()
+}
+
+func (i SourceLifeCycleResponseArray) ToSourceLifeCycleResponseArrayOutput() SourceLifeCycleResponseArrayOutput {
+	return i.ToSourceLifeCycleResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SourceLifeCycleResponseArray) ToSourceLifeCycleResponseArrayOutputWithContext(ctx context.Context) SourceLifeCycleResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceLifeCycleResponseArrayOutput)
+}
+
+type SourceLifeCycleResponseOutput struct{ *pulumi.OutputState }
+
+func (SourceLifeCycleResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceLifeCycleResponse)(nil)).Elem()
+}
+
+func (o SourceLifeCycleResponseOutput) ToSourceLifeCycleResponseOutput() SourceLifeCycleResponseOutput {
+	return o
+}
+
+func (o SourceLifeCycleResponseOutput) ToSourceLifeCycleResponseOutputWithContext(ctx context.Context) SourceLifeCycleResponseOutput {
+	return o
+}
+
+func (o SourceLifeCycleResponseOutput) DeleteAfter() AbsoluteDeleteOptionResponseOutput {
+	return o.ApplyT(func(v SourceLifeCycleResponse) AbsoluteDeleteOptionResponse { return v.DeleteAfter }).(AbsoluteDeleteOptionResponseOutput)
+}
+
+func (o SourceLifeCycleResponseOutput) SourceDataStore() DataStoreInfoBaseResponseOutput {
+	return o.ApplyT(func(v SourceLifeCycleResponse) DataStoreInfoBaseResponse { return v.SourceDataStore }).(DataStoreInfoBaseResponseOutput)
+}
+
+func (o SourceLifeCycleResponseOutput) TargetDataStoreCopySettings() TargetCopySettingResponseArrayOutput {
+	return o.ApplyT(func(v SourceLifeCycleResponse) []TargetCopySettingResponse { return v.TargetDataStoreCopySettings }).(TargetCopySettingResponseArrayOutput)
+}
+
+type SourceLifeCycleResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SourceLifeCycleResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SourceLifeCycleResponse)(nil)).Elem()
+}
+
+func (o SourceLifeCycleResponseArrayOutput) ToSourceLifeCycleResponseArrayOutput() SourceLifeCycleResponseArrayOutput {
+	return o
+}
+
+func (o SourceLifeCycleResponseArrayOutput) ToSourceLifeCycleResponseArrayOutputWithContext(ctx context.Context) SourceLifeCycleResponseArrayOutput {
+	return o
+}
+
+func (o SourceLifeCycleResponseArrayOutput) Index(i pulumi.IntInput) SourceLifeCycleResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SourceLifeCycleResponse {
+		return vs[0].([]SourceLifeCycleResponse)[vs[1].(int)]
+	}).(SourceLifeCycleResponseOutput)
+}
+
+type StorageSetting struct {
+	DatastoreType *string `pulumi:"datastoreType"`
+	Type          *string `pulumi:"type"`
+}
+
+
+
+
+
+type StorageSettingInput interface {
+	pulumi.Input
+
+	ToStorageSettingOutput() StorageSettingOutput
+	ToStorageSettingOutputWithContext(context.Context) StorageSettingOutput
+}
+
+type StorageSettingArgs struct {
+	DatastoreType pulumi.StringPtrInput `pulumi:"datastoreType"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (StorageSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSetting)(nil)).Elem()
+}
+
+func (i StorageSettingArgs) ToStorageSettingOutput() StorageSettingOutput {
+	return i.ToStorageSettingOutputWithContext(context.Background())
+}
+
+func (i StorageSettingArgs) ToStorageSettingOutputWithContext(ctx context.Context) StorageSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSettingOutput)
+}
+
+
+
+
+
+type StorageSettingArrayInput interface {
+	pulumi.Input
+
+	ToStorageSettingArrayOutput() StorageSettingArrayOutput
+	ToStorageSettingArrayOutputWithContext(context.Context) StorageSettingArrayOutput
+}
+
+type StorageSettingArray []StorageSettingInput
+
+func (StorageSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageSetting)(nil)).Elem()
+}
+
+func (i StorageSettingArray) ToStorageSettingArrayOutput() StorageSettingArrayOutput {
+	return i.ToStorageSettingArrayOutputWithContext(context.Background())
+}
+
+func (i StorageSettingArray) ToStorageSettingArrayOutputWithContext(ctx context.Context) StorageSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSettingArrayOutput)
+}
+
+type StorageSettingOutput struct{ *pulumi.OutputState }
+
+func (StorageSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSetting)(nil)).Elem()
+}
+
+func (o StorageSettingOutput) ToStorageSettingOutput() StorageSettingOutput {
+	return o
+}
+
+func (o StorageSettingOutput) ToStorageSettingOutputWithContext(ctx context.Context) StorageSettingOutput {
+	return o
+}
+
+func (o StorageSettingOutput) DatastoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageSetting) *string { return v.DatastoreType }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageSettingOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageSetting) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type StorageSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageSetting)(nil)).Elem()
+}
+
+func (o StorageSettingArrayOutput) ToStorageSettingArrayOutput() StorageSettingArrayOutput {
+	return o
+}
+
+func (o StorageSettingArrayOutput) ToStorageSettingArrayOutputWithContext(ctx context.Context) StorageSettingArrayOutput {
+	return o
+}
+
+func (o StorageSettingArrayOutput) Index(i pulumi.IntInput) StorageSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageSetting {
+		return vs[0].([]StorageSetting)[vs[1].(int)]
+	}).(StorageSettingOutput)
+}
+
+type StorageSettingResponse struct {
+	DatastoreType *string `pulumi:"datastoreType"`
+	Type          *string `pulumi:"type"`
+}
+
+
+
+
+
+type StorageSettingResponseInput interface {
+	pulumi.Input
+
+	ToStorageSettingResponseOutput() StorageSettingResponseOutput
+	ToStorageSettingResponseOutputWithContext(context.Context) StorageSettingResponseOutput
+}
+
+type StorageSettingResponseArgs struct {
+	DatastoreType pulumi.StringPtrInput `pulumi:"datastoreType"`
+	Type          pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (StorageSettingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSettingResponse)(nil)).Elem()
+}
+
+func (i StorageSettingResponseArgs) ToStorageSettingResponseOutput() StorageSettingResponseOutput {
+	return i.ToStorageSettingResponseOutputWithContext(context.Background())
+}
+
+func (i StorageSettingResponseArgs) ToStorageSettingResponseOutputWithContext(ctx context.Context) StorageSettingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSettingResponseOutput)
+}
+
+
+
+
+
+type StorageSettingResponseArrayInput interface {
+	pulumi.Input
+
+	ToStorageSettingResponseArrayOutput() StorageSettingResponseArrayOutput
+	ToStorageSettingResponseArrayOutputWithContext(context.Context) StorageSettingResponseArrayOutput
+}
+
+type StorageSettingResponseArray []StorageSettingResponseInput
+
+func (StorageSettingResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageSettingResponse)(nil)).Elem()
+}
+
+func (i StorageSettingResponseArray) ToStorageSettingResponseArrayOutput() StorageSettingResponseArrayOutput {
+	return i.ToStorageSettingResponseArrayOutputWithContext(context.Background())
+}
+
+func (i StorageSettingResponseArray) ToStorageSettingResponseArrayOutputWithContext(ctx context.Context) StorageSettingResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageSettingResponseArrayOutput)
+}
+
+type StorageSettingResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageSettingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageSettingResponse)(nil)).Elem()
+}
+
+func (o StorageSettingResponseOutput) ToStorageSettingResponseOutput() StorageSettingResponseOutput {
+	return o
+}
+
+func (o StorageSettingResponseOutput) ToStorageSettingResponseOutputWithContext(ctx context.Context) StorageSettingResponseOutput {
+	return o
+}
+
+func (o StorageSettingResponseOutput) DatastoreType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageSettingResponse) *string { return v.DatastoreType }).(pulumi.StringPtrOutput)
+}
+
+func (o StorageSettingResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageSettingResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type StorageSettingResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageSettingResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageSettingResponse)(nil)).Elem()
+}
+
+func (o StorageSettingResponseArrayOutput) ToStorageSettingResponseArrayOutput() StorageSettingResponseArrayOutput {
+	return o
+}
+
+func (o StorageSettingResponseArrayOutput) ToStorageSettingResponseArrayOutputWithContext(ctx context.Context) StorageSettingResponseArrayOutput {
+	return o
+}
+
+func (o StorageSettingResponseArrayOutput) Index(i pulumi.IntInput) StorageSettingResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageSettingResponse {
+		return vs[0].([]StorageSettingResponse)[vs[1].(int)]
+	}).(StorageSettingResponseOutput)
+}
+
+type SystemDataResponse struct {
+	CreatedAt          *string `pulumi:"createdAt"`
+	CreatedBy          *string `pulumi:"createdBy"`
+	CreatedByType      *string `pulumi:"createdByType"`
+	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
+	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+
+
+
+
+type SystemDataResponseInput interface {
+	pulumi.Input
+
+	ToSystemDataResponseOutput() SystemDataResponseOutput
+	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
+}
+
+type SystemDataResponseArgs struct {
+	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
+	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
+	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
+	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
+	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
+	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
+}
+
+func (SystemDataResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return i.ToSystemDataResponseOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type SystemDataResponsePtrInput interface {
+	pulumi.Input
+
+	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
+	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
+}
+
+type systemDataResponsePtrType SystemDataResponseArgs
+
+func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
+	return (*systemDataResponsePtrType)(v)
+}
+
+func (*systemDataResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
+}
+
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
+		return &v
+	}).(SystemDataResponsePtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
+type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
+	return o
+}
+
+func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
+	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret SystemDataResponse
+		return ret
+	}).(SystemDataResponseOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreatedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SystemDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedByType
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaggingCriteria struct {
+	Criteria        []ScheduleBasedBackupCriteria `pulumi:"criteria"`
+	IsDefault       bool                          `pulumi:"isDefault"`
+	TagInfo         RetentionTag                  `pulumi:"tagInfo"`
+	TaggingPriority float64                       `pulumi:"taggingPriority"`
+}
+
+
+
+
+
+type TaggingCriteriaInput interface {
+	pulumi.Input
+
+	ToTaggingCriteriaOutput() TaggingCriteriaOutput
+	ToTaggingCriteriaOutputWithContext(context.Context) TaggingCriteriaOutput
+}
+
+type TaggingCriteriaArgs struct {
+	Criteria        ScheduleBasedBackupCriteriaArrayInput `pulumi:"criteria"`
+	IsDefault       pulumi.BoolInput                      `pulumi:"isDefault"`
+	TagInfo         RetentionTagInput                     `pulumi:"tagInfo"`
+	TaggingPriority pulumi.Float64Input                   `pulumi:"taggingPriority"`
+}
+
+func (TaggingCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaggingCriteria)(nil)).Elem()
+}
+
+func (i TaggingCriteriaArgs) ToTaggingCriteriaOutput() TaggingCriteriaOutput {
+	return i.ToTaggingCriteriaOutputWithContext(context.Background())
+}
+
+func (i TaggingCriteriaArgs) ToTaggingCriteriaOutputWithContext(ctx context.Context) TaggingCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaggingCriteriaOutput)
+}
+
+
+
+
+
+type TaggingCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToTaggingCriteriaArrayOutput() TaggingCriteriaArrayOutput
+	ToTaggingCriteriaArrayOutputWithContext(context.Context) TaggingCriteriaArrayOutput
+}
+
+type TaggingCriteriaArray []TaggingCriteriaInput
+
+func (TaggingCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaggingCriteria)(nil)).Elem()
+}
+
+func (i TaggingCriteriaArray) ToTaggingCriteriaArrayOutput() TaggingCriteriaArrayOutput {
+	return i.ToTaggingCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i TaggingCriteriaArray) ToTaggingCriteriaArrayOutputWithContext(ctx context.Context) TaggingCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaggingCriteriaArrayOutput)
+}
+
+type TaggingCriteriaOutput struct{ *pulumi.OutputState }
+
+func (TaggingCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaggingCriteria)(nil)).Elem()
+}
+
+func (o TaggingCriteriaOutput) ToTaggingCriteriaOutput() TaggingCriteriaOutput {
+	return o
+}
+
+func (o TaggingCriteriaOutput) ToTaggingCriteriaOutputWithContext(ctx context.Context) TaggingCriteriaOutput {
+	return o
+}
+
+func (o TaggingCriteriaOutput) Criteria() ScheduleBasedBackupCriteriaArrayOutput {
+	return o.ApplyT(func(v TaggingCriteria) []ScheduleBasedBackupCriteria { return v.Criteria }).(ScheduleBasedBackupCriteriaArrayOutput)
+}
+
+func (o TaggingCriteriaOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v TaggingCriteria) bool { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+func (o TaggingCriteriaOutput) TagInfo() RetentionTagOutput {
+	return o.ApplyT(func(v TaggingCriteria) RetentionTag { return v.TagInfo }).(RetentionTagOutput)
+}
+
+func (o TaggingCriteriaOutput) TaggingPriority() pulumi.Float64Output {
+	return o.ApplyT(func(v TaggingCriteria) float64 { return v.TaggingPriority }).(pulumi.Float64Output)
+}
+
+type TaggingCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (TaggingCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaggingCriteria)(nil)).Elem()
+}
+
+func (o TaggingCriteriaArrayOutput) ToTaggingCriteriaArrayOutput() TaggingCriteriaArrayOutput {
+	return o
+}
+
+func (o TaggingCriteriaArrayOutput) ToTaggingCriteriaArrayOutputWithContext(ctx context.Context) TaggingCriteriaArrayOutput {
+	return o
+}
+
+func (o TaggingCriteriaArrayOutput) Index(i pulumi.IntInput) TaggingCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaggingCriteria {
+		return vs[0].([]TaggingCriteria)[vs[1].(int)]
+	}).(TaggingCriteriaOutput)
+}
+
+type TaggingCriteriaResponse struct {
+	Criteria        []ScheduleBasedBackupCriteriaResponse `pulumi:"criteria"`
+	IsDefault       bool                                  `pulumi:"isDefault"`
+	TagInfo         RetentionTagResponse                  `pulumi:"tagInfo"`
+	TaggingPriority float64                               `pulumi:"taggingPriority"`
+}
+
+
+
+
+
+type TaggingCriteriaResponseInput interface {
+	pulumi.Input
+
+	ToTaggingCriteriaResponseOutput() TaggingCriteriaResponseOutput
+	ToTaggingCriteriaResponseOutputWithContext(context.Context) TaggingCriteriaResponseOutput
+}
+
+type TaggingCriteriaResponseArgs struct {
+	Criteria        ScheduleBasedBackupCriteriaResponseArrayInput `pulumi:"criteria"`
+	IsDefault       pulumi.BoolInput                              `pulumi:"isDefault"`
+	TagInfo         RetentionTagResponseInput                     `pulumi:"tagInfo"`
+	TaggingPriority pulumi.Float64Input                           `pulumi:"taggingPriority"`
+}
+
+func (TaggingCriteriaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaggingCriteriaResponse)(nil)).Elem()
+}
+
+func (i TaggingCriteriaResponseArgs) ToTaggingCriteriaResponseOutput() TaggingCriteriaResponseOutput {
+	return i.ToTaggingCriteriaResponseOutputWithContext(context.Background())
+}
+
+func (i TaggingCriteriaResponseArgs) ToTaggingCriteriaResponseOutputWithContext(ctx context.Context) TaggingCriteriaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaggingCriteriaResponseOutput)
+}
+
+
+
+
+
+type TaggingCriteriaResponseArrayInput interface {
+	pulumi.Input
+
+	ToTaggingCriteriaResponseArrayOutput() TaggingCriteriaResponseArrayOutput
+	ToTaggingCriteriaResponseArrayOutputWithContext(context.Context) TaggingCriteriaResponseArrayOutput
+}
+
+type TaggingCriteriaResponseArray []TaggingCriteriaResponseInput
+
+func (TaggingCriteriaResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaggingCriteriaResponse)(nil)).Elem()
+}
+
+func (i TaggingCriteriaResponseArray) ToTaggingCriteriaResponseArrayOutput() TaggingCriteriaResponseArrayOutput {
+	return i.ToTaggingCriteriaResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TaggingCriteriaResponseArray) ToTaggingCriteriaResponseArrayOutputWithContext(ctx context.Context) TaggingCriteriaResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaggingCriteriaResponseArrayOutput)
+}
+
+type TaggingCriteriaResponseOutput struct{ *pulumi.OutputState }
+
+func (TaggingCriteriaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaggingCriteriaResponse)(nil)).Elem()
+}
+
+func (o TaggingCriteriaResponseOutput) ToTaggingCriteriaResponseOutput() TaggingCriteriaResponseOutput {
+	return o
+}
+
+func (o TaggingCriteriaResponseOutput) ToTaggingCriteriaResponseOutputWithContext(ctx context.Context) TaggingCriteriaResponseOutput {
+	return o
+}
+
+func (o TaggingCriteriaResponseOutput) Criteria() ScheduleBasedBackupCriteriaResponseArrayOutput {
+	return o.ApplyT(func(v TaggingCriteriaResponse) []ScheduleBasedBackupCriteriaResponse { return v.Criteria }).(ScheduleBasedBackupCriteriaResponseArrayOutput)
+}
+
+func (o TaggingCriteriaResponseOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v TaggingCriteriaResponse) bool { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+func (o TaggingCriteriaResponseOutput) TagInfo() RetentionTagResponseOutput {
+	return o.ApplyT(func(v TaggingCriteriaResponse) RetentionTagResponse { return v.TagInfo }).(RetentionTagResponseOutput)
+}
+
+func (o TaggingCriteriaResponseOutput) TaggingPriority() pulumi.Float64Output {
+	return o.ApplyT(func(v TaggingCriteriaResponse) float64 { return v.TaggingPriority }).(pulumi.Float64Output)
+}
+
+type TaggingCriteriaResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TaggingCriteriaResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaggingCriteriaResponse)(nil)).Elem()
+}
+
+func (o TaggingCriteriaResponseArrayOutput) ToTaggingCriteriaResponseArrayOutput() TaggingCriteriaResponseArrayOutput {
+	return o
+}
+
+func (o TaggingCriteriaResponseArrayOutput) ToTaggingCriteriaResponseArrayOutputWithContext(ctx context.Context) TaggingCriteriaResponseArrayOutput {
+	return o
+}
+
+func (o TaggingCriteriaResponseArrayOutput) Index(i pulumi.IntInput) TaggingCriteriaResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaggingCriteriaResponse {
+		return vs[0].([]TaggingCriteriaResponse)[vs[1].(int)]
+	}).(TaggingCriteriaResponseOutput)
+}
+
+type TargetCopySetting struct {
+	CopyAfter interface{}       `pulumi:"copyAfter"`
+	DataStore DataStoreInfoBase `pulumi:"dataStore"`
+}
+
+
+
+
+
+type TargetCopySettingInput interface {
+	pulumi.Input
+
+	ToTargetCopySettingOutput() TargetCopySettingOutput
+	ToTargetCopySettingOutputWithContext(context.Context) TargetCopySettingOutput
+}
+
+type TargetCopySettingArgs struct {
+	CopyAfter pulumi.Input           `pulumi:"copyAfter"`
+	DataStore DataStoreInfoBaseInput `pulumi:"dataStore"`
+}
+
+func (TargetCopySettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetCopySetting)(nil)).Elem()
+}
+
+func (i TargetCopySettingArgs) ToTargetCopySettingOutput() TargetCopySettingOutput {
+	return i.ToTargetCopySettingOutputWithContext(context.Background())
+}
+
+func (i TargetCopySettingArgs) ToTargetCopySettingOutputWithContext(ctx context.Context) TargetCopySettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetCopySettingOutput)
+}
+
+
+
+
+
+type TargetCopySettingArrayInput interface {
+	pulumi.Input
+
+	ToTargetCopySettingArrayOutput() TargetCopySettingArrayOutput
+	ToTargetCopySettingArrayOutputWithContext(context.Context) TargetCopySettingArrayOutput
+}
+
+type TargetCopySettingArray []TargetCopySettingInput
+
+func (TargetCopySettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetCopySetting)(nil)).Elem()
+}
+
+func (i TargetCopySettingArray) ToTargetCopySettingArrayOutput() TargetCopySettingArrayOutput {
+	return i.ToTargetCopySettingArrayOutputWithContext(context.Background())
+}
+
+func (i TargetCopySettingArray) ToTargetCopySettingArrayOutputWithContext(ctx context.Context) TargetCopySettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetCopySettingArrayOutput)
+}
+
+type TargetCopySettingOutput struct{ *pulumi.OutputState }
+
+func (TargetCopySettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetCopySetting)(nil)).Elem()
+}
+
+func (o TargetCopySettingOutput) ToTargetCopySettingOutput() TargetCopySettingOutput {
+	return o
+}
+
+func (o TargetCopySettingOutput) ToTargetCopySettingOutputWithContext(ctx context.Context) TargetCopySettingOutput {
+	return o
+}
+
+func (o TargetCopySettingOutput) CopyAfter() pulumi.AnyOutput {
+	return o.ApplyT(func(v TargetCopySetting) interface{} { return v.CopyAfter }).(pulumi.AnyOutput)
+}
+
+func (o TargetCopySettingOutput) DataStore() DataStoreInfoBaseOutput {
+	return o.ApplyT(func(v TargetCopySetting) DataStoreInfoBase { return v.DataStore }).(DataStoreInfoBaseOutput)
+}
+
+type TargetCopySettingArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetCopySettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetCopySetting)(nil)).Elem()
+}
+
+func (o TargetCopySettingArrayOutput) ToTargetCopySettingArrayOutput() TargetCopySettingArrayOutput {
+	return o
+}
+
+func (o TargetCopySettingArrayOutput) ToTargetCopySettingArrayOutputWithContext(ctx context.Context) TargetCopySettingArrayOutput {
+	return o
+}
+
+func (o TargetCopySettingArrayOutput) Index(i pulumi.IntInput) TargetCopySettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetCopySetting {
+		return vs[0].([]TargetCopySetting)[vs[1].(int)]
+	}).(TargetCopySettingOutput)
+}
+
+type TargetCopySettingResponse struct {
+	CopyAfter interface{}               `pulumi:"copyAfter"`
+	DataStore DataStoreInfoBaseResponse `pulumi:"dataStore"`
+}
+
+
+
+
+
+type TargetCopySettingResponseInput interface {
+	pulumi.Input
+
+	ToTargetCopySettingResponseOutput() TargetCopySettingResponseOutput
+	ToTargetCopySettingResponseOutputWithContext(context.Context) TargetCopySettingResponseOutput
+}
+
+type TargetCopySettingResponseArgs struct {
+	CopyAfter pulumi.Input                   `pulumi:"copyAfter"`
+	DataStore DataStoreInfoBaseResponseInput `pulumi:"dataStore"`
+}
+
+func (TargetCopySettingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetCopySettingResponse)(nil)).Elem()
+}
+
+func (i TargetCopySettingResponseArgs) ToTargetCopySettingResponseOutput() TargetCopySettingResponseOutput {
+	return i.ToTargetCopySettingResponseOutputWithContext(context.Background())
+}
+
+func (i TargetCopySettingResponseArgs) ToTargetCopySettingResponseOutputWithContext(ctx context.Context) TargetCopySettingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetCopySettingResponseOutput)
+}
+
+
+
+
+
+type TargetCopySettingResponseArrayInput interface {
+	pulumi.Input
+
+	ToTargetCopySettingResponseArrayOutput() TargetCopySettingResponseArrayOutput
+	ToTargetCopySettingResponseArrayOutputWithContext(context.Context) TargetCopySettingResponseArrayOutput
+}
+
+type TargetCopySettingResponseArray []TargetCopySettingResponseInput
+
+func (TargetCopySettingResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetCopySettingResponse)(nil)).Elem()
+}
+
+func (i TargetCopySettingResponseArray) ToTargetCopySettingResponseArrayOutput() TargetCopySettingResponseArrayOutput {
+	return i.ToTargetCopySettingResponseArrayOutputWithContext(context.Background())
+}
+
+func (i TargetCopySettingResponseArray) ToTargetCopySettingResponseArrayOutputWithContext(ctx context.Context) TargetCopySettingResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetCopySettingResponseArrayOutput)
+}
+
+type TargetCopySettingResponseOutput struct{ *pulumi.OutputState }
+
+func (TargetCopySettingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetCopySettingResponse)(nil)).Elem()
+}
+
+func (o TargetCopySettingResponseOutput) ToTargetCopySettingResponseOutput() TargetCopySettingResponseOutput {
+	return o
+}
+
+func (o TargetCopySettingResponseOutput) ToTargetCopySettingResponseOutputWithContext(ctx context.Context) TargetCopySettingResponseOutput {
+	return o
+}
+
+func (o TargetCopySettingResponseOutput) CopyAfter() pulumi.AnyOutput {
+	return o.ApplyT(func(v TargetCopySettingResponse) interface{} { return v.CopyAfter }).(pulumi.AnyOutput)
+}
+
+func (o TargetCopySettingResponseOutput) DataStore() DataStoreInfoBaseResponseOutput {
+	return o.ApplyT(func(v TargetCopySettingResponse) DataStoreInfoBaseResponse { return v.DataStore }).(DataStoreInfoBaseResponseOutput)
+}
+
+type TargetCopySettingResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (TargetCopySettingResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TargetCopySettingResponse)(nil)).Elem()
+}
+
+func (o TargetCopySettingResponseArrayOutput) ToTargetCopySettingResponseArrayOutput() TargetCopySettingResponseArrayOutput {
+	return o
+}
+
+func (o TargetCopySettingResponseArrayOutput) ToTargetCopySettingResponseArrayOutputWithContext(ctx context.Context) TargetCopySettingResponseArrayOutput {
+	return o
+}
+
+func (o TargetCopySettingResponseArrayOutput) Index(i pulumi.IntInput) TargetCopySettingResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TargetCopySettingResponse {
+		return vs[0].([]TargetCopySettingResponse)[vs[1].(int)]
+	}).(TargetCopySettingResponseOutput)
+}
+
+type UserFacingErrorResponse struct {
+	Code              *string                   `pulumi:"code"`
+	Details           []UserFacingErrorResponse `pulumi:"details"`
+	InnerError        *InnerErrorResponse       `pulumi:"innerError"`
+	IsRetryable       *bool                     `pulumi:"isRetryable"`
+	IsUserError       *bool                     `pulumi:"isUserError"`
+	Message           *string                   `pulumi:"message"`
+	Properties        map[string]string         `pulumi:"properties"`
+	RecommendedAction []string                  `pulumi:"recommendedAction"`
+	Target            *string                   `pulumi:"target"`
+}
+
+
+
+
+
+type UserFacingErrorResponseInput interface {
+	pulumi.Input
+
+	ToUserFacingErrorResponseOutput() UserFacingErrorResponseOutput
+	ToUserFacingErrorResponseOutputWithContext(context.Context) UserFacingErrorResponseOutput
+}
+
+type UserFacingErrorResponseArgs struct {
+	Code              pulumi.StringPtrInput             `pulumi:"code"`
+	Details           UserFacingErrorResponseArrayInput `pulumi:"details"`
+	InnerError        InnerErrorResponsePtrInput        `pulumi:"innerError"`
+	IsRetryable       pulumi.BoolPtrInput               `pulumi:"isRetryable"`
+	IsUserError       pulumi.BoolPtrInput               `pulumi:"isUserError"`
+	Message           pulumi.StringPtrInput             `pulumi:"message"`
+	Properties        pulumi.StringMapInput             `pulumi:"properties"`
+	RecommendedAction pulumi.StringArrayInput           `pulumi:"recommendedAction"`
+	Target            pulumi.StringPtrInput             `pulumi:"target"`
+}
+
+func (UserFacingErrorResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserFacingErrorResponse)(nil)).Elem()
+}
+
+func (i UserFacingErrorResponseArgs) ToUserFacingErrorResponseOutput() UserFacingErrorResponseOutput {
+	return i.ToUserFacingErrorResponseOutputWithContext(context.Background())
+}
+
+func (i UserFacingErrorResponseArgs) ToUserFacingErrorResponseOutputWithContext(ctx context.Context) UserFacingErrorResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserFacingErrorResponseOutput)
+}
+
+func (i UserFacingErrorResponseArgs) ToUserFacingErrorResponsePtrOutput() UserFacingErrorResponsePtrOutput {
+	return i.ToUserFacingErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UserFacingErrorResponseArgs) ToUserFacingErrorResponsePtrOutputWithContext(ctx context.Context) UserFacingErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserFacingErrorResponseOutput).ToUserFacingErrorResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type UserFacingErrorResponsePtrInput interface {
+	pulumi.Input
+
+	ToUserFacingErrorResponsePtrOutput() UserFacingErrorResponsePtrOutput
+	ToUserFacingErrorResponsePtrOutputWithContext(context.Context) UserFacingErrorResponsePtrOutput
+}
+
+type userFacingErrorResponsePtrType UserFacingErrorResponseArgs
+
+func UserFacingErrorResponsePtr(v *UserFacingErrorResponseArgs) UserFacingErrorResponsePtrInput {
+	return (*userFacingErrorResponsePtrType)(v)
+}
+
+func (*userFacingErrorResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserFacingErrorResponse)(nil)).Elem()
+}
+
+func (i *userFacingErrorResponsePtrType) ToUserFacingErrorResponsePtrOutput() UserFacingErrorResponsePtrOutput {
+	return i.ToUserFacingErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *userFacingErrorResponsePtrType) ToUserFacingErrorResponsePtrOutputWithContext(ctx context.Context) UserFacingErrorResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserFacingErrorResponsePtrOutput)
+}
+
+
+
+
+
+type UserFacingErrorResponseArrayInput interface {
+	pulumi.Input
+
+	ToUserFacingErrorResponseArrayOutput() UserFacingErrorResponseArrayOutput
+	ToUserFacingErrorResponseArrayOutputWithContext(context.Context) UserFacingErrorResponseArrayOutput
+}
+
+type UserFacingErrorResponseArray []UserFacingErrorResponseInput
+
+func (UserFacingErrorResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserFacingErrorResponse)(nil)).Elem()
+}
+
+func (i UserFacingErrorResponseArray) ToUserFacingErrorResponseArrayOutput() UserFacingErrorResponseArrayOutput {
+	return i.ToUserFacingErrorResponseArrayOutputWithContext(context.Background())
+}
+
+func (i UserFacingErrorResponseArray) ToUserFacingErrorResponseArrayOutputWithContext(ctx context.Context) UserFacingErrorResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserFacingErrorResponseArrayOutput)
+}
+
+type UserFacingErrorResponseOutput struct{ *pulumi.OutputState }
+
+func (UserFacingErrorResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserFacingErrorResponse)(nil)).Elem()
+}
+
+func (o UserFacingErrorResponseOutput) ToUserFacingErrorResponseOutput() UserFacingErrorResponseOutput {
+	return o
+}
+
+func (o UserFacingErrorResponseOutput) ToUserFacingErrorResponseOutputWithContext(ctx context.Context) UserFacingErrorResponseOutput {
+	return o
+}
+
+func (o UserFacingErrorResponseOutput) ToUserFacingErrorResponsePtrOutput() UserFacingErrorResponsePtrOutput {
+	return o.ToUserFacingErrorResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UserFacingErrorResponseOutput) ToUserFacingErrorResponsePtrOutputWithContext(ctx context.Context) UserFacingErrorResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserFacingErrorResponse) *UserFacingErrorResponse {
+		return &v
+	}).(UserFacingErrorResponsePtrOutput)
+}
+
+func (o UserFacingErrorResponseOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserFacingErrorResponse) *string { return v.Code }).(pulumi.StringPtrOutput)
+}
+
+func (o UserFacingErrorResponseOutput) Details() UserFacingErrorResponseArrayOutput {
+	return o.ApplyT(func(v UserFacingErrorResponse) []UserFacingErrorResponse { return v.Details }).(UserFacingErrorResponseArrayOutput)
+}
+
+func (o UserFacingErrorResponseOutput) InnerError() InnerErrorResponsePtrOutput {
+	return o.ApplyT(func(v UserFacingErrorResponse) *InnerErrorResponse { return v.InnerError }).(InnerErrorResponsePtrOutput)
+}
+
+func (o UserFacingErrorResponseOutput) IsRetryable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserFacingErrorResponse) *bool { return v.IsRetryable }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserFacingErrorResponseOutput) IsUserError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v UserFacingErrorResponse) *bool { return v.IsUserError }).(pulumi.BoolPtrOutput)
+}
+
+func (o UserFacingErrorResponseOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserFacingErrorResponse) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o UserFacingErrorResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v UserFacingErrorResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+func (o UserFacingErrorResponseOutput) RecommendedAction() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserFacingErrorResponse) []string { return v.RecommendedAction }).(pulumi.StringArrayOutput)
+}
+
+func (o UserFacingErrorResponseOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserFacingErrorResponse) *string { return v.Target }).(pulumi.StringPtrOutput)
+}
+
+type UserFacingErrorResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UserFacingErrorResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserFacingErrorResponse)(nil)).Elem()
+}
+
+func (o UserFacingErrorResponsePtrOutput) ToUserFacingErrorResponsePtrOutput() UserFacingErrorResponsePtrOutput {
+	return o
+}
+
+func (o UserFacingErrorResponsePtrOutput) ToUserFacingErrorResponsePtrOutputWithContext(ctx context.Context) UserFacingErrorResponsePtrOutput {
+	return o
+}
+
+func (o UserFacingErrorResponsePtrOutput) Elem() UserFacingErrorResponseOutput {
+	return o.ApplyT(func(v *UserFacingErrorResponse) UserFacingErrorResponse {
+		if v != nil {
+			return *v
+		}
+		var ret UserFacingErrorResponse
+		return ret
+	}).(UserFacingErrorResponseOutput)
+}
+
+func (o UserFacingErrorResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserFacingErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserFacingErrorResponsePtrOutput) Details() UserFacingErrorResponseArrayOutput {
+	return o.ApplyT(func(v *UserFacingErrorResponse) []UserFacingErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Details
+	}).(UserFacingErrorResponseArrayOutput)
+}
+
+func (o UserFacingErrorResponsePtrOutput) InnerError() InnerErrorResponsePtrOutput {
+	return o.ApplyT(func(v *UserFacingErrorResponse) *InnerErrorResponse {
+		if v == nil {
+			return nil
+		}
+		return v.InnerError
+	}).(InnerErrorResponsePtrOutput)
+}
+
+func (o UserFacingErrorResponsePtrOutput) IsRetryable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserFacingErrorResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsRetryable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o UserFacingErrorResponsePtrOutput) IsUserError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserFacingErrorResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsUserError
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o UserFacingErrorResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserFacingErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserFacingErrorResponsePtrOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *UserFacingErrorResponse) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(pulumi.StringMapOutput)
+}
+
+func (o UserFacingErrorResponsePtrOutput) RecommendedAction() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserFacingErrorResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RecommendedAction
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o UserFacingErrorResponsePtrOutput) Target() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserFacingErrorResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserFacingErrorResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UserFacingErrorResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserFacingErrorResponse)(nil)).Elem()
+}
+
+func (o UserFacingErrorResponseArrayOutput) ToUserFacingErrorResponseArrayOutput() UserFacingErrorResponseArrayOutput {
+	return o
+}
+
+func (o UserFacingErrorResponseArrayOutput) ToUserFacingErrorResponseArrayOutputWithContext(ctx context.Context) UserFacingErrorResponseArrayOutput {
+	return o
+}
+
+func (o UserFacingErrorResponseArrayOutput) Index(i pulumi.IntInput) UserFacingErrorResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserFacingErrorResponse {
+		return vs[0].([]UserFacingErrorResponse)[vs[1].(int)]
+	}).(UserFacingErrorResponseOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(AbsoluteDeleteOptionOutput{})
+	pulumi.RegisterOutputType(AbsoluteDeleteOptionResponseOutput{})
+	pulumi.RegisterOutputType(AdhocBasedTaggingCriteriaOutput{})
+	pulumi.RegisterOutputType(AdhocBasedTaggingCriteriaResponseOutput{})
+	pulumi.RegisterOutputType(AdhocBasedTriggerContextOutput{})
+	pulumi.RegisterOutputType(AdhocBasedTriggerContextResponseOutput{})
+	pulumi.RegisterOutputType(AzureBackupParamsOutput{})
+	pulumi.RegisterOutputType(AzureBackupParamsPtrOutput{})
+	pulumi.RegisterOutputType(AzureBackupParamsResponseOutput{})
+	pulumi.RegisterOutputType(AzureBackupParamsResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureBackupRuleOutput{})
+	pulumi.RegisterOutputType(AzureBackupRuleResponseOutput{})
+	pulumi.RegisterOutputType(AzureOperationalStoreParametersOutput{})
+	pulumi.RegisterOutputType(AzureOperationalStoreParametersArrayOutput{})
+	pulumi.RegisterOutputType(AzureOperationalStoreParametersResponseOutput{})
+	pulumi.RegisterOutputType(AzureOperationalStoreParametersResponseArrayOutput{})
+	pulumi.RegisterOutputType(AzureRetentionRuleOutput{})
+	pulumi.RegisterOutputType(AzureRetentionRuleResponseOutput{})
+	pulumi.RegisterOutputType(BackupInstanceTypeOutput{})
+	pulumi.RegisterOutputType(BackupInstanceTypePtrOutput{})
+	pulumi.RegisterOutputType(BackupInstanceResponseOutput{})
+	pulumi.RegisterOutputType(BackupInstanceResponsePtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyTypeOutput{})
+	pulumi.RegisterOutputType(BackupPolicyTypePtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyResponseOutput{})
+	pulumi.RegisterOutputType(BackupPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(BackupScheduleOutput{})
+	pulumi.RegisterOutputType(BackupScheduleResponseOutput{})
+	pulumi.RegisterOutputType(BackupVaultTypeOutput{})
+	pulumi.RegisterOutputType(BackupVaultTypePtrOutput{})
+	pulumi.RegisterOutputType(BackupVaultResponseOutput{})
+	pulumi.RegisterOutputType(BackupVaultResponsePtrOutput{})
+	pulumi.RegisterOutputType(CopyOnExpiryOptionOutput{})
+	pulumi.RegisterOutputType(CopyOnExpiryOptionResponseOutput{})
+	pulumi.RegisterOutputType(CustomCopyOptionOutput{})
+	pulumi.RegisterOutputType(CustomCopyOptionResponseOutput{})
+	pulumi.RegisterOutputType(DataStoreInfoBaseOutput{})
+	pulumi.RegisterOutputType(DataStoreInfoBaseResponseOutput{})
+	pulumi.RegisterOutputType(DatasourceOutput{})
+	pulumi.RegisterOutputType(DatasourcePtrOutput{})
+	pulumi.RegisterOutputType(DatasourceResponseOutput{})
+	pulumi.RegisterOutputType(DatasourceResponsePtrOutput{})
+	pulumi.RegisterOutputType(DatasourceSetOutput{})
+	pulumi.RegisterOutputType(DatasourceSetPtrOutput{})
+	pulumi.RegisterOutputType(DatasourceSetResponseOutput{})
+	pulumi.RegisterOutputType(DatasourceSetResponsePtrOutput{})
+	pulumi.RegisterOutputType(DayOutput{})
+	pulumi.RegisterOutputType(DayArrayOutput{})
+	pulumi.RegisterOutputType(DayResponseOutput{})
+	pulumi.RegisterOutputType(DayResponseArrayOutput{})
+	pulumi.RegisterOutputType(DppIdentityDetailsOutput{})
+	pulumi.RegisterOutputType(DppIdentityDetailsPtrOutput{})
+	pulumi.RegisterOutputType(DppIdentityDetailsResponseOutput{})
+	pulumi.RegisterOutputType(DppIdentityDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ImmediateCopyOptionOutput{})
+	pulumi.RegisterOutputType(ImmediateCopyOptionResponseOutput{})
+	pulumi.RegisterOutputType(InnerErrorResponseOutput{})
+	pulumi.RegisterOutputType(InnerErrorResponsePtrOutput{})
+	pulumi.RegisterOutputType(PolicyInfoOutput{})
+	pulumi.RegisterOutputType(PolicyInfoPtrOutput{})
+	pulumi.RegisterOutputType(PolicyInfoResponseOutput{})
+	pulumi.RegisterOutputType(PolicyInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(PolicyParametersOutput{})
+	pulumi.RegisterOutputType(PolicyParametersPtrOutput{})
+	pulumi.RegisterOutputType(PolicyParametersResponseOutput{})
+	pulumi.RegisterOutputType(PolicyParametersResponsePtrOutput{})
+	pulumi.RegisterOutputType(ProtectionStatusDetailsResponseOutput{})
+	pulumi.RegisterOutputType(ProtectionStatusDetailsResponsePtrOutput{})
+	pulumi.RegisterOutputType(RetentionTagOutput{})
+	pulumi.RegisterOutputType(RetentionTagPtrOutput{})
+	pulumi.RegisterOutputType(RetentionTagResponseOutput{})
+	pulumi.RegisterOutputType(RetentionTagResponsePtrOutput{})
+	pulumi.RegisterOutputType(ScheduleBasedBackupCriteriaOutput{})
+	pulumi.RegisterOutputType(ScheduleBasedBackupCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(ScheduleBasedBackupCriteriaResponseOutput{})
+	pulumi.RegisterOutputType(ScheduleBasedBackupCriteriaResponseArrayOutput{})
+	pulumi.RegisterOutputType(ScheduleBasedTriggerContextOutput{})
+	pulumi.RegisterOutputType(ScheduleBasedTriggerContextResponseOutput{})
+	pulumi.RegisterOutputType(SourceLifeCycleOutput{})
+	pulumi.RegisterOutputType(SourceLifeCycleArrayOutput{})
+	pulumi.RegisterOutputType(SourceLifeCycleResponseOutput{})
+	pulumi.RegisterOutputType(SourceLifeCycleResponseArrayOutput{})
+	pulumi.RegisterOutputType(StorageSettingOutput{})
+	pulumi.RegisterOutputType(StorageSettingArrayOutput{})
+	pulumi.RegisterOutputType(StorageSettingResponseOutput{})
+	pulumi.RegisterOutputType(StorageSettingResponseArrayOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
+	pulumi.RegisterOutputType(TaggingCriteriaOutput{})
+	pulumi.RegisterOutputType(TaggingCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(TaggingCriteriaResponseOutput{})
+	pulumi.RegisterOutputType(TaggingCriteriaResponseArrayOutput{})
+	pulumi.RegisterOutputType(TargetCopySettingOutput{})
+	pulumi.RegisterOutputType(TargetCopySettingArrayOutput{})
+	pulumi.RegisterOutputType(TargetCopySettingResponseOutput{})
+	pulumi.RegisterOutputType(TargetCopySettingResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserFacingErrorResponseOutput{})
+	pulumi.RegisterOutputType(UserFacingErrorResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserFacingErrorResponseArrayOutput{})
+}

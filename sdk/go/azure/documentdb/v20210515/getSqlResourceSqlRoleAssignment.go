@@ -1,0 +1,33 @@
+
+
+
+package v20210515
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSqlResourceSqlRoleAssignment(ctx *pulumi.Context, args *LookupSqlResourceSqlRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlRoleAssignmentResult, error) {
+	var rv LookupSqlResourceSqlRoleAssignmentResult
+	err := ctx.Invoke("azure-native:documentdb/v20210515:getSqlResourceSqlRoleAssignment", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSqlResourceSqlRoleAssignmentArgs struct {
+	AccountName       string `pulumi:"accountName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	RoleAssignmentId  string `pulumi:"roleAssignmentId"`
+}
+
+
+type LookupSqlResourceSqlRoleAssignmentResult struct {
+	Id               string  `pulumi:"id"`
+	Name             string  `pulumi:"name"`
+	PrincipalId      *string `pulumi:"principalId"`
+	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
+	Scope            *string `pulumi:"scope"`
+	Type             string  `pulumi:"type"`
+}

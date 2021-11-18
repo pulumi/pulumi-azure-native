@@ -1,0 +1,46 @@
+
+
+
+package v20201101
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupAzureFirewall(ctx *pulumi.Context, args *LookupAzureFirewallArgs, opts ...pulumi.InvokeOption) (*LookupAzureFirewallResult, error) {
+	var rv LookupAzureFirewallResult
+	err := ctx.Invoke("azure-native:network/v20201101:getAzureFirewall", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupAzureFirewallArgs struct {
+	AzureFirewallName string `pulumi:"azureFirewallName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupAzureFirewallResult struct {
+	AdditionalProperties       map[string]string                                `pulumi:"additionalProperties"`
+	ApplicationRuleCollections []AzureFirewallApplicationRuleCollectionResponse `pulumi:"applicationRuleCollections"`
+	Etag                       string                                           `pulumi:"etag"`
+	FirewallPolicy             *SubResourceResponse                             `pulumi:"firewallPolicy"`
+	HubIPAddresses             *HubIPAddressesResponse                          `pulumi:"hubIPAddresses"`
+	Id                         *string                                          `pulumi:"id"`
+	IpConfigurations           []AzureFirewallIPConfigurationResponse           `pulumi:"ipConfigurations"`
+	IpGroups                   []AzureFirewallIpGroupsResponse                  `pulumi:"ipGroups"`
+	Location                   *string                                          `pulumi:"location"`
+	ManagementIpConfiguration  *AzureFirewallIPConfigurationResponse            `pulumi:"managementIpConfiguration"`
+	Name                       string                                           `pulumi:"name"`
+	NatRuleCollections         []AzureFirewallNatRuleCollectionResponse         `pulumi:"natRuleCollections"`
+	NetworkRuleCollections     []AzureFirewallNetworkRuleCollectionResponse     `pulumi:"networkRuleCollections"`
+	ProvisioningState          string                                           `pulumi:"provisioningState"`
+	Sku                        *AzureFirewallSkuResponse                        `pulumi:"sku"`
+	Tags                       map[string]string                                `pulumi:"tags"`
+	ThreatIntelMode            *string                                          `pulumi:"threatIntelMode"`
+	Type                       string                                           `pulumi:"type"`
+	VirtualHub                 *SubResourceResponse                             `pulumi:"virtualHub"`
+	Zones                      []string                                         `pulumi:"zones"`
+}
