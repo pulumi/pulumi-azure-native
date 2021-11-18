@@ -108,6 +108,7 @@ import * as netapp from "./netapp";
 import * as network from "./network";
 import * as notificationhubs from "./notificationhubs";
 import * as operationalinsights from "./operationalinsights";
+import * as orbital from "./orbital";
 import * as peering from "./peering";
 import * as policyinsights from "./policyinsights";
 import * as portal from "./portal";
@@ -263,6 +264,7 @@ export {
     network,
     notificationhubs,
     operationalinsights,
+    orbital,
     peering,
     policyinsights,
     portal,

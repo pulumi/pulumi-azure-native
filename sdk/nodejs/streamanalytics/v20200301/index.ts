@@ -5,34 +5,45 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./cluster";
 export * from "./function";
+export * from "./getCluster";
 export * from "./getFunction";
 export * from "./getInput";
 export * from "./getOutput";
+export * from "./getPrivateEndpoint";
 export * from "./getStreamingJob";
 export * from "./input";
+export * from "./listClusterStreamingJobs";
 export * from "./output";
+export * from "./privateEndpoint";
 export * from "./streamingJob";
 
 // Export enums:
 export * from "../../types/enums/streamanalytics/v20200301";
 
 // Import resources to register:
+import { Cluster } from "./cluster";
 import { Function } from "./function";
 import { Input } from "./input";
 import { Output } from "./output";
+import { PrivateEndpoint } from "./privateEndpoint";
 import { StreamingJob } from "./streamingJob";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:streamanalytics/v20200301:Cluster":
+                return new Cluster(name, <any>undefined, { urn })
             case "azure-native:streamanalytics/v20200301:Function":
                 return new Function(name, <any>undefined, { urn })
             case "azure-native:streamanalytics/v20200301:Input":
                 return new Input(name, <any>undefined, { urn })
             case "azure-native:streamanalytics/v20200301:Output":
                 return new Output(name, <any>undefined, { urn })
+            case "azure-native:streamanalytics/v20200301:PrivateEndpoint":
+                return new PrivateEndpoint(name, <any>undefined, { urn })
             case "azure-native:streamanalytics/v20200301:StreamingJob":
                 return new StreamingJob(name, <any>undefined, { urn })
             default:

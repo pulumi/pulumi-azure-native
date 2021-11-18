@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20210801Preview
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20191201preview:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20201101preview:Replication"},
                     new Pulumi.Alias { Type = "azure-native:containerregistry/v20210601preview:Replication"},
+                    new Pulumi.Alias { Type = "azure-native:containerregistry/v20210901:Replication"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

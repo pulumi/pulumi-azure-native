@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AuthenticationMode',
+    'ClusterSkuName',
     'CompatibilityLevel',
     'CompressionType',
     'ContentStoragePolicy',
@@ -28,6 +29,16 @@ class AuthenticationMode(str, Enum):
     MSI = "Msi"
     USER_TOKEN = "UserToken"
     CONNECTION_STRING = "ConnectionString"
+
+
+class ClusterSkuName(str, Enum):
+    """
+    Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
+    """
+    DEFAULT = "Default"
+    """
+    The default SKU.
+    """
 
 
 class CompatibilityLevel(str, Enum):

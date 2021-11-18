@@ -35,6 +35,9 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
+			Type: pulumi.String("azure-native:streamanalytics/v20200301:Cluster"),
+		},
+		{
 			Type: pulumi.String("azure-native:streamanalytics/v20200301preview:Cluster"),
 		},
 	})

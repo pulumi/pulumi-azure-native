@@ -3,6 +3,19 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### New resources:
+
+- `orbital.Contact`
+- `orbital.ContactProfile`
+- `orbital.Spacecraft`
+
+#### New functions:
+
+- `orbital.getContact`
+- `orbital.getContactProfile`
+- `orbital.getSpacecraft`
+- `orbital.listSpacecraftAvailableContacts`
+
 #### Breaking Changes published by Microsoft:
 
 - `botservice.BotProperties` replaced `isIsolated` property with `publicNetworkAccess`

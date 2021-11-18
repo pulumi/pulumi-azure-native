@@ -133,6 +133,7 @@ import * as notificationhubs from "./notificationhubs";
 import * as offazure from "./offazure";
 import * as operationalinsights from "./operationalinsights";
 import * as operationsmanagement from "./operationsmanagement";
+import * as orbital from "./orbital";
 import * as peering from "./peering";
 import * as policyinsights from "./policyinsights";
 import * as portal from "./portal";
@@ -311,6 +312,7 @@ export {
     offazure,
     operationalinsights,
     operationsmanagement,
+    orbital,
     peering,
     policyinsights,
     portal,

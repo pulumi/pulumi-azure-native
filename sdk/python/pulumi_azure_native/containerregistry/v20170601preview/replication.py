@@ -173,7 +173,7 @@ class Replication(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20171001:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20190501:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:Replication")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20171001:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20190501:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20210901:Replication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Replication, __self__).__init__(
             'azure-native:containerregistry/v20170601preview:Replication',

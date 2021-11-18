@@ -99,7 +99,7 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics:Cluster" }, { type: "azure-native:streamanalytics/v20200301:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, inputs, opts);
     }

@@ -259,6 +259,8 @@ if typing.TYPE_CHECKING:
     operationalinsights = __operationalinsights
     import pulumi_azure_native.operationsmanagement as __operationsmanagement
     operationsmanagement = __operationsmanagement
+    import pulumi_azure_native.orbital as __orbital
+    orbital = __orbital
     import pulumi_azure_native.peering as __peering
     peering = __peering
     import pulumi_azure_native.policyinsights as __policyinsights
@@ -485,6 +487,7 @@ else:
     offazure = _utilities.lazy_import('pulumi_azure_native.offazure')
     operationalinsights = _utilities.lazy_import('pulumi_azure_native.operationalinsights')
     operationsmanagement = _utilities.lazy_import('pulumi_azure_native.operationsmanagement')
+    orbital = _utilities.lazy_import('pulumi_azure_native.orbital')
     peering = _utilities.lazy_import('pulumi_azure_native.peering')
     policyinsights = _utilities.lazy_import('pulumi_azure_native.policyinsights')
     portal = _utilities.lazy_import('pulumi_azure_native.portal')
@@ -4164,6 +4167,17 @@ _utilities.register(
    "azure-native:containerregistry/v20210801preview:ScopeMap": "ScopeMap",
    "azure-native:containerregistry/v20210801preview:Token": "Token",
    "azure-native:containerregistry/v20210801preview:Webhook": "Webhook"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerregistry/v20210901",
+  "fqn": "pulumi_azure_native.containerregistry.v20210901",
+  "classes": {
+   "azure-native:containerregistry/v20210901:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerregistry/v20210901:Registry": "Registry",
+   "azure-native:containerregistry/v20210901:Replication": "Replication",
+   "azure-native:containerregistry/v20210901:Webhook": "Webhook"
   }
  },
  {
@@ -13028,6 +13042,26 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "orbital",
+  "fqn": "pulumi_azure_native.orbital",
+  "classes": {
+   "azure-native:orbital:Contact": "Contact",
+   "azure-native:orbital:ContactProfile": "ContactProfile",
+   "azure-native:orbital:Spacecraft": "Spacecraft"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "orbital/v20210404preview",
+  "fqn": "pulumi_azure_native.orbital.v20210404preview",
+  "classes": {
+   "azure-native:orbital/v20210404preview:Contact": "Contact",
+   "azure-native:orbital/v20210404preview:ContactProfile": "ContactProfile",
+   "azure-native:orbital/v20210404preview:Spacecraft": "Spacecraft"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "peering",
   "fqn": "pulumi_azure_native.peering",
   "classes": {
@@ -16292,9 +16326,11 @@ _utilities.register(
   "mod": "streamanalytics/v20200301",
   "fqn": "pulumi_azure_native.streamanalytics.v20200301",
   "classes": {
+   "azure-native:streamanalytics/v20200301:Cluster": "Cluster",
    "azure-native:streamanalytics/v20200301:Function": "Function",
    "azure-native:streamanalytics/v20200301:Input": "Input",
    "azure-native:streamanalytics/v20200301:Output": "Output",
+   "azure-native:streamanalytics/v20200301:PrivateEndpoint": "PrivateEndpoint",
    "azure-native:streamanalytics/v20200301:StreamingJob": "StreamingJob"
   }
  },

@@ -37,6 +37,9 @@ func NewPrivateEndpoint(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:streamanalytics:PrivateEndpoint"),
 		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20200301:PrivateEndpoint"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpoint

@@ -21,12 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:streamanalytics/v20200301:Cluster":
+		r = &Cluster{}
 	case "azure-native:streamanalytics/v20200301:Function":
 		r = &Function{}
 	case "azure-native:streamanalytics/v20200301:Input":
 		r = &Input{}
 	case "azure-native:streamanalytics/v20200301:Output":
 		r = &Output{}
+	case "azure-native:streamanalytics/v20200301:PrivateEndpoint":
+		r = &PrivateEndpoint{}
 	case "azure-native:streamanalytics/v20200301:StreamingJob":
 		r = &StreamingJob{}
 	default:

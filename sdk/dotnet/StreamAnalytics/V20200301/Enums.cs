@@ -40,6 +40,39 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301
     }
 
     /// <summary>
+    /// Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterSkuName : IEquatable<ClusterSkuName>
+    {
+        private readonly string _value;
+
+        private ClusterSkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The default SKU.
+        /// </summary>
+        public static ClusterSkuName Default { get; } = new ClusterSkuName("Default");
+
+        public static bool operator ==(ClusterSkuName left, ClusterSkuName right) => left.Equals(right);
+        public static bool operator !=(ClusterSkuName left, ClusterSkuName right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterSkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterSkuName other && Equals(other);
+        public bool Equals(ClusterSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Controls certain runtime behaviors of the streaming job.
     /// </summary>
     [EnumType]

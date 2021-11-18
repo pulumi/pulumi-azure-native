@@ -37,6 +37,9 @@ func NewCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:streamanalytics:Cluster"),
 		},
+		{
+			Type: pulumi.String("azure-native:streamanalytics/v20200301:Cluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Cluster

@@ -24,6 +24,7 @@ __all__ = [
     'BlobReferenceInputDataSourceArgs',
     'BlobStreamInputDataSourceArgs',
     'ClusterInfoArgs',
+    'ClusterSkuArgs',
     'CompressionArgs',
     'CsvSerializationArgs',
     'DocumentDbOutputDataSourceArgs',
@@ -43,6 +44,7 @@ __all__ = [
     'OutputArgs',
     'ParquetSerializationArgs',
     'PowerBIOutputDataSourceArgs',
+    'PrivateLinkServiceConnectionArgs',
     'ReferenceInputPropertiesArgs',
     'ScalarFunctionPropertiesArgs',
     'ServiceBusQueueOutputDataSourceArgs',
@@ -1421,6 +1423,46 @@ class ClusterInfoArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class ClusterSkuArgs:
+    def __init__(__self__, *,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[Union[str, 'ClusterSkuName']]] = None):
+        """
+        The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
+        :param pulumi.Input[int] capacity: Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
+        :param pulumi.Input[Union[str, 'ClusterSkuName']] name: Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[Union[str, 'ClusterSkuName']]]:
+        """
+        Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[Union[str, 'ClusterSkuName']]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -2863,6 +2905,46 @@ class PowerBIOutputDataSourceArgs:
     @token_user_principal_name.setter
     def token_user_principal_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "token_user_principal_name", value)
+
+
+@pulumi.input_type
+class PrivateLinkServiceConnectionArgs:
+    def __init__(__self__, *,
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_link_service_id: Optional[pulumi.Input[str]] = None):
+        """
+        A grouping of information about the connection to the remote resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
+        :param pulumi.Input[str] private_link_service_id: The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
+        """
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if private_link_service_id is not None:
+            pulumi.set(__self__, "private_link_service_id", private_link_service_id)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to. Required on PUT (CreateOrUpdate) requests.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @group_ids.setter
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_ids", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceId")
+    def private_link_service_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource id of the private link service. Required on PUT (CreateOrUpdate) requests.
+        """
+        return pulumi.get(self, "private_link_service_id")
+
+    @private_link_service_id.setter
+    def private_link_service_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_link_service_id", value)
 
 
 @pulumi.input_type

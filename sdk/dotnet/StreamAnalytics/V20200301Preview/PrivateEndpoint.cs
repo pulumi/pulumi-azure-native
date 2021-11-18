@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:streamanalytics:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:streamanalytics/v20200301:PrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

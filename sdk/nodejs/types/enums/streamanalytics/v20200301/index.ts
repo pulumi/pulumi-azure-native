@@ -13,6 +13,18 @@ export const AuthenticationMode = {
  */
 export type AuthenticationMode = (typeof AuthenticationMode)[keyof typeof AuthenticationMode];
 
+export const ClusterSkuName = {
+    /**
+     * The default SKU.
+     */
+    Default: "Default",
+} as const;
+
+/**
+ * Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
+ */
+export type ClusterSkuName = (typeof ClusterSkuName)[keyof typeof ClusterSkuName];
+
 export const CompatibilityLevel = {
     CompatibilityLevel_1_0: "1.0",
     CompatibilityLevel_1_2: "1.2",
