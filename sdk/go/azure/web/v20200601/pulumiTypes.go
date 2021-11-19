@@ -8014,115 +8014,6 @@ func (o CloningInfoPtrOutput) TrafficManagerProfileName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-type CloningInfoResponse struct {
-	AppSettingsOverrides      map[string]string `pulumi:"appSettingsOverrides"`
-	CloneCustomHostNames      *bool             `pulumi:"cloneCustomHostNames"`
-	CloneSourceControl        *bool             `pulumi:"cloneSourceControl"`
-	ConfigureLoadBalancing    *bool             `pulumi:"configureLoadBalancing"`
-	CorrelationId             *string           `pulumi:"correlationId"`
-	HostingEnvironment        *string           `pulumi:"hostingEnvironment"`
-	Overwrite                 *bool             `pulumi:"overwrite"`
-	SourceWebAppId            string            `pulumi:"sourceWebAppId"`
-	SourceWebAppLocation      *string           `pulumi:"sourceWebAppLocation"`
-	TrafficManagerProfileId   *string           `pulumi:"trafficManagerProfileId"`
-	TrafficManagerProfileName *string           `pulumi:"trafficManagerProfileName"`
-}
-
-
-
-
-
-type CloningInfoResponseInput interface {
-	pulumi.Input
-
-	ToCloningInfoResponseOutput() CloningInfoResponseOutput
-	ToCloningInfoResponseOutputWithContext(context.Context) CloningInfoResponseOutput
-}
-
-type CloningInfoResponseArgs struct {
-	AppSettingsOverrides      pulumi.StringMapInput `pulumi:"appSettingsOverrides"`
-	CloneCustomHostNames      pulumi.BoolPtrInput   `pulumi:"cloneCustomHostNames"`
-	CloneSourceControl        pulumi.BoolPtrInput   `pulumi:"cloneSourceControl"`
-	ConfigureLoadBalancing    pulumi.BoolPtrInput   `pulumi:"configureLoadBalancing"`
-	CorrelationId             pulumi.StringPtrInput `pulumi:"correlationId"`
-	HostingEnvironment        pulumi.StringPtrInput `pulumi:"hostingEnvironment"`
-	Overwrite                 pulumi.BoolPtrInput   `pulumi:"overwrite"`
-	SourceWebAppId            pulumi.StringInput    `pulumi:"sourceWebAppId"`
-	SourceWebAppLocation      pulumi.StringPtrInput `pulumi:"sourceWebAppLocation"`
-	TrafficManagerProfileId   pulumi.StringPtrInput `pulumi:"trafficManagerProfileId"`
-	TrafficManagerProfileName pulumi.StringPtrInput `pulumi:"trafficManagerProfileName"`
-}
-
-func (CloningInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloningInfoResponse)(nil)).Elem()
-}
-
-func (i CloningInfoResponseArgs) ToCloningInfoResponseOutput() CloningInfoResponseOutput {
-	return i.ToCloningInfoResponseOutputWithContext(context.Background())
-}
-
-func (i CloningInfoResponseArgs) ToCloningInfoResponseOutputWithContext(ctx context.Context) CloningInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloningInfoResponseOutput)
-}
-
-type CloningInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (CloningInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloningInfoResponse)(nil)).Elem()
-}
-
-func (o CloningInfoResponseOutput) ToCloningInfoResponseOutput() CloningInfoResponseOutput {
-	return o
-}
-
-func (o CloningInfoResponseOutput) ToCloningInfoResponseOutputWithContext(ctx context.Context) CloningInfoResponseOutput {
-	return o
-}
-
-func (o CloningInfoResponseOutput) AppSettingsOverrides() pulumi.StringMapOutput {
-	return o.ApplyT(func(v CloningInfoResponse) map[string]string { return v.AppSettingsOverrides }).(pulumi.StringMapOutput)
-}
-
-func (o CloningInfoResponseOutput) CloneCustomHostNames() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CloningInfoResponse) *bool { return v.CloneCustomHostNames }).(pulumi.BoolPtrOutput)
-}
-
-func (o CloningInfoResponseOutput) CloneSourceControl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CloningInfoResponse) *bool { return v.CloneSourceControl }).(pulumi.BoolPtrOutput)
-}
-
-func (o CloningInfoResponseOutput) ConfigureLoadBalancing() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CloningInfoResponse) *bool { return v.ConfigureLoadBalancing }).(pulumi.BoolPtrOutput)
-}
-
-func (o CloningInfoResponseOutput) CorrelationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloningInfoResponse) *string { return v.CorrelationId }).(pulumi.StringPtrOutput)
-}
-
-func (o CloningInfoResponseOutput) HostingEnvironment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloningInfoResponse) *string { return v.HostingEnvironment }).(pulumi.StringPtrOutput)
-}
-
-func (o CloningInfoResponseOutput) Overwrite() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CloningInfoResponse) *bool { return v.Overwrite }).(pulumi.BoolPtrOutput)
-}
-
-func (o CloningInfoResponseOutput) SourceWebAppId() pulumi.StringOutput {
-	return o.ApplyT(func(v CloningInfoResponse) string { return v.SourceWebAppId }).(pulumi.StringOutput)
-}
-
-func (o CloningInfoResponseOutput) SourceWebAppLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloningInfoResponse) *string { return v.SourceWebAppLocation }).(pulumi.StringPtrOutput)
-}
-
-func (o CloningInfoResponseOutput) TrafficManagerProfileId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloningInfoResponse) *string { return v.TrafficManagerProfileId }).(pulumi.StringPtrOutput)
-}
-
-func (o CloningInfoResponseOutput) TrafficManagerProfileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CloningInfoResponse) *string { return v.TrafficManagerProfileName }).(pulumi.StringPtrOutput)
-}
-
 type ConnStringInfo struct {
 	ConnectionString *string               `pulumi:"connectionString"`
 	Name             *string               `pulumi:"name"`
@@ -28837,7 +28728,6 @@ func init() {
 	pulumi.RegisterOutputType(ClientRegistrationResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloningInfoOutput{})
 	pulumi.RegisterOutputType(CloningInfoPtrOutput{})
-	pulumi.RegisterOutputType(CloningInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoArrayOutput{})
 	pulumi.RegisterOutputType(ConnStringInfoResponseOutput{})

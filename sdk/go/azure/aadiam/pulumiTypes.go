@@ -1376,55 +1376,6 @@ func (o TagsResourcePtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
-type TagsResourceResponse struct {
-	Tags map[string]string `pulumi:"tags"`
-}
-
-
-
-
-
-type TagsResourceResponseInput interface {
-	pulumi.Input
-
-	ToTagsResourceResponseOutput() TagsResourceResponseOutput
-	ToTagsResourceResponseOutputWithContext(context.Context) TagsResourceResponseOutput
-}
-
-type TagsResourceResponseArgs struct {
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-}
-
-func (TagsResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsResourceResponse)(nil)).Elem()
-}
-
-func (i TagsResourceResponseArgs) ToTagsResourceResponseOutput() TagsResourceResponseOutput {
-	return i.ToTagsResourceResponseOutputWithContext(context.Background())
-}
-
-func (i TagsResourceResponseArgs) ToTagsResourceResponseOutputWithContext(ctx context.Context) TagsResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsResourceResponseOutput)
-}
-
-type TagsResourceResponseOutput struct{ *pulumi.OutputState }
-
-func (TagsResourceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsResourceResponse)(nil)).Elem()
-}
-
-func (o TagsResourceResponseOutput) ToTagsResourceResponseOutput() TagsResourceResponseOutput {
-	return o
-}
-
-func (o TagsResourceResponseOutput) ToTagsResourceResponseOutputWithContext(ctx context.Context) TagsResourceResponseOutput {
-	return o
-}
-
-func (o TagsResourceResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TagsResourceResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AzureADMetricsPropertiesFormatResponseOutput{})
 	pulumi.RegisterOutputType(AzureADMetricsPropertiesFormatResponsePtrOutput{})
@@ -1446,5 +1397,4 @@ func init() {
 	pulumi.RegisterOutputType(RetentionPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(TagsResourceOutput{})
 	pulumi.RegisterOutputType(TagsResourcePtrOutput{})
-	pulumi.RegisterOutputType(TagsResourceResponseOutput{})
 }

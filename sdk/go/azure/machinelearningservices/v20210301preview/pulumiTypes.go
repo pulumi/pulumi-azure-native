@@ -941,61 +941,6 @@ func (o AccountKeyDatastoreSecretsPtrOutput) SecretsType() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-type AccountKeyDatastoreSecretsResponse struct {
-	Key         *string `pulumi:"key"`
-	SecretsType string  `pulumi:"secretsType"`
-}
-
-
-
-
-
-type AccountKeyDatastoreSecretsResponseInput interface {
-	pulumi.Input
-
-	ToAccountKeyDatastoreSecretsResponseOutput() AccountKeyDatastoreSecretsResponseOutput
-	ToAccountKeyDatastoreSecretsResponseOutputWithContext(context.Context) AccountKeyDatastoreSecretsResponseOutput
-}
-
-type AccountKeyDatastoreSecretsResponseArgs struct {
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	SecretsType pulumi.StringInput    `pulumi:"secretsType"`
-}
-
-func (AccountKeyDatastoreSecretsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountKeyDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (i AccountKeyDatastoreSecretsResponseArgs) ToAccountKeyDatastoreSecretsResponseOutput() AccountKeyDatastoreSecretsResponseOutput {
-	return i.ToAccountKeyDatastoreSecretsResponseOutputWithContext(context.Background())
-}
-
-func (i AccountKeyDatastoreSecretsResponseArgs) ToAccountKeyDatastoreSecretsResponseOutputWithContext(ctx context.Context) AccountKeyDatastoreSecretsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountKeyDatastoreSecretsResponseOutput)
-}
-
-type AccountKeyDatastoreSecretsResponseOutput struct{ *pulumi.OutputState }
-
-func (AccountKeyDatastoreSecretsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountKeyDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (o AccountKeyDatastoreSecretsResponseOutput) ToAccountKeyDatastoreSecretsResponseOutput() AccountKeyDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o AccountKeyDatastoreSecretsResponseOutput) ToAccountKeyDatastoreSecretsResponseOutputWithContext(ctx context.Context) AccountKeyDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o AccountKeyDatastoreSecretsResponseOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AccountKeyDatastoreSecretsResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o AccountKeyDatastoreSecretsResponseOutput) SecretsType() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountKeyDatastoreSecretsResponse) string { return v.SecretsType }).(pulumi.StringOutput)
-}
-
 type AksNetworkingConfiguration struct {
 	DnsServiceIP     *string `pulumi:"dnsServiceIP"`
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
@@ -6451,61 +6396,6 @@ func (o CertificateDatastoreSecretsPtrOutput) SecretsType() pulumi.StringPtrOutp
 		}
 		return &v.SecretsType
 	}).(pulumi.StringPtrOutput)
-}
-
-type CertificateDatastoreSecretsResponse struct {
-	Certificate *string `pulumi:"certificate"`
-	SecretsType string  `pulumi:"secretsType"`
-}
-
-
-
-
-
-type CertificateDatastoreSecretsResponseInput interface {
-	pulumi.Input
-
-	ToCertificateDatastoreSecretsResponseOutput() CertificateDatastoreSecretsResponseOutput
-	ToCertificateDatastoreSecretsResponseOutputWithContext(context.Context) CertificateDatastoreSecretsResponseOutput
-}
-
-type CertificateDatastoreSecretsResponseArgs struct {
-	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
-	SecretsType pulumi.StringInput    `pulumi:"secretsType"`
-}
-
-func (CertificateDatastoreSecretsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (i CertificateDatastoreSecretsResponseArgs) ToCertificateDatastoreSecretsResponseOutput() CertificateDatastoreSecretsResponseOutput {
-	return i.ToCertificateDatastoreSecretsResponseOutputWithContext(context.Background())
-}
-
-func (i CertificateDatastoreSecretsResponseArgs) ToCertificateDatastoreSecretsResponseOutputWithContext(ctx context.Context) CertificateDatastoreSecretsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDatastoreSecretsResponseOutput)
-}
-
-type CertificateDatastoreSecretsResponseOutput struct{ *pulumi.OutputState }
-
-func (CertificateDatastoreSecretsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (o CertificateDatastoreSecretsResponseOutput) ToCertificateDatastoreSecretsResponseOutput() CertificateDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o CertificateDatastoreSecretsResponseOutput) ToCertificateDatastoreSecretsResponseOutputWithContext(ctx context.Context) CertificateDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o CertificateDatastoreSecretsResponseOutput) Certificate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateDatastoreSecretsResponse) *string { return v.Certificate }).(pulumi.StringPtrOutput)
-}
-
-func (o CertificateDatastoreSecretsResponseOutput) SecretsType() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateDatastoreSecretsResponse) string { return v.SecretsType }).(pulumi.StringOutput)
 }
 
 type CodeConfiguration struct {
@@ -14915,61 +14805,6 @@ func (o EndpointAuthKeysPtrOutput) SecondaryKey() pulumi.StringPtrOutput {
 		}
 		return v.SecondaryKey
 	}).(pulumi.StringPtrOutput)
-}
-
-type EndpointAuthKeysResponse struct {
-	PrimaryKey   *string `pulumi:"primaryKey"`
-	SecondaryKey *string `pulumi:"secondaryKey"`
-}
-
-
-
-
-
-type EndpointAuthKeysResponseInput interface {
-	pulumi.Input
-
-	ToEndpointAuthKeysResponseOutput() EndpointAuthKeysResponseOutput
-	ToEndpointAuthKeysResponseOutputWithContext(context.Context) EndpointAuthKeysResponseOutput
-}
-
-type EndpointAuthKeysResponseArgs struct {
-	PrimaryKey   pulumi.StringPtrInput `pulumi:"primaryKey"`
-	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
-}
-
-func (EndpointAuthKeysResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAuthKeysResponse)(nil)).Elem()
-}
-
-func (i EndpointAuthKeysResponseArgs) ToEndpointAuthKeysResponseOutput() EndpointAuthKeysResponseOutput {
-	return i.ToEndpointAuthKeysResponseOutputWithContext(context.Background())
-}
-
-func (i EndpointAuthKeysResponseArgs) ToEndpointAuthKeysResponseOutputWithContext(ctx context.Context) EndpointAuthKeysResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthKeysResponseOutput)
-}
-
-type EndpointAuthKeysResponseOutput struct{ *pulumi.OutputState }
-
-func (EndpointAuthKeysResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAuthKeysResponse)(nil)).Elem()
-}
-
-func (o EndpointAuthKeysResponseOutput) ToEndpointAuthKeysResponseOutput() EndpointAuthKeysResponseOutput {
-	return o
-}
-
-func (o EndpointAuthKeysResponseOutput) ToEndpointAuthKeysResponseOutputWithContext(ctx context.Context) EndpointAuthKeysResponseOutput {
-	return o
-}
-
-func (o EndpointAuthKeysResponseOutput) PrimaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointAuthKeysResponse) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
-}
-
-func (o EndpointAuthKeysResponseOutput) SecondaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointAuthKeysResponse) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
 }
 
 type EnvironmentContainerType struct {
@@ -23501,55 +23336,6 @@ func (o NoneDatastoreSecretsPtrOutput) SecretsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type NoneDatastoreSecretsResponse struct {
-	SecretsType string `pulumi:"secretsType"`
-}
-
-
-
-
-
-type NoneDatastoreSecretsResponseInput interface {
-	pulumi.Input
-
-	ToNoneDatastoreSecretsResponseOutput() NoneDatastoreSecretsResponseOutput
-	ToNoneDatastoreSecretsResponseOutputWithContext(context.Context) NoneDatastoreSecretsResponseOutput
-}
-
-type NoneDatastoreSecretsResponseArgs struct {
-	SecretsType pulumi.StringInput `pulumi:"secretsType"`
-}
-
-func (NoneDatastoreSecretsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NoneDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (i NoneDatastoreSecretsResponseArgs) ToNoneDatastoreSecretsResponseOutput() NoneDatastoreSecretsResponseOutput {
-	return i.ToNoneDatastoreSecretsResponseOutputWithContext(context.Background())
-}
-
-func (i NoneDatastoreSecretsResponseArgs) ToNoneDatastoreSecretsResponseOutputWithContext(ctx context.Context) NoneDatastoreSecretsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NoneDatastoreSecretsResponseOutput)
-}
-
-type NoneDatastoreSecretsResponseOutput struct{ *pulumi.OutputState }
-
-func (NoneDatastoreSecretsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NoneDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (o NoneDatastoreSecretsResponseOutput) ToNoneDatastoreSecretsResponseOutput() NoneDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o NoneDatastoreSecretsResponseOutput) ToNoneDatastoreSecretsResponseOutputWithContext(ctx context.Context) NoneDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o NoneDatastoreSecretsResponseOutput) SecretsType() pulumi.StringOutput {
-	return o.ApplyT(func(v NoneDatastoreSecretsResponse) string { return v.SecretsType }).(pulumi.StringOutput)
-}
-
 type NotebookPreparationErrorResponse struct {
 	ErrorMessage *string `pulumi:"errorMessage"`
 	StatusCode   *int    `pulumi:"statusCode"`
@@ -28676,61 +28462,6 @@ func (o SasDatastoreSecretsPtrOutput) SecretsType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type SasDatastoreSecretsResponse struct {
-	SasToken    *string `pulumi:"sasToken"`
-	SecretsType string  `pulumi:"secretsType"`
-}
-
-
-
-
-
-type SasDatastoreSecretsResponseInput interface {
-	pulumi.Input
-
-	ToSasDatastoreSecretsResponseOutput() SasDatastoreSecretsResponseOutput
-	ToSasDatastoreSecretsResponseOutputWithContext(context.Context) SasDatastoreSecretsResponseOutput
-}
-
-type SasDatastoreSecretsResponseArgs struct {
-	SasToken    pulumi.StringPtrInput `pulumi:"sasToken"`
-	SecretsType pulumi.StringInput    `pulumi:"secretsType"`
-}
-
-func (SasDatastoreSecretsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SasDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (i SasDatastoreSecretsResponseArgs) ToSasDatastoreSecretsResponseOutput() SasDatastoreSecretsResponseOutput {
-	return i.ToSasDatastoreSecretsResponseOutputWithContext(context.Background())
-}
-
-func (i SasDatastoreSecretsResponseArgs) ToSasDatastoreSecretsResponseOutputWithContext(ctx context.Context) SasDatastoreSecretsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SasDatastoreSecretsResponseOutput)
-}
-
-type SasDatastoreSecretsResponseOutput struct{ *pulumi.OutputState }
-
-func (SasDatastoreSecretsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SasDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (o SasDatastoreSecretsResponseOutput) ToSasDatastoreSecretsResponseOutput() SasDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o SasDatastoreSecretsResponseOutput) ToSasDatastoreSecretsResponseOutputWithContext(ctx context.Context) SasDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o SasDatastoreSecretsResponseOutput) SasToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SasDatastoreSecretsResponse) *string { return v.SasToken }).(pulumi.StringPtrOutput)
-}
-
-func (o SasDatastoreSecretsResponseOutput) SecretsType() pulumi.StringOutput {
-	return o.ApplyT(func(v SasDatastoreSecretsResponse) string { return v.SecretsType }).(pulumi.StringOutput)
-}
-
 type ScaleSettings struct {
 	MaxNodeCount                int     `pulumi:"maxNodeCount"`
 	MinNodeCount                *int    `pulumi:"minNodeCount"`
@@ -30275,61 +30006,6 @@ func (o ServicePrincipalDatastoreSecretsPtrOutput) SecretsType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-type ServicePrincipalDatastoreSecretsResponse struct {
-	ClientSecret *string `pulumi:"clientSecret"`
-	SecretsType  string  `pulumi:"secretsType"`
-}
-
-
-
-
-
-type ServicePrincipalDatastoreSecretsResponseInput interface {
-	pulumi.Input
-
-	ToServicePrincipalDatastoreSecretsResponseOutput() ServicePrincipalDatastoreSecretsResponseOutput
-	ToServicePrincipalDatastoreSecretsResponseOutputWithContext(context.Context) ServicePrincipalDatastoreSecretsResponseOutput
-}
-
-type ServicePrincipalDatastoreSecretsResponseArgs struct {
-	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	SecretsType  pulumi.StringInput    `pulumi:"secretsType"`
-}
-
-func (ServicePrincipalDatastoreSecretsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePrincipalDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (i ServicePrincipalDatastoreSecretsResponseArgs) ToServicePrincipalDatastoreSecretsResponseOutput() ServicePrincipalDatastoreSecretsResponseOutput {
-	return i.ToServicePrincipalDatastoreSecretsResponseOutputWithContext(context.Background())
-}
-
-func (i ServicePrincipalDatastoreSecretsResponseArgs) ToServicePrincipalDatastoreSecretsResponseOutputWithContext(ctx context.Context) ServicePrincipalDatastoreSecretsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalDatastoreSecretsResponseOutput)
-}
-
-type ServicePrincipalDatastoreSecretsResponseOutput struct{ *pulumi.OutputState }
-
-func (ServicePrincipalDatastoreSecretsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePrincipalDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (o ServicePrincipalDatastoreSecretsResponseOutput) ToServicePrincipalDatastoreSecretsResponseOutput() ServicePrincipalDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o ServicePrincipalDatastoreSecretsResponseOutput) ToServicePrincipalDatastoreSecretsResponseOutputWithContext(ctx context.Context) ServicePrincipalDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o ServicePrincipalDatastoreSecretsResponseOutput) ClientSecret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServicePrincipalDatastoreSecretsResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
-}
-
-func (o ServicePrincipalDatastoreSecretsResponseOutput) SecretsType() pulumi.StringOutput {
-	return o.ApplyT(func(v ServicePrincipalDatastoreSecretsResponse) string { return v.SecretsType }).(pulumi.StringOutput)
-}
-
 type SetupScripts struct {
 	Scripts *ScriptsToExecute `pulumi:"scripts"`
 }
@@ -31390,61 +31066,6 @@ func (o SqlAdminDatastoreSecretsPtrOutput) SecretsType() pulumi.StringPtrOutput 
 		}
 		return &v.SecretsType
 	}).(pulumi.StringPtrOutput)
-}
-
-type SqlAdminDatastoreSecretsResponse struct {
-	Password    *string `pulumi:"password"`
-	SecretsType string  `pulumi:"secretsType"`
-}
-
-
-
-
-
-type SqlAdminDatastoreSecretsResponseInput interface {
-	pulumi.Input
-
-	ToSqlAdminDatastoreSecretsResponseOutput() SqlAdminDatastoreSecretsResponseOutput
-	ToSqlAdminDatastoreSecretsResponseOutputWithContext(context.Context) SqlAdminDatastoreSecretsResponseOutput
-}
-
-type SqlAdminDatastoreSecretsResponseArgs struct {
-	Password    pulumi.StringPtrInput `pulumi:"password"`
-	SecretsType pulumi.StringInput    `pulumi:"secretsType"`
-}
-
-func (SqlAdminDatastoreSecretsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlAdminDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (i SqlAdminDatastoreSecretsResponseArgs) ToSqlAdminDatastoreSecretsResponseOutput() SqlAdminDatastoreSecretsResponseOutput {
-	return i.ToSqlAdminDatastoreSecretsResponseOutputWithContext(context.Background())
-}
-
-func (i SqlAdminDatastoreSecretsResponseArgs) ToSqlAdminDatastoreSecretsResponseOutputWithContext(ctx context.Context) SqlAdminDatastoreSecretsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlAdminDatastoreSecretsResponseOutput)
-}
-
-type SqlAdminDatastoreSecretsResponseOutput struct{ *pulumi.OutputState }
-
-func (SqlAdminDatastoreSecretsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlAdminDatastoreSecretsResponse)(nil)).Elem()
-}
-
-func (o SqlAdminDatastoreSecretsResponseOutput) ToSqlAdminDatastoreSecretsResponseOutput() SqlAdminDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o SqlAdminDatastoreSecretsResponseOutput) ToSqlAdminDatastoreSecretsResponseOutputWithContext(ctx context.Context) SqlAdminDatastoreSecretsResponseOutput {
-	return o
-}
-
-func (o SqlAdminDatastoreSecretsResponseOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlAdminDatastoreSecretsResponse) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-func (o SqlAdminDatastoreSecretsResponseOutput) SecretsType() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlAdminDatastoreSecretsResponse) string { return v.SecretsType }).(pulumi.StringOutput)
 }
 
 type SslConfiguration struct {
@@ -35892,7 +35513,6 @@ func init() {
 	pulumi.RegisterOutputType(AccountKeyDatastoreCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(AccountKeyDatastoreSecretsOutput{})
 	pulumi.RegisterOutputType(AccountKeyDatastoreSecretsPtrOutput{})
-	pulumi.RegisterOutputType(AccountKeyDatastoreSecretsResponseOutput{})
 	pulumi.RegisterOutputType(AksNetworkingConfigurationOutput{})
 	pulumi.RegisterOutputType(AksNetworkingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AksNetworkingConfigurationResponseOutput{})
@@ -35955,7 +35575,6 @@ func init() {
 	pulumi.RegisterOutputType(CertificateDatastoreCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(CertificateDatastoreSecretsOutput{})
 	pulumi.RegisterOutputType(CertificateDatastoreSecretsPtrOutput{})
-	pulumi.RegisterOutputType(CertificateDatastoreSecretsResponseOutput{})
 	pulumi.RegisterOutputType(CodeConfigurationOutput{})
 	pulumi.RegisterOutputType(CodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CodeConfigurationResponseOutput{})
@@ -36054,7 +35673,6 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointAuthKeysOutput{})
 	pulumi.RegisterOutputType(EndpointAuthKeysPtrOutput{})
-	pulumi.RegisterOutputType(EndpointAuthKeysResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentContainerTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentContainerTypePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentContainerResponseOutput{})
@@ -36166,7 +35784,6 @@ func init() {
 	pulumi.RegisterOutputType(NoneDatastoreCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(NoneDatastoreSecretsOutput{})
 	pulumi.RegisterOutputType(NoneDatastoreSecretsPtrOutput{})
-	pulumi.RegisterOutputType(NoneDatastoreSecretsResponseOutput{})
 	pulumi.RegisterOutputType(NotebookPreparationErrorResponseOutput{})
 	pulumi.RegisterOutputType(NotebookPreparationErrorResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotebookResourceInfoResponseOutput{})
@@ -36234,7 +35851,6 @@ func init() {
 	pulumi.RegisterOutputType(SasDatastoreCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(SasDatastoreSecretsOutput{})
 	pulumi.RegisterOutputType(SasDatastoreSecretsPtrOutput{})
-	pulumi.RegisterOutputType(SasDatastoreSecretsResponseOutput{})
 	pulumi.RegisterOutputType(ScaleSettingsOutput{})
 	pulumi.RegisterOutputType(ScaleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ScaleSettingsResponseOutput{})
@@ -36255,7 +35871,6 @@ func init() {
 	pulumi.RegisterOutputType(ServicePrincipalDatastoreCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalDatastoreSecretsOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalDatastoreSecretsPtrOutput{})
-	pulumi.RegisterOutputType(ServicePrincipalDatastoreSecretsResponseOutput{})
 	pulumi.RegisterOutputType(SetupScriptsOutput{})
 	pulumi.RegisterOutputType(SetupScriptsPtrOutput{})
 	pulumi.RegisterOutputType(SetupScriptsResponseOutput{})
@@ -36272,7 +35887,6 @@ func init() {
 	pulumi.RegisterOutputType(SqlAdminDatastoreCredentialsResponseOutput{})
 	pulumi.RegisterOutputType(SqlAdminDatastoreSecretsOutput{})
 	pulumi.RegisterOutputType(SqlAdminDatastoreSecretsPtrOutput{})
-	pulumi.RegisterOutputType(SqlAdminDatastoreSecretsResponseOutput{})
 	pulumi.RegisterOutputType(SslConfigurationOutput{})
 	pulumi.RegisterOutputType(SslConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SslConfigurationResponseOutput{})
