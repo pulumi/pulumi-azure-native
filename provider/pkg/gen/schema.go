@@ -1162,8 +1162,11 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
-		// Skip read-only properties for input types.
+		// Skip read-only properties for input types and write-only properties for output types.
 		if resolvedProperty.ReadOnly && !isOutput {
+			continue
+		}
+		if isOutput && isWriteOnly(resolvedProperty) {
 			continue
 		}
 
@@ -1179,9 +1182,6 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 
 		var apiProperty resources.AzureAPIProperty
 		if isOutput {
-			if isWriteOnly(resolvedProperty) {
-				continue
-			}
 			if resolvedProperty.ReadOnly {
 				result.requiredSpecs.Add(sdkName)
 			}
