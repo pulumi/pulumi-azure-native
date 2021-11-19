@@ -736,6 +736,7 @@ _utilities.register(
   "classes": {
    "azure-native:alertsmanagement:ActionRuleByName": "ActionRuleByName",
    "azure-native:alertsmanagement:HealthAlert": "HealthAlert",
+   "azure-native:alertsmanagement:PrometheusRuleGroup": "PrometheusRuleGroup",
    "azure-native:alertsmanagement:SmartDetectorAlertRule": "SmartDetectorAlertRule"
   }
  },
@@ -785,6 +786,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.alertsmanagement.v20210401",
   "classes": {
    "azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule": "SmartDetectorAlertRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "alertsmanagement/v20210722preview",
+  "fqn": "pulumi_azure_native.alertsmanagement.v20210722preview",
+  "classes": {
+   "azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup": "PrometheusRuleGroup"
   }
  },
  {
@@ -8886,6 +8895,16 @@ _utilities.register(
    "azure-native:kubernetesconfiguration/v20211101preview:Extension": "Extension",
    "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration": "FluxConfiguration",
    "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration": "SourceControlConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetesconfiguration/v20220101preview",
+  "fqn": "pulumi_azure_native.kubernetesconfiguration.v20220101preview",
+  "classes": {
+   "azure-native:kubernetesconfiguration/v20220101preview:Extension": "Extension",
+   "azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration": "FluxConfiguration",
+   "azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration": "SourceControlConfiguration"
   }
  },
  {

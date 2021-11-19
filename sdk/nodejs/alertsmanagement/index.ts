@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
 export * from "./actionRuleByName";
 export * from "./getActionRuleByName";
 export * from "./getHealthAlert";
+export * from "./getPrometheusRuleGroup";
 export * from "./getSmartDetectorAlertRule";
 export * from "./healthAlert";
+export * from "./prometheusRuleGroup";
 export * from "./smartDetectorAlertRule";
 
 // Export enums:
@@ -22,6 +24,7 @@ import * as v20190505preview from "./v20190505preview";
 import * as v20190601 from "./v20190601";
 import * as v20200804preview from "./v20200804preview";
 import * as v20210401 from "./v20210401";
+import * as v20210722preview from "./v20210722preview";
 import * as v20210808preview from "./v20210808preview";
 
 export {
@@ -31,12 +34,14 @@ export {
     v20190601,
     v20200804preview,
     v20210401,
+    v20210722preview,
     v20210808preview,
 };
 
 // Import resources to register:
 import { ActionRuleByName } from "./actionRuleByName";
 import { HealthAlert } from "./healthAlert";
+import { PrometheusRuleGroup } from "./prometheusRuleGroup";
 import { SmartDetectorAlertRule } from "./smartDetectorAlertRule";
 
 const _module = {
@@ -47,6 +52,8 @@ const _module = {
                 return new ActionRuleByName(name, <any>undefined, { urn })
             case "azure-native:alertsmanagement:HealthAlert":
                 return new HealthAlert(name, <any>undefined, { urn })
+            case "azure-native:alertsmanagement:PrometheusRuleGroup":
+                return new PrometheusRuleGroup(name, <any>undefined, { urn })
             case "azure-native:alertsmanagement:SmartDetectorAlertRule":
                 return new SmartDetectorAlertRule(name, <any>undefined, { urn })
             default:

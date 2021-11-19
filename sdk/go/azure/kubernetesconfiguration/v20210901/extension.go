@@ -71,6 +71,9 @@ func NewExtension(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration/v20211101preview:Extension"),
 		},
+		{
+			Type: pulumi.String("azure-native:kubernetesconfiguration/v20220101preview:Extension"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Extension

@@ -172,7 +172,7 @@ export class Extension extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20200701preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20210501preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20210901:Extension" }, { type: "azure-native:kubernetesconfiguration/v20211101preview:Extension" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20200701preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20210501preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20210901:Extension" }, { type: "azure-native:kubernetesconfiguration/v20211101preview:Extension" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:Extension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Extension.__pulumiType, name, inputs, opts);
     }

@@ -333,7 +333,7 @@ class FluxConfiguration(pulumi.CustomResource):
             __props__.__dict__["statuses"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration"), pulumi.Alias(type_="azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FluxConfiguration, __self__).__init__(
             'azure-native:kubernetesconfiguration:FluxConfiguration',
