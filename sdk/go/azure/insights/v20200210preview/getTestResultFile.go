@@ -1,0 +1,33 @@
+
+
+
+package v20200210preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func GetTestResultFile(ctx *pulumi.Context, args *GetTestResultFileArgs, opts ...pulumi.InvokeOption) (*GetTestResultFileResult, error) {
+	var rv GetTestResultFileResult
+	err := ctx.Invoke("azure-native:insights/v20200210preview:getTestResultFile", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type GetTestResultFileArgs struct {
+	ContinuationToken      *string `pulumi:"continuationToken"`
+	DownloadAs             string  `pulumi:"downloadAs"`
+	GeoLocationId          string  `pulumi:"geoLocationId"`
+	ResourceGroupName      string  `pulumi:"resourceGroupName"`
+	TestSuccessfulCriteria *bool   `pulumi:"testSuccessfulCriteria"`
+	TimeStamp              int     `pulumi:"timeStamp"`
+	WebTestName            string  `pulumi:"webTestName"`
+}
+
+
+type GetTestResultFileResult struct {
+	Data     *string `pulumi:"data"`
+	NextLink *string `pulumi:"nextLink"`
+}
