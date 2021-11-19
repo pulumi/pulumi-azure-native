@@ -20039,61 +20039,6 @@ func (o EndpointAuthKeysPtrOutput) SecondaryKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type EndpointAuthKeysResponse struct {
-	PrimaryKey   *string `pulumi:"primaryKey"`
-	SecondaryKey *string `pulumi:"secondaryKey"`
-}
-
-
-
-
-
-type EndpointAuthKeysResponseInput interface {
-	pulumi.Input
-
-	ToEndpointAuthKeysResponseOutput() EndpointAuthKeysResponseOutput
-	ToEndpointAuthKeysResponseOutputWithContext(context.Context) EndpointAuthKeysResponseOutput
-}
-
-type EndpointAuthKeysResponseArgs struct {
-	PrimaryKey   pulumi.StringPtrInput `pulumi:"primaryKey"`
-	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
-}
-
-func (EndpointAuthKeysResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAuthKeysResponse)(nil)).Elem()
-}
-
-func (i EndpointAuthKeysResponseArgs) ToEndpointAuthKeysResponseOutput() EndpointAuthKeysResponseOutput {
-	return i.ToEndpointAuthKeysResponseOutputWithContext(context.Background())
-}
-
-func (i EndpointAuthKeysResponseArgs) ToEndpointAuthKeysResponseOutputWithContext(ctx context.Context) EndpointAuthKeysResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointAuthKeysResponseOutput)
-}
-
-type EndpointAuthKeysResponseOutput struct{ *pulumi.OutputState }
-
-func (EndpointAuthKeysResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointAuthKeysResponse)(nil)).Elem()
-}
-
-func (o EndpointAuthKeysResponseOutput) ToEndpointAuthKeysResponseOutput() EndpointAuthKeysResponseOutput {
-	return o
-}
-
-func (o EndpointAuthKeysResponseOutput) ToEndpointAuthKeysResponseOutputWithContext(ctx context.Context) EndpointAuthKeysResponseOutput {
-	return o
-}
-
-func (o EndpointAuthKeysResponseOutput) PrimaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointAuthKeysResponse) *string { return v.PrimaryKey }).(pulumi.StringPtrOutput)
-}
-
-func (o EndpointAuthKeysResponseOutput) SecondaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointAuthKeysResponse) *string { return v.SecondaryKey }).(pulumi.StringPtrOutput)
-}
-
 type EnvironmentContainerType struct {
 	Description *string           `pulumi:"description"`
 	Properties  map[string]string `pulumi:"properties"`
@@ -42953,7 +42898,6 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(EndpointAuthKeysOutput{})
 	pulumi.RegisterOutputType(EndpointAuthKeysPtrOutput{})
-	pulumi.RegisterOutputType(EndpointAuthKeysResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentContainerTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentContainerTypePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentContainerResponseOutput{})
