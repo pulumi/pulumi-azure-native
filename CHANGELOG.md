@@ -5,12 +5,14 @@ CHANGELOG
 
 #### New resources:
 
+- `alertsmanagement.PrometheusRuleGroup`
 - `orbital.Contact`
 - `orbital.ContactProfile`
 - `orbital.Spacecraft`
 
 #### New functions:
 
+- `alertsmanagement.getPrometheusRuleGroup`
 - `orbital.getContact`
 - `orbital.getContactProfile`
 - `orbital.getSpacecraft`
