@@ -42,48 +42,30 @@ class ProviderArgs:
         """
         if auxiliary_tenant_ids is not None:
             pulumi.set(__self__, "auxiliary_tenant_ids", auxiliary_tenant_ids)
-        if client_certificate_password is None:
-            client_certificate_password = _utilities.get_env('ARM_CLIENT_CERTIFICATE_PASSWORD')
         if client_certificate_password is not None:
             pulumi.set(__self__, "client_certificate_password", client_certificate_password)
-        if client_certificate_path is None:
-            client_certificate_path = _utilities.get_env('ARM_CLIENT_CERTIFICATE_PATH')
         if client_certificate_path is not None:
             pulumi.set(__self__, "client_certificate_path", client_certificate_path)
-        if client_id is None:
-            client_id = _utilities.get_env('ARM_CLIENT_ID')
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
-        if client_secret is None:
-            client_secret = _utilities.get_env('ARM_CLIENT_SECRET')
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
-        if disable_pulumi_partner_id is None:
-            disable_pulumi_partner_id = _utilities.get_env_bool('ARM_DISABLE_PULUMI_PARTNER_ID')
         if disable_pulumi_partner_id is not None:
             pulumi.set(__self__, "disable_pulumi_partner_id", disable_pulumi_partner_id)
         if environment is None:
-            environment = (_utilities.get_env('ARM_ENVIRONMENT') or 'public')
+            environment = 'public'
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
-        if msi_endpoint is None:
-            msi_endpoint = _utilities.get_env('ARM_MSI_ENDPOINT')
         if msi_endpoint is not None:
             pulumi.set(__self__, "msi_endpoint", msi_endpoint)
-        if partner_id is None:
-            partner_id = _utilities.get_env('ARM_PARTNER_ID')
         if partner_id is not None:
             pulumi.set(__self__, "partner_id", partner_id)
-        if subscription_id is None:
-            subscription_id = _utilities.get_env('ARM_SUBSCRIPTION_ID')
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
-        if tenant_id is None:
-            tenant_id = _utilities.get_env('ARM_TENANT_ID')
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
         if use_msi is None:
-            use_msi = (_utilities.get_env_bool('ARM_USE_MSI') or False)
+            use_msi = False
         if use_msi is not None:
             pulumi.set(__self__, "use_msi", use_msi)
 
@@ -317,38 +299,20 @@ class Provider(pulumi.ProviderResource):
             __props__ = ProviderArgs.__new__(ProviderArgs)
 
             __props__.__dict__["auxiliary_tenant_ids"] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
-            if client_certificate_password is None:
-                client_certificate_password = _utilities.get_env('ARM_CLIENT_CERTIFICATE_PASSWORD')
-            __props__.__dict__["client_certificate_password"] = client_certificate_password
-            if client_certificate_path is None:
-                client_certificate_path = _utilities.get_env('ARM_CLIENT_CERTIFICATE_PATH')
+            __props__.__dict__["client_certificate_password"] = None if client_certificate_password is None else pulumi.Output.secret(client_certificate_password)
             __props__.__dict__["client_certificate_path"] = client_certificate_path
-            if client_id is None:
-                client_id = _utilities.get_env('ARM_CLIENT_ID')
-            __props__.__dict__["client_id"] = client_id
-            if client_secret is None:
-                client_secret = _utilities.get_env('ARM_CLIENT_SECRET')
-            __props__.__dict__["client_secret"] = client_secret
-            if disable_pulumi_partner_id is None:
-                disable_pulumi_partner_id = _utilities.get_env_bool('ARM_DISABLE_PULUMI_PARTNER_ID')
+            __props__.__dict__["client_id"] = None if client_id is None else pulumi.Output.secret(client_id)
+            __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
             __props__.__dict__["disable_pulumi_partner_id"] = pulumi.Output.from_input(disable_pulumi_partner_id).apply(pulumi.runtime.to_json) if disable_pulumi_partner_id is not None else None
             if environment is None:
-                environment = (_utilities.get_env('ARM_ENVIRONMENT') or 'public')
+                environment = 'public'
             __props__.__dict__["environment"] = environment
-            if msi_endpoint is None:
-                msi_endpoint = _utilities.get_env('ARM_MSI_ENDPOINT')
             __props__.__dict__["msi_endpoint"] = msi_endpoint
-            if partner_id is None:
-                partner_id = _utilities.get_env('ARM_PARTNER_ID')
             __props__.__dict__["partner_id"] = partner_id
-            if subscription_id is None:
-                subscription_id = _utilities.get_env('ARM_SUBSCRIPTION_ID')
             __props__.__dict__["subscription_id"] = subscription_id
-            if tenant_id is None:
-                tenant_id = _utilities.get_env('ARM_TENANT_ID')
             __props__.__dict__["tenant_id"] = tenant_id
             if use_msi is None:
-                use_msi = (_utilities.get_env_bool('ARM_USE_MSI') or False)
+                use_msi = False
             __props__.__dict__["use_msi"] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
         super(Provider, __self__).__init__(
             'azure-native',

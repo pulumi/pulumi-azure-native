@@ -60,7 +60,7 @@ tenantId: Optional[str]
 The Tenant ID which should be used.
 """
 
-useMsi: Optional[bool]
+useMsi: bool
 """
 Allowed Managed Service Identity be used for Authentication.
 """

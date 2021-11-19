@@ -54,11 +54,21 @@ namespace Pulumi.AzureNative
             set => _auxiliaryTenantIds = value;
         }
 
+        [Input("clientCertificatePassword")]
+        private Input<string>? _clientCertificatePassword;
+
         /// <summary>
         /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
         /// </summary>
-        [Input("clientCertificatePassword")]
-        public Input<string>? ClientCertificatePassword { get; set; }
+        public Input<string>? ClientCertificatePassword
+        {
+            get => _clientCertificatePassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientCertificatePassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
@@ -66,17 +76,37 @@ namespace Pulumi.AzureNative
         [Input("clientCertificatePath")]
         public Input<string>? ClientCertificatePath { get; set; }
 
+        [Input("clientId")]
+        private Input<string>? _clientId;
+
         /// <summary>
         /// The Client ID which should be used.
         /// </summary>
-        [Input("clientId")]
-        public Input<string>? ClientId { get; set; }
+        public Input<string>? ClientId
+        {
+            get => _clientId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientSecret")]
+        private Input<string>? _clientSecret;
 
         /// <summary>
         /// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         /// </summary>
-        [Input("clientSecret")]
-        public Input<string>? ClientSecret { get; set; }
+        public Input<string>? ClientSecret
+        {
+            get => _clientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
@@ -122,17 +152,8 @@ namespace Pulumi.AzureNative
 
         public ProviderArgs()
         {
-            ClientCertificatePassword = Utilities.GetEnv("ARM_CLIENT_CERTIFICATE_PASSWORD");
-            ClientCertificatePath = Utilities.GetEnv("ARM_CLIENT_CERTIFICATE_PATH");
-            ClientId = Utilities.GetEnv("ARM_CLIENT_ID");
-            ClientSecret = Utilities.GetEnv("ARM_CLIENT_SECRET");
-            DisablePulumiPartnerId = Utilities.GetEnvBoolean("ARM_DISABLE_PULUMI_PARTNER_ID");
-            Environment = Utilities.GetEnv("ARM_ENVIRONMENT") ?? "public";
-            MsiEndpoint = Utilities.GetEnv("ARM_MSI_ENDPOINT");
-            PartnerId = Utilities.GetEnv("ARM_PARTNER_ID");
-            SubscriptionId = Utilities.GetEnv("ARM_SUBSCRIPTION_ID");
-            TenantId = Utilities.GetEnv("ARM_TENANT_ID");
-            UseMsi = Utilities.GetEnvBoolean("ARM_USE_MSI") ?? false;
+            Environment = "public";
+            UseMsi = false;
         }
     }
 }

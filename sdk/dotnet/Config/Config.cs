@@ -139,7 +139,7 @@ namespace Pulumi.AzureNative
             set => _tenantId.Set(value);
         }
 
-        private static readonly __Value<bool?> _useMsi = new __Value<bool?>(() => __config.GetBoolean("useMsi"));
+        private static readonly __Value<bool?> _useMsi = new __Value<bool?>(() => __config.GetBoolean("useMsi") ?? false);
         /// <summary>
         /// Allowed Managed Service Identity be used for Authentication.
         /// </summary>
