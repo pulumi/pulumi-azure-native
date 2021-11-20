@@ -2,7 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-#### Bug fixes:
+
+(None)
+
+## 1.47.0 (2021-11-19)
+#### CRITICAL Bug fix:
 
 - Avoid provider credentials leaking into state.
   [#1309](https://github.com/pulumi/pulumi-azure-native/issues/1309)
