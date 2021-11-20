@@ -7,7 +7,9 @@ CHANGELOG
 - Avoid provider credentials leaking into state.
   [#1309](https://github.com/pulumi/pulumi-azure-native/issues/1309)
   
-  **PLEASE READ**: If you set credentials through environment variables (e.g. `ARM_CLIENT_SECRET`) AND
+  **PLEASE READ**
+
+  If you set credentials through environment variables (e.g. `ARM_CLIENT_SECRET`) AND
   use the SDK to create a provider where these values are not explicitly set, (e.g. `new provider.Provider("...");`)
   prior versions of the `azure-native` provider may have included the credentials in the state in clear text.
   All users are recommended to upgrade their provider version and run a `pulumi up`. It is highly recommended to
