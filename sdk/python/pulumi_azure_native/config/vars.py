@@ -89,9 +89,9 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('tenantId')
 
     @property
-    def use_msi(self) -> Optional[bool]:
+    def use_msi(self) -> bool:
         """
         Allowed Managed Service Identity be used for Authentication.
         """
-        return __config__.get_bool('useMsi')
+        return __config__.get_bool('useMsi') or False
 

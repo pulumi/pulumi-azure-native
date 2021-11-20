@@ -2,6 +2,27 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+#### Bug fixes:
+
+- Avoid provider credentials leaking into state.
+  [#1309](https://github.com/pulumi/pulumi-azure-native/issues/1309)
+  
+  **PLEASE READ**
+
+  If you set credentials through environment variables (e.g. `ARM_CLIENT_SECRET`) AND
+  use the SDK to create a provider where these values are not explicitly set, (e.g. `new provider.Provider("...");`)
+  prior versions of the `azure-native` provider may have included the credentials in the state in clear text.
+  All users are recommended to upgrade their provider version and run a `pulumi up`. It is highly recommended to
+  rotate the affected credentials after all relevant stacks have been updated.
+
+  You can check if your state file contains credentials by running `pulumi stack export | grep -A 3 "clientSecret\|clientCertificatePassword\|clientId"`
+  and checking if any unencrypted values are produced. After the update these values will either not be present
+  or be stored as encrypted secrets using your stack's preferred encryption provider.
+
+  Note that the Pulumi state backend also encrypts the state as a whole and other state backends
+  support a similar mechanism which should significantly limit exposure of the credentials.
+  Nonetheless, We sincerely regret the inconvenience this causes.
+
 
 #### New resources:
 

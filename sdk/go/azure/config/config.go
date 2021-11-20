@@ -64,5 +64,9 @@ func GetTenantId(ctx *pulumi.Context) string {
 
 
 func GetUseMsi(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "azure-native:useMsi")
+	v, err := config.TryBool(ctx, "azure-native:useMsi")
+	if err == nil {
+		return v
+	}
+	return false
 }

@@ -128,10 +128,10 @@ Object.defineProperty(exports, "tenantId", {
 /**
  * Allowed Managed Service Identity be used for Authentication.
  */
-export declare const useMsi: boolean | undefined;
+export declare const useMsi: boolean;
 Object.defineProperty(exports, "useMsi", {
     get() {
-        return __config.getObject<boolean>("useMsi");
+        return __config.getObject<boolean>("useMsi") ?? false;
     },
     enumerable: true,
 });
