@@ -40,6 +40,9 @@ func NewSnapshot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:containerservice/v20210901:Snapshot"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerservice/v20211001:Snapshot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Snapshot
