@@ -1,0 +1,43 @@
+
+
+
+package cdn
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupAFDOrigin(ctx *pulumi.Context, args *LookupAFDOriginArgs, opts ...pulumi.InvokeOption) (*LookupAFDOriginResult, error) {
+	var rv LookupAFDOriginResult
+	err := ctx.Invoke("azure-native:cdn:getAFDOrigin", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupAFDOriginArgs struct {
+	OriginGroupName   string `pulumi:"originGroupName"`
+	OriginName        string `pulumi:"originName"`
+	ProfileName       string `pulumi:"profileName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupAFDOriginResult struct {
+	AzureOrigin               *ResourceReferenceResponse                    `pulumi:"azureOrigin"`
+	DeploymentStatus          string                                        `pulumi:"deploymentStatus"`
+	EnabledState              *string                                       `pulumi:"enabledState"`
+	HostName                  string                                        `pulumi:"hostName"`
+	HttpPort                  *int                                          `pulumi:"httpPort"`
+	HttpsPort                 *int                                          `pulumi:"httpsPort"`
+	Id                        string                                        `pulumi:"id"`
+	Name                      string                                        `pulumi:"name"`
+	OriginHostHeader          *string                                       `pulumi:"originHostHeader"`
+	Priority                  *int                                          `pulumi:"priority"`
+	ProvisioningState         string                                        `pulumi:"provisioningState"`
+	SharedPrivateLinkResource []SharedPrivateLinkResourcePropertiesResponse `pulumi:"sharedPrivateLinkResource"`
+	SystemData                SystemDataResponse                            `pulumi:"systemData"`
+	Type                      string                                        `pulumi:"type"`
+	Weight                    *int                                          `pulumi:"weight"`
+}

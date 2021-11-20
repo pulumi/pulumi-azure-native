@@ -1,0 +1,58 @@
+
+
+
+package v20210501
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, opts ...pulumi.InvokeOption) (*LookupManagedClusterResult, error) {
+	var rv LookupManagedClusterResult
+	err := ctx.Invoke("azure-native:servicefabric/v20210501:getManagedCluster", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupManagedClusterArgs struct {
+	ClusterName       string `pulumi:"clusterName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupManagedClusterResult struct {
+	AddonFeatures                        []string                                      `pulumi:"addonFeatures"`
+	AdminPassword                        *string                                       `pulumi:"adminPassword"`
+	AdminUserName                        string                                        `pulumi:"adminUserName"`
+	AllowRdpAccess                       *bool                                         `pulumi:"allowRdpAccess"`
+	ApplicationTypeVersionsCleanupPolicy *ApplicationTypeVersionsCleanupPolicyResponse `pulumi:"applicationTypeVersionsCleanupPolicy"`
+	AzureActiveDirectory                 *AzureActiveDirectoryResponse                 `pulumi:"azureActiveDirectory"`
+	ClientConnectionPort                 *int                                          `pulumi:"clientConnectionPort"`
+	Clients                              []ClientCertificateResponse                   `pulumi:"clients"`
+	ClusterCertificateThumbprints        []string                                      `pulumi:"clusterCertificateThumbprints"`
+	ClusterCodeVersion                   *string                                       `pulumi:"clusterCodeVersion"`
+	ClusterId                            string                                        `pulumi:"clusterId"`
+	ClusterState                         string                                        `pulumi:"clusterState"`
+	ClusterUpgradeCadence                *string                                       `pulumi:"clusterUpgradeCadence"`
+	ClusterUpgradeMode                   *string                                       `pulumi:"clusterUpgradeMode"`
+	DnsName                              string                                        `pulumi:"dnsName"`
+	EnableAutoOSUpgrade                  *bool                                         `pulumi:"enableAutoOSUpgrade"`
+	Etag                                 string                                        `pulumi:"etag"`
+	FabricSettings                       []SettingsSectionDescriptionResponse          `pulumi:"fabricSettings"`
+	Fqdn                                 string                                        `pulumi:"fqdn"`
+	HttpGatewayConnectionPort            *int                                          `pulumi:"httpGatewayConnectionPort"`
+	Id                                   string                                        `pulumi:"id"`
+	Ipv4Address                          string                                        `pulumi:"ipv4Address"`
+	LoadBalancingRules                   []LoadBalancingRuleResponse                   `pulumi:"loadBalancingRules"`
+	Location                             string                                        `pulumi:"location"`
+	Name                                 string                                        `pulumi:"name"`
+	NetworkSecurityRules                 []NetworkSecurityRuleResponse                 `pulumi:"networkSecurityRules"`
+	ProvisioningState                    string                                        `pulumi:"provisioningState"`
+	Sku                                  *SkuResponse                                  `pulumi:"sku"`
+	SystemData                           SystemDataResponse                            `pulumi:"systemData"`
+	Tags                                 map[string]string                             `pulumi:"tags"`
+	Type                                 string                                        `pulumi:"type"`
+	ZonalResiliency                      *bool                                         `pulumi:"zonalResiliency"`
+}
