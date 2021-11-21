@@ -1,0 +1,131 @@
+
+
+
+package v20150831preview
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type UserAssignedIdentity struct {
+	pulumi.CustomResourceState
+
+	ClientId        pulumi.StringOutput    `pulumi:"clientId"`
+	ClientSecretUrl pulumi.StringOutput    `pulumi:"clientSecretUrl"`
+	Location        pulumi.StringOutput    `pulumi:"location"`
+	Name            pulumi.StringOutput    `pulumi:"name"`
+	PrincipalId     pulumi.StringOutput    `pulumi:"principalId"`
+	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	TenantId        pulumi.StringOutput    `pulumi:"tenantId"`
+	Type            pulumi.StringOutput    `pulumi:"type"`
+}
+
+
+func NewUserAssignedIdentity(ctx *pulumi.Context,
+	name string, args *UserAssignedIdentityArgs, opts ...pulumi.ResourceOption) (*UserAssignedIdentity, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:managedidentity:UserAssignedIdentity"),
+		},
+		{
+			Type: pulumi.String("azure-native:managedidentity/v20181130:UserAssignedIdentity"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource UserAssignedIdentity
+	err := ctx.RegisterResource("azure-native:managedidentity/v20150831preview:UserAssignedIdentity", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetUserAssignedIdentity(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *UserAssignedIdentityState, opts ...pulumi.ResourceOption) (*UserAssignedIdentity, error) {
+	var resource UserAssignedIdentity
+	err := ctx.ReadResource("azure-native:managedidentity/v20150831preview:UserAssignedIdentity", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type userAssignedIdentityState struct {
+}
+
+type UserAssignedIdentityState struct {
+}
+
+func (UserAssignedIdentityState) ElementType() reflect.Type {
+	return reflect.TypeOf((*userAssignedIdentityState)(nil)).Elem()
+}
+
+type userAssignedIdentityArgs struct {
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	ResourceName      *string           `pulumi:"resourceName"`
+	Tags              map[string]string `pulumi:"tags"`
+}
+
+
+type UserAssignedIdentityArgs struct {
+	Location          pulumi.StringPtrInput
+	ResourceGroupName pulumi.StringInput
+	ResourceName      pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+}
+
+func (UserAssignedIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*userAssignedIdentityArgs)(nil)).Elem()
+}
+
+type UserAssignedIdentityInput interface {
+	pulumi.Input
+
+	ToUserAssignedIdentityOutput() UserAssignedIdentityOutput
+	ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput
+}
+
+func (*UserAssignedIdentity) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentity)(nil))
+}
+
+func (i *UserAssignedIdentity) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return i.ToUserAssignedIdentityOutputWithContext(context.Background())
+}
+
+func (i *UserAssignedIdentity) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
+}
+
+type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentity)(nil))
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
+	return o
+}
+
+func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(UserAssignedIdentityOutput{})
+}

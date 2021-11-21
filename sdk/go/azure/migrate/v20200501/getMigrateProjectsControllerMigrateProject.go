@@ -1,0 +1,33 @@
+
+
+
+package v20200501
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupMigrateProjectsControllerMigrateProject(ctx *pulumi.Context, args *LookupMigrateProjectsControllerMigrateProjectArgs, opts ...pulumi.InvokeOption) (*LookupMigrateProjectsControllerMigrateProjectResult, error) {
+	var rv LookupMigrateProjectsControllerMigrateProjectResult
+	err := ctx.Invoke("azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupMigrateProjectsControllerMigrateProjectArgs struct {
+	MigrateProjectName string `pulumi:"migrateProjectName"`
+	ResourceGroupName  string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupMigrateProjectsControllerMigrateProjectResult struct {
+	ETag       *string                          `pulumi:"eTag"`
+	Id         string                           `pulumi:"id"`
+	Location   *string                          `pulumi:"location"`
+	Name       string                           `pulumi:"name"`
+	Properties MigrateProjectPropertiesResponse `pulumi:"properties"`
+	SystemData SystemDataResponse               `pulumi:"systemData"`
+	Type       string                           `pulumi:"type"`
+}
