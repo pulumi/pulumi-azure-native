@@ -16,7 +16,6 @@ __all__ = [
     'EnvironmentVariableArgs',
     'ExpressionEvaluationOptionsArgs',
     'IdentityArgs',
-    'LinkedTemplateArtifactArgs',
     'ManagedServiceIdentityArgs',
     'OnErrorDeploymentArgs',
     'ParametersLinkArgs',
@@ -25,6 +24,7 @@ __all__ = [
     'StorageAccountConfigurationArgs',
     'TagsArgs',
     'TemplateLinkArgs',
+    'TemplateSpecTemplateArtifactArgs',
 ]
 
 @pulumi.input_type
@@ -327,44 +327,6 @@ class IdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
-
-
-@pulumi.input_type
-class LinkedTemplateArtifactArgs:
-    def __init__(__self__, *,
-                 path: pulumi.Input[str],
-                 template: Any):
-        """
-        Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
-        :param pulumi.Input[str] path: A filesystem safe relative path of the artifact.
-        :param Any template: The Azure Resource Manager template.
-        """
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "template", template)
-
-    @property
-    @pulumi.getter
-    def path(self) -> pulumi.Input[str]:
-        """
-        A filesystem safe relative path of the artifact.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: pulumi.Input[str]):
-        pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter
-    def template(self) -> Any:
-        """
-        The Azure Resource Manager template.
-        """
-        return pulumi.get(self, "template")
-
-    @template.setter
-    def template(self, value: Any):
-        pulumi.set(self, "template", value)
 
 
 @pulumi.input_type
@@ -824,5 +786,60 @@ class TemplateLinkArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class TemplateSpecTemplateArtifactArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[str],
+                 path: pulumi.Input[str],
+                 template: Any):
+        """
+        Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
+        :param pulumi.Input[str] kind: The kind of artifact.
+               Expected value is 'template'.
+        :param pulumi.Input[str] path: A filesystem safe relative path of the artifact.
+        :param Any template: The Azure Resource Manager template.
+        """
+        pulumi.set(__self__, "kind", 'template')
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[str]:
+        """
+        The kind of artifact.
+        Expected value is 'template'.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        A filesystem safe relative path of the artifact.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def template(self) -> Any:
+        """
+        The Azure Resource Manager template.
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Any):
+        pulumi.set(self, "template", value)
 
 

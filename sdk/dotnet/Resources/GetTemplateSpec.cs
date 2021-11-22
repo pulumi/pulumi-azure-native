@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Template Spec object.
-        /// API Version: 2021-05-01.
+        /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetTemplateSpecResult> InvokeAsync(GetTemplateSpecArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecResult>("azure-native:resources:getTemplateSpec", args ?? new GetTemplateSpecArgs(), options.WithVersion());
 
         /// <summary>
         /// Template Spec object.
-        /// API Version: 2021-05-01.
+        /// API Version: 2019-06-01-preview.
         /// </summary>
         public static Output<GetTemplateSpecResult> Invoke(GetTemplateSpecInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTemplateSpecResult>("azure-native:resources:getTemplateSpec", args ?? new GetTemplateSpecInvokeArgs(), options.WithVersion());
@@ -99,10 +99,6 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-        /// </summary>
-        public readonly object? Metadata;
-        /// <summary>
         /// Name of this resource.
         /// </summary>
         public readonly string Name;
@@ -133,8 +129,6 @@ namespace Pulumi.AzureNative.Resources
 
             string location,
 
-            object? metadata,
-
             string name,
 
             Outputs.SystemDataResponse systemData,
@@ -149,7 +143,6 @@ namespace Pulumi.AzureNative.Resources
             DisplayName = displayName;
             Id = id;
             Location = location;
-            Metadata = metadata;
             Name = name;
             SystemData = systemData;
             Tags = tags;

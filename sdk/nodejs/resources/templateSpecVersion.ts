@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Template Spec Version object.
- * API Version: 2021-05-01.
+ * API Version: 2019-06-01-preview.
  */
 export class TemplateSpecVersion extends pulumi.CustomResource {
     /**
@@ -37,25 +37,17 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
     }
 
     /**
+     * An array of Template Spec artifacts.
+     */
+    public readonly artifacts!: pulumi.Output<outputs.resources.TemplateSpecTemplateArtifactResponse[] | undefined>;
+    /**
      * Template Spec version description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * An array of linked template artifacts.
-     */
-    public readonly linkedTemplates!: pulumi.Output<outputs.resources.LinkedTemplateArtifactResponse[] | undefined>;
-    /**
      * The location of the Template Spec Version. It must match the location of the parent Template Spec.
      */
     public readonly location!: pulumi.Output<string>;
-    /**
-     * The main Azure Resource Manager template content.
-     */
-    public readonly mainTemplate!: pulumi.Output<any | undefined>;
-    /**
-     * The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-     */
-    public readonly metadata!: pulumi.Output<any | undefined>;
     /**
      * Name of this resource.
      */
@@ -69,13 +61,13 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The Azure Resource Manager template content.
+     */
+    public readonly template!: pulumi.Output<any | undefined>;
+    /**
      * Type of this resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The Azure Resource Manager template UI definition content.
-     */
-    public readonly uiFormDefinition!: pulumi.Output<any | undefined>;
 
     /**
      * Create a TemplateSpecVersion resource with the given unique name, arguments, and options.
@@ -94,30 +86,26 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
             if ((!args || args.templateSpecName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateSpecName'");
             }
+            inputs["artifacts"] = args ? args.artifacts : undefined;
             inputs["description"] = args ? args.description : undefined;
-            inputs["linkedTemplates"] = args ? args.linkedTemplates : undefined;
             inputs["location"] = args ? args.location : undefined;
-            inputs["mainTemplate"] = args ? args.mainTemplate : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["template"] = args ? args.template : undefined;
             inputs["templateSpecName"] = args ? args.templateSpecName : undefined;
             inputs["templateSpecVersion"] = args ? args.templateSpecVersion : undefined;
-            inputs["uiFormDefinition"] = args ? args.uiFormDefinition : undefined;
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["artifacts"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
-            inputs["linkedTemplates"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
-            inputs["mainTemplate"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
+            inputs["template"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
-            inputs["uiFormDefinition"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -133,25 +121,17 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
  */
 export interface TemplateSpecVersionArgs {
     /**
+     * An array of Template Spec artifacts.
+     */
+    artifacts?: pulumi.Input<pulumi.Input<inputs.resources.TemplateSpecTemplateArtifactArgs>[]>;
+    /**
      * Template Spec version description.
      */
     description?: pulumi.Input<string>;
     /**
-     * An array of linked template artifacts.
-     */
-    linkedTemplates?: pulumi.Input<pulumi.Input<inputs.resources.LinkedTemplateArtifactArgs>[]>;
-    /**
      * The location of the Template Spec Version. It must match the location of the parent Template Spec.
      */
     location?: pulumi.Input<string>;
-    /**
-     * The main Azure Resource Manager template content.
-     */
-    mainTemplate?: any;
-    /**
-     * The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-     */
-    metadata?: any;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -161,6 +141,10 @@ export interface TemplateSpecVersionArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The Azure Resource Manager template content.
+     */
+    template?: any;
+    /**
      * Name of the Template Spec.
      */
     templateSpecName: pulumi.Input<string>;
@@ -168,8 +152,4 @@ export interface TemplateSpecVersionArgs {
      * The version of the Template Spec.
      */
     templateSpecVersion?: pulumi.Input<string>;
-    /**
-     * The Azure Resource Manager template UI definition content.
-     */
-    uiFormDefinition?: any;
 }

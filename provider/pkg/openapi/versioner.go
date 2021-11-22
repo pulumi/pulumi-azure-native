@@ -148,6 +148,7 @@ var cutoffProviderVersions = map[string]string{
 	"policyinsights":          "v20190701",
 	"purview":                 "v20201201preview",
 	"recoveryservices":        "v20210201preview",
+	"resources":               "v20210101",
 	"security":                "v20200101preview",
 	"securityinsights":        "v20210301preview",
 	"servicefabric":           "v20200301",

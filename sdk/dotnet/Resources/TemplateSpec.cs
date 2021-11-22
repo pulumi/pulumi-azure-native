@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Template Spec object.
-    /// API Version: 2021-05-01.
+    /// API Version: 2019-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:TemplateSpec")]
     public partial class TemplateSpec : Pulumi.CustomResource
@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-        /// </summary>
-        [Output("metadata")]
-        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Name of this resource.
@@ -138,12 +132,6 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
-        /// </summary>
-        [Input("metadata")]
-        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -12,6 +12,7 @@ __all__ = [
     'OnErrorDeploymentType',
     'ResourceIdentityType',
     'ScriptType',
+    'TemplateSpecArtifactKind',
 ]
 
 
@@ -72,3 +73,13 @@ class ScriptType(str, Enum):
     """
     AZURE_POWER_SHELL = "AzurePowerShell"
     AZURE_CLI = "AzureCLI"
+
+
+class TemplateSpecArtifactKind(str, Enum):
+    """
+    The kind of artifact.
+    """
+    TEMPLATE = "template"
+    """
+    The artifact represents an embedded Azure Resource Manager template.
+    """

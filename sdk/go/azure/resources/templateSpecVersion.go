@@ -14,16 +14,14 @@ import (
 type TemplateSpecVersion struct {
 	pulumi.CustomResourceState
 
-	Description      pulumi.StringPtrOutput                    `pulumi:"description"`
-	LinkedTemplates  LinkedTemplateArtifactResponseArrayOutput `pulumi:"linkedTemplates"`
-	Location         pulumi.StringOutput                       `pulumi:"location"`
-	MainTemplate     pulumi.AnyOutput                          `pulumi:"mainTemplate"`
-	Metadata         pulumi.AnyOutput                          `pulumi:"metadata"`
-	Name             pulumi.StringOutput                       `pulumi:"name"`
-	SystemData       SystemDataResponseOutput                  `pulumi:"systemData"`
-	Tags             pulumi.StringMapOutput                    `pulumi:"tags"`
-	Type             pulumi.StringOutput                       `pulumi:"type"`
-	UiFormDefinition pulumi.AnyOutput                          `pulumi:"uiFormDefinition"`
+	Artifacts   TemplateSpecTemplateArtifactResponseArrayOutput `pulumi:"artifacts"`
+	Description pulumi.StringPtrOutput                          `pulumi:"description"`
+	Location    pulumi.StringOutput                             `pulumi:"location"`
+	Name        pulumi.StringOutput                             `pulumi:"name"`
+	SystemData  SystemDataResponseOutput                        `pulumi:"systemData"`
+	Tags        pulumi.StringMapOutput                          `pulumi:"tags"`
+	Template    pulumi.AnyOutput                                `pulumi:"template"`
+	Type        pulumi.StringOutput                             `pulumi:"type"`
 }
 
 
@@ -83,30 +81,26 @@ func (TemplateSpecVersionState) ElementType() reflect.Type {
 }
 
 type templateSpecVersionArgs struct {
-	Description         *string                  `pulumi:"description"`
-	LinkedTemplates     []LinkedTemplateArtifact `pulumi:"linkedTemplates"`
-	Location            *string                  `pulumi:"location"`
-	MainTemplate        interface{}              `pulumi:"mainTemplate"`
-	Metadata            interface{}              `pulumi:"metadata"`
-	ResourceGroupName   string                   `pulumi:"resourceGroupName"`
-	Tags                map[string]string        `pulumi:"tags"`
-	TemplateSpecName    string                   `pulumi:"templateSpecName"`
-	TemplateSpecVersion *string                  `pulumi:"templateSpecVersion"`
-	UiFormDefinition    interface{}              `pulumi:"uiFormDefinition"`
+	Artifacts           []TemplateSpecTemplateArtifact `pulumi:"artifacts"`
+	Description         *string                        `pulumi:"description"`
+	Location            *string                        `pulumi:"location"`
+	ResourceGroupName   string                         `pulumi:"resourceGroupName"`
+	Tags                map[string]string              `pulumi:"tags"`
+	Template            interface{}                    `pulumi:"template"`
+	TemplateSpecName    string                         `pulumi:"templateSpecName"`
+	TemplateSpecVersion *string                        `pulumi:"templateSpecVersion"`
 }
 
 
 type TemplateSpecVersionArgs struct {
+	Artifacts           TemplateSpecTemplateArtifactArrayInput
 	Description         pulumi.StringPtrInput
-	LinkedTemplates     LinkedTemplateArtifactArrayInput
 	Location            pulumi.StringPtrInput
-	MainTemplate        pulumi.Input
-	Metadata            pulumi.Input
 	ResourceGroupName   pulumi.StringInput
 	Tags                pulumi.StringMapInput
+	Template            pulumi.Input
 	TemplateSpecName    pulumi.StringInput
 	TemplateSpecVersion pulumi.StringPtrInput
-	UiFormDefinition    pulumi.Input
 }
 
 func (TemplateSpecVersionArgs) ElementType() reflect.Type {

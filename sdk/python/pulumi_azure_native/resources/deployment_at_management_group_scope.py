@@ -112,7 +112,7 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
                  __props__=None):
         """
         Deployment information.
-        API Version: 2021-04-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deployment information.
-        API Version: 2021-04-01.
+        API Version: 2021-01-01.
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtManagementGroupScopeArgs args: The arguments to use to populate this resource's properties.

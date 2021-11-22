@@ -11,11 +11,16 @@ namespace Pulumi.AzureNative.Resources.Outputs
 {
 
     /// <summary>
-    /// Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
+    /// Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
     /// </summary>
     [OutputType]
-    public sealed class LinkedTemplateArtifactResponse
+    public sealed class TemplateSpecTemplateArtifactResponse
     {
+        /// <summary>
+        /// The kind of artifact.
+        /// Expected value is 'template'.
+        /// </summary>
+        public readonly string Kind;
         /// <summary>
         /// A filesystem safe relative path of the artifact.
         /// </summary>
@@ -26,11 +31,14 @@ namespace Pulumi.AzureNative.Resources.Outputs
         public readonly object Template;
 
         [OutputConstructor]
-        private LinkedTemplateArtifactResponse(
+        private TemplateSpecTemplateArtifactResponse(
+            string kind,
+
             string path,
 
             object template)
         {
+            Kind = kind;
             Path = path;
             Template = template;
         }

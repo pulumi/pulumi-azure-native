@@ -108,7 +108,7 @@ def get_deployment_at_subscription_scope(deployment_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentAtSubscriptionScopeResult:
     """
     Deployment information.
-    API Version: 2021-04-01.
+    API Version: 2021-01-01.
 
 
     :param str deployment_name: The name of the deployment.
@@ -135,7 +135,7 @@ def get_deployment_at_subscription_scope_output(deployment_name: Optional[pulumi
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentAtSubscriptionScopeResult]:
     """
     Deployment information.
-    API Version: 2021-04-01.
+    API Version: 2021-01-01.
 
 
     :param str deployment_name: The name of the deployment.
