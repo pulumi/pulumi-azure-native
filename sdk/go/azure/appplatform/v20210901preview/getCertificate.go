@@ -1,0 +1,31 @@
+
+
+
+package v20210901preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
+	var rv LookupCertificateResult
+	err := ctx.Invoke("azure-native:appplatform/v20210901preview:getCertificate", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupCertificateArgs struct {
+	CertificateName   string `pulumi:"certificateName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ServiceName       string `pulumi:"serviceName"`
+}
+
+
+type LookupCertificateResult struct {
+	Id         string      `pulumi:"id"`
+	Name       string      `pulumi:"name"`
+	Properties interface{} `pulumi:"properties"`
+	Type       string      `pulumi:"type"`
+}

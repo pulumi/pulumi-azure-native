@@ -1,0 +1,32 @@
+
+
+
+package automation
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
+	var rv LookupPrivateEndpointConnectionResult
+	err := ctx.Invoke("azure-native:automation:getPrivateEndpointConnection", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupPrivateEndpointConnectionArgs struct {
+	AutomationAccountName         string `pulumi:"automationAccountName"`
+	PrivateEndpointConnectionName string `pulumi:"privateEndpointConnectionName"`
+	ResourceGroupName             string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupPrivateEndpointConnectionResult struct {
+	Id                                string                                             `pulumi:"id"`
+	Name                              string                                             `pulumi:"name"`
+	PrivateEndpoint                   *PrivateEndpointPropertyResponse                   `pulumi:"privateEndpoint"`
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStatePropertyResponse `pulumi:"privateLinkServiceConnectionState"`
+	Type                              string                                             `pulumi:"type"`
+}
