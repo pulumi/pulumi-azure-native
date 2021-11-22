@@ -18,6 +18,7 @@ class TemplateSpecArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_spec_name: Optional[pulumi.Input[str]] = None):
         """
@@ -26,6 +27,7 @@ class TemplateSpecArgs:
         :param pulumi.Input[str] description: Template Spec description.
         :param pulumi.Input[str] display_name: Template Spec display name.
         :param pulumi.Input[str] location: The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
+        :param Any metadata: The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] template_spec_name: Name of the Template Spec.
         """
@@ -36,6 +38,8 @@ class TemplateSpecArgs:
             pulumi.set(__self__, "display_name", display_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if template_spec_name is not None:
@@ -91,6 +95,18 @@ class TemplateSpecArgs:
 
     @property
     @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Resource tags.
@@ -122,19 +138,21 @@ class TemplateSpec(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_spec_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Template Spec object.
-        API Version: 2019-06-01-preview.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Template Spec description.
         :param pulumi.Input[str] display_name: Template Spec display name.
         :param pulumi.Input[str] location: The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
+        :param Any metadata: The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] template_spec_name: Name of the Template Spec.
@@ -147,7 +165,7 @@ class TemplateSpec(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Template Spec object.
-        API Version: 2019-06-01-preview.
+        API Version: 2021-05-01.
 
         :param str resource_name: The name of the resource.
         :param TemplateSpecArgs args: The arguments to use to populate this resource's properties.
@@ -167,6 +185,7 @@ class TemplateSpec(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_spec_name: Optional[pulumi.Input[str]] = None,
@@ -185,6 +204,7 @@ class TemplateSpec(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["location"] = location
+            __props__.__dict__["metadata"] = metadata
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -221,6 +241,7 @@ class TemplateSpec(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
@@ -251,6 +272,14 @@ class TemplateSpec(pulumi.CustomResource):
         The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+        """
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter

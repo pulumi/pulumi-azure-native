@@ -26,6 +26,7 @@ __all__ = [
     'ErrorResponseResponse',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
+    'LinkedTemplateArtifactResponse',
     'ManagedServiceIdentityResponse',
     'OnErrorDeploymentExtendedResponse',
     'ParametersLinkResponse',
@@ -41,7 +42,6 @@ __all__ = [
     'SystemDataResponse',
     'TagsResponse',
     'TemplateLinkResponse',
-    'TemplateSpecTemplateArtifactResponse',
     'TemplateSpecVersionInfoResponse',
     'UserAssignedIdentityResponse',
 ]
@@ -1108,6 +1108,39 @@ class IdentityResponseUserAssignedIdentities(dict):
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class LinkedTemplateArtifactResponse(dict):
+    """
+    Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
+    """
+    def __init__(__self__, *,
+                 path: str,
+                 template: Any):
+        """
+        Represents a Template Spec artifact containing an embedded Azure Resource Manager template for use as a linked template.
+        :param str path: A filesystem safe relative path of the artifact.
+        :param Any template: The Azure Resource Manager template.
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "template", template)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        """
+        A filesystem safe relative path of the artifact.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def template(self) -> Any:
+        """
+        The Azure Resource Manager template.
+        """
+        return pulumi.get(self, "template")
 
 
 @pulumi.output_type
@@ -2193,52 +2226,6 @@ class TemplateLinkResponse(dict):
         The URI of the template to deploy. Use either the uri or id property, but not both.
         """
         return pulumi.get(self, "uri")
-
-
-@pulumi.output_type
-class TemplateSpecTemplateArtifactResponse(dict):
-    """
-    Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
-    """
-    def __init__(__self__, *,
-                 kind: str,
-                 path: str,
-                 template: Any):
-        """
-        Represents a Template Spec artifact containing an embedded Azure Resource Manager template.
-        :param str kind: The kind of artifact.
-               Expected value is 'template'.
-        :param str path: A filesystem safe relative path of the artifact.
-        :param Any template: The Azure Resource Manager template.
-        """
-        pulumi.set(__self__, "kind", 'template')
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "template", template)
-
-    @property
-    @pulumi.getter
-    def kind(self) -> str:
-        """
-        The kind of artifact.
-        Expected value is 'template'.
-        """
-        return pulumi.get(self, "kind")
-
-    @property
-    @pulumi.getter
-    def path(self) -> str:
-        """
-        A filesystem safe relative path of the artifact.
-        """
-        return pulumi.get(self, "path")
-
-    @property
-    @pulumi.getter
-    def template(self) -> Any:
-        """
-        The Azure Resource Manager template.
-        """
-        return pulumi.get(self, "template")
 
 
 @pulumi.output_type

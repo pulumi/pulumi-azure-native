@@ -21,7 +21,7 @@ class GetTemplateSpecResult:
     """
     Template Spec object.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, location=None, name=None, system_data=None, tags=None, type=None, versions=None):
+    def __init__(__self__, description=None, display_name=None, id=None, location=None, metadata=None, name=None, system_data=None, tags=None, type=None, versions=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -34,6 +34,9 @@ class GetTemplateSpecResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -81,6 +84,14 @@ class GetTemplateSpecResult:
         The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The Template Spec metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+        """
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
@@ -133,6 +144,7 @@ class AwaitableGetTemplateSpecResult(GetTemplateSpecResult):
             display_name=self.display_name,
             id=self.id,
             location=self.location,
+            metadata=self.metadata,
             name=self.name,
             system_data=self.system_data,
             tags=self.tags,
@@ -146,7 +158,7 @@ def get_template_spec(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplateSpecResult:
     """
     Template Spec object.
-    API Version: 2019-06-01-preview.
+    API Version: 2021-05-01.
 
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.
@@ -168,6 +180,7 @@ def get_template_spec(expand: Optional[str] = None,
         display_name=__ret__.display_name,
         id=__ret__.id,
         location=__ret__.location,
+        metadata=__ret__.metadata,
         name=__ret__.name,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
@@ -182,7 +195,7 @@ def get_template_spec_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateSpecResult]:
     """
     Template Spec object.
-    API Version: 2019-06-01-preview.
+    API Version: 2021-05-01.
 
 
     :param str expand: Allows for expansion of additional Template Spec details in the response. Optional.

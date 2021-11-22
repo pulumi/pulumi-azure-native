@@ -28,6 +28,7 @@ type LookupTemplateSpecResult struct {
 	DisplayName *string                                    `pulumi:"displayName"`
 	Id          string                                     `pulumi:"id"`
 	Location    string                                     `pulumi:"location"`
+	Metadata    interface{}                                `pulumi:"metadata"`
 	Name        string                                     `pulumi:"name"`
 	SystemData  SystemDataResponse                         `pulumi:"systemData"`
 	Tags        map[string]string                          `pulumi:"tags"`

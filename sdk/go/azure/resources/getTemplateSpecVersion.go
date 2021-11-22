@@ -24,13 +24,15 @@ type LookupTemplateSpecVersionArgs struct {
 
 
 type LookupTemplateSpecVersionResult struct {
-	Artifacts   []TemplateSpecTemplateArtifactResponse `pulumi:"artifacts"`
-	Description *string                                `pulumi:"description"`
-	Id          string                                 `pulumi:"id"`
-	Location    string                                 `pulumi:"location"`
-	Name        string                                 `pulumi:"name"`
-	SystemData  SystemDataResponse                     `pulumi:"systemData"`
-	Tags        map[string]string                      `pulumi:"tags"`
-	Template    interface{}                            `pulumi:"template"`
-	Type        string                                 `pulumi:"type"`
+	Description      *string                          `pulumi:"description"`
+	Id               string                           `pulumi:"id"`
+	LinkedTemplates  []LinkedTemplateArtifactResponse `pulumi:"linkedTemplates"`
+	Location         string                           `pulumi:"location"`
+	MainTemplate     interface{}                      `pulumi:"mainTemplate"`
+	Metadata         interface{}                      `pulumi:"metadata"`
+	Name             string                           `pulumi:"name"`
+	SystemData       SystemDataResponse               `pulumi:"systemData"`
+	Tags             map[string]string                `pulumi:"tags"`
+	Type             string                           `pulumi:"type"`
+	UiFormDefinition interface{}                      `pulumi:"uiFormDefinition"`
 }

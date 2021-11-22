@@ -17,6 +17,7 @@ type TemplateSpec struct {
 	Description pulumi.StringPtrOutput                   `pulumi:"description"`
 	DisplayName pulumi.StringPtrOutput                   `pulumi:"displayName"`
 	Location    pulumi.StringOutput                      `pulumi:"location"`
+	Metadata    pulumi.AnyOutput                         `pulumi:"metadata"`
 	Name        pulumi.StringOutput                      `pulumi:"name"`
 	SystemData  SystemDataResponseOutput                 `pulumi:"systemData"`
 	Tags        pulumi.StringMapOutput                   `pulumi:"tags"`
@@ -81,6 +82,7 @@ type templateSpecArgs struct {
 	Description       *string           `pulumi:"description"`
 	DisplayName       *string           `pulumi:"displayName"`
 	Location          *string           `pulumi:"location"`
+	Metadata          interface{}       `pulumi:"metadata"`
 	ResourceGroupName string            `pulumi:"resourceGroupName"`
 	Tags              map[string]string `pulumi:"tags"`
 	TemplateSpecName  *string           `pulumi:"templateSpecName"`
@@ -91,6 +93,7 @@ type TemplateSpecArgs struct {
 	Description       pulumi.StringPtrInput
 	DisplayName       pulumi.StringPtrInput
 	Location          pulumi.StringPtrInput
+	Metadata          pulumi.Input
 	ResourceGroupName pulumi.StringInput
 	Tags              pulumi.StringMapInput
 	TemplateSpecName  pulumi.StringPtrInput

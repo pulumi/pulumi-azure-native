@@ -3038,6 +3038,206 @@ func (o IdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.Strin
 	}).(IdentityResponseUserAssignedIdentitiesOutput)
 }
 
+type LinkedTemplateArtifact struct {
+	Path     string      `pulumi:"path"`
+	Template interface{} `pulumi:"template"`
+}
+
+
+
+
+
+type LinkedTemplateArtifactInput interface {
+	pulumi.Input
+
+	ToLinkedTemplateArtifactOutput() LinkedTemplateArtifactOutput
+	ToLinkedTemplateArtifactOutputWithContext(context.Context) LinkedTemplateArtifactOutput
+}
+
+type LinkedTemplateArtifactArgs struct {
+	Path     pulumi.StringInput `pulumi:"path"`
+	Template pulumi.Input       `pulumi:"template"`
+}
+
+func (LinkedTemplateArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedTemplateArtifact)(nil)).Elem()
+}
+
+func (i LinkedTemplateArtifactArgs) ToLinkedTemplateArtifactOutput() LinkedTemplateArtifactOutput {
+	return i.ToLinkedTemplateArtifactOutputWithContext(context.Background())
+}
+
+func (i LinkedTemplateArtifactArgs) ToLinkedTemplateArtifactOutputWithContext(ctx context.Context) LinkedTemplateArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedTemplateArtifactOutput)
+}
+
+
+
+
+
+type LinkedTemplateArtifactArrayInput interface {
+	pulumi.Input
+
+	ToLinkedTemplateArtifactArrayOutput() LinkedTemplateArtifactArrayOutput
+	ToLinkedTemplateArtifactArrayOutputWithContext(context.Context) LinkedTemplateArtifactArrayOutput
+}
+
+type LinkedTemplateArtifactArray []LinkedTemplateArtifactInput
+
+func (LinkedTemplateArtifactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedTemplateArtifact)(nil)).Elem()
+}
+
+func (i LinkedTemplateArtifactArray) ToLinkedTemplateArtifactArrayOutput() LinkedTemplateArtifactArrayOutput {
+	return i.ToLinkedTemplateArtifactArrayOutputWithContext(context.Background())
+}
+
+func (i LinkedTemplateArtifactArray) ToLinkedTemplateArtifactArrayOutputWithContext(ctx context.Context) LinkedTemplateArtifactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedTemplateArtifactArrayOutput)
+}
+
+type LinkedTemplateArtifactOutput struct{ *pulumi.OutputState }
+
+func (LinkedTemplateArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedTemplateArtifact)(nil)).Elem()
+}
+
+func (o LinkedTemplateArtifactOutput) ToLinkedTemplateArtifactOutput() LinkedTemplateArtifactOutput {
+	return o
+}
+
+func (o LinkedTemplateArtifactOutput) ToLinkedTemplateArtifactOutputWithContext(ctx context.Context) LinkedTemplateArtifactOutput {
+	return o
+}
+
+func (o LinkedTemplateArtifactOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedTemplateArtifact) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o LinkedTemplateArtifactOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v LinkedTemplateArtifact) interface{} { return v.Template }).(pulumi.AnyOutput)
+}
+
+type LinkedTemplateArtifactArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedTemplateArtifactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedTemplateArtifact)(nil)).Elem()
+}
+
+func (o LinkedTemplateArtifactArrayOutput) ToLinkedTemplateArtifactArrayOutput() LinkedTemplateArtifactArrayOutput {
+	return o
+}
+
+func (o LinkedTemplateArtifactArrayOutput) ToLinkedTemplateArtifactArrayOutputWithContext(ctx context.Context) LinkedTemplateArtifactArrayOutput {
+	return o
+}
+
+func (o LinkedTemplateArtifactArrayOutput) Index(i pulumi.IntInput) LinkedTemplateArtifactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedTemplateArtifact {
+		return vs[0].([]LinkedTemplateArtifact)[vs[1].(int)]
+	}).(LinkedTemplateArtifactOutput)
+}
+
+type LinkedTemplateArtifactResponse struct {
+	Path     string      `pulumi:"path"`
+	Template interface{} `pulumi:"template"`
+}
+
+
+
+
+
+type LinkedTemplateArtifactResponseInput interface {
+	pulumi.Input
+
+	ToLinkedTemplateArtifactResponseOutput() LinkedTemplateArtifactResponseOutput
+	ToLinkedTemplateArtifactResponseOutputWithContext(context.Context) LinkedTemplateArtifactResponseOutput
+}
+
+type LinkedTemplateArtifactResponseArgs struct {
+	Path     pulumi.StringInput `pulumi:"path"`
+	Template pulumi.Input       `pulumi:"template"`
+}
+
+func (LinkedTemplateArtifactResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedTemplateArtifactResponse)(nil)).Elem()
+}
+
+func (i LinkedTemplateArtifactResponseArgs) ToLinkedTemplateArtifactResponseOutput() LinkedTemplateArtifactResponseOutput {
+	return i.ToLinkedTemplateArtifactResponseOutputWithContext(context.Background())
+}
+
+func (i LinkedTemplateArtifactResponseArgs) ToLinkedTemplateArtifactResponseOutputWithContext(ctx context.Context) LinkedTemplateArtifactResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedTemplateArtifactResponseOutput)
+}
+
+
+
+
+
+type LinkedTemplateArtifactResponseArrayInput interface {
+	pulumi.Input
+
+	ToLinkedTemplateArtifactResponseArrayOutput() LinkedTemplateArtifactResponseArrayOutput
+	ToLinkedTemplateArtifactResponseArrayOutputWithContext(context.Context) LinkedTemplateArtifactResponseArrayOutput
+}
+
+type LinkedTemplateArtifactResponseArray []LinkedTemplateArtifactResponseInput
+
+func (LinkedTemplateArtifactResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedTemplateArtifactResponse)(nil)).Elem()
+}
+
+func (i LinkedTemplateArtifactResponseArray) ToLinkedTemplateArtifactResponseArrayOutput() LinkedTemplateArtifactResponseArrayOutput {
+	return i.ToLinkedTemplateArtifactResponseArrayOutputWithContext(context.Background())
+}
+
+func (i LinkedTemplateArtifactResponseArray) ToLinkedTemplateArtifactResponseArrayOutputWithContext(ctx context.Context) LinkedTemplateArtifactResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinkedTemplateArtifactResponseArrayOutput)
+}
+
+type LinkedTemplateArtifactResponseOutput struct{ *pulumi.OutputState }
+
+func (LinkedTemplateArtifactResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinkedTemplateArtifactResponse)(nil)).Elem()
+}
+
+func (o LinkedTemplateArtifactResponseOutput) ToLinkedTemplateArtifactResponseOutput() LinkedTemplateArtifactResponseOutput {
+	return o
+}
+
+func (o LinkedTemplateArtifactResponseOutput) ToLinkedTemplateArtifactResponseOutputWithContext(ctx context.Context) LinkedTemplateArtifactResponseOutput {
+	return o
+}
+
+func (o LinkedTemplateArtifactResponseOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v LinkedTemplateArtifactResponse) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o LinkedTemplateArtifactResponseOutput) Template() pulumi.AnyOutput {
+	return o.ApplyT(func(v LinkedTemplateArtifactResponse) interface{} { return v.Template }).(pulumi.AnyOutput)
+}
+
+type LinkedTemplateArtifactResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (LinkedTemplateArtifactResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinkedTemplateArtifactResponse)(nil)).Elem()
+}
+
+func (o LinkedTemplateArtifactResponseArrayOutput) ToLinkedTemplateArtifactResponseArrayOutput() LinkedTemplateArtifactResponseArrayOutput {
+	return o
+}
+
+func (o LinkedTemplateArtifactResponseArrayOutput) ToLinkedTemplateArtifactResponseArrayOutputWithContext(ctx context.Context) LinkedTemplateArtifactResponseArrayOutput {
+	return o
+}
+
+func (o LinkedTemplateArtifactResponseArrayOutput) Index(i pulumi.IntInput) LinkedTemplateArtifactResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinkedTemplateArtifactResponse {
+		return vs[0].([]LinkedTemplateArtifactResponse)[vs[1].(int)]
+	}).(LinkedTemplateArtifactResponseOutput)
+}
+
 type ManagedServiceIdentity struct {
 	Type                   *string                `pulumi:"type"`
 	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
@@ -6717,218 +6917,6 @@ func (o TemplateLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type TemplateSpecTemplateArtifact struct {
-	Kind     string      `pulumi:"kind"`
-	Path     string      `pulumi:"path"`
-	Template interface{} `pulumi:"template"`
-}
-
-
-
-
-
-type TemplateSpecTemplateArtifactInput interface {
-	pulumi.Input
-
-	ToTemplateSpecTemplateArtifactOutput() TemplateSpecTemplateArtifactOutput
-	ToTemplateSpecTemplateArtifactOutputWithContext(context.Context) TemplateSpecTemplateArtifactOutput
-}
-
-type TemplateSpecTemplateArtifactArgs struct {
-	Kind     pulumi.StringInput `pulumi:"kind"`
-	Path     pulumi.StringInput `pulumi:"path"`
-	Template pulumi.Input       `pulumi:"template"`
-}
-
-func (TemplateSpecTemplateArtifactArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecTemplateArtifact)(nil)).Elem()
-}
-
-func (i TemplateSpecTemplateArtifactArgs) ToTemplateSpecTemplateArtifactOutput() TemplateSpecTemplateArtifactOutput {
-	return i.ToTemplateSpecTemplateArtifactOutputWithContext(context.Background())
-}
-
-func (i TemplateSpecTemplateArtifactArgs) ToTemplateSpecTemplateArtifactOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecTemplateArtifactOutput)
-}
-
-
-
-
-
-type TemplateSpecTemplateArtifactArrayInput interface {
-	pulumi.Input
-
-	ToTemplateSpecTemplateArtifactArrayOutput() TemplateSpecTemplateArtifactArrayOutput
-	ToTemplateSpecTemplateArtifactArrayOutputWithContext(context.Context) TemplateSpecTemplateArtifactArrayOutput
-}
-
-type TemplateSpecTemplateArtifactArray []TemplateSpecTemplateArtifactInput
-
-func (TemplateSpecTemplateArtifactArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateSpecTemplateArtifact)(nil)).Elem()
-}
-
-func (i TemplateSpecTemplateArtifactArray) ToTemplateSpecTemplateArtifactArrayOutput() TemplateSpecTemplateArtifactArrayOutput {
-	return i.ToTemplateSpecTemplateArtifactArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateSpecTemplateArtifactArray) ToTemplateSpecTemplateArtifactArrayOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecTemplateArtifactArrayOutput)
-}
-
-type TemplateSpecTemplateArtifactOutput struct{ *pulumi.OutputState }
-
-func (TemplateSpecTemplateArtifactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecTemplateArtifact)(nil)).Elem()
-}
-
-func (o TemplateSpecTemplateArtifactOutput) ToTemplateSpecTemplateArtifactOutput() TemplateSpecTemplateArtifactOutput {
-	return o
-}
-
-func (o TemplateSpecTemplateArtifactOutput) ToTemplateSpecTemplateArtifactOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactOutput {
-	return o
-}
-
-func (o TemplateSpecTemplateArtifactOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateSpecTemplateArtifact) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-func (o TemplateSpecTemplateArtifactOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateSpecTemplateArtifact) string { return v.Path }).(pulumi.StringOutput)
-}
-
-func (o TemplateSpecTemplateArtifactOutput) Template() pulumi.AnyOutput {
-	return o.ApplyT(func(v TemplateSpecTemplateArtifact) interface{} { return v.Template }).(pulumi.AnyOutput)
-}
-
-type TemplateSpecTemplateArtifactArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateSpecTemplateArtifactArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateSpecTemplateArtifact)(nil)).Elem()
-}
-
-func (o TemplateSpecTemplateArtifactArrayOutput) ToTemplateSpecTemplateArtifactArrayOutput() TemplateSpecTemplateArtifactArrayOutput {
-	return o
-}
-
-func (o TemplateSpecTemplateArtifactArrayOutput) ToTemplateSpecTemplateArtifactArrayOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactArrayOutput {
-	return o
-}
-
-func (o TemplateSpecTemplateArtifactArrayOutput) Index(i pulumi.IntInput) TemplateSpecTemplateArtifactOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateSpecTemplateArtifact {
-		return vs[0].([]TemplateSpecTemplateArtifact)[vs[1].(int)]
-	}).(TemplateSpecTemplateArtifactOutput)
-}
-
-type TemplateSpecTemplateArtifactResponse struct {
-	Kind     string      `pulumi:"kind"`
-	Path     string      `pulumi:"path"`
-	Template interface{} `pulumi:"template"`
-}
-
-
-
-
-
-type TemplateSpecTemplateArtifactResponseInput interface {
-	pulumi.Input
-
-	ToTemplateSpecTemplateArtifactResponseOutput() TemplateSpecTemplateArtifactResponseOutput
-	ToTemplateSpecTemplateArtifactResponseOutputWithContext(context.Context) TemplateSpecTemplateArtifactResponseOutput
-}
-
-type TemplateSpecTemplateArtifactResponseArgs struct {
-	Kind     pulumi.StringInput `pulumi:"kind"`
-	Path     pulumi.StringInput `pulumi:"path"`
-	Template pulumi.Input       `pulumi:"template"`
-}
-
-func (TemplateSpecTemplateArtifactResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecTemplateArtifactResponse)(nil)).Elem()
-}
-
-func (i TemplateSpecTemplateArtifactResponseArgs) ToTemplateSpecTemplateArtifactResponseOutput() TemplateSpecTemplateArtifactResponseOutput {
-	return i.ToTemplateSpecTemplateArtifactResponseOutputWithContext(context.Background())
-}
-
-func (i TemplateSpecTemplateArtifactResponseArgs) ToTemplateSpecTemplateArtifactResponseOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecTemplateArtifactResponseOutput)
-}
-
-
-
-
-
-type TemplateSpecTemplateArtifactResponseArrayInput interface {
-	pulumi.Input
-
-	ToTemplateSpecTemplateArtifactResponseArrayOutput() TemplateSpecTemplateArtifactResponseArrayOutput
-	ToTemplateSpecTemplateArtifactResponseArrayOutputWithContext(context.Context) TemplateSpecTemplateArtifactResponseArrayOutput
-}
-
-type TemplateSpecTemplateArtifactResponseArray []TemplateSpecTemplateArtifactResponseInput
-
-func (TemplateSpecTemplateArtifactResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateSpecTemplateArtifactResponse)(nil)).Elem()
-}
-
-func (i TemplateSpecTemplateArtifactResponseArray) ToTemplateSpecTemplateArtifactResponseArrayOutput() TemplateSpecTemplateArtifactResponseArrayOutput {
-	return i.ToTemplateSpecTemplateArtifactResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateSpecTemplateArtifactResponseArray) ToTemplateSpecTemplateArtifactResponseArrayOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateSpecTemplateArtifactResponseArrayOutput)
-}
-
-type TemplateSpecTemplateArtifactResponseOutput struct{ *pulumi.OutputState }
-
-func (TemplateSpecTemplateArtifactResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecTemplateArtifactResponse)(nil)).Elem()
-}
-
-func (o TemplateSpecTemplateArtifactResponseOutput) ToTemplateSpecTemplateArtifactResponseOutput() TemplateSpecTemplateArtifactResponseOutput {
-	return o
-}
-
-func (o TemplateSpecTemplateArtifactResponseOutput) ToTemplateSpecTemplateArtifactResponseOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactResponseOutput {
-	return o
-}
-
-func (o TemplateSpecTemplateArtifactResponseOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateSpecTemplateArtifactResponse) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-func (o TemplateSpecTemplateArtifactResponseOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateSpecTemplateArtifactResponse) string { return v.Path }).(pulumi.StringOutput)
-}
-
-func (o TemplateSpecTemplateArtifactResponseOutput) Template() pulumi.AnyOutput {
-	return o.ApplyT(func(v TemplateSpecTemplateArtifactResponse) interface{} { return v.Template }).(pulumi.AnyOutput)
-}
-
-type TemplateSpecTemplateArtifactResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateSpecTemplateArtifactResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateSpecTemplateArtifactResponse)(nil)).Elem()
-}
-
-func (o TemplateSpecTemplateArtifactResponseArrayOutput) ToTemplateSpecTemplateArtifactResponseArrayOutput() TemplateSpecTemplateArtifactResponseArrayOutput {
-	return o
-}
-
-func (o TemplateSpecTemplateArtifactResponseArrayOutput) ToTemplateSpecTemplateArtifactResponseArrayOutputWithContext(ctx context.Context) TemplateSpecTemplateArtifactResponseArrayOutput {
-	return o
-}
-
-func (o TemplateSpecTemplateArtifactResponseArrayOutput) Index(i pulumi.IntInput) TemplateSpecTemplateArtifactResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateSpecTemplateArtifactResponse {
-		return vs[0].([]TemplateSpecTemplateArtifactResponse)[vs[1].(int)]
-	}).(TemplateSpecTemplateArtifactResponseOutput)
-}
-
 type TemplateSpecVersionInfoResponse struct {
 	Description  string `pulumi:"description"`
 	TimeCreated  string `pulumi:"timeCreated"`
@@ -7178,6 +7166,10 @@ func init() {
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesOutput{})
 	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesMapOutput{})
+	pulumi.RegisterOutputType(LinkedTemplateArtifactOutput{})
+	pulumi.RegisterOutputType(LinkedTemplateArtifactArrayOutput{})
+	pulumi.RegisterOutputType(LinkedTemplateArtifactResponseOutput{})
+	pulumi.RegisterOutputType(LinkedTemplateArtifactResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
@@ -7224,10 +7216,6 @@ func init() {
 	pulumi.RegisterOutputType(TemplateLinkPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLinkResponseOutput{})
 	pulumi.RegisterOutputType(TemplateLinkResponsePtrOutput{})
-	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactOutput{})
-	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactArrayOutput{})
-	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactResponseOutput{})
-	pulumi.RegisterOutputType(TemplateSpecTemplateArtifactResponseArrayOutput{})
 	pulumi.RegisterOutputType(TemplateSpecVersionInfoResponseOutput{})
 	pulumi.RegisterOutputType(TemplateSpecVersionInfoResponseMapOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})

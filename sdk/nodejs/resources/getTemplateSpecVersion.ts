@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Template Spec Version object.
- * API Version: 2019-06-01-preview.
+ * API Version: 2021-05-01.
  */
 export function getTemplateSpecVersion(args: GetTemplateSpecVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetTemplateSpecVersionResult> {
     if (!opts) {
@@ -44,10 +44,6 @@ export interface GetTemplateSpecVersionArgs {
  */
 export interface GetTemplateSpecVersionResult {
     /**
-     * An array of Template Spec artifacts.
-     */
-    readonly artifacts?: outputs.resources.TemplateSpecTemplateArtifactResponse[];
-    /**
      * Template Spec version description.
      */
     readonly description?: string;
@@ -56,9 +52,21 @@ export interface GetTemplateSpecVersionResult {
      */
     readonly id: string;
     /**
+     * An array of linked template artifacts.
+     */
+    readonly linkedTemplates?: outputs.resources.LinkedTemplateArtifactResponse[];
+    /**
      * The location of the Template Spec Version. It must match the location of the parent Template Spec.
      */
     readonly location: string;
+    /**
+     * The main Azure Resource Manager template content.
+     */
+    readonly mainTemplate?: any;
+    /**
+     * The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
+     */
+    readonly metadata?: any;
     /**
      * Name of this resource.
      */
@@ -72,13 +80,13 @@ export interface GetTemplateSpecVersionResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The Azure Resource Manager template content.
-     */
-    readonly template?: any;
-    /**
      * Type of this resource.
      */
     readonly type: string;
+    /**
+     * The Azure Resource Manager template UI definition content.
+     */
+    readonly uiFormDefinition?: any;
 }
 
 export function getTemplateSpecVersionOutput(args: GetTemplateSpecVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateSpecVersionResult> {
