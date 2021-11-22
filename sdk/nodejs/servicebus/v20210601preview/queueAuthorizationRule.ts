@@ -92,7 +92,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20140901:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20150801:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20210101preview:QueueAuthorizationRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20140901:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20150801:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20210101preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20211101:QueueAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(QueueAuthorizationRule.__pulumiType, name, inputs, opts);
     }

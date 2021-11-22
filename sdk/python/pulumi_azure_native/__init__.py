@@ -14845,6 +14845,25 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "servicebus/v20211101",
+  "fqn": "pulumi_azure_native.servicebus.v20211101",
+  "classes": {
+   "azure-native:servicebus/v20211101:DisasterRecoveryConfig": "DisasterRecoveryConfig",
+   "azure-native:servicebus/v20211101:MigrationConfig": "MigrationConfig",
+   "azure-native:servicebus/v20211101:Namespace": "Namespace",
+   "azure-native:servicebus/v20211101:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:servicebus/v20211101:NamespaceNetworkRuleSet": "NamespaceNetworkRuleSet",
+   "azure-native:servicebus/v20211101:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:servicebus/v20211101:Queue": "Queue",
+   "azure-native:servicebus/v20211101:QueueAuthorizationRule": "QueueAuthorizationRule",
+   "azure-native:servicebus/v20211101:Rule": "Rule",
+   "azure-native:servicebus/v20211101:Subscription": "Subscription",
+   "azure-native:servicebus/v20211101:Topic": "Topic",
+   "azure-native:servicebus/v20211101:TopicAuthorizationRule": "TopicAuthorizationRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "servicefabric",
   "fqn": "pulumi_azure_native.servicefabric",
   "classes": {

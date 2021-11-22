@@ -191,7 +191,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rights'")
             __props__.__dict__["rights"] = rights
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20140901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:NamespaceAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20140901:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20211101:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azure-native:servicebus/v20150801:NamespaceAuthorizationRule',

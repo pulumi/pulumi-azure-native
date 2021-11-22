@@ -53,6 +53,9 @@ func NewNamespaceNetworkRuleSet(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet"),
 		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20211101:NamespaceNetworkRuleSet"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NamespaceNetworkRuleSet

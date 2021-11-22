@@ -118,6 +118,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20150801
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:Namespace"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:Namespace"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
