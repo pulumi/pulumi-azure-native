@@ -45,6 +45,9 @@ func NewDataPool(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool"),
 		},
+		{
+			Type: pulumi.String("azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DataPool

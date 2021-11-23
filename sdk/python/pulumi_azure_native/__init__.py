@@ -2118,6 +2118,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "autonomousdevelopmentplatform/v20211101preview",
+  "fqn": "pulumi_azure_native.autonomousdevelopmentplatform.v20211101preview",
+  "classes": {
+   "azure-native:autonomousdevelopmentplatform/v20211101preview:Account": "Account",
+   "azure-native:autonomousdevelopmentplatform/v20211101preview:DataPool": "DataPool"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "avs",
   "fqn": "pulumi_azure_native.avs",
   "classes": {

@@ -13,6 +13,7 @@ import * as attestation from "./attestation";
 import * as authorization from "./authorization";
 import * as automanage from "./automanage";
 import * as automation from "./automation";
+import * as autonomousdevelopmentplatform from "./autonomousdevelopmentplatform";
 import * as avs from "./avs";
 import * as azureactivedirectory from "./azureactivedirectory";
 import * as azurearcdata from "./azurearcdata";
@@ -169,6 +170,7 @@ export {
     authorization,
     automanage,
     automation,
+    autonomousdevelopmentplatform,
     avs,
     azureactivedirectory,
     azurearcdata,
