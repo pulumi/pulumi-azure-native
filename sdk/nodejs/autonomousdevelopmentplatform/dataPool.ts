@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * ADP Data Pool
- * API Version: 2021-11-01-preview.
+ * API Version: 2021-02-01-preview.
  */
 export class DataPool extends pulumi.CustomResource {
     /**
@@ -57,10 +57,6 @@ export class DataPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.autonomousdevelopmentplatform.SystemDataResponse>;
     /**
-     * Resource tags
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -89,7 +85,6 @@ export class DataPool extends pulumi.CustomResource {
             inputs["dataPoolName"] = args ? args.dataPoolName : undefined;
             inputs["locations"] = args ? args.locations : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
             inputs["dataPoolId"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
@@ -101,7 +96,6 @@ export class DataPool extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -133,8 +127,4 @@ export interface DataPoolArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Resource tags
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

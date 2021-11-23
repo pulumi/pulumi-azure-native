@@ -7,12 +7,10 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from ._enums import *
 
 __all__ = [
     'DataPoolEncryptionArgs',
     'DataPoolLocationArgs',
-    'StorageSkuArgs',
 ]
 
 @pulumi.input_type
@@ -88,23 +86,15 @@ class DataPoolEncryptionArgs:
 class DataPoolLocationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 encryption: Optional[pulumi.Input['DataPoolEncryptionArgs']] = None,
-                 storage_account_count: Optional[pulumi.Input[int]] = None,
-                 storage_sku: Optional[pulumi.Input['StorageSkuArgs']] = None):
+                 encryption: Optional[pulumi.Input['DataPoolEncryptionArgs']] = None):
         """
         Location of a Data Pool
         :param pulumi.Input[str] name: The location name
         :param pulumi.Input['DataPoolEncryptionArgs'] encryption: Encryption properties of a Data Pool location
-        :param pulumi.Input[int] storage_account_count: The amount of storage accounts provisioned per Data Pool. Default: 5
-        :param pulumi.Input['StorageSkuArgs'] storage_sku: The Storage SKU. Default: Standard_ZRS.
         """
         pulumi.set(__self__, "name", name)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
-        if storage_account_count is not None:
-            pulumi.set(__self__, "storage_account_count", storage_account_count)
-        if storage_sku is not None:
-            pulumi.set(__self__, "storage_sku", storage_sku)
 
     @property
     @pulumi.getter
@@ -129,52 +119,5 @@ class DataPoolLocationArgs:
     @encryption.setter
     def encryption(self, value: Optional[pulumi.Input['DataPoolEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
-
-    @property
-    @pulumi.getter(name="storageAccountCount")
-    def storage_account_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The amount of storage accounts provisioned per Data Pool. Default: 5
-        """
-        return pulumi.get(self, "storage_account_count")
-
-    @storage_account_count.setter
-    def storage_account_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "storage_account_count", value)
-
-    @property
-    @pulumi.getter(name="storageSku")
-    def storage_sku(self) -> Optional[pulumi.Input['StorageSkuArgs']]:
-        """
-        The Storage SKU. Default: Standard_ZRS.
-        """
-        return pulumi.get(self, "storage_sku")
-
-    @storage_sku.setter
-    def storage_sku(self, value: Optional[pulumi.Input['StorageSkuArgs']]):
-        pulumi.set(self, "storage_sku", value)
-
-
-@pulumi.input_type
-class StorageSkuArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'StorageSkuName']]):
-        """
-        The Storage SKU.
-        :param pulumi.Input[Union[str, 'StorageSkuName']] name: The SKU name
-        """
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Union[str, 'StorageSkuName']]:
-        """
-        The SKU name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Union[str, 'StorageSkuName']]):
-        pulumi.set(self, "name", value)
 
 

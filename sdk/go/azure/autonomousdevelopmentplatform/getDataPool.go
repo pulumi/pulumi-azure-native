@@ -30,6 +30,5 @@ type LookupDataPoolResult struct {
 	Name              string                     `pulumi:"name"`
 	ProvisioningState string                     `pulumi:"provisioningState"`
 	SystemData        SystemDataResponse         `pulumi:"systemData"`
-	Tags              map[string]string          `pulumi:"tags"`
 	Type              string                     `pulumi:"type"`
 }

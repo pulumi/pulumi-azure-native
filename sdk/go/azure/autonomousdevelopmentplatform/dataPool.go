@@ -19,7 +19,6 @@ type DataPool struct {
 	Name              pulumi.StringOutput                 `pulumi:"name"`
 	ProvisioningState pulumi.StringOutput                 `pulumi:"provisioningState"`
 	SystemData        SystemDataResponseOutput            `pulumi:"systemData"`
-	Tags              pulumi.StringMapOutput              `pulumi:"tags"`
 	Type              pulumi.StringOutput                 `pulumi:"type"`
 }
 
@@ -87,7 +86,6 @@ type dataPoolArgs struct {
 	DataPoolName      *string            `pulumi:"dataPoolName"`
 	Locations         []DataPoolLocation `pulumi:"locations"`
 	ResourceGroupName string             `pulumi:"resourceGroupName"`
-	Tags              map[string]string  `pulumi:"tags"`
 }
 
 
@@ -96,7 +94,6 @@ type DataPoolArgs struct {
 	DataPoolName      pulumi.StringPtrInput
 	Locations         DataPoolLocationArrayInput
 	ResourceGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
 }
 
 func (DataPoolArgs) ElementType() reflect.Type {
