@@ -1,0 +1,1848 @@
+
+
+
+package v20150521preview
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type CustomImageOsType string
+
+const (
+	CustomImageOsTypeWindows = CustomImageOsType("Windows")
+	CustomImageOsTypeLinux   = CustomImageOsType("Linux")
+	CustomImageOsTypeNone    = CustomImageOsType("None")
+)
+
+func (CustomImageOsType) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomImageOsType)(nil)).Elem()
+}
+
+func (e CustomImageOsType) ToCustomImageOsTypeOutput() CustomImageOsTypeOutput {
+	return pulumi.ToOutput(e).(CustomImageOsTypeOutput)
+}
+
+func (e CustomImageOsType) ToCustomImageOsTypeOutputWithContext(ctx context.Context) CustomImageOsTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CustomImageOsTypeOutput)
+}
+
+func (e CustomImageOsType) ToCustomImageOsTypePtrOutput() CustomImageOsTypePtrOutput {
+	return e.ToCustomImageOsTypePtrOutputWithContext(context.Background())
+}
+
+func (e CustomImageOsType) ToCustomImageOsTypePtrOutputWithContext(ctx context.Context) CustomImageOsTypePtrOutput {
+	return CustomImageOsType(e).ToCustomImageOsTypeOutputWithContext(ctx).ToCustomImageOsTypePtrOutputWithContext(ctx)
+}
+
+func (e CustomImageOsType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomImageOsType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomImageOsType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CustomImageOsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CustomImageOsTypeOutput struct{ *pulumi.OutputState }
+
+func (CustomImageOsTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomImageOsType)(nil)).Elem()
+}
+
+func (o CustomImageOsTypeOutput) ToCustomImageOsTypeOutput() CustomImageOsTypeOutput {
+	return o
+}
+
+func (o CustomImageOsTypeOutput) ToCustomImageOsTypeOutputWithContext(ctx context.Context) CustomImageOsTypeOutput {
+	return o
+}
+
+func (o CustomImageOsTypeOutput) ToCustomImageOsTypePtrOutput() CustomImageOsTypePtrOutput {
+	return o.ToCustomImageOsTypePtrOutputWithContext(context.Background())
+}
+
+func (o CustomImageOsTypeOutput) ToCustomImageOsTypePtrOutputWithContext(ctx context.Context) CustomImageOsTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomImageOsType) *CustomImageOsType {
+		return &v
+	}).(CustomImageOsTypePtrOutput)
+}
+
+func (o CustomImageOsTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CustomImageOsTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomImageOsType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CustomImageOsTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomImageOsTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomImageOsType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CustomImageOsTypePtrOutput struct{ *pulumi.OutputState }
+
+func (CustomImageOsTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomImageOsType)(nil)).Elem()
+}
+
+func (o CustomImageOsTypePtrOutput) ToCustomImageOsTypePtrOutput() CustomImageOsTypePtrOutput {
+	return o
+}
+
+func (o CustomImageOsTypePtrOutput) ToCustomImageOsTypePtrOutputWithContext(ctx context.Context) CustomImageOsTypePtrOutput {
+	return o
+}
+
+func (o CustomImageOsTypePtrOutput) Elem() CustomImageOsTypeOutput {
+	return o.ApplyT(func(v *CustomImageOsType) CustomImageOsType {
+		if v != nil {
+			return *v
+		}
+		var ret CustomImageOsType
+		return ret
+	}).(CustomImageOsTypeOutput)
+}
+
+func (o CustomImageOsTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomImageOsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CustomImageOsType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type CustomImageOsTypeInput interface {
+	pulumi.Input
+
+	ToCustomImageOsTypeOutput() CustomImageOsTypeOutput
+	ToCustomImageOsTypeOutputWithContext(context.Context) CustomImageOsTypeOutput
+}
+
+var customImageOsTypePtrType = reflect.TypeOf((**CustomImageOsType)(nil)).Elem()
+
+type CustomImageOsTypePtrInput interface {
+	pulumi.Input
+
+	ToCustomImageOsTypePtrOutput() CustomImageOsTypePtrOutput
+	ToCustomImageOsTypePtrOutputWithContext(context.Context) CustomImageOsTypePtrOutput
+}
+
+type customImageOsTypePtr string
+
+func CustomImageOsTypePtr(v string) CustomImageOsTypePtrInput {
+	return (*customImageOsTypePtr)(&v)
+}
+
+func (*customImageOsTypePtr) ElementType() reflect.Type {
+	return customImageOsTypePtrType
+}
+
+func (in *customImageOsTypePtr) ToCustomImageOsTypePtrOutput() CustomImageOsTypePtrOutput {
+	return pulumi.ToOutput(in).(CustomImageOsTypePtrOutput)
+}
+
+func (in *customImageOsTypePtr) ToCustomImageOsTypePtrOutputWithContext(ctx context.Context) CustomImageOsTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CustomImageOsTypePtrOutput)
+}
+
+type EnableStatus string
+
+const (
+	EnableStatusEnabled  = EnableStatus("Enabled")
+	EnableStatusDisabled = EnableStatus("Disabled")
+)
+
+func (EnableStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnableStatus)(nil)).Elem()
+}
+
+func (e EnableStatus) ToEnableStatusOutput() EnableStatusOutput {
+	return pulumi.ToOutput(e).(EnableStatusOutput)
+}
+
+func (e EnableStatus) ToEnableStatusOutputWithContext(ctx context.Context) EnableStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EnableStatusOutput)
+}
+
+func (e EnableStatus) ToEnableStatusPtrOutput() EnableStatusPtrOutput {
+	return e.ToEnableStatusPtrOutputWithContext(context.Background())
+}
+
+func (e EnableStatus) ToEnableStatusPtrOutputWithContext(ctx context.Context) EnableStatusPtrOutput {
+	return EnableStatus(e).ToEnableStatusOutputWithContext(ctx).ToEnableStatusPtrOutputWithContext(ctx)
+}
+
+func (e EnableStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnableStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnableStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EnableStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EnableStatusOutput struct{ *pulumi.OutputState }
+
+func (EnableStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnableStatus)(nil)).Elem()
+}
+
+func (o EnableStatusOutput) ToEnableStatusOutput() EnableStatusOutput {
+	return o
+}
+
+func (o EnableStatusOutput) ToEnableStatusOutputWithContext(ctx context.Context) EnableStatusOutput {
+	return o
+}
+
+func (o EnableStatusOutput) ToEnableStatusPtrOutput() EnableStatusPtrOutput {
+	return o.ToEnableStatusPtrOutputWithContext(context.Background())
+}
+
+func (o EnableStatusOutput) ToEnableStatusPtrOutputWithContext(ctx context.Context) EnableStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnableStatus) *EnableStatus {
+		return &v
+	}).(EnableStatusPtrOutput)
+}
+
+func (o EnableStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EnableStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnableStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EnableStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnableStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnableStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnableStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (EnableStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnableStatus)(nil)).Elem()
+}
+
+func (o EnableStatusPtrOutput) ToEnableStatusPtrOutput() EnableStatusPtrOutput {
+	return o
+}
+
+func (o EnableStatusPtrOutput) ToEnableStatusPtrOutputWithContext(ctx context.Context) EnableStatusPtrOutput {
+	return o
+}
+
+func (o EnableStatusPtrOutput) Elem() EnableStatusOutput {
+	return o.ApplyT(func(v *EnableStatus) EnableStatus {
+		if v != nil {
+			return *v
+		}
+		var ret EnableStatus
+		return ret
+	}).(EnableStatusOutput)
+}
+
+func (o EnableStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnableStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnableStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type EnableStatusInput interface {
+	pulumi.Input
+
+	ToEnableStatusOutput() EnableStatusOutput
+	ToEnableStatusOutputWithContext(context.Context) EnableStatusOutput
+}
+
+var enableStatusPtrType = reflect.TypeOf((**EnableStatus)(nil)).Elem()
+
+type EnableStatusPtrInput interface {
+	pulumi.Input
+
+	ToEnableStatusPtrOutput() EnableStatusPtrOutput
+	ToEnableStatusPtrOutputWithContext(context.Context) EnableStatusPtrOutput
+}
+
+type enableStatusPtr string
+
+func EnableStatusPtr(v string) EnableStatusPtrInput {
+	return (*enableStatusPtr)(&v)
+}
+
+func (*enableStatusPtr) ElementType() reflect.Type {
+	return enableStatusPtrType
+}
+
+func (in *enableStatusPtr) ToEnableStatusPtrOutput() EnableStatusPtrOutput {
+	return pulumi.ToOutput(in).(EnableStatusPtrOutput)
+}
+
+func (in *enableStatusPtr) ToEnableStatusPtrOutputWithContext(ctx context.Context) EnableStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EnableStatusPtrOutput)
+}
+
+type LabStorageType string
+
+const (
+	LabStorageTypeStandard = LabStorageType("Standard")
+	LabStorageTypePremium  = LabStorageType("Premium")
+)
+
+func (LabStorageType) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabStorageType)(nil)).Elem()
+}
+
+func (e LabStorageType) ToLabStorageTypeOutput() LabStorageTypeOutput {
+	return pulumi.ToOutput(e).(LabStorageTypeOutput)
+}
+
+func (e LabStorageType) ToLabStorageTypeOutputWithContext(ctx context.Context) LabStorageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LabStorageTypeOutput)
+}
+
+func (e LabStorageType) ToLabStorageTypePtrOutput() LabStorageTypePtrOutput {
+	return e.ToLabStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (e LabStorageType) ToLabStorageTypePtrOutputWithContext(ctx context.Context) LabStorageTypePtrOutput {
+	return LabStorageType(e).ToLabStorageTypeOutputWithContext(ctx).ToLabStorageTypePtrOutputWithContext(ctx)
+}
+
+func (e LabStorageType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LabStorageType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LabStorageType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LabStorageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LabStorageTypeOutput struct{ *pulumi.OutputState }
+
+func (LabStorageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabStorageType)(nil)).Elem()
+}
+
+func (o LabStorageTypeOutput) ToLabStorageTypeOutput() LabStorageTypeOutput {
+	return o
+}
+
+func (o LabStorageTypeOutput) ToLabStorageTypeOutputWithContext(ctx context.Context) LabStorageTypeOutput {
+	return o
+}
+
+func (o LabStorageTypeOutput) ToLabStorageTypePtrOutput() LabStorageTypePtrOutput {
+	return o.ToLabStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (o LabStorageTypeOutput) ToLabStorageTypePtrOutputWithContext(ctx context.Context) LabStorageTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabStorageType) *LabStorageType {
+		return &v
+	}).(LabStorageTypePtrOutput)
+}
+
+func (o LabStorageTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LabStorageTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LabStorageType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LabStorageTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LabStorageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LabStorageType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabStorageTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LabStorageTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabStorageType)(nil)).Elem()
+}
+
+func (o LabStorageTypePtrOutput) ToLabStorageTypePtrOutput() LabStorageTypePtrOutput {
+	return o
+}
+
+func (o LabStorageTypePtrOutput) ToLabStorageTypePtrOutputWithContext(ctx context.Context) LabStorageTypePtrOutput {
+	return o
+}
+
+func (o LabStorageTypePtrOutput) Elem() LabStorageTypeOutput {
+	return o.ApplyT(func(v *LabStorageType) LabStorageType {
+		if v != nil {
+			return *v
+		}
+		var ret LabStorageType
+		return ret
+	}).(LabStorageTypeOutput)
+}
+
+func (o LabStorageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LabStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LabStorageType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type LabStorageTypeInput interface {
+	pulumi.Input
+
+	ToLabStorageTypeOutput() LabStorageTypeOutput
+	ToLabStorageTypeOutputWithContext(context.Context) LabStorageTypeOutput
+}
+
+var labStorageTypePtrType = reflect.TypeOf((**LabStorageType)(nil)).Elem()
+
+type LabStorageTypePtrInput interface {
+	pulumi.Input
+
+	ToLabStorageTypePtrOutput() LabStorageTypePtrOutput
+	ToLabStorageTypePtrOutputWithContext(context.Context) LabStorageTypePtrOutput
+}
+
+type labStorageTypePtr string
+
+func LabStorageTypePtr(v string) LabStorageTypePtrInput {
+	return (*labStorageTypePtr)(&v)
+}
+
+func (*labStorageTypePtr) ElementType() reflect.Type {
+	return labStorageTypePtrType
+}
+
+func (in *labStorageTypePtr) ToLabStorageTypePtrOutput() LabStorageTypePtrOutput {
+	return pulumi.ToOutput(in).(LabStorageTypePtrOutput)
+}
+
+func (in *labStorageTypePtr) ToLabStorageTypePtrOutputWithContext(ctx context.Context) LabStorageTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LabStorageTypePtrOutput)
+}
+
+type LinuxOsState string
+
+const (
+	LinuxOsStateNonDeprovisioned     = LinuxOsState("NonDeprovisioned")
+	LinuxOsStateDeprovisionRequested = LinuxOsState("DeprovisionRequested")
+	LinuxOsStateDeprovisionApplied   = LinuxOsState("DeprovisionApplied")
+)
+
+func (LinuxOsState) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxOsState)(nil)).Elem()
+}
+
+func (e LinuxOsState) ToLinuxOsStateOutput() LinuxOsStateOutput {
+	return pulumi.ToOutput(e).(LinuxOsStateOutput)
+}
+
+func (e LinuxOsState) ToLinuxOsStateOutputWithContext(ctx context.Context) LinuxOsStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LinuxOsStateOutput)
+}
+
+func (e LinuxOsState) ToLinuxOsStatePtrOutput() LinuxOsStatePtrOutput {
+	return e.ToLinuxOsStatePtrOutputWithContext(context.Background())
+}
+
+func (e LinuxOsState) ToLinuxOsStatePtrOutputWithContext(ctx context.Context) LinuxOsStatePtrOutput {
+	return LinuxOsState(e).ToLinuxOsStateOutputWithContext(ctx).ToLinuxOsStatePtrOutputWithContext(ctx)
+}
+
+func (e LinuxOsState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LinuxOsState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LinuxOsState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LinuxOsState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LinuxOsStateOutput struct{ *pulumi.OutputState }
+
+func (LinuxOsStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxOsState)(nil)).Elem()
+}
+
+func (o LinuxOsStateOutput) ToLinuxOsStateOutput() LinuxOsStateOutput {
+	return o
+}
+
+func (o LinuxOsStateOutput) ToLinuxOsStateOutputWithContext(ctx context.Context) LinuxOsStateOutput {
+	return o
+}
+
+func (o LinuxOsStateOutput) ToLinuxOsStatePtrOutput() LinuxOsStatePtrOutput {
+	return o.ToLinuxOsStatePtrOutputWithContext(context.Background())
+}
+
+func (o LinuxOsStateOutput) ToLinuxOsStatePtrOutputWithContext(ctx context.Context) LinuxOsStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxOsState) *LinuxOsState {
+		return &v
+	}).(LinuxOsStatePtrOutput)
+}
+
+func (o LinuxOsStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LinuxOsStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LinuxOsState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LinuxOsStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxOsStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LinuxOsState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LinuxOsStatePtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxOsStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxOsState)(nil)).Elem()
+}
+
+func (o LinuxOsStatePtrOutput) ToLinuxOsStatePtrOutput() LinuxOsStatePtrOutput {
+	return o
+}
+
+func (o LinuxOsStatePtrOutput) ToLinuxOsStatePtrOutputWithContext(ctx context.Context) LinuxOsStatePtrOutput {
+	return o
+}
+
+func (o LinuxOsStatePtrOutput) Elem() LinuxOsStateOutput {
+	return o.ApplyT(func(v *LinuxOsState) LinuxOsState {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxOsState
+		return ret
+	}).(LinuxOsStateOutput)
+}
+
+func (o LinuxOsStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxOsStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LinuxOsState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type LinuxOsStateInput interface {
+	pulumi.Input
+
+	ToLinuxOsStateOutput() LinuxOsStateOutput
+	ToLinuxOsStateOutputWithContext(context.Context) LinuxOsStateOutput
+}
+
+var linuxOsStatePtrType = reflect.TypeOf((**LinuxOsState)(nil)).Elem()
+
+type LinuxOsStatePtrInput interface {
+	pulumi.Input
+
+	ToLinuxOsStatePtrOutput() LinuxOsStatePtrOutput
+	ToLinuxOsStatePtrOutputWithContext(context.Context) LinuxOsStatePtrOutput
+}
+
+type linuxOsStatePtr string
+
+func LinuxOsStatePtr(v string) LinuxOsStatePtrInput {
+	return (*linuxOsStatePtr)(&v)
+}
+
+func (*linuxOsStatePtr) ElementType() reflect.Type {
+	return linuxOsStatePtrType
+}
+
+func (in *linuxOsStatePtr) ToLinuxOsStatePtrOutput() LinuxOsStatePtrOutput {
+	return pulumi.ToOutput(in).(LinuxOsStatePtrOutput)
+}
+
+func (in *linuxOsStatePtr) ToLinuxOsStatePtrOutputWithContext(ctx context.Context) LinuxOsStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LinuxOsStatePtrOutput)
+}
+
+type PolicyEvaluatorType string
+
+const (
+	PolicyEvaluatorTypeAllowedValuesPolicy = PolicyEvaluatorType("AllowedValuesPolicy")
+	PolicyEvaluatorTypeMaxValuePolicy      = PolicyEvaluatorType("MaxValuePolicy")
+)
+
+func (PolicyEvaluatorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyEvaluatorType)(nil)).Elem()
+}
+
+func (e PolicyEvaluatorType) ToPolicyEvaluatorTypeOutput() PolicyEvaluatorTypeOutput {
+	return pulumi.ToOutput(e).(PolicyEvaluatorTypeOutput)
+}
+
+func (e PolicyEvaluatorType) ToPolicyEvaluatorTypeOutputWithContext(ctx context.Context) PolicyEvaluatorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyEvaluatorTypeOutput)
+}
+
+func (e PolicyEvaluatorType) ToPolicyEvaluatorTypePtrOutput() PolicyEvaluatorTypePtrOutput {
+	return e.ToPolicyEvaluatorTypePtrOutputWithContext(context.Background())
+}
+
+func (e PolicyEvaluatorType) ToPolicyEvaluatorTypePtrOutputWithContext(ctx context.Context) PolicyEvaluatorTypePtrOutput {
+	return PolicyEvaluatorType(e).ToPolicyEvaluatorTypeOutputWithContext(ctx).ToPolicyEvaluatorTypePtrOutputWithContext(ctx)
+}
+
+func (e PolicyEvaluatorType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyEvaluatorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyEvaluatorType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyEvaluatorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyEvaluatorTypeOutput struct{ *pulumi.OutputState }
+
+func (PolicyEvaluatorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyEvaluatorType)(nil)).Elem()
+}
+
+func (o PolicyEvaluatorTypeOutput) ToPolicyEvaluatorTypeOutput() PolicyEvaluatorTypeOutput {
+	return o
+}
+
+func (o PolicyEvaluatorTypeOutput) ToPolicyEvaluatorTypeOutputWithContext(ctx context.Context) PolicyEvaluatorTypeOutput {
+	return o
+}
+
+func (o PolicyEvaluatorTypeOutput) ToPolicyEvaluatorTypePtrOutput() PolicyEvaluatorTypePtrOutput {
+	return o.ToPolicyEvaluatorTypePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEvaluatorTypeOutput) ToPolicyEvaluatorTypePtrOutputWithContext(ctx context.Context) PolicyEvaluatorTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyEvaluatorType) *PolicyEvaluatorType {
+		return &v
+	}).(PolicyEvaluatorTypePtrOutput)
+}
+
+func (o PolicyEvaluatorTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyEvaluatorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyEvaluatorType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyEvaluatorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEvaluatorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyEvaluatorType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyEvaluatorTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyEvaluatorTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyEvaluatorType)(nil)).Elem()
+}
+
+func (o PolicyEvaluatorTypePtrOutput) ToPolicyEvaluatorTypePtrOutput() PolicyEvaluatorTypePtrOutput {
+	return o
+}
+
+func (o PolicyEvaluatorTypePtrOutput) ToPolicyEvaluatorTypePtrOutputWithContext(ctx context.Context) PolicyEvaluatorTypePtrOutput {
+	return o
+}
+
+func (o PolicyEvaluatorTypePtrOutput) Elem() PolicyEvaluatorTypeOutput {
+	return o.ApplyT(func(v *PolicyEvaluatorType) PolicyEvaluatorType {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyEvaluatorType
+		return ret
+	}).(PolicyEvaluatorTypeOutput)
+}
+
+func (o PolicyEvaluatorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyEvaluatorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyEvaluatorType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type PolicyEvaluatorTypeInput interface {
+	pulumi.Input
+
+	ToPolicyEvaluatorTypeOutput() PolicyEvaluatorTypeOutput
+	ToPolicyEvaluatorTypeOutputWithContext(context.Context) PolicyEvaluatorTypeOutput
+}
+
+var policyEvaluatorTypePtrType = reflect.TypeOf((**PolicyEvaluatorType)(nil)).Elem()
+
+type PolicyEvaluatorTypePtrInput interface {
+	pulumi.Input
+
+	ToPolicyEvaluatorTypePtrOutput() PolicyEvaluatorTypePtrOutput
+	ToPolicyEvaluatorTypePtrOutputWithContext(context.Context) PolicyEvaluatorTypePtrOutput
+}
+
+type policyEvaluatorTypePtr string
+
+func PolicyEvaluatorTypePtr(v string) PolicyEvaluatorTypePtrInput {
+	return (*policyEvaluatorTypePtr)(&v)
+}
+
+func (*policyEvaluatorTypePtr) ElementType() reflect.Type {
+	return policyEvaluatorTypePtrType
+}
+
+func (in *policyEvaluatorTypePtr) ToPolicyEvaluatorTypePtrOutput() PolicyEvaluatorTypePtrOutput {
+	return pulumi.ToOutput(in).(PolicyEvaluatorTypePtrOutput)
+}
+
+func (in *policyEvaluatorTypePtr) ToPolicyEvaluatorTypePtrOutputWithContext(ctx context.Context) PolicyEvaluatorTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyEvaluatorTypePtrOutput)
+}
+
+type PolicyFactName string
+
+const (
+	PolicyFactNameUserOwnedLabVmCount         = PolicyFactName("UserOwnedLabVmCount")
+	PolicyFactNameLabVmCount                  = PolicyFactName("LabVmCount")
+	PolicyFactNameLabVmSize                   = PolicyFactName("LabVmSize")
+	PolicyFactNameGalleryImage                = PolicyFactName("GalleryImage")
+	PolicyFactNameUserOwnedLabVmCountInSubnet = PolicyFactName("UserOwnedLabVmCountInSubnet")
+)
+
+func (PolicyFactName) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyFactName)(nil)).Elem()
+}
+
+func (e PolicyFactName) ToPolicyFactNameOutput() PolicyFactNameOutput {
+	return pulumi.ToOutput(e).(PolicyFactNameOutput)
+}
+
+func (e PolicyFactName) ToPolicyFactNameOutputWithContext(ctx context.Context) PolicyFactNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyFactNameOutput)
+}
+
+func (e PolicyFactName) ToPolicyFactNamePtrOutput() PolicyFactNamePtrOutput {
+	return e.ToPolicyFactNamePtrOutputWithContext(context.Background())
+}
+
+func (e PolicyFactName) ToPolicyFactNamePtrOutputWithContext(ctx context.Context) PolicyFactNamePtrOutput {
+	return PolicyFactName(e).ToPolicyFactNameOutputWithContext(ctx).ToPolicyFactNamePtrOutputWithContext(ctx)
+}
+
+func (e PolicyFactName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyFactName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyFactName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyFactName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyFactNameOutput struct{ *pulumi.OutputState }
+
+func (PolicyFactNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyFactName)(nil)).Elem()
+}
+
+func (o PolicyFactNameOutput) ToPolicyFactNameOutput() PolicyFactNameOutput {
+	return o
+}
+
+func (o PolicyFactNameOutput) ToPolicyFactNameOutputWithContext(ctx context.Context) PolicyFactNameOutput {
+	return o
+}
+
+func (o PolicyFactNameOutput) ToPolicyFactNamePtrOutput() PolicyFactNamePtrOutput {
+	return o.ToPolicyFactNamePtrOutputWithContext(context.Background())
+}
+
+func (o PolicyFactNameOutput) ToPolicyFactNamePtrOutputWithContext(ctx context.Context) PolicyFactNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyFactName) *PolicyFactName {
+		return &v
+	}).(PolicyFactNamePtrOutput)
+}
+
+func (o PolicyFactNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyFactNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyFactName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyFactNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyFactNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyFactName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyFactNamePtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyFactNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyFactName)(nil)).Elem()
+}
+
+func (o PolicyFactNamePtrOutput) ToPolicyFactNamePtrOutput() PolicyFactNamePtrOutput {
+	return o
+}
+
+func (o PolicyFactNamePtrOutput) ToPolicyFactNamePtrOutputWithContext(ctx context.Context) PolicyFactNamePtrOutput {
+	return o
+}
+
+func (o PolicyFactNamePtrOutput) Elem() PolicyFactNameOutput {
+	return o.ApplyT(func(v *PolicyFactName) PolicyFactName {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyFactName
+		return ret
+	}).(PolicyFactNameOutput)
+}
+
+func (o PolicyFactNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyFactNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyFactName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type PolicyFactNameInput interface {
+	pulumi.Input
+
+	ToPolicyFactNameOutput() PolicyFactNameOutput
+	ToPolicyFactNameOutputWithContext(context.Context) PolicyFactNameOutput
+}
+
+var policyFactNamePtrType = reflect.TypeOf((**PolicyFactName)(nil)).Elem()
+
+type PolicyFactNamePtrInput interface {
+	pulumi.Input
+
+	ToPolicyFactNamePtrOutput() PolicyFactNamePtrOutput
+	ToPolicyFactNamePtrOutputWithContext(context.Context) PolicyFactNamePtrOutput
+}
+
+type policyFactNamePtr string
+
+func PolicyFactNamePtr(v string) PolicyFactNamePtrInput {
+	return (*policyFactNamePtr)(&v)
+}
+
+func (*policyFactNamePtr) ElementType() reflect.Type {
+	return policyFactNamePtrType
+}
+
+func (in *policyFactNamePtr) ToPolicyFactNamePtrOutput() PolicyFactNamePtrOutput {
+	return pulumi.ToOutput(in).(PolicyFactNamePtrOutput)
+}
+
+func (in *policyFactNamePtr) ToPolicyFactNamePtrOutputWithContext(ctx context.Context) PolicyFactNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyFactNamePtrOutput)
+}
+
+type PolicyStatus string
+
+const (
+	PolicyStatusEnabled  = PolicyStatus("Enabled")
+	PolicyStatusDisabled = PolicyStatus("Disabled")
+)
+
+func (PolicyStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatus)(nil)).Elem()
+}
+
+func (e PolicyStatus) ToPolicyStatusOutput() PolicyStatusOutput {
+	return pulumi.ToOutput(e).(PolicyStatusOutput)
+}
+
+func (e PolicyStatus) ToPolicyStatusOutputWithContext(ctx context.Context) PolicyStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyStatusOutput)
+}
+
+func (e PolicyStatus) ToPolicyStatusPtrOutput() PolicyStatusPtrOutput {
+	return e.ToPolicyStatusPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyStatus) ToPolicyStatusPtrOutputWithContext(ctx context.Context) PolicyStatusPtrOutput {
+	return PolicyStatus(e).ToPolicyStatusOutputWithContext(ctx).ToPolicyStatusPtrOutputWithContext(ctx)
+}
+
+func (e PolicyStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyStatusOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyStatus)(nil)).Elem()
+}
+
+func (o PolicyStatusOutput) ToPolicyStatusOutput() PolicyStatusOutput {
+	return o
+}
+
+func (o PolicyStatusOutput) ToPolicyStatusOutputWithContext(ctx context.Context) PolicyStatusOutput {
+	return o
+}
+
+func (o PolicyStatusOutput) ToPolicyStatusPtrOutput() PolicyStatusPtrOutput {
+	return o.ToPolicyStatusPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatusOutput) ToPolicyStatusPtrOutputWithContext(ctx context.Context) PolicyStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyStatus) *PolicyStatus {
+		return &v
+	}).(PolicyStatusPtrOutput)
+}
+
+func (o PolicyStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyStatus)(nil)).Elem()
+}
+
+func (o PolicyStatusPtrOutput) ToPolicyStatusPtrOutput() PolicyStatusPtrOutput {
+	return o
+}
+
+func (o PolicyStatusPtrOutput) ToPolicyStatusPtrOutputWithContext(ctx context.Context) PolicyStatusPtrOutput {
+	return o
+}
+
+func (o PolicyStatusPtrOutput) Elem() PolicyStatusOutput {
+	return o.ApplyT(func(v *PolicyStatus) PolicyStatus {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyStatus
+		return ret
+	}).(PolicyStatusOutput)
+}
+
+func (o PolicyStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type PolicyStatusInput interface {
+	pulumi.Input
+
+	ToPolicyStatusOutput() PolicyStatusOutput
+	ToPolicyStatusOutputWithContext(context.Context) PolicyStatusOutput
+}
+
+var policyStatusPtrType = reflect.TypeOf((**PolicyStatus)(nil)).Elem()
+
+type PolicyStatusPtrInput interface {
+	pulumi.Input
+
+	ToPolicyStatusPtrOutput() PolicyStatusPtrOutput
+	ToPolicyStatusPtrOutputWithContext(context.Context) PolicyStatusPtrOutput
+}
+
+type policyStatusPtr string
+
+func PolicyStatusPtr(v string) PolicyStatusPtrInput {
+	return (*policyStatusPtr)(&v)
+}
+
+func (*policyStatusPtr) ElementType() reflect.Type {
+	return policyStatusPtrType
+}
+
+func (in *policyStatusPtr) ToPolicyStatusPtrOutput() PolicyStatusPtrOutput {
+	return pulumi.ToOutput(in).(PolicyStatusPtrOutput)
+}
+
+func (in *policyStatusPtr) ToPolicyStatusPtrOutputWithContext(ctx context.Context) PolicyStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyStatusPtrOutput)
+}
+
+type SourceControlType string
+
+const (
+	SourceControlTypeVsoGit = SourceControlType("VsoGit")
+	SourceControlTypeGitHub = SourceControlType("GitHub")
+)
+
+func (SourceControlType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlType)(nil)).Elem()
+}
+
+func (e SourceControlType) ToSourceControlTypeOutput() SourceControlTypeOutput {
+	return pulumi.ToOutput(e).(SourceControlTypeOutput)
+}
+
+func (e SourceControlType) ToSourceControlTypeOutputWithContext(ctx context.Context) SourceControlTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SourceControlTypeOutput)
+}
+
+func (e SourceControlType) ToSourceControlTypePtrOutput() SourceControlTypePtrOutput {
+	return e.ToSourceControlTypePtrOutputWithContext(context.Background())
+}
+
+func (e SourceControlType) ToSourceControlTypePtrOutputWithContext(ctx context.Context) SourceControlTypePtrOutput {
+	return SourceControlType(e).ToSourceControlTypeOutputWithContext(ctx).ToSourceControlTypePtrOutputWithContext(ctx)
+}
+
+func (e SourceControlType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceControlType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SourceControlType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SourceControlType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SourceControlTypeOutput struct{ *pulumi.OutputState }
+
+func (SourceControlTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlType)(nil)).Elem()
+}
+
+func (o SourceControlTypeOutput) ToSourceControlTypeOutput() SourceControlTypeOutput {
+	return o
+}
+
+func (o SourceControlTypeOutput) ToSourceControlTypeOutputWithContext(ctx context.Context) SourceControlTypeOutput {
+	return o
+}
+
+func (o SourceControlTypeOutput) ToSourceControlTypePtrOutput() SourceControlTypePtrOutput {
+	return o.ToSourceControlTypePtrOutputWithContext(context.Background())
+}
+
+func (o SourceControlTypeOutput) ToSourceControlTypePtrOutputWithContext(ctx context.Context) SourceControlTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceControlType) *SourceControlType {
+		return &v
+	}).(SourceControlTypePtrOutput)
+}
+
+func (o SourceControlTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SourceControlTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceControlType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SourceControlTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceControlTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SourceControlType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SourceControlTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SourceControlTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceControlType)(nil)).Elem()
+}
+
+func (o SourceControlTypePtrOutput) ToSourceControlTypePtrOutput() SourceControlTypePtrOutput {
+	return o
+}
+
+func (o SourceControlTypePtrOutput) ToSourceControlTypePtrOutputWithContext(ctx context.Context) SourceControlTypePtrOutput {
+	return o
+}
+
+func (o SourceControlTypePtrOutput) Elem() SourceControlTypeOutput {
+	return o.ApplyT(func(v *SourceControlType) SourceControlType {
+		if v != nil {
+			return *v
+		}
+		var ret SourceControlType
+		return ret
+	}).(SourceControlTypeOutput)
+}
+
+func (o SourceControlTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SourceControlTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SourceControlType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type SourceControlTypeInput interface {
+	pulumi.Input
+
+	ToSourceControlTypeOutput() SourceControlTypeOutput
+	ToSourceControlTypeOutputWithContext(context.Context) SourceControlTypeOutput
+}
+
+var sourceControlTypePtrType = reflect.TypeOf((**SourceControlType)(nil)).Elem()
+
+type SourceControlTypePtrInput interface {
+	pulumi.Input
+
+	ToSourceControlTypePtrOutput() SourceControlTypePtrOutput
+	ToSourceControlTypePtrOutputWithContext(context.Context) SourceControlTypePtrOutput
+}
+
+type sourceControlTypePtr string
+
+func SourceControlTypePtr(v string) SourceControlTypePtrInput {
+	return (*sourceControlTypePtr)(&v)
+}
+
+func (*sourceControlTypePtr) ElementType() reflect.Type {
+	return sourceControlTypePtrType
+}
+
+func (in *sourceControlTypePtr) ToSourceControlTypePtrOutput() SourceControlTypePtrOutput {
+	return pulumi.ToOutput(in).(SourceControlTypePtrOutput)
+}
+
+func (in *sourceControlTypePtr) ToSourceControlTypePtrOutputWithContext(ctx context.Context) SourceControlTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SourceControlTypePtrOutput)
+}
+
+type TaskType string
+
+const (
+	TaskTypeLabVmsShutdownTask = TaskType("LabVmsShutdownTask")
+	TaskTypeLabVmsStartupTask  = TaskType("LabVmsStartupTask")
+	TaskTypeLabBillingTask     = TaskType("LabBillingTask")
+)
+
+func (TaskType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskType)(nil)).Elem()
+}
+
+func (e TaskType) ToTaskTypeOutput() TaskTypeOutput {
+	return pulumi.ToOutput(e).(TaskTypeOutput)
+}
+
+func (e TaskType) ToTaskTypeOutputWithContext(ctx context.Context) TaskTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskTypeOutput)
+}
+
+func (e TaskType) ToTaskTypePtrOutput() TaskTypePtrOutput {
+	return e.ToTaskTypePtrOutputWithContext(context.Background())
+}
+
+func (e TaskType) ToTaskTypePtrOutputWithContext(ctx context.Context) TaskTypePtrOutput {
+	return TaskType(e).ToTaskTypeOutputWithContext(ctx).ToTaskTypePtrOutputWithContext(ctx)
+}
+
+func (e TaskType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskTypeOutput struct{ *pulumi.OutputState }
+
+func (TaskTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskType)(nil)).Elem()
+}
+
+func (o TaskTypeOutput) ToTaskTypeOutput() TaskTypeOutput {
+	return o
+}
+
+func (o TaskTypeOutput) ToTaskTypeOutputWithContext(ctx context.Context) TaskTypeOutput {
+	return o
+}
+
+func (o TaskTypeOutput) ToTaskTypePtrOutput() TaskTypePtrOutput {
+	return o.ToTaskTypePtrOutputWithContext(context.Background())
+}
+
+func (o TaskTypeOutput) ToTaskTypePtrOutputWithContext(ctx context.Context) TaskTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskType) *TaskType {
+		return &v
+	}).(TaskTypePtrOutput)
+}
+
+func (o TaskTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TaskTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskType)(nil)).Elem()
+}
+
+func (o TaskTypePtrOutput) ToTaskTypePtrOutput() TaskTypePtrOutput {
+	return o
+}
+
+func (o TaskTypePtrOutput) ToTaskTypePtrOutputWithContext(ctx context.Context) TaskTypePtrOutput {
+	return o
+}
+
+func (o TaskTypePtrOutput) Elem() TaskTypeOutput {
+	return o.ApplyT(func(v *TaskType) TaskType {
+		if v != nil {
+			return *v
+		}
+		var ret TaskType
+		return ret
+	}).(TaskTypeOutput)
+}
+
+func (o TaskTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type TaskTypeInput interface {
+	pulumi.Input
+
+	ToTaskTypeOutput() TaskTypeOutput
+	ToTaskTypeOutputWithContext(context.Context) TaskTypeOutput
+}
+
+var taskTypePtrType = reflect.TypeOf((**TaskType)(nil)).Elem()
+
+type TaskTypePtrInput interface {
+	pulumi.Input
+
+	ToTaskTypePtrOutput() TaskTypePtrOutput
+	ToTaskTypePtrOutputWithContext(context.Context) TaskTypePtrOutput
+}
+
+type taskTypePtr string
+
+func TaskTypePtr(v string) TaskTypePtrInput {
+	return (*taskTypePtr)(&v)
+}
+
+func (*taskTypePtr) ElementType() reflect.Type {
+	return taskTypePtrType
+}
+
+func (in *taskTypePtr) ToTaskTypePtrOutput() TaskTypePtrOutput {
+	return pulumi.ToOutput(in).(TaskTypePtrOutput)
+}
+
+func (in *taskTypePtr) ToTaskTypePtrOutputWithContext(ctx context.Context) TaskTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskTypePtrOutput)
+}
+
+type UsagePermissionType string
+
+const (
+	UsagePermissionTypeDefault = UsagePermissionType("Default")
+	UsagePermissionTypeDeny    = UsagePermissionType("Deny")
+	UsagePermissionTypeAllow   = UsagePermissionType("Allow")
+)
+
+func (UsagePermissionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePermissionType)(nil)).Elem()
+}
+
+func (e UsagePermissionType) ToUsagePermissionTypeOutput() UsagePermissionTypeOutput {
+	return pulumi.ToOutput(e).(UsagePermissionTypeOutput)
+}
+
+func (e UsagePermissionType) ToUsagePermissionTypeOutputWithContext(ctx context.Context) UsagePermissionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UsagePermissionTypeOutput)
+}
+
+func (e UsagePermissionType) ToUsagePermissionTypePtrOutput() UsagePermissionTypePtrOutput {
+	return e.ToUsagePermissionTypePtrOutputWithContext(context.Background())
+}
+
+func (e UsagePermissionType) ToUsagePermissionTypePtrOutputWithContext(ctx context.Context) UsagePermissionTypePtrOutput {
+	return UsagePermissionType(e).ToUsagePermissionTypeOutputWithContext(ctx).ToUsagePermissionTypePtrOutputWithContext(ctx)
+}
+
+func (e UsagePermissionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsagePermissionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsagePermissionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UsagePermissionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UsagePermissionTypeOutput struct{ *pulumi.OutputState }
+
+func (UsagePermissionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePermissionType)(nil)).Elem()
+}
+
+func (o UsagePermissionTypeOutput) ToUsagePermissionTypeOutput() UsagePermissionTypeOutput {
+	return o
+}
+
+func (o UsagePermissionTypeOutput) ToUsagePermissionTypeOutputWithContext(ctx context.Context) UsagePermissionTypeOutput {
+	return o
+}
+
+func (o UsagePermissionTypeOutput) ToUsagePermissionTypePtrOutput() UsagePermissionTypePtrOutput {
+	return o.ToUsagePermissionTypePtrOutputWithContext(context.Background())
+}
+
+func (o UsagePermissionTypeOutput) ToUsagePermissionTypePtrOutputWithContext(ctx context.Context) UsagePermissionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsagePermissionType) *UsagePermissionType {
+		return &v
+	}).(UsagePermissionTypePtrOutput)
+}
+
+func (o UsagePermissionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UsagePermissionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UsagePermissionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UsagePermissionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UsagePermissionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UsagePermissionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UsagePermissionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UsagePermissionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsagePermissionType)(nil)).Elem()
+}
+
+func (o UsagePermissionTypePtrOutput) ToUsagePermissionTypePtrOutput() UsagePermissionTypePtrOutput {
+	return o
+}
+
+func (o UsagePermissionTypePtrOutput) ToUsagePermissionTypePtrOutputWithContext(ctx context.Context) UsagePermissionTypePtrOutput {
+	return o
+}
+
+func (o UsagePermissionTypePtrOutput) Elem() UsagePermissionTypeOutput {
+	return o.ApplyT(func(v *UsagePermissionType) UsagePermissionType {
+		if v != nil {
+			return *v
+		}
+		var ret UsagePermissionType
+		return ret
+	}).(UsagePermissionTypeOutput)
+}
+
+func (o UsagePermissionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UsagePermissionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UsagePermissionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type UsagePermissionTypeInput interface {
+	pulumi.Input
+
+	ToUsagePermissionTypeOutput() UsagePermissionTypeOutput
+	ToUsagePermissionTypeOutputWithContext(context.Context) UsagePermissionTypeOutput
+}
+
+var usagePermissionTypePtrType = reflect.TypeOf((**UsagePermissionType)(nil)).Elem()
+
+type UsagePermissionTypePtrInput interface {
+	pulumi.Input
+
+	ToUsagePermissionTypePtrOutput() UsagePermissionTypePtrOutput
+	ToUsagePermissionTypePtrOutputWithContext(context.Context) UsagePermissionTypePtrOutput
+}
+
+type usagePermissionTypePtr string
+
+func UsagePermissionTypePtr(v string) UsagePermissionTypePtrInput {
+	return (*usagePermissionTypePtr)(&v)
+}
+
+func (*usagePermissionTypePtr) ElementType() reflect.Type {
+	return usagePermissionTypePtrType
+}
+
+func (in *usagePermissionTypePtr) ToUsagePermissionTypePtrOutput() UsagePermissionTypePtrOutput {
+	return pulumi.ToOutput(in).(UsagePermissionTypePtrOutput)
+}
+
+func (in *usagePermissionTypePtr) ToUsagePermissionTypePtrOutputWithContext(ctx context.Context) UsagePermissionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UsagePermissionTypePtrOutput)
+}
+
+type WindowsOsState string
+
+const (
+	WindowsOsStateNonSysprepped    = WindowsOsState("NonSysprepped")
+	WindowsOsStateSysprepRequested = WindowsOsState("SysprepRequested")
+	WindowsOsStateSysprepApplied   = WindowsOsState("SysprepApplied")
+)
+
+func (WindowsOsState) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsOsState)(nil)).Elem()
+}
+
+func (e WindowsOsState) ToWindowsOsStateOutput() WindowsOsStateOutput {
+	return pulumi.ToOutput(e).(WindowsOsStateOutput)
+}
+
+func (e WindowsOsState) ToWindowsOsStateOutputWithContext(ctx context.Context) WindowsOsStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WindowsOsStateOutput)
+}
+
+func (e WindowsOsState) ToWindowsOsStatePtrOutput() WindowsOsStatePtrOutput {
+	return e.ToWindowsOsStatePtrOutputWithContext(context.Background())
+}
+
+func (e WindowsOsState) ToWindowsOsStatePtrOutputWithContext(ctx context.Context) WindowsOsStatePtrOutput {
+	return WindowsOsState(e).ToWindowsOsStateOutputWithContext(ctx).ToWindowsOsStatePtrOutputWithContext(ctx)
+}
+
+func (e WindowsOsState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WindowsOsState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WindowsOsState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WindowsOsState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WindowsOsStateOutput struct{ *pulumi.OutputState }
+
+func (WindowsOsStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsOsState)(nil)).Elem()
+}
+
+func (o WindowsOsStateOutput) ToWindowsOsStateOutput() WindowsOsStateOutput {
+	return o
+}
+
+func (o WindowsOsStateOutput) ToWindowsOsStateOutputWithContext(ctx context.Context) WindowsOsStateOutput {
+	return o
+}
+
+func (o WindowsOsStateOutput) ToWindowsOsStatePtrOutput() WindowsOsStatePtrOutput {
+	return o.ToWindowsOsStatePtrOutputWithContext(context.Background())
+}
+
+func (o WindowsOsStateOutput) ToWindowsOsStatePtrOutputWithContext(ctx context.Context) WindowsOsStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsOsState) *WindowsOsState {
+		return &v
+	}).(WindowsOsStatePtrOutput)
+}
+
+func (o WindowsOsStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WindowsOsStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WindowsOsState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WindowsOsStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsOsStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WindowsOsState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WindowsOsStatePtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsOsStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsOsState)(nil)).Elem()
+}
+
+func (o WindowsOsStatePtrOutput) ToWindowsOsStatePtrOutput() WindowsOsStatePtrOutput {
+	return o
+}
+
+func (o WindowsOsStatePtrOutput) ToWindowsOsStatePtrOutputWithContext(ctx context.Context) WindowsOsStatePtrOutput {
+	return o
+}
+
+func (o WindowsOsStatePtrOutput) Elem() WindowsOsStateOutput {
+	return o.ApplyT(func(v *WindowsOsState) WindowsOsState {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsOsState
+		return ret
+	}).(WindowsOsStateOutput)
+}
+
+func (o WindowsOsStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsOsStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WindowsOsState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type WindowsOsStateInput interface {
+	pulumi.Input
+
+	ToWindowsOsStateOutput() WindowsOsStateOutput
+	ToWindowsOsStateOutputWithContext(context.Context) WindowsOsStateOutput
+}
+
+var windowsOsStatePtrType = reflect.TypeOf((**WindowsOsState)(nil)).Elem()
+
+type WindowsOsStatePtrInput interface {
+	pulumi.Input
+
+	ToWindowsOsStatePtrOutput() WindowsOsStatePtrOutput
+	ToWindowsOsStatePtrOutputWithContext(context.Context) WindowsOsStatePtrOutput
+}
+
+type windowsOsStatePtr string
+
+func WindowsOsStatePtr(v string) WindowsOsStatePtrInput {
+	return (*windowsOsStatePtr)(&v)
+}
+
+func (*windowsOsStatePtr) ElementType() reflect.Type {
+	return windowsOsStatePtrType
+}
+
+func (in *windowsOsStatePtr) ToWindowsOsStatePtrOutput() WindowsOsStatePtrOutput {
+	return pulumi.ToOutput(in).(WindowsOsStatePtrOutput)
+}
+
+func (in *windowsOsStatePtr) ToWindowsOsStatePtrOutputWithContext(ctx context.Context) WindowsOsStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WindowsOsStatePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(CustomImageOsTypeOutput{})
+	pulumi.RegisterOutputType(CustomImageOsTypePtrOutput{})
+	pulumi.RegisterOutputType(EnableStatusOutput{})
+	pulumi.RegisterOutputType(EnableStatusPtrOutput{})
+	pulumi.RegisterOutputType(LabStorageTypeOutput{})
+	pulumi.RegisterOutputType(LabStorageTypePtrOutput{})
+	pulumi.RegisterOutputType(LinuxOsStateOutput{})
+	pulumi.RegisterOutputType(LinuxOsStatePtrOutput{})
+	pulumi.RegisterOutputType(PolicyEvaluatorTypeOutput{})
+	pulumi.RegisterOutputType(PolicyEvaluatorTypePtrOutput{})
+	pulumi.RegisterOutputType(PolicyFactNameOutput{})
+	pulumi.RegisterOutputType(PolicyFactNamePtrOutput{})
+	pulumi.RegisterOutputType(PolicyStatusOutput{})
+	pulumi.RegisterOutputType(PolicyStatusPtrOutput{})
+	pulumi.RegisterOutputType(SourceControlTypeOutput{})
+	pulumi.RegisterOutputType(SourceControlTypePtrOutput{})
+	pulumi.RegisterOutputType(TaskTypeOutput{})
+	pulumi.RegisterOutputType(TaskTypePtrOutput{})
+	pulumi.RegisterOutputType(UsagePermissionTypeOutput{})
+	pulumi.RegisterOutputType(UsagePermissionTypePtrOutput{})
+	pulumi.RegisterOutputType(WindowsOsStateOutput{})
+	pulumi.RegisterOutputType(WindowsOsStatePtrOutput{})
+}
