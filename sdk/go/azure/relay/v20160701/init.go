@@ -1,0 +1,54 @@
+
+
+
+package v20160701
+
+import (
+	"fmt"
+
+	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-azure-native/sdk/go/azure"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type module struct {
+	version semver.Version
+}
+
+func (m *module) Version() semver.Version {
+	return m.version
+}
+
+func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
+	switch typ {
+	case "azure-native:relay/v20160701:HybridConnection":
+		r = &HybridConnection{}
+	case "azure-native:relay/v20160701:HybridConnectionAuthorizationRule":
+		r = &HybridConnectionAuthorizationRule{}
+	case "azure-native:relay/v20160701:Namespace":
+		r = &Namespace{}
+	case "azure-native:relay/v20160701:NamespaceAuthorizationRule":
+		r = &NamespaceAuthorizationRule{}
+	case "azure-native:relay/v20160701:WCFRelay":
+		r = &WCFRelay{}
+	case "azure-native:relay/v20160701:WCFRelayAuthorizationRule":
+		r = &WCFRelayAuthorizationRule{}
+	default:
+		return nil, fmt.Errorf("unknown resource type: %s", typ)
+	}
+
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return
+}
+
+func init() {
+	version, err := azure.PkgVersion()
+	if err != nil {
+		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
+	}
+	pulumi.RegisterResourceModule(
+		"azure-native",
+		"relay/v20160701",
+		&module{version},
+	)
+}

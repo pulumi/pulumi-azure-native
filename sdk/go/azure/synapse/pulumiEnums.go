@@ -1,0 +1,4750 @@
+
+
+
+package synapse
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type AzureSkuName string
+
+const (
+	AzureSkuName_Standard_DS13_v2_1TB_PS    = AzureSkuName("Standard_DS13_v2+1TB_PS")
+	AzureSkuName_Standard_DS13_v2_2TB_PS    = AzureSkuName("Standard_DS13_v2+2TB_PS")
+	AzureSkuName_Standard_DS14_v2_3TB_PS    = AzureSkuName("Standard_DS14_v2+3TB_PS")
+	AzureSkuName_Standard_DS14_v2_4TB_PS    = AzureSkuName("Standard_DS14_v2+4TB_PS")
+	AzureSkuName_Standard_D13_v2            = AzureSkuName("Standard_D13_v2")
+	AzureSkuName_Standard_D14_v2            = AzureSkuName("Standard_D14_v2")
+	AzureSkuName_Standard_L8s               = AzureSkuName("Standard_L8s")
+	AzureSkuName_Standard_L16s              = AzureSkuName("Standard_L16s")
+	AzureSkuName_Standard_L8s_v2            = AzureSkuName("Standard_L8s_v2")
+	AzureSkuName_Standard_L16s_v2           = AzureSkuName("Standard_L16s_v2")
+	AzureSkuName_Standard_D11_v2            = AzureSkuName("Standard_D11_v2")
+	AzureSkuName_Standard_D12_v2            = AzureSkuName("Standard_D12_v2")
+	AzureSkuName_Standard_L4s               = AzureSkuName("Standard_L4s")
+	AzureSkuName_Dev_No_SLA_Standard_D11_v2 = AzureSkuName("Dev(No SLA)_Standard_D11_v2")
+	AzureSkuName_Standard_E64i_v3           = AzureSkuName("Standard_E64i_v3")
+	AzureSkuName_Standard_E80ids_v4         = AzureSkuName("Standard_E80ids_v4")
+	AzureSkuName_Standard_E2a_v4            = AzureSkuName("Standard_E2a_v4")
+	AzureSkuName_Standard_E4a_v4            = AzureSkuName("Standard_E4a_v4")
+	AzureSkuName_Standard_E8a_v4            = AzureSkuName("Standard_E8a_v4")
+	AzureSkuName_Standard_E16a_v4           = AzureSkuName("Standard_E16a_v4")
+	AzureSkuName_Standard_E8as_v4_1TB_PS    = AzureSkuName("Standard_E8as_v4+1TB_PS")
+	AzureSkuName_Standard_E8as_v4_2TB_PS    = AzureSkuName("Standard_E8as_v4+2TB_PS")
+	AzureSkuName_Standard_E16as_v4_3TB_PS   = AzureSkuName("Standard_E16as_v4+3TB_PS")
+	AzureSkuName_Standard_E16as_v4_4TB_PS   = AzureSkuName("Standard_E16as_v4+4TB_PS")
+	AzureSkuName_Dev_No_SLA_Standard_E2a_v4 = AzureSkuName("Dev(No SLA)_Standard_E2a_v4")
+)
+
+func (AzureSkuName) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSkuName)(nil)).Elem()
+}
+
+func (e AzureSkuName) ToAzureSkuNameOutput() AzureSkuNameOutput {
+	return pulumi.ToOutput(e).(AzureSkuNameOutput)
+}
+
+func (e AzureSkuName) ToAzureSkuNameOutputWithContext(ctx context.Context) AzureSkuNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AzureSkuNameOutput)
+}
+
+func (e AzureSkuName) ToAzureSkuNamePtrOutput() AzureSkuNamePtrOutput {
+	return e.ToAzureSkuNamePtrOutputWithContext(context.Background())
+}
+
+func (e AzureSkuName) ToAzureSkuNamePtrOutputWithContext(ctx context.Context) AzureSkuNamePtrOutput {
+	return AzureSkuName(e).ToAzureSkuNameOutputWithContext(ctx).ToAzureSkuNamePtrOutputWithContext(ctx)
+}
+
+func (e AzureSkuName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureSkuName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureSkuName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AzureSkuName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AzureSkuNameOutput struct{ *pulumi.OutputState }
+
+func (AzureSkuNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSkuName)(nil)).Elem()
+}
+
+func (o AzureSkuNameOutput) ToAzureSkuNameOutput() AzureSkuNameOutput {
+	return o
+}
+
+func (o AzureSkuNameOutput) ToAzureSkuNameOutputWithContext(ctx context.Context) AzureSkuNameOutput {
+	return o
+}
+
+func (o AzureSkuNameOutput) ToAzureSkuNamePtrOutput() AzureSkuNamePtrOutput {
+	return o.ToAzureSkuNamePtrOutputWithContext(context.Background())
+}
+
+func (o AzureSkuNameOutput) ToAzureSkuNamePtrOutputWithContext(ctx context.Context) AzureSkuNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSkuName) *AzureSkuName {
+		return &v
+	}).(AzureSkuNamePtrOutput)
+}
+
+func (o AzureSkuNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AzureSkuNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AzureSkuName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AzureSkuNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AzureSkuNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AzureSkuName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureSkuNamePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureSkuNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSkuName)(nil)).Elem()
+}
+
+func (o AzureSkuNamePtrOutput) ToAzureSkuNamePtrOutput() AzureSkuNamePtrOutput {
+	return o
+}
+
+func (o AzureSkuNamePtrOutput) ToAzureSkuNamePtrOutputWithContext(ctx context.Context) AzureSkuNamePtrOutput {
+	return o
+}
+
+func (o AzureSkuNamePtrOutput) Elem() AzureSkuNameOutput {
+	return o.ApplyT(func(v *AzureSkuName) AzureSkuName {
+		if v != nil {
+			return *v
+		}
+		var ret AzureSkuName
+		return ret
+	}).(AzureSkuNameOutput)
+}
+
+func (o AzureSkuNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AzureSkuNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AzureSkuName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type AzureSkuNameInput interface {
+	pulumi.Input
+
+	ToAzureSkuNameOutput() AzureSkuNameOutput
+	ToAzureSkuNameOutputWithContext(context.Context) AzureSkuNameOutput
+}
+
+var azureSkuNamePtrType = reflect.TypeOf((**AzureSkuName)(nil)).Elem()
+
+type AzureSkuNamePtrInput interface {
+	pulumi.Input
+
+	ToAzureSkuNamePtrOutput() AzureSkuNamePtrOutput
+	ToAzureSkuNamePtrOutputWithContext(context.Context) AzureSkuNamePtrOutput
+}
+
+type azureSkuNamePtr string
+
+func AzureSkuNamePtr(v string) AzureSkuNamePtrInput {
+	return (*azureSkuNamePtr)(&v)
+}
+
+func (*azureSkuNamePtr) ElementType() reflect.Type {
+	return azureSkuNamePtrType
+}
+
+func (in *azureSkuNamePtr) ToAzureSkuNamePtrOutput() AzureSkuNamePtrOutput {
+	return pulumi.ToOutput(in).(AzureSkuNamePtrOutput)
+}
+
+func (in *azureSkuNamePtr) ToAzureSkuNamePtrOutputWithContext(ctx context.Context) AzureSkuNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AzureSkuNamePtrOutput)
+}
+
+type AzureSkuTier string
+
+const (
+	AzureSkuTierBasic    = AzureSkuTier("Basic")
+	AzureSkuTierStandard = AzureSkuTier("Standard")
+)
+
+func (AzureSkuTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSkuTier)(nil)).Elem()
+}
+
+func (e AzureSkuTier) ToAzureSkuTierOutput() AzureSkuTierOutput {
+	return pulumi.ToOutput(e).(AzureSkuTierOutput)
+}
+
+func (e AzureSkuTier) ToAzureSkuTierOutputWithContext(ctx context.Context) AzureSkuTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AzureSkuTierOutput)
+}
+
+func (e AzureSkuTier) ToAzureSkuTierPtrOutput() AzureSkuTierPtrOutput {
+	return e.ToAzureSkuTierPtrOutputWithContext(context.Background())
+}
+
+func (e AzureSkuTier) ToAzureSkuTierPtrOutputWithContext(ctx context.Context) AzureSkuTierPtrOutput {
+	return AzureSkuTier(e).ToAzureSkuTierOutputWithContext(ctx).ToAzureSkuTierPtrOutputWithContext(ctx)
+}
+
+func (e AzureSkuTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureSkuTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AzureSkuTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AzureSkuTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AzureSkuTierOutput struct{ *pulumi.OutputState }
+
+func (AzureSkuTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureSkuTier)(nil)).Elem()
+}
+
+func (o AzureSkuTierOutput) ToAzureSkuTierOutput() AzureSkuTierOutput {
+	return o
+}
+
+func (o AzureSkuTierOutput) ToAzureSkuTierOutputWithContext(ctx context.Context) AzureSkuTierOutput {
+	return o
+}
+
+func (o AzureSkuTierOutput) ToAzureSkuTierPtrOutput() AzureSkuTierPtrOutput {
+	return o.ToAzureSkuTierPtrOutputWithContext(context.Background())
+}
+
+func (o AzureSkuTierOutput) ToAzureSkuTierPtrOutputWithContext(ctx context.Context) AzureSkuTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureSkuTier) *AzureSkuTier {
+		return &v
+	}).(AzureSkuTierPtrOutput)
+}
+
+func (o AzureSkuTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AzureSkuTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AzureSkuTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AzureSkuTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AzureSkuTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AzureSkuTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureSkuTierPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureSkuTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureSkuTier)(nil)).Elem()
+}
+
+func (o AzureSkuTierPtrOutput) ToAzureSkuTierPtrOutput() AzureSkuTierPtrOutput {
+	return o
+}
+
+func (o AzureSkuTierPtrOutput) ToAzureSkuTierPtrOutputWithContext(ctx context.Context) AzureSkuTierPtrOutput {
+	return o
+}
+
+func (o AzureSkuTierPtrOutput) Elem() AzureSkuTierOutput {
+	return o.ApplyT(func(v *AzureSkuTier) AzureSkuTier {
+		if v != nil {
+			return *v
+		}
+		var ret AzureSkuTier
+		return ret
+	}).(AzureSkuTierOutput)
+}
+
+func (o AzureSkuTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AzureSkuTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AzureSkuTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type AzureSkuTierInput interface {
+	pulumi.Input
+
+	ToAzureSkuTierOutput() AzureSkuTierOutput
+	ToAzureSkuTierOutputWithContext(context.Context) AzureSkuTierOutput
+}
+
+var azureSkuTierPtrType = reflect.TypeOf((**AzureSkuTier)(nil)).Elem()
+
+type AzureSkuTierPtrInput interface {
+	pulumi.Input
+
+	ToAzureSkuTierPtrOutput() AzureSkuTierPtrOutput
+	ToAzureSkuTierPtrOutputWithContext(context.Context) AzureSkuTierPtrOutput
+}
+
+type azureSkuTierPtr string
+
+func AzureSkuTierPtr(v string) AzureSkuTierPtrInput {
+	return (*azureSkuTierPtr)(&v)
+}
+
+func (*azureSkuTierPtr) ElementType() reflect.Type {
+	return azureSkuTierPtrType
+}
+
+func (in *azureSkuTierPtr) ToAzureSkuTierPtrOutput() AzureSkuTierPtrOutput {
+	return pulumi.ToOutput(in).(AzureSkuTierPtrOutput)
+}
+
+func (in *azureSkuTierPtr) ToAzureSkuTierPtrOutputWithContext(ctx context.Context) AzureSkuTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AzureSkuTierPtrOutput)
+}
+
+type BlobStorageEventType string
+
+const (
+	BlobStorageEventType_Microsoft_Storage_BlobCreated = BlobStorageEventType("Microsoft.Storage.BlobCreated")
+	BlobStorageEventType_Microsoft_Storage_BlobRenamed = BlobStorageEventType("Microsoft.Storage.BlobRenamed")
+)
+
+func (BlobStorageEventType) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobStorageEventType)(nil)).Elem()
+}
+
+func (e BlobStorageEventType) ToBlobStorageEventTypeOutput() BlobStorageEventTypeOutput {
+	return pulumi.ToOutput(e).(BlobStorageEventTypeOutput)
+}
+
+func (e BlobStorageEventType) ToBlobStorageEventTypeOutputWithContext(ctx context.Context) BlobStorageEventTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BlobStorageEventTypeOutput)
+}
+
+func (e BlobStorageEventType) ToBlobStorageEventTypePtrOutput() BlobStorageEventTypePtrOutput {
+	return e.ToBlobStorageEventTypePtrOutputWithContext(context.Background())
+}
+
+func (e BlobStorageEventType) ToBlobStorageEventTypePtrOutputWithContext(ctx context.Context) BlobStorageEventTypePtrOutput {
+	return BlobStorageEventType(e).ToBlobStorageEventTypeOutputWithContext(ctx).ToBlobStorageEventTypePtrOutputWithContext(ctx)
+}
+
+func (e BlobStorageEventType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlobStorageEventType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BlobStorageEventType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BlobStorageEventType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BlobStorageEventTypeOutput struct{ *pulumi.OutputState }
+
+func (BlobStorageEventTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BlobStorageEventType)(nil)).Elem()
+}
+
+func (o BlobStorageEventTypeOutput) ToBlobStorageEventTypeOutput() BlobStorageEventTypeOutput {
+	return o
+}
+
+func (o BlobStorageEventTypeOutput) ToBlobStorageEventTypeOutputWithContext(ctx context.Context) BlobStorageEventTypeOutput {
+	return o
+}
+
+func (o BlobStorageEventTypeOutput) ToBlobStorageEventTypePtrOutput() BlobStorageEventTypePtrOutput {
+	return o.ToBlobStorageEventTypePtrOutputWithContext(context.Background())
+}
+
+func (o BlobStorageEventTypeOutput) ToBlobStorageEventTypePtrOutputWithContext(ctx context.Context) BlobStorageEventTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobStorageEventType) *BlobStorageEventType {
+		return &v
+	}).(BlobStorageEventTypePtrOutput)
+}
+
+func (o BlobStorageEventTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BlobStorageEventTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BlobStorageEventType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BlobStorageEventTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BlobStorageEventTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BlobStorageEventType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BlobStorageEventTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BlobStorageEventTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BlobStorageEventType)(nil)).Elem()
+}
+
+func (o BlobStorageEventTypePtrOutput) ToBlobStorageEventTypePtrOutput() BlobStorageEventTypePtrOutput {
+	return o
+}
+
+func (o BlobStorageEventTypePtrOutput) ToBlobStorageEventTypePtrOutputWithContext(ctx context.Context) BlobStorageEventTypePtrOutput {
+	return o
+}
+
+func (o BlobStorageEventTypePtrOutput) Elem() BlobStorageEventTypeOutput {
+	return o.ApplyT(func(v *BlobStorageEventType) BlobStorageEventType {
+		if v != nil {
+			return *v
+		}
+		var ret BlobStorageEventType
+		return ret
+	}).(BlobStorageEventTypeOutput)
+}
+
+func (o BlobStorageEventTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BlobStorageEventTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BlobStorageEventType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type BlobStorageEventTypeInput interface {
+	pulumi.Input
+
+	ToBlobStorageEventTypeOutput() BlobStorageEventTypeOutput
+	ToBlobStorageEventTypeOutputWithContext(context.Context) BlobStorageEventTypeOutput
+}
+
+var blobStorageEventTypePtrType = reflect.TypeOf((**BlobStorageEventType)(nil)).Elem()
+
+type BlobStorageEventTypePtrInput interface {
+	pulumi.Input
+
+	ToBlobStorageEventTypePtrOutput() BlobStorageEventTypePtrOutput
+	ToBlobStorageEventTypePtrOutputWithContext(context.Context) BlobStorageEventTypePtrOutput
+}
+
+type blobStorageEventTypePtr string
+
+func BlobStorageEventTypePtr(v string) BlobStorageEventTypePtrInput {
+	return (*blobStorageEventTypePtr)(&v)
+}
+
+func (*blobStorageEventTypePtr) ElementType() reflect.Type {
+	return blobStorageEventTypePtrType
+}
+
+func (in *blobStorageEventTypePtr) ToBlobStorageEventTypePtrOutput() BlobStorageEventTypePtrOutput {
+	return pulumi.ToOutput(in).(BlobStorageEventTypePtrOutput)
+}
+
+func (in *blobStorageEventTypePtr) ToBlobStorageEventTypePtrOutputWithContext(ctx context.Context) BlobStorageEventTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BlobStorageEventTypePtrOutput)
+}
+
+type ClusterPrincipalRole string
+
+const (
+	ClusterPrincipalRoleAllDatabasesAdmin  = ClusterPrincipalRole("AllDatabasesAdmin")
+	ClusterPrincipalRoleAllDatabasesViewer = ClusterPrincipalRole("AllDatabasesViewer")
+)
+
+func (ClusterPrincipalRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPrincipalRole)(nil)).Elem()
+}
+
+func (e ClusterPrincipalRole) ToClusterPrincipalRoleOutput() ClusterPrincipalRoleOutput {
+	return pulumi.ToOutput(e).(ClusterPrincipalRoleOutput)
+}
+
+func (e ClusterPrincipalRole) ToClusterPrincipalRoleOutputWithContext(ctx context.Context) ClusterPrincipalRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterPrincipalRoleOutput)
+}
+
+func (e ClusterPrincipalRole) ToClusterPrincipalRolePtrOutput() ClusterPrincipalRolePtrOutput {
+	return e.ToClusterPrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterPrincipalRole) ToClusterPrincipalRolePtrOutputWithContext(ctx context.Context) ClusterPrincipalRolePtrOutput {
+	return ClusterPrincipalRole(e).ToClusterPrincipalRoleOutputWithContext(ctx).ToClusterPrincipalRolePtrOutputWithContext(ctx)
+}
+
+func (e ClusterPrincipalRole) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterPrincipalRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterPrincipalRole) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterPrincipalRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterPrincipalRoleOutput struct{ *pulumi.OutputState }
+
+func (ClusterPrincipalRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPrincipalRole)(nil)).Elem()
+}
+
+func (o ClusterPrincipalRoleOutput) ToClusterPrincipalRoleOutput() ClusterPrincipalRoleOutput {
+	return o
+}
+
+func (o ClusterPrincipalRoleOutput) ToClusterPrincipalRoleOutputWithContext(ctx context.Context) ClusterPrincipalRoleOutput {
+	return o
+}
+
+func (o ClusterPrincipalRoleOutput) ToClusterPrincipalRolePtrOutput() ClusterPrincipalRolePtrOutput {
+	return o.ToClusterPrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPrincipalRoleOutput) ToClusterPrincipalRolePtrOutputWithContext(ctx context.Context) ClusterPrincipalRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPrincipalRole) *ClusterPrincipalRole {
+		return &v
+	}).(ClusterPrincipalRolePtrOutput)
+}
+
+func (o ClusterPrincipalRoleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterPrincipalRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterPrincipalRole) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterPrincipalRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPrincipalRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterPrincipalRole) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterPrincipalRolePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPrincipalRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPrincipalRole)(nil)).Elem()
+}
+
+func (o ClusterPrincipalRolePtrOutput) ToClusterPrincipalRolePtrOutput() ClusterPrincipalRolePtrOutput {
+	return o
+}
+
+func (o ClusterPrincipalRolePtrOutput) ToClusterPrincipalRolePtrOutputWithContext(ctx context.Context) ClusterPrincipalRolePtrOutput {
+	return o
+}
+
+func (o ClusterPrincipalRolePtrOutput) Elem() ClusterPrincipalRoleOutput {
+	return o.ApplyT(func(v *ClusterPrincipalRole) ClusterPrincipalRole {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPrincipalRole
+		return ret
+	}).(ClusterPrincipalRoleOutput)
+}
+
+func (o ClusterPrincipalRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPrincipalRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterPrincipalRole) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type ClusterPrincipalRoleInput interface {
+	pulumi.Input
+
+	ToClusterPrincipalRoleOutput() ClusterPrincipalRoleOutput
+	ToClusterPrincipalRoleOutputWithContext(context.Context) ClusterPrincipalRoleOutput
+}
+
+var clusterPrincipalRolePtrType = reflect.TypeOf((**ClusterPrincipalRole)(nil)).Elem()
+
+type ClusterPrincipalRolePtrInput interface {
+	pulumi.Input
+
+	ToClusterPrincipalRolePtrOutput() ClusterPrincipalRolePtrOutput
+	ToClusterPrincipalRolePtrOutputWithContext(context.Context) ClusterPrincipalRolePtrOutput
+}
+
+type clusterPrincipalRolePtr string
+
+func ClusterPrincipalRolePtr(v string) ClusterPrincipalRolePtrInput {
+	return (*clusterPrincipalRolePtr)(&v)
+}
+
+func (*clusterPrincipalRolePtr) ElementType() reflect.Type {
+	return clusterPrincipalRolePtrType
+}
+
+func (in *clusterPrincipalRolePtr) ToClusterPrincipalRolePtrOutput() ClusterPrincipalRolePtrOutput {
+	return pulumi.ToOutput(in).(ClusterPrincipalRolePtrOutput)
+}
+
+func (in *clusterPrincipalRolePtr) ToClusterPrincipalRolePtrOutputWithContext(ctx context.Context) ClusterPrincipalRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterPrincipalRolePtrOutput)
+}
+
+type Compression string
+
+const (
+	CompressionNone = Compression("None")
+	CompressionGZip = Compression("GZip")
+)
+
+func (Compression) ElementType() reflect.Type {
+	return reflect.TypeOf((*Compression)(nil)).Elem()
+}
+
+func (e Compression) ToCompressionOutput() CompressionOutput {
+	return pulumi.ToOutput(e).(CompressionOutput)
+}
+
+func (e Compression) ToCompressionOutputWithContext(ctx context.Context) CompressionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CompressionOutput)
+}
+
+func (e Compression) ToCompressionPtrOutput() CompressionPtrOutput {
+	return e.ToCompressionPtrOutputWithContext(context.Background())
+}
+
+func (e Compression) ToCompressionPtrOutputWithContext(ctx context.Context) CompressionPtrOutput {
+	return Compression(e).ToCompressionOutputWithContext(ctx).ToCompressionPtrOutputWithContext(ctx)
+}
+
+func (e Compression) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Compression) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Compression) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Compression) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CompressionOutput struct{ *pulumi.OutputState }
+
+func (CompressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Compression)(nil)).Elem()
+}
+
+func (o CompressionOutput) ToCompressionOutput() CompressionOutput {
+	return o
+}
+
+func (o CompressionOutput) ToCompressionOutputWithContext(ctx context.Context) CompressionOutput {
+	return o
+}
+
+func (o CompressionOutput) ToCompressionPtrOutput() CompressionPtrOutput {
+	return o.ToCompressionPtrOutputWithContext(context.Background())
+}
+
+func (o CompressionOutput) ToCompressionPtrOutputWithContext(ctx context.Context) CompressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Compression) *Compression {
+		return &v
+	}).(CompressionPtrOutput)
+}
+
+func (o CompressionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CompressionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Compression) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CompressionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CompressionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Compression) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CompressionPtrOutput struct{ *pulumi.OutputState }
+
+func (CompressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Compression)(nil)).Elem()
+}
+
+func (o CompressionPtrOutput) ToCompressionPtrOutput() CompressionPtrOutput {
+	return o
+}
+
+func (o CompressionPtrOutput) ToCompressionPtrOutputWithContext(ctx context.Context) CompressionPtrOutput {
+	return o
+}
+
+func (o CompressionPtrOutput) Elem() CompressionOutput {
+	return o.ApplyT(func(v *Compression) Compression {
+		if v != nil {
+			return *v
+		}
+		var ret Compression
+		return ret
+	}).(CompressionOutput)
+}
+
+func (o CompressionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CompressionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Compression) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type CompressionInput interface {
+	pulumi.Input
+
+	ToCompressionOutput() CompressionOutput
+	ToCompressionOutputWithContext(context.Context) CompressionOutput
+}
+
+var compressionPtrType = reflect.TypeOf((**Compression)(nil)).Elem()
+
+type CompressionPtrInput interface {
+	pulumi.Input
+
+	ToCompressionPtrOutput() CompressionPtrOutput
+	ToCompressionPtrOutputWithContext(context.Context) CompressionPtrOutput
+}
+
+type compressionPtr string
+
+func CompressionPtr(v string) CompressionPtrInput {
+	return (*compressionPtr)(&v)
+}
+
+func (*compressionPtr) ElementType() reflect.Type {
+	return compressionPtrType
+}
+
+func (in *compressionPtr) ToCompressionPtrOutput() CompressionPtrOutput {
+	return pulumi.ToOutput(in).(CompressionPtrOutput)
+}
+
+func (in *compressionPtr) ToCompressionPtrOutputWithContext(ctx context.Context) CompressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CompressionPtrOutput)
+}
+
+type CreateMode string
+
+const (
+	CreateModeDefault            = CreateMode("Default")
+	CreateModePointInTimeRestore = CreateMode("PointInTimeRestore")
+	CreateModeRecovery           = CreateMode("Recovery")
+	CreateModeRestore            = CreateMode("Restore")
+)
+
+func (CreateMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreateMode)(nil)).Elem()
+}
+
+func (e CreateMode) ToCreateModeOutput() CreateModeOutput {
+	return pulumi.ToOutput(e).(CreateModeOutput)
+}
+
+func (e CreateMode) ToCreateModeOutputWithContext(ctx context.Context) CreateModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CreateModeOutput)
+}
+
+func (e CreateMode) ToCreateModePtrOutput() CreateModePtrOutput {
+	return e.ToCreateModePtrOutputWithContext(context.Background())
+}
+
+func (e CreateMode) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
+	return CreateMode(e).ToCreateModeOutputWithContext(ctx).ToCreateModePtrOutputWithContext(ctx)
+}
+
+func (e CreateMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CreateMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CreateMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CreateMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CreateModeOutput struct{ *pulumi.OutputState }
+
+func (CreateModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CreateMode)(nil)).Elem()
+}
+
+func (o CreateModeOutput) ToCreateModeOutput() CreateModeOutput {
+	return o
+}
+
+func (o CreateModeOutput) ToCreateModeOutputWithContext(ctx context.Context) CreateModeOutput {
+	return o
+}
+
+func (o CreateModeOutput) ToCreateModePtrOutput() CreateModePtrOutput {
+	return o.ToCreateModePtrOutputWithContext(context.Background())
+}
+
+func (o CreateModeOutput) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CreateMode) *CreateMode {
+		return &v
+	}).(CreateModePtrOutput)
+}
+
+func (o CreateModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CreateModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreateMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CreateModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreateModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CreateMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CreateModePtrOutput struct{ *pulumi.OutputState }
+
+func (CreateModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CreateMode)(nil)).Elem()
+}
+
+func (o CreateModePtrOutput) ToCreateModePtrOutput() CreateModePtrOutput {
+	return o
+}
+
+func (o CreateModePtrOutput) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
+	return o
+}
+
+func (o CreateModePtrOutput) Elem() CreateModeOutput {
+	return o.ApplyT(func(v *CreateMode) CreateMode {
+		if v != nil {
+			return *v
+		}
+		var ret CreateMode
+		return ret
+	}).(CreateModeOutput)
+}
+
+func (o CreateModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CreateModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CreateMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type CreateModeInput interface {
+	pulumi.Input
+
+	ToCreateModeOutput() CreateModeOutput
+	ToCreateModeOutputWithContext(context.Context) CreateModeOutput
+}
+
+var createModePtrType = reflect.TypeOf((**CreateMode)(nil)).Elem()
+
+type CreateModePtrInput interface {
+	pulumi.Input
+
+	ToCreateModePtrOutput() CreateModePtrOutput
+	ToCreateModePtrOutputWithContext(context.Context) CreateModePtrOutput
+}
+
+type createModePtr string
+
+func CreateModePtr(v string) CreateModePtrInput {
+	return (*createModePtr)(&v)
+}
+
+func (*createModePtr) ElementType() reflect.Type {
+	return createModePtrType
+}
+
+func (in *createModePtr) ToCreateModePtrOutput() CreateModePtrOutput {
+	return pulumi.ToOutput(in).(CreateModePtrOutput)
+}
+
+func (in *createModePtr) ToCreateModePtrOutputWithContext(ctx context.Context) CreateModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CreateModePtrOutput)
+}
+
+type DataConnectionKind string
+
+const (
+	DataConnectionKindEventHub  = DataConnectionKind("EventHub")
+	DataConnectionKindEventGrid = DataConnectionKind("EventGrid")
+	DataConnectionKindIotHub    = DataConnectionKind("IotHub")
+)
+
+func (DataConnectionKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnectionKind)(nil)).Elem()
+}
+
+func (e DataConnectionKind) ToDataConnectionKindOutput() DataConnectionKindOutput {
+	return pulumi.ToOutput(e).(DataConnectionKindOutput)
+}
+
+func (e DataConnectionKind) ToDataConnectionKindOutputWithContext(ctx context.Context) DataConnectionKindOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataConnectionKindOutput)
+}
+
+func (e DataConnectionKind) ToDataConnectionKindPtrOutput() DataConnectionKindPtrOutput {
+	return e.ToDataConnectionKindPtrOutputWithContext(context.Background())
+}
+
+func (e DataConnectionKind) ToDataConnectionKindPtrOutputWithContext(ctx context.Context) DataConnectionKindPtrOutput {
+	return DataConnectionKind(e).ToDataConnectionKindOutputWithContext(ctx).ToDataConnectionKindPtrOutputWithContext(ctx)
+}
+
+func (e DataConnectionKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataConnectionKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataConnectionKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataConnectionKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataConnectionKindOutput struct{ *pulumi.OutputState }
+
+func (DataConnectionKindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataConnectionKind)(nil)).Elem()
+}
+
+func (o DataConnectionKindOutput) ToDataConnectionKindOutput() DataConnectionKindOutput {
+	return o
+}
+
+func (o DataConnectionKindOutput) ToDataConnectionKindOutputWithContext(ctx context.Context) DataConnectionKindOutput {
+	return o
+}
+
+func (o DataConnectionKindOutput) ToDataConnectionKindPtrOutput() DataConnectionKindPtrOutput {
+	return o.ToDataConnectionKindPtrOutputWithContext(context.Background())
+}
+
+func (o DataConnectionKindOutput) ToDataConnectionKindPtrOutputWithContext(ctx context.Context) DataConnectionKindPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataConnectionKind) *DataConnectionKind {
+		return &v
+	}).(DataConnectionKindPtrOutput)
+}
+
+func (o DataConnectionKindOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataConnectionKindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataConnectionKind) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataConnectionKindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataConnectionKindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataConnectionKind) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataConnectionKindPtrOutput struct{ *pulumi.OutputState }
+
+func (DataConnectionKindPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataConnectionKind)(nil)).Elem()
+}
+
+func (o DataConnectionKindPtrOutput) ToDataConnectionKindPtrOutput() DataConnectionKindPtrOutput {
+	return o
+}
+
+func (o DataConnectionKindPtrOutput) ToDataConnectionKindPtrOutputWithContext(ctx context.Context) DataConnectionKindPtrOutput {
+	return o
+}
+
+func (o DataConnectionKindPtrOutput) Elem() DataConnectionKindOutput {
+	return o.ApplyT(func(v *DataConnectionKind) DataConnectionKind {
+		if v != nil {
+			return *v
+		}
+		var ret DataConnectionKind
+		return ret
+	}).(DataConnectionKindOutput)
+}
+
+func (o DataConnectionKindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataConnectionKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataConnectionKind) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type DataConnectionKindInput interface {
+	pulumi.Input
+
+	ToDataConnectionKindOutput() DataConnectionKindOutput
+	ToDataConnectionKindOutputWithContext(context.Context) DataConnectionKindOutput
+}
+
+var dataConnectionKindPtrType = reflect.TypeOf((**DataConnectionKind)(nil)).Elem()
+
+type DataConnectionKindPtrInput interface {
+	pulumi.Input
+
+	ToDataConnectionKindPtrOutput() DataConnectionKindPtrOutput
+	ToDataConnectionKindPtrOutputWithContext(context.Context) DataConnectionKindPtrOutput
+}
+
+type dataConnectionKindPtr string
+
+func DataConnectionKindPtr(v string) DataConnectionKindPtrInput {
+	return (*dataConnectionKindPtr)(&v)
+}
+
+func (*dataConnectionKindPtr) ElementType() reflect.Type {
+	return dataConnectionKindPtrType
+}
+
+func (in *dataConnectionKindPtr) ToDataConnectionKindPtrOutput() DataConnectionKindPtrOutput {
+	return pulumi.ToOutput(in).(DataConnectionKindPtrOutput)
+}
+
+func (in *dataConnectionKindPtr) ToDataConnectionKindPtrOutputWithContext(ctx context.Context) DataConnectionKindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataConnectionKindPtrOutput)
+}
+
+type DataFlowComputeType string
+
+const (
+	DataFlowComputeTypeGeneral          = DataFlowComputeType("General")
+	DataFlowComputeTypeMemoryOptimized  = DataFlowComputeType("MemoryOptimized")
+	DataFlowComputeTypeComputeOptimized = DataFlowComputeType("ComputeOptimized")
+)
+
+func (DataFlowComputeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowComputeType)(nil)).Elem()
+}
+
+func (e DataFlowComputeType) ToDataFlowComputeTypeOutput() DataFlowComputeTypeOutput {
+	return pulumi.ToOutput(e).(DataFlowComputeTypeOutput)
+}
+
+func (e DataFlowComputeType) ToDataFlowComputeTypeOutputWithContext(ctx context.Context) DataFlowComputeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataFlowComputeTypeOutput)
+}
+
+func (e DataFlowComputeType) ToDataFlowComputeTypePtrOutput() DataFlowComputeTypePtrOutput {
+	return e.ToDataFlowComputeTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataFlowComputeType) ToDataFlowComputeTypePtrOutputWithContext(ctx context.Context) DataFlowComputeTypePtrOutput {
+	return DataFlowComputeType(e).ToDataFlowComputeTypeOutputWithContext(ctx).ToDataFlowComputeTypePtrOutputWithContext(ctx)
+}
+
+func (e DataFlowComputeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataFlowComputeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataFlowComputeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataFlowComputeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataFlowComputeTypeOutput struct{ *pulumi.OutputState }
+
+func (DataFlowComputeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowComputeType)(nil)).Elem()
+}
+
+func (o DataFlowComputeTypeOutput) ToDataFlowComputeTypeOutput() DataFlowComputeTypeOutput {
+	return o
+}
+
+func (o DataFlowComputeTypeOutput) ToDataFlowComputeTypeOutputWithContext(ctx context.Context) DataFlowComputeTypeOutput {
+	return o
+}
+
+func (o DataFlowComputeTypeOutput) ToDataFlowComputeTypePtrOutput() DataFlowComputeTypePtrOutput {
+	return o.ToDataFlowComputeTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowComputeTypeOutput) ToDataFlowComputeTypePtrOutputWithContext(ctx context.Context) DataFlowComputeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowComputeType) *DataFlowComputeType {
+		return &v
+	}).(DataFlowComputeTypePtrOutput)
+}
+
+func (o DataFlowComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataFlowComputeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataFlowComputeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataFlowComputeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowComputeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataFlowComputeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataFlowComputeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowComputeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowComputeType)(nil)).Elem()
+}
+
+func (o DataFlowComputeTypePtrOutput) ToDataFlowComputeTypePtrOutput() DataFlowComputeTypePtrOutput {
+	return o
+}
+
+func (o DataFlowComputeTypePtrOutput) ToDataFlowComputeTypePtrOutputWithContext(ctx context.Context) DataFlowComputeTypePtrOutput {
+	return o
+}
+
+func (o DataFlowComputeTypePtrOutput) Elem() DataFlowComputeTypeOutput {
+	return o.ApplyT(func(v *DataFlowComputeType) DataFlowComputeType {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowComputeType
+		return ret
+	}).(DataFlowComputeTypeOutput)
+}
+
+func (o DataFlowComputeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowComputeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataFlowComputeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type DataFlowComputeTypeInput interface {
+	pulumi.Input
+
+	ToDataFlowComputeTypeOutput() DataFlowComputeTypeOutput
+	ToDataFlowComputeTypeOutputWithContext(context.Context) DataFlowComputeTypeOutput
+}
+
+var dataFlowComputeTypePtrType = reflect.TypeOf((**DataFlowComputeType)(nil)).Elem()
+
+type DataFlowComputeTypePtrInput interface {
+	pulumi.Input
+
+	ToDataFlowComputeTypePtrOutput() DataFlowComputeTypePtrOutput
+	ToDataFlowComputeTypePtrOutputWithContext(context.Context) DataFlowComputeTypePtrOutput
+}
+
+type dataFlowComputeTypePtr string
+
+func DataFlowComputeTypePtr(v string) DataFlowComputeTypePtrInput {
+	return (*dataFlowComputeTypePtr)(&v)
+}
+
+func (*dataFlowComputeTypePtr) ElementType() reflect.Type {
+	return dataFlowComputeTypePtrType
+}
+
+func (in *dataFlowComputeTypePtr) ToDataFlowComputeTypePtrOutput() DataFlowComputeTypePtrOutput {
+	return pulumi.ToOutput(in).(DataFlowComputeTypePtrOutput)
+}
+
+func (in *dataFlowComputeTypePtr) ToDataFlowComputeTypePtrOutputWithContext(ctx context.Context) DataFlowComputeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataFlowComputeTypePtrOutput)
+}
+
+type DatabasePrincipalRole string
+
+const (
+	DatabasePrincipalRoleAdmin              = DatabasePrincipalRole("Admin")
+	DatabasePrincipalRoleIngestor           = DatabasePrincipalRole("Ingestor")
+	DatabasePrincipalRoleMonitor            = DatabasePrincipalRole("Monitor")
+	DatabasePrincipalRoleUser               = DatabasePrincipalRole("User")
+	DatabasePrincipalRoleUnrestrictedViewer = DatabasePrincipalRole("UnrestrictedViewer")
+	DatabasePrincipalRoleViewer             = DatabasePrincipalRole("Viewer")
+)
+
+func (DatabasePrincipalRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalRole)(nil)).Elem()
+}
+
+func (e DatabasePrincipalRole) ToDatabasePrincipalRoleOutput() DatabasePrincipalRoleOutput {
+	return pulumi.ToOutput(e).(DatabasePrincipalRoleOutput)
+}
+
+func (e DatabasePrincipalRole) ToDatabasePrincipalRoleOutputWithContext(ctx context.Context) DatabasePrincipalRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DatabasePrincipalRoleOutput)
+}
+
+func (e DatabasePrincipalRole) ToDatabasePrincipalRolePtrOutput() DatabasePrincipalRolePtrOutput {
+	return e.ToDatabasePrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (e DatabasePrincipalRole) ToDatabasePrincipalRolePtrOutputWithContext(ctx context.Context) DatabasePrincipalRolePtrOutput {
+	return DatabasePrincipalRole(e).ToDatabasePrincipalRoleOutputWithContext(ctx).ToDatabasePrincipalRolePtrOutputWithContext(ctx)
+}
+
+func (e DatabasePrincipalRole) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DatabasePrincipalRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DatabasePrincipalRole) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DatabasePrincipalRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DatabasePrincipalRoleOutput struct{ *pulumi.OutputState }
+
+func (DatabasePrincipalRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabasePrincipalRole)(nil)).Elem()
+}
+
+func (o DatabasePrincipalRoleOutput) ToDatabasePrincipalRoleOutput() DatabasePrincipalRoleOutput {
+	return o
+}
+
+func (o DatabasePrincipalRoleOutput) ToDatabasePrincipalRoleOutputWithContext(ctx context.Context) DatabasePrincipalRoleOutput {
+	return o
+}
+
+func (o DatabasePrincipalRoleOutput) ToDatabasePrincipalRolePtrOutput() DatabasePrincipalRolePtrOutput {
+	return o.ToDatabasePrincipalRolePtrOutputWithContext(context.Background())
+}
+
+func (o DatabasePrincipalRoleOutput) ToDatabasePrincipalRolePtrOutputWithContext(ctx context.Context) DatabasePrincipalRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabasePrincipalRole) *DatabasePrincipalRole {
+		return &v
+	}).(DatabasePrincipalRolePtrOutput)
+}
+
+func (o DatabasePrincipalRoleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DatabasePrincipalRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatabasePrincipalRole) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DatabasePrincipalRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatabasePrincipalRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DatabasePrincipalRole) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DatabasePrincipalRolePtrOutput struct{ *pulumi.OutputState }
+
+func (DatabasePrincipalRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabasePrincipalRole)(nil)).Elem()
+}
+
+func (o DatabasePrincipalRolePtrOutput) ToDatabasePrincipalRolePtrOutput() DatabasePrincipalRolePtrOutput {
+	return o
+}
+
+func (o DatabasePrincipalRolePtrOutput) ToDatabasePrincipalRolePtrOutputWithContext(ctx context.Context) DatabasePrincipalRolePtrOutput {
+	return o
+}
+
+func (o DatabasePrincipalRolePtrOutput) Elem() DatabasePrincipalRoleOutput {
+	return o.ApplyT(func(v *DatabasePrincipalRole) DatabasePrincipalRole {
+		if v != nil {
+			return *v
+		}
+		var ret DatabasePrincipalRole
+		return ret
+	}).(DatabasePrincipalRoleOutput)
+}
+
+func (o DatabasePrincipalRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DatabasePrincipalRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DatabasePrincipalRole) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type DatabasePrincipalRoleInput interface {
+	pulumi.Input
+
+	ToDatabasePrincipalRoleOutput() DatabasePrincipalRoleOutput
+	ToDatabasePrincipalRoleOutputWithContext(context.Context) DatabasePrincipalRoleOutput
+}
+
+var databasePrincipalRolePtrType = reflect.TypeOf((**DatabasePrincipalRole)(nil)).Elem()
+
+type DatabasePrincipalRolePtrInput interface {
+	pulumi.Input
+
+	ToDatabasePrincipalRolePtrOutput() DatabasePrincipalRolePtrOutput
+	ToDatabasePrincipalRolePtrOutputWithContext(context.Context) DatabasePrincipalRolePtrOutput
+}
+
+type databasePrincipalRolePtr string
+
+func DatabasePrincipalRolePtr(v string) DatabasePrincipalRolePtrInput {
+	return (*databasePrincipalRolePtr)(&v)
+}
+
+func (*databasePrincipalRolePtr) ElementType() reflect.Type {
+	return databasePrincipalRolePtrType
+}
+
+func (in *databasePrincipalRolePtr) ToDatabasePrincipalRolePtrOutput() DatabasePrincipalRolePtrOutput {
+	return pulumi.ToOutput(in).(DatabasePrincipalRolePtrOutput)
+}
+
+func (in *databasePrincipalRolePtr) ToDatabasePrincipalRolePtrOutputWithContext(ctx context.Context) DatabasePrincipalRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DatabasePrincipalRolePtrOutput)
+}
+
+type DefaultPrincipalsModificationKind string
+
+const (
+	DefaultPrincipalsModificationKindUnion   = DefaultPrincipalsModificationKind("Union")
+	DefaultPrincipalsModificationKindReplace = DefaultPrincipalsModificationKind("Replace")
+	DefaultPrincipalsModificationKindNone    = DefaultPrincipalsModificationKind("None")
+)
+
+func (DefaultPrincipalsModificationKind) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultPrincipalsModificationKind)(nil)).Elem()
+}
+
+func (e DefaultPrincipalsModificationKind) ToDefaultPrincipalsModificationKindOutput() DefaultPrincipalsModificationKindOutput {
+	return pulumi.ToOutput(e).(DefaultPrincipalsModificationKindOutput)
+}
+
+func (e DefaultPrincipalsModificationKind) ToDefaultPrincipalsModificationKindOutputWithContext(ctx context.Context) DefaultPrincipalsModificationKindOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DefaultPrincipalsModificationKindOutput)
+}
+
+func (e DefaultPrincipalsModificationKind) ToDefaultPrincipalsModificationKindPtrOutput() DefaultPrincipalsModificationKindPtrOutput {
+	return e.ToDefaultPrincipalsModificationKindPtrOutputWithContext(context.Background())
+}
+
+func (e DefaultPrincipalsModificationKind) ToDefaultPrincipalsModificationKindPtrOutputWithContext(ctx context.Context) DefaultPrincipalsModificationKindPtrOutput {
+	return DefaultPrincipalsModificationKind(e).ToDefaultPrincipalsModificationKindOutputWithContext(ctx).ToDefaultPrincipalsModificationKindPtrOutputWithContext(ctx)
+}
+
+func (e DefaultPrincipalsModificationKind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DefaultPrincipalsModificationKind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DefaultPrincipalsModificationKind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DefaultPrincipalsModificationKind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DefaultPrincipalsModificationKindOutput struct{ *pulumi.OutputState }
+
+func (DefaultPrincipalsModificationKindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DefaultPrincipalsModificationKind)(nil)).Elem()
+}
+
+func (o DefaultPrincipalsModificationKindOutput) ToDefaultPrincipalsModificationKindOutput() DefaultPrincipalsModificationKindOutput {
+	return o
+}
+
+func (o DefaultPrincipalsModificationKindOutput) ToDefaultPrincipalsModificationKindOutputWithContext(ctx context.Context) DefaultPrincipalsModificationKindOutput {
+	return o
+}
+
+func (o DefaultPrincipalsModificationKindOutput) ToDefaultPrincipalsModificationKindPtrOutput() DefaultPrincipalsModificationKindPtrOutput {
+	return o.ToDefaultPrincipalsModificationKindPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultPrincipalsModificationKindOutput) ToDefaultPrincipalsModificationKindPtrOutputWithContext(ctx context.Context) DefaultPrincipalsModificationKindPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultPrincipalsModificationKind) *DefaultPrincipalsModificationKind {
+		return &v
+	}).(DefaultPrincipalsModificationKindPtrOutput)
+}
+
+func (o DefaultPrincipalsModificationKindOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DefaultPrincipalsModificationKindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DefaultPrincipalsModificationKind) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DefaultPrincipalsModificationKindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultPrincipalsModificationKindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DefaultPrincipalsModificationKind) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DefaultPrincipalsModificationKindPtrOutput struct{ *pulumi.OutputState }
+
+func (DefaultPrincipalsModificationKindPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DefaultPrincipalsModificationKind)(nil)).Elem()
+}
+
+func (o DefaultPrincipalsModificationKindPtrOutput) ToDefaultPrincipalsModificationKindPtrOutput() DefaultPrincipalsModificationKindPtrOutput {
+	return o
+}
+
+func (o DefaultPrincipalsModificationKindPtrOutput) ToDefaultPrincipalsModificationKindPtrOutputWithContext(ctx context.Context) DefaultPrincipalsModificationKindPtrOutput {
+	return o
+}
+
+func (o DefaultPrincipalsModificationKindPtrOutput) Elem() DefaultPrincipalsModificationKindOutput {
+	return o.ApplyT(func(v *DefaultPrincipalsModificationKind) DefaultPrincipalsModificationKind {
+		if v != nil {
+			return *v
+		}
+		var ret DefaultPrincipalsModificationKind
+		return ret
+	}).(DefaultPrincipalsModificationKindOutput)
+}
+
+func (o DefaultPrincipalsModificationKindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DefaultPrincipalsModificationKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DefaultPrincipalsModificationKind) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type DefaultPrincipalsModificationKindInput interface {
+	pulumi.Input
+
+	ToDefaultPrincipalsModificationKindOutput() DefaultPrincipalsModificationKindOutput
+	ToDefaultPrincipalsModificationKindOutputWithContext(context.Context) DefaultPrincipalsModificationKindOutput
+}
+
+var defaultPrincipalsModificationKindPtrType = reflect.TypeOf((**DefaultPrincipalsModificationKind)(nil)).Elem()
+
+type DefaultPrincipalsModificationKindPtrInput interface {
+	pulumi.Input
+
+	ToDefaultPrincipalsModificationKindPtrOutput() DefaultPrincipalsModificationKindPtrOutput
+	ToDefaultPrincipalsModificationKindPtrOutputWithContext(context.Context) DefaultPrincipalsModificationKindPtrOutput
+}
+
+type defaultPrincipalsModificationKindPtr string
+
+func DefaultPrincipalsModificationKindPtr(v string) DefaultPrincipalsModificationKindPtrInput {
+	return (*defaultPrincipalsModificationKindPtr)(&v)
+}
+
+func (*defaultPrincipalsModificationKindPtr) ElementType() reflect.Type {
+	return defaultPrincipalsModificationKindPtrType
+}
+
+func (in *defaultPrincipalsModificationKindPtr) ToDefaultPrincipalsModificationKindPtrOutput() DefaultPrincipalsModificationKindPtrOutput {
+	return pulumi.ToOutput(in).(DefaultPrincipalsModificationKindPtrOutput)
+}
+
+func (in *defaultPrincipalsModificationKindPtr) ToDefaultPrincipalsModificationKindPtrOutputWithContext(ctx context.Context) DefaultPrincipalsModificationKindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DefaultPrincipalsModificationKindPtrOutput)
+}
+
+type EngineType string
+
+const (
+	EngineTypeV2 = EngineType("V2")
+	EngineTypeV3 = EngineType("V3")
+)
+
+func (EngineType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EngineType)(nil)).Elem()
+}
+
+func (e EngineType) ToEngineTypeOutput() EngineTypeOutput {
+	return pulumi.ToOutput(e).(EngineTypeOutput)
+}
+
+func (e EngineType) ToEngineTypeOutputWithContext(ctx context.Context) EngineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EngineTypeOutput)
+}
+
+func (e EngineType) ToEngineTypePtrOutput() EngineTypePtrOutput {
+	return e.ToEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (e EngineType) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
+	return EngineType(e).ToEngineTypeOutputWithContext(ctx).ToEngineTypePtrOutputWithContext(ctx)
+}
+
+func (e EngineType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EngineType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EngineType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EngineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EngineTypeOutput struct{ *pulumi.OutputState }
+
+func (EngineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EngineType)(nil)).Elem()
+}
+
+func (o EngineTypeOutput) ToEngineTypeOutput() EngineTypeOutput {
+	return o
+}
+
+func (o EngineTypeOutput) ToEngineTypeOutputWithContext(ctx context.Context) EngineTypeOutput {
+	return o
+}
+
+func (o EngineTypeOutput) ToEngineTypePtrOutput() EngineTypePtrOutput {
+	return o.ToEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (o EngineTypeOutput) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EngineType) *EngineType {
+		return &v
+	}).(EngineTypePtrOutput)
+}
+
+func (o EngineTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EngineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EngineType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EngineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EngineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EngineType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EngineTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EngineTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EngineType)(nil)).Elem()
+}
+
+func (o EngineTypePtrOutput) ToEngineTypePtrOutput() EngineTypePtrOutput {
+	return o
+}
+
+func (o EngineTypePtrOutput) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
+	return o
+}
+
+func (o EngineTypePtrOutput) Elem() EngineTypeOutput {
+	return o.ApplyT(func(v *EngineType) EngineType {
+		if v != nil {
+			return *v
+		}
+		var ret EngineType
+		return ret
+	}).(EngineTypeOutput)
+}
+
+func (o EngineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EngineType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type EngineTypeInput interface {
+	pulumi.Input
+
+	ToEngineTypeOutput() EngineTypeOutput
+	ToEngineTypeOutputWithContext(context.Context) EngineTypeOutput
+}
+
+var engineTypePtrType = reflect.TypeOf((**EngineType)(nil)).Elem()
+
+type EngineTypePtrInput interface {
+	pulumi.Input
+
+	ToEngineTypePtrOutput() EngineTypePtrOutput
+	ToEngineTypePtrOutputWithContext(context.Context) EngineTypePtrOutput
+}
+
+type engineTypePtr string
+
+func EngineTypePtr(v string) EngineTypePtrInput {
+	return (*engineTypePtr)(&v)
+}
+
+func (*engineTypePtr) ElementType() reflect.Type {
+	return engineTypePtrType
+}
+
+func (in *engineTypePtr) ToEngineTypePtrOutput() EngineTypePtrOutput {
+	return pulumi.ToOutput(in).(EngineTypePtrOutput)
+}
+
+func (in *engineTypePtr) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EngineTypePtrOutput)
+}
+
+type EventGridDataFormat string
+
+const (
+	EventGridDataFormatMULTIJSON  = EventGridDataFormat("MULTIJSON")
+	EventGridDataFormatJSON       = EventGridDataFormat("JSON")
+	EventGridDataFormatCSV        = EventGridDataFormat("CSV")
+	EventGridDataFormatTSV        = EventGridDataFormat("TSV")
+	EventGridDataFormatSCSV       = EventGridDataFormat("SCSV")
+	EventGridDataFormatSOHSV      = EventGridDataFormat("SOHSV")
+	EventGridDataFormatPSV        = EventGridDataFormat("PSV")
+	EventGridDataFormatTXT        = EventGridDataFormat("TXT")
+	EventGridDataFormatRAW        = EventGridDataFormat("RAW")
+	EventGridDataFormatSINGLEJSON = EventGridDataFormat("SINGLEJSON")
+	EventGridDataFormatAVRO       = EventGridDataFormat("AVRO")
+	EventGridDataFormatTSVE       = EventGridDataFormat("TSVE")
+	EventGridDataFormatPARQUET    = EventGridDataFormat("PARQUET")
+	EventGridDataFormatORC        = EventGridDataFormat("ORC")
+	EventGridDataFormatAPACHEAVRO = EventGridDataFormat("APACHEAVRO")
+	EventGridDataFormatW3CLOGFILE = EventGridDataFormat("W3CLOGFILE")
+)
+
+func (EventGridDataFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridDataFormat)(nil)).Elem()
+}
+
+func (e EventGridDataFormat) ToEventGridDataFormatOutput() EventGridDataFormatOutput {
+	return pulumi.ToOutput(e).(EventGridDataFormatOutput)
+}
+
+func (e EventGridDataFormat) ToEventGridDataFormatOutputWithContext(ctx context.Context) EventGridDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventGridDataFormatOutput)
+}
+
+func (e EventGridDataFormat) ToEventGridDataFormatPtrOutput() EventGridDataFormatPtrOutput {
+	return e.ToEventGridDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (e EventGridDataFormat) ToEventGridDataFormatPtrOutputWithContext(ctx context.Context) EventGridDataFormatPtrOutput {
+	return EventGridDataFormat(e).ToEventGridDataFormatOutputWithContext(ctx).ToEventGridDataFormatPtrOutputWithContext(ctx)
+}
+
+func (e EventGridDataFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventGridDataFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventGridDataFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventGridDataFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventGridDataFormatOutput struct{ *pulumi.OutputState }
+
+func (EventGridDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventGridDataFormat)(nil)).Elem()
+}
+
+func (o EventGridDataFormatOutput) ToEventGridDataFormatOutput() EventGridDataFormatOutput {
+	return o
+}
+
+func (o EventGridDataFormatOutput) ToEventGridDataFormatOutputWithContext(ctx context.Context) EventGridDataFormatOutput {
+	return o
+}
+
+func (o EventGridDataFormatOutput) ToEventGridDataFormatPtrOutput() EventGridDataFormatPtrOutput {
+	return o.ToEventGridDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (o EventGridDataFormatOutput) ToEventGridDataFormatPtrOutputWithContext(ctx context.Context) EventGridDataFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventGridDataFormat) *EventGridDataFormat {
+		return &v
+	}).(EventGridDataFormatPtrOutput)
+}
+
+func (o EventGridDataFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventGridDataFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventGridDataFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventGridDataFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventGridDataFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventGridDataFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventGridDataFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (EventGridDataFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventGridDataFormat)(nil)).Elem()
+}
+
+func (o EventGridDataFormatPtrOutput) ToEventGridDataFormatPtrOutput() EventGridDataFormatPtrOutput {
+	return o
+}
+
+func (o EventGridDataFormatPtrOutput) ToEventGridDataFormatPtrOutputWithContext(ctx context.Context) EventGridDataFormatPtrOutput {
+	return o
+}
+
+func (o EventGridDataFormatPtrOutput) Elem() EventGridDataFormatOutput {
+	return o.ApplyT(func(v *EventGridDataFormat) EventGridDataFormat {
+		if v != nil {
+			return *v
+		}
+		var ret EventGridDataFormat
+		return ret
+	}).(EventGridDataFormatOutput)
+}
+
+func (o EventGridDataFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventGridDataFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventGridDataFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type EventGridDataFormatInput interface {
+	pulumi.Input
+
+	ToEventGridDataFormatOutput() EventGridDataFormatOutput
+	ToEventGridDataFormatOutputWithContext(context.Context) EventGridDataFormatOutput
+}
+
+var eventGridDataFormatPtrType = reflect.TypeOf((**EventGridDataFormat)(nil)).Elem()
+
+type EventGridDataFormatPtrInput interface {
+	pulumi.Input
+
+	ToEventGridDataFormatPtrOutput() EventGridDataFormatPtrOutput
+	ToEventGridDataFormatPtrOutputWithContext(context.Context) EventGridDataFormatPtrOutput
+}
+
+type eventGridDataFormatPtr string
+
+func EventGridDataFormatPtr(v string) EventGridDataFormatPtrInput {
+	return (*eventGridDataFormatPtr)(&v)
+}
+
+func (*eventGridDataFormatPtr) ElementType() reflect.Type {
+	return eventGridDataFormatPtrType
+}
+
+func (in *eventGridDataFormatPtr) ToEventGridDataFormatPtrOutput() EventGridDataFormatPtrOutput {
+	return pulumi.ToOutput(in).(EventGridDataFormatPtrOutput)
+}
+
+func (in *eventGridDataFormatPtr) ToEventGridDataFormatPtrOutputWithContext(ctx context.Context) EventGridDataFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventGridDataFormatPtrOutput)
+}
+
+type EventHubDataFormat string
+
+const (
+	EventHubDataFormatMULTIJSON  = EventHubDataFormat("MULTIJSON")
+	EventHubDataFormatJSON       = EventHubDataFormat("JSON")
+	EventHubDataFormatCSV        = EventHubDataFormat("CSV")
+	EventHubDataFormatTSV        = EventHubDataFormat("TSV")
+	EventHubDataFormatSCSV       = EventHubDataFormat("SCSV")
+	EventHubDataFormatSOHSV      = EventHubDataFormat("SOHSV")
+	EventHubDataFormatPSV        = EventHubDataFormat("PSV")
+	EventHubDataFormatTXT        = EventHubDataFormat("TXT")
+	EventHubDataFormatRAW        = EventHubDataFormat("RAW")
+	EventHubDataFormatSINGLEJSON = EventHubDataFormat("SINGLEJSON")
+	EventHubDataFormatAVRO       = EventHubDataFormat("AVRO")
+	EventHubDataFormatTSVE       = EventHubDataFormat("TSVE")
+	EventHubDataFormatPARQUET    = EventHubDataFormat("PARQUET")
+	EventHubDataFormatORC        = EventHubDataFormat("ORC")
+	EventHubDataFormatAPACHEAVRO = EventHubDataFormat("APACHEAVRO")
+	EventHubDataFormatW3CLOGFILE = EventHubDataFormat("W3CLOGFILE")
+)
+
+func (EventHubDataFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubDataFormat)(nil)).Elem()
+}
+
+func (e EventHubDataFormat) ToEventHubDataFormatOutput() EventHubDataFormatOutput {
+	return pulumi.ToOutput(e).(EventHubDataFormatOutput)
+}
+
+func (e EventHubDataFormat) ToEventHubDataFormatOutputWithContext(ctx context.Context) EventHubDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventHubDataFormatOutput)
+}
+
+func (e EventHubDataFormat) ToEventHubDataFormatPtrOutput() EventHubDataFormatPtrOutput {
+	return e.ToEventHubDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (e EventHubDataFormat) ToEventHubDataFormatPtrOutputWithContext(ctx context.Context) EventHubDataFormatPtrOutput {
+	return EventHubDataFormat(e).ToEventHubDataFormatOutputWithContext(ctx).ToEventHubDataFormatPtrOutputWithContext(ctx)
+}
+
+func (e EventHubDataFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventHubDataFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventHubDataFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventHubDataFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventHubDataFormatOutput struct{ *pulumi.OutputState }
+
+func (EventHubDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventHubDataFormat)(nil)).Elem()
+}
+
+func (o EventHubDataFormatOutput) ToEventHubDataFormatOutput() EventHubDataFormatOutput {
+	return o
+}
+
+func (o EventHubDataFormatOutput) ToEventHubDataFormatOutputWithContext(ctx context.Context) EventHubDataFormatOutput {
+	return o
+}
+
+func (o EventHubDataFormatOutput) ToEventHubDataFormatPtrOutput() EventHubDataFormatPtrOutput {
+	return o.ToEventHubDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (o EventHubDataFormatOutput) ToEventHubDataFormatPtrOutputWithContext(ctx context.Context) EventHubDataFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventHubDataFormat) *EventHubDataFormat {
+		return &v
+	}).(EventHubDataFormatPtrOutput)
+}
+
+func (o EventHubDataFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventHubDataFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventHubDataFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventHubDataFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventHubDataFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventHubDataFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventHubDataFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (EventHubDataFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventHubDataFormat)(nil)).Elem()
+}
+
+func (o EventHubDataFormatPtrOutput) ToEventHubDataFormatPtrOutput() EventHubDataFormatPtrOutput {
+	return o
+}
+
+func (o EventHubDataFormatPtrOutput) ToEventHubDataFormatPtrOutputWithContext(ctx context.Context) EventHubDataFormatPtrOutput {
+	return o
+}
+
+func (o EventHubDataFormatPtrOutput) Elem() EventHubDataFormatOutput {
+	return o.ApplyT(func(v *EventHubDataFormat) EventHubDataFormat {
+		if v != nil {
+			return *v
+		}
+		var ret EventHubDataFormat
+		return ret
+	}).(EventHubDataFormatOutput)
+}
+
+func (o EventHubDataFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventHubDataFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventHubDataFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type EventHubDataFormatInput interface {
+	pulumi.Input
+
+	ToEventHubDataFormatOutput() EventHubDataFormatOutput
+	ToEventHubDataFormatOutputWithContext(context.Context) EventHubDataFormatOutput
+}
+
+var eventHubDataFormatPtrType = reflect.TypeOf((**EventHubDataFormat)(nil)).Elem()
+
+type EventHubDataFormatPtrInput interface {
+	pulumi.Input
+
+	ToEventHubDataFormatPtrOutput() EventHubDataFormatPtrOutput
+	ToEventHubDataFormatPtrOutputWithContext(context.Context) EventHubDataFormatPtrOutput
+}
+
+type eventHubDataFormatPtr string
+
+func EventHubDataFormatPtr(v string) EventHubDataFormatPtrInput {
+	return (*eventHubDataFormatPtr)(&v)
+}
+
+func (*eventHubDataFormatPtr) ElementType() reflect.Type {
+	return eventHubDataFormatPtrType
+}
+
+func (in *eventHubDataFormatPtr) ToEventHubDataFormatPtrOutput() EventHubDataFormatPtrOutput {
+	return pulumi.ToOutput(in).(EventHubDataFormatPtrOutput)
+}
+
+func (in *eventHubDataFormatPtr) ToEventHubDataFormatPtrOutputWithContext(ctx context.Context) EventHubDataFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventHubDataFormatPtrOutput)
+}
+
+type IntegrationRuntimeEdition string
+
+const (
+	IntegrationRuntimeEditionStandard   = IntegrationRuntimeEdition("Standard")
+	IntegrationRuntimeEditionEnterprise = IntegrationRuntimeEdition("Enterprise")
+)
+
+func (IntegrationRuntimeEdition) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeEdition)(nil)).Elem()
+}
+
+func (e IntegrationRuntimeEdition) ToIntegrationRuntimeEditionOutput() IntegrationRuntimeEditionOutput {
+	return pulumi.ToOutput(e).(IntegrationRuntimeEditionOutput)
+}
+
+func (e IntegrationRuntimeEdition) ToIntegrationRuntimeEditionOutputWithContext(ctx context.Context) IntegrationRuntimeEditionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationRuntimeEditionOutput)
+}
+
+func (e IntegrationRuntimeEdition) ToIntegrationRuntimeEditionPtrOutput() IntegrationRuntimeEditionPtrOutput {
+	return e.ToIntegrationRuntimeEditionPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationRuntimeEdition) ToIntegrationRuntimeEditionPtrOutputWithContext(ctx context.Context) IntegrationRuntimeEditionPtrOutput {
+	return IntegrationRuntimeEdition(e).ToIntegrationRuntimeEditionOutputWithContext(ctx).ToIntegrationRuntimeEditionPtrOutputWithContext(ctx)
+}
+
+func (e IntegrationRuntimeEdition) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationRuntimeEdition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationRuntimeEdition) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationRuntimeEdition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationRuntimeEditionOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeEditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeEdition)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeEditionOutput) ToIntegrationRuntimeEditionOutput() IntegrationRuntimeEditionOutput {
+	return o
+}
+
+func (o IntegrationRuntimeEditionOutput) ToIntegrationRuntimeEditionOutputWithContext(ctx context.Context) IntegrationRuntimeEditionOutput {
+	return o
+}
+
+func (o IntegrationRuntimeEditionOutput) ToIntegrationRuntimeEditionPtrOutput() IntegrationRuntimeEditionPtrOutput {
+	return o.ToIntegrationRuntimeEditionPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeEditionOutput) ToIntegrationRuntimeEditionPtrOutputWithContext(ctx context.Context) IntegrationRuntimeEditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeEdition) *IntegrationRuntimeEdition {
+		return &v
+	}).(IntegrationRuntimeEditionPtrOutput)
+}
+
+func (o IntegrationRuntimeEditionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeEditionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationRuntimeEdition) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationRuntimeEditionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeEditionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationRuntimeEdition) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeEditionPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeEditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeEdition)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeEditionPtrOutput) ToIntegrationRuntimeEditionPtrOutput() IntegrationRuntimeEditionPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeEditionPtrOutput) ToIntegrationRuntimeEditionPtrOutputWithContext(ctx context.Context) IntegrationRuntimeEditionPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeEditionPtrOutput) Elem() IntegrationRuntimeEditionOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeEdition) IntegrationRuntimeEdition {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeEdition
+		return ret
+	}).(IntegrationRuntimeEditionOutput)
+}
+
+func (o IntegrationRuntimeEditionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeEditionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationRuntimeEdition) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type IntegrationRuntimeEditionInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeEditionOutput() IntegrationRuntimeEditionOutput
+	ToIntegrationRuntimeEditionOutputWithContext(context.Context) IntegrationRuntimeEditionOutput
+}
+
+var integrationRuntimeEditionPtrType = reflect.TypeOf((**IntegrationRuntimeEdition)(nil)).Elem()
+
+type IntegrationRuntimeEditionPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeEditionPtrOutput() IntegrationRuntimeEditionPtrOutput
+	ToIntegrationRuntimeEditionPtrOutputWithContext(context.Context) IntegrationRuntimeEditionPtrOutput
+}
+
+type integrationRuntimeEditionPtr string
+
+func IntegrationRuntimeEditionPtr(v string) IntegrationRuntimeEditionPtrInput {
+	return (*integrationRuntimeEditionPtr)(&v)
+}
+
+func (*integrationRuntimeEditionPtr) ElementType() reflect.Type {
+	return integrationRuntimeEditionPtrType
+}
+
+func (in *integrationRuntimeEditionPtr) ToIntegrationRuntimeEditionPtrOutput() IntegrationRuntimeEditionPtrOutput {
+	return pulumi.ToOutput(in).(IntegrationRuntimeEditionPtrOutput)
+}
+
+func (in *integrationRuntimeEditionPtr) ToIntegrationRuntimeEditionPtrOutputWithContext(ctx context.Context) IntegrationRuntimeEditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeEditionPtrOutput)
+}
+
+type IntegrationRuntimeEntityReferenceType string
+
+const (
+	IntegrationRuntimeEntityReferenceTypeIntegrationRuntimeReference = IntegrationRuntimeEntityReferenceType("IntegrationRuntimeReference")
+	IntegrationRuntimeEntityReferenceTypeLinkedServiceReference      = IntegrationRuntimeEntityReferenceType("LinkedServiceReference")
+)
+
+func (IntegrationRuntimeEntityReferenceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeEntityReferenceType)(nil)).Elem()
+}
+
+func (e IntegrationRuntimeEntityReferenceType) ToIntegrationRuntimeEntityReferenceTypeOutput() IntegrationRuntimeEntityReferenceTypeOutput {
+	return pulumi.ToOutput(e).(IntegrationRuntimeEntityReferenceTypeOutput)
+}
+
+func (e IntegrationRuntimeEntityReferenceType) ToIntegrationRuntimeEntityReferenceTypeOutputWithContext(ctx context.Context) IntegrationRuntimeEntityReferenceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationRuntimeEntityReferenceTypeOutput)
+}
+
+func (e IntegrationRuntimeEntityReferenceType) ToIntegrationRuntimeEntityReferenceTypePtrOutput() IntegrationRuntimeEntityReferenceTypePtrOutput {
+	return e.ToIntegrationRuntimeEntityReferenceTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationRuntimeEntityReferenceType) ToIntegrationRuntimeEntityReferenceTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeEntityReferenceTypePtrOutput {
+	return IntegrationRuntimeEntityReferenceType(e).ToIntegrationRuntimeEntityReferenceTypeOutputWithContext(ctx).ToIntegrationRuntimeEntityReferenceTypePtrOutputWithContext(ctx)
+}
+
+func (e IntegrationRuntimeEntityReferenceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationRuntimeEntityReferenceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationRuntimeEntityReferenceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationRuntimeEntityReferenceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationRuntimeEntityReferenceTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeEntityReferenceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeEntityReferenceType)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeEntityReferenceTypeOutput) ToIntegrationRuntimeEntityReferenceTypeOutput() IntegrationRuntimeEntityReferenceTypeOutput {
+	return o
+}
+
+func (o IntegrationRuntimeEntityReferenceTypeOutput) ToIntegrationRuntimeEntityReferenceTypeOutputWithContext(ctx context.Context) IntegrationRuntimeEntityReferenceTypeOutput {
+	return o
+}
+
+func (o IntegrationRuntimeEntityReferenceTypeOutput) ToIntegrationRuntimeEntityReferenceTypePtrOutput() IntegrationRuntimeEntityReferenceTypePtrOutput {
+	return o.ToIntegrationRuntimeEntityReferenceTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeEntityReferenceTypeOutput) ToIntegrationRuntimeEntityReferenceTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeEntityReferenceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeEntityReferenceType) *IntegrationRuntimeEntityReferenceType {
+		return &v
+	}).(IntegrationRuntimeEntityReferenceTypePtrOutput)
+}
+
+func (o IntegrationRuntimeEntityReferenceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeEntityReferenceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationRuntimeEntityReferenceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationRuntimeEntityReferenceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeEntityReferenceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationRuntimeEntityReferenceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeEntityReferenceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeEntityReferenceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeEntityReferenceType)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeEntityReferenceTypePtrOutput) ToIntegrationRuntimeEntityReferenceTypePtrOutput() IntegrationRuntimeEntityReferenceTypePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeEntityReferenceTypePtrOutput) ToIntegrationRuntimeEntityReferenceTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeEntityReferenceTypePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeEntityReferenceTypePtrOutput) Elem() IntegrationRuntimeEntityReferenceTypeOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeEntityReferenceType) IntegrationRuntimeEntityReferenceType {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeEntityReferenceType
+		return ret
+	}).(IntegrationRuntimeEntityReferenceTypeOutput)
+}
+
+func (o IntegrationRuntimeEntityReferenceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeEntityReferenceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationRuntimeEntityReferenceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type IntegrationRuntimeEntityReferenceTypeInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeEntityReferenceTypeOutput() IntegrationRuntimeEntityReferenceTypeOutput
+	ToIntegrationRuntimeEntityReferenceTypeOutputWithContext(context.Context) IntegrationRuntimeEntityReferenceTypeOutput
+}
+
+var integrationRuntimeEntityReferenceTypePtrType = reflect.TypeOf((**IntegrationRuntimeEntityReferenceType)(nil)).Elem()
+
+type IntegrationRuntimeEntityReferenceTypePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeEntityReferenceTypePtrOutput() IntegrationRuntimeEntityReferenceTypePtrOutput
+	ToIntegrationRuntimeEntityReferenceTypePtrOutputWithContext(context.Context) IntegrationRuntimeEntityReferenceTypePtrOutput
+}
+
+type integrationRuntimeEntityReferenceTypePtr string
+
+func IntegrationRuntimeEntityReferenceTypePtr(v string) IntegrationRuntimeEntityReferenceTypePtrInput {
+	return (*integrationRuntimeEntityReferenceTypePtr)(&v)
+}
+
+func (*integrationRuntimeEntityReferenceTypePtr) ElementType() reflect.Type {
+	return integrationRuntimeEntityReferenceTypePtrType
+}
+
+func (in *integrationRuntimeEntityReferenceTypePtr) ToIntegrationRuntimeEntityReferenceTypePtrOutput() IntegrationRuntimeEntityReferenceTypePtrOutput {
+	return pulumi.ToOutput(in).(IntegrationRuntimeEntityReferenceTypePtrOutput)
+}
+
+func (in *integrationRuntimeEntityReferenceTypePtr) ToIntegrationRuntimeEntityReferenceTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeEntityReferenceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeEntityReferenceTypePtrOutput)
+}
+
+type IntegrationRuntimeLicenseType string
+
+const (
+	IntegrationRuntimeLicenseTypeBasePrice       = IntegrationRuntimeLicenseType("BasePrice")
+	IntegrationRuntimeLicenseTypeLicenseIncluded = IntegrationRuntimeLicenseType("LicenseIncluded")
+)
+
+func (IntegrationRuntimeLicenseType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeLicenseType)(nil)).Elem()
+}
+
+func (e IntegrationRuntimeLicenseType) ToIntegrationRuntimeLicenseTypeOutput() IntegrationRuntimeLicenseTypeOutput {
+	return pulumi.ToOutput(e).(IntegrationRuntimeLicenseTypeOutput)
+}
+
+func (e IntegrationRuntimeLicenseType) ToIntegrationRuntimeLicenseTypeOutputWithContext(ctx context.Context) IntegrationRuntimeLicenseTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationRuntimeLicenseTypeOutput)
+}
+
+func (e IntegrationRuntimeLicenseType) ToIntegrationRuntimeLicenseTypePtrOutput() IntegrationRuntimeLicenseTypePtrOutput {
+	return e.ToIntegrationRuntimeLicenseTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationRuntimeLicenseType) ToIntegrationRuntimeLicenseTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeLicenseTypePtrOutput {
+	return IntegrationRuntimeLicenseType(e).ToIntegrationRuntimeLicenseTypeOutputWithContext(ctx).ToIntegrationRuntimeLicenseTypePtrOutputWithContext(ctx)
+}
+
+func (e IntegrationRuntimeLicenseType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationRuntimeLicenseType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationRuntimeLicenseType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationRuntimeLicenseType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationRuntimeLicenseTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeLicenseTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeLicenseType)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeLicenseTypeOutput) ToIntegrationRuntimeLicenseTypeOutput() IntegrationRuntimeLicenseTypeOutput {
+	return o
+}
+
+func (o IntegrationRuntimeLicenseTypeOutput) ToIntegrationRuntimeLicenseTypeOutputWithContext(ctx context.Context) IntegrationRuntimeLicenseTypeOutput {
+	return o
+}
+
+func (o IntegrationRuntimeLicenseTypeOutput) ToIntegrationRuntimeLicenseTypePtrOutput() IntegrationRuntimeLicenseTypePtrOutput {
+	return o.ToIntegrationRuntimeLicenseTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeLicenseTypeOutput) ToIntegrationRuntimeLicenseTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeLicenseTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeLicenseType) *IntegrationRuntimeLicenseType {
+		return &v
+	}).(IntegrationRuntimeLicenseTypePtrOutput)
+}
+
+func (o IntegrationRuntimeLicenseTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeLicenseTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationRuntimeLicenseType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationRuntimeLicenseTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeLicenseTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationRuntimeLicenseType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeLicenseTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeLicenseTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeLicenseType)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeLicenseTypePtrOutput) ToIntegrationRuntimeLicenseTypePtrOutput() IntegrationRuntimeLicenseTypePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeLicenseTypePtrOutput) ToIntegrationRuntimeLicenseTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeLicenseTypePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeLicenseTypePtrOutput) Elem() IntegrationRuntimeLicenseTypeOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeLicenseType) IntegrationRuntimeLicenseType {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeLicenseType
+		return ret
+	}).(IntegrationRuntimeLicenseTypeOutput)
+}
+
+func (o IntegrationRuntimeLicenseTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeLicenseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationRuntimeLicenseType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type IntegrationRuntimeLicenseTypeInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeLicenseTypeOutput() IntegrationRuntimeLicenseTypeOutput
+	ToIntegrationRuntimeLicenseTypeOutputWithContext(context.Context) IntegrationRuntimeLicenseTypeOutput
+}
+
+var integrationRuntimeLicenseTypePtrType = reflect.TypeOf((**IntegrationRuntimeLicenseType)(nil)).Elem()
+
+type IntegrationRuntimeLicenseTypePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeLicenseTypePtrOutput() IntegrationRuntimeLicenseTypePtrOutput
+	ToIntegrationRuntimeLicenseTypePtrOutputWithContext(context.Context) IntegrationRuntimeLicenseTypePtrOutput
+}
+
+type integrationRuntimeLicenseTypePtr string
+
+func IntegrationRuntimeLicenseTypePtr(v string) IntegrationRuntimeLicenseTypePtrInput {
+	return (*integrationRuntimeLicenseTypePtr)(&v)
+}
+
+func (*integrationRuntimeLicenseTypePtr) ElementType() reflect.Type {
+	return integrationRuntimeLicenseTypePtrType
+}
+
+func (in *integrationRuntimeLicenseTypePtr) ToIntegrationRuntimeLicenseTypePtrOutput() IntegrationRuntimeLicenseTypePtrOutput {
+	return pulumi.ToOutput(in).(IntegrationRuntimeLicenseTypePtrOutput)
+}
+
+func (in *integrationRuntimeLicenseTypePtr) ToIntegrationRuntimeLicenseTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeLicenseTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeLicenseTypePtrOutput)
+}
+
+type IntegrationRuntimeSsisCatalogPricingTier string
+
+const (
+	IntegrationRuntimeSsisCatalogPricingTierBasic     = IntegrationRuntimeSsisCatalogPricingTier("Basic")
+	IntegrationRuntimeSsisCatalogPricingTierStandard  = IntegrationRuntimeSsisCatalogPricingTier("Standard")
+	IntegrationRuntimeSsisCatalogPricingTierPremium   = IntegrationRuntimeSsisCatalogPricingTier("Premium")
+	IntegrationRuntimeSsisCatalogPricingTierPremiumRS = IntegrationRuntimeSsisCatalogPricingTier("PremiumRS")
+)
+
+func (IntegrationRuntimeSsisCatalogPricingTier) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisCatalogPricingTier)(nil)).Elem()
+}
+
+func (e IntegrationRuntimeSsisCatalogPricingTier) ToIntegrationRuntimeSsisCatalogPricingTierOutput() IntegrationRuntimeSsisCatalogPricingTierOutput {
+	return pulumi.ToOutput(e).(IntegrationRuntimeSsisCatalogPricingTierOutput)
+}
+
+func (e IntegrationRuntimeSsisCatalogPricingTier) ToIntegrationRuntimeSsisCatalogPricingTierOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogPricingTierOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationRuntimeSsisCatalogPricingTierOutput)
+}
+
+func (e IntegrationRuntimeSsisCatalogPricingTier) ToIntegrationRuntimeSsisCatalogPricingTierPtrOutput() IntegrationRuntimeSsisCatalogPricingTierPtrOutput {
+	return e.ToIntegrationRuntimeSsisCatalogPricingTierPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationRuntimeSsisCatalogPricingTier) ToIntegrationRuntimeSsisCatalogPricingTierPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogPricingTierPtrOutput {
+	return IntegrationRuntimeSsisCatalogPricingTier(e).ToIntegrationRuntimeSsisCatalogPricingTierOutputWithContext(ctx).ToIntegrationRuntimeSsisCatalogPricingTierPtrOutputWithContext(ctx)
+}
+
+func (e IntegrationRuntimeSsisCatalogPricingTier) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationRuntimeSsisCatalogPricingTier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationRuntimeSsisCatalogPricingTier) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationRuntimeSsisCatalogPricingTier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationRuntimeSsisCatalogPricingTierOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisCatalogPricingTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisCatalogPricingTier)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierOutput) ToIntegrationRuntimeSsisCatalogPricingTierOutput() IntegrationRuntimeSsisCatalogPricingTierOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierOutput) ToIntegrationRuntimeSsisCatalogPricingTierOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogPricingTierOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierOutput) ToIntegrationRuntimeSsisCatalogPricingTierPtrOutput() IntegrationRuntimeSsisCatalogPricingTierPtrOutput {
+	return o.ToIntegrationRuntimeSsisCatalogPricingTierPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierOutput) ToIntegrationRuntimeSsisCatalogPricingTierPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogPricingTierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisCatalogPricingTier) *IntegrationRuntimeSsisCatalogPricingTier {
+		return &v
+	}).(IntegrationRuntimeSsisCatalogPricingTierPtrOutput)
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationRuntimeSsisCatalogPricingTier) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationRuntimeSsisCatalogPricingTier) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeSsisCatalogPricingTierPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisCatalogPricingTierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisCatalogPricingTier)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierPtrOutput) ToIntegrationRuntimeSsisCatalogPricingTierPtrOutput() IntegrationRuntimeSsisCatalogPricingTierPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierPtrOutput) ToIntegrationRuntimeSsisCatalogPricingTierPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogPricingTierPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierPtrOutput) Elem() IntegrationRuntimeSsisCatalogPricingTierOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisCatalogPricingTier) IntegrationRuntimeSsisCatalogPricingTier {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsisCatalogPricingTier
+		return ret
+	}).(IntegrationRuntimeSsisCatalogPricingTierOutput)
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisCatalogPricingTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationRuntimeSsisCatalogPricingTier) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type IntegrationRuntimeSsisCatalogPricingTierInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisCatalogPricingTierOutput() IntegrationRuntimeSsisCatalogPricingTierOutput
+	ToIntegrationRuntimeSsisCatalogPricingTierOutputWithContext(context.Context) IntegrationRuntimeSsisCatalogPricingTierOutput
+}
+
+var integrationRuntimeSsisCatalogPricingTierPtrType = reflect.TypeOf((**IntegrationRuntimeSsisCatalogPricingTier)(nil)).Elem()
+
+type IntegrationRuntimeSsisCatalogPricingTierPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisCatalogPricingTierPtrOutput() IntegrationRuntimeSsisCatalogPricingTierPtrOutput
+	ToIntegrationRuntimeSsisCatalogPricingTierPtrOutputWithContext(context.Context) IntegrationRuntimeSsisCatalogPricingTierPtrOutput
+}
+
+type integrationRuntimeSsisCatalogPricingTierPtr string
+
+func IntegrationRuntimeSsisCatalogPricingTierPtr(v string) IntegrationRuntimeSsisCatalogPricingTierPtrInput {
+	return (*integrationRuntimeSsisCatalogPricingTierPtr)(&v)
+}
+
+func (*integrationRuntimeSsisCatalogPricingTierPtr) ElementType() reflect.Type {
+	return integrationRuntimeSsisCatalogPricingTierPtrType
+}
+
+func (in *integrationRuntimeSsisCatalogPricingTierPtr) ToIntegrationRuntimeSsisCatalogPricingTierPtrOutput() IntegrationRuntimeSsisCatalogPricingTierPtrOutput {
+	return pulumi.ToOutput(in).(IntegrationRuntimeSsisCatalogPricingTierPtrOutput)
+}
+
+func (in *integrationRuntimeSsisCatalogPricingTierPtr) ToIntegrationRuntimeSsisCatalogPricingTierPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisCatalogPricingTierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeSsisCatalogPricingTierPtrOutput)
+}
+
+type IntegrationRuntimeType string
+
+const (
+	IntegrationRuntimeTypeManaged    = IntegrationRuntimeType("Managed")
+	IntegrationRuntimeTypeSelfHosted = IntegrationRuntimeType("SelfHosted")
+)
+
+func (IntegrationRuntimeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeType)(nil)).Elem()
+}
+
+func (e IntegrationRuntimeType) ToIntegrationRuntimeTypeOutput() IntegrationRuntimeTypeOutput {
+	return pulumi.ToOutput(e).(IntegrationRuntimeTypeOutput)
+}
+
+func (e IntegrationRuntimeType) ToIntegrationRuntimeTypeOutputWithContext(ctx context.Context) IntegrationRuntimeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntegrationRuntimeTypeOutput)
+}
+
+func (e IntegrationRuntimeType) ToIntegrationRuntimeTypePtrOutput() IntegrationRuntimeTypePtrOutput {
+	return e.ToIntegrationRuntimeTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationRuntimeType) ToIntegrationRuntimeTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeTypePtrOutput {
+	return IntegrationRuntimeType(e).ToIntegrationRuntimeTypeOutputWithContext(ctx).ToIntegrationRuntimeTypePtrOutputWithContext(ctx)
+}
+
+func (e IntegrationRuntimeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationRuntimeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntegrationRuntimeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntegrationRuntimeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntegrationRuntimeTypeOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeType)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeTypeOutput) ToIntegrationRuntimeTypeOutput() IntegrationRuntimeTypeOutput {
+	return o
+}
+
+func (o IntegrationRuntimeTypeOutput) ToIntegrationRuntimeTypeOutputWithContext(ctx context.Context) IntegrationRuntimeTypeOutput {
+	return o
+}
+
+func (o IntegrationRuntimeTypeOutput) ToIntegrationRuntimeTypePtrOutput() IntegrationRuntimeTypePtrOutput {
+	return o.ToIntegrationRuntimeTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeTypeOutput) ToIntegrationRuntimeTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeType) *IntegrationRuntimeType {
+		return &v
+	}).(IntegrationRuntimeTypePtrOutput)
+}
+
+func (o IntegrationRuntimeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationRuntimeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntegrationRuntimeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntegrationRuntimeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeType)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeTypePtrOutput) ToIntegrationRuntimeTypePtrOutput() IntegrationRuntimeTypePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeTypePtrOutput) ToIntegrationRuntimeTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeTypePtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeTypePtrOutput) Elem() IntegrationRuntimeTypeOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeType) IntegrationRuntimeType {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeType
+		return ret
+	}).(IntegrationRuntimeTypeOutput)
+}
+
+func (o IntegrationRuntimeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntegrationRuntimeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type IntegrationRuntimeTypeInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeTypeOutput() IntegrationRuntimeTypeOutput
+	ToIntegrationRuntimeTypeOutputWithContext(context.Context) IntegrationRuntimeTypeOutput
+}
+
+var integrationRuntimeTypePtrType = reflect.TypeOf((**IntegrationRuntimeType)(nil)).Elem()
+
+type IntegrationRuntimeTypePtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeTypePtrOutput() IntegrationRuntimeTypePtrOutput
+	ToIntegrationRuntimeTypePtrOutputWithContext(context.Context) IntegrationRuntimeTypePtrOutput
+}
+
+type integrationRuntimeTypePtr string
+
+func IntegrationRuntimeTypePtr(v string) IntegrationRuntimeTypePtrInput {
+	return (*integrationRuntimeTypePtr)(&v)
+}
+
+func (*integrationRuntimeTypePtr) ElementType() reflect.Type {
+	return integrationRuntimeTypePtrType
+}
+
+func (in *integrationRuntimeTypePtr) ToIntegrationRuntimeTypePtrOutput() IntegrationRuntimeTypePtrOutput {
+	return pulumi.ToOutput(in).(IntegrationRuntimeTypePtrOutput)
+}
+
+func (in *integrationRuntimeTypePtr) ToIntegrationRuntimeTypePtrOutputWithContext(ctx context.Context) IntegrationRuntimeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntegrationRuntimeTypePtrOutput)
+}
+
+type IotHubDataFormat string
+
+const (
+	IotHubDataFormatMULTIJSON  = IotHubDataFormat("MULTIJSON")
+	IotHubDataFormatJSON       = IotHubDataFormat("JSON")
+	IotHubDataFormatCSV        = IotHubDataFormat("CSV")
+	IotHubDataFormatTSV        = IotHubDataFormat("TSV")
+	IotHubDataFormatSCSV       = IotHubDataFormat("SCSV")
+	IotHubDataFormatSOHSV      = IotHubDataFormat("SOHSV")
+	IotHubDataFormatPSV        = IotHubDataFormat("PSV")
+	IotHubDataFormatTXT        = IotHubDataFormat("TXT")
+	IotHubDataFormatRAW        = IotHubDataFormat("RAW")
+	IotHubDataFormatSINGLEJSON = IotHubDataFormat("SINGLEJSON")
+	IotHubDataFormatAVRO       = IotHubDataFormat("AVRO")
+	IotHubDataFormatTSVE       = IotHubDataFormat("TSVE")
+	IotHubDataFormatPARQUET    = IotHubDataFormat("PARQUET")
+	IotHubDataFormatORC        = IotHubDataFormat("ORC")
+	IotHubDataFormatAPACHEAVRO = IotHubDataFormat("APACHEAVRO")
+	IotHubDataFormatW3CLOGFILE = IotHubDataFormat("W3CLOGFILE")
+)
+
+func (IotHubDataFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDataFormat)(nil)).Elem()
+}
+
+func (e IotHubDataFormat) ToIotHubDataFormatOutput() IotHubDataFormatOutput {
+	return pulumi.ToOutput(e).(IotHubDataFormatOutput)
+}
+
+func (e IotHubDataFormat) ToIotHubDataFormatOutputWithContext(ctx context.Context) IotHubDataFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IotHubDataFormatOutput)
+}
+
+func (e IotHubDataFormat) ToIotHubDataFormatPtrOutput() IotHubDataFormatPtrOutput {
+	return e.ToIotHubDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (e IotHubDataFormat) ToIotHubDataFormatPtrOutputWithContext(ctx context.Context) IotHubDataFormatPtrOutput {
+	return IotHubDataFormat(e).ToIotHubDataFormatOutputWithContext(ctx).ToIotHubDataFormatPtrOutputWithContext(ctx)
+}
+
+func (e IotHubDataFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IotHubDataFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IotHubDataFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IotHubDataFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IotHubDataFormatOutput struct{ *pulumi.OutputState }
+
+func (IotHubDataFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IotHubDataFormat)(nil)).Elem()
+}
+
+func (o IotHubDataFormatOutput) ToIotHubDataFormatOutput() IotHubDataFormatOutput {
+	return o
+}
+
+func (o IotHubDataFormatOutput) ToIotHubDataFormatOutputWithContext(ctx context.Context) IotHubDataFormatOutput {
+	return o
+}
+
+func (o IotHubDataFormatOutput) ToIotHubDataFormatPtrOutput() IotHubDataFormatPtrOutput {
+	return o.ToIotHubDataFormatPtrOutputWithContext(context.Background())
+}
+
+func (o IotHubDataFormatOutput) ToIotHubDataFormatPtrOutputWithContext(ctx context.Context) IotHubDataFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IotHubDataFormat) *IotHubDataFormat {
+		return &v
+	}).(IotHubDataFormatPtrOutput)
+}
+
+func (o IotHubDataFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IotHubDataFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IotHubDataFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IotHubDataFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IotHubDataFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IotHubDataFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IotHubDataFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (IotHubDataFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IotHubDataFormat)(nil)).Elem()
+}
+
+func (o IotHubDataFormatPtrOutput) ToIotHubDataFormatPtrOutput() IotHubDataFormatPtrOutput {
+	return o
+}
+
+func (o IotHubDataFormatPtrOutput) ToIotHubDataFormatPtrOutputWithContext(ctx context.Context) IotHubDataFormatPtrOutput {
+	return o
+}
+
+func (o IotHubDataFormatPtrOutput) Elem() IotHubDataFormatOutput {
+	return o.ApplyT(func(v *IotHubDataFormat) IotHubDataFormat {
+		if v != nil {
+			return *v
+		}
+		var ret IotHubDataFormat
+		return ret
+	}).(IotHubDataFormatOutput)
+}
+
+func (o IotHubDataFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IotHubDataFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IotHubDataFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type IotHubDataFormatInput interface {
+	pulumi.Input
+
+	ToIotHubDataFormatOutput() IotHubDataFormatOutput
+	ToIotHubDataFormatOutputWithContext(context.Context) IotHubDataFormatOutput
+}
+
+var iotHubDataFormatPtrType = reflect.TypeOf((**IotHubDataFormat)(nil)).Elem()
+
+type IotHubDataFormatPtrInput interface {
+	pulumi.Input
+
+	ToIotHubDataFormatPtrOutput() IotHubDataFormatPtrOutput
+	ToIotHubDataFormatPtrOutputWithContext(context.Context) IotHubDataFormatPtrOutput
+}
+
+type iotHubDataFormatPtr string
+
+func IotHubDataFormatPtr(v string) IotHubDataFormatPtrInput {
+	return (*iotHubDataFormatPtr)(&v)
+}
+
+func (*iotHubDataFormatPtr) ElementType() reflect.Type {
+	return iotHubDataFormatPtrType
+}
+
+func (in *iotHubDataFormatPtr) ToIotHubDataFormatPtrOutput() IotHubDataFormatPtrOutput {
+	return pulumi.ToOutput(in).(IotHubDataFormatPtrOutput)
+}
+
+func (in *iotHubDataFormatPtr) ToIotHubDataFormatPtrOutputWithContext(ctx context.Context) IotHubDataFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IotHubDataFormatPtrOutput)
+}
+
+type Kind string
+
+const (
+	KindReadWrite         = Kind("ReadWrite")
+	KindReadOnlyFollowing = Kind("ReadOnlyFollowing")
+)
+
+func (Kind) ElementType() reflect.Type {
+	return reflect.TypeOf((*Kind)(nil)).Elem()
+}
+
+func (e Kind) ToKindOutput() KindOutput {
+	return pulumi.ToOutput(e).(KindOutput)
+}
+
+func (e Kind) ToKindOutputWithContext(ctx context.Context) KindOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KindOutput)
+}
+
+func (e Kind) ToKindPtrOutput() KindPtrOutput {
+	return e.ToKindPtrOutputWithContext(context.Background())
+}
+
+func (e Kind) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
+	return Kind(e).ToKindOutputWithContext(ctx).ToKindPtrOutputWithContext(ctx)
+}
+
+func (e Kind) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Kind) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Kind) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Kind) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KindOutput struct{ *pulumi.OutputState }
+
+func (KindOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Kind)(nil)).Elem()
+}
+
+func (o KindOutput) ToKindOutput() KindOutput {
+	return o
+}
+
+func (o KindOutput) ToKindOutputWithContext(ctx context.Context) KindOutput {
+	return o
+}
+
+func (o KindOutput) ToKindPtrOutput() KindPtrOutput {
+	return o.ToKindPtrOutputWithContext(context.Background())
+}
+
+func (o KindOutput) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Kind) *Kind {
+		return &v
+	}).(KindPtrOutput)
+}
+
+func (o KindOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KindOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Kind) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KindOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KindOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Kind) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KindPtrOutput struct{ *pulumi.OutputState }
+
+func (KindPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Kind)(nil)).Elem()
+}
+
+func (o KindPtrOutput) ToKindPtrOutput() KindPtrOutput {
+	return o
+}
+
+func (o KindPtrOutput) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
+	return o
+}
+
+func (o KindPtrOutput) Elem() KindOutput {
+	return o.ApplyT(func(v *Kind) Kind {
+		if v != nil {
+			return *v
+		}
+		var ret Kind
+		return ret
+	}).(KindOutput)
+}
+
+func (o KindPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Kind) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type KindInput interface {
+	pulumi.Input
+
+	ToKindOutput() KindOutput
+	ToKindOutputWithContext(context.Context) KindOutput
+}
+
+var kindPtrType = reflect.TypeOf((**Kind)(nil)).Elem()
+
+type KindPtrInput interface {
+	pulumi.Input
+
+	ToKindPtrOutput() KindPtrOutput
+	ToKindPtrOutputWithContext(context.Context) KindPtrOutput
+}
+
+type kindPtr string
+
+func KindPtr(v string) KindPtrInput {
+	return (*kindPtr)(&v)
+}
+
+func (*kindPtr) ElementType() reflect.Type {
+	return kindPtrType
+}
+
+func (in *kindPtr) ToKindPtrOutput() KindPtrOutput {
+	return pulumi.ToOutput(in).(KindPtrOutput)
+}
+
+func (in *kindPtr) ToKindPtrOutputWithContext(ctx context.Context) KindPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KindPtrOutput)
+}
+
+type NodeSize string
+
+const (
+	NodeSizeNone     = NodeSize("None")
+	NodeSizeSmall    = NodeSize("Small")
+	NodeSizeMedium   = NodeSize("Medium")
+	NodeSizeLarge    = NodeSize("Large")
+	NodeSizeXLarge   = NodeSize("XLarge")
+	NodeSizeXXLarge  = NodeSize("XXLarge")
+	NodeSizeXXXLarge = NodeSize("XXXLarge")
+)
+
+func (NodeSize) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeSize)(nil)).Elem()
+}
+
+func (e NodeSize) ToNodeSizeOutput() NodeSizeOutput {
+	return pulumi.ToOutput(e).(NodeSizeOutput)
+}
+
+func (e NodeSize) ToNodeSizeOutputWithContext(ctx context.Context) NodeSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NodeSizeOutput)
+}
+
+func (e NodeSize) ToNodeSizePtrOutput() NodeSizePtrOutput {
+	return e.ToNodeSizePtrOutputWithContext(context.Background())
+}
+
+func (e NodeSize) ToNodeSizePtrOutputWithContext(ctx context.Context) NodeSizePtrOutput {
+	return NodeSize(e).ToNodeSizeOutputWithContext(ctx).ToNodeSizePtrOutputWithContext(ctx)
+}
+
+func (e NodeSize) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodeSize) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodeSize) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NodeSize) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NodeSizeOutput struct{ *pulumi.OutputState }
+
+func (NodeSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeSize)(nil)).Elem()
+}
+
+func (o NodeSizeOutput) ToNodeSizeOutput() NodeSizeOutput {
+	return o
+}
+
+func (o NodeSizeOutput) ToNodeSizeOutputWithContext(ctx context.Context) NodeSizeOutput {
+	return o
+}
+
+func (o NodeSizeOutput) ToNodeSizePtrOutput() NodeSizePtrOutput {
+	return o.ToNodeSizePtrOutputWithContext(context.Background())
+}
+
+func (o NodeSizeOutput) ToNodeSizePtrOutputWithContext(ctx context.Context) NodeSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeSize) *NodeSize {
+		return &v
+	}).(NodeSizePtrOutput)
+}
+
+func (o NodeSizeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NodeSizeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeSize) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NodeSizeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeSizeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeSize) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NodeSizePtrOutput struct{ *pulumi.OutputState }
+
+func (NodeSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeSize)(nil)).Elem()
+}
+
+func (o NodeSizePtrOutput) ToNodeSizePtrOutput() NodeSizePtrOutput {
+	return o
+}
+
+func (o NodeSizePtrOutput) ToNodeSizePtrOutputWithContext(ctx context.Context) NodeSizePtrOutput {
+	return o
+}
+
+func (o NodeSizePtrOutput) Elem() NodeSizeOutput {
+	return o.ApplyT(func(v *NodeSize) NodeSize {
+		if v != nil {
+			return *v
+		}
+		var ret NodeSize
+		return ret
+	}).(NodeSizeOutput)
+}
+
+func (o NodeSizePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeSizePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NodeSize) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type NodeSizeInput interface {
+	pulumi.Input
+
+	ToNodeSizeOutput() NodeSizeOutput
+	ToNodeSizeOutputWithContext(context.Context) NodeSizeOutput
+}
+
+var nodeSizePtrType = reflect.TypeOf((**NodeSize)(nil)).Elem()
+
+type NodeSizePtrInput interface {
+	pulumi.Input
+
+	ToNodeSizePtrOutput() NodeSizePtrOutput
+	ToNodeSizePtrOutputWithContext(context.Context) NodeSizePtrOutput
+}
+
+type nodeSizePtr string
+
+func NodeSizePtr(v string) NodeSizePtrInput {
+	return (*nodeSizePtr)(&v)
+}
+
+func (*nodeSizePtr) ElementType() reflect.Type {
+	return nodeSizePtrType
+}
+
+func (in *nodeSizePtr) ToNodeSizePtrOutput() NodeSizePtrOutput {
+	return pulumi.ToOutput(in).(NodeSizePtrOutput)
+}
+
+func (in *nodeSizePtr) ToNodeSizePtrOutputWithContext(ctx context.Context) NodeSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NodeSizePtrOutput)
+}
+
+type NodeSizeFamily string
+
+const (
+	NodeSizeFamilyNone                    = NodeSizeFamily("None")
+	NodeSizeFamilyMemoryOptimized         = NodeSizeFamily("MemoryOptimized")
+	NodeSizeFamilyHardwareAcceleratedFPGA = NodeSizeFamily("HardwareAcceleratedFPGA")
+	NodeSizeFamilyHardwareAcceleratedGPU  = NodeSizeFamily("HardwareAcceleratedGPU")
+)
+
+func (NodeSizeFamily) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeSizeFamily)(nil)).Elem()
+}
+
+func (e NodeSizeFamily) ToNodeSizeFamilyOutput() NodeSizeFamilyOutput {
+	return pulumi.ToOutput(e).(NodeSizeFamilyOutput)
+}
+
+func (e NodeSizeFamily) ToNodeSizeFamilyOutputWithContext(ctx context.Context) NodeSizeFamilyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(NodeSizeFamilyOutput)
+}
+
+func (e NodeSizeFamily) ToNodeSizeFamilyPtrOutput() NodeSizeFamilyPtrOutput {
+	return e.ToNodeSizeFamilyPtrOutputWithContext(context.Background())
+}
+
+func (e NodeSizeFamily) ToNodeSizeFamilyPtrOutputWithContext(ctx context.Context) NodeSizeFamilyPtrOutput {
+	return NodeSizeFamily(e).ToNodeSizeFamilyOutputWithContext(ctx).ToNodeSizeFamilyPtrOutputWithContext(ctx)
+}
+
+func (e NodeSizeFamily) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodeSizeFamily) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e NodeSizeFamily) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e NodeSizeFamily) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type NodeSizeFamilyOutput struct{ *pulumi.OutputState }
+
+func (NodeSizeFamilyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodeSizeFamily)(nil)).Elem()
+}
+
+func (o NodeSizeFamilyOutput) ToNodeSizeFamilyOutput() NodeSizeFamilyOutput {
+	return o
+}
+
+func (o NodeSizeFamilyOutput) ToNodeSizeFamilyOutputWithContext(ctx context.Context) NodeSizeFamilyOutput {
+	return o
+}
+
+func (o NodeSizeFamilyOutput) ToNodeSizeFamilyPtrOutput() NodeSizeFamilyPtrOutput {
+	return o.ToNodeSizeFamilyPtrOutputWithContext(context.Background())
+}
+
+func (o NodeSizeFamilyOutput) ToNodeSizeFamilyPtrOutputWithContext(ctx context.Context) NodeSizeFamilyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeSizeFamily) *NodeSizeFamily {
+		return &v
+	}).(NodeSizeFamilyPtrOutput)
+}
+
+func (o NodeSizeFamilyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o NodeSizeFamilyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeSizeFamily) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o NodeSizeFamilyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeSizeFamilyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e NodeSizeFamily) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type NodeSizeFamilyPtrOutput struct{ *pulumi.OutputState }
+
+func (NodeSizeFamilyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodeSizeFamily)(nil)).Elem()
+}
+
+func (o NodeSizeFamilyPtrOutput) ToNodeSizeFamilyPtrOutput() NodeSizeFamilyPtrOutput {
+	return o
+}
+
+func (o NodeSizeFamilyPtrOutput) ToNodeSizeFamilyPtrOutputWithContext(ctx context.Context) NodeSizeFamilyPtrOutput {
+	return o
+}
+
+func (o NodeSizeFamilyPtrOutput) Elem() NodeSizeFamilyOutput {
+	return o.ApplyT(func(v *NodeSizeFamily) NodeSizeFamily {
+		if v != nil {
+			return *v
+		}
+		var ret NodeSizeFamily
+		return ret
+	}).(NodeSizeFamilyOutput)
+}
+
+func (o NodeSizeFamilyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o NodeSizeFamilyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *NodeSizeFamily) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type NodeSizeFamilyInput interface {
+	pulumi.Input
+
+	ToNodeSizeFamilyOutput() NodeSizeFamilyOutput
+	ToNodeSizeFamilyOutputWithContext(context.Context) NodeSizeFamilyOutput
+}
+
+var nodeSizeFamilyPtrType = reflect.TypeOf((**NodeSizeFamily)(nil)).Elem()
+
+type NodeSizeFamilyPtrInput interface {
+	pulumi.Input
+
+	ToNodeSizeFamilyPtrOutput() NodeSizeFamilyPtrOutput
+	ToNodeSizeFamilyPtrOutputWithContext(context.Context) NodeSizeFamilyPtrOutput
+}
+
+type nodeSizeFamilyPtr string
+
+func NodeSizeFamilyPtr(v string) NodeSizeFamilyPtrInput {
+	return (*nodeSizeFamilyPtr)(&v)
+}
+
+func (*nodeSizeFamilyPtr) ElementType() reflect.Type {
+	return nodeSizeFamilyPtrType
+}
+
+func (in *nodeSizeFamilyPtr) ToNodeSizeFamilyPtrOutput() NodeSizeFamilyPtrOutput {
+	return pulumi.ToOutput(in).(NodeSizeFamilyPtrOutput)
+}
+
+func (in *nodeSizeFamilyPtr) ToNodeSizeFamilyPtrOutputWithContext(ctx context.Context) NodeSizeFamilyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(NodeSizeFamilyPtrOutput)
+}
+
+type PrincipalType string
+
+const (
+	PrincipalTypeApp   = PrincipalType("App")
+	PrincipalTypeGroup = PrincipalType("Group")
+	PrincipalTypeUser  = PrincipalType("User")
+)
+
+func (PrincipalType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalType)(nil)).Elem()
+}
+
+func (e PrincipalType) ToPrincipalTypeOutput() PrincipalTypeOutput {
+	return pulumi.ToOutput(e).(PrincipalTypeOutput)
+}
+
+func (e PrincipalType) ToPrincipalTypeOutputWithContext(ctx context.Context) PrincipalTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PrincipalTypeOutput)
+}
+
+func (e PrincipalType) ToPrincipalTypePtrOutput() PrincipalTypePtrOutput {
+	return e.ToPrincipalTypePtrOutputWithContext(context.Background())
+}
+
+func (e PrincipalType) ToPrincipalTypePtrOutputWithContext(ctx context.Context) PrincipalTypePtrOutput {
+	return PrincipalType(e).ToPrincipalTypeOutputWithContext(ctx).ToPrincipalTypePtrOutputWithContext(ctx)
+}
+
+func (e PrincipalType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrincipalType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PrincipalType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PrincipalType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PrincipalTypeOutput struct{ *pulumi.OutputState }
+
+func (PrincipalTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrincipalType)(nil)).Elem()
+}
+
+func (o PrincipalTypeOutput) ToPrincipalTypeOutput() PrincipalTypeOutput {
+	return o
+}
+
+func (o PrincipalTypeOutput) ToPrincipalTypeOutputWithContext(ctx context.Context) PrincipalTypeOutput {
+	return o
+}
+
+func (o PrincipalTypeOutput) ToPrincipalTypePtrOutput() PrincipalTypePtrOutput {
+	return o.ToPrincipalTypePtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalTypeOutput) ToPrincipalTypePtrOutputWithContext(ctx context.Context) PrincipalTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalType) *PrincipalType {
+		return &v
+	}).(PrincipalTypePtrOutput)
+}
+
+func (o PrincipalTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PrincipalTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrincipalType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PrincipalTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PrincipalType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PrincipalTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PrincipalTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrincipalType)(nil)).Elem()
+}
+
+func (o PrincipalTypePtrOutput) ToPrincipalTypePtrOutput() PrincipalTypePtrOutput {
+	return o
+}
+
+func (o PrincipalTypePtrOutput) ToPrincipalTypePtrOutputWithContext(ctx context.Context) PrincipalTypePtrOutput {
+	return o
+}
+
+func (o PrincipalTypePtrOutput) Elem() PrincipalTypeOutput {
+	return o.ApplyT(func(v *PrincipalType) PrincipalType {
+		if v != nil {
+			return *v
+		}
+		var ret PrincipalType
+		return ret
+	}).(PrincipalTypeOutput)
+}
+
+func (o PrincipalTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PrincipalTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PrincipalType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type PrincipalTypeInput interface {
+	pulumi.Input
+
+	ToPrincipalTypeOutput() PrincipalTypeOutput
+	ToPrincipalTypeOutputWithContext(context.Context) PrincipalTypeOutput
+}
+
+var principalTypePtrType = reflect.TypeOf((**PrincipalType)(nil)).Elem()
+
+type PrincipalTypePtrInput interface {
+	pulumi.Input
+
+	ToPrincipalTypePtrOutput() PrincipalTypePtrOutput
+	ToPrincipalTypePtrOutputWithContext(context.Context) PrincipalTypePtrOutput
+}
+
+type principalTypePtr string
+
+func PrincipalTypePtr(v string) PrincipalTypePtrInput {
+	return (*principalTypePtr)(&v)
+}
+
+func (*principalTypePtr) ElementType() reflect.Type {
+	return principalTypePtrType
+}
+
+func (in *principalTypePtr) ToPrincipalTypePtrOutput() PrincipalTypePtrOutput {
+	return pulumi.ToOutput(in).(PrincipalTypePtrOutput)
+}
+
+func (in *principalTypePtr) ToPrincipalTypePtrOutputWithContext(ctx context.Context) PrincipalTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PrincipalTypePtrOutput)
+}
+
+type ResourceIdentityType string
+
+const (
+	ResourceIdentityTypeNone           = ResourceIdentityType("None")
+	ResourceIdentityTypeSystemAssigned = ResourceIdentityType("SystemAssigned")
+)
+
+func (ResourceIdentityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return pulumi.ToOutput(e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceIdentityTypeOutput)
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return e.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return ResourceIdentityType(e).ToResourceIdentityTypeOutputWithContext(ctx).ToResourceIdentityTypePtrOutputWithContext(ctx)
+}
+
+func (e ResourceIdentityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceIdentityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceIdentityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceIdentityTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityType)(nil)).Elem()
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypeOutputWithContext(ctx context.Context) ResourceIdentityTypeOutput {
+	return o
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o.ToResourceIdentityTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityType) *ResourceIdentityType {
+		return &v
+	}).(ResourceIdentityTypePtrOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceIdentityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityTypePtrOutput) Elem() ResourceIdentityTypeOutput {
+	return o.ApplyT(func(v *ResourceIdentityType) ResourceIdentityType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityType
+		return ret
+	}).(ResourceIdentityTypeOutput)
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceIdentityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type ResourceIdentityTypeInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypeOutput() ResourceIdentityTypeOutput
+	ToResourceIdentityTypeOutputWithContext(context.Context) ResourceIdentityTypeOutput
+}
+
+var resourceIdentityTypePtrType = reflect.TypeOf((**ResourceIdentityType)(nil)).Elem()
+
+type ResourceIdentityTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput
+	ToResourceIdentityTypePtrOutputWithContext(context.Context) ResourceIdentityTypePtrOutput
+}
+
+type resourceIdentityTypePtr string
+
+func ResourceIdentityTypePtr(v string) ResourceIdentityTypePtrInput {
+	return (*resourceIdentityTypePtr)(&v)
+}
+
+func (*resourceIdentityTypePtr) ElementType() reflect.Type {
+	return resourceIdentityTypePtrType
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutput() ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceIdentityTypePtrOutput)
+}
+
+func (in *resourceIdentityTypePtr) ToResourceIdentityTypePtrOutputWithContext(ctx context.Context) ResourceIdentityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceIdentityTypePtrOutput)
+}
+
+type SensitivityLabelRank string
+
+const (
+	SensitivityLabelRankNone     = SensitivityLabelRank("None")
+	SensitivityLabelRankLow      = SensitivityLabelRank("Low")
+	SensitivityLabelRankMedium   = SensitivityLabelRank("Medium")
+	SensitivityLabelRankHigh     = SensitivityLabelRank("High")
+	SensitivityLabelRankCritical = SensitivityLabelRank("Critical")
+)
+
+func (SensitivityLabelRank) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitivityLabelRank)(nil)).Elem()
+}
+
+func (e SensitivityLabelRank) ToSensitivityLabelRankOutput() SensitivityLabelRankOutput {
+	return pulumi.ToOutput(e).(SensitivityLabelRankOutput)
+}
+
+func (e SensitivityLabelRank) ToSensitivityLabelRankOutputWithContext(ctx context.Context) SensitivityLabelRankOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SensitivityLabelRankOutput)
+}
+
+func (e SensitivityLabelRank) ToSensitivityLabelRankPtrOutput() SensitivityLabelRankPtrOutput {
+	return e.ToSensitivityLabelRankPtrOutputWithContext(context.Background())
+}
+
+func (e SensitivityLabelRank) ToSensitivityLabelRankPtrOutputWithContext(ctx context.Context) SensitivityLabelRankPtrOutput {
+	return SensitivityLabelRank(e).ToSensitivityLabelRankOutputWithContext(ctx).ToSensitivityLabelRankPtrOutputWithContext(ctx)
+}
+
+func (e SensitivityLabelRank) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SensitivityLabelRank) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SensitivityLabelRank) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SensitivityLabelRank) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SensitivityLabelRankOutput struct{ *pulumi.OutputState }
+
+func (SensitivityLabelRankOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SensitivityLabelRank)(nil)).Elem()
+}
+
+func (o SensitivityLabelRankOutput) ToSensitivityLabelRankOutput() SensitivityLabelRankOutput {
+	return o
+}
+
+func (o SensitivityLabelRankOutput) ToSensitivityLabelRankOutputWithContext(ctx context.Context) SensitivityLabelRankOutput {
+	return o
+}
+
+func (o SensitivityLabelRankOutput) ToSensitivityLabelRankPtrOutput() SensitivityLabelRankPtrOutput {
+	return o.ToSensitivityLabelRankPtrOutputWithContext(context.Background())
+}
+
+func (o SensitivityLabelRankOutput) ToSensitivityLabelRankPtrOutputWithContext(ctx context.Context) SensitivityLabelRankPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SensitivityLabelRank) *SensitivityLabelRank {
+		return &v
+	}).(SensitivityLabelRankPtrOutput)
+}
+
+func (o SensitivityLabelRankOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SensitivityLabelRankOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SensitivityLabelRank) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SensitivityLabelRankOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SensitivityLabelRankOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SensitivityLabelRank) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SensitivityLabelRankPtrOutput struct{ *pulumi.OutputState }
+
+func (SensitivityLabelRankPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SensitivityLabelRank)(nil)).Elem()
+}
+
+func (o SensitivityLabelRankPtrOutput) ToSensitivityLabelRankPtrOutput() SensitivityLabelRankPtrOutput {
+	return o
+}
+
+func (o SensitivityLabelRankPtrOutput) ToSensitivityLabelRankPtrOutputWithContext(ctx context.Context) SensitivityLabelRankPtrOutput {
+	return o
+}
+
+func (o SensitivityLabelRankPtrOutput) Elem() SensitivityLabelRankOutput {
+	return o.ApplyT(func(v *SensitivityLabelRank) SensitivityLabelRank {
+		if v != nil {
+			return *v
+		}
+		var ret SensitivityLabelRank
+		return ret
+	}).(SensitivityLabelRankOutput)
+}
+
+func (o SensitivityLabelRankPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SensitivityLabelRankPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SensitivityLabelRank) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type SensitivityLabelRankInput interface {
+	pulumi.Input
+
+	ToSensitivityLabelRankOutput() SensitivityLabelRankOutput
+	ToSensitivityLabelRankOutputWithContext(context.Context) SensitivityLabelRankOutput
+}
+
+var sensitivityLabelRankPtrType = reflect.TypeOf((**SensitivityLabelRank)(nil)).Elem()
+
+type SensitivityLabelRankPtrInput interface {
+	pulumi.Input
+
+	ToSensitivityLabelRankPtrOutput() SensitivityLabelRankPtrOutput
+	ToSensitivityLabelRankPtrOutputWithContext(context.Context) SensitivityLabelRankPtrOutput
+}
+
+type sensitivityLabelRankPtr string
+
+func SensitivityLabelRankPtr(v string) SensitivityLabelRankPtrInput {
+	return (*sensitivityLabelRankPtr)(&v)
+}
+
+func (*sensitivityLabelRankPtr) ElementType() reflect.Type {
+	return sensitivityLabelRankPtrType
+}
+
+func (in *sensitivityLabelRankPtr) ToSensitivityLabelRankPtrOutput() SensitivityLabelRankPtrOutput {
+	return pulumi.ToOutput(in).(SensitivityLabelRankPtrOutput)
+}
+
+func (in *sensitivityLabelRankPtr) ToSensitivityLabelRankPtrOutputWithContext(ctx context.Context) SensitivityLabelRankPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SensitivityLabelRankPtrOutput)
+}
+
+type StorageAccountType string
+
+const (
+	StorageAccountTypeGRS = StorageAccountType("GRS")
+	StorageAccountTypeLRS = StorageAccountType("LRS")
+	StorageAccountTypeZRS = StorageAccountType("ZRS")
+)
+
+func (StorageAccountType) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
+}
+
+func (e StorageAccountType) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
+	return pulumi.ToOutput(e).(StorageAccountTypeOutput)
+}
+
+func (e StorageAccountType) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StorageAccountTypeOutput)
+}
+
+func (e StorageAccountType) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
+	return e.ToStorageAccountTypePtrOutputWithContext(context.Background())
+}
+
+func (e StorageAccountType) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
+	return StorageAccountType(e).ToStorageAccountTypeOutputWithContext(ctx).ToStorageAccountTypePtrOutputWithContext(ctx)
+}
+
+func (e StorageAccountType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StorageAccountType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StorageAccountType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StorageAccountType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StorageAccountTypeOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
+}
+
+func (o StorageAccountTypeOutput) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
+	return o
+}
+
+func (o StorageAccountTypeOutput) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
+	return o
+}
+
+func (o StorageAccountTypeOutput) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
+	return o.ToStorageAccountTypePtrOutputWithContext(context.Background())
+}
+
+func (o StorageAccountTypeOutput) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountType) *StorageAccountType {
+		return &v
+	}).(StorageAccountTypePtrOutput)
+}
+
+func (o StorageAccountTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StorageAccountTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageAccountType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StorageAccountTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageAccountTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StorageAccountType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StorageAccountTypePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageAccountType)(nil)).Elem()
+}
+
+func (o StorageAccountTypePtrOutput) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
+	return o
+}
+
+func (o StorageAccountTypePtrOutput) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
+	return o
+}
+
+func (o StorageAccountTypePtrOutput) Elem() StorageAccountTypeOutput {
+	return o.ApplyT(func(v *StorageAccountType) StorageAccountType {
+		if v != nil {
+			return *v
+		}
+		var ret StorageAccountType
+		return ret
+	}).(StorageAccountTypeOutput)
+}
+
+func (o StorageAccountTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StorageAccountTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StorageAccountType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type StorageAccountTypeInput interface {
+	pulumi.Input
+
+	ToStorageAccountTypeOutput() StorageAccountTypeOutput
+	ToStorageAccountTypeOutputWithContext(context.Context) StorageAccountTypeOutput
+}
+
+var storageAccountTypePtrType = reflect.TypeOf((**StorageAccountType)(nil)).Elem()
+
+type StorageAccountTypePtrInput interface {
+	pulumi.Input
+
+	ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput
+	ToStorageAccountTypePtrOutputWithContext(context.Context) StorageAccountTypePtrOutput
+}
+
+type storageAccountTypePtr string
+
+func StorageAccountTypePtr(v string) StorageAccountTypePtrInput {
+	return (*storageAccountTypePtr)(&v)
+}
+
+func (*storageAccountTypePtr) ElementType() reflect.Type {
+	return storageAccountTypePtrType
+}
+
+func (in *storageAccountTypePtr) ToStorageAccountTypePtrOutput() StorageAccountTypePtrOutput {
+	return pulumi.ToOutput(in).(StorageAccountTypePtrOutput)
+}
+
+func (in *storageAccountTypePtr) ToStorageAccountTypePtrOutputWithContext(ctx context.Context) StorageAccountTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StorageAccountTypePtrOutput)
+}
+
+type TransparentDataEncryptionStatus string
+
+const (
+	TransparentDataEncryptionStatusEnabled  = TransparentDataEncryptionStatus("Enabled")
+	TransparentDataEncryptionStatusDisabled = TransparentDataEncryptionStatus("Disabled")
+)
+
+func (TransparentDataEncryptionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransparentDataEncryptionStatus)(nil)).Elem()
+}
+
+func (e TransparentDataEncryptionStatus) ToTransparentDataEncryptionStatusOutput() TransparentDataEncryptionStatusOutput {
+	return pulumi.ToOutput(e).(TransparentDataEncryptionStatusOutput)
+}
+
+func (e TransparentDataEncryptionStatus) ToTransparentDataEncryptionStatusOutputWithContext(ctx context.Context) TransparentDataEncryptionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransparentDataEncryptionStatusOutput)
+}
+
+func (e TransparentDataEncryptionStatus) ToTransparentDataEncryptionStatusPtrOutput() TransparentDataEncryptionStatusPtrOutput {
+	return e.ToTransparentDataEncryptionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e TransparentDataEncryptionStatus) ToTransparentDataEncryptionStatusPtrOutputWithContext(ctx context.Context) TransparentDataEncryptionStatusPtrOutput {
+	return TransparentDataEncryptionStatus(e).ToTransparentDataEncryptionStatusOutputWithContext(ctx).ToTransparentDataEncryptionStatusPtrOutputWithContext(ctx)
+}
+
+func (e TransparentDataEncryptionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransparentDataEncryptionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransparentDataEncryptionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransparentDataEncryptionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransparentDataEncryptionStatusOutput struct{ *pulumi.OutputState }
+
+func (TransparentDataEncryptionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransparentDataEncryptionStatus)(nil)).Elem()
+}
+
+func (o TransparentDataEncryptionStatusOutput) ToTransparentDataEncryptionStatusOutput() TransparentDataEncryptionStatusOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionStatusOutput) ToTransparentDataEncryptionStatusOutputWithContext(ctx context.Context) TransparentDataEncryptionStatusOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionStatusOutput) ToTransparentDataEncryptionStatusPtrOutput() TransparentDataEncryptionStatusPtrOutput {
+	return o.ToTransparentDataEncryptionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TransparentDataEncryptionStatusOutput) ToTransparentDataEncryptionStatusPtrOutputWithContext(ctx context.Context) TransparentDataEncryptionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransparentDataEncryptionStatus) *TransparentDataEncryptionStatus {
+		return &v
+	}).(TransparentDataEncryptionStatusPtrOutput)
+}
+
+func (o TransparentDataEncryptionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransparentDataEncryptionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransparentDataEncryptionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransparentDataEncryptionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransparentDataEncryptionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransparentDataEncryptionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransparentDataEncryptionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TransparentDataEncryptionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransparentDataEncryptionStatus)(nil)).Elem()
+}
+
+func (o TransparentDataEncryptionStatusPtrOutput) ToTransparentDataEncryptionStatusPtrOutput() TransparentDataEncryptionStatusPtrOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionStatusPtrOutput) ToTransparentDataEncryptionStatusPtrOutputWithContext(ctx context.Context) TransparentDataEncryptionStatusPtrOutput {
+	return o
+}
+
+func (o TransparentDataEncryptionStatusPtrOutput) Elem() TransparentDataEncryptionStatusOutput {
+	return o.ApplyT(func(v *TransparentDataEncryptionStatus) TransparentDataEncryptionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TransparentDataEncryptionStatus
+		return ret
+	}).(TransparentDataEncryptionStatusOutput)
+}
+
+func (o TransparentDataEncryptionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransparentDataEncryptionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransparentDataEncryptionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type TransparentDataEncryptionStatusInput interface {
+	pulumi.Input
+
+	ToTransparentDataEncryptionStatusOutput() TransparentDataEncryptionStatusOutput
+	ToTransparentDataEncryptionStatusOutputWithContext(context.Context) TransparentDataEncryptionStatusOutput
+}
+
+var transparentDataEncryptionStatusPtrType = reflect.TypeOf((**TransparentDataEncryptionStatus)(nil)).Elem()
+
+type TransparentDataEncryptionStatusPtrInput interface {
+	pulumi.Input
+
+	ToTransparentDataEncryptionStatusPtrOutput() TransparentDataEncryptionStatusPtrOutput
+	ToTransparentDataEncryptionStatusPtrOutputWithContext(context.Context) TransparentDataEncryptionStatusPtrOutput
+}
+
+type transparentDataEncryptionStatusPtr string
+
+func TransparentDataEncryptionStatusPtr(v string) TransparentDataEncryptionStatusPtrInput {
+	return (*transparentDataEncryptionStatusPtr)(&v)
+}
+
+func (*transparentDataEncryptionStatusPtr) ElementType() reflect.Type {
+	return transparentDataEncryptionStatusPtrType
+}
+
+func (in *transparentDataEncryptionStatusPtr) ToTransparentDataEncryptionStatusPtrOutput() TransparentDataEncryptionStatusPtrOutput {
+	return pulumi.ToOutput(in).(TransparentDataEncryptionStatusPtrOutput)
+}
+
+func (in *transparentDataEncryptionStatusPtr) ToTransparentDataEncryptionStatusPtrOutputWithContext(ctx context.Context) TransparentDataEncryptionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransparentDataEncryptionStatusPtrOutput)
+}
+
+type WorkspacePublicNetworkAccess string
+
+const (
+	WorkspacePublicNetworkAccessEnabled  = WorkspacePublicNetworkAccess("Enabled")
+	WorkspacePublicNetworkAccessDisabled = WorkspacePublicNetworkAccess("Disabled")
+)
+
+func (WorkspacePublicNetworkAccess) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePublicNetworkAccess)(nil)).Elem()
+}
+
+func (e WorkspacePublicNetworkAccess) ToWorkspacePublicNetworkAccessOutput() WorkspacePublicNetworkAccessOutput {
+	return pulumi.ToOutput(e).(WorkspacePublicNetworkAccessOutput)
+}
+
+func (e WorkspacePublicNetworkAccess) ToWorkspacePublicNetworkAccessOutputWithContext(ctx context.Context) WorkspacePublicNetworkAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkspacePublicNetworkAccessOutput)
+}
+
+func (e WorkspacePublicNetworkAccess) ToWorkspacePublicNetworkAccessPtrOutput() WorkspacePublicNetworkAccessPtrOutput {
+	return e.ToWorkspacePublicNetworkAccessPtrOutputWithContext(context.Background())
+}
+
+func (e WorkspacePublicNetworkAccess) ToWorkspacePublicNetworkAccessPtrOutputWithContext(ctx context.Context) WorkspacePublicNetworkAccessPtrOutput {
+	return WorkspacePublicNetworkAccess(e).ToWorkspacePublicNetworkAccessOutputWithContext(ctx).ToWorkspacePublicNetworkAccessPtrOutputWithContext(ctx)
+}
+
+func (e WorkspacePublicNetworkAccess) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspacePublicNetworkAccess) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkspacePublicNetworkAccess) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkspacePublicNetworkAccess) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkspacePublicNetworkAccessOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePublicNetworkAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspacePublicNetworkAccess)(nil)).Elem()
+}
+
+func (o WorkspacePublicNetworkAccessOutput) ToWorkspacePublicNetworkAccessOutput() WorkspacePublicNetworkAccessOutput {
+	return o
+}
+
+func (o WorkspacePublicNetworkAccessOutput) ToWorkspacePublicNetworkAccessOutputWithContext(ctx context.Context) WorkspacePublicNetworkAccessOutput {
+	return o
+}
+
+func (o WorkspacePublicNetworkAccessOutput) ToWorkspacePublicNetworkAccessPtrOutput() WorkspacePublicNetworkAccessPtrOutput {
+	return o.ToWorkspacePublicNetworkAccessPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacePublicNetworkAccessOutput) ToWorkspacePublicNetworkAccessPtrOutputWithContext(ctx context.Context) WorkspacePublicNetworkAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspacePublicNetworkAccess) *WorkspacePublicNetworkAccess {
+		return &v
+	}).(WorkspacePublicNetworkAccessPtrOutput)
+}
+
+func (o WorkspacePublicNetworkAccessOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkspacePublicNetworkAccessOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspacePublicNetworkAccess) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkspacePublicNetworkAccessOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacePublicNetworkAccessOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkspacePublicNetworkAccess) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkspacePublicNetworkAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspacePublicNetworkAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspacePublicNetworkAccess)(nil)).Elem()
+}
+
+func (o WorkspacePublicNetworkAccessPtrOutput) ToWorkspacePublicNetworkAccessPtrOutput() WorkspacePublicNetworkAccessPtrOutput {
+	return o
+}
+
+func (o WorkspacePublicNetworkAccessPtrOutput) ToWorkspacePublicNetworkAccessPtrOutputWithContext(ctx context.Context) WorkspacePublicNetworkAccessPtrOutput {
+	return o
+}
+
+func (o WorkspacePublicNetworkAccessPtrOutput) Elem() WorkspacePublicNetworkAccessOutput {
+	return o.ApplyT(func(v *WorkspacePublicNetworkAccess) WorkspacePublicNetworkAccess {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspacePublicNetworkAccess
+		return ret
+	}).(WorkspacePublicNetworkAccessOutput)
+}
+
+func (o WorkspacePublicNetworkAccessPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkspacePublicNetworkAccessPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkspacePublicNetworkAccess) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type WorkspacePublicNetworkAccessInput interface {
+	pulumi.Input
+
+	ToWorkspacePublicNetworkAccessOutput() WorkspacePublicNetworkAccessOutput
+	ToWorkspacePublicNetworkAccessOutputWithContext(context.Context) WorkspacePublicNetworkAccessOutput
+}
+
+var workspacePublicNetworkAccessPtrType = reflect.TypeOf((**WorkspacePublicNetworkAccess)(nil)).Elem()
+
+type WorkspacePublicNetworkAccessPtrInput interface {
+	pulumi.Input
+
+	ToWorkspacePublicNetworkAccessPtrOutput() WorkspacePublicNetworkAccessPtrOutput
+	ToWorkspacePublicNetworkAccessPtrOutputWithContext(context.Context) WorkspacePublicNetworkAccessPtrOutput
+}
+
+type workspacePublicNetworkAccessPtr string
+
+func WorkspacePublicNetworkAccessPtr(v string) WorkspacePublicNetworkAccessPtrInput {
+	return (*workspacePublicNetworkAccessPtr)(&v)
+}
+
+func (*workspacePublicNetworkAccessPtr) ElementType() reflect.Type {
+	return workspacePublicNetworkAccessPtrType
+}
+
+func (in *workspacePublicNetworkAccessPtr) ToWorkspacePublicNetworkAccessPtrOutput() WorkspacePublicNetworkAccessPtrOutput {
+	return pulumi.ToOutput(in).(WorkspacePublicNetworkAccessPtrOutput)
+}
+
+func (in *workspacePublicNetworkAccessPtr) ToWorkspacePublicNetworkAccessPtrOutputWithContext(ctx context.Context) WorkspacePublicNetworkAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkspacePublicNetworkAccessPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(AzureSkuNameOutput{})
+	pulumi.RegisterOutputType(AzureSkuNamePtrOutput{})
+	pulumi.RegisterOutputType(AzureSkuTierOutput{})
+	pulumi.RegisterOutputType(AzureSkuTierPtrOutput{})
+	pulumi.RegisterOutputType(BlobStorageEventTypeOutput{})
+	pulumi.RegisterOutputType(BlobStorageEventTypePtrOutput{})
+	pulumi.RegisterOutputType(ClusterPrincipalRoleOutput{})
+	pulumi.RegisterOutputType(ClusterPrincipalRolePtrOutput{})
+	pulumi.RegisterOutputType(CompressionOutput{})
+	pulumi.RegisterOutputType(CompressionPtrOutput{})
+	pulumi.RegisterOutputType(CreateModeOutput{})
+	pulumi.RegisterOutputType(CreateModePtrOutput{})
+	pulumi.RegisterOutputType(DataConnectionKindOutput{})
+	pulumi.RegisterOutputType(DataConnectionKindPtrOutput{})
+	pulumi.RegisterOutputType(DataFlowComputeTypeOutput{})
+	pulumi.RegisterOutputType(DataFlowComputeTypePtrOutput{})
+	pulumi.RegisterOutputType(DatabasePrincipalRoleOutput{})
+	pulumi.RegisterOutputType(DatabasePrincipalRolePtrOutput{})
+	pulumi.RegisterOutputType(DefaultPrincipalsModificationKindOutput{})
+	pulumi.RegisterOutputType(DefaultPrincipalsModificationKindPtrOutput{})
+	pulumi.RegisterOutputType(EngineTypeOutput{})
+	pulumi.RegisterOutputType(EngineTypePtrOutput{})
+	pulumi.RegisterOutputType(EventGridDataFormatOutput{})
+	pulumi.RegisterOutputType(EventGridDataFormatPtrOutput{})
+	pulumi.RegisterOutputType(EventHubDataFormatOutput{})
+	pulumi.RegisterOutputType(EventHubDataFormatPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeEditionOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeEditionPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeEntityReferenceTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeEntityReferenceTypePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeLicenseTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeLicenseTypePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisCatalogPricingTierOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisCatalogPricingTierPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeTypeOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeTypePtrOutput{})
+	pulumi.RegisterOutputType(IotHubDataFormatOutput{})
+	pulumi.RegisterOutputType(IotHubDataFormatPtrOutput{})
+	pulumi.RegisterOutputType(KindOutput{})
+	pulumi.RegisterOutputType(KindPtrOutput{})
+	pulumi.RegisterOutputType(NodeSizeOutput{})
+	pulumi.RegisterOutputType(NodeSizePtrOutput{})
+	pulumi.RegisterOutputType(NodeSizeFamilyOutput{})
+	pulumi.RegisterOutputType(NodeSizeFamilyPtrOutput{})
+	pulumi.RegisterOutputType(PrincipalTypeOutput{})
+	pulumi.RegisterOutputType(PrincipalTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypeOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityTypePtrOutput{})
+	pulumi.RegisterOutputType(SensitivityLabelRankOutput{})
+	pulumi.RegisterOutputType(SensitivityLabelRankPtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountTypeOutput{})
+	pulumi.RegisterOutputType(StorageAccountTypePtrOutput{})
+	pulumi.RegisterOutputType(TransparentDataEncryptionStatusOutput{})
+	pulumi.RegisterOutputType(TransparentDataEncryptionStatusPtrOutput{})
+	pulumi.RegisterOutputType(WorkspacePublicNetworkAccessOutput{})
+	pulumi.RegisterOutputType(WorkspacePublicNetworkAccessPtrOutput{})
+}

@@ -1,0 +1,47 @@
+
+
+
+package v20170426
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupPrediction(ctx *pulumi.Context, args *LookupPredictionArgs, opts ...pulumi.InvokeOption) (*LookupPredictionResult, error) {
+	var rv LookupPredictionResult
+	err := ctx.Invoke("azure-native:customerinsights/v20170426:getPrediction", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupPredictionArgs struct {
+	HubName           string `pulumi:"hubName"`
+	PredictionName    string `pulumi:"predictionName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupPredictionResult struct {
+	AutoAnalyze               bool                                      `pulumi:"autoAnalyze"`
+	Description               map[string]string                         `pulumi:"description"`
+	DisplayName               map[string]string                         `pulumi:"displayName"`
+	Grades                    []PredictionResponseGrades                `pulumi:"grades"`
+	Id                        string                                    `pulumi:"id"`
+	InvolvedInteractionTypes  []string                                  `pulumi:"involvedInteractionTypes"`
+	InvolvedKpiTypes          []string                                  `pulumi:"involvedKpiTypes"`
+	InvolvedRelationships     []string                                  `pulumi:"involvedRelationships"`
+	Mappings                  PredictionResponseMappings                `pulumi:"mappings"`
+	Name                      string                                    `pulumi:"name"`
+	NegativeOutcomeExpression string                                    `pulumi:"negativeOutcomeExpression"`
+	PositiveOutcomeExpression string                                    `pulumi:"positiveOutcomeExpression"`
+	PredictionName            *string                                   `pulumi:"predictionName"`
+	PrimaryProfileType        string                                    `pulumi:"primaryProfileType"`
+	ProvisioningState         string                                    `pulumi:"provisioningState"`
+	ScopeExpression           string                                    `pulumi:"scopeExpression"`
+	ScoreLabel                string                                    `pulumi:"scoreLabel"`
+	SystemGeneratedEntities   PredictionResponseSystemGeneratedEntities `pulumi:"systemGeneratedEntities"`
+	TenantId                  string                                    `pulumi:"tenantId"`
+	Type                      string                                    `pulumi:"type"`
+}
