@@ -47,6 +47,10 @@ export interface GetContactProfileResult {
      */
     readonly etag: string;
     /**
+     * The URI of the Event Hub used for telemetry
+     */
+    readonly eventHubUri?: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;

@@ -44,6 +44,10 @@ export class ContactProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The URI of the Event Hub used for telemetry
+     */
+    public readonly eventHubUri!: pulumi.Output<string | undefined>;
+    /**
      * Links of the Contact Profile
      */
     public readonly links!: pulumi.Output<outputs.orbital.v20210404preview.ContactProfileLinkResponse[]>;
@@ -95,6 +99,7 @@ export class ContactProfile extends pulumi.CustomResource {
             }
             inputs["autoTrackingConfiguration"] = args ? args.autoTrackingConfiguration : undefined;
             inputs["contactProfileName"] = args ? args.contactProfileName : undefined;
+            inputs["eventHubUri"] = args ? args.eventHubUri : undefined;
             inputs["links"] = args ? args.links : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["minimumElevationDegrees"] = args ? args.minimumElevationDegrees : undefined;
@@ -108,6 +113,7 @@ export class ContactProfile extends pulumi.CustomResource {
         } else {
             inputs["autoTrackingConfiguration"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["eventHubUri"] = undefined /*out*/;
             inputs["links"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["minimumElevationDegrees"] = undefined /*out*/;
@@ -138,6 +144,10 @@ export interface ContactProfileArgs {
      * Contact Profile Name
      */
     contactProfileName?: pulumi.Input<string>;
+    /**
+     * The URI of the Event Hub used for telemetry
+     */
+    eventHubUri?: pulumi.Input<string>;
     /**
      * Links of the Contact Profile
      */

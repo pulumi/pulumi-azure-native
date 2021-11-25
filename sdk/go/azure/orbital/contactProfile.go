@@ -16,6 +16,7 @@ type ContactProfile struct {
 
 	AutoTrackingConfiguration    pulumi.StringPtrOutput                `pulumi:"autoTrackingConfiguration"`
 	Etag                         pulumi.StringOutput                   `pulumi:"etag"`
+	EventHubUri                  pulumi.StringPtrOutput                `pulumi:"eventHubUri"`
 	Links                        ContactProfileLinkResponseArrayOutput `pulumi:"links"`
 	Location                     pulumi.StringOutput                   `pulumi:"location"`
 	MinimumElevationDegrees      pulumi.Float64PtrOutput               `pulumi:"minimumElevationDegrees"`
@@ -79,6 +80,7 @@ func (ContactProfileState) ElementType() reflect.Type {
 type contactProfileArgs struct {
 	AutoTrackingConfiguration    *AutoTrackingConfiguration `pulumi:"autoTrackingConfiguration"`
 	ContactProfileName           *string                    `pulumi:"contactProfileName"`
+	EventHubUri                  *string                    `pulumi:"eventHubUri"`
 	Links                        []ContactProfileLink       `pulumi:"links"`
 	Location                     *string                    `pulumi:"location"`
 	MinimumElevationDegrees      *float64                   `pulumi:"minimumElevationDegrees"`
@@ -91,6 +93,7 @@ type contactProfileArgs struct {
 type ContactProfileArgs struct {
 	AutoTrackingConfiguration    AutoTrackingConfigurationPtrInput
 	ContactProfileName           pulumi.StringPtrInput
+	EventHubUri                  pulumi.StringPtrInput
 	Links                        ContactProfileLinkArrayInput
 	Location                     pulumi.StringPtrInput
 	MinimumElevationDegrees      pulumi.Float64PtrInput

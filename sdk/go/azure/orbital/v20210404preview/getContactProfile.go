@@ -25,6 +25,7 @@ type LookupContactProfileArgs struct {
 type LookupContactProfileResult struct {
 	AutoTrackingConfiguration    *string                      `pulumi:"autoTrackingConfiguration"`
 	Etag                         string                       `pulumi:"etag"`
+	EventHubUri                  *string                      `pulumi:"eventHubUri"`
 	Id                           string                       `pulumi:"id"`
 	Links                        []ContactProfileLinkResponse `pulumi:"links"`
 	Location                     string                       `pulumi:"location"`

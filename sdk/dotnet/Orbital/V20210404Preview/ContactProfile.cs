@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The URI of the Event Hub used for telemetry
+        /// </summary>
+        [Output("eventHubUri")]
+        public Output<string?> EventHubUri { get; private set; } = null!;
+
+        /// <summary>
         /// Links of the Contact Profile
         /// </summary>
         [Output("links")]
@@ -135,6 +141,12 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
         /// </summary>
         [Input("contactProfileName")]
         public Input<string>? ContactProfileName { get; set; }
+
+        /// <summary>
+        /// The URI of the Event Hub used for telemetry
+        /// </summary>
+        [Input("eventHubUri")]
+        public Input<string>? EventHubUri { get; set; }
 
         [Input("links", required: true)]
         private InputList<Inputs.ContactProfileLinkArgs>? _links;

@@ -77,6 +77,10 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The URI of the Event Hub used for telemetry
+        /// </summary>
+        public readonly string? EventHubUri;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -119,6 +123,8 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
 
             string etag,
 
+            string? eventHubUri,
+
             string id,
 
             ImmutableArray<Outputs.ContactProfileLinkResponse> links,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
         {
             AutoTrackingConfiguration = autoTrackingConfiguration;
             Etag = etag;
+            EventHubUri = eventHubUri;
             Id = id;
             Links = links;
             Location = location;

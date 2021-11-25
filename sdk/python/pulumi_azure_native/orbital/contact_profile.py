@@ -20,6 +20,7 @@ class ContactProfileArgs:
                  resource_group_name: pulumi.Input[str],
                  auto_tracking_configuration: Optional[pulumi.Input['AutoTrackingConfiguration']] = None,
                  contact_profile_name: Optional[pulumi.Input[str]] = None,
+                 event_hub_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
                  minimum_viable_contact_duration: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,7 @@ class ContactProfileArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto track configuration.
         :param pulumi.Input[str] contact_profile_name: Contact Profile Name
+        :param pulumi.Input[str] event_hub_uri: The URI of the Event Hub used for telemetry
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] minimum_elevation_degrees: Minimum viable elevation for the contact in decimal degrees.
         :param pulumi.Input[str] minimum_viable_contact_duration: Minimum viable contact duration in ISO 8601 format.
@@ -41,6 +43,8 @@ class ContactProfileArgs:
             pulumi.set(__self__, "auto_tracking_configuration", auto_tracking_configuration)
         if contact_profile_name is not None:
             pulumi.set(__self__, "contact_profile_name", contact_profile_name)
+        if event_hub_uri is not None:
+            pulumi.set(__self__, "event_hub_uri", event_hub_uri)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if minimum_elevation_degrees is not None:
@@ -99,6 +103,18 @@ class ContactProfileArgs:
         pulumi.set(self, "contact_profile_name", value)
 
     @property
+    @pulumi.getter(name="eventHubUri")
+    def event_hub_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of the Event Hub used for telemetry
+        """
+        return pulumi.get(self, "event_hub_uri")
+
+    @event_hub_uri.setter
+    def event_hub_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_uri", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -154,6 +170,7 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_tracking_configuration: Optional[pulumi.Input['AutoTrackingConfiguration']] = None,
                  contact_profile_name: Optional[pulumi.Input[str]] = None,
+                 event_hub_uri: Optional[pulumi.Input[str]] = None,
                  links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
@@ -169,6 +186,7 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto track configuration.
         :param pulumi.Input[str] contact_profile_name: Contact Profile Name
+        :param pulumi.Input[str] event_hub_uri: The URI of the Event Hub used for telemetry
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: Links of the Contact Profile
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] minimum_elevation_degrees: Minimum viable elevation for the contact in decimal degrees.
@@ -203,6 +221,7 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_tracking_configuration: Optional[pulumi.Input['AutoTrackingConfiguration']] = None,
                  contact_profile_name: Optional[pulumi.Input[str]] = None,
+                 event_hub_uri: Optional[pulumi.Input[str]] = None,
                  links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
@@ -223,6 +242,7 @@ class ContactProfile(pulumi.CustomResource):
 
             __props__.__dict__["auto_tracking_configuration"] = auto_tracking_configuration
             __props__.__dict__["contact_profile_name"] = contact_profile_name
+            __props__.__dict__["event_hub_uri"] = event_hub_uri
             if links is None and not opts.urn:
                 raise TypeError("Missing required property 'links'")
             __props__.__dict__["links"] = links
@@ -263,6 +283,7 @@ class ContactProfile(pulumi.CustomResource):
 
         __props__.__dict__["auto_tracking_configuration"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["event_hub_uri"] = None
         __props__.__dict__["links"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["minimum_elevation_degrees"] = None
@@ -288,6 +309,14 @@ class ContactProfile(pulumi.CustomResource):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="eventHubUri")
+    def event_hub_uri(self) -> pulumi.Output[Optional[str]]:
+        """
+        The URI of the Event Hub used for telemetry
+        """
+        return pulumi.get(self, "event_hub_uri")
 
     @property
     @pulumi.getter

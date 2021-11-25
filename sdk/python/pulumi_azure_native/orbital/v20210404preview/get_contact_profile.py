@@ -21,13 +21,16 @@ class GetContactProfileResult:
     """
     Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
     """
-    def __init__(__self__, auto_tracking_configuration=None, etag=None, id=None, links=None, location=None, minimum_elevation_degrees=None, minimum_viable_contact_duration=None, name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, auto_tracking_configuration=None, etag=None, event_hub_uri=None, id=None, links=None, location=None, minimum_elevation_degrees=None, minimum_viable_contact_duration=None, name=None, system_data=None, tags=None, type=None):
         if auto_tracking_configuration and not isinstance(auto_tracking_configuration, str):
             raise TypeError("Expected argument 'auto_tracking_configuration' to be a str")
         pulumi.set(__self__, "auto_tracking_configuration", auto_tracking_configuration)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if event_hub_uri and not isinstance(event_hub_uri, str):
+            raise TypeError("Expected argument 'event_hub_uri' to be a str")
+        pulumi.set(__self__, "event_hub_uri", event_hub_uri)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -71,6 +74,14 @@ class GetContactProfileResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="eventHubUri")
+    def event_hub_uri(self) -> Optional[str]:
+        """
+        The URI of the Event Hub used for telemetry
+        """
+        return pulumi.get(self, "event_hub_uri")
 
     @property
     @pulumi.getter
@@ -153,6 +164,7 @@ class AwaitableGetContactProfileResult(GetContactProfileResult):
         return GetContactProfileResult(
             auto_tracking_configuration=self.auto_tracking_configuration,
             etag=self.etag,
+            event_hub_uri=self.event_hub_uri,
             id=self.id,
             links=self.links,
             location=self.location,
@@ -186,6 +198,7 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
     return AwaitableGetContactProfileResult(
         auto_tracking_configuration=__ret__.auto_tracking_configuration,
         etag=__ret__.etag,
+        event_hub_uri=__ret__.event_hub_uri,
         id=__ret__.id,
         links=__ret__.links,
         location=__ret__.location,
