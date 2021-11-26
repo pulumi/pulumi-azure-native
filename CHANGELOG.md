@@ -11,6 +11,11 @@ CHANGELOG
 
 - `loadtestservice.getLoadTest`
 
+#### Bug fixes:
+
+- Fix deletion of `sql.ExtendedServerBlobAuditingPolicy`
+  [#1202](https://github.com/pulumi/pulumi-azure-native/issues/1202)
+
 ## 1.47.0 (2021-11-19)
 
 #### CRITICAL Bug fix:
