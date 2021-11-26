@@ -11,6 +11,11 @@ CHANGELOG
 
 - `loadtestservice.getLoadTest`
 
+#### Bug fixes:
+
+- Fix `resources.TagAtScope` creation
+  [#1253](https://github.com/pulumi/pulumi-azure-native/issues/1253)
+
 ## 1.47.0 (2021-11-19)
 
 #### CRITICAL Bug fix:

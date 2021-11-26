@@ -19,6 +19,18 @@ class MyStack : Stack
     {
         var resourceGroup = new ResourceGroup("resourceGroup");
 
+        var tags = new TagAtScope("tagAtScope", new TagAtScopeArgs
+        {
+            Scope = resourceGroup.Id,
+            Properties = new TagsArgs
+            {
+                Tags =
+                {
+                    ["foo"] = "bar",
+                }
+            }
+        });
+
         var storageAccount = new StorageAccount("sa", new StorageAccountArgs
         {
             ResourceGroupName = resourceGroup.Name,
