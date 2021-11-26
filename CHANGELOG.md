@@ -15,6 +15,8 @@ CHANGELOG
 
 - Fix `resources.TagAtScope` creation
   [#1253](https://github.com/pulumi/pulumi-azure-native/issues/1253)
+- Fix deletion of `sql.ExtendedServerBlobAuditingPolicy`
+  [#1202](https://github.com/pulumi/pulumi-azure-native/issues/1202)
 
 ## 1.47.0 (2021-11-19)
 
