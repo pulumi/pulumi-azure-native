@@ -10,6 +10,9 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	"/{resourceId}/providers/Microsoft.Security/advancedThreatProtectionSettings/{settingName}": {
 		"isEnabled": false,
 	},
+	"/{scope}/providers/Microsoft.Resources/tags/default": {
+		"properties": map[string]string{},
+	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBForMariaDB/servers/{serverName}/configurations/{configurationName}": {
 		"source": "system-default",
 	},
