@@ -209,6 +209,8 @@ if typing.TYPE_CHECKING:
     kusto = __kusto
     import pulumi_azure_native.labservices as __labservices
     labservices = __labservices
+    import pulumi_azure_native.loadtestservice as __loadtestservice
+    loadtestservice = __loadtestservice
     import pulumi_azure_native.logic as __logic
     logic = __logic
     import pulumi_azure_native.logz as __logz
@@ -462,6 +464,7 @@ else:
     kubernetesconfiguration = _utilities.lazy_import('pulumi_azure_native.kubernetesconfiguration')
     kusto = _utilities.lazy_import('pulumi_azure_native.kusto')
     labservices = _utilities.lazy_import('pulumi_azure_native.labservices')
+    loadtestservice = _utilities.lazy_import('pulumi_azure_native.loadtestservice')
     logic = _utilities.lazy_import('pulumi_azure_native.logic')
     logz = _utilities.lazy_import('pulumi_azure_native.logz')
     m365securityandcompliance = _utilities.lazy_import('pulumi_azure_native.m365securityandcompliance')
@@ -9175,6 +9178,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "loadtestservice",
+  "fqn": "pulumi_azure_native.loadtestservice",
+  "classes": {
+   "azure-native:loadtestservice:LoadTest": "LoadTest"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "loadtestservice/v20211201preview",
+  "fqn": "pulumi_azure_native.loadtestservice.v20211201preview",
+  "classes": {
+   "azure-native:loadtestservice/v20211201preview:LoadTest": "LoadTest"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "logic",
   "fqn": "pulumi_azure_native.logic",
   "classes": {
@@ -10608,6 +10627,21 @@ _utilities.register(
    "azure-native:netapp/v20210601:Snapshot": "Snapshot",
    "azure-native:netapp/v20210601:SnapshotPolicy": "SnapshotPolicy",
    "azure-native:netapp/v20210601:Volume": "Volume"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "netapp/v20210801",
+  "fqn": "pulumi_azure_native.netapp.v20210801",
+  "classes": {
+   "azure-native:netapp/v20210801:Account": "Account",
+   "azure-native:netapp/v20210801:Backup": "Backup",
+   "azure-native:netapp/v20210801:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20210801:Pool": "Pool",
+   "azure-native:netapp/v20210801:Snapshot": "Snapshot",
+   "azure-native:netapp/v20210801:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20210801:Volume": "Volume",
+   "azure-native:netapp/v20210801:VolumeGroup": "VolumeGroup"
   }
  },
  {
@@ -13834,6 +13868,19 @@ _utilities.register(
    "azure-native:recoveryservices/v20210801:ReplicationvCenter": "ReplicationvCenter",
    "azure-native:recoveryservices/v20210801:ResourceGuardProxy": "ResourceGuardProxy",
    "azure-native:recoveryservices/v20210801:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "recoveryservices/v20211001",
+  "fqn": "pulumi_azure_native.recoveryservices.v20211001",
+  "classes": {
+   "azure-native:recoveryservices/v20211001:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20211001:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20211001:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20211001:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20211001:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20211001:ResourceGuardProxy": "ResourceGuardProxy"
   }
  },
  {

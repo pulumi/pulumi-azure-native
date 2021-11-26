@@ -1,0 +1,36 @@
+
+
+
+package v20210801
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulumi.InvokeOption) (*LookupSnapshotResult, error) {
+	var rv LookupSnapshotResult
+	err := ctx.Invoke("azure-native:netapp/v20210801:getSnapshot", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSnapshotArgs struct {
+	AccountName       string `pulumi:"accountName"`
+	PoolName          string `pulumi:"poolName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	SnapshotName      string `pulumi:"snapshotName"`
+	VolumeName        string `pulumi:"volumeName"`
+}
+
+
+type LookupSnapshotResult struct {
+	Created           string `pulumi:"created"`
+	Id                string `pulumi:"id"`
+	Location          string `pulumi:"location"`
+	Name              string `pulumi:"name"`
+	ProvisioningState string `pulumi:"provisioningState"`
+	SnapshotId        string `pulumi:"snapshotId"`
+	Type              string `pulumi:"type"`
+}
