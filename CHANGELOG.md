@@ -3,9 +3,16 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New resources:
+
+- `loadtestservice.LoadTest`
+
+#### New functions:
+
+- `loadtestservice.getLoadTest`
 
 ## 1.47.0 (2021-11-19)
+
 #### CRITICAL Bug fix:
 
 - Avoid provider credentials leaking into state.

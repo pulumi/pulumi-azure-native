@@ -1503,7 +1503,8 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			}
 
 			if v, has := m.pkg.Types[tok]; has {
-				if tok == "azure-native:authorization:PrincipalResponse" && len(v.Properties) == 2 {
+				if tok == "azure-native:authorization:PrincipalResponse" && len(v.Properties) == 2 ||
+					tok == "azure-native:netapp:ExportPolicyRuleResponse" && len(v.Properties) == 14 {
 					// TODO: this was needed to unblock nightly generation: generalize this case.
 					v = spec
 				}

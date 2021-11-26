@@ -91,6 +91,7 @@ import * as kubernetes from "./kubernetes";
 import * as kubernetesconfiguration from "./kubernetesconfiguration";
 import * as kusto from "./kusto";
 import * as labservices from "./labservices";
+import * as loadtestservice from "./loadtestservice";
 import * as logic from "./logic";
 import * as logz from "./logz";
 import * as m365securityandcompliance from "./m365securityandcompliance";
@@ -248,6 +249,7 @@ export {
     kubernetesconfiguration,
     kusto,
     labservices,
+    loadtestservice,
     logic,
     logz,
     m365securityandcompliance,

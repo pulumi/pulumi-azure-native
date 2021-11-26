@@ -64949,6 +64949,7 @@
         "apiProfiles": null,
         "apiVersions": [
           "2022-05-01-preview",
+          "2022-01-01-preview",
           "2021-09-01-preview",
           "2021-06-01-preview",
           "2020-11-01-preview",
