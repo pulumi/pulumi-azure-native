@@ -1,0 +1,38 @@
+
+
+
+package synapse
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSqlPoolWorkloadClassifier(ctx *pulumi.Context, args *LookupSqlPoolWorkloadClassifierArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolWorkloadClassifierResult, error) {
+	var rv LookupSqlPoolWorkloadClassifierResult
+	err := ctx.Invoke("azure-native:synapse:getSqlPoolWorkloadClassifier", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSqlPoolWorkloadClassifierArgs struct {
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
+	SqlPoolName            string `pulumi:"sqlPoolName"`
+	WorkloadClassifierName string `pulumi:"workloadClassifierName"`
+	WorkloadGroupName      string `pulumi:"workloadGroupName"`
+	WorkspaceName          string `pulumi:"workspaceName"`
+}
+
+
+type LookupSqlPoolWorkloadClassifierResult struct {
+	Context    *string `pulumi:"context"`
+	EndTime    *string `pulumi:"endTime"`
+	Id         string  `pulumi:"id"`
+	Importance *string `pulumi:"importance"`
+	Label      *string `pulumi:"label"`
+	MemberName string  `pulumi:"memberName"`
+	Name       string  `pulumi:"name"`
+	StartTime  *string `pulumi:"startTime"`
+	Type       string  `pulumi:"type"`
+}

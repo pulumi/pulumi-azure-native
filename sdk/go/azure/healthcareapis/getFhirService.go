@@ -1,0 +1,42 @@
+
+
+
+package healthcareapis
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupFhirService(ctx *pulumi.Context, args *LookupFhirServiceArgs, opts ...pulumi.InvokeOption) (*LookupFhirServiceResult, error) {
+	var rv LookupFhirServiceResult
+	err := ctx.Invoke("azure-native:healthcareapis:getFhirService", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupFhirServiceArgs struct {
+	FhirServiceName   string `pulumi:"fhirServiceName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
+}
+
+
+type LookupFhirServiceResult struct {
+	AccessPolicies              []FhirServiceAccessPolicyEntryResponse          `pulumi:"accessPolicies"`
+	AcrConfiguration            *FhirServiceAcrConfigurationResponse            `pulumi:"acrConfiguration"`
+	AuthenticationConfiguration *FhirServiceAuthenticationConfigurationResponse `pulumi:"authenticationConfiguration"`
+	CorsConfiguration           *FhirServiceCorsConfigurationResponse           `pulumi:"corsConfiguration"`
+	Etag                        *string                                         `pulumi:"etag"`
+	ExportConfiguration         *FhirServiceExportConfigurationResponse         `pulumi:"exportConfiguration"`
+	Id                          string                                          `pulumi:"id"`
+	Identity                    *ServiceManagedIdentityResponseIdentity         `pulumi:"identity"`
+	Kind                        *string                                         `pulumi:"kind"`
+	Location                    *string                                         `pulumi:"location"`
+	Name                        string                                          `pulumi:"name"`
+	ProvisioningState           string                                          `pulumi:"provisioningState"`
+	SystemData                  SystemDataResponse                              `pulumi:"systemData"`
+	Tags                        map[string]string                               `pulumi:"tags"`
+	Type                        string                                          `pulumi:"type"`
+}
