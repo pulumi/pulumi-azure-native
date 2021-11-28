@@ -1,0 +1,38 @@
+
+
+
+package v20210301
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
+	var rv LookupDatabaseResult
+	err := ctx.Invoke("azure-native:cache/v20210301:getDatabase", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupDatabaseArgs struct {
+	ClusterName       string `pulumi:"clusterName"`
+	DatabaseName      string `pulumi:"databaseName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupDatabaseResult struct {
+	ClientProtocol    *string              `pulumi:"clientProtocol"`
+	ClusteringPolicy  *string              `pulumi:"clusteringPolicy"`
+	EvictionPolicy    *string              `pulumi:"evictionPolicy"`
+	Id                string               `pulumi:"id"`
+	Modules           []ModuleResponse     `pulumi:"modules"`
+	Name              string               `pulumi:"name"`
+	Persistence       *PersistenceResponse `pulumi:"persistence"`
+	Port              *int                 `pulumi:"port"`
+	ProvisioningState string               `pulumi:"provisioningState"`
+	ResourceState     string               `pulumi:"resourceState"`
+	Type              string               `pulumi:"type"`
+}

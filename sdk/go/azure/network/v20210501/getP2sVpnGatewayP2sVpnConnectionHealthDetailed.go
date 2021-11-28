@@ -1,0 +1,29 @@
+
+
+
+package v20210501
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func GetP2sVpnGatewayP2sVpnConnectionHealthDetailed(ctx *pulumi.Context, args *GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs, opts ...pulumi.InvokeOption) (*GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult, error) {
+	var rv GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult
+	err := ctx.Invoke("azure-native:network/v20210501:getP2sVpnGatewayP2sVpnConnectionHealthDetailed", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type GetP2sVpnGatewayP2sVpnConnectionHealthDetailedArgs struct {
+	GatewayName        string   `pulumi:"gatewayName"`
+	OutputBlobSasUrl   *string  `pulumi:"outputBlobSasUrl"`
+	ResourceGroupName  string   `pulumi:"resourceGroupName"`
+	VpnUserNamesFilter []string `pulumi:"vpnUserNamesFilter"`
+}
+
+
+type GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult struct {
+	SasUrl *string `pulumi:"sasUrl"`
+}
