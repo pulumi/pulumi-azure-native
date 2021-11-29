@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
-from ._enums import *
 
 __all__ = [
     'OrganizationResourcePropertiesResponseOfferDetail',
@@ -43,21 +42,22 @@ class OrganizationResourcePropertiesResponseOfferDetail(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 status: str,
                  id: Optional[str] = None,
                  plan_id: Optional[str] = None,
                  plan_name: Optional[str] = None,
                  publisher_id: Optional[str] = None,
-                 status: Optional[str] = None,
                  term_unit: Optional[str] = None):
         """
         Confluent offer detail
+        :param str status: SaaS Offer Status
         :param str id: Offer Id
         :param str plan_id: Offer Plan Id
         :param str plan_name: Offer Plan Name
         :param str publisher_id: Publisher Id
-        :param str status: SaaS Offer Status
         :param str term_unit: Offer Plan Term unit
         """
+        pulumi.set(__self__, "status", status)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if plan_id is not None:
@@ -66,10 +66,16 @@ class OrganizationResourcePropertiesResponseOfferDetail(dict):
             pulumi.set(__self__, "plan_name", plan_name)
         if publisher_id is not None:
             pulumi.set(__self__, "publisher_id", publisher_id)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
         if term_unit is not None:
             pulumi.set(__self__, "term_unit", term_unit)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        SaaS Offer Status
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter
@@ -102,14 +108,6 @@ class OrganizationResourcePropertiesResponseOfferDetail(dict):
         Publisher Id
         """
         return pulumi.get(self, "publisher_id")
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[str]:
-        """
-        SaaS Offer Status
-        """
-        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter(name="termUnit")

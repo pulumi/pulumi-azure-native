@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.Confluent.V20200301Preview.Inputs
         public Input<string>? PublisherId { get; set; }
 
         /// <summary>
-        /// SaaS Offer Status
-        /// </summary>
-        [Input("status")]
-        public InputUnion<string, Pulumi.AzureNative.Confluent.V20200301Preview.SaaSOfferStatus>? Status { get; set; }
-
-        /// <summary>
         /// Offer Plan Term unit
         /// </summary>
         [Input("termUnit")]

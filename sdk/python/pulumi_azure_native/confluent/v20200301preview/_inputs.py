@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
-from ._enums import *
 
 __all__ = [
     'OrganizationResourcePropertiesOfferDetailArgs',
@@ -21,7 +20,6 @@ class OrganizationResourcePropertiesOfferDetailArgs:
                  plan_id: Optional[pulumi.Input[str]] = None,
                  plan_name: Optional[pulumi.Input[str]] = None,
                  publisher_id: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'SaaSOfferStatus']]] = None,
                  term_unit: Optional[pulumi.Input[str]] = None):
         """
         Confluent offer detail
@@ -29,7 +27,6 @@ class OrganizationResourcePropertiesOfferDetailArgs:
         :param pulumi.Input[str] plan_id: Offer Plan Id
         :param pulumi.Input[str] plan_name: Offer Plan Name
         :param pulumi.Input[str] publisher_id: Publisher Id
-        :param pulumi.Input[Union[str, 'SaaSOfferStatus']] status: SaaS Offer Status
         :param pulumi.Input[str] term_unit: Offer Plan Term unit
         """
         if id is not None:
@@ -40,8 +37,6 @@ class OrganizationResourcePropertiesOfferDetailArgs:
             pulumi.set(__self__, "plan_name", plan_name)
         if publisher_id is not None:
             pulumi.set(__self__, "publisher_id", publisher_id)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
         if term_unit is not None:
             pulumi.set(__self__, "term_unit", term_unit)
 
@@ -92,18 +87,6 @@ class OrganizationResourcePropertiesOfferDetailArgs:
     @publisher_id.setter
     def publisher_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "publisher_id", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'SaaSOfferStatus']]]:
-        """
-        SaaS Offer Status
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'SaaSOfferStatus']]]):
-        pulumi.set(self, "status", value)
 
     @property
     @pulumi.getter(name="termUnit")

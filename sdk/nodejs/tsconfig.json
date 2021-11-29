@@ -18999,7 +18999,6 @@
         "types/enums/confidentialledger/v20201201preview/index.ts",
         "types/enums/confidentialledger/v20210513preview/index.ts",
         "types/enums/confluent/index.ts",
-        "types/enums/confluent/v20200301preview/index.ts",
         "types/enums/confluent/v20210301preview/index.ts",
         "types/enums/confluent/v20210901preview/index.ts",
         "types/enums/connectedvmwarevsphere/index.ts",
