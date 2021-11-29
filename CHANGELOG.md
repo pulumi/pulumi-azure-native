@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.48.0 (2021-11-29)
+
 #### New resources:
 
 - `loadtestservice.LoadTest`
@@ -61,8 +67,6 @@ CHANGELOG
 
 - `botservice.BotProperties` replaced `isIsolated` property with `publicNetworkAccess`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16760))
-
----
 
 ## 1.46.0 (2021-11-15)
 
