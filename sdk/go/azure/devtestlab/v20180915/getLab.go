@@ -1,0 +1,52 @@
+
+
+
+package v20180915
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupLab(ctx *pulumi.Context, args *LookupLabArgs, opts ...pulumi.InvokeOption) (*LookupLabResult, error) {
+	var rv LookupLabResult
+	err := ctx.Invoke("azure-native:devtestlab/v20180915:getLab", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupLabArgs struct {
+	Expand            *string `pulumi:"expand"`
+	Name              string  `pulumi:"name"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+}
+
+
+type LookupLabResult struct {
+	Announcement                         *LabAnnouncementPropertiesResponse `pulumi:"announcement"`
+	ArtifactsStorageAccount              string                             `pulumi:"artifactsStorageAccount"`
+	CreatedDate                          string                             `pulumi:"createdDate"`
+	DefaultPremiumStorageAccount         string                             `pulumi:"defaultPremiumStorageAccount"`
+	DefaultStorageAccount                string                             `pulumi:"defaultStorageAccount"`
+	EnvironmentPermission                *string                            `pulumi:"environmentPermission"`
+	ExtendedProperties                   map[string]string                  `pulumi:"extendedProperties"`
+	Id                                   string                             `pulumi:"id"`
+	LabStorageType                       *string                            `pulumi:"labStorageType"`
+	LoadBalancerId                       string                             `pulumi:"loadBalancerId"`
+	Location                             *string                            `pulumi:"location"`
+	MandatoryArtifactsResourceIdsLinux   []string                           `pulumi:"mandatoryArtifactsResourceIdsLinux"`
+	MandatoryArtifactsResourceIdsWindows []string                           `pulumi:"mandatoryArtifactsResourceIdsWindows"`
+	Name                                 string                             `pulumi:"name"`
+	NetworkSecurityGroupId               string                             `pulumi:"networkSecurityGroupId"`
+	PremiumDataDiskStorageAccount        string                             `pulumi:"premiumDataDiskStorageAccount"`
+	PremiumDataDisks                     *string                            `pulumi:"premiumDataDisks"`
+	ProvisioningState                    string                             `pulumi:"provisioningState"`
+	PublicIpId                           string                             `pulumi:"publicIpId"`
+	Support                              *LabSupportPropertiesResponse      `pulumi:"support"`
+	Tags                                 map[string]string                  `pulumi:"tags"`
+	Type                                 string                             `pulumi:"type"`
+	UniqueIdentifier                     string                             `pulumi:"uniqueIdentifier"`
+	VaultName                            string                             `pulumi:"vaultName"`
+	VmCreationResourceGroup              string                             `pulumi:"vmCreationResourceGroup"`
+}
