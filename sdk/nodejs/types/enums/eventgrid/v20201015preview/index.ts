@@ -76,6 +76,7 @@ export type EventDeliverySchema = (typeof EventDeliverySchema)[keyof typeof Even
 
 export const EventSubscriptionIdentityType = {
     SystemAssigned: "SystemAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
     UserAssigned: "UserAssigned",
 } as const;
 

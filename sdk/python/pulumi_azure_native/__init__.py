@@ -13880,6 +13880,16 @@ _utilities.register(
    "azure-native:recoveryservices/v20211001:ProtectionContainer": "ProtectionContainer",
    "azure-native:recoveryservices/v20211001:ProtectionIntent": "ProtectionIntent",
    "azure-native:recoveryservices/v20211001:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20211001:ReplicationFabric": "ReplicationFabric",
+   "azure-native:recoveryservices/v20211001:ReplicationMigrationItem": "ReplicationMigrationItem",
+   "azure-native:recoveryservices/v20211001:ReplicationNetworkMapping": "ReplicationNetworkMapping",
+   "azure-native:recoveryservices/v20211001:ReplicationPolicy": "ReplicationPolicy",
+   "azure-native:recoveryservices/v20211001:ReplicationProtectedItem": "ReplicationProtectedItem",
+   "azure-native:recoveryservices/v20211001:ReplicationProtectionContainerMapping": "ReplicationProtectionContainerMapping",
+   "azure-native:recoveryservices/v20211001:ReplicationRecoveryPlan": "ReplicationRecoveryPlan",
+   "azure-native:recoveryservices/v20211001:ReplicationRecoveryServicesProvider": "ReplicationRecoveryServicesProvider",
+   "azure-native:recoveryservices/v20211001:ReplicationStorageClassificationMapping": "ReplicationStorageClassificationMapping",
+   "azure-native:recoveryservices/v20211001:ReplicationvCenter": "ReplicationvCenter",
    "azure-native:recoveryservices/v20211001:ResourceGuardProxy": "ResourceGuardProxy"
   }
  },

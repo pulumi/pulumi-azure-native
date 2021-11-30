@@ -31,6 +31,26 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProtectionIntent{}
 	case "azure-native:recoveryservices/v20211001:ProtectionPolicy":
 		r = &ProtectionPolicy{}
+	case "azure-native:recoveryservices/v20211001:ReplicationFabric":
+		r = &ReplicationFabric{}
+	case "azure-native:recoveryservices/v20211001:ReplicationMigrationItem":
+		r = &ReplicationMigrationItem{}
+	case "azure-native:recoveryservices/v20211001:ReplicationNetworkMapping":
+		r = &ReplicationNetworkMapping{}
+	case "azure-native:recoveryservices/v20211001:ReplicationPolicy":
+		r = &ReplicationPolicy{}
+	case "azure-native:recoveryservices/v20211001:ReplicationProtectedItem":
+		r = &ReplicationProtectedItem{}
+	case "azure-native:recoveryservices/v20211001:ReplicationProtectionContainerMapping":
+		r = &ReplicationProtectionContainerMapping{}
+	case "azure-native:recoveryservices/v20211001:ReplicationRecoveryPlan":
+		r = &ReplicationRecoveryPlan{}
+	case "azure-native:recoveryservices/v20211001:ReplicationRecoveryServicesProvider":
+		r = &ReplicationRecoveryServicesProvider{}
+	case "azure-native:recoveryservices/v20211001:ReplicationStorageClassificationMapping":
+		r = &ReplicationStorageClassificationMapping{}
+	case "azure-native:recoveryservices/v20211001:ReplicationvCenter":
+		r = &ReplicationvCenter{}
 	case "azure-native:recoveryservices/v20211001:ResourceGuardProxy":
 		r = &ResourceGuardProxy{}
 	default:

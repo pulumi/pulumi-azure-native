@@ -198,6 +198,7 @@ namespace Pulumi.AzureNative.EventGrid.V20201015Preview
         }
 
         public static EventSubscriptionIdentityType SystemAssigned { get; } = new EventSubscriptionIdentityType("SystemAssigned");
+        public static EventSubscriptionIdentityType SystemAssigned_UserAssigned { get; } = new EventSubscriptionIdentityType("SystemAssigned, UserAssigned");
         public static EventSubscriptionIdentityType UserAssigned { get; } = new EventSubscriptionIdentityType("UserAssigned");
 
         public static bool operator ==(EventSubscriptionIdentityType left, EventSubscriptionIdentityType right) => left.Equals(right);

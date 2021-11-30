@@ -9159,10 +9159,7 @@ func (o GraphResourceGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.
 }
 
 type GraphResourceGetPropertiesResponseResource struct {
-	Etag string  `pulumi:"etag"`
-	Id   string  `pulumi:"id"`
-	Rid  string  `pulumi:"rid"`
-	Ts   float64 `pulumi:"ts"`
+	Id string `pulumi:"id"`
 }
 
 
@@ -9177,10 +9174,7 @@ type GraphResourceGetPropertiesResponseResourceInput interface {
 }
 
 type GraphResourceGetPropertiesResponseResourceArgs struct {
-	Etag pulumi.StringInput  `pulumi:"etag"`
-	Id   pulumi.StringInput  `pulumi:"id"`
-	Rid  pulumi.StringInput  `pulumi:"rid"`
-	Ts   pulumi.Float64Input `pulumi:"ts"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (GraphResourceGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
@@ -9260,20 +9254,8 @@ func (o GraphResourceGetPropertiesResponseResourceOutput) ToGraphResourceGetProp
 	}).(GraphResourceGetPropertiesResponseResourcePtrOutput)
 }
 
-func (o GraphResourceGetPropertiesResponseResourceOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) string { return v.Etag }).(pulumi.StringOutput)
-}
-
 func (o GraphResourceGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o GraphResourceGetPropertiesResponseResourceOutput) Rid() pulumi.StringOutput {
-	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) string { return v.Rid }).(pulumi.StringOutput)
-}
-
-func (o GraphResourceGetPropertiesResponseResourceOutput) Ts() pulumi.Float64Output {
-	return o.ApplyT(func(v GraphResourceGetPropertiesResponseResource) float64 { return v.Ts }).(pulumi.Float64Output)
 }
 
 type GraphResourceGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
@@ -9300,15 +9282,6 @@ func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Elem() GraphResourc
 	}).(GraphResourceGetPropertiesResponseResourceOutput)
 }
 
-func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Etag
-	}).(pulumi.StringPtrOutput)
-}
-
 func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *string {
 		if v == nil {
@@ -9316,24 +9289,6 @@ func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringP
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
-}
-
-func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Rid
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o GraphResourceGetPropertiesResponseResourcePtrOutput) Ts() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *GraphResourceGetPropertiesResponseResource) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.Ts
-	}).(pulumi.Float64PtrOutput)
 }
 
 type GremlinDatabaseGetPropertiesResponseOptions struct {

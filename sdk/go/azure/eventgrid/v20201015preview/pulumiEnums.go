@@ -855,8 +855,9 @@ func (in *eventDeliverySchemaPtr) ToEventDeliverySchemaPtrOutputWithContext(ctx 
 type EventSubscriptionIdentityType string
 
 const (
-	EventSubscriptionIdentityTypeSystemAssigned = EventSubscriptionIdentityType("SystemAssigned")
-	EventSubscriptionIdentityTypeUserAssigned   = EventSubscriptionIdentityType("UserAssigned")
+	EventSubscriptionIdentityTypeSystemAssigned               = EventSubscriptionIdentityType("SystemAssigned")
+	EventSubscriptionIdentityType_SystemAssigned_UserAssigned = EventSubscriptionIdentityType("SystemAssigned, UserAssigned")
+	EventSubscriptionIdentityTypeUserAssigned                 = EventSubscriptionIdentityType("UserAssigned")
 )
 
 func (EventSubscriptionIdentityType) ElementType() reflect.Type {

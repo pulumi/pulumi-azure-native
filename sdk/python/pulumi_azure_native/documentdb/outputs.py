@@ -1748,28 +1748,11 @@ class GraphResourceGetPropertiesResponseOptions(dict):
 @pulumi.output_type
 class GraphResourceGetPropertiesResponseResource(dict):
     def __init__(__self__, *,
-                 etag: str,
-                 id: str,
-                 rid: str,
-                 ts: float):
+                 id: str):
         """
-        :param str etag: A system generated property representing the resource etag required for optimistic concurrency control.
         :param str id: Name of the Cosmos DB Graph
-        :param str rid: A system generated property. A unique identifier.
-        :param float ts: A system generated property that denotes the last updated timestamp of the resource.
         """
-        pulumi.set(__self__, "etag", etag)
         pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "rid", rid)
-        pulumi.set(__self__, "ts", ts)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> str:
-        """
-        A system generated property representing the resource etag required for optimistic concurrency control.
-        """
-        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
@@ -1778,22 +1761,6 @@ class GraphResourceGetPropertiesResponseResource(dict):
         Name of the Cosmos DB Graph
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def rid(self) -> str:
-        """
-        A system generated property. A unique identifier.
-        """
-        return pulumi.get(self, "rid")
-
-    @property
-    @pulumi.getter
-    def ts(self) -> float:
-        """
-        A system generated property that denotes the last updated timestamp of the resource.
-        """
-        return pulumi.get(self, "ts")
 
 
 @pulumi.output_type

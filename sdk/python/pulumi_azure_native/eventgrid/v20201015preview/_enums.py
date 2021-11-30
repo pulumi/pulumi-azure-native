@@ -91,6 +91,7 @@ class EventSubscriptionIdentityType(str, Enum):
     The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     USER_ASSIGNED = "UserAssigned"
 
 
