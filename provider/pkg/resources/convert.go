@@ -261,7 +261,7 @@ func (k *SdkShapeConverter) IsDefaultResponse(putParameters []AzureAPIParameter,
 						return false
 					}
 				default:
-					if defaultBody[key] != value {
+					if defaultBody[key] != value && defaultBody[key] != "*" {
 						return false
 					}
 				}

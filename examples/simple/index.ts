@@ -139,6 +139,19 @@ new web.WebAppSwiftVirtualNetworkConnection("swiftconn", {
     swiftSupported: true,
 });
 
+const slot = new web.WebAppSlot("slot", {
+    resourceGroupName: resourceGroup.name,
+    name: appService.name,
+});
+
+new web.WebAppSwiftVirtualNetworkConnectionSlot("swiftconnslot", {
+    subnetResourceId: subnet.id,
+    name: appService.name,
+    resourceGroupName: resourceGroup.name,
+    slot: "slot",
+    swiftSupported: true,
+}, { dependsOn: [slot] });
+
 const storageAccount = new storage.StorageAccount("sa", {
     resourceGroupName: resourceGroup.name,
     sku: {
