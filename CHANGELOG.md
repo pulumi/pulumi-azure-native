@@ -3,6 +3,11 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+#### Bug fixes:
+
+- Fix `web.WebAppSwiftVirtualNetworkConnectionSlot` creation
+  [#866](https://github.com/pulumi/pulumi-azure-native/issues/866)
+
 #### Breaking Changes published by Microsoft:
 
 - `documentdb.GraphResourceGetPropertiesResponseResource` removed properties `rid`, `ts`, `etag`
