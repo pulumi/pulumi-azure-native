@@ -42,8 +42,8 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
         /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        [Output("dataSet")]
-        public Output<Outputs.ReportConfigDatasetResponse?> DataSet { get; private set; } = null!;
+        [Output("dataset")]
+        public Output<Outputs.ReportConfigDatasetResponse?> Dataset { get; private set; } = null!;
 
         /// <summary>
         /// Date range of the current view.
@@ -190,8 +190,8 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
         /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        [Input("dataSet")]
-        public Input<Inputs.ReportConfigDatasetArgs>? DataSet { get; set; }
+        [Input("dataset")]
+        public Input<Inputs.ReportConfigDatasetArgs>? Dataset { get; set; }
 
         /// <summary>
         /// User input name of the view. Required.

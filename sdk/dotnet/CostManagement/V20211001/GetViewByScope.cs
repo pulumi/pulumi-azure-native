@@ -87,7 +87,7 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
         /// <summary>
         /// Has definition for data in this report config.
         /// </summary>
-        public readonly Outputs.ReportConfigDatasetResponse? DataSet;
+        public readonly Outputs.ReportConfigDatasetResponse? Dataset;
         /// <summary>
         /// Date range of the current view.
         /// </summary>
@@ -155,7 +155,7 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
 
             string currency,
 
-            Outputs.ReportConfigDatasetResponse? dataSet,
+            Outputs.ReportConfigDatasetResponse? dataset,
 
             string dateRange,
 
@@ -189,7 +189,7 @@ namespace Pulumi.AzureNative.CostManagement.V20211001
             Chart = chart;
             CreatedOn = createdOn;
             Currency = currency;
-            DataSet = dataSet;
+            Dataset = dataset;
             DateRange = dateRange;
             DisplayName = displayName;
             ETag = eTag;

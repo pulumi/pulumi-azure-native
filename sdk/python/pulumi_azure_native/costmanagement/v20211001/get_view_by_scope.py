@@ -21,7 +21,7 @@ class GetViewByScopeResult:
     """
     States and configurations of Cost Analysis.
     """
-    def __init__(__self__, accumulated=None, chart=None, created_on=None, currency=None, data_set=None, date_range=None, display_name=None, e_tag=None, id=None, include_monetary_commitment=None, kpis=None, metric=None, modified_on=None, name=None, pivots=None, scope=None, time_period=None, timeframe=None, type=None):
+    def __init__(__self__, accumulated=None, chart=None, created_on=None, currency=None, dataset=None, date_range=None, display_name=None, e_tag=None, id=None, include_monetary_commitment=None, kpis=None, metric=None, modified_on=None, name=None, pivots=None, scope=None, time_period=None, timeframe=None, type=None):
         if accumulated and not isinstance(accumulated, str):
             raise TypeError("Expected argument 'accumulated' to be a str")
         pulumi.set(__self__, "accumulated", accumulated)
@@ -34,9 +34,9 @@ class GetViewByScopeResult:
         if currency and not isinstance(currency, str):
             raise TypeError("Expected argument 'currency' to be a str")
         pulumi.set(__self__, "currency", currency)
-        if data_set and not isinstance(data_set, dict):
-            raise TypeError("Expected argument 'data_set' to be a dict")
-        pulumi.set(__self__, "data_set", data_set)
+        if dataset and not isinstance(dataset, dict):
+            raise TypeError("Expected argument 'dataset' to be a dict")
+        pulumi.set(__self__, "dataset", dataset)
         if date_range and not isinstance(date_range, str):
             raise TypeError("Expected argument 'date_range' to be a str")
         pulumi.set(__self__, "date_range", date_range)
@@ -113,12 +113,12 @@ class GetViewByScopeResult:
         return pulumi.get(self, "currency")
 
     @property
-    @pulumi.getter(name="dataSet")
-    def data_set(self) -> Optional['outputs.ReportConfigDatasetResponse']:
+    @pulumi.getter
+    def dataset(self) -> Optional['outputs.ReportConfigDatasetResponse']:
         """
         Has definition for data in this report config.
         """
-        return pulumi.get(self, "data_set")
+        return pulumi.get(self, "dataset")
 
     @property
     @pulumi.getter(name="dateRange")
@@ -243,7 +243,7 @@ class AwaitableGetViewByScopeResult(GetViewByScopeResult):
             chart=self.chart,
             created_on=self.created_on,
             currency=self.currency,
-            data_set=self.data_set,
+            dataset=self.dataset,
             date_range=self.date_range,
             display_name=self.display_name,
             e_tag=self.e_tag,
@@ -284,7 +284,7 @@ def get_view_by_scope(scope: Optional[str] = None,
         chart=__ret__.chart,
         created_on=__ret__.created_on,
         currency=__ret__.currency,
-        data_set=__ret__.data_set,
+        dataset=__ret__.dataset,
         date_range=__ret__.date_range,
         display_name=__ret__.display_name,
         e_tag=__ret__.e_tag,

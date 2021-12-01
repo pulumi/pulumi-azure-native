@@ -18,7 +18,7 @@ type View struct {
 	Chart                     pulumi.StringPtrOutput                  `pulumi:"chart"`
 	CreatedOn                 pulumi.StringOutput                     `pulumi:"createdOn"`
 	Currency                  pulumi.StringOutput                     `pulumi:"currency"`
-	DataSet                   ReportConfigDatasetResponsePtrOutput    `pulumi:"dataSet"`
+	Dataset                   ReportConfigDatasetResponsePtrOutput    `pulumi:"dataset"`
 	DateRange                 pulumi.StringOutput                     `pulumi:"dateRange"`
 	DisplayName               pulumi.StringPtrOutput                  `pulumi:"displayName"`
 	ETag                      pulumi.StringPtrOutput                  `pulumi:"eTag"`
@@ -96,7 +96,7 @@ func (ViewState) ElementType() reflect.Type {
 type viewArgs struct {
 	Accumulated               *string                 `pulumi:"accumulated"`
 	Chart                     *string                 `pulumi:"chart"`
-	DataSet                   *ReportConfigDataset    `pulumi:"dataSet"`
+	Dataset                   *ReportConfigDataset    `pulumi:"dataset"`
 	DisplayName               *string                 `pulumi:"displayName"`
 	ETag                      *string                 `pulumi:"eTag"`
 	IncludeMonetaryCommitment *bool                   `pulumi:"includeMonetaryCommitment"`
@@ -114,7 +114,7 @@ type viewArgs struct {
 type ViewArgs struct {
 	Accumulated               pulumi.StringPtrInput
 	Chart                     pulumi.StringPtrInput
-	DataSet                   ReportConfigDatasetPtrInput
+	Dataset                   ReportConfigDatasetPtrInput
 	DisplayName               pulumi.StringPtrInput
 	ETag                      pulumi.StringPtrInput
 	IncludeMonetaryCommitment pulumi.BoolPtrInput

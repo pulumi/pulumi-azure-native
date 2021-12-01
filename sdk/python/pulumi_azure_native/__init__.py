@@ -16972,6 +16972,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "virtualmachineimages/v20211001",
+  "fqn": "pulumi_azure_native.virtualmachineimages.v20211001",
+  "classes": {
+   "azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate": "VirtualMachineImageTemplate"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "visualstudio",
   "fqn": "pulumi_azure_native.visualstudio",
   "classes": {

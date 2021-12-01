@@ -26,7 +26,7 @@ type LookupViewResult struct {
 	Chart                     *string                         `pulumi:"chart"`
 	CreatedOn                 string                          `pulumi:"createdOn"`
 	Currency                  string                          `pulumi:"currency"`
-	DataSet                   *ReportConfigDatasetResponse    `pulumi:"dataSet"`
+	Dataset                   *ReportConfigDatasetResponse    `pulumi:"dataset"`
 	DateRange                 string                          `pulumi:"dateRange"`
 	DisplayName               *string                         `pulumi:"displayName"`
 	ETag                      *string                         `pulumi:"eTag"`
