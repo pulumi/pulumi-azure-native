@@ -1,0 +1,42 @@
+
+
+
+package v20201015preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupPartnerTopicEventSubscription(ctx *pulumi.Context, args *LookupPartnerTopicEventSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupPartnerTopicEventSubscriptionResult, error) {
+	var rv LookupPartnerTopicEventSubscriptionResult
+	err := ctx.Invoke("azure-native:eventgrid/v20201015preview:getPartnerTopicEventSubscription", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupPartnerTopicEventSubscriptionArgs struct {
+	EventSubscriptionName string `pulumi:"eventSubscriptionName"`
+	PartnerTopicName      string `pulumi:"partnerTopicName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupPartnerTopicEventSubscriptionResult struct {
+	DeadLetterDestination          *StorageBlobDeadLetterDestinationResponse `pulumi:"deadLetterDestination"`
+	DeadLetterWithResourceIdentity *DeadLetterWithResourceIdentityResponse   `pulumi:"deadLetterWithResourceIdentity"`
+	DeliveryWithResourceIdentity   *DeliveryWithResourceIdentityResponse     `pulumi:"deliveryWithResourceIdentity"`
+	Destination                    interface{}                               `pulumi:"destination"`
+	EventDeliverySchema            *string                                   `pulumi:"eventDeliverySchema"`
+	ExpirationTimeUtc              *string                                   `pulumi:"expirationTimeUtc"`
+	Filter                         *EventSubscriptionFilterResponse          `pulumi:"filter"`
+	Id                             string                                    `pulumi:"id"`
+	Labels                         []string                                  `pulumi:"labels"`
+	Name                           string                                    `pulumi:"name"`
+	ProvisioningState              string                                    `pulumi:"provisioningState"`
+	RetryPolicy                    *RetryPolicyResponse                      `pulumi:"retryPolicy"`
+	SystemData                     SystemDataResponse                        `pulumi:"systemData"`
+	Topic                          string                                    `pulumi:"topic"`
+	Type                           string                                    `pulumi:"type"`
+}

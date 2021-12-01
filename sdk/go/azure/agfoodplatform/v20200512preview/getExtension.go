@@ -1,0 +1,37 @@
+
+
+
+package v20200512preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupExtension(ctx *pulumi.Context, args *LookupExtensionArgs, opts ...pulumi.InvokeOption) (*LookupExtensionResult, error) {
+	var rv LookupExtensionResult
+	err := ctx.Invoke("azure-native:agfoodplatform/v20200512preview:getExtension", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupExtensionArgs struct {
+	ExtensionId           string `pulumi:"extensionId"`
+	FarmBeatsResourceName string `pulumi:"farmBeatsResourceName"`
+	ResourceGroupName     string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupExtensionResult struct {
+	ETag                      string             `pulumi:"eTag"`
+	ExtensionApiDocsLink      string             `pulumi:"extensionApiDocsLink"`
+	ExtensionAuthLink         string             `pulumi:"extensionAuthLink"`
+	ExtensionCategory         string             `pulumi:"extensionCategory"`
+	ExtensionId               string             `pulumi:"extensionId"`
+	Id                        string             `pulumi:"id"`
+	InstalledExtensionVersion string             `pulumi:"installedExtensionVersion"`
+	Name                      string             `pulumi:"name"`
+	SystemData                SystemDataResponse `pulumi:"systemData"`
+	Type                      string             `pulumi:"type"`
+}
