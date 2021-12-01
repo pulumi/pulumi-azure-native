@@ -111,7 +111,7 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 		"swiftSupported": true,
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/networkConfig/virtualNetwork": {
-		"subnetResourceId": "*",
+		"subnetResourceId": "*", // This is going to be a resource ID, so we choose accept any value here.
 		"swiftSupported":   true,
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/sourcecontrols/web":                        {},

@@ -261,6 +261,8 @@ func (k *SdkShapeConverter) IsDefaultResponse(putParameters []AzureAPIParameter,
 						return false
 					}
 				default:
+					// `*` default body means that we want to accept any value there.
+					// It's used for values that are determined dynamically by Azure API.
 					if defaultBody[key] != value && defaultBody[key] != "*" {
 						return false
 					}
