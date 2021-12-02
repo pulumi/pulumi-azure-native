@@ -1,0 +1,40 @@
+
+
+
+package security
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupAssessmentMetadataInSubscription(ctx *pulumi.Context, args *LookupAssessmentMetadataInSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupAssessmentMetadataInSubscriptionResult, error) {
+	var rv LookupAssessmentMetadataInSubscriptionResult
+	err := ctx.Invoke("azure-native:security:getAssessmentMetadataInSubscription", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupAssessmentMetadataInSubscriptionArgs struct {
+	AssessmentMetadataName string `pulumi:"assessmentMetadataName"`
+}
+
+
+type LookupAssessmentMetadataInSubscriptionResult struct {
+	AssessmentType         string                                         `pulumi:"assessmentType"`
+	Categories             []string                                       `pulumi:"categories"`
+	Description            *string                                        `pulumi:"description"`
+	DisplayName            string                                         `pulumi:"displayName"`
+	Id                     string                                         `pulumi:"id"`
+	ImplementationEffort   *string                                        `pulumi:"implementationEffort"`
+	Name                   string                                         `pulumi:"name"`
+	PartnerData            *SecurityAssessmentMetadataPartnerDataResponse `pulumi:"partnerData"`
+	PolicyDefinitionId     string                                         `pulumi:"policyDefinitionId"`
+	Preview                *bool                                          `pulumi:"preview"`
+	RemediationDescription *string                                        `pulumi:"remediationDescription"`
+	Severity               string                                         `pulumi:"severity"`
+	Threats                []string                                       `pulumi:"threats"`
+	Type                   string                                         `pulumi:"type"`
+	UserImpact             *string                                        `pulumi:"userImpact"`
+}
