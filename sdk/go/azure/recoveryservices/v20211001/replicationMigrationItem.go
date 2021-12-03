@@ -70,6 +70,9 @@ func NewReplicationMigrationItem(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20210801:ReplicationMigrationItem"),
 		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20211101:ReplicationMigrationItem"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationMigrationItem
