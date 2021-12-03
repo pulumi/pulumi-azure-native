@@ -1,0 +1,61 @@
+
+
+
+package v20150801
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSite(ctx *pulumi.Context, args *LookupSiteArgs, opts ...pulumi.InvokeOption) (*LookupSiteResult, error) {
+	var rv LookupSiteResult
+	err := ctx.Invoke("azure-native:web/v20150801:getSite", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSiteArgs struct {
+	Name                string  `pulumi:"name"`
+	PropertiesToInclude *string `pulumi:"propertiesToInclude"`
+	ResourceGroupName   string  `pulumi:"resourceGroupName"`
+}
+
+
+type LookupSiteResult struct {
+	AvailabilityState         string                             `pulumi:"availabilityState"`
+	ClientAffinityEnabled     *bool                              `pulumi:"clientAffinityEnabled"`
+	ClientCertEnabled         *bool                              `pulumi:"clientCertEnabled"`
+	CloningInfo               *CloningInfoResponse               `pulumi:"cloningInfo"`
+	ContainerSize             *int                               `pulumi:"containerSize"`
+	DefaultHostName           string                             `pulumi:"defaultHostName"`
+	Enabled                   *bool                              `pulumi:"enabled"`
+	EnabledHostNames          []string                           `pulumi:"enabledHostNames"`
+	GatewaySiteName           *string                            `pulumi:"gatewaySiteName"`
+	HostNameSslStates         []HostNameSslStateResponse         `pulumi:"hostNameSslStates"`
+	HostNames                 []string                           `pulumi:"hostNames"`
+	HostNamesDisabled         *bool                              `pulumi:"hostNamesDisabled"`
+	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	Id                        *string                            `pulumi:"id"`
+	IsDefaultContainer        bool                               `pulumi:"isDefaultContainer"`
+	Kind                      *string                            `pulumi:"kind"`
+	LastModifiedTimeUtc       string                             `pulumi:"lastModifiedTimeUtc"`
+	Location                  string                             `pulumi:"location"`
+	MaxNumberOfWorkers        *int                               `pulumi:"maxNumberOfWorkers"`
+	MicroService              *string                            `pulumi:"microService"`
+	Name                      *string                            `pulumi:"name"`
+	OutboundIpAddresses       string                             `pulumi:"outboundIpAddresses"`
+	PremiumAppDeployed        bool                               `pulumi:"premiumAppDeployed"`
+	RepositorySiteName        string                             `pulumi:"repositorySiteName"`
+	ResourceGroup             string                             `pulumi:"resourceGroup"`
+	ScmSiteAlsoStopped        *bool                              `pulumi:"scmSiteAlsoStopped"`
+	ServerFarmId              *string                            `pulumi:"serverFarmId"`
+	SiteConfig                *SiteConfigResponse                `pulumi:"siteConfig"`
+	State                     string                             `pulumi:"state"`
+	Tags                      map[string]string                  `pulumi:"tags"`
+	TargetSwapSlot            string                             `pulumi:"targetSwapSlot"`
+	TrafficManagerHostNames   []string                           `pulumi:"trafficManagerHostNames"`
+	Type                      *string                            `pulumi:"type"`
+	UsageState                string                             `pulumi:"usageState"`
+}

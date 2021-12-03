@@ -1,0 +1,137 @@
+
+
+
+package v20210501
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type Device struct {
+	pulumi.CustomResourceState
+
+	DeviceType        pulumi.StringOutput            `pulumi:"deviceType"`
+	Location          pulumi.StringOutput            `pulumi:"location"`
+	Name              pulumi.StringOutput            `pulumi:"name"`
+	NetworkFunctions  SubResourceResponseArrayOutput `pulumi:"networkFunctions"`
+	ProvisioningState pulumi.StringOutput            `pulumi:"provisioningState"`
+	Status            pulumi.StringOutput            `pulumi:"status"`
+	SystemData        SystemDataResponseOutput       `pulumi:"systemData"`
+	Tags              pulumi.StringMapOutput         `pulumi:"tags"`
+	Type              pulumi.StringOutput            `pulumi:"type"`
+}
+
+
+func NewDevice(ctx *pulumi.Context,
+	name string, args *DeviceArgs, opts ...pulumi.ResourceOption) (*Device, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DeviceType == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:hybridnetwork:Device"),
+		},
+		{
+			Type: pulumi.String("azure-native:hybridnetwork/v20200101preview:Device"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource Device
+	err := ctx.RegisterResource("azure-native:hybridnetwork/v20210501:Device", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetDevice(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *DeviceState, opts ...pulumi.ResourceOption) (*Device, error) {
+	var resource Device
+	err := ctx.ReadResource("azure-native:hybridnetwork/v20210501:Device", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type deviceState struct {
+}
+
+type DeviceState struct {
+}
+
+func (DeviceState) ElementType() reflect.Type {
+	return reflect.TypeOf((*deviceState)(nil)).Elem()
+}
+
+type deviceArgs struct {
+	DeviceName        *string           `pulumi:"deviceName"`
+	DeviceType        string            `pulumi:"deviceType"`
+	Location          *string           `pulumi:"location"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Tags              map[string]string `pulumi:"tags"`
+}
+
+
+type DeviceArgs struct {
+	DeviceName        pulumi.StringPtrInput
+	DeviceType        pulumi.StringInput
+	Location          pulumi.StringPtrInput
+	ResourceGroupName pulumi.StringInput
+	Tags              pulumi.StringMapInput
+}
+
+func (DeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*deviceArgs)(nil)).Elem()
+}
+
+type DeviceInput interface {
+	pulumi.Input
+
+	ToDeviceOutput() DeviceOutput
+	ToDeviceOutputWithContext(ctx context.Context) DeviceOutput
+}
+
+func (*Device) ElementType() reflect.Type {
+	return reflect.TypeOf((*Device)(nil))
+}
+
+func (i *Device) ToDeviceOutput() DeviceOutput {
+	return i.ToDeviceOutputWithContext(context.Background())
+}
+
+func (i *Device) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceOutput)
+}
+
+type DeviceOutput struct{ *pulumi.OutputState }
+
+func (DeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Device)(nil))
+}
+
+func (o DeviceOutput) ToDeviceOutput() DeviceOutput {
+	return o
+}
+
+func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeviceOutput{})
+}

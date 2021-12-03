@@ -1,0 +1,35 @@
+
+
+
+package v20160801
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func ListWebAppHybridConnectionKeysSlot(ctx *pulumi.Context, args *ListWebAppHybridConnectionKeysSlotArgs, opts ...pulumi.InvokeOption) (*ListWebAppHybridConnectionKeysSlotResult, error) {
+	var rv ListWebAppHybridConnectionKeysSlotResult
+	err := ctx.Invoke("azure-native:web/v20160801:listWebAppHybridConnectionKeysSlot", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type ListWebAppHybridConnectionKeysSlotArgs struct {
+	Name              string `pulumi:"name"`
+	NamespaceName     string `pulumi:"namespaceName"`
+	RelayName         string `pulumi:"relayName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	Slot              string `pulumi:"slot"`
+}
+
+
+type ListWebAppHybridConnectionKeysSlotResult struct {
+	Id           string  `pulumi:"id"`
+	Kind         *string `pulumi:"kind"`
+	Name         string  `pulumi:"name"`
+	SendKeyName  string  `pulumi:"sendKeyName"`
+	SendKeyValue string  `pulumi:"sendKeyValue"`
+	Type         string  `pulumi:"type"`
+}
