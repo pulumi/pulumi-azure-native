@@ -2898,7 +2898,6 @@
           "West India",
           "Canada East",
           "Canada Central",
-          "Korea South",
           "Korea Central",
           "South Africa North",
           "East US 2 EUAP"
@@ -2965,7 +2964,6 @@
           "South India",
           "Central India",
           "East Asia",
-          "Korea South",
           "Korea Central",
           "South Africa North",
           "Brazil South",
@@ -2979,6 +2977,7 @@
           "Norway East",
           "Norway West",
           "West US 3",
+          "Sweden Central",
           "Australia Central 2",
           "East US 2 EUAP",
           "Central US EUAP"
@@ -3083,7 +3082,6 @@
           "West India",
           "Canada East",
           "Canada Central",
-          "Korea South",
           "Korea Central",
           "UK South",
           "Australia East",
@@ -3101,6 +3099,7 @@
           "Brazil South",
           "Brazil Southeast",
           "Australia Central 2",
+          "Sweden Central",
           "West US 3",
           "Germany North",
           "Germany West Central",
@@ -3140,7 +3139,6 @@
           "Central India",
           "West India",
           "Canada Central",
-          "Korea South",
           "Korea Central",
           "West US",
           "Australia East",
@@ -3158,6 +3156,7 @@
           "Brazil South",
           "Brazil Southeast",
           "Australia Central 2",
+          "Sweden Central",
           "West US 3",
           "Germany North",
           "Germany West Central",
@@ -3243,7 +3242,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "East US 2",
           "South Central US",
           "North Central US",
@@ -3255,6 +3253,7 @@
           "Brazil South",
           "Brazil Southeast",
           "Australia Central 2",
+          "Sweden Central",
           "West US 3",
           "Germany North",
           "Germany West Central",
@@ -3304,7 +3303,6 @@
           "Japan East",
           "Japan West",
           "Korea Central",
-          "Korea South",
           "East US 2",
           "South Central US",
           "North Central US",
@@ -3316,6 +3314,7 @@
           "Brazil South",
           "Brazil Southeast",
           "Australia Central 2",
+          "Sweden Central",
           "West US 3",
           "Germany North",
           "Germany West Central",
@@ -3368,7 +3367,6 @@
           "South India",
           "Central India",
           "East Asia",
-          "Korea South",
           "Korea Central",
           "South Africa North",
           "Brazil South",
@@ -3382,6 +3380,7 @@
           "Norway East",
           "Norway West",
           "West US 3",
+          "Sweden Central",
           "Australia Central 2",
           "East US 2 EUAP",
           "Central US EUAP"
@@ -16286,7 +16285,6 @@
           "Norway West",
           "West US 3",
           "Sweden Central",
-          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -16307,7 +16305,8 @@
           "Central India",
           "France Central",
           "Canada East",
-          "Central US EUAP"
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "automationAccounts"
@@ -16347,7 +16346,6 @@
           "Norway West",
           "West US 3",
           "Sweden Central",
-          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -16368,7 +16366,8 @@
           "Central India",
           "France Central",
           "Canada East",
-          "Central US EUAP"
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "automationAccounts/runbooks"
@@ -16410,7 +16409,6 @@
           "Norway West",
           "West US 3",
           "Sweden Central",
-          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -16428,7 +16426,8 @@
           "North Europe",
           "East Asia",
           "France Central",
-          "Canada East"
+          "Canada East",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "automationAccounts/configurations"
@@ -16466,7 +16465,6 @@
           "Norway West",
           "Sweden Central",
           "West US 3",
-          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -16487,7 +16485,8 @@
           "Australia East",
           "France Central",
           "Canada East",
-          "Central US EUAP"
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "automationAccounts/webhooks"
@@ -16545,7 +16544,6 @@
           "France South",
           "Norway West",
           "West US 3",
-          "Korea South",
           "Sweden Central",
           "Southeast Asia",
           "South Central US",
@@ -16567,7 +16565,8 @@
           "Central India",
           "France Central",
           "Canada East",
-          "Central US EUAP"
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "automationAccounts/softwareUpdateConfigurations"
@@ -16606,7 +16605,6 @@
           "France South",
           "Norway West",
           "West US 3",
-          "Korea South",
           "Sweden Central",
           "Southeast Asia",
           "South Central US",
@@ -16628,7 +16626,8 @@
           "Central India",
           "France Central",
           "Canada East",
-          "Central US EUAP"
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "automationAccounts/jobs"
@@ -16662,7 +16661,6 @@
           "Norway West",
           "West US 3",
           "Sweden Central",
-          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -16683,7 +16681,8 @@
           "Central India",
           "France Central",
           "Canada East",
-          "Central US EUAP"
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "automationAccounts/privateLinkResources"
@@ -16717,7 +16716,6 @@
           "Norway West",
           "West US 3",
           "Sweden Central",
-          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -16738,7 +16736,8 @@
           "Central India",
           "France Central",
           "Canada East",
-          "Central US EUAP"
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "automationAccounts/privateEndpointConnections"
@@ -16772,7 +16771,6 @@
           "Norway West",
           "West US 3",
           "Sweden Central",
-          "Korea South",
           "Southeast Asia",
           "South Central US",
           "North Central US",
@@ -16793,7 +16791,8 @@
           "Central India",
           "France Central",
           "Canada East",
-          "Central US EUAP"
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "automationAccounts/privateEndpointConnectionProxies"
@@ -16854,9 +16853,9 @@
           "Central India",
           "France Central",
           "Sweden Central",
-          "Korea South",
           "Canada East",
-          "Central US EUAP"
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "automationAccounts/hybridRunbookWorkerGroups"
@@ -16909,9 +16908,9 @@
           "Central India",
           "France Central",
           "Sweden Central",
-          "Korea South",
           "Canada East",
-          "Central US EUAP"
+          "Central US EUAP",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers"
@@ -32265,6 +32264,9 @@
           "South India",
           "France South",
           "Norway West",
+          "West US 3",
+          "Sweden Central",
+          "Canada East",
           "East US 2 EUAP"
         ],
         "properties": null,
@@ -51246,6 +51248,7 @@
           "Germany West Central",
           "Norway East",
           "West US 3",
+          "Sweden Central",
           "East US 2 EUAP",
           "Central US EUAP"
         ],
@@ -51307,6 +51310,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "East US 2 EUAP",
           "Central US EUAP"
@@ -51369,6 +51373,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "East US 2 EUAP",
           "Central US EUAP"
@@ -51426,6 +51431,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "East US 2 EUAP",
           "Central US EUAP"
@@ -51483,6 +51489,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "East US 2 EUAP",
           "Central US EUAP"
@@ -51546,6 +51553,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "East US 2 EUAP",
           "Central US EUAP"
@@ -51609,6 +51617,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East"
         ],
         "properties": null,
@@ -51669,6 +51678,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "East US 2 EUAP",
           "Central US EUAP"
@@ -51731,6 +51741,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "East US 2 EUAP",
           "Central US EUAP"
@@ -51792,6 +51803,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "East US 2 EUAP",
           "Central US EUAP"
@@ -51854,6 +51866,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "East US 2 EUAP",
           "Central US EUAP"
@@ -51959,6 +51972,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -52012,6 +52026,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -52079,6 +52094,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -52130,6 +52146,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -52181,6 +52198,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -52232,6 +52250,7 @@
           "Switzerland North",
           "Germany West Central",
           "West US 3",
+          "Sweden Central",
           "Norway East",
           "Central US EUAP",
           "East US 2 EUAP"
@@ -57778,8 +57797,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "Sweden Central",
           "UK West",
-          "Korea South",
           "Canada East",
           "West US 3",
           "Germany West Central",
@@ -57863,8 +57882,8 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
+          "Sweden Central",
           "UK West",
-          "Korea South",
           "Canada East",
           "West US 3",
           "Germany West Central",
@@ -77760,6 +77779,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-01",
           "2020-08-26"
         ],
         "capabilities": "None",
@@ -77773,6 +77793,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-01",
           "2020-08-26"
         ],
         "capabilities": "None",
@@ -77790,6 +77811,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-01",
           "2020-08-26"
         ],
         "capabilities": "SupportsTags, SupportsLocation",
@@ -77807,6 +77829,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-11-01",
           "2020-08-26"
         ],
         "capabilities": "None",
@@ -104632,6 +104655,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2020-02-14",
           "2019-05-01-preview"
         ],
@@ -104662,6 +104686,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2020-02-14",
           "2019-05-01-preview"
         ],
@@ -104692,6 +104717,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2020-02-14",
           "2019-05-01-preview"
         ],
@@ -104701,15 +104727,22 @@
         "locations": [
           "East US",
           "East US 2",
+          "Central US",
           "West Central US",
           "West US",
           "West US 2",
           "West US 3",
           "South Central US",
+          "Canada Central",
           "North Europe",
           "West Europe",
+          "Norway East",
           "UK South",
           "UK West",
+          "UAE North",
+          "Germany West Central",
+          "Japan East",
+          "East Asia",
           "Southeast Asia",
           "Australia East",
           "Australia Southeast",
@@ -104723,6 +104756,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2020-02-14",
           "2019-05-01-preview"
         ],
@@ -104753,6 +104787,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2020-02-14",
           "2019-05-01-preview"
         ],
