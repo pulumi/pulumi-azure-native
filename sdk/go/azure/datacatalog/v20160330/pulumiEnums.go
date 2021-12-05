@@ -1,0 +1,180 @@
+
+
+
+package v20160330
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type SkuType string
+
+const (
+	SkuTypeFree     = SkuType("Free")
+	SkuTypeStandard = SkuType("Standard")
+)
+
+func (SkuType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuType)(nil)).Elem()
+}
+
+func (e SkuType) ToSkuTypeOutput() SkuTypeOutput {
+	return pulumi.ToOutput(e).(SkuTypeOutput)
+}
+
+func (e SkuType) ToSkuTypeOutputWithContext(ctx context.Context) SkuTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SkuTypeOutput)
+}
+
+func (e SkuType) ToSkuTypePtrOutput() SkuTypePtrOutput {
+	return e.ToSkuTypePtrOutputWithContext(context.Background())
+}
+
+func (e SkuType) ToSkuTypePtrOutputWithContext(ctx context.Context) SkuTypePtrOutput {
+	return SkuType(e).ToSkuTypeOutputWithContext(ctx).ToSkuTypePtrOutputWithContext(ctx)
+}
+
+func (e SkuType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SkuType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SkuType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SkuType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SkuTypeOutput struct{ *pulumi.OutputState }
+
+func (SkuTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SkuType)(nil)).Elem()
+}
+
+func (o SkuTypeOutput) ToSkuTypeOutput() SkuTypeOutput {
+	return o
+}
+
+func (o SkuTypeOutput) ToSkuTypeOutputWithContext(ctx context.Context) SkuTypeOutput {
+	return o
+}
+
+func (o SkuTypeOutput) ToSkuTypePtrOutput() SkuTypePtrOutput {
+	return o.ToSkuTypePtrOutputWithContext(context.Background())
+}
+
+func (o SkuTypeOutput) ToSkuTypePtrOutputWithContext(ctx context.Context) SkuTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuType) *SkuType {
+		return &v
+	}).(SkuTypePtrOutput)
+}
+
+func (o SkuTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SkuTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SkuTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SkuType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SkuTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SkuTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SkuType)(nil)).Elem()
+}
+
+func (o SkuTypePtrOutput) ToSkuTypePtrOutput() SkuTypePtrOutput {
+	return o
+}
+
+func (o SkuTypePtrOutput) ToSkuTypePtrOutputWithContext(ctx context.Context) SkuTypePtrOutput {
+	return o
+}
+
+func (o SkuTypePtrOutput) Elem() SkuTypeOutput {
+	return o.ApplyT(func(v *SkuType) SkuType {
+		if v != nil {
+			return *v
+		}
+		var ret SkuType
+		return ret
+	}).(SkuTypeOutput)
+}
+
+func (o SkuTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SkuTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SkuType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+
+
+
+
+type SkuTypeInput interface {
+	pulumi.Input
+
+	ToSkuTypeOutput() SkuTypeOutput
+	ToSkuTypeOutputWithContext(context.Context) SkuTypeOutput
+}
+
+var skuTypePtrType = reflect.TypeOf((**SkuType)(nil)).Elem()
+
+type SkuTypePtrInput interface {
+	pulumi.Input
+
+	ToSkuTypePtrOutput() SkuTypePtrOutput
+	ToSkuTypePtrOutputWithContext(context.Context) SkuTypePtrOutput
+}
+
+type skuTypePtr string
+
+func SkuTypePtr(v string) SkuTypePtrInput {
+	return (*skuTypePtr)(&v)
+}
+
+func (*skuTypePtr) ElementType() reflect.Type {
+	return skuTypePtrType
+}
+
+func (in *skuTypePtr) ToSkuTypePtrOutput() SkuTypePtrOutput {
+	return pulumi.ToOutput(in).(SkuTypePtrOutput)
+}
+
+func (in *skuTypePtr) ToSkuTypePtrOutputWithContext(ctx context.Context) SkuTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SkuTypePtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(SkuTypeOutput{})
+	pulumi.RegisterOutputType(SkuTypePtrOutput{})
+}
