@@ -3,6 +3,12 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
+(None)
+
+---
+
+## 1.49.0 (2021-12-06)
+
 #### Bug fixes:
 
 - Fix `web.WebAppSwiftVirtualNetworkConnectionSlot` creation
@@ -12,8 +18,6 @@ CHANGELOG
 
 - `documentdb.GraphResourceGetPropertiesResponseResource` removed properties `rid`, `ts`, `etag`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16841))
-
----
 
 ## 1.48.0 (2021-11-29)
 
