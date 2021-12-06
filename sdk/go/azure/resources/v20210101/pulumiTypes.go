@@ -3965,6 +3965,7 @@ type ProviderResourceTypeResponse struct {
 	Locations         []string                           `pulumi:"locations"`
 	Properties        map[string]string                  `pulumi:"properties"`
 	ResourceType      *string                            `pulumi:"resourceType"`
+	ZoneMappings      []ZoneMappingResponse              `pulumi:"zoneMappings"`
 }
 
 
@@ -3988,6 +3989,7 @@ type ProviderResourceTypeResponseArgs struct {
 	Locations         pulumi.StringArrayInput                    `pulumi:"locations"`
 	Properties        pulumi.StringMapInput                      `pulumi:"properties"`
 	ResourceType      pulumi.StringPtrInput                      `pulumi:"resourceType"`
+	ZoneMappings      ZoneMappingResponseArrayInput              `pulumi:"zoneMappings"`
 }
 
 func (ProviderResourceTypeResponseArgs) ElementType() reflect.Type {
@@ -4075,6 +4077,10 @@ func (o ProviderResourceTypeResponseOutput) Properties() pulumi.StringMapOutput 
 
 func (o ProviderResourceTypeResponseOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderResourceTypeResponse) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderResourceTypeResponseOutput) ZoneMappings() ZoneMappingResponseArrayOutput {
+	return o.ApplyT(func(v ProviderResourceTypeResponse) []ZoneMappingResponse { return v.ZoneMappings }).(ZoneMappingResponseArrayOutput)
 }
 
 type ProviderResourceTypeResponseArrayOutput struct{ *pulumi.OutputState }
@@ -5510,6 +5516,106 @@ func (o TemplateLinkResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ZoneMappingResponse struct {
+	Location *string  `pulumi:"location"`
+	Zones    []string `pulumi:"zones"`
+}
+
+
+
+
+
+type ZoneMappingResponseInput interface {
+	pulumi.Input
+
+	ToZoneMappingResponseOutput() ZoneMappingResponseOutput
+	ToZoneMappingResponseOutputWithContext(context.Context) ZoneMappingResponseOutput
+}
+
+type ZoneMappingResponseArgs struct {
+	Location pulumi.StringPtrInput   `pulumi:"location"`
+	Zones    pulumi.StringArrayInput `pulumi:"zones"`
+}
+
+func (ZoneMappingResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneMappingResponse)(nil)).Elem()
+}
+
+func (i ZoneMappingResponseArgs) ToZoneMappingResponseOutput() ZoneMappingResponseOutput {
+	return i.ToZoneMappingResponseOutputWithContext(context.Background())
+}
+
+func (i ZoneMappingResponseArgs) ToZoneMappingResponseOutputWithContext(ctx context.Context) ZoneMappingResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneMappingResponseOutput)
+}
+
+
+
+
+
+type ZoneMappingResponseArrayInput interface {
+	pulumi.Input
+
+	ToZoneMappingResponseArrayOutput() ZoneMappingResponseArrayOutput
+	ToZoneMappingResponseArrayOutputWithContext(context.Context) ZoneMappingResponseArrayOutput
+}
+
+type ZoneMappingResponseArray []ZoneMappingResponseInput
+
+func (ZoneMappingResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ZoneMappingResponse)(nil)).Elem()
+}
+
+func (i ZoneMappingResponseArray) ToZoneMappingResponseArrayOutput() ZoneMappingResponseArrayOutput {
+	return i.ToZoneMappingResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ZoneMappingResponseArray) ToZoneMappingResponseArrayOutputWithContext(ctx context.Context) ZoneMappingResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ZoneMappingResponseArrayOutput)
+}
+
+type ZoneMappingResponseOutput struct{ *pulumi.OutputState }
+
+func (ZoneMappingResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ZoneMappingResponse)(nil)).Elem()
+}
+
+func (o ZoneMappingResponseOutput) ToZoneMappingResponseOutput() ZoneMappingResponseOutput {
+	return o
+}
+
+func (o ZoneMappingResponseOutput) ToZoneMappingResponseOutputWithContext(ctx context.Context) ZoneMappingResponseOutput {
+	return o
+}
+
+func (o ZoneMappingResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ZoneMappingResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+func (o ZoneMappingResponseOutput) Zones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ZoneMappingResponse) []string { return v.Zones }).(pulumi.StringArrayOutput)
+}
+
+type ZoneMappingResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ZoneMappingResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ZoneMappingResponse)(nil)).Elem()
+}
+
+func (o ZoneMappingResponseArrayOutput) ToZoneMappingResponseArrayOutput() ZoneMappingResponseArrayOutput {
+	return o
+}
+
+func (o ZoneMappingResponseArrayOutput) ToZoneMappingResponseArrayOutputWithContext(ctx context.Context) ZoneMappingResponseArrayOutput {
+	return o
+}
+
+func (o ZoneMappingResponseArrayOutput) Index(i pulumi.IntInput) ZoneMappingResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ZoneMappingResponse {
+		return vs[0].([]ZoneMappingResponse)[vs[1].(int)]
+	}).(ZoneMappingResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AliasPathMetadataResponseOutput{})
 	pulumi.RegisterOutputType(AliasPathResponseOutput{})
@@ -5583,4 +5689,6 @@ func init() {
 	pulumi.RegisterOutputType(TemplateLinkPtrOutput{})
 	pulumi.RegisterOutputType(TemplateLinkResponseOutput{})
 	pulumi.RegisterOutputType(TemplateLinkResponsePtrOutput{})
+	pulumi.RegisterOutputType(ZoneMappingResponseOutput{})
+	pulumi.RegisterOutputType(ZoneMappingResponseArrayOutput{})
 }
