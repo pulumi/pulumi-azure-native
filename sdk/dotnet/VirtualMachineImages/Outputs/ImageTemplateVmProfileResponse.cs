@@ -21,11 +21,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
         /// </summary>
         public readonly int? OsDiskSizeGB;
         /// <summary>
-        /// Optional array of resource IDs of user assigned managed identities to be configured on the build VM. This may include the identity of the image template.
-        /// </summary>
-        public readonly ImmutableArray<string> UserAssignedIdentities;
-        /// <summary>
-        /// Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D2ds_v4).
+        /// Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         /// </summary>
         public readonly string? VmSize;
         /// <summary>
@@ -37,14 +33,11 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
         private ImageTemplateVmProfileResponse(
             int? osDiskSizeGB,
 
-            ImmutableArray<string> userAssignedIdentities,
-
             string? vmSize,
 
             Outputs.VirtualNetworkConfigResponse? vnetConfig)
         {
             OsDiskSizeGB = osDiskSizeGB;
-            UserAssignedIdentities = userAssignedIdentities;
             VmSize = vmSize;
             VnetConfig = vnetConfig;
         }

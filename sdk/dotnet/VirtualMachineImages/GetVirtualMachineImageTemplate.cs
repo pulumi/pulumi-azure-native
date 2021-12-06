@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.VirtualMachineImages
     {
         /// <summary>
         /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-        /// API Version: 2021-10-01.
+        /// API Version: 2020-02-14.
         /// </summary>
         public static Task<GetVirtualMachineImageTemplateResult> InvokeAsync(GetVirtualMachineImageTemplateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateArgs(), options.WithVersion());
 
         /// <summary>
         /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-        /// API Version: 2021-10-01.
+        /// API Version: 2020-02-14.
         /// </summary>
         public static Output<GetVirtualMachineImageTemplateResult> Invoke(GetVirtualMachineImageTemplateInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineImageTemplateResult>("azure-native:virtualmachineimages:getVirtualMachineImageTemplate", args ?? new GetVirtualMachineImageTemplateInvokeArgs(), options.WithVersion());
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// </summary>
         public readonly ImmutableArray<object> Distribute;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Resource Id
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -95,11 +95,11 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// </summary>
         public readonly Outputs.ImageTemplateLastRunStatusResponse LastRunStatus;
         /// <summary>
-        /// The geo-location where the resource lives
+        /// Resource location
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The name of the resource
+        /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -115,15 +115,11 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// </summary>
         public readonly object Source;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// Resource tags.
+        /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -155,8 +151,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages
 
             object source,
 
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -174,7 +168,6 @@ namespace Pulumi.AzureNative.VirtualMachineImages
             ProvisioningError = provisioningError;
             ProvisioningState = provisioningState;
             Source = source;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
             VmProfile = vmProfile;

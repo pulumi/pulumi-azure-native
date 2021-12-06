@@ -24,7 +24,6 @@ type VirtualMachineImageTemplate struct {
 	ProvisioningError     ProvisioningErrorResponseOutput          `pulumi:"provisioningError"`
 	ProvisioningState     pulumi.StringOutput                      `pulumi:"provisioningState"`
 	Source                pulumi.AnyOutput                         `pulumi:"source"`
-	SystemData            SystemDataResponseOutput                 `pulumi:"systemData"`
 	Tags                  pulumi.StringMapOutput                   `pulumi:"tags"`
 	Type                  pulumi.StringOutput                      `pulumi:"type"`
 	VmProfile             ImageTemplateVmProfileResponsePtrOutput  `pulumi:"vmProfile"`

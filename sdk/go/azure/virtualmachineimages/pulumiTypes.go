@@ -1083,13 +1083,12 @@ func (o ImageTemplatePlatformImageSourceOutput) Version() pulumi.StringPtrOutput
 }
 
 type ImageTemplatePlatformImageSourceResponse struct {
-	ExactVersion string                             `pulumi:"exactVersion"`
-	Offer        *string                            `pulumi:"offer"`
-	PlanInfo     *PlatformImagePurchasePlanResponse `pulumi:"planInfo"`
-	Publisher    *string                            `pulumi:"publisher"`
-	Sku          *string                            `pulumi:"sku"`
-	Type         string                             `pulumi:"type"`
-	Version      *string                            `pulumi:"version"`
+	Offer     *string                            `pulumi:"offer"`
+	PlanInfo  *PlatformImagePurchasePlanResponse `pulumi:"planInfo"`
+	Publisher *string                            `pulumi:"publisher"`
+	Sku       *string                            `pulumi:"sku"`
+	Type      string                             `pulumi:"type"`
+	Version   *string                            `pulumi:"version"`
 }
 
 
@@ -1104,13 +1103,12 @@ type ImageTemplatePlatformImageSourceResponseInput interface {
 }
 
 type ImageTemplatePlatformImageSourceResponseArgs struct {
-	ExactVersion pulumi.StringInput                        `pulumi:"exactVersion"`
-	Offer        pulumi.StringPtrInput                     `pulumi:"offer"`
-	PlanInfo     PlatformImagePurchasePlanResponsePtrInput `pulumi:"planInfo"`
-	Publisher    pulumi.StringPtrInput                     `pulumi:"publisher"`
-	Sku          pulumi.StringPtrInput                     `pulumi:"sku"`
-	Type         pulumi.StringInput                        `pulumi:"type"`
-	Version      pulumi.StringPtrInput                     `pulumi:"version"`
+	Offer     pulumi.StringPtrInput                     `pulumi:"offer"`
+	PlanInfo  PlatformImagePurchasePlanResponsePtrInput `pulumi:"planInfo"`
+	Publisher pulumi.StringPtrInput                     `pulumi:"publisher"`
+	Sku       pulumi.StringPtrInput                     `pulumi:"sku"`
+	Type      pulumi.StringInput                        `pulumi:"type"`
+	Version   pulumi.StringPtrInput                     `pulumi:"version"`
 }
 
 func (ImageTemplatePlatformImageSourceResponseArgs) ElementType() reflect.Type {
@@ -1137,10 +1135,6 @@ func (o ImageTemplatePlatformImageSourceResponseOutput) ToImageTemplatePlatformI
 
 func (o ImageTemplatePlatformImageSourceResponseOutput) ToImageTemplatePlatformImageSourceResponseOutputWithContext(ctx context.Context) ImageTemplatePlatformImageSourceResponseOutput {
 	return o
-}
-
-func (o ImageTemplatePlatformImageSourceResponseOutput) ExactVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplatePlatformImageSourceResponse) string { return v.ExactVersion }).(pulumi.StringOutput)
 }
 
 func (o ImageTemplatePlatformImageSourceResponseOutput) Offer() pulumi.StringPtrOutput {
@@ -2044,10 +2038,9 @@ func (o ImageTemplateVhdDistributorResponseOutput) Type() pulumi.StringOutput {
 }
 
 type ImageTemplateVmProfile struct {
-	OsDiskSizeGB           *int                  `pulumi:"osDiskSizeGB"`
-	UserAssignedIdentities []string              `pulumi:"userAssignedIdentities"`
-	VmSize                 *string               `pulumi:"vmSize"`
-	VnetConfig             *VirtualNetworkConfig `pulumi:"vnetConfig"`
+	OsDiskSizeGB *int                  `pulumi:"osDiskSizeGB"`
+	VmSize       *string               `pulumi:"vmSize"`
+	VnetConfig   *VirtualNetworkConfig `pulumi:"vnetConfig"`
 }
 
 
@@ -2062,10 +2055,9 @@ type ImageTemplateVmProfileInput interface {
 }
 
 type ImageTemplateVmProfileArgs struct {
-	OsDiskSizeGB           pulumi.IntPtrInput           `pulumi:"osDiskSizeGB"`
-	UserAssignedIdentities pulumi.StringArrayInput      `pulumi:"userAssignedIdentities"`
-	VmSize                 pulumi.StringPtrInput        `pulumi:"vmSize"`
-	VnetConfig             VirtualNetworkConfigPtrInput `pulumi:"vnetConfig"`
+	OsDiskSizeGB pulumi.IntPtrInput           `pulumi:"osDiskSizeGB"`
+	VmSize       pulumi.StringPtrInput        `pulumi:"vmSize"`
+	VnetConfig   VirtualNetworkConfigPtrInput `pulumi:"vnetConfig"`
 }
 
 func (ImageTemplateVmProfileArgs) ElementType() reflect.Type {
@@ -2149,10 +2141,6 @@ func (o ImageTemplateVmProfileOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageTemplateVmProfile) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-func (o ImageTemplateVmProfileOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ImageTemplateVmProfile) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
-}
-
 func (o ImageTemplateVmProfileOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageTemplateVmProfile) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -2194,15 +2182,6 @@ func (o ImageTemplateVmProfilePtrOutput) OsDiskSizeGB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-func (o ImageTemplateVmProfilePtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ImageTemplateVmProfile) []string {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(pulumi.StringArrayOutput)
-}
-
 func (o ImageTemplateVmProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageTemplateVmProfile) *string {
 		if v == nil {
@@ -2222,10 +2201,9 @@ func (o ImageTemplateVmProfilePtrOutput) VnetConfig() VirtualNetworkConfigPtrOut
 }
 
 type ImageTemplateVmProfileResponse struct {
-	OsDiskSizeGB           *int                          `pulumi:"osDiskSizeGB"`
-	UserAssignedIdentities []string                      `pulumi:"userAssignedIdentities"`
-	VmSize                 *string                       `pulumi:"vmSize"`
-	VnetConfig             *VirtualNetworkConfigResponse `pulumi:"vnetConfig"`
+	OsDiskSizeGB *int                          `pulumi:"osDiskSizeGB"`
+	VmSize       *string                       `pulumi:"vmSize"`
+	VnetConfig   *VirtualNetworkConfigResponse `pulumi:"vnetConfig"`
 }
 
 
@@ -2240,10 +2218,9 @@ type ImageTemplateVmProfileResponseInput interface {
 }
 
 type ImageTemplateVmProfileResponseArgs struct {
-	OsDiskSizeGB           pulumi.IntPtrInput                   `pulumi:"osDiskSizeGB"`
-	UserAssignedIdentities pulumi.StringArrayInput              `pulumi:"userAssignedIdentities"`
-	VmSize                 pulumi.StringPtrInput                `pulumi:"vmSize"`
-	VnetConfig             VirtualNetworkConfigResponsePtrInput `pulumi:"vnetConfig"`
+	OsDiskSizeGB pulumi.IntPtrInput                   `pulumi:"osDiskSizeGB"`
+	VmSize       pulumi.StringPtrInput                `pulumi:"vmSize"`
+	VnetConfig   VirtualNetworkConfigResponsePtrInput `pulumi:"vnetConfig"`
 }
 
 func (ImageTemplateVmProfileResponseArgs) ElementType() reflect.Type {
@@ -2327,10 +2304,6 @@ func (o ImageTemplateVmProfileResponseOutput) OsDiskSizeGB() pulumi.IntPtrOutput
 	return o.ApplyT(func(v ImageTemplateVmProfileResponse) *int { return v.OsDiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-func (o ImageTemplateVmProfileResponseOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ImageTemplateVmProfileResponse) []string { return v.UserAssignedIdentities }).(pulumi.StringArrayOutput)
-}
-
 func (o ImageTemplateVmProfileResponseOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageTemplateVmProfileResponse) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -2370,15 +2343,6 @@ func (o ImageTemplateVmProfileResponsePtrOutput) OsDiskSizeGB() pulumi.IntPtrOut
 		}
 		return v.OsDiskSizeGB
 	}).(pulumi.IntPtrOutput)
-}
-
-func (o ImageTemplateVmProfileResponsePtrOutput) UserAssignedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ImageTemplateVmProfileResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(pulumi.StringArrayOutput)
 }
 
 func (o ImageTemplateVmProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
@@ -3019,217 +2983,8 @@ func (o ProvisioningErrorResponsePtrOutput) ProvisioningErrorCode() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-type SystemDataResponse struct {
-	CreatedAt          *string `pulumi:"createdAt"`
-	CreatedBy          *string `pulumi:"createdBy"`
-	CreatedByType      *string `pulumi:"createdByType"`
-	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
-	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-}
-
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
-type SystemDataResponseOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
-}
-
-func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
-}
-
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 type VirtualNetworkConfig struct {
-	ProxyVmSize *string `pulumi:"proxyVmSize"`
-	SubnetId    *string `pulumi:"subnetId"`
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 
@@ -3244,8 +2999,7 @@ type VirtualNetworkConfigInput interface {
 }
 
 type VirtualNetworkConfigArgs struct {
-	ProxyVmSize pulumi.StringPtrInput `pulumi:"proxyVmSize"`
-	SubnetId    pulumi.StringPtrInput `pulumi:"subnetId"`
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (VirtualNetworkConfigArgs) ElementType() reflect.Type {
@@ -3325,10 +3079,6 @@ func (o VirtualNetworkConfigOutput) ToVirtualNetworkConfigPtrOutputWithContext(c
 	}).(VirtualNetworkConfigPtrOutput)
 }
 
-func (o VirtualNetworkConfigOutput) ProxyVmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkConfig) *string { return v.ProxyVmSize }).(pulumi.StringPtrOutput)
-}
-
 func (o VirtualNetworkConfigOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkConfig) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -3357,15 +3107,6 @@ func (o VirtualNetworkConfigPtrOutput) Elem() VirtualNetworkConfigOutput {
 	}).(VirtualNetworkConfigOutput)
 }
 
-func (o VirtualNetworkConfigPtrOutput) ProxyVmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProxyVmSize
-	}).(pulumi.StringPtrOutput)
-}
-
 func (o VirtualNetworkConfigPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkConfig) *string {
 		if v == nil {
@@ -3376,8 +3117,7 @@ func (o VirtualNetworkConfigPtrOutput) SubnetId() pulumi.StringPtrOutput {
 }
 
 type VirtualNetworkConfigResponse struct {
-	ProxyVmSize *string `pulumi:"proxyVmSize"`
-	SubnetId    *string `pulumi:"subnetId"`
+	SubnetId *string `pulumi:"subnetId"`
 }
 
 
@@ -3392,8 +3132,7 @@ type VirtualNetworkConfigResponseInput interface {
 }
 
 type VirtualNetworkConfigResponseArgs struct {
-	ProxyVmSize pulumi.StringPtrInput `pulumi:"proxyVmSize"`
-	SubnetId    pulumi.StringPtrInput `pulumi:"subnetId"`
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 }
 
 func (VirtualNetworkConfigResponseArgs) ElementType() reflect.Type {
@@ -3473,10 +3212,6 @@ func (o VirtualNetworkConfigResponseOutput) ToVirtualNetworkConfigResponsePtrOut
 	}).(VirtualNetworkConfigResponsePtrOutput)
 }
 
-func (o VirtualNetworkConfigResponseOutput) ProxyVmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualNetworkConfigResponse) *string { return v.ProxyVmSize }).(pulumi.StringPtrOutput)
-}
-
 func (o VirtualNetworkConfigResponseOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkConfigResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -3503,15 +3238,6 @@ func (o VirtualNetworkConfigResponsePtrOutput) Elem() VirtualNetworkConfigRespon
 		var ret VirtualNetworkConfigResponse
 		return ret
 	}).(VirtualNetworkConfigResponseOutput)
-}
-
-func (o VirtualNetworkConfigResponsePtrOutput) ProxyVmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualNetworkConfigResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProxyVmSize
-	}).(pulumi.StringPtrOutput)
 }
 
 func (o VirtualNetworkConfigResponsePtrOutput) SubnetId() pulumi.StringPtrOutput {
@@ -3564,8 +3290,6 @@ func init() {
 	pulumi.RegisterOutputType(PlatformImagePurchasePlanResponsePtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningErrorResponseOutput{})
 	pulumi.RegisterOutputType(ProvisioningErrorResponsePtrOutput{})
-	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigResponseOutput{})

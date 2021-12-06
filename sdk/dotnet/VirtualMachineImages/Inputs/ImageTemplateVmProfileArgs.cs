@@ -21,20 +21,8 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         [Input("osDiskSizeGB")]
         public Input<int>? OsDiskSizeGB { get; set; }
 
-        [Input("userAssignedIdentities")]
-        private InputList<string>? _userAssignedIdentities;
-
         /// <summary>
-        /// Optional array of resource IDs of user assigned managed identities to be configured on the build VM. This may include the identity of the image template.
-        /// </summary>
-        public InputList<string> UserAssignedIdentities
-        {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
-            set => _userAssignedIdentities = value;
-        }
-
-        /// <summary>
-        /// Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D2ds_v4).
+        /// Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }

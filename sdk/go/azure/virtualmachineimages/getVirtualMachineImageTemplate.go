@@ -34,7 +34,6 @@ type LookupVirtualMachineImageTemplateResult struct {
 	ProvisioningError     ProvisioningErrorResponse          `pulumi:"provisioningError"`
 	ProvisioningState     string                             `pulumi:"provisioningState"`
 	Source                interface{}                        `pulumi:"source"`
-	SystemData            SystemDataResponse                 `pulumi:"systemData"`
 	Tags                  map[string]string                  `pulumi:"tags"`
 	Type                  string                             `pulumi:"type"`
 	VmProfile             *ImageTemplateVmProfileResponse    `pulumi:"vmProfile"`

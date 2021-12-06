@@ -21,7 +21,7 @@ class GetVirtualMachineImageTemplateResult:
     """
     Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
     """
-    def __init__(__self__, build_timeout_in_minutes=None, customize=None, distribute=None, id=None, identity=None, last_run_status=None, location=None, name=None, provisioning_error=None, provisioning_state=None, source=None, system_data=None, tags=None, type=None, vm_profile=None):
+    def __init__(__self__, build_timeout_in_minutes=None, customize=None, distribute=None, id=None, identity=None, last_run_status=None, location=None, name=None, provisioning_error=None, provisioning_state=None, source=None, tags=None, type=None, vm_profile=None):
         if build_timeout_in_minutes and not isinstance(build_timeout_in_minutes, int):
             raise TypeError("Expected argument 'build_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "build_timeout_in_minutes", build_timeout_in_minutes)
@@ -55,9 +55,6 @@ class GetVirtualMachineImageTemplateResult:
         if source and not isinstance(source, dict):
             raise TypeError("Expected argument 'source' to be a dict")
         pulumi.set(__self__, "source", source)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -96,7 +93,7 @@ class GetVirtualMachineImageTemplateResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Resource Id
         """
         return pulumi.get(self, "id")
 
@@ -120,7 +117,7 @@ class GetVirtualMachineImageTemplateResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        The geo-location where the resource lives
+        Resource location
         """
         return pulumi.get(self, "location")
 
@@ -128,7 +125,7 @@ class GetVirtualMachineImageTemplateResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource
+        Resource name
         """
         return pulumi.get(self, "name")
 
@@ -157,18 +154,10 @@ class GetVirtualMachineImageTemplateResult:
         return pulumi.get(self, "source")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags.
+        Resource tags
         """
         return pulumi.get(self, "tags")
 
@@ -176,7 +165,7 @@ class GetVirtualMachineImageTemplateResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type
         """
         return pulumi.get(self, "type")
 
@@ -206,7 +195,6 @@ class AwaitableGetVirtualMachineImageTemplateResult(GetVirtualMachineImageTempla
             provisioning_error=self.provisioning_error,
             provisioning_state=self.provisioning_state,
             source=self.source,
-            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             vm_profile=self.vm_profile)
@@ -217,7 +205,7 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineImageTemplateResult:
     """
     Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-    API Version: 2021-10-01.
+    API Version: 2020-02-14.
 
 
     :param str image_template_name: The name of the image Template
@@ -244,7 +232,6 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
         provisioning_error=__ret__.provisioning_error,
         provisioning_state=__ret__.provisioning_state,
         source=__ret__.source,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         vm_profile=__ret__.vm_profile)
@@ -256,7 +243,7 @@ def get_virtual_machine_image_template_output(image_template_name: Optional[pulu
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineImageTemplateResult]:
     """
     Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-    API Version: 2021-10-01.
+    API Version: 2020-02-14.
 
 
     :param str image_template_name: The name of the image Template

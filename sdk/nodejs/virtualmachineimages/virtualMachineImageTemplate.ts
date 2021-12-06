@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
- * API Version: 2021-10-01.
+ * API Version: 2020-02-14.
  */
 export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
@@ -57,11 +57,11 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastRunStatus!: pulumi.Output<outputs.virtualmachineimages.ImageTemplateLastRunStatusResponse>;
     /**
-     * The geo-location where the resource lives
+     * Resource location
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the resource
+     * Resource name
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -77,15 +77,11 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.virtualmachineimages.ImageTemplateManagedImageSourceResponse | outputs.virtualmachineimages.ImageTemplatePlatformImageSourceResponse | outputs.virtualmachineimages.ImageTemplateSharedImageVersionSourceResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.virtualmachineimages.SystemDataResponse>;
-    /**
-     * Resource tags.
+     * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -130,7 +126,6 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["provisioningError"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["buildTimeoutInMinutes"] = undefined /*out*/;
@@ -143,7 +138,6 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
             inputs["provisioningError"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["source"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["vmProfile"] = undefined /*out*/;
@@ -182,7 +176,7 @@ export interface VirtualMachineImageTemplateArgs {
      */
     imageTemplateName?: pulumi.Input<string>;
     /**
-     * The geo-location where the resource lives
+     * Resource location
      */
     location?: pulumi.Input<string>;
     /**
@@ -194,7 +188,7 @@ export interface VirtualMachineImageTemplateArgs {
      */
     source: pulumi.Input<inputs.virtualmachineimages.ImageTemplateManagedImageSourceArgs | inputs.virtualmachineimages.ImageTemplatePlatformImageSourceArgs | inputs.virtualmachineimages.ImageTemplateSharedImageVersionSourceArgs>;
     /**
-     * Resource tags.
+     * Resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

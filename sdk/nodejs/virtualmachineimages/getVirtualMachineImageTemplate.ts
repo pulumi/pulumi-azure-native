@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
- * API Version: 2021-10-01.
+ * API Version: 2020-02-14.
  */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
     if (!opts) {
@@ -51,7 +51,7 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly distribute: (outputs.virtualmachineimages.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateVhdDistributorResponse)[];
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Resource Id
      */
     readonly id: string;
     /**
@@ -63,11 +63,11 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly lastRunStatus: outputs.virtualmachineimages.ImageTemplateLastRunStatusResponse;
     /**
-     * The geo-location where the resource lives
+     * Resource location
      */
     readonly location: string;
     /**
-     * The name of the resource
+     * Resource name
      */
     readonly name: string;
     /**
@@ -83,15 +83,11 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly source: outputs.virtualmachineimages.ImageTemplateManagedImageSourceResponse | outputs.virtualmachineimages.ImageTemplatePlatformImageSourceResponse | outputs.virtualmachineimages.ImageTemplateSharedImageVersionSourceResponse;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.virtualmachineimages.SystemDataResponse;
-    /**
-     * Resource tags.
+     * Resource tags
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * Resource type
      */
     readonly type: string;
     /**

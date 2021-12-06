@@ -28,7 +28,6 @@ __all__ = [
     'ImageTemplateWindowsUpdateCustomizerResponse',
     'PlatformImagePurchasePlanResponse',
     'ProvisioningErrorResponse',
-    'SystemDataResponse',
     'VirtualNetworkConfigResponse',
 ]
 
@@ -469,9 +468,7 @@ class ImageTemplatePlatformImageSourceResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "exactVersion":
-            suggest = "exact_version"
-        elif key == "planInfo":
+        if key == "planInfo":
             suggest = "plan_info"
 
         if suggest:
@@ -486,7 +483,6 @@ class ImageTemplatePlatformImageSourceResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 exact_version: str,
                  type: str,
                  offer: Optional[str] = None,
                  plan_info: Optional['outputs.PlatformImagePurchasePlanResponse'] = None,
@@ -495,16 +491,14 @@ class ImageTemplatePlatformImageSourceResponse(dict):
                  version: Optional[str] = None):
         """
         Describes an image source from [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
-        :param str exact_version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). This readonly field differs from 'version', only if the value specified in 'version' field is 'latest'.
         :param str type: Specifies the type of source image you want to start with.
                Expected value is 'PlatformImage'.
         :param str offer: Image offer from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param 'PlatformImagePurchasePlanResponse' plan_info: Optional configuration of purchase plan for platform image.
         :param str publisher: Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param str sku: Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
-        :param str version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
+        :param str version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
         """
-        pulumi.set(__self__, "exact_version", exact_version)
         pulumi.set(__self__, "type", 'PlatformImage')
         if offer is not None:
             pulumi.set(__self__, "offer", offer)
@@ -516,14 +510,6 @@ class ImageTemplatePlatformImageSourceResponse(dict):
             pulumi.set(__self__, "sku", sku)
         if version is not None:
             pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="exactVersion")
-    def exact_version(self) -> str:
-        """
-        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). This readonly field differs from 'version', only if the value specified in 'version' field is 'latest'.
-        """
-        return pulumi.get(self, "exact_version")
 
     @property
     @pulumi.getter
@@ -570,7 +556,7 @@ class ImageTemplatePlatformImageSourceResponse(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
+        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
         """
         return pulumi.get(self, "version")
 
@@ -1150,8 +1136,6 @@ class ImageTemplateVmProfileResponse(dict):
         suggest = None
         if key == "osDiskSizeGB":
             suggest = "os_disk_size_gb"
-        elif key == "userAssignedIdentities":
-            suggest = "user_assigned_identities"
         elif key == "vmSize":
             suggest = "vm_size"
         elif key == "vnetConfig":
@@ -1170,22 +1154,18 @@ class ImageTemplateVmProfileResponse(dict):
 
     def __init__(__self__, *,
                  os_disk_size_gb: Optional[int] = None,
-                 user_assigned_identities: Optional[Sequence[str]] = None,
                  vm_size: Optional[str] = None,
                  vnet_config: Optional['outputs.VirtualNetworkConfigResponse'] = None):
         """
         Describes the virtual machine used to build, customize and capture images
         :param int os_disk_size_gb: Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
-        :param Sequence[str] user_assigned_identities: Optional array of resource IDs of user assigned managed identities to be configured on the build VM. This may include the identity of the image template.
-        :param str vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D2ds_v4).
+        :param str vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         :param 'VirtualNetworkConfigResponse' vnet_config: Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
         """
         if os_disk_size_gb is None:
             os_disk_size_gb = 0
         if os_disk_size_gb is not None:
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
         if vm_size is None:
             vm_size = ''
         if vm_size is not None:
@@ -1202,18 +1182,10 @@ class ImageTemplateVmProfileResponse(dict):
         return pulumi.get(self, "os_disk_size_gb")
 
     @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Sequence[str]]:
-        """
-        Optional array of resource IDs of user assigned managed identities to be configured on the build VM. This may include the identity of the image template.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @property
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[str]:
         """
-        Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D2ds_v4).
+        Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         """
         return pulumi.get(self, "vm_size")
 
@@ -1435,116 +1407,6 @@ class ProvisioningErrorResponse(dict):
 
 
 @pulumi.output_type
-class SystemDataResponse(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 created_by: Optional[str] = None,
-                 created_by_type: Optional[str] = None,
-                 last_modified_at: Optional[str] = None,
-                 last_modified_by: Optional[str] = None,
-                 last_modified_by_type: Optional[str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
 class VirtualNetworkConfigResponse(dict):
     """
     Virtual Network configuration.
@@ -1552,9 +1414,7 @@ class VirtualNetworkConfigResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "proxyVmSize":
-            suggest = "proxy_vm_size"
-        elif key == "subnetId":
+        if key == "subnetId":
             suggest = "subnet_id"
 
         if suggest:
@@ -1569,27 +1429,13 @@ class VirtualNetworkConfigResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 proxy_vm_size: Optional[str] = None,
                  subnet_id: Optional[str] = None):
         """
         Virtual Network configuration.
-        :param str proxy_vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         :param str subnet_id: Resource id of a pre-existing subnet.
         """
-        if proxy_vm_size is None:
-            proxy_vm_size = ''
-        if proxy_vm_size is not None:
-            pulumi.set(__self__, "proxy_vm_size", proxy_vm_size)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
-
-    @property
-    @pulumi.getter(name="proxyVmSize")
-    def proxy_vm_size(self) -> Optional[str]:
-        """
-        Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
-        """
-        return pulumi.get(self, "proxy_vm_size")
 
     @property
     @pulumi.getter(name="subnetId")

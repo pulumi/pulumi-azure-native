@@ -301,7 +301,7 @@ class ImageTemplatePlatformImageSourceArgs:
         :param pulumi.Input['PlatformImagePurchasePlanArgs'] plan_info: Optional configuration of purchase plan for platform image.
         :param pulumi.Input[str] publisher: Image Publisher in [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
         :param pulumi.Input[str] sku: Image sku from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages).
-        :param pulumi.Input[str] version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
+        :param pulumi.Input[str] version: Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
         """
         pulumi.set(__self__, "type", 'PlatformImage')
         if offer is not None:
@@ -380,7 +380,7 @@ class ImageTemplatePlatformImageSourceArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted.
+        Image version from the [Azure Gallery Images](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachineimages). If 'latest' is specified here, the version is evaluated when the image build takes place, not when the template is submitted. Specifying 'latest' could cause ROUNDTRIP_INCONSISTENT_PROPERTY issue which will be fixed.
         """
         return pulumi.get(self, "version")
 
@@ -932,22 +932,18 @@ class ImageTemplateVhdDistributorArgs:
 class ImageTemplateVmProfileArgs:
     def __init__(__self__, *,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_config: Optional[pulumi.Input['VirtualNetworkConfigArgs']] = None):
         """
         Describes the virtual machine used to build, customize and capture images
         :param pulumi.Input[int] os_disk_size_gb: Size of the OS disk in GB. Omit or specify 0 to use Azure's default OS disk size.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Optional array of resource IDs of user assigned managed identities to be configured on the build VM. This may include the identity of the image template.
-        :param pulumi.Input[str] vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D2ds_v4).
+        :param pulumi.Input[str] vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         :param pulumi.Input['VirtualNetworkConfigArgs'] vnet_config: Optional configuration of the virtual network to use to deploy the build virtual machine in. Omit if no specific virtual network needs to be used.
         """
         if os_disk_size_gb is None:
             os_disk_size_gb = 0
         if os_disk_size_gb is not None:
             pulumi.set(__self__, "os_disk_size_gb", os_disk_size_gb)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
         if vm_size is None:
             vm_size = ''
         if vm_size is not None:
@@ -968,22 +964,10 @@ class ImageTemplateVmProfileArgs:
         pulumi.set(self, "os_disk_size_gb", value)
 
     @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Optional array of resource IDs of user assigned managed identities to be configured on the build VM. This may include the identity of the image template.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "user_assigned_identities", value)
-
-    @property
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[pulumi.Input[str]]:
         """
-        Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D2ds_v4).
+        Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         """
         return pulumi.get(self, "vm_size")
 
@@ -1149,31 +1133,13 @@ class PlatformImagePurchasePlanArgs:
 @pulumi.input_type
 class VirtualNetworkConfigArgs:
     def __init__(__self__, *,
-                 proxy_vm_size: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Virtual Network configuration.
-        :param pulumi.Input[str] proxy_vm_size: Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
         :param pulumi.Input[str] subnet_id: Resource id of a pre-existing subnet.
         """
-        if proxy_vm_size is None:
-            proxy_vm_size = ''
-        if proxy_vm_size is not None:
-            pulumi.set(__self__, "proxy_vm_size", proxy_vm_size)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
-
-    @property
-    @pulumi.getter(name="proxyVmSize")
-    def proxy_vm_size(self) -> Optional[pulumi.Input[str]]:
-        """
-        Size of the virtual machine used to build, customize and capture images. Omit or specify empty string to use the default (Standard_D1_v2 for Gen1 images and Standard_D2ds_v4 for Gen2 images).
-        """
-        return pulumi.get(self, "proxy_vm_size")
-
-    @proxy_vm_size.setter
-    def proxy_vm_size(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "proxy_vm_size", value)
 
     @property
     @pulumi.getter(name="subnetId")

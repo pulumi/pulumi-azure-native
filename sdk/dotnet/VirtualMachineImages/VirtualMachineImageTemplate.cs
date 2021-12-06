@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
 {
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-    /// API Version: 2021-10-01.
+    /// API Version: 2020-02-14.
     /// </summary>
     [AzureNativeResourceType("azure-native:virtualmachineimages:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
@@ -47,13 +47,13 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         public Output<Outputs.ImageTemplateLastRunStatusResponse> LastRunStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The geo-location where the resource lives
+        /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource
+        /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -77,19 +77,13 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         public Output<object> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource tags.
+        /// Resource tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -196,7 +190,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         public Input<string>? ImageTemplateName { get; set; }
 
         /// <summary>
-        /// The geo-location where the resource lives
+        /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -217,7 +211,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags.
+        /// Resource tags
         /// </summary>
         public InputMap<string> Tags
         {

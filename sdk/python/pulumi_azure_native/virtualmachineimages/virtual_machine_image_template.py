@@ -35,8 +35,8 @@ class VirtualMachineImageTemplateArgs:
         :param pulumi.Input[int] build_timeout_in_minutes: Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]] customize: Specifies the properties used to describe the customization steps of the image, like Image source etc
         :param pulumi.Input[str] image_template_name: The name of the image Template
-        :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input['ImageTemplateVmProfileArgs'] vm_profile: Describes how virtual machine is set up to build images
         """
         pulumi.set(__self__, "distribute", distribute)
@@ -146,7 +146,7 @@ class VirtualMachineImageTemplateArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The geo-location where the resource lives
+        Resource location
         """
         return pulumi.get(self, "location")
 
@@ -158,7 +158,7 @@ class VirtualMachineImageTemplateArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags.
+        Resource tags
         """
         return pulumi.get(self, "tags")
 
@@ -197,7 +197,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  __props__=None):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-        API Version: 2021-10-01.
+        API Version: 2020-02-14.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -206,10 +206,10 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageDistributorArgs'], pulumi.InputType['ImageTemplateSharedImageDistributorArgs'], pulumi.InputType['ImageTemplateVhdDistributorArgs']]]]] distribute: The distribution targets where the image output needs to go to.
         :param pulumi.Input[pulumi.InputType['ImageTemplateIdentityArgs']] identity: The identity of the image template, if configured.
         :param pulumi.Input[str] image_template_name: The name of the image Template
-        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageSourceArgs'], pulumi.InputType['ImageTemplatePlatformImageSourceArgs'], pulumi.InputType['ImageTemplateSharedImageVersionSourceArgs']]] source: Specifies the properties used to describe the source image.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[pulumi.InputType['ImageTemplateVmProfileArgs']] vm_profile: Describes how virtual machine is set up to build images
         """
         ...
@@ -220,7 +220,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-        API Version: 2021-10-01.
+        API Version: 2020-02-14.
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineImageTemplateArgs args: The arguments to use to populate this resource's properties.
@@ -283,7 +283,6 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_error"] = None
             __props__.__dict__["provisioning_state"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -319,7 +318,6 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         __props__.__dict__["provisioning_error"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["source"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["vm_profile"] = None
@@ -369,7 +367,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The geo-location where the resource lives
+        Resource location
         """
         return pulumi.get(self, "location")
 
@@ -377,7 +375,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource
+        Resource name
         """
         return pulumi.get(self, "name")
 
@@ -406,18 +404,10 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         return pulumi.get(self, "source")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags.
+        Resource tags
         """
         return pulumi.get(self, "tags")
 
@@ -425,7 +415,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        Resource type
         """
         return pulumi.get(self, "type")
 
