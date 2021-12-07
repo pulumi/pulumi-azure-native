@@ -62005,6 +62005,7 @@
           "East Asia",
           "East US",
           "East US 2",
+          "Germany West Central",
           "Korea Central",
           "North Central US",
           "North Europe",
@@ -62013,7 +62014,9 @@
           "UK South",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "caches"
@@ -62041,6 +62044,7 @@
           "East Asia",
           "East US",
           "East US 2",
+          "Germany West Central",
           "Korea Central",
           "North Central US",
           "North Europe",
@@ -62049,7 +62053,9 @@
           "UK South",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "caches/storageTargets"
@@ -62077,6 +62083,7 @@
           "East Asia",
           "East US",
           "East US 2",
+          "Germany West Central",
           "Korea Central",
           "North Central US",
           "North Europe",
@@ -62085,7 +62092,9 @@
           "UK South",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "operations"
@@ -62113,6 +62122,7 @@
           "East Asia",
           "East US",
           "East US 2",
+          "Germany West Central",
           "Korea Central",
           "North Central US",
           "North Europe",
@@ -62121,7 +62131,9 @@
           "UK South",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "usageModels"
@@ -62169,6 +62181,7 @@
           "East Asia",
           "East US",
           "East US 2",
+          "Germany West Central",
           "Korea Central",
           "North Central US",
           "North Europe",
@@ -62177,7 +62190,9 @@
           "UK South",
           "West Europe",
           "West US",
-          "West US 2"
+          "West US 2",
+          "West US 3",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "locations/ascoperations"
@@ -77119,7 +77134,8 @@
         "applicationId": "cc570765-1097-4b9b-8042-24fba911ec87"
       },
       {
-        "applicationId": "8d5683a1-43b9-4f38-8906-504eae3c36c9"
+        "applicationId": "8d5683a1-43b9-4f38-8906-504eae3c36c9",
+        "roleDefinitionId": "22c73b79-f883-4780-b42d-98397ebe51b7"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/microsoft.aadiam",
@@ -91433,7 +91449,7 @@
         "apiVersions": [
           "2020-03-01-preview"
         ],
-        "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
+        "capabilities": "CrossResourceGroupResourceMove, CrossSubscriptionResourceMove, SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
@@ -94733,6 +94749,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2022-01-01-preview",
           "2021-11-01-preview",
           "2021-09-01",
           "2021-06-01-preview",
@@ -103926,6 +103943,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2017-11-01-preview"
         ],
         "capabilities": "None",
@@ -103941,6 +103959,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2020-09-01",
           "2019-10-01-preview",
           "2019-03-01-preview"
@@ -103958,6 +103977,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2020-09-01",
           "2019-10-01-preview",
           "2019-03-01-preview"
@@ -103975,6 +103995,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2020-09-01",
           "2019-10-01-preview",
           "2019-03-01-preview"
@@ -104006,6 +104027,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-01-01-privatepreview",
           "2020-09-01",
           "2019-10-01-preview"
@@ -104078,6 +104100,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-01-01-privatepreview"
         ],
         "capabilities": "SupportsExtension",
@@ -104091,6 +104114,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-01-01-privatepreview"
         ],
         "capabilities": "None",
@@ -104104,6 +104128,7 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
+          "2021-10-01",
           "2021-01-01-privatepreview"
         ],
         "capabilities": "None",

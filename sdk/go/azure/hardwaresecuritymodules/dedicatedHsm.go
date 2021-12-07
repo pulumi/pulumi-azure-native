@@ -1,0 +1,141 @@
+
+
+
+package hardwaresecuritymodules
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type DedicatedHsm struct {
+	pulumi.CustomResourceState
+
+	Location          pulumi.StringOutput             `pulumi:"location"`
+	Name              pulumi.StringOutput             `pulumi:"name"`
+	NetworkProfile    NetworkProfileResponsePtrOutput `pulumi:"networkProfile"`
+	ProvisioningState pulumi.StringOutput             `pulumi:"provisioningState"`
+	Sku               SkuResponseOutput               `pulumi:"sku"`
+	StampId           pulumi.StringPtrOutput          `pulumi:"stampId"`
+	StatusMessage     pulumi.StringOutput             `pulumi:"statusMessage"`
+	Tags              pulumi.StringMapOutput          `pulumi:"tags"`
+	Type              pulumi.StringOutput             `pulumi:"type"`
+	Zones             pulumi.StringArrayOutput        `pulumi:"zones"`
+}
+
+
+func NewDedicatedHsm(ctx *pulumi.Context,
+	name string, args *DedicatedHsmArgs, opts ...pulumi.ResourceOption) (*DedicatedHsm, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
+	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource DedicatedHsm
+	err := ctx.RegisterResource("azure-native:hardwaresecuritymodules:DedicatedHsm", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetDedicatedHsm(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *DedicatedHsmState, opts ...pulumi.ResourceOption) (*DedicatedHsm, error) {
+	var resource DedicatedHsm
+	err := ctx.ReadResource("azure-native:hardwaresecuritymodules:DedicatedHsm", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type dedicatedHsmState struct {
+}
+
+type DedicatedHsmState struct {
+}
+
+func (DedicatedHsmState) ElementType() reflect.Type {
+	return reflect.TypeOf((*dedicatedHsmState)(nil)).Elem()
+}
+
+type dedicatedHsmArgs struct {
+	Location          *string           `pulumi:"location"`
+	Name              *string           `pulumi:"name"`
+	NetworkProfile    *NetworkProfile   `pulumi:"networkProfile"`
+	ResourceGroupName string            `pulumi:"resourceGroupName"`
+	Sku               Sku               `pulumi:"sku"`
+	StampId           *string           `pulumi:"stampId"`
+	Tags              map[string]string `pulumi:"tags"`
+	Zones             []string          `pulumi:"zones"`
+}
+
+
+type DedicatedHsmArgs struct {
+	Location          pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	NetworkProfile    NetworkProfilePtrInput
+	ResourceGroupName pulumi.StringInput
+	Sku               SkuInput
+	StampId           pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	Zones             pulumi.StringArrayInput
+}
+
+func (DedicatedHsmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*dedicatedHsmArgs)(nil)).Elem()
+}
+
+type DedicatedHsmInput interface {
+	pulumi.Input
+
+	ToDedicatedHsmOutput() DedicatedHsmOutput
+	ToDedicatedHsmOutputWithContext(ctx context.Context) DedicatedHsmOutput
+}
+
+func (*DedicatedHsm) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedHsm)(nil))
+}
+
+func (i *DedicatedHsm) ToDedicatedHsmOutput() DedicatedHsmOutput {
+	return i.ToDedicatedHsmOutputWithContext(context.Background())
+}
+
+func (i *DedicatedHsm) ToDedicatedHsmOutputWithContext(ctx context.Context) DedicatedHsmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DedicatedHsmOutput)
+}
+
+type DedicatedHsmOutput struct{ *pulumi.OutputState }
+
+func (DedicatedHsmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DedicatedHsm)(nil))
+}
+
+func (o DedicatedHsmOutput) ToDedicatedHsmOutput() DedicatedHsmOutput {
+	return o
+}
+
+func (o DedicatedHsmOutput) ToDedicatedHsmOutputWithContext(ctx context.Context) DedicatedHsmOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DedicatedHsmOutput{})
+}
