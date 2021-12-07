@@ -22,9 +22,8 @@ type LookupAliasArgs struct {
 
 
 type LookupAliasResult struct {
-	Id         string                                      `pulumi:"id"`
-	Name       string                                      `pulumi:"name"`
-	Properties SubscriptionAliasResponsePropertiesResponse `pulumi:"properties"`
-	SystemData SystemDataResponse                          `pulumi:"systemData"`
-	Type       string                                      `pulumi:"type"`
+	Id         string                             `pulumi:"id"`
+	Name       string                             `pulumi:"name"`
+	Properties PutAliasResponsePropertiesResponse `pulumi:"properties"`
+	Type       string                             `pulumi:"type"`
 }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Subscription Information with the alias.
- * API Version: 2021-10-01.
+ * API Version: 2020-09-01.
  */
 export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
     if (!opts) {
@@ -24,7 +24,7 @@ export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetAliasArgs {
     /**
-     * AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+     * Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
      */
     aliasName: string;
 }
@@ -42,13 +42,9 @@ export interface GetAliasResult {
      */
     readonly name: string;
     /**
-     * Subscription Alias response properties.
+     * Put Alias response properties.
      */
-    readonly properties: outputs.subscription.SubscriptionAliasResponsePropertiesResponse;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.subscription.SystemDataResponse;
+    readonly properties: outputs.subscription.PutAliasResponsePropertiesResponse;
     /**
      * Resource type, Microsoft.Subscription/aliases.
      */
@@ -61,7 +57,7 @@ export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOpt
 
 export interface GetAliasOutputArgs {
     /**
-     * AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+     * Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
      */
     aliasName: pulumi.Input<string>;
 }

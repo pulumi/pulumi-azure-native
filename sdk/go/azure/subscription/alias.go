@@ -7,25 +7,28 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 type Alias struct {
 	pulumi.CustomResourceState
 
-	Name       pulumi.StringOutput                               `pulumi:"name"`
-	Properties SubscriptionAliasResponsePropertiesResponseOutput `pulumi:"properties"`
-	SystemData SystemDataResponseOutput                          `pulumi:"systemData"`
-	Type       pulumi.StringOutput                               `pulumi:"type"`
+	Name       pulumi.StringOutput                      `pulumi:"name"`
+	Properties PutAliasResponsePropertiesResponseOutput `pulumi:"properties"`
+	Type       pulumi.StringOutput                      `pulumi:"type"`
 }
 
 
 func NewAlias(ctx *pulumi.Context,
 	name string, args *AliasArgs, opts ...pulumi.ResourceOption) (*Alias, error) {
 	if args == nil {
-		args = &AliasArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:subscription/v20191001preview:Alias"),
@@ -70,14 +73,14 @@ func (AliasState) ElementType() reflect.Type {
 }
 
 type aliasArgs struct {
-	AliasName  *string                    `pulumi:"aliasName"`
-	Properties *PutAliasRequestProperties `pulumi:"properties"`
+	AliasName  *string                   `pulumi:"aliasName"`
+	Properties PutAliasRequestProperties `pulumi:"properties"`
 }
 
 
 type AliasArgs struct {
 	AliasName  pulumi.StringPtrInput
-	Properties PutAliasRequestPropertiesPtrInput
+	Properties PutAliasRequestPropertiesInput
 }
 
 func (AliasArgs) ElementType() reflect.Type {

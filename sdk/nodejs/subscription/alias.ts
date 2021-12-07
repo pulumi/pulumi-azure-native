@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Subscription Information with the alias.
- * API Version: 2021-10-01.
+ * API Version: 2020-09-01.
  */
 export class Alias extends pulumi.CustomResource {
     /**
@@ -41,13 +41,9 @@ export class Alias extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Subscription Alias response properties.
+     * Put Alias response properties.
      */
-    public readonly properties!: pulumi.Output<outputs.subscription.SubscriptionAliasResponsePropertiesResponse>;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.subscription.SystemDataResponse>;
+    public readonly properties!: pulumi.Output<outputs.subscription.PutAliasResponsePropertiesResponse>;
     /**
      * Resource type, Microsoft.Subscription/aliases.
      */
@@ -60,19 +56,20 @@ export class Alias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AliasArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             inputs["aliasName"] = args ? args.aliasName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -89,11 +86,11 @@ export class Alias extends pulumi.CustomResource {
  */
 export interface AliasArgs {
     /**
-     * AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+     * Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
      */
     aliasName?: pulumi.Input<string>;
     /**
      * Put alias request properties.
      */
-    properties?: pulumi.Input<inputs.subscription.PutAliasRequestPropertiesArgs>;
+    properties: pulumi.Input<inputs.subscription.PutAliasRequestPropertiesArgs>;
 }
