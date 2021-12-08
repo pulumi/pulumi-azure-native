@@ -1,0 +1,43 @@
+
+
+
+package v20191201preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupSubscription(ctx *pulumi.Context, args *LookupSubscriptionArgs, opts ...pulumi.InvokeOption) (*LookupSubscriptionResult, error) {
+	var rv LookupSubscriptionResult
+	err := ctx.Invoke("azure-native:apimanagement/v20191201preview:getSubscription", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupSubscriptionArgs struct {
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ServiceName       string `pulumi:"serviceName"`
+	Sid               string `pulumi:"sid"`
+}
+
+
+type LookupSubscriptionResult struct {
+	AllowTracing     *bool   `pulumi:"allowTracing"`
+	CreatedDate      string  `pulumi:"createdDate"`
+	DisplayName      *string `pulumi:"displayName"`
+	EndDate          *string `pulumi:"endDate"`
+	ExpirationDate   *string `pulumi:"expirationDate"`
+	Id               string  `pulumi:"id"`
+	Name             string  `pulumi:"name"`
+	NotificationDate *string `pulumi:"notificationDate"`
+	OwnerId          *string `pulumi:"ownerId"`
+	PrimaryKey       *string `pulumi:"primaryKey"`
+	Scope            string  `pulumi:"scope"`
+	SecondaryKey     *string `pulumi:"secondaryKey"`
+	StartDate        *string `pulumi:"startDate"`
+	State            string  `pulumi:"state"`
+	StateComment     *string `pulumi:"stateComment"`
+	Type             string  `pulumi:"type"`
+}
