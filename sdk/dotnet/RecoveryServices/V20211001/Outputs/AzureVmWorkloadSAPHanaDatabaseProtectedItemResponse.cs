@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
+        /// Flag to identify whether datasource is protected in archive
+        /// </summary>
+        public readonly bool? IsArchiveEnabled;
+        /// <summary>
         /// Flag to identify whether the deferred deleted DS is to be purged soon
         /// </summary>
         public readonly bool? IsDeferredDeleteScheduleUpcoming;
@@ -92,6 +96,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
         /// ID of the backup policy with which this item is backed up.
         /// </summary>
         public readonly string? PolicyId;
+        /// <summary>
+        /// Name of the policy used for protection
+        /// </summary>
+        public readonly string? PolicyName;
         /// <summary>
         /// Data ID of the protected item.
         /// </summary>
@@ -148,6 +156,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
 
             string? friendlyName,
 
+            bool? isArchiveEnabled,
+
             bool? isDeferredDeleteScheduleUpcoming,
 
             bool? isRehydrate,
@@ -169,6 +179,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
             string? parentType,
 
             string? policyId,
+
+            string? policyName,
 
             string? protectedItemDataSourceId,
 
@@ -196,6 +208,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
             DeferredDeleteTimeRemaining = deferredDeleteTimeRemaining;
             ExtendedInfo = extendedInfo;
             FriendlyName = friendlyName;
+            IsArchiveEnabled = isArchiveEnabled;
             IsDeferredDeleteScheduleUpcoming = isDeferredDeleteScheduleUpcoming;
             IsRehydrate = isRehydrate;
             IsScheduledForDeferredDelete = isScheduledForDeferredDelete;
@@ -207,6 +220,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
             ParentName = parentName;
             ParentType = parentType;
             PolicyId = policyId;
+            PolicyName = policyName;
             ProtectedItemDataSourceId = protectedItemDataSourceId;
             ProtectedItemHealthStatus = protectedItemHealthStatus;
             ProtectedItemType = protectedItemType;

@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.MABContainerHealthDetailsResponse> MabContainerHealthDetails;
         /// <summary>
+        /// Type of the protectable object associated with this container
+        /// </summary>
+        public readonly string? ProtectableObjectType;
+        /// <summary>
         /// Number of items backed up in this container.
         /// </summary>
         public readonly double? ProtectedItemCount;
@@ -91,6 +95,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
 
             ImmutableArray<Outputs.MABContainerHealthDetailsResponse> mabContainerHealthDetails,
 
+            string? protectableObjectType,
+
             double? protectedItemCount,
 
             string? registrationStatus)
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
             FriendlyName = friendlyName;
             HealthStatus = healthStatus;
             MabContainerHealthDetails = mabContainerHealthDetails;
+            ProtectableObjectType = protectableObjectType;
             ProtectedItemCount = protectedItemCount;
             RegistrationStatus = registrationStatus;
         }

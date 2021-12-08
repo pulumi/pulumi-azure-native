@@ -86,6 +86,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         }
 
         /// <summary>
+        /// Type of the protectable object associated with this container
+        /// </summary>
+        [Input("protectableObjectType")]
+        public Input<string>? ProtectableObjectType { get; set; }
+
+        /// <summary>
         /// Number of items backed up in this container.
         /// </summary>
         [Input("protectedItemCount")]

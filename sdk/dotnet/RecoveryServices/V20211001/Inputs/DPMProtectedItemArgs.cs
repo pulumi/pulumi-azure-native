@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         public Input<string>? FriendlyName { get; set; }
 
         /// <summary>
+        /// Flag to identify whether datasource is protected in archive
+        /// </summary>
+        [Input("isArchiveEnabled")]
+        public Input<bool>? IsArchiveEnabled { get; set; }
+
+        /// <summary>
         /// Flag to identify whether the deferred deleted DS is to be purged soon
         /// </summary>
         [Input("isDeferredDeleteScheduleUpcoming")]
@@ -98,6 +104,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
+
+        /// <summary>
+        /// Name of the policy used for protection
+        /// </summary>
+        [Input("policyName")]
+        public Input<string>? PolicyName { get; set; }
 
         /// <summary>
         /// backup item type.

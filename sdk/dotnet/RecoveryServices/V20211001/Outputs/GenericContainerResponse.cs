@@ -45,6 +45,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
         /// </summary>
         public readonly string? HealthStatus;
         /// <summary>
+        /// Type of the protectable object associated with this container
+        /// </summary>
+        public readonly string? ProtectableObjectType;
+        /// <summary>
         /// Status of registration of the container with the Recovery Services Vault.
         /// </summary>
         public readonly string? RegistrationStatus;
@@ -63,6 +67,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
 
             string? healthStatus,
 
+            string? protectableObjectType,
+
             string? registrationStatus)
         {
             BackupManagementType = backupManagementType;
@@ -71,6 +77,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
             FabricName = fabricName;
             FriendlyName = friendlyName;
             HealthStatus = healthStatus;
+            ProtectableObjectType = protectableObjectType;
             RegistrationStatus = registrationStatus;
         }
     }

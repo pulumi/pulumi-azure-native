@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         public Input<string>? PolicyState { get; set; }
 
         /// <summary>
+        /// Indicates consistency of policy object and policy applied to this backup item.
+        /// </summary>
+        [Input("recoveryModel")]
+        public Input<string>? RecoveryModel { get; set; }
+
+        /// <summary>
         /// Number of backup copies available for this backup item.
         /// </summary>
         [Input("recoveryPointCount")]

@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
         /// </summary>
         public readonly string? PolicyState;
         /// <summary>
+        /// Indicates consistency of policy object and policy applied to this backup item.
+        /// </summary>
+        public readonly string? RecoveryModel;
+        /// <summary>
         /// Number of backup copies available for this backup item.
         /// </summary>
         public readonly int? RecoveryPointCount;
@@ -35,10 +39,13 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
 
             string? policyState,
 
+            string? recoveryModel,
+
             int? recoveryPointCount)
         {
             OldestRecoveryPoint = oldestRecoveryPoint;
             PolicyState = policyState;
+            RecoveryModel = recoveryModel;
             RecoveryPointCount = recoveryPointCount;
         }
     }

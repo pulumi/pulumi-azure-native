@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
         /// </summary>
         public readonly string? HealthStatus;
         /// <summary>
+        /// Type of the protectable object associated with this container
+        /// </summary>
+        public readonly string? ProtectableObjectType;
+        /// <summary>
         /// Number of protected items in the BackupEngine
         /// </summary>
         public readonly double? ProtectedItemCount;
@@ -93,6 +97,8 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
 
             string? healthStatus,
 
+            string? protectableObjectType,
+
             double? protectedItemCount,
 
             string? protectionStatus,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Outputs
             ExtendedInfo = extendedInfo;
             FriendlyName = friendlyName;
             HealthStatus = healthStatus;
+            ProtectableObjectType = protectableObjectType;
             ProtectedItemCount = protectedItemCount;
             ProtectionStatus = protectionStatus;
             RegistrationStatus = registrationStatus;

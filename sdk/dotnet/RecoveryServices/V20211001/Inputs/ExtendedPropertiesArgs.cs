@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.RecoveryServices.V20211001.Inputs
         [Input("diskExclusionProperties")]
         public Input<Inputs.DiskExclusionPropertiesArgs>? DiskExclusionProperties { get; set; }
 
+        /// <summary>
+        /// Linux VM name
+        /// </summary>
+        [Input("linuxVmApplicationName")]
+        public Input<string>? LinuxVmApplicationName { get; set; }
+
         public ExtendedPropertiesArgs()
         {
         }

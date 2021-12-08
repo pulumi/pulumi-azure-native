@@ -2326,6 +2326,8 @@ class AzureBackupServerContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "protectedItemCount":
             suggest = "protected_item_count"
         elif key == "protectionStatus":
@@ -2356,6 +2358,7 @@ class AzureBackupServerContainerResponse(dict):
                  extended_info: Optional['outputs.DPMContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  protected_item_count: Optional[float] = None,
                  protection_status: Optional[str] = None,
                  registration_status: Optional[str] = None,
@@ -2375,6 +2378,7 @@ class AzureBackupServerContainerResponse(dict):
         :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param float protected_item_count: Number of protected items in the BackupEngine
         :param str protection_status: Protection status of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
@@ -2397,6 +2401,8 @@ class AzureBackupServerContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if protected_item_count is not None:
             pulumi.set(__self__, "protected_item_count", protected_item_count)
         if protection_status is not None:
@@ -2481,6 +2487,14 @@ class AzureBackupServerContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="protectedItemCount")
@@ -2839,6 +2853,8 @@ class AzureFileshareProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -2855,6 +2871,8 @@ class AzureFileshareProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectionState":
             suggest = "protection_state"
         elif key == "protectionStatus":
@@ -2887,6 +2905,7 @@ class AzureFileshareProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureFileshareProtectedItemExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -2895,6 +2914,7 @@ class AzureFileshareProtectedItemResponse(dict):
                  last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  protection_status: Optional[str] = None,
                  resource_guard_operation_requests: Optional[Sequence[str]] = None,
@@ -2912,6 +2932,7 @@ class AzureFileshareProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureFileshareProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of the fileshare represented by this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -2920,6 +2941,7 @@ class AzureFileshareProtectedItemResponse(dict):
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
         :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
@@ -2943,6 +2965,8 @@ class AzureFileshareProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -2959,6 +2983,8 @@ class AzureFileshareProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if protection_status is not None:
@@ -3044,6 +3070,14 @@ class AzureFileshareProtectedItemResponse(dict):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -3108,6 +3142,14 @@ class AzureFileshareProtectedItemResponse(dict):
         return pulumi.get(self, "policy_id")
 
     @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
     @pulumi.getter(name="protectionState")
     def protection_state(self) -> Optional[str]:
         """
@@ -3164,6 +3206,8 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "resourceGroup":
@@ -3189,6 +3233,7 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
                  virtual_machine_id: Optional[str] = None,
@@ -3203,6 +3248,7 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
         :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
@@ -3215,6 +3261,8 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if resource_group is not None:
@@ -3259,6 +3307,14 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="registrationStatus")
@@ -3325,6 +3381,8 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
             suggest = "health_details"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -3341,6 +3399,8 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataId":
             suggest = "protected_item_data_id"
         elif key == "protectionState":
@@ -3380,6 +3440,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
                  friendly_name: Optional[str] = None,
                  health_details: Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']] = None,
                  health_status: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -3388,6 +3449,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
                  last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_id: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  protection_status: Optional[str] = None,
@@ -3410,6 +3472,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         :param str friendly_name: Friendly name of the VM represented by this backup item.
         :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -3418,6 +3481,7 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_id: Data ID of the protected item.
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
@@ -3449,6 +3513,8 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
             pulumi.set(__self__, "health_details", health_details)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -3465,6 +3531,8 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_id is not None:
             pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         if protection_state is not None:
@@ -3578,6 +3646,14 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "health_status")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -3640,6 +3716,14 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataId")
@@ -3714,6 +3798,8 @@ class AzureIaaSComputeVMContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "resourceGroup":
@@ -3739,6 +3825,7 @@ class AzureIaaSComputeVMContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
                  virtual_machine_id: Optional[str] = None,
@@ -3753,6 +3840,7 @@ class AzureIaaSComputeVMContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
         :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
@@ -3765,6 +3853,8 @@ class AzureIaaSComputeVMContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if resource_group is not None:
@@ -3809,6 +3899,14 @@ class AzureIaaSComputeVMContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="registrationStatus")
@@ -3875,6 +3973,8 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
             suggest = "health_details"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -3891,6 +3991,8 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataId":
             suggest = "protected_item_data_id"
         elif key == "protectionState":
@@ -3930,6 +4032,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
                  friendly_name: Optional[str] = None,
                  health_details: Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']] = None,
                  health_status: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -3938,6 +4041,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
                  last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_id: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  protection_status: Optional[str] = None,
@@ -3960,6 +4064,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         :param str friendly_name: Friendly name of the VM represented by this backup item.
         :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -3968,6 +4073,7 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_id: Data ID of the protected item.
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
@@ -3999,6 +4105,8 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
             pulumi.set(__self__, "health_details", health_details)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -4015,6 +4123,8 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_id is not None:
             pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         if protection_state is not None:
@@ -4128,6 +4238,14 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "health_status")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -4190,6 +4308,14 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataId")
@@ -4403,6 +4529,8 @@ class AzureIaaSVMProtectedItemResponse(dict):
             suggest = "health_details"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -4419,6 +4547,8 @@ class AzureIaaSVMProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataId":
             suggest = "protected_item_data_id"
         elif key == "protectionState":
@@ -4458,6 +4588,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
                  friendly_name: Optional[str] = None,
                  health_details: Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']] = None,
                  health_status: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -4466,6 +4597,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
                  last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_id: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  protection_status: Optional[str] = None,
@@ -4488,6 +4620,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
         :param str friendly_name: Friendly name of the VM represented by this backup item.
         :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
         :param str health_status: Health status of protected item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -4496,6 +4629,7 @@ class AzureIaaSVMProtectedItemResponse(dict):
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_id: Data ID of the protected item.
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
@@ -4527,6 +4661,8 @@ class AzureIaaSVMProtectedItemResponse(dict):
             pulumi.set(__self__, "health_details", health_details)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -4543,6 +4679,8 @@ class AzureIaaSVMProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_id is not None:
             pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         if protection_state is not None:
@@ -4656,6 +4794,14 @@ class AzureIaaSVMProtectedItemResponse(dict):
         return pulumi.get(self, "health_status")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -4718,6 +4864,14 @@ class AzureIaaSVMProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataId")
@@ -5169,6 +5323,8 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
             suggest = "last_updated_time"
         elif key == "operationType":
             suggest = "operation_type"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "sourceResourceId":
@@ -5195,6 +5351,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
                  health_status: Optional[str] = None,
                  last_updated_time: Optional[str] = None,
                  operation_type: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  source_resource_id: Optional[str] = None,
                  workload_type: Optional[str] = None):
@@ -5211,6 +5368,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
         :param str operation_type: Re-Do Operation
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
         :param str workload_type: Workload type for which registration was sent.
@@ -5228,6 +5386,8 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if operation_type is not None:
             pulumi.set(__self__, "operation_type", operation_type)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if source_resource_id is not None:
@@ -5296,6 +5456,14 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
         return pulumi.get(self, "operation_type")
 
     @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
+
+    @property
     @pulumi.getter(name="registrationStatus")
     def registration_status(self) -> Optional[str]:
         """
@@ -5336,6 +5504,8 @@ class AzureSqlContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
 
@@ -5355,6 +5525,7 @@ class AzureSqlContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None):
         """
         Azure Sql workload-specific container.
@@ -5366,6 +5537,7 @@ class AzureSqlContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
         pulumi.set(__self__, "container_type", 'AzureSqlContainer')
@@ -5375,6 +5547,8 @@ class AzureSqlContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
 
@@ -5413,6 +5587,14 @@ class AzureSqlContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="registrationStatus")
@@ -5515,6 +5697,8 @@ class AzureSqlProtectedItemResponse(dict):
             suggest = "deferred_delete_time_remaining"
         elif key == "extendedInfo":
             suggest = "extended_info"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -5525,6 +5709,8 @@ class AzureSqlProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataId":
             suggest = "protected_item_data_id"
         elif key == "protectionState":
@@ -5556,11 +5742,13 @@ class AzureSqlProtectedItemResponse(dict):
                  deferred_delete_time_in_utc: Optional[str] = None,
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureSqlProtectedItemExtendedInfoResponse'] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_id: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  resource_guard_operation_requests: Optional[Sequence[str]] = None,
@@ -5577,11 +5765,13 @@ class AzureSqlProtectedItemResponse(dict):
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureSqlProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_id: Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
         :param str protection_state: Backup state of the backed up item.
         :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
@@ -5603,6 +5793,8 @@ class AzureSqlProtectedItemResponse(dict):
             pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
         if extended_info is not None:
             pulumi.set(__self__, "extended_info", extended_info)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -5613,6 +5805,8 @@ class AzureSqlProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_id is not None:
             pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         if protection_state is not None:
@@ -5690,6 +5884,14 @@ class AzureSqlProtectedItemResponse(dict):
         return pulumi.get(self, "extended_info")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -5728,6 +5930,14 @@ class AzureSqlProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataId")
@@ -5871,6 +6081,8 @@ class AzureStorageContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "protectedItemCount":
             suggest = "protected_item_count"
         elif key == "registrationStatus":
@@ -5899,6 +6111,7 @@ class AzureStorageContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  protected_item_count: Optional[float] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
@@ -5915,6 +6128,7 @@ class AzureStorageContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
@@ -5930,6 +6144,8 @@ class AzureStorageContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if protected_item_count is not None:
             pulumi.set(__self__, "protected_item_count", protected_item_count)
         if registration_status is not None:
@@ -5984,6 +6200,14 @@ class AzureStorageContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="protectedItemCount")
@@ -6169,6 +6393,8 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
             suggest = "last_updated_time"
         elif key == "operationType":
             suggest = "operation_type"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "sourceResourceId":
@@ -6195,6 +6421,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
                  health_status: Optional[str] = None,
                  last_updated_time: Optional[str] = None,
                  operation_type: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  source_resource_id: Optional[str] = None,
                  workload_type: Optional[str] = None):
@@ -6211,6 +6438,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
         :param str operation_type: Re-Do Operation
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
         :param str workload_type: Workload type for which registration was sent.
@@ -6228,6 +6456,8 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if operation_type is not None:
             pulumi.set(__self__, "operation_type", operation_type)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if source_resource_id is not None:
@@ -6294,6 +6524,14 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
         Re-Do Operation
         """
         return pulumi.get(self, "operation_type")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="registrationStatus")
@@ -6498,6 +6736,8 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
             suggest = "oldest_recovery_point"
         elif key == "policyState":
             suggest = "policy_state"
+        elif key == "recoveryModel":
+            suggest = "recovery_model"
         elif key == "recoveryPointCount":
             suggest = "recovery_point_count"
 
@@ -6515,17 +6755,21 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
     def __init__(__self__, *,
                  oldest_recovery_point: Optional[str] = None,
                  policy_state: Optional[str] = None,
+                 recovery_model: Optional[str] = None,
                  recovery_point_count: Optional[int] = None):
         """
         Additional information on Azure Workload for SQL specific backup item.
         :param str oldest_recovery_point: The oldest backup copy available for this backup item.
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
+        :param str recovery_model: Indicates consistency of policy object and policy applied to this backup item.
         :param int recovery_point_count: Number of backup copies available for this backup item.
         """
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
         if policy_state is not None:
             pulumi.set(__self__, "policy_state", policy_state)
+        if recovery_model is not None:
+            pulumi.set(__self__, "recovery_model", recovery_model)
         if recovery_point_count is not None:
             pulumi.set(__self__, "recovery_point_count", recovery_point_count)
 
@@ -6544,6 +6788,14 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
         Indicates consistency of policy object and policy applied to this backup item.
         """
         return pulumi.get(self, "policy_state")
+
+    @property
+    @pulumi.getter(name="recoveryModel")
+    def recovery_model(self) -> Optional[str]:
+        """
+        Indicates consistency of policy object and policy applied to this backup item.
+        """
+        return pulumi.get(self, "recovery_model")
 
     @property
     @pulumi.getter(name="recoveryPointCount")
@@ -6580,6 +6832,8 @@ class AzureVmWorkloadProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -6602,6 +6856,8 @@ class AzureVmWorkloadProtectedItemResponse(dict):
             suggest = "parent_type"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataSourceId":
             suggest = "protected_item_data_source_id"
         elif key == "protectedItemHealthStatus":
@@ -6640,6 +6896,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureVmWorkloadProtectedItemExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -6651,6 +6908,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
                  parent_name: Optional[str] = None,
                  parent_type: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_source_id: Optional[str] = None,
                  protected_item_health_status: Optional[str] = None,
                  protection_state: Optional[str] = None,
@@ -6671,6 +6929,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -6682,6 +6941,7 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         :param str parent_name: Parent name of the DB such as Instance or Availability Group.
         :param str parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protection_state: Backup state of this backup item.
@@ -6708,6 +6968,8 @@ class AzureVmWorkloadProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -6730,6 +6992,8 @@ class AzureVmWorkloadProtectedItemResponse(dict):
             pulumi.set(__self__, "parent_type", parent_type)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_source_id is not None:
             pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
         if protected_item_health_status is not None:
@@ -6821,6 +7085,14 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -6907,6 +7179,14 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataSourceId")
@@ -7122,6 +7402,8 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -7144,6 +7426,8 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
             suggest = "parent_type"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataSourceId":
             suggest = "protected_item_data_source_id"
         elif key == "protectedItemHealthStatus":
@@ -7182,6 +7466,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureVmWorkloadProtectedItemExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -7193,6 +7478,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
                  parent_name: Optional[str] = None,
                  parent_type: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_source_id: Optional[str] = None,
                  protected_item_health_status: Optional[str] = None,
                  protection_state: Optional[str] = None,
@@ -7213,6 +7499,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -7224,6 +7511,7 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         :param str parent_name: Parent name of the DB such as Instance or Availability Group.
         :param str parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protection_state: Backup state of this backup item.
@@ -7250,6 +7538,8 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -7272,6 +7562,8 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "parent_type", parent_type)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_source_id is not None:
             pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
         if protected_item_health_status is not None:
@@ -7363,6 +7655,14 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -7449,6 +7749,14 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataSourceId")
@@ -7541,6 +7849,8 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -7563,6 +7873,8 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
             suggest = "parent_type"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataSourceId":
             suggest = "protected_item_data_source_id"
         elif key == "protectedItemHealthStatus":
@@ -7601,6 +7913,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureVmWorkloadProtectedItemExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -7612,6 +7925,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
                  parent_name: Optional[str] = None,
                  parent_type: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_source_id: Optional[str] = None,
                  protected_item_health_status: Optional[str] = None,
                  protection_state: Optional[str] = None,
@@ -7632,6 +7946,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -7643,6 +7958,7 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         :param str parent_name: Parent name of the DB such as Instance or Availability Group.
         :param str parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protection_state: Backup state of this backup item.
@@ -7669,6 +7985,8 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -7691,6 +8009,8 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "parent_type", parent_type)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_source_id is not None:
             pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
         if protected_item_health_status is not None:
@@ -7782,6 +8102,14 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -7868,6 +8196,14 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataSourceId")
@@ -7960,6 +8296,8 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -7982,6 +8320,8 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
             suggest = "parent_type"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataSourceId":
             suggest = "protected_item_data_source_id"
         elif key == "protectedItemHealthStatus":
@@ -8020,6 +8360,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureVmWorkloadProtectedItemExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -8031,6 +8372,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
                  parent_name: Optional[str] = None,
                  parent_type: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_source_id: Optional[str] = None,
                  protected_item_health_status: Optional[str] = None,
                  protection_state: Optional[str] = None,
@@ -8051,6 +8393,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param str friendly_name: Friendly name of the DB represented by this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -8062,6 +8405,7 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         :param str parent_name: Parent name of the DB such as Instance or Availability Group.
         :param str parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protection_state: Backup state of this backup item.
@@ -8088,6 +8432,8 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -8110,6 +8456,8 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "parent_type", parent_type)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_source_id is not None:
             pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
         if protected_item_health_status is not None:
@@ -8201,6 +8549,14 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -8287,6 +8643,14 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataSourceId")
@@ -8665,6 +9029,8 @@ class AzureWorkloadContainerResponse(dict):
             suggest = "last_updated_time"
         elif key == "operationType":
             suggest = "operation_type"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "sourceResourceId":
@@ -8691,6 +9057,7 @@ class AzureWorkloadContainerResponse(dict):
                  health_status: Optional[str] = None,
                  last_updated_time: Optional[str] = None,
                  operation_type: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  source_resource_id: Optional[str] = None,
                  workload_type: Optional[str] = None):
@@ -8707,6 +9074,7 @@ class AzureWorkloadContainerResponse(dict):
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
         :param str operation_type: Re-Do Operation
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
         :param str workload_type: Workload type for which registration was sent.
@@ -8724,6 +9092,8 @@ class AzureWorkloadContainerResponse(dict):
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if operation_type is not None:
             pulumi.set(__self__, "operation_type", operation_type)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if source_resource_id is not None:
@@ -8790,6 +9160,14 @@ class AzureWorkloadContainerResponse(dict):
         Re-Do Operation
         """
         return pulumi.get(self, "operation_type")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="registrationStatus")
@@ -9442,6 +9820,8 @@ class DPMProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -9452,6 +9832,8 @@ class DPMProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectionState":
             suggest = "protection_state"
         elif key == "resourceGuardOperationRequests":
@@ -9483,11 +9865,13 @@ class DPMProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.DPMProtectedItemExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  source_resource_id: Optional[str] = None,
@@ -9505,11 +9889,13 @@ class DPMProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'DPMProtectedItemExtendedInfoResponse' extended_info: Extended info of the backup item.
         :param str friendly_name: Friendly name of the managed item
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protection_state: Protection state of the backup engine
         :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param str source_resource_id: ARM ID of the resource to be backed up.
@@ -9534,6 +9920,8 @@ class DPMProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -9544,6 +9932,8 @@ class DPMProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if resource_guard_operation_requests is not None:
@@ -9635,6 +10025,14 @@ class DPMProtectedItemResponse(dict):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -9673,6 +10071,14 @@ class DPMProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectionState")
@@ -10169,6 +10575,8 @@ class DpmContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "protectedItemCount":
             suggest = "protected_item_count"
         elif key == "protectionStatus":
@@ -10199,6 +10607,7 @@ class DpmContainerResponse(dict):
                  extended_info: Optional['outputs.DPMContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  protected_item_count: Optional[float] = None,
                  protection_status: Optional[str] = None,
                  registration_status: Optional[str] = None,
@@ -10218,6 +10627,7 @@ class DpmContainerResponse(dict):
         :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param float protected_item_count: Number of protected items in the BackupEngine
         :param str protection_status: Protection status of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
@@ -10240,6 +10650,8 @@ class DpmContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if protected_item_count is not None:
             pulumi.set(__self__, "protected_item_count", protected_item_count)
         if protection_status is not None:
@@ -10324,6 +10736,14 @@ class DpmContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="protectedItemCount")
@@ -10615,6 +11035,8 @@ class ExtendedPropertiesResponse(dict):
         suggest = None
         if key == "diskExclusionProperties":
             suggest = "disk_exclusion_properties"
+        elif key == "linuxVmApplicationName":
+            suggest = "linux_vm_application_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ExtendedPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -10628,13 +11050,17 @@ class ExtendedPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 disk_exclusion_properties: Optional['outputs.DiskExclusionPropertiesResponse'] = None):
+                 disk_exclusion_properties: Optional['outputs.DiskExclusionPropertiesResponse'] = None,
+                 linux_vm_application_name: Optional[str] = None):
         """
         Extended Properties for Azure IaasVM Backup.
         :param 'DiskExclusionPropertiesResponse' disk_exclusion_properties: Extended Properties for Disk Exclusion.
+        :param str linux_vm_application_name: Linux VM name
         """
         if disk_exclusion_properties is not None:
             pulumi.set(__self__, "disk_exclusion_properties", disk_exclusion_properties)
+        if linux_vm_application_name is not None:
+            pulumi.set(__self__, "linux_vm_application_name", linux_vm_application_name)
 
     @property
     @pulumi.getter(name="diskExclusionProperties")
@@ -10643,6 +11069,14 @@ class ExtendedPropertiesResponse(dict):
         Extended Properties for Disk Exclusion.
         """
         return pulumi.get(self, "disk_exclusion_properties")
+
+    @property
+    @pulumi.getter(name="linuxVmApplicationName")
+    def linux_vm_application_name(self) -> Optional[str]:
+        """
+        Linux VM name
+        """
+        return pulumi.get(self, "linux_vm_application_name")
 
 
 @pulumi.output_type
@@ -10869,6 +11303,8 @@ class GenericContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
 
@@ -10890,6 +11326,7 @@ class GenericContainerResponse(dict):
                  fabric_name: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None):
         """
         Base class for generic container of backup items
@@ -10903,6 +11340,7 @@ class GenericContainerResponse(dict):
         :param str fabric_name: Name of the container's fabric
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
         pulumi.set(__self__, "container_type", 'GenericContainer')
@@ -10916,6 +11354,8 @@ class GenericContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
 
@@ -10972,6 +11412,14 @@ class GenericContainerResponse(dict):
         return pulumi.get(self, "health_status")
 
     @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
+
+    @property
     @pulumi.getter(name="registrationStatus")
     def registration_status(self) -> Optional[str]:
         """
@@ -11006,6 +11454,8 @@ class GenericProtectedItemResponse(dict):
             suggest = "fabric_name"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -11016,6 +11466,8 @@ class GenericProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "policyState":
             suggest = "policy_state"
         elif key == "protectedItemId":
@@ -11052,11 +11504,13 @@ class GenericProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  fabric_name: Optional[str] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  policy_state: Optional[str] = None,
                  protected_item_id: Optional[float] = None,
                  protection_state: Optional[str] = None,
@@ -11076,11 +11530,13 @@ class GenericProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param str fabric_name: Name of this backup item's fabric.
         :param str friendly_name: Friendly name of the container.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
         :param float protected_item_id: Data Plane Service ID of the protected item.
         :param str protection_state: Backup state of this backup item.
@@ -11106,6 +11562,8 @@ class GenericProtectedItemResponse(dict):
             pulumi.set(__self__, "fabric_name", fabric_name)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -11116,6 +11574,8 @@ class GenericProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if policy_state is not None:
             pulumi.set(__self__, "policy_state", policy_state)
         if protected_item_id is not None:
@@ -11205,6 +11665,14 @@ class GenericProtectedItemResponse(dict):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -11243,6 +11711,14 @@ class GenericProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="policyState")
@@ -13685,6 +14161,8 @@ class IaaSVMContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "resourceGroup":
@@ -13710,6 +14188,7 @@ class IaaSVMContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
                  virtual_machine_id: Optional[str] = None,
@@ -13724,6 +14203,7 @@ class IaaSVMContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
         :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
@@ -13736,6 +14216,8 @@ class IaaSVMContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if resource_group is not None:
@@ -13780,6 +14262,14 @@ class IaaSVMContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="registrationStatus")
@@ -20942,6 +21432,8 @@ class MabContainerResponse(dict):
             suggest = "health_status"
         elif key == "mabContainerHealthDetails":
             suggest = "mab_container_health_details"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "protectedItemCount":
             suggest = "protected_item_count"
         elif key == "registrationStatus":
@@ -20969,6 +21461,7 @@ class MabContainerResponse(dict):
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
                  mab_container_health_details: Optional[Sequence['outputs.MABContainerHealthDetailsResponse']] = None,
+                 protectable_object_type: Optional[str] = None,
                  protected_item_count: Optional[float] = None,
                  registration_status: Optional[str] = None):
         """
@@ -20987,6 +21480,7 @@ class MabContainerResponse(dict):
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param Sequence['MABContainerHealthDetailsResponse'] mab_container_health_details: Health details on this mab container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
@@ -21009,6 +21503,8 @@ class MabContainerResponse(dict):
             pulumi.set(__self__, "health_status", health_status)
         if mab_container_health_details is not None:
             pulumi.set(__self__, "mab_container_health_details", mab_container_health_details)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if protected_item_count is not None:
             pulumi.set(__self__, "protected_item_count", protected_item_count)
         if registration_status is not None:
@@ -21097,6 +21593,14 @@ class MabContainerResponse(dict):
         Health details on this mab container.
         """
         return pulumi.get(self, "mab_container_health_details")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="protectedItemCount")
@@ -21213,6 +21717,8 @@ class MabFileFolderProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -21227,6 +21733,8 @@ class MabFileFolderProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectionState":
             suggest = "protection_state"
         elif key == "resourceGuardOperationRequests":
@@ -21259,6 +21767,7 @@ class MabFileFolderProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.MabFileFolderProtectedItemExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -21266,6 +21775,7 @@ class MabFileFolderProtectedItemResponse(dict):
                  last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  source_resource_id: Optional[str] = None,
@@ -21284,6 +21794,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'MabFileFolderProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -21291,6 +21802,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protection_state: Protected, ProtectionStopped, IRPending or ProtectionError
         :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param str source_resource_id: ARM ID of the resource to be backed up.
@@ -21317,6 +21829,8 @@ class MabFileFolderProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -21331,6 +21845,8 @@ class MabFileFolderProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if resource_guard_operation_requests is not None:
@@ -21430,6 +21946,14 @@ class MabFileFolderProtectedItemResponse(dict):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -21484,6 +22008,14 @@ class MabFileFolderProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectionState")

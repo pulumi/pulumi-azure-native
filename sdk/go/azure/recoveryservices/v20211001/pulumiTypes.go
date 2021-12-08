@@ -2569,19 +2569,20 @@ func (o AgentDiskDetailsResponseArrayOutput) Index(i pulumi.IntInput) AgentDiskD
 }
 
 type AzureBackupServerContainer struct {
-	BackupManagementType *string                   `pulumi:"backupManagementType"`
-	CanReRegister        *bool                     `pulumi:"canReRegister"`
-	ContainerId          *string                   `pulumi:"containerId"`
-	ContainerType        string                    `pulumi:"containerType"`
-	DpmAgentVersion      *string                   `pulumi:"dpmAgentVersion"`
-	DpmServers           []string                  `pulumi:"dpmServers"`
-	ExtendedInfo         *DPMContainerExtendedInfo `pulumi:"extendedInfo"`
-	FriendlyName         *string                   `pulumi:"friendlyName"`
-	HealthStatus         *string                   `pulumi:"healthStatus"`
-	ProtectedItemCount   *float64                  `pulumi:"protectedItemCount"`
-	ProtectionStatus     *string                   `pulumi:"protectionStatus"`
-	RegistrationStatus   *string                   `pulumi:"registrationStatus"`
-	UpgradeAvailable     *bool                     `pulumi:"upgradeAvailable"`
+	BackupManagementType  *string                   `pulumi:"backupManagementType"`
+	CanReRegister         *bool                     `pulumi:"canReRegister"`
+	ContainerId           *string                   `pulumi:"containerId"`
+	ContainerType         string                    `pulumi:"containerType"`
+	DpmAgentVersion       *string                   `pulumi:"dpmAgentVersion"`
+	DpmServers            []string                  `pulumi:"dpmServers"`
+	ExtendedInfo          *DPMContainerExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName          *string                   `pulumi:"friendlyName"`
+	HealthStatus          *string                   `pulumi:"healthStatus"`
+	ProtectableObjectType *string                   `pulumi:"protectableObjectType"`
+	ProtectedItemCount    *float64                  `pulumi:"protectedItemCount"`
+	ProtectionStatus      *string                   `pulumi:"protectionStatus"`
+	RegistrationStatus    *string                   `pulumi:"registrationStatus"`
+	UpgradeAvailable      *bool                     `pulumi:"upgradeAvailable"`
 }
 
 
@@ -2596,19 +2597,20 @@ type AzureBackupServerContainerInput interface {
 }
 
 type AzureBackupServerContainerArgs struct {
-	BackupManagementType pulumi.StringPtrInput            `pulumi:"backupManagementType"`
-	CanReRegister        pulumi.BoolPtrInput              `pulumi:"canReRegister"`
-	ContainerId          pulumi.StringPtrInput            `pulumi:"containerId"`
-	ContainerType        pulumi.StringInput               `pulumi:"containerType"`
-	DpmAgentVersion      pulumi.StringPtrInput            `pulumi:"dpmAgentVersion"`
-	DpmServers           pulumi.StringArrayInput          `pulumi:"dpmServers"`
-	ExtendedInfo         DPMContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	FriendlyName         pulumi.StringPtrInput            `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput            `pulumi:"healthStatus"`
-	ProtectedItemCount   pulumi.Float64PtrInput           `pulumi:"protectedItemCount"`
-	ProtectionStatus     pulumi.StringPtrInput            `pulumi:"protectionStatus"`
-	RegistrationStatus   pulumi.StringPtrInput            `pulumi:"registrationStatus"`
-	UpgradeAvailable     pulumi.BoolPtrInput              `pulumi:"upgradeAvailable"`
+	BackupManagementType  pulumi.StringPtrInput            `pulumi:"backupManagementType"`
+	CanReRegister         pulumi.BoolPtrInput              `pulumi:"canReRegister"`
+	ContainerId           pulumi.StringPtrInput            `pulumi:"containerId"`
+	ContainerType         pulumi.StringInput               `pulumi:"containerType"`
+	DpmAgentVersion       pulumi.StringPtrInput            `pulumi:"dpmAgentVersion"`
+	DpmServers            pulumi.StringArrayInput          `pulumi:"dpmServers"`
+	ExtendedInfo          DPMContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName          pulumi.StringPtrInput            `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput            `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput            `pulumi:"protectableObjectType"`
+	ProtectedItemCount    pulumi.Float64PtrInput           `pulumi:"protectedItemCount"`
+	ProtectionStatus      pulumi.StringPtrInput            `pulumi:"protectionStatus"`
+	RegistrationStatus    pulumi.StringPtrInput            `pulumi:"registrationStatus"`
+	UpgradeAvailable      pulumi.BoolPtrInput              `pulumi:"upgradeAvailable"`
 }
 
 func (AzureBackupServerContainerArgs) ElementType() reflect.Type {
@@ -2673,6 +2675,10 @@ func (o AzureBackupServerContainerOutput) HealthStatus() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v AzureBackupServerContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureBackupServerContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureBackupServerContainerOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AzureBackupServerContainer) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
 }
@@ -2690,19 +2696,20 @@ func (o AzureBackupServerContainerOutput) UpgradeAvailable() pulumi.BoolPtrOutpu
 }
 
 type AzureBackupServerContainerResponse struct {
-	BackupManagementType *string                           `pulumi:"backupManagementType"`
-	CanReRegister        *bool                             `pulumi:"canReRegister"`
-	ContainerId          *string                           `pulumi:"containerId"`
-	ContainerType        string                            `pulumi:"containerType"`
-	DpmAgentVersion      *string                           `pulumi:"dpmAgentVersion"`
-	DpmServers           []string                          `pulumi:"dpmServers"`
-	ExtendedInfo         *DPMContainerExtendedInfoResponse `pulumi:"extendedInfo"`
-	FriendlyName         *string                           `pulumi:"friendlyName"`
-	HealthStatus         *string                           `pulumi:"healthStatus"`
-	ProtectedItemCount   *float64                          `pulumi:"protectedItemCount"`
-	ProtectionStatus     *string                           `pulumi:"protectionStatus"`
-	RegistrationStatus   *string                           `pulumi:"registrationStatus"`
-	UpgradeAvailable     *bool                             `pulumi:"upgradeAvailable"`
+	BackupManagementType  *string                           `pulumi:"backupManagementType"`
+	CanReRegister         *bool                             `pulumi:"canReRegister"`
+	ContainerId           *string                           `pulumi:"containerId"`
+	ContainerType         string                            `pulumi:"containerType"`
+	DpmAgentVersion       *string                           `pulumi:"dpmAgentVersion"`
+	DpmServers            []string                          `pulumi:"dpmServers"`
+	ExtendedInfo          *DPMContainerExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName          *string                           `pulumi:"friendlyName"`
+	HealthStatus          *string                           `pulumi:"healthStatus"`
+	ProtectableObjectType *string                           `pulumi:"protectableObjectType"`
+	ProtectedItemCount    *float64                          `pulumi:"protectedItemCount"`
+	ProtectionStatus      *string                           `pulumi:"protectionStatus"`
+	RegistrationStatus    *string                           `pulumi:"registrationStatus"`
+	UpgradeAvailable      *bool                             `pulumi:"upgradeAvailable"`
 }
 
 
@@ -2717,19 +2724,20 @@ type AzureBackupServerContainerResponseInput interface {
 }
 
 type AzureBackupServerContainerResponseArgs struct {
-	BackupManagementType pulumi.StringPtrInput                    `pulumi:"backupManagementType"`
-	CanReRegister        pulumi.BoolPtrInput                      `pulumi:"canReRegister"`
-	ContainerId          pulumi.StringPtrInput                    `pulumi:"containerId"`
-	ContainerType        pulumi.StringInput                       `pulumi:"containerType"`
-	DpmAgentVersion      pulumi.StringPtrInput                    `pulumi:"dpmAgentVersion"`
-	DpmServers           pulumi.StringArrayInput                  `pulumi:"dpmServers"`
-	ExtendedInfo         DPMContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	FriendlyName         pulumi.StringPtrInput                    `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput                    `pulumi:"healthStatus"`
-	ProtectedItemCount   pulumi.Float64PtrInput                   `pulumi:"protectedItemCount"`
-	ProtectionStatus     pulumi.StringPtrInput                    `pulumi:"protectionStatus"`
-	RegistrationStatus   pulumi.StringPtrInput                    `pulumi:"registrationStatus"`
-	UpgradeAvailable     pulumi.BoolPtrInput                      `pulumi:"upgradeAvailable"`
+	BackupManagementType  pulumi.StringPtrInput                    `pulumi:"backupManagementType"`
+	CanReRegister         pulumi.BoolPtrInput                      `pulumi:"canReRegister"`
+	ContainerId           pulumi.StringPtrInput                    `pulumi:"containerId"`
+	ContainerType         pulumi.StringInput                       `pulumi:"containerType"`
+	DpmAgentVersion       pulumi.StringPtrInput                    `pulumi:"dpmAgentVersion"`
+	DpmServers            pulumi.StringArrayInput                  `pulumi:"dpmServers"`
+	ExtendedInfo          DPMContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName          pulumi.StringPtrInput                    `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput                    `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput                    `pulumi:"protectableObjectType"`
+	ProtectedItemCount    pulumi.Float64PtrInput                   `pulumi:"protectedItemCount"`
+	ProtectionStatus      pulumi.StringPtrInput                    `pulumi:"protectionStatus"`
+	RegistrationStatus    pulumi.StringPtrInput                    `pulumi:"registrationStatus"`
+	UpgradeAvailable      pulumi.BoolPtrInput                      `pulumi:"upgradeAvailable"`
 }
 
 func (AzureBackupServerContainerResponseArgs) ElementType() reflect.Type {
@@ -2792,6 +2800,10 @@ func (o AzureBackupServerContainerResponseOutput) FriendlyName() pulumi.StringPt
 
 func (o AzureBackupServerContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureBackupServerContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureBackupServerContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBackupServerContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureBackupServerContainerResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
@@ -3111,6 +3123,7 @@ type AzureFileshareProtectedItem struct {
 	DeferredDeleteTimeRemaining      *string                                  `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureFileshareProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                  `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                    `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                    `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                    `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                    `pulumi:"isScheduledForDeferredDelete"`
@@ -3119,6 +3132,7 @@ type AzureFileshareProtectedItem struct {
 	LastBackupTime                   *string                                  `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                *string                                  `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                                  `pulumi:"policyId"`
+	PolicyName                       *string                                  `pulumi:"policyName"`
 	ProtectedItemType                string                                   `pulumi:"protectedItemType"`
 	ProtectionState                  *string                                  `pulumi:"protectionState"`
 	ProtectionStatus                 *string                                  `pulumi:"protectionStatus"`
@@ -3147,6 +3161,7 @@ type AzureFileshareProtectedItemArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                           `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureFileshareProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                           `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                             `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                             `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                             `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                             `pulumi:"isScheduledForDeferredDelete"`
@@ -3155,6 +3170,7 @@ type AzureFileshareProtectedItemArgs struct {
 	LastBackupTime                   pulumi.StringPtrInput                           `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                pulumi.StringPtrInput                           `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                           `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                           `pulumi:"policyName"`
 	ProtectedItemType                pulumi.StringInput                              `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                           `pulumi:"protectionState"`
 	ProtectionStatus                 pulumi.StringPtrInput                           `pulumi:"protectionStatus"`
@@ -3221,6 +3237,10 @@ func (o AzureFileshareProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureFileshareProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureFileshareProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -3251,6 +3271,10 @@ func (o AzureFileshareProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrO
 
 func (o AzureFileshareProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureFileshareProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureFileshareProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
@@ -3642,6 +3666,7 @@ type AzureFileshareProtectedItemResponse struct {
 	DeferredDeleteTimeRemaining      *string                                          `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureFileshareProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                          `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                            `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                            `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                            `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                            `pulumi:"isScheduledForDeferredDelete"`
@@ -3650,6 +3675,7 @@ type AzureFileshareProtectedItemResponse struct {
 	LastBackupTime                   *string                                          `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                *string                                          `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                                          `pulumi:"policyId"`
+	PolicyName                       *string                                          `pulumi:"policyName"`
 	ProtectedItemType                string                                           `pulumi:"protectedItemType"`
 	ProtectionState                  *string                                          `pulumi:"protectionState"`
 	ProtectionStatus                 *string                                          `pulumi:"protectionStatus"`
@@ -3678,6 +3704,7 @@ type AzureFileshareProtectedItemResponseArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                   `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureFileshareProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                                   `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                                     `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                     `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                                     `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                     `pulumi:"isScheduledForDeferredDelete"`
@@ -3686,6 +3713,7 @@ type AzureFileshareProtectedItemResponseArgs struct {
 	LastBackupTime                   pulumi.StringPtrInput                                   `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                pulumi.StringPtrInput                                   `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                                   `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                                   `pulumi:"policyName"`
 	ProtectedItemType                pulumi.StringInput                                      `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                                   `pulumi:"protectionState"`
 	ProtectionStatus                 pulumi.StringPtrInput                                   `pulumi:"protectionStatus"`
@@ -3754,6 +3782,10 @@ func (o AzureFileshareProtectedItemResponseOutput) FriendlyName() pulumi.StringP
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureFileshareProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureFileshareProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -3788,6 +3820,10 @@ func (o AzureFileshareProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOu
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureFileshareProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureFileshareProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureFileshareProtectedItemResponse) string { return v.ProtectedItemType }).(pulumi.StringOutput)
 }
@@ -3817,6 +3853,7 @@ type AzureIaaSClassicComputeVMContainer struct {
 	ContainerType         string  `pulumi:"containerType"`
 	FriendlyName          *string `pulumi:"friendlyName"`
 	HealthStatus          *string `pulumi:"healthStatus"`
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	RegistrationStatus    *string `pulumi:"registrationStatus"`
 	ResourceGroup         *string `pulumi:"resourceGroup"`
 	VirtualMachineId      *string `pulumi:"virtualMachineId"`
@@ -3839,6 +3876,7 @@ type AzureIaaSClassicComputeVMContainerArgs struct {
 	ContainerType         pulumi.StringInput    `pulumi:"containerType"`
 	FriendlyName          pulumi.StringPtrInput `pulumi:"friendlyName"`
 	HealthStatus          pulumi.StringPtrInput `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput `pulumi:"protectableObjectType"`
 	RegistrationStatus    pulumi.StringPtrInput `pulumi:"registrationStatus"`
 	ResourceGroup         pulumi.StringPtrInput `pulumi:"resourceGroup"`
 	VirtualMachineId      pulumi.StringPtrInput `pulumi:"virtualMachineId"`
@@ -3887,6 +3925,10 @@ func (o AzureIaaSClassicComputeVMContainerOutput) HealthStatus() pulumi.StringPt
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureIaaSClassicComputeVMContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureIaaSClassicComputeVMContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
@@ -3908,6 +3950,7 @@ type AzureIaaSClassicComputeVMContainerResponse struct {
 	ContainerType         string  `pulumi:"containerType"`
 	FriendlyName          *string `pulumi:"friendlyName"`
 	HealthStatus          *string `pulumi:"healthStatus"`
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	RegistrationStatus    *string `pulumi:"registrationStatus"`
 	ResourceGroup         *string `pulumi:"resourceGroup"`
 	VirtualMachineId      *string `pulumi:"virtualMachineId"`
@@ -3930,6 +3973,7 @@ type AzureIaaSClassicComputeVMContainerResponseArgs struct {
 	ContainerType         pulumi.StringInput    `pulumi:"containerType"`
 	FriendlyName          pulumi.StringPtrInput `pulumi:"friendlyName"`
 	HealthStatus          pulumi.StringPtrInput `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput `pulumi:"protectableObjectType"`
 	RegistrationStatus    pulumi.StringPtrInput `pulumi:"registrationStatus"`
 	ResourceGroup         pulumi.StringPtrInput `pulumi:"resourceGroup"`
 	VirtualMachineId      pulumi.StringPtrInput `pulumi:"virtualMachineId"`
@@ -3978,6 +4022,10 @@ func (o AzureIaaSClassicComputeVMContainerResponseOutput) HealthStatus() pulumi.
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureIaaSClassicComputeVMContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureIaaSClassicComputeVMContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
@@ -4005,6 +4053,7 @@ type AzureIaaSClassicComputeVMProtectedItem struct {
 	ExtendedProperties               *ExtendedProperties                   `pulumi:"extendedProperties"`
 	FriendlyName                     *string                               `pulumi:"friendlyName"`
 	HealthStatus                     *string                               `pulumi:"healthStatus"`
+	IsArchiveEnabled                 *bool                                 `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                 `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                 `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                 `pulumi:"isScheduledForDeferredDelete"`
@@ -4013,6 +4062,7 @@ type AzureIaaSClassicComputeVMProtectedItem struct {
 	LastBackupTime                   *string                               `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                *string                               `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                               `pulumi:"policyId"`
+	PolicyName                       *string                               `pulumi:"policyName"`
 	ProtectedItemDataId              *string                               `pulumi:"protectedItemDataId"`
 	ProtectedItemType                string                                `pulumi:"protectedItemType"`
 	ProtectionState                  *string                               `pulumi:"protectionState"`
@@ -4045,6 +4095,7 @@ type AzureIaaSClassicComputeVMProtectedItemArgs struct {
 	ExtendedProperties               ExtendedPropertiesPtrInput                   `pulumi:"extendedProperties"`
 	FriendlyName                     pulumi.StringPtrInput                        `pulumi:"friendlyName"`
 	HealthStatus                     pulumi.StringPtrInput                        `pulumi:"healthStatus"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                          `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                          `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                          `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                          `pulumi:"isScheduledForDeferredDelete"`
@@ -4053,6 +4104,7 @@ type AzureIaaSClassicComputeVMProtectedItemArgs struct {
 	LastBackupTime                   pulumi.StringPtrInput                        `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                pulumi.StringPtrInput                        `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                        `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                        `pulumi:"policyName"`
 	ProtectedItemDataId              pulumi.StringPtrInput                        `pulumi:"protectedItemDataId"`
 	ProtectedItemType                pulumi.StringInput                           `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                        `pulumi:"protectionState"`
@@ -4131,6 +4183,10 @@ func (o AzureIaaSClassicComputeVMProtectedItemOutput) HealthStatus() pulumi.Stri
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -4163,6 +4219,10 @@ func (o AzureIaaSClassicComputeVMProtectedItemOutput) LastRecoveryPoint() pulumi
 
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureIaaSClassicComputeVMProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureIaaSClassicComputeVMProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
@@ -4209,6 +4269,7 @@ type AzureIaaSClassicComputeVMProtectedItemResponse struct {
 	FriendlyName                     *string                                       `pulumi:"friendlyName"`
 	HealthDetails                    []AzureIaaSVMHealthDetailsResponse            `pulumi:"healthDetails"`
 	HealthStatus                     *string                                       `pulumi:"healthStatus"`
+	IsArchiveEnabled                 *bool                                         `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                         `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                         `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                         `pulumi:"isScheduledForDeferredDelete"`
@@ -4217,6 +4278,7 @@ type AzureIaaSClassicComputeVMProtectedItemResponse struct {
 	LastBackupTime                   *string                                       `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                *string                                       `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                                       `pulumi:"policyId"`
+	PolicyName                       *string                                       `pulumi:"policyName"`
 	ProtectedItemDataId              *string                                       `pulumi:"protectedItemDataId"`
 	ProtectedItemType                string                                        `pulumi:"protectedItemType"`
 	ProtectionState                  *string                                       `pulumi:"protectionState"`
@@ -4250,6 +4312,7 @@ type AzureIaaSClassicComputeVMProtectedItemResponseArgs struct {
 	FriendlyName                     pulumi.StringPtrInput                                `pulumi:"friendlyName"`
 	HealthDetails                    AzureIaaSVMHealthDetailsResponseArrayInput           `pulumi:"healthDetails"`
 	HealthStatus                     pulumi.StringPtrInput                                `pulumi:"healthStatus"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                                  `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                  `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                                  `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                  `pulumi:"isScheduledForDeferredDelete"`
@@ -4258,6 +4321,7 @@ type AzureIaaSClassicComputeVMProtectedItemResponseArgs struct {
 	LastBackupTime                   pulumi.StringPtrInput                                `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                pulumi.StringPtrInput                                `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                                `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                                `pulumi:"policyName"`
 	ProtectedItemDataId              pulumi.StringPtrInput                                `pulumi:"protectedItemDataId"`
 	ProtectedItemType                pulumi.StringInput                                   `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                                `pulumi:"protectionState"`
@@ -4344,6 +4408,10 @@ func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) HealthStatus() pul
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *bool {
 		return v.IsDeferredDeleteScheduleUpcoming
@@ -4378,6 +4446,10 @@ func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) LastRecoveryPoint(
 
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSClassicComputeVMProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureIaaSClassicComputeVMProtectedItemResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
@@ -4419,6 +4491,7 @@ type AzureIaaSComputeVMContainer struct {
 	ContainerType         string  `pulumi:"containerType"`
 	FriendlyName          *string `pulumi:"friendlyName"`
 	HealthStatus          *string `pulumi:"healthStatus"`
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	RegistrationStatus    *string `pulumi:"registrationStatus"`
 	ResourceGroup         *string `pulumi:"resourceGroup"`
 	VirtualMachineId      *string `pulumi:"virtualMachineId"`
@@ -4441,6 +4514,7 @@ type AzureIaaSComputeVMContainerArgs struct {
 	ContainerType         pulumi.StringInput    `pulumi:"containerType"`
 	FriendlyName          pulumi.StringPtrInput `pulumi:"friendlyName"`
 	HealthStatus          pulumi.StringPtrInput `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput `pulumi:"protectableObjectType"`
 	RegistrationStatus    pulumi.StringPtrInput `pulumi:"registrationStatus"`
 	ResourceGroup         pulumi.StringPtrInput `pulumi:"resourceGroup"`
 	VirtualMachineId      pulumi.StringPtrInput `pulumi:"virtualMachineId"`
@@ -4489,6 +4563,10 @@ func (o AzureIaaSComputeVMContainerOutput) HealthStatus() pulumi.StringPtrOutput
 	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureIaaSComputeVMContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureIaaSComputeVMContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
@@ -4510,6 +4588,7 @@ type AzureIaaSComputeVMContainerResponse struct {
 	ContainerType         string  `pulumi:"containerType"`
 	FriendlyName          *string `pulumi:"friendlyName"`
 	HealthStatus          *string `pulumi:"healthStatus"`
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	RegistrationStatus    *string `pulumi:"registrationStatus"`
 	ResourceGroup         *string `pulumi:"resourceGroup"`
 	VirtualMachineId      *string `pulumi:"virtualMachineId"`
@@ -4532,6 +4611,7 @@ type AzureIaaSComputeVMContainerResponseArgs struct {
 	ContainerType         pulumi.StringInput    `pulumi:"containerType"`
 	FriendlyName          pulumi.StringPtrInput `pulumi:"friendlyName"`
 	HealthStatus          pulumi.StringPtrInput `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput `pulumi:"protectableObjectType"`
 	RegistrationStatus    pulumi.StringPtrInput `pulumi:"registrationStatus"`
 	ResourceGroup         pulumi.StringPtrInput `pulumi:"resourceGroup"`
 	VirtualMachineId      pulumi.StringPtrInput `pulumi:"virtualMachineId"`
@@ -4580,6 +4660,10 @@ func (o AzureIaaSComputeVMContainerResponseOutput) HealthStatus() pulumi.StringP
 	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureIaaSComputeVMContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureIaaSComputeVMContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
@@ -4607,6 +4691,7 @@ type AzureIaaSComputeVMProtectedItem struct {
 	ExtendedProperties               *ExtendedProperties                   `pulumi:"extendedProperties"`
 	FriendlyName                     *string                               `pulumi:"friendlyName"`
 	HealthStatus                     *string                               `pulumi:"healthStatus"`
+	IsArchiveEnabled                 *bool                                 `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                 `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                 `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                 `pulumi:"isScheduledForDeferredDelete"`
@@ -4615,6 +4700,7 @@ type AzureIaaSComputeVMProtectedItem struct {
 	LastBackupTime                   *string                               `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                *string                               `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                               `pulumi:"policyId"`
+	PolicyName                       *string                               `pulumi:"policyName"`
 	ProtectedItemDataId              *string                               `pulumi:"protectedItemDataId"`
 	ProtectedItemType                string                                `pulumi:"protectedItemType"`
 	ProtectionState                  *string                               `pulumi:"protectionState"`
@@ -4647,6 +4733,7 @@ type AzureIaaSComputeVMProtectedItemArgs struct {
 	ExtendedProperties               ExtendedPropertiesPtrInput                   `pulumi:"extendedProperties"`
 	FriendlyName                     pulumi.StringPtrInput                        `pulumi:"friendlyName"`
 	HealthStatus                     pulumi.StringPtrInput                        `pulumi:"healthStatus"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                          `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                          `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                          `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                          `pulumi:"isScheduledForDeferredDelete"`
@@ -4655,6 +4742,7 @@ type AzureIaaSComputeVMProtectedItemArgs struct {
 	LastBackupTime                   pulumi.StringPtrInput                        `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                pulumi.StringPtrInput                        `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                        `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                        `pulumi:"policyName"`
 	ProtectedItemDataId              pulumi.StringPtrInput                        `pulumi:"protectedItemDataId"`
 	ProtectedItemType                pulumi.StringInput                           `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                        `pulumi:"protectionState"`
@@ -4731,6 +4819,10 @@ func (o AzureIaaSComputeVMProtectedItemOutput) HealthStatus() pulumi.StringPtrOu
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureIaaSComputeVMProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureIaaSComputeVMProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -4761,6 +4853,10 @@ func (o AzureIaaSComputeVMProtectedItemOutput) LastRecoveryPoint() pulumi.String
 
 func (o AzureIaaSComputeVMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureIaaSComputeVMProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureIaaSComputeVMProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
@@ -4807,6 +4903,7 @@ type AzureIaaSComputeVMProtectedItemResponse struct {
 	FriendlyName                     *string                                       `pulumi:"friendlyName"`
 	HealthDetails                    []AzureIaaSVMHealthDetailsResponse            `pulumi:"healthDetails"`
 	HealthStatus                     *string                                       `pulumi:"healthStatus"`
+	IsArchiveEnabled                 *bool                                         `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                         `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                         `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                         `pulumi:"isScheduledForDeferredDelete"`
@@ -4815,6 +4912,7 @@ type AzureIaaSComputeVMProtectedItemResponse struct {
 	LastBackupTime                   *string                                       `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                *string                                       `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                                       `pulumi:"policyId"`
+	PolicyName                       *string                                       `pulumi:"policyName"`
 	ProtectedItemDataId              *string                                       `pulumi:"protectedItemDataId"`
 	ProtectedItemType                string                                        `pulumi:"protectedItemType"`
 	ProtectionState                  *string                                       `pulumi:"protectionState"`
@@ -4848,6 +4946,7 @@ type AzureIaaSComputeVMProtectedItemResponseArgs struct {
 	FriendlyName                     pulumi.StringPtrInput                                `pulumi:"friendlyName"`
 	HealthDetails                    AzureIaaSVMHealthDetailsResponseArrayInput           `pulumi:"healthDetails"`
 	HealthStatus                     pulumi.StringPtrInput                                `pulumi:"healthStatus"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                                  `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                  `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                                  `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                  `pulumi:"isScheduledForDeferredDelete"`
@@ -4856,6 +4955,7 @@ type AzureIaaSComputeVMProtectedItemResponseArgs struct {
 	LastBackupTime                   pulumi.StringPtrInput                                `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                pulumi.StringPtrInput                                `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                                `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                                `pulumi:"policyName"`
 	ProtectedItemDataId              pulumi.StringPtrInput                                `pulumi:"protectedItemDataId"`
 	ProtectedItemType                pulumi.StringInput                                   `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                                `pulumi:"protectionState"`
@@ -4942,6 +5042,10 @@ func (o AzureIaaSComputeVMProtectedItemResponseOutput) HealthStatus() pulumi.Str
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureIaaSComputeVMProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -4974,6 +5078,10 @@ func (o AzureIaaSComputeVMProtectedItemResponseOutput) LastRecoveryPoint() pulum
 
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureIaaSComputeVMProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSComputeVMProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureIaaSComputeVMProtectedItemResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
@@ -5131,6 +5239,7 @@ type AzureIaaSVMProtectedItem struct {
 	ExtendedProperties               *ExtendedProperties                   `pulumi:"extendedProperties"`
 	FriendlyName                     *string                               `pulumi:"friendlyName"`
 	HealthStatus                     *string                               `pulumi:"healthStatus"`
+	IsArchiveEnabled                 *bool                                 `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                 `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                 `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                 `pulumi:"isScheduledForDeferredDelete"`
@@ -5139,6 +5248,7 @@ type AzureIaaSVMProtectedItem struct {
 	LastBackupTime                   *string                               `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                *string                               `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                               `pulumi:"policyId"`
+	PolicyName                       *string                               `pulumi:"policyName"`
 	ProtectedItemDataId              *string                               `pulumi:"protectedItemDataId"`
 	ProtectedItemType                string                                `pulumi:"protectedItemType"`
 	ProtectionState                  *string                               `pulumi:"protectionState"`
@@ -5171,6 +5281,7 @@ type AzureIaaSVMProtectedItemArgs struct {
 	ExtendedProperties               ExtendedPropertiesPtrInput                   `pulumi:"extendedProperties"`
 	FriendlyName                     pulumi.StringPtrInput                        `pulumi:"friendlyName"`
 	HealthStatus                     pulumi.StringPtrInput                        `pulumi:"healthStatus"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                          `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                          `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                          `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                          `pulumi:"isScheduledForDeferredDelete"`
@@ -5179,6 +5290,7 @@ type AzureIaaSVMProtectedItemArgs struct {
 	LastBackupTime                   pulumi.StringPtrInput                        `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                pulumi.StringPtrInput                        `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                        `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                        `pulumi:"policyName"`
 	ProtectedItemDataId              pulumi.StringPtrInput                        `pulumi:"protectedItemDataId"`
 	ProtectedItemType                pulumi.StringInput                           `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                        `pulumi:"protectionState"`
@@ -5255,6 +5367,10 @@ func (o AzureIaaSVMProtectedItemOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureIaaSVMProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureIaaSVMProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -5285,6 +5401,10 @@ func (o AzureIaaSVMProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutp
 
 func (o AzureIaaSVMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureIaaSVMProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureIaaSVMProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
@@ -5657,6 +5777,7 @@ type AzureIaaSVMProtectedItemResponse struct {
 	FriendlyName                     *string                                       `pulumi:"friendlyName"`
 	HealthDetails                    []AzureIaaSVMHealthDetailsResponse            `pulumi:"healthDetails"`
 	HealthStatus                     *string                                       `pulumi:"healthStatus"`
+	IsArchiveEnabled                 *bool                                         `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                         `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                         `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                         `pulumi:"isScheduledForDeferredDelete"`
@@ -5665,6 +5786,7 @@ type AzureIaaSVMProtectedItemResponse struct {
 	LastBackupTime                   *string                                       `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                *string                                       `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                                       `pulumi:"policyId"`
+	PolicyName                       *string                                       `pulumi:"policyName"`
 	ProtectedItemDataId              *string                                       `pulumi:"protectedItemDataId"`
 	ProtectedItemType                string                                        `pulumi:"protectedItemType"`
 	ProtectionState                  *string                                       `pulumi:"protectionState"`
@@ -5698,6 +5820,7 @@ type AzureIaaSVMProtectedItemResponseArgs struct {
 	FriendlyName                     pulumi.StringPtrInput                                `pulumi:"friendlyName"`
 	HealthDetails                    AzureIaaSVMHealthDetailsResponseArrayInput           `pulumi:"healthDetails"`
 	HealthStatus                     pulumi.StringPtrInput                                `pulumi:"healthStatus"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                                  `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                  `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                                  `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                  `pulumi:"isScheduledForDeferredDelete"`
@@ -5706,6 +5829,7 @@ type AzureIaaSVMProtectedItemResponseArgs struct {
 	LastBackupTime                   pulumi.StringPtrInput                                `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                pulumi.StringPtrInput                                `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                                `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                                `pulumi:"policyName"`
 	ProtectedItemDataId              pulumi.StringPtrInput                                `pulumi:"protectedItemDataId"`
 	ProtectedItemType                pulumi.StringInput                                   `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                                `pulumi:"protectionState"`
@@ -5788,6 +5912,10 @@ func (o AzureIaaSVMProtectedItemResponseOutput) HealthStatus() pulumi.StringPtrO
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureIaaSVMProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureIaaSVMProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -5820,6 +5948,10 @@ func (o AzureIaaSVMProtectedItemResponseOutput) LastRecoveryPoint() pulumi.Strin
 
 func (o AzureIaaSVMProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureIaaSVMProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureIaaSVMProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureIaaSVMProtectedItemResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
@@ -6367,16 +6499,17 @@ func (o AzureResourceProtectionIntentResponseOutput) SourceResourceId() pulumi.S
 }
 
 type AzureSQLAGWorkloadContainerProtectionContainer struct {
-	BackupManagementType *string                             `pulumi:"backupManagementType"`
-	ContainerType        string                              `pulumi:"containerType"`
-	ExtendedInfo         *AzureWorkloadContainerExtendedInfo `pulumi:"extendedInfo"`
-	FriendlyName         *string                             `pulumi:"friendlyName"`
-	HealthStatus         *string                             `pulumi:"healthStatus"`
-	LastUpdatedTime      *string                             `pulumi:"lastUpdatedTime"`
-	OperationType        *string                             `pulumi:"operationType"`
-	RegistrationStatus   *string                             `pulumi:"registrationStatus"`
-	SourceResourceId     *string                             `pulumi:"sourceResourceId"`
-	WorkloadType         *string                             `pulumi:"workloadType"`
+	BackupManagementType  *string                             `pulumi:"backupManagementType"`
+	ContainerType         string                              `pulumi:"containerType"`
+	ExtendedInfo          *AzureWorkloadContainerExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName          *string                             `pulumi:"friendlyName"`
+	HealthStatus          *string                             `pulumi:"healthStatus"`
+	LastUpdatedTime       *string                             `pulumi:"lastUpdatedTime"`
+	OperationType         *string                             `pulumi:"operationType"`
+	ProtectableObjectType *string                             `pulumi:"protectableObjectType"`
+	RegistrationStatus    *string                             `pulumi:"registrationStatus"`
+	SourceResourceId      *string                             `pulumi:"sourceResourceId"`
+	WorkloadType          *string                             `pulumi:"workloadType"`
 }
 
 
@@ -6391,16 +6524,17 @@ type AzureSQLAGWorkloadContainerProtectionContainerInput interface {
 }
 
 type AzureSQLAGWorkloadContainerProtectionContainerArgs struct {
-	BackupManagementType pulumi.StringPtrInput                      `pulumi:"backupManagementType"`
-	ContainerType        pulumi.StringInput                         `pulumi:"containerType"`
-	ExtendedInfo         AzureWorkloadContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	FriendlyName         pulumi.StringPtrInput                      `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput                      `pulumi:"healthStatus"`
-	LastUpdatedTime      pulumi.StringPtrInput                      `pulumi:"lastUpdatedTime"`
-	OperationType        pulumi.StringPtrInput                      `pulumi:"operationType"`
-	RegistrationStatus   pulumi.StringPtrInput                      `pulumi:"registrationStatus"`
-	SourceResourceId     pulumi.StringPtrInput                      `pulumi:"sourceResourceId"`
-	WorkloadType         pulumi.StringPtrInput                      `pulumi:"workloadType"`
+	BackupManagementType  pulumi.StringPtrInput                      `pulumi:"backupManagementType"`
+	ContainerType         pulumi.StringInput                         `pulumi:"containerType"`
+	ExtendedInfo          AzureWorkloadContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName          pulumi.StringPtrInput                      `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput                      `pulumi:"healthStatus"`
+	LastUpdatedTime       pulumi.StringPtrInput                      `pulumi:"lastUpdatedTime"`
+	OperationType         pulumi.StringPtrInput                      `pulumi:"operationType"`
+	ProtectableObjectType pulumi.StringPtrInput                      `pulumi:"protectableObjectType"`
+	RegistrationStatus    pulumi.StringPtrInput                      `pulumi:"registrationStatus"`
+	SourceResourceId      pulumi.StringPtrInput                      `pulumi:"sourceResourceId"`
+	WorkloadType          pulumi.StringPtrInput                      `pulumi:"workloadType"`
 }
 
 func (AzureSQLAGWorkloadContainerProtectionContainerArgs) ElementType() reflect.Type {
@@ -6459,6 +6593,10 @@ func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) OperationType() pu
 	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.OperationType }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
@@ -6472,16 +6610,17 @@ func (o AzureSQLAGWorkloadContainerProtectionContainerOutput) WorkloadType() pul
 }
 
 type AzureSQLAGWorkloadContainerProtectionContainerResponse struct {
-	BackupManagementType *string                                     `pulumi:"backupManagementType"`
-	ContainerType        string                                      `pulumi:"containerType"`
-	ExtendedInfo         *AzureWorkloadContainerExtendedInfoResponse `pulumi:"extendedInfo"`
-	FriendlyName         *string                                     `pulumi:"friendlyName"`
-	HealthStatus         *string                                     `pulumi:"healthStatus"`
-	LastUpdatedTime      *string                                     `pulumi:"lastUpdatedTime"`
-	OperationType        *string                                     `pulumi:"operationType"`
-	RegistrationStatus   *string                                     `pulumi:"registrationStatus"`
-	SourceResourceId     *string                                     `pulumi:"sourceResourceId"`
-	WorkloadType         *string                                     `pulumi:"workloadType"`
+	BackupManagementType  *string                                     `pulumi:"backupManagementType"`
+	ContainerType         string                                      `pulumi:"containerType"`
+	ExtendedInfo          *AzureWorkloadContainerExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName          *string                                     `pulumi:"friendlyName"`
+	HealthStatus          *string                                     `pulumi:"healthStatus"`
+	LastUpdatedTime       *string                                     `pulumi:"lastUpdatedTime"`
+	OperationType         *string                                     `pulumi:"operationType"`
+	ProtectableObjectType *string                                     `pulumi:"protectableObjectType"`
+	RegistrationStatus    *string                                     `pulumi:"registrationStatus"`
+	SourceResourceId      *string                                     `pulumi:"sourceResourceId"`
+	WorkloadType          *string                                     `pulumi:"workloadType"`
 }
 
 
@@ -6496,16 +6635,17 @@ type AzureSQLAGWorkloadContainerProtectionContainerResponseInput interface {
 }
 
 type AzureSQLAGWorkloadContainerProtectionContainerResponseArgs struct {
-	BackupManagementType pulumi.StringPtrInput                              `pulumi:"backupManagementType"`
-	ContainerType        pulumi.StringInput                                 `pulumi:"containerType"`
-	ExtendedInfo         AzureWorkloadContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	FriendlyName         pulumi.StringPtrInput                              `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput                              `pulumi:"healthStatus"`
-	LastUpdatedTime      pulumi.StringPtrInput                              `pulumi:"lastUpdatedTime"`
-	OperationType        pulumi.StringPtrInput                              `pulumi:"operationType"`
-	RegistrationStatus   pulumi.StringPtrInput                              `pulumi:"registrationStatus"`
-	SourceResourceId     pulumi.StringPtrInput                              `pulumi:"sourceResourceId"`
-	WorkloadType         pulumi.StringPtrInput                              `pulumi:"workloadType"`
+	BackupManagementType  pulumi.StringPtrInput                              `pulumi:"backupManagementType"`
+	ContainerType         pulumi.StringInput                                 `pulumi:"containerType"`
+	ExtendedInfo          AzureWorkloadContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName          pulumi.StringPtrInput                              `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput                              `pulumi:"healthStatus"`
+	LastUpdatedTime       pulumi.StringPtrInput                              `pulumi:"lastUpdatedTime"`
+	OperationType         pulumi.StringPtrInput                              `pulumi:"operationType"`
+	ProtectableObjectType pulumi.StringPtrInput                              `pulumi:"protectableObjectType"`
+	RegistrationStatus    pulumi.StringPtrInput                              `pulumi:"registrationStatus"`
+	SourceResourceId      pulumi.StringPtrInput                              `pulumi:"sourceResourceId"`
+	WorkloadType          pulumi.StringPtrInput                              `pulumi:"workloadType"`
 }
 
 func (AzureSQLAGWorkloadContainerProtectionContainerResponseArgs) ElementType() reflect.Type {
@@ -6564,6 +6704,10 @@ func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) OperationT
 	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.OperationType }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSQLAGWorkloadContainerProtectionContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
@@ -6577,11 +6721,12 @@ func (o AzureSQLAGWorkloadContainerProtectionContainerResponseOutput) WorkloadTy
 }
 
 type AzureSqlContainer struct {
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	ContainerType        string  `pulumi:"containerType"`
-	FriendlyName         *string `pulumi:"friendlyName"`
-	HealthStatus         *string `pulumi:"healthStatus"`
-	RegistrationStatus   *string `pulumi:"registrationStatus"`
+	BackupManagementType  *string `pulumi:"backupManagementType"`
+	ContainerType         string  `pulumi:"containerType"`
+	FriendlyName          *string `pulumi:"friendlyName"`
+	HealthStatus          *string `pulumi:"healthStatus"`
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
+	RegistrationStatus    *string `pulumi:"registrationStatus"`
 }
 
 
@@ -6596,11 +6741,12 @@ type AzureSqlContainerInput interface {
 }
 
 type AzureSqlContainerArgs struct {
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	ContainerType        pulumi.StringInput    `pulumi:"containerType"`
-	FriendlyName         pulumi.StringPtrInput `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput `pulumi:"healthStatus"`
-	RegistrationStatus   pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	BackupManagementType  pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	ContainerType         pulumi.StringInput    `pulumi:"containerType"`
+	FriendlyName          pulumi.StringPtrInput `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput `pulumi:"protectableObjectType"`
+	RegistrationStatus    pulumi.StringPtrInput `pulumi:"registrationStatus"`
 }
 
 func (AzureSqlContainerArgs) ElementType() reflect.Type {
@@ -6645,16 +6791,21 @@ func (o AzureSqlContainerOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureSqlContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureSqlContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
 
 type AzureSqlContainerResponse struct {
-	BackupManagementType *string `pulumi:"backupManagementType"`
-	ContainerType        string  `pulumi:"containerType"`
-	FriendlyName         *string `pulumi:"friendlyName"`
-	HealthStatus         *string `pulumi:"healthStatus"`
-	RegistrationStatus   *string `pulumi:"registrationStatus"`
+	BackupManagementType  *string `pulumi:"backupManagementType"`
+	ContainerType         string  `pulumi:"containerType"`
+	FriendlyName          *string `pulumi:"friendlyName"`
+	HealthStatus          *string `pulumi:"healthStatus"`
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
+	RegistrationStatus    *string `pulumi:"registrationStatus"`
 }
 
 
@@ -6669,11 +6820,12 @@ type AzureSqlContainerResponseInput interface {
 }
 
 type AzureSqlContainerResponseArgs struct {
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
-	ContainerType        pulumi.StringInput    `pulumi:"containerType"`
-	FriendlyName         pulumi.StringPtrInput `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput `pulumi:"healthStatus"`
-	RegistrationStatus   pulumi.StringPtrInput `pulumi:"registrationStatus"`
+	BackupManagementType  pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	ContainerType         pulumi.StringInput    `pulumi:"containerType"`
+	FriendlyName          pulumi.StringPtrInput `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput `pulumi:"protectableObjectType"`
+	RegistrationStatus    pulumi.StringPtrInput `pulumi:"registrationStatus"`
 }
 
 func (AzureSqlContainerResponseArgs) ElementType() reflect.Type {
@@ -6718,6 +6870,10 @@ func (o AzureSqlContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureSqlContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureSqlContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
@@ -6730,11 +6886,13 @@ type AzureSqlProtectedItem struct {
 	DeferredDeleteTimeInUTC          *string                            `pulumi:"deferredDeleteTimeInUTC"`
 	DeferredDeleteTimeRemaining      *string                            `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureSqlProtectedItemExtendedInfo `pulumi:"extendedInfo"`
+	IsArchiveEnabled                 *bool                              `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                              `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                              `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                              `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                *string                            `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                            `pulumi:"policyId"`
+	PolicyName                       *string                            `pulumi:"policyName"`
 	ProtectedItemDataId              *string                            `pulumi:"protectedItemDataId"`
 	ProtectedItemType                string                             `pulumi:"protectedItemType"`
 	ProtectionState                  *string                            `pulumi:"protectionState"`
@@ -6762,11 +6920,13 @@ type AzureSqlProtectedItemArgs struct {
 	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                     `pulumi:"deferredDeleteTimeInUTC"`
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                     `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureSqlProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                       `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                       `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                       `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                       `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                pulumi.StringPtrInput                     `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                     `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                     `pulumi:"policyName"`
 	ProtectedItemDataId              pulumi.StringPtrInput                     `pulumi:"protectedItemDataId"`
 	ProtectedItemType                pulumi.StringInput                        `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                     `pulumi:"protectionState"`
@@ -6829,6 +6989,10 @@ func (o AzureSqlProtectedItemOutput) ExtendedInfo() AzureSqlProtectedItemExtende
 	return o.ApplyT(func(v AzureSqlProtectedItem) *AzureSqlProtectedItemExtendedInfo { return v.ExtendedInfo }).(AzureSqlProtectedItemExtendedInfoPtrOutput)
 }
 
+func (o AzureSqlProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureSqlProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -6847,6 +7011,10 @@ func (o AzureSqlProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput 
 
 func (o AzureSqlProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureSqlProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureSqlProtectedItemOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
@@ -7207,11 +7375,13 @@ type AzureSqlProtectedItemResponse struct {
 	DeferredDeleteTimeInUTC          *string                                    `pulumi:"deferredDeleteTimeInUTC"`
 	DeferredDeleteTimeRemaining      *string                                    `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureSqlProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
+	IsArchiveEnabled                 *bool                                      `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                      `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                      `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                      `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                *string                                    `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                                    `pulumi:"policyId"`
+	PolicyName                       *string                                    `pulumi:"policyName"`
 	ProtectedItemDataId              *string                                    `pulumi:"protectedItemDataId"`
 	ProtectedItemType                string                                     `pulumi:"protectedItemType"`
 	ProtectionState                  *string                                    `pulumi:"protectionState"`
@@ -7239,11 +7409,13 @@ type AzureSqlProtectedItemResponseArgs struct {
 	DeferredDeleteTimeInUTC          pulumi.StringPtrInput                             `pulumi:"deferredDeleteTimeInUTC"`
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                             `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureSqlProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                               `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                               `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                               `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                               `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                pulumi.StringPtrInput                             `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                             `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                             `pulumi:"policyName"`
 	ProtectedItemDataId              pulumi.StringPtrInput                             `pulumi:"protectedItemDataId"`
 	ProtectedItemType                pulumi.StringInput                                `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                             `pulumi:"protectionState"`
@@ -7308,6 +7480,10 @@ func (o AzureSqlProtectedItemResponseOutput) ExtendedInfo() AzureSqlProtectedIte
 	}).(AzureSqlProtectedItemExtendedInfoResponsePtrOutput)
 }
 
+func (o AzureSqlProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureSqlProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -7326,6 +7502,10 @@ func (o AzureSqlProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPt
 
 func (o AzureSqlProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureSqlProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureSqlProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureSqlProtectedItemResponseOutput) ProtectedItemDataId() pulumi.StringPtrOutput {
@@ -7492,6 +7672,7 @@ type AzureStorageContainer struct {
 	ContainerType             string   `pulumi:"containerType"`
 	FriendlyName              *string  `pulumi:"friendlyName"`
 	HealthStatus              *string  `pulumi:"healthStatus"`
+	ProtectableObjectType     *string  `pulumi:"protectableObjectType"`
 	ProtectedItemCount        *float64 `pulumi:"protectedItemCount"`
 	RegistrationStatus        *string  `pulumi:"registrationStatus"`
 	ResourceGroup             *string  `pulumi:"resourceGroup"`
@@ -7516,6 +7697,7 @@ type AzureStorageContainerArgs struct {
 	ContainerType             pulumi.StringInput     `pulumi:"containerType"`
 	FriendlyName              pulumi.StringPtrInput  `pulumi:"friendlyName"`
 	HealthStatus              pulumi.StringPtrInput  `pulumi:"healthStatus"`
+	ProtectableObjectType     pulumi.StringPtrInput  `pulumi:"protectableObjectType"`
 	ProtectedItemCount        pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
 	RegistrationStatus        pulumi.StringPtrInput  `pulumi:"registrationStatus"`
 	ResourceGroup             pulumi.StringPtrInput  `pulumi:"resourceGroup"`
@@ -7569,6 +7751,10 @@ func (o AzureStorageContainerOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureStorageContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureStorageContainerOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AzureStorageContainer) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
 }
@@ -7595,6 +7781,7 @@ type AzureStorageContainerResponse struct {
 	ContainerType             string   `pulumi:"containerType"`
 	FriendlyName              *string  `pulumi:"friendlyName"`
 	HealthStatus              *string  `pulumi:"healthStatus"`
+	ProtectableObjectType     *string  `pulumi:"protectableObjectType"`
 	ProtectedItemCount        *float64 `pulumi:"protectedItemCount"`
 	RegistrationStatus        *string  `pulumi:"registrationStatus"`
 	ResourceGroup             *string  `pulumi:"resourceGroup"`
@@ -7619,6 +7806,7 @@ type AzureStorageContainerResponseArgs struct {
 	ContainerType             pulumi.StringInput     `pulumi:"containerType"`
 	FriendlyName              pulumi.StringPtrInput  `pulumi:"friendlyName"`
 	HealthStatus              pulumi.StringPtrInput  `pulumi:"healthStatus"`
+	ProtectableObjectType     pulumi.StringPtrInput  `pulumi:"protectableObjectType"`
 	ProtectedItemCount        pulumi.Float64PtrInput `pulumi:"protectedItemCount"`
 	RegistrationStatus        pulumi.StringPtrInput  `pulumi:"registrationStatus"`
 	ResourceGroup             pulumi.StringPtrInput  `pulumi:"resourceGroup"`
@@ -7670,6 +7858,10 @@ func (o AzureStorageContainerResponseOutput) FriendlyName() pulumi.StringPtrOutp
 
 func (o AzureStorageContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureStorageContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureStorageContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureStorageContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureStorageContainerResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
@@ -7957,16 +8149,17 @@ func (o AzureToAzureVmSyncedConfigDetailsResponsePtrOutput) Tags() pulumi.String
 }
 
 type AzureVMAppContainerProtectionContainer struct {
-	BackupManagementType *string                             `pulumi:"backupManagementType"`
-	ContainerType        string                              `pulumi:"containerType"`
-	ExtendedInfo         *AzureWorkloadContainerExtendedInfo `pulumi:"extendedInfo"`
-	FriendlyName         *string                             `pulumi:"friendlyName"`
-	HealthStatus         *string                             `pulumi:"healthStatus"`
-	LastUpdatedTime      *string                             `pulumi:"lastUpdatedTime"`
-	OperationType        *string                             `pulumi:"operationType"`
-	RegistrationStatus   *string                             `pulumi:"registrationStatus"`
-	SourceResourceId     *string                             `pulumi:"sourceResourceId"`
-	WorkloadType         *string                             `pulumi:"workloadType"`
+	BackupManagementType  *string                             `pulumi:"backupManagementType"`
+	ContainerType         string                              `pulumi:"containerType"`
+	ExtendedInfo          *AzureWorkloadContainerExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName          *string                             `pulumi:"friendlyName"`
+	HealthStatus          *string                             `pulumi:"healthStatus"`
+	LastUpdatedTime       *string                             `pulumi:"lastUpdatedTime"`
+	OperationType         *string                             `pulumi:"operationType"`
+	ProtectableObjectType *string                             `pulumi:"protectableObjectType"`
+	RegistrationStatus    *string                             `pulumi:"registrationStatus"`
+	SourceResourceId      *string                             `pulumi:"sourceResourceId"`
+	WorkloadType          *string                             `pulumi:"workloadType"`
 }
 
 
@@ -7981,16 +8174,17 @@ type AzureVMAppContainerProtectionContainerInput interface {
 }
 
 type AzureVMAppContainerProtectionContainerArgs struct {
-	BackupManagementType pulumi.StringPtrInput                      `pulumi:"backupManagementType"`
-	ContainerType        pulumi.StringInput                         `pulumi:"containerType"`
-	ExtendedInfo         AzureWorkloadContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	FriendlyName         pulumi.StringPtrInput                      `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput                      `pulumi:"healthStatus"`
-	LastUpdatedTime      pulumi.StringPtrInput                      `pulumi:"lastUpdatedTime"`
-	OperationType        pulumi.StringPtrInput                      `pulumi:"operationType"`
-	RegistrationStatus   pulumi.StringPtrInput                      `pulumi:"registrationStatus"`
-	SourceResourceId     pulumi.StringPtrInput                      `pulumi:"sourceResourceId"`
-	WorkloadType         pulumi.StringPtrInput                      `pulumi:"workloadType"`
+	BackupManagementType  pulumi.StringPtrInput                      `pulumi:"backupManagementType"`
+	ContainerType         pulumi.StringInput                         `pulumi:"containerType"`
+	ExtendedInfo          AzureWorkloadContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName          pulumi.StringPtrInput                      `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput                      `pulumi:"healthStatus"`
+	LastUpdatedTime       pulumi.StringPtrInput                      `pulumi:"lastUpdatedTime"`
+	OperationType         pulumi.StringPtrInput                      `pulumi:"operationType"`
+	ProtectableObjectType pulumi.StringPtrInput                      `pulumi:"protectableObjectType"`
+	RegistrationStatus    pulumi.StringPtrInput                      `pulumi:"registrationStatus"`
+	SourceResourceId      pulumi.StringPtrInput                      `pulumi:"sourceResourceId"`
+	WorkloadType          pulumi.StringPtrInput                      `pulumi:"workloadType"`
 }
 
 func (AzureVMAppContainerProtectionContainerArgs) ElementType() reflect.Type {
@@ -8049,6 +8243,10 @@ func (o AzureVMAppContainerProtectionContainerOutput) OperationType() pulumi.Str
 	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.OperationType }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVMAppContainerProtectionContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureVMAppContainerProtectionContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVMAppContainerProtectionContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
@@ -8062,16 +8260,17 @@ func (o AzureVMAppContainerProtectionContainerOutput) WorkloadType() pulumi.Stri
 }
 
 type AzureVMAppContainerProtectionContainerResponse struct {
-	BackupManagementType *string                                     `pulumi:"backupManagementType"`
-	ContainerType        string                                      `pulumi:"containerType"`
-	ExtendedInfo         *AzureWorkloadContainerExtendedInfoResponse `pulumi:"extendedInfo"`
-	FriendlyName         *string                                     `pulumi:"friendlyName"`
-	HealthStatus         *string                                     `pulumi:"healthStatus"`
-	LastUpdatedTime      *string                                     `pulumi:"lastUpdatedTime"`
-	OperationType        *string                                     `pulumi:"operationType"`
-	RegistrationStatus   *string                                     `pulumi:"registrationStatus"`
-	SourceResourceId     *string                                     `pulumi:"sourceResourceId"`
-	WorkloadType         *string                                     `pulumi:"workloadType"`
+	BackupManagementType  *string                                     `pulumi:"backupManagementType"`
+	ContainerType         string                                      `pulumi:"containerType"`
+	ExtendedInfo          *AzureWorkloadContainerExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName          *string                                     `pulumi:"friendlyName"`
+	HealthStatus          *string                                     `pulumi:"healthStatus"`
+	LastUpdatedTime       *string                                     `pulumi:"lastUpdatedTime"`
+	OperationType         *string                                     `pulumi:"operationType"`
+	ProtectableObjectType *string                                     `pulumi:"protectableObjectType"`
+	RegistrationStatus    *string                                     `pulumi:"registrationStatus"`
+	SourceResourceId      *string                                     `pulumi:"sourceResourceId"`
+	WorkloadType          *string                                     `pulumi:"workloadType"`
 }
 
 
@@ -8086,16 +8285,17 @@ type AzureVMAppContainerProtectionContainerResponseInput interface {
 }
 
 type AzureVMAppContainerProtectionContainerResponseArgs struct {
-	BackupManagementType pulumi.StringPtrInput                              `pulumi:"backupManagementType"`
-	ContainerType        pulumi.StringInput                                 `pulumi:"containerType"`
-	ExtendedInfo         AzureWorkloadContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	FriendlyName         pulumi.StringPtrInput                              `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput                              `pulumi:"healthStatus"`
-	LastUpdatedTime      pulumi.StringPtrInput                              `pulumi:"lastUpdatedTime"`
-	OperationType        pulumi.StringPtrInput                              `pulumi:"operationType"`
-	RegistrationStatus   pulumi.StringPtrInput                              `pulumi:"registrationStatus"`
-	SourceResourceId     pulumi.StringPtrInput                              `pulumi:"sourceResourceId"`
-	WorkloadType         pulumi.StringPtrInput                              `pulumi:"workloadType"`
+	BackupManagementType  pulumi.StringPtrInput                              `pulumi:"backupManagementType"`
+	ContainerType         pulumi.StringInput                                 `pulumi:"containerType"`
+	ExtendedInfo          AzureWorkloadContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName          pulumi.StringPtrInput                              `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput                              `pulumi:"healthStatus"`
+	LastUpdatedTime       pulumi.StringPtrInput                              `pulumi:"lastUpdatedTime"`
+	OperationType         pulumi.StringPtrInput                              `pulumi:"operationType"`
+	ProtectableObjectType pulumi.StringPtrInput                              `pulumi:"protectableObjectType"`
+	RegistrationStatus    pulumi.StringPtrInput                              `pulumi:"registrationStatus"`
+	SourceResourceId      pulumi.StringPtrInput                              `pulumi:"sourceResourceId"`
+	WorkloadType          pulumi.StringPtrInput                              `pulumi:"workloadType"`
 }
 
 func (AzureVMAppContainerProtectionContainerResponseArgs) ElementType() reflect.Type {
@@ -8152,6 +8352,10 @@ func (o AzureVMAppContainerProtectionContainerResponseOutput) LastUpdatedTime() 
 
 func (o AzureVMAppContainerProtectionContainerResponseOutput) OperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.OperationType }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureVMAppContainerProtectionContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVMAppContainerProtectionContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureVMAppContainerProtectionContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
@@ -8323,6 +8527,7 @@ type AzureVmWorkloadProtectedItem struct {
 	DeferredDeleteTimeRemaining      *string                                   `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                   `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                     `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                     `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                     `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                     `pulumi:"isScheduledForDeferredDelete"`
@@ -8333,6 +8538,7 @@ type AzureVmWorkloadProtectedItem struct {
 	ParentName                       *string                                   `pulumi:"parentName"`
 	ParentType                       *string                                   `pulumi:"parentType"`
 	PolicyId                         *string                                   `pulumi:"policyId"`
+	PolicyName                       *string                                   `pulumi:"policyName"`
 	ProtectedItemDataSourceId        *string                                   `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        *string                                   `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                string                                    `pulumi:"protectedItemType"`
@@ -8364,6 +8570,7 @@ type AzureVmWorkloadProtectedItemArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                            `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                              `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                              `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                              `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                              `pulumi:"isScheduledForDeferredDelete"`
@@ -8374,6 +8581,7 @@ type AzureVmWorkloadProtectedItemArgs struct {
 	ParentName                       pulumi.StringPtrInput                            `pulumi:"parentName"`
 	ParentType                       pulumi.StringPtrInput                            `pulumi:"parentType"`
 	PolicyId                         pulumi.StringPtrInput                            `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                            `pulumi:"policyName"`
 	ProtectedItemDataSourceId        pulumi.StringPtrInput                            `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        pulumi.StringPtrInput                            `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                pulumi.StringInput                               `pulumi:"protectedItemType"`
@@ -8443,6 +8651,10 @@ func (o AzureVmWorkloadProtectedItemOutput) FriendlyName() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureVmWorkloadProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -8481,6 +8693,10 @@ func (o AzureVmWorkloadProtectedItemOutput) ParentType() pulumi.StringPtrOutput 
 
 func (o AzureVmWorkloadProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureVmWorkloadProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureVmWorkloadProtectedItemOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
@@ -8522,6 +8738,7 @@ func (o AzureVmWorkloadProtectedItemOutput) WorkloadType() pulumi.StringPtrOutpu
 type AzureVmWorkloadProtectedItemExtendedInfo struct {
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
 	PolicyState         *string `pulumi:"policyState"`
+	RecoveryModel       *string `pulumi:"recoveryModel"`
 	RecoveryPointCount  *int    `pulumi:"recoveryPointCount"`
 }
 
@@ -8539,6 +8756,7 @@ type AzureVmWorkloadProtectedItemExtendedInfoInput interface {
 type AzureVmWorkloadProtectedItemExtendedInfoArgs struct {
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
 	PolicyState         pulumi.StringPtrInput `pulumi:"policyState"`
+	RecoveryModel       pulumi.StringPtrInput `pulumi:"recoveryModel"`
 	RecoveryPointCount  pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
 }
 
@@ -8627,6 +8845,10 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) PolicyState() pulumi.Str
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfo) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) RecoveryModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfo) *string { return v.RecoveryModel }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureVmWorkloadProtectedItemExtendedInfoOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfo) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
@@ -8673,6 +8895,15 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) PolicyState() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) RecoveryModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryModel
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfo) *int {
 		if v == nil {
@@ -8685,6 +8916,7 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoPtrOutput) RecoveryPointCount() 
 type AzureVmWorkloadProtectedItemExtendedInfoResponse struct {
 	OldestRecoveryPoint *string `pulumi:"oldestRecoveryPoint"`
 	PolicyState         *string `pulumi:"policyState"`
+	RecoveryModel       *string `pulumi:"recoveryModel"`
 	RecoveryPointCount  *int    `pulumi:"recoveryPointCount"`
 }
 
@@ -8702,6 +8934,7 @@ type AzureVmWorkloadProtectedItemExtendedInfoResponseInput interface {
 type AzureVmWorkloadProtectedItemExtendedInfoResponseArgs struct {
 	OldestRecoveryPoint pulumi.StringPtrInput `pulumi:"oldestRecoveryPoint"`
 	PolicyState         pulumi.StringPtrInput `pulumi:"policyState"`
+	RecoveryModel       pulumi.StringPtrInput `pulumi:"recoveryModel"`
 	RecoveryPointCount  pulumi.IntPtrInput    `pulumi:"recoveryPointCount"`
 }
 
@@ -8790,6 +9023,10 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) PolicyState() pu
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoResponse) *string { return v.PolicyState }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) RecoveryModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoResponse) *string { return v.RecoveryModel }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponseOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemExtendedInfoResponse) *int { return v.RecoveryPointCount }).(pulumi.IntPtrOutput)
 }
@@ -8836,6 +9073,15 @@ func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) PolicyState()
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) RecoveryModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryModel
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o AzureVmWorkloadProtectedItemExtendedInfoResponsePtrOutput) RecoveryPointCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AzureVmWorkloadProtectedItemExtendedInfoResponse) *int {
 		if v == nil {
@@ -8854,6 +9100,7 @@ type AzureVmWorkloadProtectedItemResponse struct {
 	DeferredDeleteTimeRemaining      *string                                           `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                           `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                             `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                             `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                             `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                             `pulumi:"isScheduledForDeferredDelete"`
@@ -8865,6 +9112,7 @@ type AzureVmWorkloadProtectedItemResponse struct {
 	ParentName                       *string                                           `pulumi:"parentName"`
 	ParentType                       *string                                           `pulumi:"parentType"`
 	PolicyId                         *string                                           `pulumi:"policyId"`
+	PolicyName                       *string                                           `pulumi:"policyName"`
 	ProtectedItemDataSourceId        *string                                           `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        *string                                           `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                string                                            `pulumi:"protectedItemType"`
@@ -8896,6 +9144,7 @@ type AzureVmWorkloadProtectedItemResponseArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                                    `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                                      `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                      `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                                      `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                      `pulumi:"isScheduledForDeferredDelete"`
@@ -8907,6 +9156,7 @@ type AzureVmWorkloadProtectedItemResponseArgs struct {
 	ParentName                       pulumi.StringPtrInput                                    `pulumi:"parentName"`
 	ParentType                       pulumi.StringPtrInput                                    `pulumi:"parentType"`
 	PolicyId                         pulumi.StringPtrInput                                    `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                                    `pulumi:"policyName"`
 	ProtectedItemDataSourceId        pulumi.StringPtrInput                                    `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        pulumi.StringPtrInput                                    `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                pulumi.StringInput                                       `pulumi:"protectedItemType"`
@@ -8978,6 +9228,10 @@ func (o AzureVmWorkloadProtectedItemResponseOutput) FriendlyName() pulumi.String
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureVmWorkloadProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -9022,6 +9276,10 @@ func (o AzureVmWorkloadProtectedItemResponseOutput) ParentType() pulumi.StringPt
 
 func (o AzureVmWorkloadProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureVmWorkloadProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureVmWorkloadProtectedItemResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
@@ -9241,6 +9499,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItem struct {
 	DeferredDeleteTimeRemaining      *string                                   `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                   `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                     `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                     `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                     `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                     `pulumi:"isScheduledForDeferredDelete"`
@@ -9251,6 +9510,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItem struct {
 	ParentName                       *string                                   `pulumi:"parentName"`
 	ParentType                       *string                                   `pulumi:"parentType"`
 	PolicyId                         *string                                   `pulumi:"policyId"`
+	PolicyName                       *string                                   `pulumi:"policyName"`
 	ProtectedItemDataSourceId        *string                                   `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        *string                                   `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                string                                    `pulumi:"protectedItemType"`
@@ -9282,6 +9542,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                            `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                              `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                              `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                              `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                              `pulumi:"isScheduledForDeferredDelete"`
@@ -9292,6 +9553,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemArgs struct {
 	ParentName                       pulumi.StringPtrInput                            `pulumi:"parentName"`
 	ParentType                       pulumi.StringPtrInput                            `pulumi:"parentType"`
 	PolicyId                         pulumi.StringPtrInput                            `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                            `pulumi:"policyName"`
 	ProtectedItemDataSourceId        pulumi.StringPtrInput                            `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        pulumi.StringPtrInput                            `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                pulumi.StringInput                               `pulumi:"protectedItemType"`
@@ -9363,6 +9625,10 @@ func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) FriendlyName() pulumi.
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -9403,6 +9669,10 @@ func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ParentType() pulumi.St
 
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
@@ -9450,6 +9720,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemResponse struct {
 	DeferredDeleteTimeRemaining      *string                                           `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                           `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                             `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                             `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                             `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                             `pulumi:"isScheduledForDeferredDelete"`
@@ -9461,6 +9732,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemResponse struct {
 	ParentName                       *string                                           `pulumi:"parentName"`
 	ParentType                       *string                                           `pulumi:"parentType"`
 	PolicyId                         *string                                           `pulumi:"policyId"`
+	PolicyName                       *string                                           `pulumi:"policyName"`
 	ProtectedItemDataSourceId        *string                                           `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        *string                                           `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                string                                            `pulumi:"protectedItemType"`
@@ -9492,6 +9764,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemResponseArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                                    `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                                      `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                      `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                                      `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                      `pulumi:"isScheduledForDeferredDelete"`
@@ -9503,6 +9776,7 @@ type AzureVmWorkloadSAPAseDatabaseProtectedItemResponseArgs struct {
 	ParentName                       pulumi.StringPtrInput                                    `pulumi:"parentName"`
 	ParentType                       pulumi.StringPtrInput                                    `pulumi:"parentType"`
 	PolicyId                         pulumi.StringPtrInput                                    `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                                    `pulumi:"policyName"`
 	ProtectedItemDataSourceId        pulumi.StringPtrInput                                    `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        pulumi.StringPtrInput                                    `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                pulumi.StringInput                                       `pulumi:"protectedItemType"`
@@ -9576,6 +9850,10 @@ func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) FriendlyName()
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *bool {
 		return v.IsDeferredDeleteScheduleUpcoming
@@ -9628,6 +9906,10 @@ func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) PolicyId() pul
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
 func (o AzureVmWorkloadSAPAseDatabaseProtectedItemResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPAseDatabaseProtectedItemResponse) *string { return v.ProtectedItemDataSourceId }).(pulumi.StringPtrOutput)
 }
@@ -9675,6 +9957,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItem struct {
 	DeferredDeleteTimeRemaining      *string                                   `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                   `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                     `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                     `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                     `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                     `pulumi:"isScheduledForDeferredDelete"`
@@ -9685,6 +9968,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItem struct {
 	ParentName                       *string                                   `pulumi:"parentName"`
 	ParentType                       *string                                   `pulumi:"parentType"`
 	PolicyId                         *string                                   `pulumi:"policyId"`
+	PolicyName                       *string                                   `pulumi:"policyName"`
 	ProtectedItemDataSourceId        *string                                   `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        *string                                   `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                string                                    `pulumi:"protectedItemType"`
@@ -9716,6 +10000,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                            `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                              `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                              `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                              `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                              `pulumi:"isScheduledForDeferredDelete"`
@@ -9726,6 +10011,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs struct {
 	ParentName                       pulumi.StringPtrInput                            `pulumi:"parentName"`
 	ParentType                       pulumi.StringPtrInput                            `pulumi:"parentType"`
 	PolicyId                         pulumi.StringPtrInput                            `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                            `pulumi:"policyName"`
 	ProtectedItemDataSourceId        pulumi.StringPtrInput                            `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        pulumi.StringPtrInput                            `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                pulumi.StringInput                               `pulumi:"protectedItemType"`
@@ -9797,6 +10083,10 @@ func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) FriendlyName() pulumi
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -9837,6 +10127,10 @@ func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ParentType() pulumi.S
 
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
@@ -9884,6 +10178,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse struct {
 	DeferredDeleteTimeRemaining      *string                                           `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                           `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                             `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                             `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                             `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                             `pulumi:"isScheduledForDeferredDelete"`
@@ -9895,6 +10190,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse struct {
 	ParentName                       *string                                           `pulumi:"parentName"`
 	ParentType                       *string                                           `pulumi:"parentType"`
 	PolicyId                         *string                                           `pulumi:"policyId"`
+	PolicyName                       *string                                           `pulumi:"policyName"`
 	ProtectedItemDataSourceId        *string                                           `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        *string                                           `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                string                                            `pulumi:"protectedItemType"`
@@ -9926,6 +10222,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                                    `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                                      `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                      `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                                      `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                      `pulumi:"isScheduledForDeferredDelete"`
@@ -9937,6 +10234,7 @@ type AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseArgs struct {
 	ParentName                       pulumi.StringPtrInput                                    `pulumi:"parentName"`
 	ParentType                       pulumi.StringPtrInput                                    `pulumi:"parentType"`
 	PolicyId                         pulumi.StringPtrInput                                    `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                                    `pulumi:"policyName"`
 	ProtectedItemDataSourceId        pulumi.StringPtrInput                                    `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        pulumi.StringPtrInput                                    `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                pulumi.StringInput                                       `pulumi:"protectedItemType"`
@@ -10010,6 +10308,10 @@ func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) FriendlyName(
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *bool {
 		return v.IsDeferredDeleteScheduleUpcoming
@@ -10060,6 +10362,10 @@ func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ParentType() 
 
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureVmWorkloadSAPHanaDatabaseProtectedItemResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
@@ -10113,6 +10419,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItem struct {
 	DeferredDeleteTimeRemaining      *string                                   `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                   `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                     `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                     `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                     `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                     `pulumi:"isScheduledForDeferredDelete"`
@@ -10123,6 +10430,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItem struct {
 	ParentName                       *string                                   `pulumi:"parentName"`
 	ParentType                       *string                                   `pulumi:"parentType"`
 	PolicyId                         *string                                   `pulumi:"policyId"`
+	PolicyName                       *string                                   `pulumi:"policyName"`
 	ProtectedItemDataSourceId        *string                                   `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        *string                                   `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                string                                    `pulumi:"protectedItemType"`
@@ -10154,6 +10462,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItemArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                            `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                            `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                              `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                              `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                              `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                              `pulumi:"isScheduledForDeferredDelete"`
@@ -10164,6 +10473,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItemArgs struct {
 	ParentName                       pulumi.StringPtrInput                            `pulumi:"parentName"`
 	ParentType                       pulumi.StringPtrInput                            `pulumi:"parentType"`
 	PolicyId                         pulumi.StringPtrInput                            `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                            `pulumi:"policyName"`
 	ProtectedItemDataSourceId        pulumi.StringPtrInput                            `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        pulumi.StringPtrInput                            `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                pulumi.StringInput                               `pulumi:"protectedItemType"`
@@ -10235,6 +10545,10 @@ func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) FriendlyName() pulumi.Str
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -10275,6 +10589,10 @@ func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ParentType() pulumi.Strin
 
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureVmWorkloadSQLDatabaseProtectedItemOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
@@ -10322,6 +10640,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItemResponse struct {
 	DeferredDeleteTimeRemaining      *string                                           `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *AzureVmWorkloadProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                           `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                             `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                             `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                             `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                             `pulumi:"isScheduledForDeferredDelete"`
@@ -10333,6 +10652,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItemResponse struct {
 	ParentName                       *string                                           `pulumi:"parentName"`
 	ParentType                       *string                                           `pulumi:"parentType"`
 	PolicyId                         *string                                           `pulumi:"policyId"`
+	PolicyName                       *string                                           `pulumi:"policyName"`
 	ProtectedItemDataSourceId        *string                                           `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        *string                                           `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                string                                            `pulumi:"protectedItemType"`
@@ -10364,6 +10684,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItemResponseArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                    `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     AzureVmWorkloadProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                                    `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                                      `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                      `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                                      `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                      `pulumi:"isScheduledForDeferredDelete"`
@@ -10375,6 +10696,7 @@ type AzureVmWorkloadSQLDatabaseProtectedItemResponseArgs struct {
 	ParentName                       pulumi.StringPtrInput                                    `pulumi:"parentName"`
 	ParentType                       pulumi.StringPtrInput                                    `pulumi:"parentType"`
 	PolicyId                         pulumi.StringPtrInput                                    `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                                    `pulumi:"policyName"`
 	ProtectedItemDataSourceId        pulumi.StringPtrInput                                    `pulumi:"protectedItemDataSourceId"`
 	ProtectedItemHealthStatus        pulumi.StringPtrInput                                    `pulumi:"protectedItemHealthStatus"`
 	ProtectedItemType                pulumi.StringInput                                       `pulumi:"protectedItemType"`
@@ -10446,6 +10768,10 @@ func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) FriendlyName() pu
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *bool {
 		return v.IsDeferredDeleteScheduleUpcoming
@@ -10494,6 +10820,10 @@ func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ParentType() pulu
 
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureVmWorkloadSQLDatabaseProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureVmWorkloadSQLDatabaseProtectedItemResponseOutput) ProtectedItemDataSourceId() pulumi.StringPtrOutput {
@@ -10693,16 +11023,17 @@ func (o AzureWorkloadAutoProtectionIntentResponseOutput) SourceResourceId() pulu
 }
 
 type AzureWorkloadContainer struct {
-	BackupManagementType *string                             `pulumi:"backupManagementType"`
-	ContainerType        string                              `pulumi:"containerType"`
-	ExtendedInfo         *AzureWorkloadContainerExtendedInfo `pulumi:"extendedInfo"`
-	FriendlyName         *string                             `pulumi:"friendlyName"`
-	HealthStatus         *string                             `pulumi:"healthStatus"`
-	LastUpdatedTime      *string                             `pulumi:"lastUpdatedTime"`
-	OperationType        *string                             `pulumi:"operationType"`
-	RegistrationStatus   *string                             `pulumi:"registrationStatus"`
-	SourceResourceId     *string                             `pulumi:"sourceResourceId"`
-	WorkloadType         *string                             `pulumi:"workloadType"`
+	BackupManagementType  *string                             `pulumi:"backupManagementType"`
+	ContainerType         string                              `pulumi:"containerType"`
+	ExtendedInfo          *AzureWorkloadContainerExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName          *string                             `pulumi:"friendlyName"`
+	HealthStatus          *string                             `pulumi:"healthStatus"`
+	LastUpdatedTime       *string                             `pulumi:"lastUpdatedTime"`
+	OperationType         *string                             `pulumi:"operationType"`
+	ProtectableObjectType *string                             `pulumi:"protectableObjectType"`
+	RegistrationStatus    *string                             `pulumi:"registrationStatus"`
+	SourceResourceId      *string                             `pulumi:"sourceResourceId"`
+	WorkloadType          *string                             `pulumi:"workloadType"`
 }
 
 
@@ -10717,16 +11048,17 @@ type AzureWorkloadContainerInput interface {
 }
 
 type AzureWorkloadContainerArgs struct {
-	BackupManagementType pulumi.StringPtrInput                      `pulumi:"backupManagementType"`
-	ContainerType        pulumi.StringInput                         `pulumi:"containerType"`
-	ExtendedInfo         AzureWorkloadContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	FriendlyName         pulumi.StringPtrInput                      `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput                      `pulumi:"healthStatus"`
-	LastUpdatedTime      pulumi.StringPtrInput                      `pulumi:"lastUpdatedTime"`
-	OperationType        pulumi.StringPtrInput                      `pulumi:"operationType"`
-	RegistrationStatus   pulumi.StringPtrInput                      `pulumi:"registrationStatus"`
-	SourceResourceId     pulumi.StringPtrInput                      `pulumi:"sourceResourceId"`
-	WorkloadType         pulumi.StringPtrInput                      `pulumi:"workloadType"`
+	BackupManagementType  pulumi.StringPtrInput                      `pulumi:"backupManagementType"`
+	ContainerType         pulumi.StringInput                         `pulumi:"containerType"`
+	ExtendedInfo          AzureWorkloadContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName          pulumi.StringPtrInput                      `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput                      `pulumi:"healthStatus"`
+	LastUpdatedTime       pulumi.StringPtrInput                      `pulumi:"lastUpdatedTime"`
+	OperationType         pulumi.StringPtrInput                      `pulumi:"operationType"`
+	ProtectableObjectType pulumi.StringPtrInput                      `pulumi:"protectableObjectType"`
+	RegistrationStatus    pulumi.StringPtrInput                      `pulumi:"registrationStatus"`
+	SourceResourceId      pulumi.StringPtrInput                      `pulumi:"sourceResourceId"`
+	WorkloadType          pulumi.StringPtrInput                      `pulumi:"workloadType"`
 }
 
 func (AzureWorkloadContainerArgs) ElementType() reflect.Type {
@@ -10781,6 +11113,10 @@ func (o AzureWorkloadContainerOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 
 func (o AzureWorkloadContainerOutput) OperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureWorkloadContainer) *string { return v.OperationType }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureWorkloadContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureWorkloadContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
@@ -11280,16 +11616,17 @@ func (o AzureWorkloadContainerExtendedInfoResponsePtrOutput) NodesList() Distrib
 }
 
 type AzureWorkloadContainerResponse struct {
-	BackupManagementType *string                                     `pulumi:"backupManagementType"`
-	ContainerType        string                                      `pulumi:"containerType"`
-	ExtendedInfo         *AzureWorkloadContainerExtendedInfoResponse `pulumi:"extendedInfo"`
-	FriendlyName         *string                                     `pulumi:"friendlyName"`
-	HealthStatus         *string                                     `pulumi:"healthStatus"`
-	LastUpdatedTime      *string                                     `pulumi:"lastUpdatedTime"`
-	OperationType        *string                                     `pulumi:"operationType"`
-	RegistrationStatus   *string                                     `pulumi:"registrationStatus"`
-	SourceResourceId     *string                                     `pulumi:"sourceResourceId"`
-	WorkloadType         *string                                     `pulumi:"workloadType"`
+	BackupManagementType  *string                                     `pulumi:"backupManagementType"`
+	ContainerType         string                                      `pulumi:"containerType"`
+	ExtendedInfo          *AzureWorkloadContainerExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName          *string                                     `pulumi:"friendlyName"`
+	HealthStatus          *string                                     `pulumi:"healthStatus"`
+	LastUpdatedTime       *string                                     `pulumi:"lastUpdatedTime"`
+	OperationType         *string                                     `pulumi:"operationType"`
+	ProtectableObjectType *string                                     `pulumi:"protectableObjectType"`
+	RegistrationStatus    *string                                     `pulumi:"registrationStatus"`
+	SourceResourceId      *string                                     `pulumi:"sourceResourceId"`
+	WorkloadType          *string                                     `pulumi:"workloadType"`
 }
 
 
@@ -11304,16 +11641,17 @@ type AzureWorkloadContainerResponseInput interface {
 }
 
 type AzureWorkloadContainerResponseArgs struct {
-	BackupManagementType pulumi.StringPtrInput                              `pulumi:"backupManagementType"`
-	ContainerType        pulumi.StringInput                                 `pulumi:"containerType"`
-	ExtendedInfo         AzureWorkloadContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	FriendlyName         pulumi.StringPtrInput                              `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput                              `pulumi:"healthStatus"`
-	LastUpdatedTime      pulumi.StringPtrInput                              `pulumi:"lastUpdatedTime"`
-	OperationType        pulumi.StringPtrInput                              `pulumi:"operationType"`
-	RegistrationStatus   pulumi.StringPtrInput                              `pulumi:"registrationStatus"`
-	SourceResourceId     pulumi.StringPtrInput                              `pulumi:"sourceResourceId"`
-	WorkloadType         pulumi.StringPtrInput                              `pulumi:"workloadType"`
+	BackupManagementType  pulumi.StringPtrInput                              `pulumi:"backupManagementType"`
+	ContainerType         pulumi.StringInput                                 `pulumi:"containerType"`
+	ExtendedInfo          AzureWorkloadContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName          pulumi.StringPtrInput                              `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput                              `pulumi:"healthStatus"`
+	LastUpdatedTime       pulumi.StringPtrInput                              `pulumi:"lastUpdatedTime"`
+	OperationType         pulumi.StringPtrInput                              `pulumi:"operationType"`
+	ProtectableObjectType pulumi.StringPtrInput                              `pulumi:"protectableObjectType"`
+	RegistrationStatus    pulumi.StringPtrInput                              `pulumi:"registrationStatus"`
+	SourceResourceId      pulumi.StringPtrInput                              `pulumi:"sourceResourceId"`
+	WorkloadType          pulumi.StringPtrInput                              `pulumi:"workloadType"`
 }
 
 func (AzureWorkloadContainerResponseArgs) ElementType() reflect.Type {
@@ -11370,6 +11708,10 @@ func (o AzureWorkloadContainerResponseOutput) LastUpdatedTime() pulumi.StringPtr
 
 func (o AzureWorkloadContainerResponseOutput) OperationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureWorkloadContainerResponse) *string { return v.OperationType }).(pulumi.StringPtrOutput)
+}
+
+func (o AzureWorkloadContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureWorkloadContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureWorkloadContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
@@ -13164,11 +13506,13 @@ type DPMProtectedItem struct {
 	DeferredDeleteTimeRemaining      *string                       `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *DPMProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	FriendlyName                     *string                       `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                         `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                         `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                         `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                         `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                *string                       `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                       `pulumi:"policyId"`
+	PolicyName                       *string                       `pulumi:"policyName"`
 	ProtectedItemType                string                        `pulumi:"protectedItemType"`
 	ProtectionState                  *string                       `pulumi:"protectionState"`
 	ResourceGuardOperationRequests   []string                      `pulumi:"resourceGuardOperationRequests"`
@@ -13197,11 +13541,13 @@ type DPMProtectedItemArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     DPMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                  `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                  `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                  `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                  `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                pulumi.StringPtrInput                `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                `pulumi:"policyName"`
 	ProtectedItemType                pulumi.StringInput                   `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                `pulumi:"protectionState"`
 	ResourceGuardOperationRequests   pulumi.StringArrayInput              `pulumi:"resourceGuardOperationRequests"`
@@ -13271,6 +13617,10 @@ func (o DPMProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o DPMProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o DPMProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -13289,6 +13639,10 @@ func (o DPMProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 
 func (o DPMProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o DPMProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o DPMProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
@@ -13977,11 +14331,13 @@ type DPMProtectedItemResponse struct {
 	DeferredDeleteTimeRemaining      *string                               `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *DPMProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	FriendlyName                     *string                               `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                 `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                 `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                 `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                 `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                *string                               `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                               `pulumi:"policyId"`
+	PolicyName                       *string                               `pulumi:"policyName"`
 	ProtectedItemType                string                                `pulumi:"protectedItemType"`
 	ProtectionState                  *string                               `pulumi:"protectionState"`
 	ResourceGuardOperationRequests   []string                              `pulumi:"resourceGuardOperationRequests"`
@@ -14010,11 +14366,13 @@ type DPMProtectedItemResponseArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                        `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     DPMProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                        `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                          `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                          `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                          `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                          `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                pulumi.StringPtrInput                        `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                        `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                        `pulumi:"policyName"`
 	ProtectedItemType                pulumi.StringInput                           `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                        `pulumi:"protectionState"`
 	ResourceGuardOperationRequests   pulumi.StringArrayInput                      `pulumi:"resourceGuardOperationRequests"`
@@ -14084,6 +14442,10 @@ func (o DPMProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o DPMProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o DPMProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -14102,6 +14464,10 @@ func (o DPMProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtrOutp
 
 func (o DPMProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o DPMProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DPMProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o DPMProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
@@ -15915,19 +16281,20 @@ func (o DistributedNodesInfoResponseArrayOutput) Index(i pulumi.IntInput) Distri
 }
 
 type DpmContainer struct {
-	BackupManagementType *string                   `pulumi:"backupManagementType"`
-	CanReRegister        *bool                     `pulumi:"canReRegister"`
-	ContainerId          *string                   `pulumi:"containerId"`
-	ContainerType        string                    `pulumi:"containerType"`
-	DpmAgentVersion      *string                   `pulumi:"dpmAgentVersion"`
-	DpmServers           []string                  `pulumi:"dpmServers"`
-	ExtendedInfo         *DPMContainerExtendedInfo `pulumi:"extendedInfo"`
-	FriendlyName         *string                   `pulumi:"friendlyName"`
-	HealthStatus         *string                   `pulumi:"healthStatus"`
-	ProtectedItemCount   *float64                  `pulumi:"protectedItemCount"`
-	ProtectionStatus     *string                   `pulumi:"protectionStatus"`
-	RegistrationStatus   *string                   `pulumi:"registrationStatus"`
-	UpgradeAvailable     *bool                     `pulumi:"upgradeAvailable"`
+	BackupManagementType  *string                   `pulumi:"backupManagementType"`
+	CanReRegister         *bool                     `pulumi:"canReRegister"`
+	ContainerId           *string                   `pulumi:"containerId"`
+	ContainerType         string                    `pulumi:"containerType"`
+	DpmAgentVersion       *string                   `pulumi:"dpmAgentVersion"`
+	DpmServers            []string                  `pulumi:"dpmServers"`
+	ExtendedInfo          *DPMContainerExtendedInfo `pulumi:"extendedInfo"`
+	FriendlyName          *string                   `pulumi:"friendlyName"`
+	HealthStatus          *string                   `pulumi:"healthStatus"`
+	ProtectableObjectType *string                   `pulumi:"protectableObjectType"`
+	ProtectedItemCount    *float64                  `pulumi:"protectedItemCount"`
+	ProtectionStatus      *string                   `pulumi:"protectionStatus"`
+	RegistrationStatus    *string                   `pulumi:"registrationStatus"`
+	UpgradeAvailable      *bool                     `pulumi:"upgradeAvailable"`
 }
 
 
@@ -15942,19 +16309,20 @@ type DpmContainerInput interface {
 }
 
 type DpmContainerArgs struct {
-	BackupManagementType pulumi.StringPtrInput            `pulumi:"backupManagementType"`
-	CanReRegister        pulumi.BoolPtrInput              `pulumi:"canReRegister"`
-	ContainerId          pulumi.StringPtrInput            `pulumi:"containerId"`
-	ContainerType        pulumi.StringInput               `pulumi:"containerType"`
-	DpmAgentVersion      pulumi.StringPtrInput            `pulumi:"dpmAgentVersion"`
-	DpmServers           pulumi.StringArrayInput          `pulumi:"dpmServers"`
-	ExtendedInfo         DPMContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
-	FriendlyName         pulumi.StringPtrInput            `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput            `pulumi:"healthStatus"`
-	ProtectedItemCount   pulumi.Float64PtrInput           `pulumi:"protectedItemCount"`
-	ProtectionStatus     pulumi.StringPtrInput            `pulumi:"protectionStatus"`
-	RegistrationStatus   pulumi.StringPtrInput            `pulumi:"registrationStatus"`
-	UpgradeAvailable     pulumi.BoolPtrInput              `pulumi:"upgradeAvailable"`
+	BackupManagementType  pulumi.StringPtrInput            `pulumi:"backupManagementType"`
+	CanReRegister         pulumi.BoolPtrInput              `pulumi:"canReRegister"`
+	ContainerId           pulumi.StringPtrInput            `pulumi:"containerId"`
+	ContainerType         pulumi.StringInput               `pulumi:"containerType"`
+	DpmAgentVersion       pulumi.StringPtrInput            `pulumi:"dpmAgentVersion"`
+	DpmServers            pulumi.StringArrayInput          `pulumi:"dpmServers"`
+	ExtendedInfo          DPMContainerExtendedInfoPtrInput `pulumi:"extendedInfo"`
+	FriendlyName          pulumi.StringPtrInput            `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput            `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput            `pulumi:"protectableObjectType"`
+	ProtectedItemCount    pulumi.Float64PtrInput           `pulumi:"protectedItemCount"`
+	ProtectionStatus      pulumi.StringPtrInput            `pulumi:"protectionStatus"`
+	RegistrationStatus    pulumi.StringPtrInput            `pulumi:"registrationStatus"`
+	UpgradeAvailable      pulumi.BoolPtrInput              `pulumi:"upgradeAvailable"`
 }
 
 func (DpmContainerArgs) ElementType() reflect.Type {
@@ -16019,6 +16387,10 @@ func (o DpmContainerOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DpmContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o DpmContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DpmContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o DpmContainerOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DpmContainer) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
 }
@@ -16036,19 +16408,20 @@ func (o DpmContainerOutput) UpgradeAvailable() pulumi.BoolPtrOutput {
 }
 
 type DpmContainerResponse struct {
-	BackupManagementType *string                           `pulumi:"backupManagementType"`
-	CanReRegister        *bool                             `pulumi:"canReRegister"`
-	ContainerId          *string                           `pulumi:"containerId"`
-	ContainerType        string                            `pulumi:"containerType"`
-	DpmAgentVersion      *string                           `pulumi:"dpmAgentVersion"`
-	DpmServers           []string                          `pulumi:"dpmServers"`
-	ExtendedInfo         *DPMContainerExtendedInfoResponse `pulumi:"extendedInfo"`
-	FriendlyName         *string                           `pulumi:"friendlyName"`
-	HealthStatus         *string                           `pulumi:"healthStatus"`
-	ProtectedItemCount   *float64                          `pulumi:"protectedItemCount"`
-	ProtectionStatus     *string                           `pulumi:"protectionStatus"`
-	RegistrationStatus   *string                           `pulumi:"registrationStatus"`
-	UpgradeAvailable     *bool                             `pulumi:"upgradeAvailable"`
+	BackupManagementType  *string                           `pulumi:"backupManagementType"`
+	CanReRegister         *bool                             `pulumi:"canReRegister"`
+	ContainerId           *string                           `pulumi:"containerId"`
+	ContainerType         string                            `pulumi:"containerType"`
+	DpmAgentVersion       *string                           `pulumi:"dpmAgentVersion"`
+	DpmServers            []string                          `pulumi:"dpmServers"`
+	ExtendedInfo          *DPMContainerExtendedInfoResponse `pulumi:"extendedInfo"`
+	FriendlyName          *string                           `pulumi:"friendlyName"`
+	HealthStatus          *string                           `pulumi:"healthStatus"`
+	ProtectableObjectType *string                           `pulumi:"protectableObjectType"`
+	ProtectedItemCount    *float64                          `pulumi:"protectedItemCount"`
+	ProtectionStatus      *string                           `pulumi:"protectionStatus"`
+	RegistrationStatus    *string                           `pulumi:"registrationStatus"`
+	UpgradeAvailable      *bool                             `pulumi:"upgradeAvailable"`
 }
 
 
@@ -16063,19 +16436,20 @@ type DpmContainerResponseInput interface {
 }
 
 type DpmContainerResponseArgs struct {
-	BackupManagementType pulumi.StringPtrInput                    `pulumi:"backupManagementType"`
-	CanReRegister        pulumi.BoolPtrInput                      `pulumi:"canReRegister"`
-	ContainerId          pulumi.StringPtrInput                    `pulumi:"containerId"`
-	ContainerType        pulumi.StringInput                       `pulumi:"containerType"`
-	DpmAgentVersion      pulumi.StringPtrInput                    `pulumi:"dpmAgentVersion"`
-	DpmServers           pulumi.StringArrayInput                  `pulumi:"dpmServers"`
-	ExtendedInfo         DPMContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
-	FriendlyName         pulumi.StringPtrInput                    `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput                    `pulumi:"healthStatus"`
-	ProtectedItemCount   pulumi.Float64PtrInput                   `pulumi:"protectedItemCount"`
-	ProtectionStatus     pulumi.StringPtrInput                    `pulumi:"protectionStatus"`
-	RegistrationStatus   pulumi.StringPtrInput                    `pulumi:"registrationStatus"`
-	UpgradeAvailable     pulumi.BoolPtrInput                      `pulumi:"upgradeAvailable"`
+	BackupManagementType  pulumi.StringPtrInput                    `pulumi:"backupManagementType"`
+	CanReRegister         pulumi.BoolPtrInput                      `pulumi:"canReRegister"`
+	ContainerId           pulumi.StringPtrInput                    `pulumi:"containerId"`
+	ContainerType         pulumi.StringInput                       `pulumi:"containerType"`
+	DpmAgentVersion       pulumi.StringPtrInput                    `pulumi:"dpmAgentVersion"`
+	DpmServers            pulumi.StringArrayInput                  `pulumi:"dpmServers"`
+	ExtendedInfo          DPMContainerExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
+	FriendlyName          pulumi.StringPtrInput                    `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput                    `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput                    `pulumi:"protectableObjectType"`
+	ProtectedItemCount    pulumi.Float64PtrInput                   `pulumi:"protectedItemCount"`
+	ProtectionStatus      pulumi.StringPtrInput                    `pulumi:"protectionStatus"`
+	RegistrationStatus    pulumi.StringPtrInput                    `pulumi:"registrationStatus"`
+	UpgradeAvailable      pulumi.BoolPtrInput                      `pulumi:"upgradeAvailable"`
 }
 
 func (DpmContainerResponseArgs) ElementType() reflect.Type {
@@ -16138,6 +16512,10 @@ func (o DpmContainerResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 
 func (o DpmContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DpmContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+func (o DpmContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DpmContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
 }
 
 func (o DpmContainerResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
@@ -16937,6 +17315,7 @@ func (o ErrorDetailResponsePtrOutput) Recommendations() pulumi.StringArrayOutput
 
 type ExtendedProperties struct {
 	DiskExclusionProperties *DiskExclusionProperties `pulumi:"diskExclusionProperties"`
+	LinuxVmApplicationName  *string                  `pulumi:"linuxVmApplicationName"`
 }
 
 
@@ -16952,6 +17331,7 @@ type ExtendedPropertiesInput interface {
 
 type ExtendedPropertiesArgs struct {
 	DiskExclusionProperties DiskExclusionPropertiesPtrInput `pulumi:"diskExclusionProperties"`
+	LinuxVmApplicationName  pulumi.StringPtrInput           `pulumi:"linuxVmApplicationName"`
 }
 
 func (ExtendedPropertiesArgs) ElementType() reflect.Type {
@@ -17035,6 +17415,10 @@ func (o ExtendedPropertiesOutput) DiskExclusionProperties() DiskExclusionPropert
 	return o.ApplyT(func(v ExtendedProperties) *DiskExclusionProperties { return v.DiskExclusionProperties }).(DiskExclusionPropertiesPtrOutput)
 }
 
+func (o ExtendedPropertiesOutput) LinuxVmApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedProperties) *string { return v.LinuxVmApplicationName }).(pulumi.StringPtrOutput)
+}
+
 type ExtendedPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (ExtendedPropertiesPtrOutput) ElementType() reflect.Type {
@@ -17068,8 +17452,18 @@ func (o ExtendedPropertiesPtrOutput) DiskExclusionProperties() DiskExclusionProp
 	}).(DiskExclusionPropertiesPtrOutput)
 }
 
+func (o ExtendedPropertiesPtrOutput) LinuxVmApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinuxVmApplicationName
+	}).(pulumi.StringPtrOutput)
+}
+
 type ExtendedPropertiesResponse struct {
 	DiskExclusionProperties *DiskExclusionPropertiesResponse `pulumi:"diskExclusionProperties"`
+	LinuxVmApplicationName  *string                          `pulumi:"linuxVmApplicationName"`
 }
 
 
@@ -17085,6 +17479,7 @@ type ExtendedPropertiesResponseInput interface {
 
 type ExtendedPropertiesResponseArgs struct {
 	DiskExclusionProperties DiskExclusionPropertiesResponsePtrInput `pulumi:"diskExclusionProperties"`
+	LinuxVmApplicationName  pulumi.StringPtrInput                   `pulumi:"linuxVmApplicationName"`
 }
 
 func (ExtendedPropertiesResponseArgs) ElementType() reflect.Type {
@@ -17168,6 +17563,10 @@ func (o ExtendedPropertiesResponseOutput) DiskExclusionProperties() DiskExclusio
 	return o.ApplyT(func(v ExtendedPropertiesResponse) *DiskExclusionPropertiesResponse { return v.DiskExclusionProperties }).(DiskExclusionPropertiesResponsePtrOutput)
 }
 
+func (o ExtendedPropertiesResponseOutput) LinuxVmApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExtendedPropertiesResponse) *string { return v.LinuxVmApplicationName }).(pulumi.StringPtrOutput)
+}
+
 type ExtendedPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
 
 func (ExtendedPropertiesResponsePtrOutput) ElementType() reflect.Type {
@@ -17199,6 +17598,15 @@ func (o ExtendedPropertiesResponsePtrOutput) DiskExclusionProperties() DiskExclu
 		}
 		return v.DiskExclusionProperties
 	}).(DiskExclusionPropertiesResponsePtrOutput)
+}
+
+func (o ExtendedPropertiesResponsePtrOutput) LinuxVmApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExtendedPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LinuxVmApplicationName
+	}).(pulumi.StringPtrOutput)
 }
 
 type FabricCreationInputProperties struct {
@@ -17573,13 +17981,14 @@ func (o FabricPropertiesResponsePtrOutput) RolloverEncryptionDetails() Encryptio
 }
 
 type GenericContainer struct {
-	BackupManagementType *string                       `pulumi:"backupManagementType"`
-	ContainerType        string                        `pulumi:"containerType"`
-	ExtendedInformation  *GenericContainerExtendedInfo `pulumi:"extendedInformation"`
-	FabricName           *string                       `pulumi:"fabricName"`
-	FriendlyName         *string                       `pulumi:"friendlyName"`
-	HealthStatus         *string                       `pulumi:"healthStatus"`
-	RegistrationStatus   *string                       `pulumi:"registrationStatus"`
+	BackupManagementType  *string                       `pulumi:"backupManagementType"`
+	ContainerType         string                        `pulumi:"containerType"`
+	ExtendedInformation   *GenericContainerExtendedInfo `pulumi:"extendedInformation"`
+	FabricName            *string                       `pulumi:"fabricName"`
+	FriendlyName          *string                       `pulumi:"friendlyName"`
+	HealthStatus          *string                       `pulumi:"healthStatus"`
+	ProtectableObjectType *string                       `pulumi:"protectableObjectType"`
+	RegistrationStatus    *string                       `pulumi:"registrationStatus"`
 }
 
 
@@ -17594,13 +18003,14 @@ type GenericContainerInput interface {
 }
 
 type GenericContainerArgs struct {
-	BackupManagementType pulumi.StringPtrInput                `pulumi:"backupManagementType"`
-	ContainerType        pulumi.StringInput                   `pulumi:"containerType"`
-	ExtendedInformation  GenericContainerExtendedInfoPtrInput `pulumi:"extendedInformation"`
-	FabricName           pulumi.StringPtrInput                `pulumi:"fabricName"`
-	FriendlyName         pulumi.StringPtrInput                `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput                `pulumi:"healthStatus"`
-	RegistrationStatus   pulumi.StringPtrInput                `pulumi:"registrationStatus"`
+	BackupManagementType  pulumi.StringPtrInput                `pulumi:"backupManagementType"`
+	ContainerType         pulumi.StringInput                   `pulumi:"containerType"`
+	ExtendedInformation   GenericContainerExtendedInfoPtrInput `pulumi:"extendedInformation"`
+	FabricName            pulumi.StringPtrInput                `pulumi:"fabricName"`
+	FriendlyName          pulumi.StringPtrInput                `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput                `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput                `pulumi:"protectableObjectType"`
+	RegistrationStatus    pulumi.StringPtrInput                `pulumi:"registrationStatus"`
 }
 
 func (GenericContainerArgs) ElementType() reflect.Type {
@@ -17651,6 +18061,10 @@ func (o GenericContainerOutput) FriendlyName() pulumi.StringPtrOutput {
 
 func (o GenericContainerOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+func (o GenericContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
 }
 
 func (o GenericContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
@@ -17986,13 +18400,14 @@ func (o GenericContainerExtendedInfoResponsePtrOutput) ServiceEndpoints() pulumi
 }
 
 type GenericContainerResponse struct {
-	BackupManagementType *string                               `pulumi:"backupManagementType"`
-	ContainerType        string                                `pulumi:"containerType"`
-	ExtendedInformation  *GenericContainerExtendedInfoResponse `pulumi:"extendedInformation"`
-	FabricName           *string                               `pulumi:"fabricName"`
-	FriendlyName         *string                               `pulumi:"friendlyName"`
-	HealthStatus         *string                               `pulumi:"healthStatus"`
-	RegistrationStatus   *string                               `pulumi:"registrationStatus"`
+	BackupManagementType  *string                               `pulumi:"backupManagementType"`
+	ContainerType         string                                `pulumi:"containerType"`
+	ExtendedInformation   *GenericContainerExtendedInfoResponse `pulumi:"extendedInformation"`
+	FabricName            *string                               `pulumi:"fabricName"`
+	FriendlyName          *string                               `pulumi:"friendlyName"`
+	HealthStatus          *string                               `pulumi:"healthStatus"`
+	ProtectableObjectType *string                               `pulumi:"protectableObjectType"`
+	RegistrationStatus    *string                               `pulumi:"registrationStatus"`
 }
 
 
@@ -18007,13 +18422,14 @@ type GenericContainerResponseInput interface {
 }
 
 type GenericContainerResponseArgs struct {
-	BackupManagementType pulumi.StringPtrInput                        `pulumi:"backupManagementType"`
-	ContainerType        pulumi.StringInput                           `pulumi:"containerType"`
-	ExtendedInformation  GenericContainerExtendedInfoResponsePtrInput `pulumi:"extendedInformation"`
-	FabricName           pulumi.StringPtrInput                        `pulumi:"fabricName"`
-	FriendlyName         pulumi.StringPtrInput                        `pulumi:"friendlyName"`
-	HealthStatus         pulumi.StringPtrInput                        `pulumi:"healthStatus"`
-	RegistrationStatus   pulumi.StringPtrInput                        `pulumi:"registrationStatus"`
+	BackupManagementType  pulumi.StringPtrInput                        `pulumi:"backupManagementType"`
+	ContainerType         pulumi.StringInput                           `pulumi:"containerType"`
+	ExtendedInformation   GenericContainerExtendedInfoResponsePtrInput `pulumi:"extendedInformation"`
+	FabricName            pulumi.StringPtrInput                        `pulumi:"fabricName"`
+	FriendlyName          pulumi.StringPtrInput                        `pulumi:"friendlyName"`
+	HealthStatus          pulumi.StringPtrInput                        `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput                        `pulumi:"protectableObjectType"`
+	RegistrationStatus    pulumi.StringPtrInput                        `pulumi:"registrationStatus"`
 }
 
 func (GenericContainerResponseArgs) ElementType() reflect.Type {
@@ -18066,6 +18482,10 @@ func (o GenericContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o GenericContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o GenericContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericContainerResponse) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
@@ -18079,11 +18499,13 @@ type GenericProtectedItem struct {
 	DeferredDeleteTimeRemaining      *string           `pulumi:"deferredDeleteTimeRemaining"`
 	FabricName                       *string           `pulumi:"fabricName"`
 	FriendlyName                     *string           `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool             `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool             `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool             `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool             `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                *string           `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string           `pulumi:"policyId"`
+	PolicyName                       *string           `pulumi:"policyName"`
 	PolicyState                      *string           `pulumi:"policyState"`
 	ProtectedItemId                  *float64          `pulumi:"protectedItemId"`
 	ProtectedItemType                string            `pulumi:"protectedItemType"`
@@ -18114,11 +18536,13 @@ type GenericProtectedItemArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput   `pulumi:"deferredDeleteTimeRemaining"`
 	FabricName                       pulumi.StringPtrInput   `pulumi:"fabricName"`
 	FriendlyName                     pulumi.StringPtrInput   `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput     `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput     `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput     `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput     `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                pulumi.StringPtrInput   `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput   `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput   `pulumi:"policyName"`
 	PolicyState                      pulumi.StringPtrInput   `pulumi:"policyState"`
 	ProtectedItemId                  pulumi.Float64PtrInput  `pulumi:"protectedItemId"`
 	ProtectedItemType                pulumi.StringInput      `pulumi:"protectedItemType"`
@@ -18187,6 +18611,10 @@ func (o GenericProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o GenericProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o GenericProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -18205,6 +18633,10 @@ func (o GenericProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOutput {
 
 func (o GenericProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o GenericProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o GenericProtectedItemOutput) PolicyState() pulumi.StringPtrOutput {
@@ -18248,11 +18680,13 @@ type GenericProtectedItemResponse struct {
 	DeferredDeleteTimeRemaining      *string           `pulumi:"deferredDeleteTimeRemaining"`
 	FabricName                       *string           `pulumi:"fabricName"`
 	FriendlyName                     *string           `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool             `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool             `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool             `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool             `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                *string           `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string           `pulumi:"policyId"`
+	PolicyName                       *string           `pulumi:"policyName"`
 	PolicyState                      *string           `pulumi:"policyState"`
 	ProtectedItemId                  *float64          `pulumi:"protectedItemId"`
 	ProtectedItemType                string            `pulumi:"protectedItemType"`
@@ -18283,11 +18717,13 @@ type GenericProtectedItemResponseArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput   `pulumi:"deferredDeleteTimeRemaining"`
 	FabricName                       pulumi.StringPtrInput   `pulumi:"fabricName"`
 	FriendlyName                     pulumi.StringPtrInput   `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput     `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput     `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput     `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput     `pulumi:"isScheduledForDeferredDelete"`
 	LastRecoveryPoint                pulumi.StringPtrInput   `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput   `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput   `pulumi:"policyName"`
 	PolicyState                      pulumi.StringPtrInput   `pulumi:"policyState"`
 	ProtectedItemId                  pulumi.Float64PtrInput  `pulumi:"protectedItemId"`
 	ProtectedItemType                pulumi.StringInput      `pulumi:"protectedItemType"`
@@ -18356,6 +18792,10 @@ func (o GenericProtectedItemResponseOutput) FriendlyName() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o GenericProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o GenericProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -18374,6 +18814,10 @@ func (o GenericProtectedItemResponseOutput) LastRecoveryPoint() pulumi.StringPtr
 
 func (o GenericProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o GenericProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GenericProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o GenericProtectedItemResponseOutput) PolicyState() pulumi.StringPtrOutput {
@@ -21120,6 +21564,7 @@ type IaaSVMContainer struct {
 	ContainerType         string  `pulumi:"containerType"`
 	FriendlyName          *string `pulumi:"friendlyName"`
 	HealthStatus          *string `pulumi:"healthStatus"`
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	RegistrationStatus    *string `pulumi:"registrationStatus"`
 	ResourceGroup         *string `pulumi:"resourceGroup"`
 	VirtualMachineId      *string `pulumi:"virtualMachineId"`
@@ -21142,6 +21587,7 @@ type IaaSVMContainerArgs struct {
 	ContainerType         pulumi.StringInput    `pulumi:"containerType"`
 	FriendlyName          pulumi.StringPtrInput `pulumi:"friendlyName"`
 	HealthStatus          pulumi.StringPtrInput `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput `pulumi:"protectableObjectType"`
 	RegistrationStatus    pulumi.StringPtrInput `pulumi:"registrationStatus"`
 	ResourceGroup         pulumi.StringPtrInput `pulumi:"resourceGroup"`
 	VirtualMachineId      pulumi.StringPtrInput `pulumi:"virtualMachineId"`
@@ -21190,6 +21636,10 @@ func (o IaaSVMContainerOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IaaSVMContainer) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
 }
 
+func (o IaaSVMContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IaaSVMContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o IaaSVMContainerOutput) RegistrationStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IaaSVMContainer) *string { return v.RegistrationStatus }).(pulumi.StringPtrOutput)
 }
@@ -21211,6 +21661,7 @@ type IaaSVMContainerResponse struct {
 	ContainerType         string  `pulumi:"containerType"`
 	FriendlyName          *string `pulumi:"friendlyName"`
 	HealthStatus          *string `pulumi:"healthStatus"`
+	ProtectableObjectType *string `pulumi:"protectableObjectType"`
 	RegistrationStatus    *string `pulumi:"registrationStatus"`
 	ResourceGroup         *string `pulumi:"resourceGroup"`
 	VirtualMachineId      *string `pulumi:"virtualMachineId"`
@@ -21233,6 +21684,7 @@ type IaaSVMContainerResponseArgs struct {
 	ContainerType         pulumi.StringInput    `pulumi:"containerType"`
 	FriendlyName          pulumi.StringPtrInput `pulumi:"friendlyName"`
 	HealthStatus          pulumi.StringPtrInput `pulumi:"healthStatus"`
+	ProtectableObjectType pulumi.StringPtrInput `pulumi:"protectableObjectType"`
 	RegistrationStatus    pulumi.StringPtrInput `pulumi:"registrationStatus"`
 	ResourceGroup         pulumi.StringPtrInput `pulumi:"resourceGroup"`
 	VirtualMachineId      pulumi.StringPtrInput `pulumi:"virtualMachineId"`
@@ -21279,6 +21731,10 @@ func (o IaaSVMContainerResponseOutput) FriendlyName() pulumi.StringPtrOutput {
 
 func (o IaaSVMContainerResponseOutput) HealthStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IaaSVMContainerResponse) *string { return v.HealthStatus }).(pulumi.StringPtrOutput)
+}
+
+func (o IaaSVMContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IaaSVMContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
 }
 
 func (o IaaSVMContainerResponseOutput) RegistrationStatus() pulumi.StringPtrOutput {
@@ -30596,6 +31052,7 @@ type MabContainer struct {
 	FriendlyName              *string                     `pulumi:"friendlyName"`
 	HealthStatus              *string                     `pulumi:"healthStatus"`
 	MabContainerHealthDetails []MABContainerHealthDetails `pulumi:"mabContainerHealthDetails"`
+	ProtectableObjectType     *string                     `pulumi:"protectableObjectType"`
 	ProtectedItemCount        *float64                    `pulumi:"protectedItemCount"`
 	RegistrationStatus        *string                     `pulumi:"registrationStatus"`
 }
@@ -30622,6 +31079,7 @@ type MabContainerArgs struct {
 	FriendlyName              pulumi.StringPtrInput               `pulumi:"friendlyName"`
 	HealthStatus              pulumi.StringPtrInput               `pulumi:"healthStatus"`
 	MabContainerHealthDetails MABContainerHealthDetailsArrayInput `pulumi:"mabContainerHealthDetails"`
+	ProtectableObjectType     pulumi.StringPtrInput               `pulumi:"protectableObjectType"`
 	ProtectedItemCount        pulumi.Float64PtrInput              `pulumi:"protectedItemCount"`
 	RegistrationStatus        pulumi.StringPtrInput               `pulumi:"registrationStatus"`
 }
@@ -30690,6 +31148,10 @@ func (o MabContainerOutput) HealthStatus() pulumi.StringPtrOutput {
 
 func (o MabContainerOutput) MabContainerHealthDetails() MABContainerHealthDetailsArrayOutput {
 	return o.ApplyT(func(v MabContainer) []MABContainerHealthDetails { return v.MabContainerHealthDetails }).(MABContainerHealthDetailsArrayOutput)
+}
+
+func (o MabContainerOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainer) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
 }
 
 func (o MabContainerOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
@@ -31097,6 +31559,7 @@ type MabContainerResponse struct {
 	FriendlyName              *string                             `pulumi:"friendlyName"`
 	HealthStatus              *string                             `pulumi:"healthStatus"`
 	MabContainerHealthDetails []MABContainerHealthDetailsResponse `pulumi:"mabContainerHealthDetails"`
+	ProtectableObjectType     *string                             `pulumi:"protectableObjectType"`
 	ProtectedItemCount        *float64                            `pulumi:"protectedItemCount"`
 	RegistrationStatus        *string                             `pulumi:"registrationStatus"`
 }
@@ -31123,6 +31586,7 @@ type MabContainerResponseArgs struct {
 	FriendlyName              pulumi.StringPtrInput                       `pulumi:"friendlyName"`
 	HealthStatus              pulumi.StringPtrInput                       `pulumi:"healthStatus"`
 	MabContainerHealthDetails MABContainerHealthDetailsResponseArrayInput `pulumi:"mabContainerHealthDetails"`
+	ProtectableObjectType     pulumi.StringPtrInput                       `pulumi:"protectableObjectType"`
 	ProtectedItemCount        pulumi.Float64PtrInput                      `pulumi:"protectedItemCount"`
 	RegistrationStatus        pulumi.StringPtrInput                       `pulumi:"registrationStatus"`
 }
@@ -31193,6 +31657,10 @@ func (o MabContainerResponseOutput) MabContainerHealthDetails() MABContainerHeal
 	return o.ApplyT(func(v MabContainerResponse) []MABContainerHealthDetailsResponse { return v.MabContainerHealthDetails }).(MABContainerHealthDetailsResponseArrayOutput)
 }
 
+func (o MabContainerResponseOutput) ProtectableObjectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabContainerResponse) *string { return v.ProtectableObjectType }).(pulumi.StringPtrOutput)
+}
+
 func (o MabContainerResponseOutput) ProtectedItemCount() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v MabContainerResponse) *float64 { return v.ProtectedItemCount }).(pulumi.Float64PtrOutput)
 }
@@ -31212,6 +31680,7 @@ type MabFileFolderProtectedItem struct {
 	DeferredDeleteTimeRemaining      *string                                 `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *MabFileFolderProtectedItemExtendedInfo `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                 `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                   `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                   `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                   `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                   `pulumi:"isScheduledForDeferredDelete"`
@@ -31219,6 +31688,7 @@ type MabFileFolderProtectedItem struct {
 	LastBackupTime                   *string                                 `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                *string                                 `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                                 `pulumi:"policyId"`
+	PolicyName                       *string                                 `pulumi:"policyName"`
 	ProtectedItemType                string                                  `pulumi:"protectedItemType"`
 	ProtectionState                  *string                                 `pulumi:"protectionState"`
 	ResourceGuardOperationRequests   []string                                `pulumi:"resourceGuardOperationRequests"`
@@ -31248,6 +31718,7 @@ type MabFileFolderProtectedItemArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                          `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     MabFileFolderProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                          `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                            `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                            `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                            `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                            `pulumi:"isScheduledForDeferredDelete"`
@@ -31255,6 +31726,7 @@ type MabFileFolderProtectedItemArgs struct {
 	LastBackupTime                   pulumi.StringPtrInput                          `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                pulumi.StringPtrInput                          `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                          `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                          `pulumi:"policyName"`
 	ProtectedItemType                pulumi.StringInput                             `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                          `pulumi:"protectionState"`
 	ResourceGuardOperationRequests   pulumi.StringArrayInput                        `pulumi:"resourceGuardOperationRequests"`
@@ -31328,6 +31800,10 @@ func (o MabFileFolderProtectedItemOutput) FriendlyName() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o MabFileFolderProtectedItemOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItem) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o MabFileFolderProtectedItemOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -31354,6 +31830,10 @@ func (o MabFileFolderProtectedItemOutput) LastRecoveryPoint() pulumi.StringPtrOu
 
 func (o MabFileFolderProtectedItemOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o MabFileFolderProtectedItemOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItem) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o MabFileFolderProtectedItemOutput) ProtectedItemType() pulumi.StringOutput {
@@ -31713,6 +32193,7 @@ type MabFileFolderProtectedItemResponse struct {
 	DeferredDeleteTimeRemaining      *string                                         `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     *MabFileFolderProtectedItemExtendedInfoResponse `pulumi:"extendedInfo"`
 	FriendlyName                     *string                                         `pulumi:"friendlyName"`
+	IsArchiveEnabled                 *bool                                           `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming *bool                                           `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      *bool                                           `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     *bool                                           `pulumi:"isScheduledForDeferredDelete"`
@@ -31720,6 +32201,7 @@ type MabFileFolderProtectedItemResponse struct {
 	LastBackupTime                   *string                                         `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                *string                                         `pulumi:"lastRecoveryPoint"`
 	PolicyId                         *string                                         `pulumi:"policyId"`
+	PolicyName                       *string                                         `pulumi:"policyName"`
 	ProtectedItemType                string                                          `pulumi:"protectedItemType"`
 	ProtectionState                  *string                                         `pulumi:"protectionState"`
 	ResourceGuardOperationRequests   []string                                        `pulumi:"resourceGuardOperationRequests"`
@@ -31749,6 +32231,7 @@ type MabFileFolderProtectedItemResponseArgs struct {
 	DeferredDeleteTimeRemaining      pulumi.StringPtrInput                                  `pulumi:"deferredDeleteTimeRemaining"`
 	ExtendedInfo                     MabFileFolderProtectedItemExtendedInfoResponsePtrInput `pulumi:"extendedInfo"`
 	FriendlyName                     pulumi.StringPtrInput                                  `pulumi:"friendlyName"`
+	IsArchiveEnabled                 pulumi.BoolPtrInput                                    `pulumi:"isArchiveEnabled"`
 	IsDeferredDeleteScheduleUpcoming pulumi.BoolPtrInput                                    `pulumi:"isDeferredDeleteScheduleUpcoming"`
 	IsRehydrate                      pulumi.BoolPtrInput                                    `pulumi:"isRehydrate"`
 	IsScheduledForDeferredDelete     pulumi.BoolPtrInput                                    `pulumi:"isScheduledForDeferredDelete"`
@@ -31756,6 +32239,7 @@ type MabFileFolderProtectedItemResponseArgs struct {
 	LastBackupTime                   pulumi.StringPtrInput                                  `pulumi:"lastBackupTime"`
 	LastRecoveryPoint                pulumi.StringPtrInput                                  `pulumi:"lastRecoveryPoint"`
 	PolicyId                         pulumi.StringPtrInput                                  `pulumi:"policyId"`
+	PolicyName                       pulumi.StringPtrInput                                  `pulumi:"policyName"`
 	ProtectedItemType                pulumi.StringInput                                     `pulumi:"protectedItemType"`
 	ProtectionState                  pulumi.StringPtrInput                                  `pulumi:"protectionState"`
 	ResourceGuardOperationRequests   pulumi.StringArrayInput                                `pulumi:"resourceGuardOperationRequests"`
@@ -31831,6 +32315,10 @@ func (o MabFileFolderProtectedItemResponseOutput) FriendlyName() pulumi.StringPt
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
 }
 
+func (o MabFileFolderProtectedItemResponseOutput) IsArchiveEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *bool { return v.IsArchiveEnabled }).(pulumi.BoolPtrOutput)
+}
+
 func (o MabFileFolderProtectedItemResponseOutput) IsDeferredDeleteScheduleUpcoming() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *bool { return v.IsDeferredDeleteScheduleUpcoming }).(pulumi.BoolPtrOutput)
 }
@@ -31857,6 +32345,10 @@ func (o MabFileFolderProtectedItemResponseOutput) LastRecoveryPoint() pulumi.Str
 
 func (o MabFileFolderProtectedItemResponseOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.PolicyId }).(pulumi.StringPtrOutput)
+}
+
+func (o MabFileFolderProtectedItemResponseOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MabFileFolderProtectedItemResponse) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
 func (o MabFileFolderProtectedItemResponseOutput) ProtectedItemType() pulumi.StringOutput {
