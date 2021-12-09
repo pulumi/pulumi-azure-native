@@ -1,0 +1,42 @@
+
+
+
+package v20160901preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupAppliance(ctx *pulumi.Context, args *LookupApplianceArgs, opts ...pulumi.InvokeOption) (*LookupApplianceResult, error) {
+	var rv LookupApplianceResult
+	err := ctx.Invoke("azure-native:solutions/v20160901preview:getAppliance", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupApplianceArgs struct {
+	ApplianceName     string `pulumi:"applianceName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupApplianceResult struct {
+	ApplianceDefinitionId  *string           `pulumi:"applianceDefinitionId"`
+	Id                     string            `pulumi:"id"`
+	Identity               *IdentityResponse `pulumi:"identity"`
+	Kind                   *string           `pulumi:"kind"`
+	Location               *string           `pulumi:"location"`
+	ManagedBy              *string           `pulumi:"managedBy"`
+	ManagedResourceGroupId string            `pulumi:"managedResourceGroupId"`
+	Name                   string            `pulumi:"name"`
+	Outputs                interface{}       `pulumi:"outputs"`
+	Parameters             interface{}       `pulumi:"parameters"`
+	Plan                   *PlanResponse     `pulumi:"plan"`
+	ProvisioningState      string            `pulumi:"provisioningState"`
+	Sku                    *SkuResponse      `pulumi:"sku"`
+	Tags                   map[string]string `pulumi:"tags"`
+	Type                   string            `pulumi:"type"`
+	UiDefinitionUri        *string           `pulumi:"uiDefinitionUri"`
+}

@@ -1,0 +1,37 @@
+
+
+
+package v20180401
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupExpressRouteCircuitConnection(ctx *pulumi.Context, args *LookupExpressRouteCircuitConnectionArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitConnectionResult, error) {
+	var rv LookupExpressRouteCircuitConnectionResult
+	err := ctx.Invoke("azure-native:network/v20180401:getExpressRouteCircuitConnection", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupExpressRouteCircuitConnectionArgs struct {
+	CircuitName       string `pulumi:"circuitName"`
+	ConnectionName    string `pulumi:"connectionName"`
+	PeeringName       string `pulumi:"peeringName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupExpressRouteCircuitConnectionResult struct {
+	AddressPrefix                  *string              `pulumi:"addressPrefix"`
+	AuthorizationKey               *string              `pulumi:"authorizationKey"`
+	CircuitConnectionStatus        string               `pulumi:"circuitConnectionStatus"`
+	Etag                           string               `pulumi:"etag"`
+	ExpressRouteCircuitPeering     *SubResourceResponse `pulumi:"expressRouteCircuitPeering"`
+	Id                             *string              `pulumi:"id"`
+	Name                           *string              `pulumi:"name"`
+	PeerExpressRouteCircuitPeering *SubResourceResponse `pulumi:"peerExpressRouteCircuitPeering"`
+	ProvisioningState              string               `pulumi:"provisioningState"`
+}
