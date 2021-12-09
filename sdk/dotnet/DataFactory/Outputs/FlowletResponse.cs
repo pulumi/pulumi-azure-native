@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Type of data flow.
         /// Expected value is 'Flowlet'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private FlowletResponse(
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableArray<Outputs.TransformationResponse> transformations,
 
-            string? type)
+            string type)
         {
             Annotations = annotations;
             Description = description;

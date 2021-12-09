@@ -9,6 +9,7 @@ export * from "./getMonitor";
 export * from "./getTagRule";
 export * from "./listDeploymentInfo";
 export * from "./listMonitoredResource";
+export * from "./listUpgradableVersionDetails";
 export * from "./listVMHost";
 export * from "./monitor";
 export * from "./tagRule";
@@ -19,10 +20,14 @@ export * from "../types/enums/elastic";
 // Export sub-modules:
 import * as v20200701 from "./v20200701";
 import * as v20200701preview from "./v20200701preview";
+import * as v20210901preview from "./v20210901preview";
+import * as v20211001preview from "./v20211001preview";
 
 export {
     v20200701,
     v20200701preview,
+    v20210901preview,
+    v20211001preview,
 };
 
 // Import resources to register:

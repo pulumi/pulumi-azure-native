@@ -7404,6 +7404,24 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "elastic/v20210901preview",
+  "fqn": "pulumi_azure_native.elastic.v20210901preview",
+  "classes": {
+   "azure-native:elastic/v20210901preview:Monitor": "Monitor",
+   "azure-native:elastic/v20210901preview:TagRule": "TagRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "elastic/v20211001preview",
+  "fqn": "pulumi_azure_native.elastic.v20211001preview",
+  "classes": {
+   "azure-native:elastic/v20211001preview:Monitor": "Monitor",
+   "azure-native:elastic/v20211001preview:TagRule": "TagRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "engagementfabric",
   "fqn": "pulumi_azure_native.engagementfabric",
   "classes": {

@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Type of data flow.
         /// Expected value is 'WranglingDataFlow'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private WranglingDataFlowResponse(
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             ImmutableArray<Outputs.PowerQuerySourceResponse> sources,
 
-            string? type)
+            string type)
         {
             Annotations = annotations;
             Description = description;

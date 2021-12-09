@@ -10,6 +10,7 @@ from .get_monitor import *
 from .get_tag_rule import *
 from .list_deployment_info import *
 from .list_monitored_resource import *
+from .list_upgradable_version_details import *
 from .list_vm_host import *
 from .monitor import *
 from .tag_rule import *
@@ -22,7 +23,13 @@ if typing.TYPE_CHECKING:
     v20200701 = __v20200701
     import pulumi_azure_native.elastic.v20200701preview as __v20200701preview
     v20200701preview = __v20200701preview
+    import pulumi_azure_native.elastic.v20210901preview as __v20210901preview
+    v20210901preview = __v20210901preview
+    import pulumi_azure_native.elastic.v20211001preview as __v20211001preview
+    v20211001preview = __v20211001preview
 else:
     v20200701 = _utilities.lazy_import('pulumi_azure_native.elastic.v20200701')
     v20200701preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20200701preview')
+    v20210901preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20210901preview')
+    v20211001preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20211001preview')
 

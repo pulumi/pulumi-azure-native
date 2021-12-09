@@ -32153,6 +32153,7 @@ class FilterActivityArgs:
 @pulumi.input_type
 class FlowletArgs:
     def __init__(__self__, *,
+                 type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DataFlowFolderArgs']] = None,
@@ -32160,10 +32161,11 @@ class FlowletArgs:
                  script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sinks: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]] = None):
         """
         Data flow flowlet
+        :param pulumi.Input[str] type: Type of data flow.
+               Expected value is 'Flowlet'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the data flow.
         :param pulumi.Input[str] description: The description of the data flow.
         :param pulumi.Input['DataFlowFolderArgs'] folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
@@ -32172,9 +32174,8 @@ class FlowletArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]] sinks: List of sinks in Flowlet.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]] sources: List of sources in Flowlet.
         :param pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]] transformations: List of transformations in Flowlet.
-        :param pulumi.Input[str] type: Type of data flow.
-               Expected value is 'Flowlet'.
         """
+        pulumi.set(__self__, "type", 'Flowlet')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -32191,8 +32192,19 @@ class FlowletArgs:
             pulumi.set(__self__, "sources", sources)
         if transformations is not None:
             pulumi.set(__self__, "transformations", transformations)
-        if type is not None:
-            pulumi.set(__self__, "type", 'Flowlet')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of data flow.
+        Expected value is 'Flowlet'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
@@ -32289,19 +32301,6 @@ class FlowletArgs:
     @transformations.setter
     def transformations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]]):
         pulumi.set(self, "transformations", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of data flow.
-        Expected value is 'Flowlet'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -44764,6 +44763,7 @@ class ManagedVirtualNetworkReferenceArgs:
 @pulumi.input_type
 class MappingDataFlowArgs:
     def __init__(__self__, *,
+                 type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DataFlowFolderArgs']] = None,
@@ -44771,10 +44771,11 @@ class MappingDataFlowArgs:
                  script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sinks: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]] = None):
         """
         Mapping data flow.
+        :param pulumi.Input[str] type: Type of data flow.
+               Expected value is 'MappingDataFlow'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the data flow.
         :param pulumi.Input[str] description: The description of the data flow.
         :param pulumi.Input['DataFlowFolderArgs'] folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
@@ -44783,9 +44784,8 @@ class MappingDataFlowArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSinkArgs']]] sinks: List of sinks in data flow.
         :param pulumi.Input[Sequence[pulumi.Input['DataFlowSourceArgs']]] sources: List of sources in data flow.
         :param pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]] transformations: List of transformations in data flow.
-        :param pulumi.Input[str] type: Type of data flow.
-               Expected value is 'MappingDataFlow'.
         """
+        pulumi.set(__self__, "type", 'MappingDataFlow')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -44802,8 +44802,19 @@ class MappingDataFlowArgs:
             pulumi.set(__self__, "sources", sources)
         if transformations is not None:
             pulumi.set(__self__, "transformations", transformations)
-        if type is not None:
-            pulumi.set(__self__, "type", 'MappingDataFlow')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of data flow.
+        Expected value is 'MappingDataFlow'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
@@ -44900,19 +44911,6 @@ class MappingDataFlowArgs:
     @transformations.setter
     def transformations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TransformationArgs']]]]):
         pulumi.set(self, "transformations", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of data flow.
-        Expected value is 'MappingDataFlow'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -76191,24 +76189,25 @@ class WebTableDatasetArgs:
 @pulumi.input_type
 class WranglingDataFlowArgs:
     def __init__(__self__, *,
+                 type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  document_locale: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input['DataFlowFolderArgs']] = None,
                  script: Optional[pulumi.Input[str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['PowerQuerySourceArgs']]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['PowerQuerySourceArgs']]]] = None):
         """
         Power Query data flow.
+        :param pulumi.Input[str] type: Type of data flow.
+               Expected value is 'WranglingDataFlow'.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the data flow.
         :param pulumi.Input[str] description: The description of the data flow.
         :param pulumi.Input[str] document_locale: Locale of the Power query mashup document.
         :param pulumi.Input['DataFlowFolderArgs'] folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param pulumi.Input[str] script: Power query mashup script.
         :param pulumi.Input[Sequence[pulumi.Input['PowerQuerySourceArgs']]] sources: List of sources in Power Query.
-        :param pulumi.Input[str] type: Type of data flow.
-               Expected value is 'WranglingDataFlow'.
         """
+        pulumi.set(__self__, "type", 'WranglingDataFlow')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -76221,8 +76220,19 @@ class WranglingDataFlowArgs:
             pulumi.set(__self__, "script", script)
         if sources is not None:
             pulumi.set(__self__, "sources", sources)
-        if type is not None:
-            pulumi.set(__self__, "type", 'WranglingDataFlow')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of data flow.
+        Expected value is 'WranglingDataFlow'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
@@ -76295,19 +76305,6 @@ class WranglingDataFlowArgs:
     @sources.setter
     def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PowerQuerySourceArgs']]]]):
         pulumi.set(self, "sources", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type of data flow.
-        Expected value is 'WranglingDataFlow'.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

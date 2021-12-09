@@ -30699,6 +30699,7 @@ class FlowletResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 type: str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DataFlowResponseFolder'] = None,
@@ -30706,10 +30707,11 @@ class FlowletResponse(dict):
                  script_lines: Optional[Sequence[str]] = None,
                  sinks: Optional[Sequence['outputs.DataFlowSinkResponse']] = None,
                  sources: Optional[Sequence['outputs.DataFlowSourceResponse']] = None,
-                 transformations: Optional[Sequence['outputs.TransformationResponse']] = None,
-                 type: Optional[str] = None):
+                 transformations: Optional[Sequence['outputs.TransformationResponse']] = None):
         """
         Data flow flowlet
+        :param str type: Type of data flow.
+               Expected value is 'Flowlet'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
         :param str description: The description of the data flow.
         :param 'DataFlowResponseFolder' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
@@ -30718,9 +30720,8 @@ class FlowletResponse(dict):
         :param Sequence['DataFlowSinkResponse'] sinks: List of sinks in Flowlet.
         :param Sequence['DataFlowSourceResponse'] sources: List of sources in Flowlet.
         :param Sequence['TransformationResponse'] transformations: List of transformations in Flowlet.
-        :param str type: Type of data flow.
-               Expected value is 'Flowlet'.
         """
+        pulumi.set(__self__, "type", 'Flowlet')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -30737,8 +30738,15 @@ class FlowletResponse(dict):
             pulumi.set(__self__, "sources", sources)
         if transformations is not None:
             pulumi.set(__self__, "transformations", transformations)
-        if type is not None:
-            pulumi.set(__self__, "type", 'Flowlet')
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of data flow.
+        Expected value is 'Flowlet'.
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -30803,15 +30811,6 @@ class FlowletResponse(dict):
         List of transformations in Flowlet.
         """
         return pulumi.get(self, "transformations")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Type of data flow.
-        Expected value is 'Flowlet'.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -43029,6 +43028,7 @@ class MappingDataFlowResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 type: str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DataFlowResponseFolder'] = None,
@@ -43036,10 +43036,11 @@ class MappingDataFlowResponse(dict):
                  script_lines: Optional[Sequence[str]] = None,
                  sinks: Optional[Sequence['outputs.DataFlowSinkResponse']] = None,
                  sources: Optional[Sequence['outputs.DataFlowSourceResponse']] = None,
-                 transformations: Optional[Sequence['outputs.TransformationResponse']] = None,
-                 type: Optional[str] = None):
+                 transformations: Optional[Sequence['outputs.TransformationResponse']] = None):
         """
         Mapping data flow.
+        :param str type: Type of data flow.
+               Expected value is 'MappingDataFlow'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
         :param str description: The description of the data flow.
         :param 'DataFlowResponseFolder' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
@@ -43048,9 +43049,8 @@ class MappingDataFlowResponse(dict):
         :param Sequence['DataFlowSinkResponse'] sinks: List of sinks in data flow.
         :param Sequence['DataFlowSourceResponse'] sources: List of sources in data flow.
         :param Sequence['TransformationResponse'] transformations: List of transformations in data flow.
-        :param str type: Type of data flow.
-               Expected value is 'MappingDataFlow'.
         """
+        pulumi.set(__self__, "type", 'MappingDataFlow')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -43067,8 +43067,15 @@ class MappingDataFlowResponse(dict):
             pulumi.set(__self__, "sources", sources)
         if transformations is not None:
             pulumi.set(__self__, "transformations", transformations)
-        if type is not None:
-            pulumi.set(__self__, "type", 'MappingDataFlow')
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of data flow.
+        Expected value is 'MappingDataFlow'.
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -43133,15 +43140,6 @@ class MappingDataFlowResponse(dict):
         List of transformations in data flow.
         """
         return pulumi.get(self, "transformations")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Type of data flow.
-        Expected value is 'MappingDataFlow'.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -74230,24 +74228,25 @@ class WranglingDataFlowResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 type: str,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  document_locale: Optional[str] = None,
                  folder: Optional['outputs.DataFlowResponseFolder'] = None,
                  script: Optional[str] = None,
-                 sources: Optional[Sequence['outputs.PowerQuerySourceResponse']] = None,
-                 type: Optional[str] = None):
+                 sources: Optional[Sequence['outputs.PowerQuerySourceResponse']] = None):
         """
         Power Query data flow.
+        :param str type: Type of data flow.
+               Expected value is 'WranglingDataFlow'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the data flow.
         :param str description: The description of the data flow.
         :param str document_locale: Locale of the Power query mashup document.
         :param 'DataFlowResponseFolder' folder: The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         :param str script: Power query mashup script.
         :param Sequence['PowerQuerySourceResponse'] sources: List of sources in Power Query.
-        :param str type: Type of data flow.
-               Expected value is 'WranglingDataFlow'.
         """
+        pulumi.set(__self__, "type", 'WranglingDataFlow')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
@@ -74260,8 +74259,15 @@ class WranglingDataFlowResponse(dict):
             pulumi.set(__self__, "script", script)
         if sources is not None:
             pulumi.set(__self__, "sources", sources)
-        if type is not None:
-            pulumi.set(__self__, "type", 'WranglingDataFlow')
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of data flow.
+        Expected value is 'WranglingDataFlow'.
+        """
+        return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
@@ -74310,15 +74316,6 @@ class WranglingDataFlowResponse(dict):
         List of sources in Power Query.
         """
         return pulumi.get(self, "sources")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[str]:
-        """
-        Type of data flow.
-        Expected value is 'WranglingDataFlow'.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

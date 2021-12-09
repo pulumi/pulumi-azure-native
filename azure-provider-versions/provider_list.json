@@ -73609,6 +73609,19 @@
         ],
         "properties": null,
         "resourceType": "Locations/OperationStatuses"
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-07-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "InsightDiagnostics"
       }
     ]
   },

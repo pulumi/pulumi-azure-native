@@ -97,8 +97,8 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// Type of data flow.
         /// Expected value is 'MappingDataFlow'.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public MappingDataFlowArgs()
         {

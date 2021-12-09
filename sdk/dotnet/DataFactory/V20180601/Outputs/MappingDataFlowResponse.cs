@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// Type of data flow.
         /// Expected value is 'MappingDataFlow'.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private MappingDataFlowResponse(
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             ImmutableArray<Outputs.TransformationResponse> transformations,
 
-            string? type)
+            string type)
         {
             Annotations = annotations;
             Description = description;
