@@ -3,7 +3,9 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 
-(None)
+#### New functions:
+
+- `elastic.listUpgradableVersionDetails`
 
 ---
 
