@@ -1,0 +1,50 @@
+
+
+
+package v20210601preview
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupBigDataPool(ctx *pulumi.Context, args *LookupBigDataPoolArgs, opts ...pulumi.InvokeOption) (*LookupBigDataPoolResult, error) {
+	var rv LookupBigDataPoolResult
+	err := ctx.Invoke("azure-native:synapse/v20210601preview:getBigDataPool", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupBigDataPoolArgs struct {
+	BigDataPoolName   string `pulumi:"bigDataPoolName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	WorkspaceName     string `pulumi:"workspaceName"`
+}
+
+
+type LookupBigDataPoolResult struct {
+	AutoPause                   *AutoPausePropertiesResponse       `pulumi:"autoPause"`
+	AutoScale                   *AutoScalePropertiesResponse       `pulumi:"autoScale"`
+	CacheSize                   *int                               `pulumi:"cacheSize"`
+	CreationDate                *string                            `pulumi:"creationDate"`
+	CustomLibraries             []LibraryInfoResponse              `pulumi:"customLibraries"`
+	DefaultSparkLogFolder       *string                            `pulumi:"defaultSparkLogFolder"`
+	DynamicExecutorAllocation   *DynamicExecutorAllocationResponse `pulumi:"dynamicExecutorAllocation"`
+	Id                          string                             `pulumi:"id"`
+	IsComputeIsolationEnabled   *bool                              `pulumi:"isComputeIsolationEnabled"`
+	LastSucceededTimestamp      string                             `pulumi:"lastSucceededTimestamp"`
+	LibraryRequirements         *LibraryRequirementsResponse       `pulumi:"libraryRequirements"`
+	Location                    string                             `pulumi:"location"`
+	Name                        string                             `pulumi:"name"`
+	NodeCount                   *int                               `pulumi:"nodeCount"`
+	NodeSize                    *string                            `pulumi:"nodeSize"`
+	NodeSizeFamily              *string                            `pulumi:"nodeSizeFamily"`
+	ProvisioningState           *string                            `pulumi:"provisioningState"`
+	SessionLevelPackagesEnabled *bool                              `pulumi:"sessionLevelPackagesEnabled"`
+	SparkConfigProperties       *SparkConfigPropertiesResponse     `pulumi:"sparkConfigProperties"`
+	SparkEventsFolder           *string                            `pulumi:"sparkEventsFolder"`
+	SparkVersion                *string                            `pulumi:"sparkVersion"`
+	Tags                        map[string]string                  `pulumi:"tags"`
+	Type                        string                             `pulumi:"type"`
+}

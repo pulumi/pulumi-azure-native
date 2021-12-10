@@ -1,0 +1,41 @@
+
+
+
+package hanaonazure
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupHanaInstance(ctx *pulumi.Context, args *LookupHanaInstanceArgs, opts ...pulumi.InvokeOption) (*LookupHanaInstanceResult, error) {
+	var rv LookupHanaInstanceResult
+	err := ctx.Invoke("azure-native:hanaonazure:getHanaInstance", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupHanaInstanceArgs struct {
+	HanaInstanceName  string `pulumi:"hanaInstanceName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupHanaInstanceResult struct {
+	HanaInstanceId          string                   `pulumi:"hanaInstanceId"`
+	HardwareProfile         *HardwareProfileResponse `pulumi:"hardwareProfile"`
+	HwRevision              string                   `pulumi:"hwRevision"`
+	Id                      string                   `pulumi:"id"`
+	Location                *string                  `pulumi:"location"`
+	Name                    string                   `pulumi:"name"`
+	NetworkProfile          *NetworkProfileResponse  `pulumi:"networkProfile"`
+	OsProfile               *OSProfileResponse       `pulumi:"osProfile"`
+	PartnerNodeId           *string                  `pulumi:"partnerNodeId"`
+	PowerState              string                   `pulumi:"powerState"`
+	ProvisioningState       string                   `pulumi:"provisioningState"`
+	ProximityPlacementGroup string                   `pulumi:"proximityPlacementGroup"`
+	StorageProfile          *StorageProfileResponse  `pulumi:"storageProfile"`
+	Tags                    map[string]string        `pulumi:"tags"`
+	Type                    string                   `pulumi:"type"`
+}
