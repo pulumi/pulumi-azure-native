@@ -95,7 +95,7 @@ export class SentinelOnboardingState extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:SentinelOnboardingState" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:SentinelOnboardingState" }, { type: "azure-native:securityinsights/v20210901preview:SentinelOnboardingState" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SentinelOnboardingState.__pulumiType, name, inputs, opts);
     }

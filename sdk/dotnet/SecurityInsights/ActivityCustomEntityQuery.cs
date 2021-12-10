@@ -146,6 +146,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ActivityCustomEntityQuery"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

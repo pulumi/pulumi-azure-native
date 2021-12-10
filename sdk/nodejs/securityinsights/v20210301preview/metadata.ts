@@ -167,7 +167,7 @@ export class Metadata extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Metadata" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Metadata" }, { type: "azure-native:securityinsights/v20210901preview:Metadata" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Metadata.__pulumiType, name, inputs, opts);
     }

@@ -171,6 +171,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights:ScheduledAlertRule"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:ScheduledAlertRule"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ScheduledAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ScheduledAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

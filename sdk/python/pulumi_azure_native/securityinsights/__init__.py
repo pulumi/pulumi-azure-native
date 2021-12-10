@@ -88,9 +88,12 @@ if typing.TYPE_CHECKING:
     v20210301preview = __v20210301preview
     import pulumi_azure_native.securityinsights.v20210401 as __v20210401
     v20210401 = __v20210401
+    import pulumi_azure_native.securityinsights.v20210901preview as __v20210901preview
+    v20210901preview = __v20210901preview
 else:
     v20190101preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20190101preview')
     v20200101 = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20200101')
     v20210301preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20210301preview')
     v20210401 = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20210401')
+    v20210901preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20210901preview')
 

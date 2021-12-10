@@ -101,7 +101,7 @@ export class AATPDataConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AATPDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AATPDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:AATPDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:AATPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:AATPDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AATPDataConnector.__pulumiType, name, inputs, opts);
     }

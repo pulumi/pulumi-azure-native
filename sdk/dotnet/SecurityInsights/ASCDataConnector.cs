@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ASCDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:ASCDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:ASCDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ASCDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

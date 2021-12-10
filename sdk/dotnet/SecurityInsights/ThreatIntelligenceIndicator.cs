@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                 {
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:ThreatIntelligenceIndicator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

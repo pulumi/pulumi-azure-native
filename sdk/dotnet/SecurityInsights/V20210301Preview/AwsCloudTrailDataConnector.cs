@@ -93,6 +93,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights:AwsCloudTrailDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20190101preview:AwsCloudTrailDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:AwsCloudTrailDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

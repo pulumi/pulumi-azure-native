@@ -94,7 +94,7 @@ export class AlertRule extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:AlertRule" }, { type: "azure-native:securityinsights/v20200101:AlertRule" }, { type: "azure-native:securityinsights/v20210301preview:AlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:AlertRule" }, { type: "azure-native:securityinsights/v20200101:AlertRule" }, { type: "azure-native:securityinsights/v20210301preview:AlertRule" }, { type: "azure-native:securityinsights/v20210901preview:AlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AlertRule.__pulumiType, name, inputs, opts);
     }

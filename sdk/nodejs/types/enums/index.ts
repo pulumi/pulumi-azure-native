@@ -31,7 +31,6 @@ import * as chaos from "./chaos";
 import * as cognitiveservices from "./cognitiveservices";
 import * as compute from "./compute";
 import * as confidentialledger from "./confidentialledger";
-import * as confluent from "./confluent";
 import * as connectedvmwarevsphere from "./connectedvmwarevsphere";
 import * as consumption from "./consumption";
 import * as containerinstance from "./containerinstance";
@@ -189,7 +188,6 @@ export {
     cognitiveservices,
     compute,
     confidentialledger,
-    confluent,
     connectedvmwarevsphere,
     consumption,
     containerinstance,

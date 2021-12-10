@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
-from ._enums import *
 
 __all__ = [
     'OfferDetailArgs',
@@ -21,8 +20,7 @@ class OfferDetailArgs:
                  plan_id: pulumi.Input[str],
                  plan_name: pulumi.Input[str],
                  publisher_id: pulumi.Input[str],
-                 term_unit: pulumi.Input[str],
-                 status: Optional[pulumi.Input[Union[str, 'SaaSOfferStatus']]] = None):
+                 term_unit: pulumi.Input[str]):
         """
         Confluent Offer detail
         :param pulumi.Input[str] id: Offer Id
@@ -30,15 +28,12 @@ class OfferDetailArgs:
         :param pulumi.Input[str] plan_name: Offer Plan Name
         :param pulumi.Input[str] publisher_id: Publisher Id
         :param pulumi.Input[str] term_unit: Offer Plan Term unit
-        :param pulumi.Input[Union[str, 'SaaSOfferStatus']] status: SaaS Offer Status
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "plan_id", plan_id)
         pulumi.set(__self__, "plan_name", plan_name)
         pulumi.set(__self__, "publisher_id", publisher_id)
         pulumi.set(__self__, "term_unit", term_unit)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter
@@ -99,18 +94,6 @@ class OfferDetailArgs:
     @term_unit.setter
     def term_unit(self, value: pulumi.Input[str]):
         pulumi.set(self, "term_unit", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'SaaSOfferStatus']]]:
-        """
-        SaaS Offer Status
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'SaaSOfferStatus']]]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

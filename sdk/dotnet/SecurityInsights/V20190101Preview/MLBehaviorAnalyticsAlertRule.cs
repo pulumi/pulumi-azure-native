@@ -117,6 +117,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights:MLBehaviorAnalyticsAlertRule"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20200101:MLBehaviorAnalyticsAlertRule"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:MLBehaviorAnalyticsAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -117,7 +117,7 @@ export class MSTIDataConnector extends pulumi.CustomResource {
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20200101:MSTIDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20200101:MSTIDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:MSTIDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MSTIDataConnector.__pulumiType, name, inputs, opts);
     }

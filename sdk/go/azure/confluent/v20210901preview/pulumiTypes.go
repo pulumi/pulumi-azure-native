@@ -11,12 +11,11 @@ import (
 )
 
 type OfferDetail struct {
-	Id          string  `pulumi:"id"`
-	PlanId      string  `pulumi:"planId"`
-	PlanName    string  `pulumi:"planName"`
-	PublisherId string  `pulumi:"publisherId"`
-	Status      *string `pulumi:"status"`
-	TermUnit    string  `pulumi:"termUnit"`
+	Id          string `pulumi:"id"`
+	PlanId      string `pulumi:"planId"`
+	PlanName    string `pulumi:"planName"`
+	PublisherId string `pulumi:"publisherId"`
+	TermUnit    string `pulumi:"termUnit"`
 }
 
 
@@ -31,12 +30,11 @@ type OfferDetailInput interface {
 }
 
 type OfferDetailArgs struct {
-	Id          pulumi.StringInput    `pulumi:"id"`
-	PlanId      pulumi.StringInput    `pulumi:"planId"`
-	PlanName    pulumi.StringInput    `pulumi:"planName"`
-	PublisherId pulumi.StringInput    `pulumi:"publisherId"`
-	Status      pulumi.StringPtrInput `pulumi:"status"`
-	TermUnit    pulumi.StringInput    `pulumi:"termUnit"`
+	Id          pulumi.StringInput `pulumi:"id"`
+	PlanId      pulumi.StringInput `pulumi:"planId"`
+	PlanName    pulumi.StringInput `pulumi:"planName"`
+	PublisherId pulumi.StringInput `pulumi:"publisherId"`
+	TermUnit    pulumi.StringInput `pulumi:"termUnit"`
 }
 
 func (OfferDetailArgs) ElementType() reflect.Type {
@@ -132,10 +130,6 @@ func (o OfferDetailOutput) PublisherId() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetail) string { return v.PublisherId }).(pulumi.StringOutput)
 }
 
-func (o OfferDetailOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetail) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
 func (o OfferDetailOutput) TermUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetail) string { return v.TermUnit }).(pulumi.StringOutput)
 }
@@ -200,15 +194,6 @@ func (o OfferDetailPtrOutput) PublisherId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o OfferDetailPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OfferDetail) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
 func (o OfferDetailPtrOutput) TermUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OfferDetail) *string {
 		if v == nil {
@@ -219,12 +204,12 @@ func (o OfferDetailPtrOutput) TermUnit() pulumi.StringPtrOutput {
 }
 
 type OfferDetailResponse struct {
-	Id          string  `pulumi:"id"`
-	PlanId      string  `pulumi:"planId"`
-	PlanName    string  `pulumi:"planName"`
-	PublisherId string  `pulumi:"publisherId"`
-	Status      *string `pulumi:"status"`
-	TermUnit    string  `pulumi:"termUnit"`
+	Id          string `pulumi:"id"`
+	PlanId      string `pulumi:"planId"`
+	PlanName    string `pulumi:"planName"`
+	PublisherId string `pulumi:"publisherId"`
+	Status      string `pulumi:"status"`
+	TermUnit    string `pulumi:"termUnit"`
 }
 
 
@@ -239,12 +224,12 @@ type OfferDetailResponseInput interface {
 }
 
 type OfferDetailResponseArgs struct {
-	Id          pulumi.StringInput    `pulumi:"id"`
-	PlanId      pulumi.StringInput    `pulumi:"planId"`
-	PlanName    pulumi.StringInput    `pulumi:"planName"`
-	PublisherId pulumi.StringInput    `pulumi:"publisherId"`
-	Status      pulumi.StringPtrInput `pulumi:"status"`
-	TermUnit    pulumi.StringInput    `pulumi:"termUnit"`
+	Id          pulumi.StringInput `pulumi:"id"`
+	PlanId      pulumi.StringInput `pulumi:"planId"`
+	PlanName    pulumi.StringInput `pulumi:"planName"`
+	PublisherId pulumi.StringInput `pulumi:"publisherId"`
+	Status      pulumi.StringInput `pulumi:"status"`
+	TermUnit    pulumi.StringInput `pulumi:"termUnit"`
 }
 
 func (OfferDetailResponseArgs) ElementType() reflect.Type {
@@ -340,8 +325,8 @@ func (o OfferDetailResponseOutput) PublisherId() pulumi.StringOutput {
 	return o.ApplyT(func(v OfferDetailResponse) string { return v.PublisherId }).(pulumi.StringOutput)
 }
 
-func (o OfferDetailResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OfferDetailResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+func (o OfferDetailResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v OfferDetailResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
 func (o OfferDetailResponseOutput) TermUnit() pulumi.StringOutput {
@@ -413,7 +398,7 @@ func (o OfferDetailResponsePtrOutput) Status() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Status
+		return &v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
