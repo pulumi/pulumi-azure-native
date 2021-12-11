@@ -195,6 +195,12 @@ namespace Pulumi.AzureNative.BotService.Inputs
         [Input("schemaTransformationVersion")]
         public Input<string>? SchemaTransformationVersion { get; set; }
 
+        /// <summary>
+        /// The storage resourceId for the bot
+        /// </summary>
+        [Input("storageResourceId")]
+        public Input<string>? StorageResourceId { get; set; }
+
         public BotPropertiesArgs()
         {
             PublicNetworkAccess = "Enabled";

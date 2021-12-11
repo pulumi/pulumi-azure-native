@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Bot channel resource definition
+ * The ARM channel of list channel with keys operation response.
  * API Version: 2021-03-01.
  */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {
@@ -40,7 +40,7 @@ export interface ListChannelWithKeysArgs {
 }
 
 /**
- * Bot channel resource definition
+ * The ARM channel of list channel with keys operation response.
  */
 export interface ListChannelWithKeysResult {
     /**
@@ -67,6 +67,14 @@ export interface ListChannelWithKeysResult {
      * The set of properties specific to bot channel resource
      */
     readonly properties: outputs.botservice.AlexaChannelResponse | outputs.botservice.DirectLineChannelResponse | outputs.botservice.DirectLineSpeechChannelResponse | outputs.botservice.EmailChannelResponse | outputs.botservice.FacebookChannelResponse | outputs.botservice.KikChannelResponse | outputs.botservice.LineChannelResponse | outputs.botservice.MsTeamsChannelResponse | outputs.botservice.SkypeChannelResponse | outputs.botservice.SlackChannelResponse | outputs.botservice.SmsChannelResponse | outputs.botservice.TelegramChannelResponse | outputs.botservice.WebChatChannelResponse;
+    /**
+     * The set of properties specific to bot channel resource
+     */
+    readonly resource?: outputs.botservice.AlexaChannelResponse | outputs.botservice.DirectLineChannelResponse | outputs.botservice.DirectLineSpeechChannelResponse | outputs.botservice.EmailChannelResponse | outputs.botservice.FacebookChannelResponse | outputs.botservice.KikChannelResponse | outputs.botservice.LineChannelResponse | outputs.botservice.MsTeamsChannelResponse | outputs.botservice.SkypeChannelResponse | outputs.botservice.SlackChannelResponse | outputs.botservice.SmsChannelResponse | outputs.botservice.TelegramChannelResponse | outputs.botservice.WebChatChannelResponse;
+    /**
+     * Channel settings
+     */
+    readonly setting?: outputs.botservice.ChannelSettingsResponse;
     /**
      * Gets or sets the SKU of the resource.
      */

@@ -7,6 +7,11 @@ CHANGELOG
 
 - `elastic.listUpgradableVersionDetails`
 
+#### Breaking Changes published by Microsoft:
+
+- `provisioningState` property removed from a new types in `botservice`: `MsTeamsChannel`, `DirectLineChannel`, `WebChatChannel`
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/16882))
+
 ---
 
 ## 1.49.0 (2021-12-06)

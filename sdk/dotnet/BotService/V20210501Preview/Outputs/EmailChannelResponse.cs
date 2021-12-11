@@ -26,13 +26,17 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The set of properties specific to email channel resource
         /// </summary>
         public readonly Outputs.EmailChannelPropertiesResponse? Properties;
         /// <summary>
         /// Provisioning state of the resource
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private EmailChannelResponse(
@@ -40,12 +44,15 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             string? etag,
 
+            string? location,
+
             Outputs.EmailChannelPropertiesResponse? properties,
 
-            string? provisioningState)
+            string provisioningState)
         {
             ChannelName = channelName;
             Etag = etag;
+            Location = location;
             Properties = properties;
             ProvisioningState = provisioningState;
         }

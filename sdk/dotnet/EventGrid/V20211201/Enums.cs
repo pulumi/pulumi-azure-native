@@ -32,6 +32,13 @@ namespace Pulumi.AzureNative.EventGrid.V20211201
         public static AdvancedFilterOperatorType StringBeginsWith { get; } = new AdvancedFilterOperatorType("StringBeginsWith");
         public static AdvancedFilterOperatorType StringEndsWith { get; } = new AdvancedFilterOperatorType("StringEndsWith");
         public static AdvancedFilterOperatorType StringContains { get; } = new AdvancedFilterOperatorType("StringContains");
+        public static AdvancedFilterOperatorType NumberInRange { get; } = new AdvancedFilterOperatorType("NumberInRange");
+        public static AdvancedFilterOperatorType NumberNotInRange { get; } = new AdvancedFilterOperatorType("NumberNotInRange");
+        public static AdvancedFilterOperatorType StringNotBeginsWith { get; } = new AdvancedFilterOperatorType("StringNotBeginsWith");
+        public static AdvancedFilterOperatorType StringNotEndsWith { get; } = new AdvancedFilterOperatorType("StringNotEndsWith");
+        public static AdvancedFilterOperatorType StringNotContains { get; } = new AdvancedFilterOperatorType("StringNotContains");
+        public static AdvancedFilterOperatorType IsNullOrUndefined { get; } = new AdvancedFilterOperatorType("IsNullOrUndefined");
+        public static AdvancedFilterOperatorType IsNotNull { get; } = new AdvancedFilterOperatorType("IsNotNull");
 
         public static bool operator ==(AdvancedFilterOperatorType left, AdvancedFilterOperatorType right) => left.Equals(right);
         public static bool operator !=(AdvancedFilterOperatorType left, AdvancedFilterOperatorType right) => !left.Equals(right);

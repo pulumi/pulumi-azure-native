@@ -24,14 +24,16 @@ type ListChannelWithKeysArgs struct {
 
 
 type ListChannelWithKeysResult struct {
-	Etag       *string           `pulumi:"etag"`
-	Id         string            `pulumi:"id"`
-	Kind       *string           `pulumi:"kind"`
-	Location   *string           `pulumi:"location"`
-	Name       string            `pulumi:"name"`
-	Properties interface{}       `pulumi:"properties"`
-	Sku        *SkuResponse      `pulumi:"sku"`
-	Tags       map[string]string `pulumi:"tags"`
-	Type       string            `pulumi:"type"`
-	Zones      []string          `pulumi:"zones"`
+	Etag       *string                  `pulumi:"etag"`
+	Id         string                   `pulumi:"id"`
+	Kind       *string                  `pulumi:"kind"`
+	Location   *string                  `pulumi:"location"`
+	Name       string                   `pulumi:"name"`
+	Properties interface{}              `pulumi:"properties"`
+	Resource   interface{}              `pulumi:"resource"`
+	Setting    *ChannelSettingsResponse `pulumi:"setting"`
+	Sku        *SkuResponse             `pulumi:"sku"`
+	Tags       map[string]string        `pulumi:"tags"`
+	Type       string                   `pulumi:"type"`
+	Zones      []string                 `pulumi:"zones"`
 }

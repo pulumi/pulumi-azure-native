@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Location of the resource
+        /// Specifies the location of the resource.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// <summary>
         /// Provisioning state of the resource
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private MsTeamsChannelResponse(
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             Outputs.MsTeamsChannelPropertiesResponse? properties,
 
-            string? provisioningState)
+            string provisioningState)
         {
             ChannelName = channelName;
             Etag = etag;

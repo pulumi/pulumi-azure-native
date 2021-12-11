@@ -26,9 +26,17 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The set of properties specific to Skype channel resource
         /// </summary>
         public readonly Outputs.SkypeChannelPropertiesResponse? Properties;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private SkypeChannelResponse(
@@ -36,11 +44,17 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             string? etag,
 
-            Outputs.SkypeChannelPropertiesResponse? properties)
+            string? location,
+
+            Outputs.SkypeChannelPropertiesResponse? properties,
+
+            string provisioningState)
         {
             ChannelName = channelName;
             Etag = etag;
+            Location = location;
             Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

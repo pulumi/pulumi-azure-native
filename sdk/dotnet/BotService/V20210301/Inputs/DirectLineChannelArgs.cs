@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         public Input<string>? Etag { get; set; }
 
         /// <summary>
-        /// Location of the resource
+        /// Specifies the location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.BotService.V20210301.Inputs
         /// </summary>
         [Input("properties")]
         public Input<Inputs.DirectLineChannelPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
-        /// Provisioning state of the resource
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
 
         public DirectLineChannelArgs()
         {

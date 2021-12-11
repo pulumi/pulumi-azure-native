@@ -22,15 +22,19 @@ __all__ = [
     'HybridConnectionEventSubscriptionDestinationArgs',
     'IdentityInfoArgs',
     'InboundIpRuleArgs',
+    'IsNotNullAdvancedFilterArgs',
+    'IsNullOrUndefinedAdvancedFilterArgs',
     'JsonFieldWithDefaultArgs',
     'JsonFieldArgs',
     'JsonInputSchemaMappingArgs',
     'NumberGreaterThanAdvancedFilterArgs',
     'NumberGreaterThanOrEqualsAdvancedFilterArgs',
     'NumberInAdvancedFilterArgs',
+    'NumberInRangeAdvancedFilterArgs',
     'NumberLessThanAdvancedFilterArgs',
     'NumberLessThanOrEqualsAdvancedFilterArgs',
     'NumberNotInAdvancedFilterArgs',
+    'NumberNotInRangeAdvancedFilterArgs',
     'PrivateEndpointArgs',
     'RetryPolicyArgs',
     'ServiceBusQueueEventSubscriptionDestinationArgs',
@@ -42,6 +46,9 @@ __all__ = [
     'StringContainsAdvancedFilterArgs',
     'StringEndsWithAdvancedFilterArgs',
     'StringInAdvancedFilterArgs',
+    'StringNotBeginsWithAdvancedFilterArgs',
+    'StringNotContainsAdvancedFilterArgs',
+    'StringNotEndsWithAdvancedFilterArgs',
     'StringNotInAdvancedFilterArgs',
     'UserIdentityPropertiesArgs',
     'WebHookEventSubscriptionDestinationArgs',
@@ -454,7 +461,7 @@ class EventHubEventSubscriptionDestinationArgs:
 @pulumi.input_type
 class EventSubscriptionFilterArgs:
     def __init__(__self__, *,
-                 advanced_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]] = None,
+                 advanced_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]] = None,
                  enable_advanced_filtering_on_arrays: Optional[pulumi.Input[bool]] = None,
                  included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  is_subject_case_sensitive: Optional[pulumi.Input[bool]] = None,
@@ -462,7 +469,7 @@ class EventSubscriptionFilterArgs:
                  subject_ends_with: Optional[pulumi.Input[str]] = None):
         """
         Filter for the Event Subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
         :param pulumi.Input[bool] enable_advanced_filtering_on_arrays: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_event_types: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
         :param pulumi.Input[bool] is_subject_case_sensitive: Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
@@ -490,14 +497,14 @@ class EventSubscriptionFilterArgs:
 
     @property
     @pulumi.getter(name="advancedFilters")
-    def advanced_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]:
+    def advanced_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]:
         """
         An array of advanced filters that are used for filtering event subscriptions.
         """
         return pulumi.get(self, "advanced_filters")
 
     @advanced_filters.setter
-    def advanced_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]):
+    def advanced_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BoolEqualsAdvancedFilterArgs', 'IsNotNullAdvancedFilterArgs', 'IsNullOrUndefinedAdvancedFilterArgs', 'NumberGreaterThanAdvancedFilterArgs', 'NumberGreaterThanOrEqualsAdvancedFilterArgs', 'NumberInAdvancedFilterArgs', 'NumberInRangeAdvancedFilterArgs', 'NumberLessThanAdvancedFilterArgs', 'NumberLessThanOrEqualsAdvancedFilterArgs', 'NumberNotInAdvancedFilterArgs', 'NumberNotInRangeAdvancedFilterArgs', 'StringBeginsWithAdvancedFilterArgs', 'StringContainsAdvancedFilterArgs', 'StringEndsWithAdvancedFilterArgs', 'StringInAdvancedFilterArgs', 'StringNotBeginsWithAdvancedFilterArgs', 'StringNotContainsAdvancedFilterArgs', 'StringNotEndsWithAdvancedFilterArgs', 'StringNotInAdvancedFilterArgs']]]]]):
         pulumi.set(self, "advanced_filters", value)
 
     @property
@@ -775,6 +782,88 @@ class InboundIpRuleArgs:
     @ip_mask.setter
     def ip_mask(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ip_mask", value)
+
+
+@pulumi.input_type
+class IsNotNullAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        IsNotNull Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'IsNotNull'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        """
+        pulumi.set(__self__, "operator_type", 'IsNotNull')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'IsNotNull'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
+class IsNullOrUndefinedAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None):
+        """
+        IsNullOrUndefined Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'IsNullOrUndefined'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        """
+        pulumi.set(__self__, "operator_type", 'IsNullOrUndefined')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'IsNullOrUndefined'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
 
 
 @pulumi.input_type
@@ -1137,6 +1226,63 @@ class NumberInAdvancedFilterArgs:
 
 
 @pulumi.input_type
+class NumberInRangeAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]] = None):
+        """
+        NumberInRange Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberInRange'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberInRange')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberInRange'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
 class NumberLessThanAdvancedFilterArgs:
     def __init__(__self__, *,
                  operator_type: pulumi.Input[str],
@@ -1304,6 +1450,63 @@ class NumberNotInAdvancedFilterArgs:
 
     @values.setter
     def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class NumberNotInRangeAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]] = None):
+        """
+        NumberNotInRange Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberNotInRange'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberNotInRange')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberNotInRange'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -1890,6 +2093,177 @@ class StringInAdvancedFilterArgs:
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
         Expected value is 'StringIn'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class StringNotBeginsWithAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        StringNotBeginsWith Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringNotBeginsWith'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotBeginsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotBeginsWith'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class StringNotContainsAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        StringNotContains Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringNotContains'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotContains')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotContains'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @operator_type.setter
+    def operator_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator_type", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class StringNotEndsWithAdvancedFilterArgs:
+    def __init__(__self__, *,
+                 operator_type: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        StringNotEndsWith Advanced Filter.
+        :param pulumi.Input[str] operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringNotEndsWith'.
+        :param pulumi.Input[str] key: The field/property in the event based on which you want to filter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotEndsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> pulumi.Input[str]:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotEndsWith'.
         """
         return pulumi.get(self, "operator_type")
 

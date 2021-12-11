@@ -19,9 +19,9 @@ __all__ = [
 @pulumi.output_type
 class ListChannelWithKeysResult:
     """
-    Bot channel resource definition
+    The ARM channel of list channel with keys operation response.
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, resource=None, setting=None, sku=None, tags=None, type=None, zones=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -40,6 +40,12 @@ class ListChannelWithKeysResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if resource and not isinstance(resource, dict):
+            raise TypeError("Expected argument 'resource' to be a dict")
+        pulumi.set(__self__, "resource", resource)
+        if setting and not isinstance(setting, dict):
+            raise TypeError("Expected argument 'setting' to be a dict")
+        pulumi.set(__self__, "setting", setting)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -103,6 +109,22 @@ class ListChannelWithKeysResult:
 
     @property
     @pulumi.getter
+    def resource(self) -> Optional[Any]:
+        """
+        The set of properties specific to bot channel resource
+        """
+        return pulumi.get(self, "resource")
+
+    @property
+    @pulumi.getter
+    def setting(self) -> Optional['outputs.ChannelSettingsResponse']:
+        """
+        Channel settings
+        """
+        return pulumi.get(self, "setting")
+
+    @property
+    @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
         Gets or sets the SKU of the resource.
@@ -146,6 +168,8 @@ class AwaitableListChannelWithKeysResult(ListChannelWithKeysResult):
             location=self.location,
             name=self.name,
             properties=self.properties,
+            resource=self.resource,
+            setting=self.setting,
             sku=self.sku,
             tags=self.tags,
             type=self.type,
@@ -157,7 +181,7 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
                            resource_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListChannelWithKeysResult:
     """
-    Bot channel resource definition
+    The ARM channel of list channel with keys operation response.
 
 
     :param str channel_name: The name of the Channel resource.
@@ -181,6 +205,8 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
+        resource=__ret__.resource,
+        setting=__ret__.setting,
         sku=__ret__.sku,
         tags=__ret__.tags,
         type=__ret__.type,
@@ -193,7 +219,7 @@ def list_channel_with_keys_output(channel_name: Optional[pulumi.Input[str]] = No
                                   resource_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListChannelWithKeysResult]:
     """
-    Bot channel resource definition
+    The ARM channel of list channel with keys operation response.
 
 
     :param str channel_name: The name of the Channel resource.

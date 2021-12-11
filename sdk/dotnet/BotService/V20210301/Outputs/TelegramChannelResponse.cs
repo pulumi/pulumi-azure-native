@@ -26,9 +26,17 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The set of properties specific to Telegram channel resource
         /// </summary>
         public readonly Outputs.TelegramChannelPropertiesResponse? Properties;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private TelegramChannelResponse(
@@ -36,11 +44,17 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             string? etag,
 
-            Outputs.TelegramChannelPropertiesResponse? properties)
+            string? location,
+
+            Outputs.TelegramChannelPropertiesResponse? properties,
+
+            string provisioningState)
         {
             ChannelName = channelName;
             Etag = etag;
+            Location = location;
             Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

@@ -144,6 +144,10 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
         /// The channel schema transformation version for the bot
         /// </summary>
         public readonly string? SchemaTransformationVersion;
+        /// <summary>
+        /// The storage resourceId for the bot
+        /// </summary>
+        public readonly string? StorageResourceId;
 
         [OutputConstructor]
         private BotPropertiesResponse(
@@ -209,7 +213,9 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
 
             string? publishingCredentials,
 
-            string? schemaTransformationVersion)
+            string? schemaTransformationVersion,
+
+            string? storageResourceId)
         {
             AllSettings = allSettings;
             AppPasswordHint = appPasswordHint;
@@ -243,6 +249,7 @@ namespace Pulumi.AzureNative.BotService.V20210301.Outputs
             PublicNetworkAccess = publicNetworkAccess;
             PublishingCredentials = publishingCredentials;
             SchemaTransformationVersion = schemaTransformationVersion;
+            StorageResourceId = storageResourceId;
         }
     }
 }

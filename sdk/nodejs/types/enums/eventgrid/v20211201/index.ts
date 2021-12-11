@@ -15,6 +15,13 @@ export const AdvancedFilterOperatorType = {
     StringBeginsWith: "StringBeginsWith",
     StringEndsWith: "StringEndsWith",
     StringContains: "StringContains",
+    NumberInRange: "NumberInRange",
+    NumberNotInRange: "NumberNotInRange",
+    StringNotBeginsWith: "StringNotBeginsWith",
+    StringNotEndsWith: "StringNotEndsWith",
+    StringNotContains: "StringNotContains",
+    IsNullOrUndefined: "IsNullOrUndefined",
+    IsNotNull: "IsNotNull",
 } as const;
 
 /**

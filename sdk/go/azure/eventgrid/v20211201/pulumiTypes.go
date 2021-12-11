@@ -2840,6 +2840,226 @@ func (o InboundIpRuleResponseArrayOutput) Index(i pulumi.IntInput) InboundIpRule
 	}).(InboundIpRuleResponseOutput)
 }
 
+type IsNotNullAdvancedFilter struct {
+	Key          *string `pulumi:"key"`
+	OperatorType string  `pulumi:"operatorType"`
+}
+
+
+
+
+
+type IsNotNullAdvancedFilterInput interface {
+	pulumi.Input
+
+	ToIsNotNullAdvancedFilterOutput() IsNotNullAdvancedFilterOutput
+	ToIsNotNullAdvancedFilterOutputWithContext(context.Context) IsNotNullAdvancedFilterOutput
+}
+
+type IsNotNullAdvancedFilterArgs struct {
+	Key          pulumi.StringPtrInput `pulumi:"key"`
+	OperatorType pulumi.StringInput    `pulumi:"operatorType"`
+}
+
+func (IsNotNullAdvancedFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsNotNullAdvancedFilter)(nil)).Elem()
+}
+
+func (i IsNotNullAdvancedFilterArgs) ToIsNotNullAdvancedFilterOutput() IsNotNullAdvancedFilterOutput {
+	return i.ToIsNotNullAdvancedFilterOutputWithContext(context.Background())
+}
+
+func (i IsNotNullAdvancedFilterArgs) ToIsNotNullAdvancedFilterOutputWithContext(ctx context.Context) IsNotNullAdvancedFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IsNotNullAdvancedFilterOutput)
+}
+
+type IsNotNullAdvancedFilterOutput struct{ *pulumi.OutputState }
+
+func (IsNotNullAdvancedFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsNotNullAdvancedFilter)(nil)).Elem()
+}
+
+func (o IsNotNullAdvancedFilterOutput) ToIsNotNullAdvancedFilterOutput() IsNotNullAdvancedFilterOutput {
+	return o
+}
+
+func (o IsNotNullAdvancedFilterOutput) ToIsNotNullAdvancedFilterOutputWithContext(ctx context.Context) IsNotNullAdvancedFilterOutput {
+	return o
+}
+
+func (o IsNotNullAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IsNotNullAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o IsNotNullAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v IsNotNullAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+type IsNotNullAdvancedFilterResponse struct {
+	Key          *string `pulumi:"key"`
+	OperatorType string  `pulumi:"operatorType"`
+}
+
+
+
+
+
+type IsNotNullAdvancedFilterResponseInput interface {
+	pulumi.Input
+
+	ToIsNotNullAdvancedFilterResponseOutput() IsNotNullAdvancedFilterResponseOutput
+	ToIsNotNullAdvancedFilterResponseOutputWithContext(context.Context) IsNotNullAdvancedFilterResponseOutput
+}
+
+type IsNotNullAdvancedFilterResponseArgs struct {
+	Key          pulumi.StringPtrInput `pulumi:"key"`
+	OperatorType pulumi.StringInput    `pulumi:"operatorType"`
+}
+
+func (IsNotNullAdvancedFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsNotNullAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (i IsNotNullAdvancedFilterResponseArgs) ToIsNotNullAdvancedFilterResponseOutput() IsNotNullAdvancedFilterResponseOutput {
+	return i.ToIsNotNullAdvancedFilterResponseOutputWithContext(context.Background())
+}
+
+func (i IsNotNullAdvancedFilterResponseArgs) ToIsNotNullAdvancedFilterResponseOutputWithContext(ctx context.Context) IsNotNullAdvancedFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IsNotNullAdvancedFilterResponseOutput)
+}
+
+type IsNotNullAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (IsNotNullAdvancedFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsNotNullAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (o IsNotNullAdvancedFilterResponseOutput) ToIsNotNullAdvancedFilterResponseOutput() IsNotNullAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o IsNotNullAdvancedFilterResponseOutput) ToIsNotNullAdvancedFilterResponseOutputWithContext(ctx context.Context) IsNotNullAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o IsNotNullAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IsNotNullAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o IsNotNullAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v IsNotNullAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+type IsNullOrUndefinedAdvancedFilter struct {
+	Key          *string `pulumi:"key"`
+	OperatorType string  `pulumi:"operatorType"`
+}
+
+
+
+
+
+type IsNullOrUndefinedAdvancedFilterInput interface {
+	pulumi.Input
+
+	ToIsNullOrUndefinedAdvancedFilterOutput() IsNullOrUndefinedAdvancedFilterOutput
+	ToIsNullOrUndefinedAdvancedFilterOutputWithContext(context.Context) IsNullOrUndefinedAdvancedFilterOutput
+}
+
+type IsNullOrUndefinedAdvancedFilterArgs struct {
+	Key          pulumi.StringPtrInput `pulumi:"key"`
+	OperatorType pulumi.StringInput    `pulumi:"operatorType"`
+}
+
+func (IsNullOrUndefinedAdvancedFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsNullOrUndefinedAdvancedFilter)(nil)).Elem()
+}
+
+func (i IsNullOrUndefinedAdvancedFilterArgs) ToIsNullOrUndefinedAdvancedFilterOutput() IsNullOrUndefinedAdvancedFilterOutput {
+	return i.ToIsNullOrUndefinedAdvancedFilterOutputWithContext(context.Background())
+}
+
+func (i IsNullOrUndefinedAdvancedFilterArgs) ToIsNullOrUndefinedAdvancedFilterOutputWithContext(ctx context.Context) IsNullOrUndefinedAdvancedFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IsNullOrUndefinedAdvancedFilterOutput)
+}
+
+type IsNullOrUndefinedAdvancedFilterOutput struct{ *pulumi.OutputState }
+
+func (IsNullOrUndefinedAdvancedFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsNullOrUndefinedAdvancedFilter)(nil)).Elem()
+}
+
+func (o IsNullOrUndefinedAdvancedFilterOutput) ToIsNullOrUndefinedAdvancedFilterOutput() IsNullOrUndefinedAdvancedFilterOutput {
+	return o
+}
+
+func (o IsNullOrUndefinedAdvancedFilterOutput) ToIsNullOrUndefinedAdvancedFilterOutputWithContext(ctx context.Context) IsNullOrUndefinedAdvancedFilterOutput {
+	return o
+}
+
+func (o IsNullOrUndefinedAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IsNullOrUndefinedAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o IsNullOrUndefinedAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v IsNullOrUndefinedAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+type IsNullOrUndefinedAdvancedFilterResponse struct {
+	Key          *string `pulumi:"key"`
+	OperatorType string  `pulumi:"operatorType"`
+}
+
+
+
+
+
+type IsNullOrUndefinedAdvancedFilterResponseInput interface {
+	pulumi.Input
+
+	ToIsNullOrUndefinedAdvancedFilterResponseOutput() IsNullOrUndefinedAdvancedFilterResponseOutput
+	ToIsNullOrUndefinedAdvancedFilterResponseOutputWithContext(context.Context) IsNullOrUndefinedAdvancedFilterResponseOutput
+}
+
+type IsNullOrUndefinedAdvancedFilterResponseArgs struct {
+	Key          pulumi.StringPtrInput `pulumi:"key"`
+	OperatorType pulumi.StringInput    `pulumi:"operatorType"`
+}
+
+func (IsNullOrUndefinedAdvancedFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsNullOrUndefinedAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (i IsNullOrUndefinedAdvancedFilterResponseArgs) ToIsNullOrUndefinedAdvancedFilterResponseOutput() IsNullOrUndefinedAdvancedFilterResponseOutput {
+	return i.ToIsNullOrUndefinedAdvancedFilterResponseOutputWithContext(context.Background())
+}
+
+func (i IsNullOrUndefinedAdvancedFilterResponseArgs) ToIsNullOrUndefinedAdvancedFilterResponseOutputWithContext(ctx context.Context) IsNullOrUndefinedAdvancedFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IsNullOrUndefinedAdvancedFilterResponseOutput)
+}
+
+type IsNullOrUndefinedAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (IsNullOrUndefinedAdvancedFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IsNullOrUndefinedAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (o IsNullOrUndefinedAdvancedFilterResponseOutput) ToIsNullOrUndefinedAdvancedFilterResponseOutput() IsNullOrUndefinedAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o IsNullOrUndefinedAdvancedFilterResponseOutput) ToIsNullOrUndefinedAdvancedFilterResponseOutputWithContext(ctx context.Context) IsNullOrUndefinedAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o IsNullOrUndefinedAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IsNullOrUndefinedAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o IsNullOrUndefinedAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v IsNullOrUndefinedAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
 type JsonField struct {
 	SourceField *string `pulumi:"sourceField"`
 }
@@ -4214,6 +4434,128 @@ func (o NumberInAdvancedFilterResponseOutput) Values() pulumi.Float64ArrayOutput
 	return o.ApplyT(func(v NumberInAdvancedFilterResponse) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
 
+type NumberInRangeAdvancedFilter struct {
+	Key          *string     `pulumi:"key"`
+	OperatorType string      `pulumi:"operatorType"`
+	Values       [][]float64 `pulumi:"values"`
+}
+
+
+
+
+
+type NumberInRangeAdvancedFilterInput interface {
+	pulumi.Input
+
+	ToNumberInRangeAdvancedFilterOutput() NumberInRangeAdvancedFilterOutput
+	ToNumberInRangeAdvancedFilterOutputWithContext(context.Context) NumberInRangeAdvancedFilterOutput
+}
+
+type NumberInRangeAdvancedFilterArgs struct {
+	Key          pulumi.StringPtrInput         `pulumi:"key"`
+	OperatorType pulumi.StringInput            `pulumi:"operatorType"`
+	Values       pulumi.Float64ArrayArrayInput `pulumi:"values"`
+}
+
+func (NumberInRangeAdvancedFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NumberInRangeAdvancedFilter)(nil)).Elem()
+}
+
+func (i NumberInRangeAdvancedFilterArgs) ToNumberInRangeAdvancedFilterOutput() NumberInRangeAdvancedFilterOutput {
+	return i.ToNumberInRangeAdvancedFilterOutputWithContext(context.Background())
+}
+
+func (i NumberInRangeAdvancedFilterArgs) ToNumberInRangeAdvancedFilterOutputWithContext(ctx context.Context) NumberInRangeAdvancedFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NumberInRangeAdvancedFilterOutput)
+}
+
+type NumberInRangeAdvancedFilterOutput struct{ *pulumi.OutputState }
+
+func (NumberInRangeAdvancedFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NumberInRangeAdvancedFilter)(nil)).Elem()
+}
+
+func (o NumberInRangeAdvancedFilterOutput) ToNumberInRangeAdvancedFilterOutput() NumberInRangeAdvancedFilterOutput {
+	return o
+}
+
+func (o NumberInRangeAdvancedFilterOutput) ToNumberInRangeAdvancedFilterOutputWithContext(ctx context.Context) NumberInRangeAdvancedFilterOutput {
+	return o
+}
+
+func (o NumberInRangeAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NumberInRangeAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o NumberInRangeAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v NumberInRangeAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+func (o NumberInRangeAdvancedFilterOutput) Values() pulumi.Float64ArrayArrayOutput {
+	return o.ApplyT(func(v NumberInRangeAdvancedFilter) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
+}
+
+type NumberInRangeAdvancedFilterResponse struct {
+	Key          *string     `pulumi:"key"`
+	OperatorType string      `pulumi:"operatorType"`
+	Values       [][]float64 `pulumi:"values"`
+}
+
+
+
+
+
+type NumberInRangeAdvancedFilterResponseInput interface {
+	pulumi.Input
+
+	ToNumberInRangeAdvancedFilterResponseOutput() NumberInRangeAdvancedFilterResponseOutput
+	ToNumberInRangeAdvancedFilterResponseOutputWithContext(context.Context) NumberInRangeAdvancedFilterResponseOutput
+}
+
+type NumberInRangeAdvancedFilterResponseArgs struct {
+	Key          pulumi.StringPtrInput         `pulumi:"key"`
+	OperatorType pulumi.StringInput            `pulumi:"operatorType"`
+	Values       pulumi.Float64ArrayArrayInput `pulumi:"values"`
+}
+
+func (NumberInRangeAdvancedFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NumberInRangeAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (i NumberInRangeAdvancedFilterResponseArgs) ToNumberInRangeAdvancedFilterResponseOutput() NumberInRangeAdvancedFilterResponseOutput {
+	return i.ToNumberInRangeAdvancedFilterResponseOutputWithContext(context.Background())
+}
+
+func (i NumberInRangeAdvancedFilterResponseArgs) ToNumberInRangeAdvancedFilterResponseOutputWithContext(ctx context.Context) NumberInRangeAdvancedFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NumberInRangeAdvancedFilterResponseOutput)
+}
+
+type NumberInRangeAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (NumberInRangeAdvancedFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NumberInRangeAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (o NumberInRangeAdvancedFilterResponseOutput) ToNumberInRangeAdvancedFilterResponseOutput() NumberInRangeAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o NumberInRangeAdvancedFilterResponseOutput) ToNumberInRangeAdvancedFilterResponseOutputWithContext(ctx context.Context) NumberInRangeAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o NumberInRangeAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NumberInRangeAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o NumberInRangeAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v NumberInRangeAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+func (o NumberInRangeAdvancedFilterResponseOutput) Values() pulumi.Float64ArrayArrayOutput {
+	return o.ApplyT(func(v NumberInRangeAdvancedFilterResponse) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
+}
+
 type NumberLessThanAdvancedFilter struct {
 	Key          *string  `pulumi:"key"`
 	OperatorType string   `pulumi:"operatorType"`
@@ -4578,6 +4920,128 @@ func (o NumberNotInAdvancedFilterResponseOutput) OperatorType() pulumi.StringOut
 
 func (o NumberNotInAdvancedFilterResponseOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v NumberNotInAdvancedFilterResponse) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
+}
+
+type NumberNotInRangeAdvancedFilter struct {
+	Key          *string     `pulumi:"key"`
+	OperatorType string      `pulumi:"operatorType"`
+	Values       [][]float64 `pulumi:"values"`
+}
+
+
+
+
+
+type NumberNotInRangeAdvancedFilterInput interface {
+	pulumi.Input
+
+	ToNumberNotInRangeAdvancedFilterOutput() NumberNotInRangeAdvancedFilterOutput
+	ToNumberNotInRangeAdvancedFilterOutputWithContext(context.Context) NumberNotInRangeAdvancedFilterOutput
+}
+
+type NumberNotInRangeAdvancedFilterArgs struct {
+	Key          pulumi.StringPtrInput         `pulumi:"key"`
+	OperatorType pulumi.StringInput            `pulumi:"operatorType"`
+	Values       pulumi.Float64ArrayArrayInput `pulumi:"values"`
+}
+
+func (NumberNotInRangeAdvancedFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NumberNotInRangeAdvancedFilter)(nil)).Elem()
+}
+
+func (i NumberNotInRangeAdvancedFilterArgs) ToNumberNotInRangeAdvancedFilterOutput() NumberNotInRangeAdvancedFilterOutput {
+	return i.ToNumberNotInRangeAdvancedFilterOutputWithContext(context.Background())
+}
+
+func (i NumberNotInRangeAdvancedFilterArgs) ToNumberNotInRangeAdvancedFilterOutputWithContext(ctx context.Context) NumberNotInRangeAdvancedFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NumberNotInRangeAdvancedFilterOutput)
+}
+
+type NumberNotInRangeAdvancedFilterOutput struct{ *pulumi.OutputState }
+
+func (NumberNotInRangeAdvancedFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NumberNotInRangeAdvancedFilter)(nil)).Elem()
+}
+
+func (o NumberNotInRangeAdvancedFilterOutput) ToNumberNotInRangeAdvancedFilterOutput() NumberNotInRangeAdvancedFilterOutput {
+	return o
+}
+
+func (o NumberNotInRangeAdvancedFilterOutput) ToNumberNotInRangeAdvancedFilterOutputWithContext(ctx context.Context) NumberNotInRangeAdvancedFilterOutput {
+	return o
+}
+
+func (o NumberNotInRangeAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NumberNotInRangeAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o NumberNotInRangeAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v NumberNotInRangeAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+func (o NumberNotInRangeAdvancedFilterOutput) Values() pulumi.Float64ArrayArrayOutput {
+	return o.ApplyT(func(v NumberNotInRangeAdvancedFilter) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
+}
+
+type NumberNotInRangeAdvancedFilterResponse struct {
+	Key          *string     `pulumi:"key"`
+	OperatorType string      `pulumi:"operatorType"`
+	Values       [][]float64 `pulumi:"values"`
+}
+
+
+
+
+
+type NumberNotInRangeAdvancedFilterResponseInput interface {
+	pulumi.Input
+
+	ToNumberNotInRangeAdvancedFilterResponseOutput() NumberNotInRangeAdvancedFilterResponseOutput
+	ToNumberNotInRangeAdvancedFilterResponseOutputWithContext(context.Context) NumberNotInRangeAdvancedFilterResponseOutput
+}
+
+type NumberNotInRangeAdvancedFilterResponseArgs struct {
+	Key          pulumi.StringPtrInput         `pulumi:"key"`
+	OperatorType pulumi.StringInput            `pulumi:"operatorType"`
+	Values       pulumi.Float64ArrayArrayInput `pulumi:"values"`
+}
+
+func (NumberNotInRangeAdvancedFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NumberNotInRangeAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (i NumberNotInRangeAdvancedFilterResponseArgs) ToNumberNotInRangeAdvancedFilterResponseOutput() NumberNotInRangeAdvancedFilterResponseOutput {
+	return i.ToNumberNotInRangeAdvancedFilterResponseOutputWithContext(context.Background())
+}
+
+func (i NumberNotInRangeAdvancedFilterResponseArgs) ToNumberNotInRangeAdvancedFilterResponseOutputWithContext(ctx context.Context) NumberNotInRangeAdvancedFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NumberNotInRangeAdvancedFilterResponseOutput)
+}
+
+type NumberNotInRangeAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (NumberNotInRangeAdvancedFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NumberNotInRangeAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (o NumberNotInRangeAdvancedFilterResponseOutput) ToNumberNotInRangeAdvancedFilterResponseOutput() NumberNotInRangeAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o NumberNotInRangeAdvancedFilterResponseOutput) ToNumberNotInRangeAdvancedFilterResponseOutputWithContext(ctx context.Context) NumberNotInRangeAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o NumberNotInRangeAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NumberNotInRangeAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o NumberNotInRangeAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v NumberNotInRangeAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+func (o NumberNotInRangeAdvancedFilterResponseOutput) Values() pulumi.Float64ArrayArrayOutput {
+	return o.ApplyT(func(v NumberNotInRangeAdvancedFilterResponse) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
 }
 
 type PrivateEndpoint struct {
@@ -6606,6 +7070,372 @@ func (o StringInAdvancedFilterResponseOutput) Values() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v StringInAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
+type StringNotBeginsWithAdvancedFilter struct {
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
+}
+
+
+
+
+
+type StringNotBeginsWithAdvancedFilterInput interface {
+	pulumi.Input
+
+	ToStringNotBeginsWithAdvancedFilterOutput() StringNotBeginsWithAdvancedFilterOutput
+	ToStringNotBeginsWithAdvancedFilterOutputWithContext(context.Context) StringNotBeginsWithAdvancedFilterOutput
+}
+
+type StringNotBeginsWithAdvancedFilterArgs struct {
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (StringNotBeginsWithAdvancedFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotBeginsWithAdvancedFilter)(nil)).Elem()
+}
+
+func (i StringNotBeginsWithAdvancedFilterArgs) ToStringNotBeginsWithAdvancedFilterOutput() StringNotBeginsWithAdvancedFilterOutput {
+	return i.ToStringNotBeginsWithAdvancedFilterOutputWithContext(context.Background())
+}
+
+func (i StringNotBeginsWithAdvancedFilterArgs) ToStringNotBeginsWithAdvancedFilterOutputWithContext(ctx context.Context) StringNotBeginsWithAdvancedFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StringNotBeginsWithAdvancedFilterOutput)
+}
+
+type StringNotBeginsWithAdvancedFilterOutput struct{ *pulumi.OutputState }
+
+func (StringNotBeginsWithAdvancedFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotBeginsWithAdvancedFilter)(nil)).Elem()
+}
+
+func (o StringNotBeginsWithAdvancedFilterOutput) ToStringNotBeginsWithAdvancedFilterOutput() StringNotBeginsWithAdvancedFilterOutput {
+	return o
+}
+
+func (o StringNotBeginsWithAdvancedFilterOutput) ToStringNotBeginsWithAdvancedFilterOutputWithContext(ctx context.Context) StringNotBeginsWithAdvancedFilterOutput {
+	return o
+}
+
+func (o StringNotBeginsWithAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StringNotBeginsWithAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o StringNotBeginsWithAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v StringNotBeginsWithAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+func (o StringNotBeginsWithAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StringNotBeginsWithAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type StringNotBeginsWithAdvancedFilterResponse struct {
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
+}
+
+
+
+
+
+type StringNotBeginsWithAdvancedFilterResponseInput interface {
+	pulumi.Input
+
+	ToStringNotBeginsWithAdvancedFilterResponseOutput() StringNotBeginsWithAdvancedFilterResponseOutput
+	ToStringNotBeginsWithAdvancedFilterResponseOutputWithContext(context.Context) StringNotBeginsWithAdvancedFilterResponseOutput
+}
+
+type StringNotBeginsWithAdvancedFilterResponseArgs struct {
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (StringNotBeginsWithAdvancedFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotBeginsWithAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (i StringNotBeginsWithAdvancedFilterResponseArgs) ToStringNotBeginsWithAdvancedFilterResponseOutput() StringNotBeginsWithAdvancedFilterResponseOutput {
+	return i.ToStringNotBeginsWithAdvancedFilterResponseOutputWithContext(context.Background())
+}
+
+func (i StringNotBeginsWithAdvancedFilterResponseArgs) ToStringNotBeginsWithAdvancedFilterResponseOutputWithContext(ctx context.Context) StringNotBeginsWithAdvancedFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StringNotBeginsWithAdvancedFilterResponseOutput)
+}
+
+type StringNotBeginsWithAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (StringNotBeginsWithAdvancedFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotBeginsWithAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (o StringNotBeginsWithAdvancedFilterResponseOutput) ToStringNotBeginsWithAdvancedFilterResponseOutput() StringNotBeginsWithAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o StringNotBeginsWithAdvancedFilterResponseOutput) ToStringNotBeginsWithAdvancedFilterResponseOutputWithContext(ctx context.Context) StringNotBeginsWithAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o StringNotBeginsWithAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StringNotBeginsWithAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o StringNotBeginsWithAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v StringNotBeginsWithAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+func (o StringNotBeginsWithAdvancedFilterResponseOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StringNotBeginsWithAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type StringNotContainsAdvancedFilter struct {
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
+}
+
+
+
+
+
+type StringNotContainsAdvancedFilterInput interface {
+	pulumi.Input
+
+	ToStringNotContainsAdvancedFilterOutput() StringNotContainsAdvancedFilterOutput
+	ToStringNotContainsAdvancedFilterOutputWithContext(context.Context) StringNotContainsAdvancedFilterOutput
+}
+
+type StringNotContainsAdvancedFilterArgs struct {
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (StringNotContainsAdvancedFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotContainsAdvancedFilter)(nil)).Elem()
+}
+
+func (i StringNotContainsAdvancedFilterArgs) ToStringNotContainsAdvancedFilterOutput() StringNotContainsAdvancedFilterOutput {
+	return i.ToStringNotContainsAdvancedFilterOutputWithContext(context.Background())
+}
+
+func (i StringNotContainsAdvancedFilterArgs) ToStringNotContainsAdvancedFilterOutputWithContext(ctx context.Context) StringNotContainsAdvancedFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StringNotContainsAdvancedFilterOutput)
+}
+
+type StringNotContainsAdvancedFilterOutput struct{ *pulumi.OutputState }
+
+func (StringNotContainsAdvancedFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotContainsAdvancedFilter)(nil)).Elem()
+}
+
+func (o StringNotContainsAdvancedFilterOutput) ToStringNotContainsAdvancedFilterOutput() StringNotContainsAdvancedFilterOutput {
+	return o
+}
+
+func (o StringNotContainsAdvancedFilterOutput) ToStringNotContainsAdvancedFilterOutputWithContext(ctx context.Context) StringNotContainsAdvancedFilterOutput {
+	return o
+}
+
+func (o StringNotContainsAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StringNotContainsAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o StringNotContainsAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v StringNotContainsAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+func (o StringNotContainsAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StringNotContainsAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type StringNotContainsAdvancedFilterResponse struct {
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
+}
+
+
+
+
+
+type StringNotContainsAdvancedFilterResponseInput interface {
+	pulumi.Input
+
+	ToStringNotContainsAdvancedFilterResponseOutput() StringNotContainsAdvancedFilterResponseOutput
+	ToStringNotContainsAdvancedFilterResponseOutputWithContext(context.Context) StringNotContainsAdvancedFilterResponseOutput
+}
+
+type StringNotContainsAdvancedFilterResponseArgs struct {
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (StringNotContainsAdvancedFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotContainsAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (i StringNotContainsAdvancedFilterResponseArgs) ToStringNotContainsAdvancedFilterResponseOutput() StringNotContainsAdvancedFilterResponseOutput {
+	return i.ToStringNotContainsAdvancedFilterResponseOutputWithContext(context.Background())
+}
+
+func (i StringNotContainsAdvancedFilterResponseArgs) ToStringNotContainsAdvancedFilterResponseOutputWithContext(ctx context.Context) StringNotContainsAdvancedFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StringNotContainsAdvancedFilterResponseOutput)
+}
+
+type StringNotContainsAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (StringNotContainsAdvancedFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotContainsAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (o StringNotContainsAdvancedFilterResponseOutput) ToStringNotContainsAdvancedFilterResponseOutput() StringNotContainsAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o StringNotContainsAdvancedFilterResponseOutput) ToStringNotContainsAdvancedFilterResponseOutputWithContext(ctx context.Context) StringNotContainsAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o StringNotContainsAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StringNotContainsAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o StringNotContainsAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v StringNotContainsAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+func (o StringNotContainsAdvancedFilterResponseOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StringNotContainsAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type StringNotEndsWithAdvancedFilter struct {
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
+}
+
+
+
+
+
+type StringNotEndsWithAdvancedFilterInput interface {
+	pulumi.Input
+
+	ToStringNotEndsWithAdvancedFilterOutput() StringNotEndsWithAdvancedFilterOutput
+	ToStringNotEndsWithAdvancedFilterOutputWithContext(context.Context) StringNotEndsWithAdvancedFilterOutput
+}
+
+type StringNotEndsWithAdvancedFilterArgs struct {
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (StringNotEndsWithAdvancedFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotEndsWithAdvancedFilter)(nil)).Elem()
+}
+
+func (i StringNotEndsWithAdvancedFilterArgs) ToStringNotEndsWithAdvancedFilterOutput() StringNotEndsWithAdvancedFilterOutput {
+	return i.ToStringNotEndsWithAdvancedFilterOutputWithContext(context.Background())
+}
+
+func (i StringNotEndsWithAdvancedFilterArgs) ToStringNotEndsWithAdvancedFilterOutputWithContext(ctx context.Context) StringNotEndsWithAdvancedFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StringNotEndsWithAdvancedFilterOutput)
+}
+
+type StringNotEndsWithAdvancedFilterOutput struct{ *pulumi.OutputState }
+
+func (StringNotEndsWithAdvancedFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotEndsWithAdvancedFilter)(nil)).Elem()
+}
+
+func (o StringNotEndsWithAdvancedFilterOutput) ToStringNotEndsWithAdvancedFilterOutput() StringNotEndsWithAdvancedFilterOutput {
+	return o
+}
+
+func (o StringNotEndsWithAdvancedFilterOutput) ToStringNotEndsWithAdvancedFilterOutputWithContext(ctx context.Context) StringNotEndsWithAdvancedFilterOutput {
+	return o
+}
+
+func (o StringNotEndsWithAdvancedFilterOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StringNotEndsWithAdvancedFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o StringNotEndsWithAdvancedFilterOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v StringNotEndsWithAdvancedFilter) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+func (o StringNotEndsWithAdvancedFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StringNotEndsWithAdvancedFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type StringNotEndsWithAdvancedFilterResponse struct {
+	Key          *string  `pulumi:"key"`
+	OperatorType string   `pulumi:"operatorType"`
+	Values       []string `pulumi:"values"`
+}
+
+
+
+
+
+type StringNotEndsWithAdvancedFilterResponseInput interface {
+	pulumi.Input
+
+	ToStringNotEndsWithAdvancedFilterResponseOutput() StringNotEndsWithAdvancedFilterResponseOutput
+	ToStringNotEndsWithAdvancedFilterResponseOutputWithContext(context.Context) StringNotEndsWithAdvancedFilterResponseOutput
+}
+
+type StringNotEndsWithAdvancedFilterResponseArgs struct {
+	Key          pulumi.StringPtrInput   `pulumi:"key"`
+	OperatorType pulumi.StringInput      `pulumi:"operatorType"`
+	Values       pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (StringNotEndsWithAdvancedFilterResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotEndsWithAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (i StringNotEndsWithAdvancedFilterResponseArgs) ToStringNotEndsWithAdvancedFilterResponseOutput() StringNotEndsWithAdvancedFilterResponseOutput {
+	return i.ToStringNotEndsWithAdvancedFilterResponseOutputWithContext(context.Background())
+}
+
+func (i StringNotEndsWithAdvancedFilterResponseArgs) ToStringNotEndsWithAdvancedFilterResponseOutputWithContext(ctx context.Context) StringNotEndsWithAdvancedFilterResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StringNotEndsWithAdvancedFilterResponseOutput)
+}
+
+type StringNotEndsWithAdvancedFilterResponseOutput struct{ *pulumi.OutputState }
+
+func (StringNotEndsWithAdvancedFilterResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StringNotEndsWithAdvancedFilterResponse)(nil)).Elem()
+}
+
+func (o StringNotEndsWithAdvancedFilterResponseOutput) ToStringNotEndsWithAdvancedFilterResponseOutput() StringNotEndsWithAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o StringNotEndsWithAdvancedFilterResponseOutput) ToStringNotEndsWithAdvancedFilterResponseOutputWithContext(ctx context.Context) StringNotEndsWithAdvancedFilterResponseOutput {
+	return o
+}
+
+func (o StringNotEndsWithAdvancedFilterResponseOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StringNotEndsWithAdvancedFilterResponse) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o StringNotEndsWithAdvancedFilterResponseOutput) OperatorType() pulumi.StringOutput {
+	return o.ApplyT(func(v StringNotEndsWithAdvancedFilterResponse) string { return v.OperatorType }).(pulumi.StringOutput)
+}
+
+func (o StringNotEndsWithAdvancedFilterResponseOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StringNotEndsWithAdvancedFilterResponse) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
 type StringNotInAdvancedFilter struct {
 	Key          *string  `pulumi:"key"`
 	OperatorType string   `pulumi:"operatorType"`
@@ -7353,6 +8183,10 @@ func init() {
 	pulumi.RegisterOutputType(InboundIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(InboundIpRuleResponseOutput{})
 	pulumi.RegisterOutputType(InboundIpRuleResponseArrayOutput{})
+	pulumi.RegisterOutputType(IsNotNullAdvancedFilterOutput{})
+	pulumi.RegisterOutputType(IsNotNullAdvancedFilterResponseOutput{})
+	pulumi.RegisterOutputType(IsNullOrUndefinedAdvancedFilterOutput{})
+	pulumi.RegisterOutputType(IsNullOrUndefinedAdvancedFilterResponseOutput{})
 	pulumi.RegisterOutputType(JsonFieldOutput{})
 	pulumi.RegisterOutputType(JsonFieldPtrOutput{})
 	pulumi.RegisterOutputType(JsonFieldResponseOutput{})
@@ -7371,12 +8205,16 @@ func init() {
 	pulumi.RegisterOutputType(NumberGreaterThanOrEqualsAdvancedFilterResponseOutput{})
 	pulumi.RegisterOutputType(NumberInAdvancedFilterOutput{})
 	pulumi.RegisterOutputType(NumberInAdvancedFilterResponseOutput{})
+	pulumi.RegisterOutputType(NumberInRangeAdvancedFilterOutput{})
+	pulumi.RegisterOutputType(NumberInRangeAdvancedFilterResponseOutput{})
 	pulumi.RegisterOutputType(NumberLessThanAdvancedFilterOutput{})
 	pulumi.RegisterOutputType(NumberLessThanAdvancedFilterResponseOutput{})
 	pulumi.RegisterOutputType(NumberLessThanOrEqualsAdvancedFilterOutput{})
 	pulumi.RegisterOutputType(NumberLessThanOrEqualsAdvancedFilterResponseOutput{})
 	pulumi.RegisterOutputType(NumberNotInAdvancedFilterOutput{})
 	pulumi.RegisterOutputType(NumberNotInAdvancedFilterResponseOutput{})
+	pulumi.RegisterOutputType(NumberNotInRangeAdvancedFilterOutput{})
+	pulumi.RegisterOutputType(NumberNotInRangeAdvancedFilterResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
@@ -7407,6 +8245,12 @@ func init() {
 	pulumi.RegisterOutputType(StringEndsWithAdvancedFilterResponseOutput{})
 	pulumi.RegisterOutputType(StringInAdvancedFilterOutput{})
 	pulumi.RegisterOutputType(StringInAdvancedFilterResponseOutput{})
+	pulumi.RegisterOutputType(StringNotBeginsWithAdvancedFilterOutput{})
+	pulumi.RegisterOutputType(StringNotBeginsWithAdvancedFilterResponseOutput{})
+	pulumi.RegisterOutputType(StringNotContainsAdvancedFilterOutput{})
+	pulumi.RegisterOutputType(StringNotContainsAdvancedFilterResponseOutput{})
+	pulumi.RegisterOutputType(StringNotEndsWithAdvancedFilterOutput{})
+	pulumi.RegisterOutputType(StringNotEndsWithAdvancedFilterResponseOutput{})
 	pulumi.RegisterOutputType(StringNotInAdvancedFilterOutput{})
 	pulumi.RegisterOutputType(StringNotInAdvancedFilterResponseOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})

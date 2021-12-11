@@ -37,6 +37,13 @@ class AdvancedFilterOperatorType(str, Enum):
     STRING_BEGINS_WITH = "StringBeginsWith"
     STRING_ENDS_WITH = "StringEndsWith"
     STRING_CONTAINS = "StringContains"
+    NUMBER_IN_RANGE = "NumberInRange"
+    NUMBER_NOT_IN_RANGE = "NumberNotInRange"
+    STRING_NOT_BEGINS_WITH = "StringNotBeginsWith"
+    STRING_NOT_ENDS_WITH = "StringNotEndsWith"
+    STRING_NOT_CONTAINS = "StringNotContains"
+    IS_NULL_OR_UNDEFINED = "IsNullOrUndefined"
+    IS_NOT_NULL = "IsNotNull"
 
 
 class DeadLetterEndPointType(str, Enum):

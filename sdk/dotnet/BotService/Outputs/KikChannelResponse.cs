@@ -26,9 +26,17 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The set of properties specific to Kik channel resource
         /// </summary>
         public readonly Outputs.KikChannelPropertiesResponse? Properties;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private KikChannelResponse(
@@ -36,11 +44,17 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             string? etag,
 
-            Outputs.KikChannelPropertiesResponse? properties)
+            string? location,
+
+            Outputs.KikChannelPropertiesResponse? properties,
+
+            string provisioningState)
         {
             ChannelName = channelName;
             Etag = etag;
+            Location = location;
             Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

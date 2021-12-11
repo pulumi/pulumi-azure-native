@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Bot channel resource definition
+ * The ARM channel of list channel with keys operation response.
  */
 export function listChannelWithKeys(args: ListChannelWithKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListChannelWithKeysResult> {
     if (!opts) {
@@ -39,7 +39,7 @@ export interface ListChannelWithKeysArgs {
 }
 
 /**
- * Bot channel resource definition
+ * The ARM channel of list channel with keys operation response.
  */
 export interface ListChannelWithKeysResult {
     /**
@@ -66,6 +66,14 @@ export interface ListChannelWithKeysResult {
      * The set of properties specific to bot channel resource
      */
     readonly properties: outputs.botservice.v20210501preview.AlexaChannelResponse | outputs.botservice.v20210501preview.DirectLineChannelResponse | outputs.botservice.v20210501preview.DirectLineSpeechChannelResponse | outputs.botservice.v20210501preview.EmailChannelResponse | outputs.botservice.v20210501preview.FacebookChannelResponse | outputs.botservice.v20210501preview.KikChannelResponse | outputs.botservice.v20210501preview.LineChannelResponse | outputs.botservice.v20210501preview.MsTeamsChannelResponse | outputs.botservice.v20210501preview.SkypeChannelResponse | outputs.botservice.v20210501preview.SlackChannelResponse | outputs.botservice.v20210501preview.SmsChannelResponse | outputs.botservice.v20210501preview.TelegramChannelResponse | outputs.botservice.v20210501preview.WebChatChannelResponse;
+    /**
+     * The set of properties specific to bot channel resource
+     */
+    readonly resource?: outputs.botservice.v20210501preview.AlexaChannelResponse | outputs.botservice.v20210501preview.DirectLineChannelResponse | outputs.botservice.v20210501preview.DirectLineSpeechChannelResponse | outputs.botservice.v20210501preview.EmailChannelResponse | outputs.botservice.v20210501preview.FacebookChannelResponse | outputs.botservice.v20210501preview.KikChannelResponse | outputs.botservice.v20210501preview.LineChannelResponse | outputs.botservice.v20210501preview.MsTeamsChannelResponse | outputs.botservice.v20210501preview.SkypeChannelResponse | outputs.botservice.v20210501preview.SlackChannelResponse | outputs.botservice.v20210501preview.SmsChannelResponse | outputs.botservice.v20210501preview.TelegramChannelResponse | outputs.botservice.v20210501preview.WebChatChannelResponse;
+    /**
+     * Channel settings
+     */
+    readonly setting?: outputs.botservice.v20210501preview.ChannelSettingsResponse;
     /**
      * Gets or sets the SKU of the resource.
      */

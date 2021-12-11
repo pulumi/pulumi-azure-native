@@ -23,15 +23,19 @@ __all__ = [
     'HybridConnectionEventSubscriptionDestinationResponse',
     'IdentityInfoResponse',
     'InboundIpRuleResponse',
+    'IsNotNullAdvancedFilterResponse',
+    'IsNullOrUndefinedAdvancedFilterResponse',
     'JsonFieldResponse',
     'JsonFieldWithDefaultResponse',
     'JsonInputSchemaMappingResponse',
     'NumberGreaterThanAdvancedFilterResponse',
     'NumberGreaterThanOrEqualsAdvancedFilterResponse',
     'NumberInAdvancedFilterResponse',
+    'NumberInRangeAdvancedFilterResponse',
     'NumberLessThanAdvancedFilterResponse',
     'NumberLessThanOrEqualsAdvancedFilterResponse',
     'NumberNotInAdvancedFilterResponse',
+    'NumberNotInRangeAdvancedFilterResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'RetryPolicyResponse',
@@ -44,6 +48,9 @@ __all__ = [
     'StringContainsAdvancedFilterResponse',
     'StringEndsWithAdvancedFilterResponse',
     'StringInAdvancedFilterResponse',
+    'StringNotBeginsWithAdvancedFilterResponse',
+    'StringNotContainsAdvancedFilterResponse',
+    'StringNotEndsWithAdvancedFilterResponse',
     'StringNotInAdvancedFilterResponse',
     'SystemDataResponse',
     'UserIdentityPropertiesResponse',
@@ -546,7 +553,7 @@ class EventSubscriptionFilterResponse(dict):
                  subject_ends_with: Optional[str] = None):
         """
         Filter for the Event Subscription.
-        :param Sequence[Union['BoolEqualsAdvancedFilterResponse', 'NumberGreaterThanAdvancedFilterResponse', 'NumberGreaterThanOrEqualsAdvancedFilterResponse', 'NumberInAdvancedFilterResponse', 'NumberLessThanAdvancedFilterResponse', 'NumberLessThanOrEqualsAdvancedFilterResponse', 'NumberNotInAdvancedFilterResponse', 'StringBeginsWithAdvancedFilterResponse', 'StringContainsAdvancedFilterResponse', 'StringEndsWithAdvancedFilterResponse', 'StringInAdvancedFilterResponse', 'StringNotInAdvancedFilterResponse']] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
+        :param Sequence[Union['BoolEqualsAdvancedFilterResponse', 'IsNotNullAdvancedFilterResponse', 'IsNullOrUndefinedAdvancedFilterResponse', 'NumberGreaterThanAdvancedFilterResponse', 'NumberGreaterThanOrEqualsAdvancedFilterResponse', 'NumberInAdvancedFilterResponse', 'NumberInRangeAdvancedFilterResponse', 'NumberLessThanAdvancedFilterResponse', 'NumberLessThanOrEqualsAdvancedFilterResponse', 'NumberNotInAdvancedFilterResponse', 'NumberNotInRangeAdvancedFilterResponse', 'StringBeginsWithAdvancedFilterResponse', 'StringContainsAdvancedFilterResponse', 'StringEndsWithAdvancedFilterResponse', 'StringInAdvancedFilterResponse', 'StringNotBeginsWithAdvancedFilterResponse', 'StringNotContainsAdvancedFilterResponse', 'StringNotEndsWithAdvancedFilterResponse', 'StringNotInAdvancedFilterResponse']] advanced_filters: An array of advanced filters that are used for filtering event subscriptions.
         :param bool enable_advanced_filtering_on_arrays: Allows advanced filters to be evaluated against an array of values instead of expecting a singular value.
         :param Sequence[str] included_event_types: A list of applicable event types that need to be part of the event subscription. If it is desired to subscribe to all default event types, set the IncludedEventTypes to null.
         :param bool is_subject_case_sensitive: Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter
@@ -876,6 +883,112 @@ class InboundIpRuleResponse(dict):
         IP Address in CIDR notation e.g., 10.0.0.0/8.
         """
         return pulumi.get(self, "ip_mask")
+
+
+@pulumi.output_type
+class IsNotNullAdvancedFilterResponse(dict):
+    """
+    IsNotNull Advanced Filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operatorType":
+            suggest = "operator_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IsNotNullAdvancedFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IsNotNullAdvancedFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IsNotNullAdvancedFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None):
+        """
+        IsNotNull Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'IsNotNull'.
+        :param str key: The field/property in the event based on which you want to filter.
+        """
+        pulumi.set(__self__, "operator_type", 'IsNotNull')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'IsNotNull'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class IsNullOrUndefinedAdvancedFilterResponse(dict):
+    """
+    IsNullOrUndefined Advanced Filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operatorType":
+            suggest = "operator_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IsNullOrUndefinedAdvancedFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IsNullOrUndefinedAdvancedFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IsNullOrUndefinedAdvancedFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None):
+        """
+        IsNullOrUndefined Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'IsNullOrUndefined'.
+        :param str key: The field/property in the event based on which you want to filter.
+        """
+        pulumi.set(__self__, "operator_type", 'IsNullOrUndefined')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'IsNullOrUndefined'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
 
 
 @pulumi.output_type
@@ -1293,6 +1406,71 @@ class NumberInAdvancedFilterResponse(dict):
 
 
 @pulumi.output_type
+class NumberInRangeAdvancedFilterResponse(dict):
+    """
+    NumberInRange Advanced Filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operatorType":
+            suggest = "operator_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NumberInRangeAdvancedFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NumberInRangeAdvancedFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NumberInRangeAdvancedFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[Sequence[Sequence[float]]] = None):
+        """
+        NumberInRange Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberInRange'.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param Sequence[Sequence[float]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberInRange')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberInRange'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[Sequence[float]]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class NumberLessThanAdvancedFilterResponse(dict):
     """
     NumberLessThan Advanced Filter.
@@ -1481,6 +1659,71 @@ class NumberNotInAdvancedFilterResponse(dict):
     @property
     @pulumi.getter
     def values(self) -> Optional[Sequence[float]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class NumberNotInRangeAdvancedFilterResponse(dict):
+    """
+    NumberNotInRange Advanced Filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operatorType":
+            suggest = "operator_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NumberNotInRangeAdvancedFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NumberNotInRangeAdvancedFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NumberNotInRangeAdvancedFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[Sequence[Sequence[float]]] = None):
+        """
+        NumberNotInRange Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'NumberNotInRange'.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param Sequence[Sequence[float]] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'NumberNotInRange')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'NumberNotInRange'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[Sequence[float]]]:
         """
         The set of filter values.
         """
@@ -2288,6 +2531,201 @@ class StringInAdvancedFilterResponse(dict):
         """
         The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
         Expected value is 'StringIn'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class StringNotBeginsWithAdvancedFilterResponse(dict):
+    """
+    StringNotBeginsWith Advanced Filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operatorType":
+            suggest = "operator_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StringNotBeginsWithAdvancedFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StringNotBeginsWithAdvancedFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StringNotBeginsWithAdvancedFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        StringNotBeginsWith Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringNotBeginsWith'.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param Sequence[str] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotBeginsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotBeginsWith'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class StringNotContainsAdvancedFilterResponse(dict):
+    """
+    StringNotContains Advanced Filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operatorType":
+            suggest = "operator_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StringNotContainsAdvancedFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StringNotContainsAdvancedFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StringNotContainsAdvancedFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        StringNotContains Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringNotContains'.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param Sequence[str] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotContains')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotContains'.
+        """
+        return pulumi.get(self, "operator_type")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The field/property in the event based on which you want to filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence[str]]:
+        """
+        The set of filter values.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class StringNotEndsWithAdvancedFilterResponse(dict):
+    """
+    StringNotEndsWith Advanced Filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operatorType":
+            suggest = "operator_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StringNotEndsWithAdvancedFilterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StringNotEndsWithAdvancedFilterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StringNotEndsWithAdvancedFilterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator_type: str,
+                 key: Optional[str] = None,
+                 values: Optional[Sequence[str]] = None):
+        """
+        StringNotEndsWith Advanced Filter.
+        :param str operator_type: The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+               Expected value is 'StringNotEndsWith'.
+        :param str key: The field/property in the event based on which you want to filter.
+        :param Sequence[str] values: The set of filter values.
+        """
+        pulumi.set(__self__, "operator_type", 'StringNotEndsWith')
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="operatorType")
+    def operator_type(self) -> str:
+        """
+        The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+        Expected value is 'StringNotEndsWith'.
         """
         return pulumi.get(self, "operator_type")
 

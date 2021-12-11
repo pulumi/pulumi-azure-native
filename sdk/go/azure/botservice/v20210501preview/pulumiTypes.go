@@ -13,6 +13,7 @@ import (
 type AlexaChannel struct {
 	ChannelName string                  `pulumi:"channelName"`
 	Etag        *string                 `pulumi:"etag"`
+	Location    *string                 `pulumi:"location"`
 	Properties  *AlexaChannelProperties `pulumi:"properties"`
 }
 
@@ -30,6 +31,7 @@ type AlexaChannelInput interface {
 type AlexaChannelArgs struct {
 	ChannelName pulumi.StringInput             `pulumi:"channelName"`
 	Etag        pulumi.StringPtrInput          `pulumi:"etag"`
+	Location    pulumi.StringPtrInput          `pulumi:"location"`
 	Properties  AlexaChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
@@ -65,6 +67,10 @@ func (o AlexaChannelOutput) ChannelName() pulumi.StringOutput {
 
 func (o AlexaChannelOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlexaChannel) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+func (o AlexaChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlexaChannel) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 func (o AlexaChannelOutput) Properties() AlexaChannelPropertiesPtrOutput {
@@ -400,6 +406,7 @@ func (o AlexaChannelPropertiesResponsePtrOutput) UrlFragment() pulumi.StringPtrO
 type AlexaChannelResponse struct {
 	ChannelName       string                          `pulumi:"channelName"`
 	Etag              *string                         `pulumi:"etag"`
+	Location          *string                         `pulumi:"location"`
 	Properties        *AlexaChannelPropertiesResponse `pulumi:"properties"`
 	ProvisioningState string                          `pulumi:"provisioningState"`
 }
@@ -418,6 +425,7 @@ type AlexaChannelResponseInput interface {
 type AlexaChannelResponseArgs struct {
 	ChannelName       pulumi.StringInput                     `pulumi:"channelName"`
 	Etag              pulumi.StringPtrInput                  `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                  `pulumi:"location"`
 	Properties        AlexaChannelPropertiesResponsePtrInput `pulumi:"properties"`
 	ProvisioningState pulumi.StringInput                     `pulumi:"provisioningState"`
 }
@@ -456,6 +464,10 @@ func (o AlexaChannelResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlexaChannelResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+func (o AlexaChannelResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlexaChannelResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 func (o AlexaChannelResponseOutput) Properties() AlexaChannelPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v AlexaChannelResponse) *AlexaChannelPropertiesResponse { return v.Properties }).(AlexaChannelPropertiesResponsePtrOutput)
 }
@@ -492,6 +504,7 @@ type BotProperties struct {
 	PublicNetworkAccess               *string           `pulumi:"publicNetworkAccess"`
 	PublishingCredentials             *string           `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       *string           `pulumi:"schemaTransformationVersion"`
+	StorageResourceId                 *string           `pulumi:"storageResourceId"`
 }
 
 
@@ -533,6 +546,7 @@ type BotPropertiesArgs struct {
 	PublicNetworkAccess               pulumi.StringPtrInput   `pulumi:"publicNetworkAccess"`
 	PublishingCredentials             pulumi.StringPtrInput   `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       pulumi.StringPtrInput   `pulumi:"schemaTransformationVersion"`
+	StorageResourceId                 pulumi.StringPtrInput   `pulumi:"storageResourceId"`
 }
 
 func (BotPropertiesArgs) ElementType() reflect.Type {
@@ -718,6 +732,10 @@ func (o BotPropertiesOutput) PublishingCredentials() pulumi.StringPtrOutput {
 
 func (o BotPropertiesOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotProperties) *string { return v.SchemaTransformationVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotProperties) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
 }
 
 type BotPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -987,6 +1005,15 @@ func (o BotPropertiesPtrOutput) SchemaTransformationVersion() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o BotPropertiesPtrOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type BotPropertiesResponse struct {
 	AllSettings                       map[string]string                   `pulumi:"allSettings"`
 	AppPasswordHint                   *string                             `pulumi:"appPasswordHint"`
@@ -1021,6 +1048,7 @@ type BotPropertiesResponse struct {
 	PublicNetworkAccess               *string                             `pulumi:"publicNetworkAccess"`
 	PublishingCredentials             *string                             `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       *string                             `pulumi:"schemaTransformationVersion"`
+	StorageResourceId                 *string                             `pulumi:"storageResourceId"`
 }
 
 
@@ -1068,6 +1096,7 @@ type BotPropertiesResponseArgs struct {
 	PublicNetworkAccess               pulumi.StringPtrInput                       `pulumi:"publicNetworkAccess"`
 	PublishingCredentials             pulumi.StringPtrInput                       `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       pulumi.StringPtrInput                       `pulumi:"schemaTransformationVersion"`
+	StorageResourceId                 pulumi.StringPtrInput                       `pulumi:"storageResourceId"`
 }
 
 func (BotPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1277,6 +1306,10 @@ func (o BotPropertiesResponseOutput) PublishingCredentials() pulumi.StringPtrOut
 
 func (o BotPropertiesResponseOutput) SchemaTransformationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.SchemaTransformationVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o BotPropertiesResponseOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BotPropertiesResponse) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
 }
 
 type BotPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1600,6 +1633,268 @@ func (o BotPropertiesResponsePtrOutput) SchemaTransformationVersion() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o BotPropertiesResponsePtrOutput) StorageResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BotPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelSettingsResponse struct {
+	BotIconUrl         *string        `pulumi:"botIconUrl"`
+	BotId              *string        `pulumi:"botId"`
+	ChannelDisplayName *string        `pulumi:"channelDisplayName"`
+	ChannelId          *string        `pulumi:"channelId"`
+	DisableLocalAuth   *bool          `pulumi:"disableLocalAuth"`
+	ExtensionKey1      *string        `pulumi:"extensionKey1"`
+	ExtensionKey2      *string        `pulumi:"extensionKey2"`
+	IsEnabled          *bool          `pulumi:"isEnabled"`
+	Sites              []SiteResponse `pulumi:"sites"`
+}
+
+
+
+
+
+type ChannelSettingsResponseInput interface {
+	pulumi.Input
+
+	ToChannelSettingsResponseOutput() ChannelSettingsResponseOutput
+	ToChannelSettingsResponseOutputWithContext(context.Context) ChannelSettingsResponseOutput
+}
+
+type ChannelSettingsResponseArgs struct {
+	BotIconUrl         pulumi.StringPtrInput  `pulumi:"botIconUrl"`
+	BotId              pulumi.StringPtrInput  `pulumi:"botId"`
+	ChannelDisplayName pulumi.StringPtrInput  `pulumi:"channelDisplayName"`
+	ChannelId          pulumi.StringPtrInput  `pulumi:"channelId"`
+	DisableLocalAuth   pulumi.BoolPtrInput    `pulumi:"disableLocalAuth"`
+	ExtensionKey1      pulumi.StringPtrInput  `pulumi:"extensionKey1"`
+	ExtensionKey2      pulumi.StringPtrInput  `pulumi:"extensionKey2"`
+	IsEnabled          pulumi.BoolPtrInput    `pulumi:"isEnabled"`
+	Sites              SiteResponseArrayInput `pulumi:"sites"`
+}
+
+func (ChannelSettingsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelSettingsResponse)(nil)).Elem()
+}
+
+func (i ChannelSettingsResponseArgs) ToChannelSettingsResponseOutput() ChannelSettingsResponseOutput {
+	return i.ToChannelSettingsResponseOutputWithContext(context.Background())
+}
+
+func (i ChannelSettingsResponseArgs) ToChannelSettingsResponseOutputWithContext(ctx context.Context) ChannelSettingsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelSettingsResponseOutput)
+}
+
+func (i ChannelSettingsResponseArgs) ToChannelSettingsResponsePtrOutput() ChannelSettingsResponsePtrOutput {
+	return i.ToChannelSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ChannelSettingsResponseArgs) ToChannelSettingsResponsePtrOutputWithContext(ctx context.Context) ChannelSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelSettingsResponseOutput).ToChannelSettingsResponsePtrOutputWithContext(ctx)
+}
+
+
+
+
+
+
+
+
+
+type ChannelSettingsResponsePtrInput interface {
+	pulumi.Input
+
+	ToChannelSettingsResponsePtrOutput() ChannelSettingsResponsePtrOutput
+	ToChannelSettingsResponsePtrOutputWithContext(context.Context) ChannelSettingsResponsePtrOutput
+}
+
+type channelSettingsResponsePtrType ChannelSettingsResponseArgs
+
+func ChannelSettingsResponsePtr(v *ChannelSettingsResponseArgs) ChannelSettingsResponsePtrInput {
+	return (*channelSettingsResponsePtrType)(v)
+}
+
+func (*channelSettingsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelSettingsResponse)(nil)).Elem()
+}
+
+func (i *channelSettingsResponsePtrType) ToChannelSettingsResponsePtrOutput() ChannelSettingsResponsePtrOutput {
+	return i.ToChannelSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *channelSettingsResponsePtrType) ToChannelSettingsResponsePtrOutputWithContext(ctx context.Context) ChannelSettingsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelSettingsResponsePtrOutput)
+}
+
+type ChannelSettingsResponseOutput struct{ *pulumi.OutputState }
+
+func (ChannelSettingsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelSettingsResponse)(nil)).Elem()
+}
+
+func (o ChannelSettingsResponseOutput) ToChannelSettingsResponseOutput() ChannelSettingsResponseOutput {
+	return o
+}
+
+func (o ChannelSettingsResponseOutput) ToChannelSettingsResponseOutputWithContext(ctx context.Context) ChannelSettingsResponseOutput {
+	return o
+}
+
+func (o ChannelSettingsResponseOutput) ToChannelSettingsResponsePtrOutput() ChannelSettingsResponsePtrOutput {
+	return o.ToChannelSettingsResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelSettingsResponseOutput) ToChannelSettingsResponsePtrOutputWithContext(ctx context.Context) ChannelSettingsResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelSettingsResponse) *ChannelSettingsResponse {
+		return &v
+	}).(ChannelSettingsResponsePtrOutput)
+}
+
+func (o ChannelSettingsResponseOutput) BotIconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.BotIconUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponseOutput) BotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.BotId }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponseOutput) ChannelDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.ChannelDisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponseOutput) ChannelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.ChannelId }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponseOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *bool { return v.DisableLocalAuth }).(pulumi.BoolPtrOutput)
+}
+
+func (o ChannelSettingsResponseOutput) ExtensionKey1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.ExtensionKey1 }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponseOutput) ExtensionKey2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *string { return v.ExtensionKey2 }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponseOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ChannelSettingsResponseOutput) Sites() SiteResponseArrayOutput {
+	return o.ApplyT(func(v ChannelSettingsResponse) []SiteResponse { return v.Sites }).(SiteResponseArrayOutput)
+}
+
+type ChannelSettingsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelSettingsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelSettingsResponse)(nil)).Elem()
+}
+
+func (o ChannelSettingsResponsePtrOutput) ToChannelSettingsResponsePtrOutput() ChannelSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ChannelSettingsResponsePtrOutput) ToChannelSettingsResponsePtrOutputWithContext(ctx context.Context) ChannelSettingsResponsePtrOutput {
+	return o
+}
+
+func (o ChannelSettingsResponsePtrOutput) Elem() ChannelSettingsResponseOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) ChannelSettingsResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelSettingsResponse
+		return ret
+	}).(ChannelSettingsResponseOutput)
+}
+
+func (o ChannelSettingsResponsePtrOutput) BotIconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BotIconUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponsePtrOutput) BotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BotId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponsePtrOutput) ChannelDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChannelDisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponsePtrOutput) ChannelId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ChannelId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponsePtrOutput) DisableLocalAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DisableLocalAuth
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ChannelSettingsResponsePtrOutput) ExtensionKey1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExtensionKey1
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponsePtrOutput) ExtensionKey2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExtensionKey2
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelSettingsResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ChannelSettingsResponsePtrOutput) Sites() SiteResponseArrayOutput {
+	return o.ApplyT(func(v *ChannelSettingsResponse) []SiteResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Sites
+	}).(SiteResponseArrayOutput)
+}
+
 type ConnectionSettingParameter struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
@@ -1803,6 +2098,8 @@ func (o ConnectionSettingParameterResponseArrayOutput) Index(i pulumi.IntInput) 
 type ConnectionSettingProperties struct {
 	ClientId                   *string                      `pulumi:"clientId"`
 	ClientSecret               *string                      `pulumi:"clientSecret"`
+	Id                         *string                      `pulumi:"id"`
+	Name                       *string                      `pulumi:"name"`
 	Parameters                 []ConnectionSettingParameter `pulumi:"parameters"`
 	ProvisioningState          *string                      `pulumi:"provisioningState"`
 	Scopes                     *string                      `pulumi:"scopes"`
@@ -1824,6 +2121,8 @@ type ConnectionSettingPropertiesInput interface {
 type ConnectionSettingPropertiesArgs struct {
 	ClientId                   pulumi.StringPtrInput                `pulumi:"clientId"`
 	ClientSecret               pulumi.StringPtrInput                `pulumi:"clientSecret"`
+	Id                         pulumi.StringPtrInput                `pulumi:"id"`
+	Name                       pulumi.StringPtrInput                `pulumi:"name"`
 	Parameters                 ConnectionSettingParameterArrayInput `pulumi:"parameters"`
 	ProvisioningState          pulumi.StringPtrInput                `pulumi:"provisioningState"`
 	Scopes                     pulumi.StringPtrInput                `pulumi:"scopes"`
@@ -1916,6 +2215,14 @@ func (o ConnectionSettingPropertiesOutput) ClientSecret() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ConnectionSettingProperties) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
+func (o ConnectionSettingPropertiesOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSettingPropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 func (o ConnectionSettingPropertiesOutput) Parameters() ConnectionSettingParameterArrayOutput {
 	return o.ApplyT(func(v ConnectionSettingProperties) []ConnectionSettingParameter { return v.Parameters }).(ConnectionSettingParameterArrayOutput)
 }
@@ -1978,6 +2285,24 @@ func (o ConnectionSettingPropertiesPtrOutput) ClientSecret() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ConnectionSettingPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSettingProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSettingPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSettingProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o ConnectionSettingPropertiesPtrOutput) Parameters() ConnectionSettingParameterArrayOutput {
 	return o.ApplyT(func(v *ConnectionSettingProperties) []ConnectionSettingParameter {
 		if v == nil {
@@ -2026,6 +2351,8 @@ func (o ConnectionSettingPropertiesPtrOutput) ServiceProviderId() pulumi.StringP
 type ConnectionSettingPropertiesResponse struct {
 	ClientId                   *string                              `pulumi:"clientId"`
 	ClientSecret               *string                              `pulumi:"clientSecret"`
+	Id                         *string                              `pulumi:"id"`
+	Name                       *string                              `pulumi:"name"`
 	Parameters                 []ConnectionSettingParameterResponse `pulumi:"parameters"`
 	ProvisioningState          *string                              `pulumi:"provisioningState"`
 	Scopes                     *string                              `pulumi:"scopes"`
@@ -2048,6 +2375,8 @@ type ConnectionSettingPropertiesResponseInput interface {
 type ConnectionSettingPropertiesResponseArgs struct {
 	ClientId                   pulumi.StringPtrInput                        `pulumi:"clientId"`
 	ClientSecret               pulumi.StringPtrInput                        `pulumi:"clientSecret"`
+	Id                         pulumi.StringPtrInput                        `pulumi:"id"`
+	Name                       pulumi.StringPtrInput                        `pulumi:"name"`
 	Parameters                 ConnectionSettingParameterResponseArrayInput `pulumi:"parameters"`
 	ProvisioningState          pulumi.StringPtrInput                        `pulumi:"provisioningState"`
 	Scopes                     pulumi.StringPtrInput                        `pulumi:"scopes"`
@@ -2141,6 +2470,14 @@ func (o ConnectionSettingPropertiesResponseOutput) ClientSecret() pulumi.StringP
 	return o.ApplyT(func(v ConnectionSettingPropertiesResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
+func (o ConnectionSettingPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingPropertiesResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSettingPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionSettingPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 func (o ConnectionSettingPropertiesResponseOutput) Parameters() ConnectionSettingParameterResponseArrayOutput {
 	return o.ApplyT(func(v ConnectionSettingPropertiesResponse) []ConnectionSettingParameterResponse { return v.Parameters }).(ConnectionSettingParameterResponseArrayOutput)
 }
@@ -2207,6 +2544,24 @@ func (o ConnectionSettingPropertiesResponsePtrOutput) ClientSecret() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ConnectionSettingPropertiesResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSettingPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionSettingPropertiesResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionSettingPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o ConnectionSettingPropertiesResponsePtrOutput) Parameters() ConnectionSettingParameterResponseArrayOutput {
 	return o.ApplyT(func(v *ConnectionSettingPropertiesResponse) []ConnectionSettingParameterResponse {
 		if v == nil {
@@ -2262,11 +2617,10 @@ func (o ConnectionSettingPropertiesResponsePtrOutput) SettingId() pulumi.StringP
 }
 
 type DirectLineChannel struct {
-	ChannelName       string                       `pulumi:"channelName"`
-	Etag              *string                      `pulumi:"etag"`
-	Location          *string                      `pulumi:"location"`
-	Properties        *DirectLineChannelProperties `pulumi:"properties"`
-	ProvisioningState *string                      `pulumi:"provisioningState"`
+	ChannelName string                       `pulumi:"channelName"`
+	Etag        *string                      `pulumi:"etag"`
+	Location    *string                      `pulumi:"location"`
+	Properties  *DirectLineChannelProperties `pulumi:"properties"`
 }
 
 
@@ -2281,11 +2635,10 @@ type DirectLineChannelInput interface {
 }
 
 type DirectLineChannelArgs struct {
-	ChannelName       pulumi.StringInput                  `pulumi:"channelName"`
-	Etag              pulumi.StringPtrInput               `pulumi:"etag"`
-	Location          pulumi.StringPtrInput               `pulumi:"location"`
-	Properties        DirectLineChannelPropertiesPtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput               `pulumi:"provisioningState"`
+	ChannelName pulumi.StringInput                  `pulumi:"channelName"`
+	Etag        pulumi.StringPtrInput               `pulumi:"etag"`
+	Location    pulumi.StringPtrInput               `pulumi:"location"`
+	Properties  DirectLineChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
 func (DirectLineChannelArgs) ElementType() reflect.Type {
@@ -2328,10 +2681,6 @@ func (o DirectLineChannelOutput) Location() pulumi.StringPtrOutput {
 
 func (o DirectLineChannelOutput) Properties() DirectLineChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v DirectLineChannel) *DirectLineChannelProperties { return v.Properties }).(DirectLineChannelPropertiesPtrOutput)
-}
-
-func (o DirectLineChannelOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DirectLineChannel) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 type DirectLineChannelProperties struct {
@@ -2635,7 +2984,7 @@ type DirectLineChannelResponse struct {
 	Etag              *string                              `pulumi:"etag"`
 	Location          *string                              `pulumi:"location"`
 	Properties        *DirectLineChannelPropertiesResponse `pulumi:"properties"`
-	ProvisioningState *string                              `pulumi:"provisioningState"`
+	ProvisioningState string                               `pulumi:"provisioningState"`
 }
 
 
@@ -2654,7 +3003,7 @@ type DirectLineChannelResponseArgs struct {
 	Etag              pulumi.StringPtrInput                       `pulumi:"etag"`
 	Location          pulumi.StringPtrInput                       `pulumi:"location"`
 	Properties        DirectLineChannelPropertiesResponsePtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput                       `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput                          `pulumi:"provisioningState"`
 }
 
 func (DirectLineChannelResponseArgs) ElementType() reflect.Type {
@@ -2699,8 +3048,8 @@ func (o DirectLineChannelResponseOutput) Properties() DirectLineChannelPropertie
 	return o.ApplyT(func(v DirectLineChannelResponse) *DirectLineChannelPropertiesResponse { return v.Properties }).(DirectLineChannelPropertiesResponsePtrOutput)
 }
 
-func (o DirectLineChannelResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DirectLineChannelResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o DirectLineChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectLineChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type DirectLineSite struct {
@@ -2982,10 +3331,10 @@ func (o DirectLineSiteResponseArrayOutput) Index(i pulumi.IntInput) DirectLineSi
 }
 
 type DirectLineSpeechChannel struct {
-	ChannelName       string                             `pulumi:"channelName"`
-	Etag              *string                            `pulumi:"etag"`
-	Properties        *DirectLineSpeechChannelProperties `pulumi:"properties"`
-	ProvisioningState *string                            `pulumi:"provisioningState"`
+	ChannelName string                             `pulumi:"channelName"`
+	Etag        *string                            `pulumi:"etag"`
+	Location    *string                            `pulumi:"location"`
+	Properties  *DirectLineSpeechChannelProperties `pulumi:"properties"`
 }
 
 
@@ -3000,10 +3349,10 @@ type DirectLineSpeechChannelInput interface {
 }
 
 type DirectLineSpeechChannelArgs struct {
-	ChannelName       pulumi.StringInput                        `pulumi:"channelName"`
-	Etag              pulumi.StringPtrInput                     `pulumi:"etag"`
-	Properties        DirectLineSpeechChannelPropertiesPtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput                     `pulumi:"provisioningState"`
+	ChannelName pulumi.StringInput                        `pulumi:"channelName"`
+	Etag        pulumi.StringPtrInput                     `pulumi:"etag"`
+	Location    pulumi.StringPtrInput                     `pulumi:"location"`
+	Properties  DirectLineSpeechChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
 func (DirectLineSpeechChannelArgs) ElementType() reflect.Type {
@@ -3040,12 +3389,12 @@ func (o DirectLineSpeechChannelOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectLineSpeechChannel) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-func (o DirectLineSpeechChannelOutput) Properties() DirectLineSpeechChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v DirectLineSpeechChannel) *DirectLineSpeechChannelProperties { return v.Properties }).(DirectLineSpeechChannelPropertiesPtrOutput)
+func (o DirectLineSpeechChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectLineSpeechChannel) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-func (o DirectLineSpeechChannelOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DirectLineSpeechChannel) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o DirectLineSpeechChannelOutput) Properties() DirectLineSpeechChannelPropertiesPtrOutput {
+	return o.ApplyT(func(v DirectLineSpeechChannel) *DirectLineSpeechChannelProperties { return v.Properties }).(DirectLineSpeechChannelPropertiesPtrOutput)
 }
 
 type DirectLineSpeechChannelProperties struct {
@@ -3467,8 +3816,9 @@ func (o DirectLineSpeechChannelPropertiesResponsePtrOutput) IsEnabled() pulumi.B
 type DirectLineSpeechChannelResponse struct {
 	ChannelName       string                                     `pulumi:"channelName"`
 	Etag              *string                                    `pulumi:"etag"`
+	Location          *string                                    `pulumi:"location"`
 	Properties        *DirectLineSpeechChannelPropertiesResponse `pulumi:"properties"`
-	ProvisioningState *string                                    `pulumi:"provisioningState"`
+	ProvisioningState string                                     `pulumi:"provisioningState"`
 }
 
 
@@ -3485,8 +3835,9 @@ type DirectLineSpeechChannelResponseInput interface {
 type DirectLineSpeechChannelResponseArgs struct {
 	ChannelName       pulumi.StringInput                                `pulumi:"channelName"`
 	Etag              pulumi.StringPtrInput                             `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                             `pulumi:"location"`
 	Properties        DirectLineSpeechChannelPropertiesResponsePtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput                             `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput                                `pulumi:"provisioningState"`
 }
 
 func (DirectLineSpeechChannelResponseArgs) ElementType() reflect.Type {
@@ -3523,21 +3874,25 @@ func (o DirectLineSpeechChannelResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectLineSpeechChannelResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+func (o DirectLineSpeechChannelResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectLineSpeechChannelResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 func (o DirectLineSpeechChannelResponseOutput) Properties() DirectLineSpeechChannelPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v DirectLineSpeechChannelResponse) *DirectLineSpeechChannelPropertiesResponse {
 		return v.Properties
 	}).(DirectLineSpeechChannelPropertiesResponsePtrOutput)
 }
 
-func (o DirectLineSpeechChannelResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DirectLineSpeechChannelResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o DirectLineSpeechChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectLineSpeechChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type EmailChannel struct {
-	ChannelName       string                  `pulumi:"channelName"`
-	Etag              *string                 `pulumi:"etag"`
-	Properties        *EmailChannelProperties `pulumi:"properties"`
-	ProvisioningState *string                 `pulumi:"provisioningState"`
+	ChannelName string                  `pulumi:"channelName"`
+	Etag        *string                 `pulumi:"etag"`
+	Location    *string                 `pulumi:"location"`
+	Properties  *EmailChannelProperties `pulumi:"properties"`
 }
 
 
@@ -3552,10 +3907,10 @@ type EmailChannelInput interface {
 }
 
 type EmailChannelArgs struct {
-	ChannelName       pulumi.StringInput             `pulumi:"channelName"`
-	Etag              pulumi.StringPtrInput          `pulumi:"etag"`
-	Properties        EmailChannelPropertiesPtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput          `pulumi:"provisioningState"`
+	ChannelName pulumi.StringInput             `pulumi:"channelName"`
+	Etag        pulumi.StringPtrInput          `pulumi:"etag"`
+	Location    pulumi.StringPtrInput          `pulumi:"location"`
+	Properties  EmailChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
 func (EmailChannelArgs) ElementType() reflect.Type {
@@ -3592,12 +3947,12 @@ func (o EmailChannelOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailChannel) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-func (o EmailChannelOutput) Properties() EmailChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v EmailChannel) *EmailChannelProperties { return v.Properties }).(EmailChannelPropertiesPtrOutput)
+func (o EmailChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailChannel) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-func (o EmailChannelOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EmailChannel) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o EmailChannelOutput) Properties() EmailChannelPropertiesPtrOutput {
+	return o.ApplyT(func(v EmailChannel) *EmailChannelProperties { return v.Properties }).(EmailChannelPropertiesPtrOutput)
 }
 
 type EmailChannelProperties struct {
@@ -3929,8 +4284,9 @@ func (o EmailChannelPropertiesResponsePtrOutput) Password() pulumi.StringPtrOutp
 type EmailChannelResponse struct {
 	ChannelName       string                          `pulumi:"channelName"`
 	Etag              *string                         `pulumi:"etag"`
+	Location          *string                         `pulumi:"location"`
 	Properties        *EmailChannelPropertiesResponse `pulumi:"properties"`
-	ProvisioningState *string                         `pulumi:"provisioningState"`
+	ProvisioningState string                          `pulumi:"provisioningState"`
 }
 
 
@@ -3947,8 +4303,9 @@ type EmailChannelResponseInput interface {
 type EmailChannelResponseArgs struct {
 	ChannelName       pulumi.StringInput                     `pulumi:"channelName"`
 	Etag              pulumi.StringPtrInput                  `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                  `pulumi:"location"`
 	Properties        EmailChannelPropertiesResponsePtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput                  `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput                     `pulumi:"provisioningState"`
 }
 
 func (EmailChannelResponseArgs) ElementType() reflect.Type {
@@ -3985,20 +4342,23 @@ func (o EmailChannelResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailChannelResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+func (o EmailChannelResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EmailChannelResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 func (o EmailChannelResponseOutput) Properties() EmailChannelPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v EmailChannelResponse) *EmailChannelPropertiesResponse { return v.Properties }).(EmailChannelPropertiesResponsePtrOutput)
 }
 
-func (o EmailChannelResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EmailChannelResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o EmailChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v EmailChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type FacebookChannel struct {
-	ChannelName       string                     `pulumi:"channelName"`
-	Etag              *string                    `pulumi:"etag"`
-	Location          *string                    `pulumi:"location"`
-	Properties        *FacebookChannelProperties `pulumi:"properties"`
-	ProvisioningState *string                    `pulumi:"provisioningState"`
+	ChannelName string                     `pulumi:"channelName"`
+	Etag        *string                    `pulumi:"etag"`
+	Location    *string                    `pulumi:"location"`
+	Properties  *FacebookChannelProperties `pulumi:"properties"`
 }
 
 
@@ -4013,11 +4373,10 @@ type FacebookChannelInput interface {
 }
 
 type FacebookChannelArgs struct {
-	ChannelName       pulumi.StringInput                `pulumi:"channelName"`
-	Etag              pulumi.StringPtrInput             `pulumi:"etag"`
-	Location          pulumi.StringPtrInput             `pulumi:"location"`
-	Properties        FacebookChannelPropertiesPtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput             `pulumi:"provisioningState"`
+	ChannelName pulumi.StringInput                `pulumi:"channelName"`
+	Etag        pulumi.StringPtrInput             `pulumi:"etag"`
+	Location    pulumi.StringPtrInput             `pulumi:"location"`
+	Properties  FacebookChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
 func (FacebookChannelArgs) ElementType() reflect.Type {
@@ -4060,10 +4419,6 @@ func (o FacebookChannelOutput) Location() pulumi.StringPtrOutput {
 
 func (o FacebookChannelOutput) Properties() FacebookChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v FacebookChannel) *FacebookChannelProperties { return v.Properties }).(FacebookChannelPropertiesPtrOutput)
-}
-
-func (o FacebookChannelOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FacebookChannel) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 type FacebookChannelProperties struct {
@@ -4457,7 +4812,7 @@ type FacebookChannelResponse struct {
 	Etag              *string                            `pulumi:"etag"`
 	Location          *string                            `pulumi:"location"`
 	Properties        *FacebookChannelPropertiesResponse `pulumi:"properties"`
-	ProvisioningState *string                            `pulumi:"provisioningState"`
+	ProvisioningState string                             `pulumi:"provisioningState"`
 }
 
 
@@ -4476,7 +4831,7 @@ type FacebookChannelResponseArgs struct {
 	Etag              pulumi.StringPtrInput                     `pulumi:"etag"`
 	Location          pulumi.StringPtrInput                     `pulumi:"location"`
 	Properties        FacebookChannelPropertiesResponsePtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput                     `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput                        `pulumi:"provisioningState"`
 }
 
 func (FacebookChannelResponseArgs) ElementType() reflect.Type {
@@ -4521,8 +4876,8 @@ func (o FacebookChannelResponseOutput) Properties() FacebookChannelPropertiesRes
 	return o.ApplyT(func(v FacebookChannelResponse) *FacebookChannelPropertiesResponse { return v.Properties }).(FacebookChannelPropertiesResponsePtrOutput)
 }
 
-func (o FacebookChannelResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FacebookChannelResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o FacebookChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v FacebookChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type FacebookPage struct {
@@ -4728,6 +5083,7 @@ func (o FacebookPageResponseArrayOutput) Index(i pulumi.IntInput) FacebookPageRe
 type KikChannel struct {
 	ChannelName string                `pulumi:"channelName"`
 	Etag        *string               `pulumi:"etag"`
+	Location    *string               `pulumi:"location"`
 	Properties  *KikChannelProperties `pulumi:"properties"`
 }
 
@@ -4745,6 +5101,7 @@ type KikChannelInput interface {
 type KikChannelArgs struct {
 	ChannelName pulumi.StringInput           `pulumi:"channelName"`
 	Etag        pulumi.StringPtrInput        `pulumi:"etag"`
+	Location    pulumi.StringPtrInput        `pulumi:"location"`
 	Properties  KikChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
@@ -4780,6 +5137,10 @@ func (o KikChannelOutput) ChannelName() pulumi.StringOutput {
 
 func (o KikChannelOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KikChannel) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+func (o KikChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KikChannel) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 func (o KikChannelOutput) Properties() KikChannelPropertiesPtrOutput {
@@ -5143,9 +5504,11 @@ func (o KikChannelPropertiesResponsePtrOutput) UserName() pulumi.StringPtrOutput
 }
 
 type KikChannelResponse struct {
-	ChannelName string                        `pulumi:"channelName"`
-	Etag        *string                       `pulumi:"etag"`
-	Properties  *KikChannelPropertiesResponse `pulumi:"properties"`
+	ChannelName       string                        `pulumi:"channelName"`
+	Etag              *string                       `pulumi:"etag"`
+	Location          *string                       `pulumi:"location"`
+	Properties        *KikChannelPropertiesResponse `pulumi:"properties"`
+	ProvisioningState string                        `pulumi:"provisioningState"`
 }
 
 
@@ -5160,9 +5523,11 @@ type KikChannelResponseInput interface {
 }
 
 type KikChannelResponseArgs struct {
-	ChannelName pulumi.StringInput                   `pulumi:"channelName"`
-	Etag        pulumi.StringPtrInput                `pulumi:"etag"`
-	Properties  KikChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ChannelName       pulumi.StringInput                   `pulumi:"channelName"`
+	Etag              pulumi.StringPtrInput                `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                `pulumi:"location"`
+	Properties        KikChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ProvisioningState pulumi.StringInput                   `pulumi:"provisioningState"`
 }
 
 func (KikChannelResponseArgs) ElementType() reflect.Type {
@@ -5199,13 +5564,22 @@ func (o KikChannelResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KikChannelResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+func (o KikChannelResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KikChannelResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 func (o KikChannelResponseOutput) Properties() KikChannelPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v KikChannelResponse) *KikChannelPropertiesResponse { return v.Properties }).(KikChannelPropertiesResponsePtrOutput)
+}
+
+func (o KikChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v KikChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type LineChannel struct {
 	ChannelName string                 `pulumi:"channelName"`
 	Etag        *string                `pulumi:"etag"`
+	Location    *string                `pulumi:"location"`
 	Properties  *LineChannelProperties `pulumi:"properties"`
 }
 
@@ -5223,6 +5597,7 @@ type LineChannelInput interface {
 type LineChannelArgs struct {
 	ChannelName pulumi.StringInput            `pulumi:"channelName"`
 	Etag        pulumi.StringPtrInput         `pulumi:"etag"`
+	Location    pulumi.StringPtrInput         `pulumi:"location"`
 	Properties  LineChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
@@ -5258,6 +5633,10 @@ func (o LineChannelOutput) ChannelName() pulumi.StringOutput {
 
 func (o LineChannelOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LineChannel) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+func (o LineChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LineChannel) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 func (o LineChannelOutput) Properties() LineChannelPropertiesPtrOutput {
@@ -5561,9 +5940,11 @@ func (o LineChannelPropertiesResponsePtrOutput) LineRegistrations() LineRegistra
 }
 
 type LineChannelResponse struct {
-	ChannelName string                         `pulumi:"channelName"`
-	Etag        *string                        `pulumi:"etag"`
-	Properties  *LineChannelPropertiesResponse `pulumi:"properties"`
+	ChannelName       string                         `pulumi:"channelName"`
+	Etag              *string                        `pulumi:"etag"`
+	Location          *string                        `pulumi:"location"`
+	Properties        *LineChannelPropertiesResponse `pulumi:"properties"`
+	ProvisioningState string                         `pulumi:"provisioningState"`
 }
 
 
@@ -5578,9 +5959,11 @@ type LineChannelResponseInput interface {
 }
 
 type LineChannelResponseArgs struct {
-	ChannelName pulumi.StringInput                    `pulumi:"channelName"`
-	Etag        pulumi.StringPtrInput                 `pulumi:"etag"`
-	Properties  LineChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ChannelName       pulumi.StringInput                    `pulumi:"channelName"`
+	Etag              pulumi.StringPtrInput                 `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                 `pulumi:"location"`
+	Properties        LineChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ProvisioningState pulumi.StringInput                    `pulumi:"provisioningState"`
 }
 
 func (LineChannelResponseArgs) ElementType() reflect.Type {
@@ -5617,8 +6000,16 @@ func (o LineChannelResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LineChannelResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+func (o LineChannelResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LineChannelResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 func (o LineChannelResponseOutput) Properties() LineChannelPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v LineChannelResponse) *LineChannelPropertiesResponse { return v.Properties }).(LineChannelPropertiesResponsePtrOutput)
+}
+
+func (o LineChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LineChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type LineRegistration struct {
@@ -5828,11 +6219,10 @@ func (o LineRegistrationResponseArrayOutput) Index(i pulumi.IntInput) LineRegist
 }
 
 type MsTeamsChannel struct {
-	ChannelName       string                    `pulumi:"channelName"`
-	Etag              *string                   `pulumi:"etag"`
-	Location          *string                   `pulumi:"location"`
-	Properties        *MsTeamsChannelProperties `pulumi:"properties"`
-	ProvisioningState *string                   `pulumi:"provisioningState"`
+	ChannelName string                    `pulumi:"channelName"`
+	Etag        *string                   `pulumi:"etag"`
+	Location    *string                   `pulumi:"location"`
+	Properties  *MsTeamsChannelProperties `pulumi:"properties"`
 }
 
 
@@ -5847,11 +6237,10 @@ type MsTeamsChannelInput interface {
 }
 
 type MsTeamsChannelArgs struct {
-	ChannelName       pulumi.StringInput               `pulumi:"channelName"`
-	Etag              pulumi.StringPtrInput            `pulumi:"etag"`
-	Location          pulumi.StringPtrInput            `pulumi:"location"`
-	Properties        MsTeamsChannelPropertiesPtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput            `pulumi:"provisioningState"`
+	ChannelName pulumi.StringInput               `pulumi:"channelName"`
+	Etag        pulumi.StringPtrInput            `pulumi:"etag"`
+	Location    pulumi.StringPtrInput            `pulumi:"location"`
+	Properties  MsTeamsChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
 func (MsTeamsChannelArgs) ElementType() reflect.Type {
@@ -5894,10 +6283,6 @@ func (o MsTeamsChannelOutput) Location() pulumi.StringPtrOutput {
 
 func (o MsTeamsChannelOutput) Properties() MsTeamsChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v MsTeamsChannel) *MsTeamsChannelProperties { return v.Properties }).(MsTeamsChannelPropertiesPtrOutput)
-}
-
-func (o MsTeamsChannelOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MsTeamsChannel) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 type MsTeamsChannelProperties struct {
@@ -6321,7 +6706,7 @@ type MsTeamsChannelResponse struct {
 	Etag              *string                           `pulumi:"etag"`
 	Location          *string                           `pulumi:"location"`
 	Properties        *MsTeamsChannelPropertiesResponse `pulumi:"properties"`
-	ProvisioningState *string                           `pulumi:"provisioningState"`
+	ProvisioningState string                            `pulumi:"provisioningState"`
 }
 
 
@@ -6340,7 +6725,7 @@ type MsTeamsChannelResponseArgs struct {
 	Etag              pulumi.StringPtrInput                    `pulumi:"etag"`
 	Location          pulumi.StringPtrInput                    `pulumi:"location"`
 	Properties        MsTeamsChannelPropertiesResponsePtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput                    `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput                       `pulumi:"provisioningState"`
 }
 
 func (MsTeamsChannelResponseArgs) ElementType() reflect.Type {
@@ -6385,8 +6770,8 @@ func (o MsTeamsChannelResponseOutput) Properties() MsTeamsChannelPropertiesRespo
 	return o.ApplyT(func(v MsTeamsChannelResponse) *MsTeamsChannelPropertiesResponse { return v.Properties }).(MsTeamsChannelPropertiesResponsePtrOutput)
 }
 
-func (o MsTeamsChannelResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MsTeamsChannelResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o MsTeamsChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v MsTeamsChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type PrivateEndpointConnectionResponse struct {
@@ -7590,6 +7975,172 @@ func (o ServiceProviderResponseArrayOutput) Index(i pulumi.IntInput) ServiceProv
 	}).(ServiceProviderResponseOutput)
 }
 
+type SiteResponse struct {
+	ETag                     *string  `pulumi:"eTag"`
+	IsBlockUserUploadEnabled *bool    `pulumi:"isBlockUserUploadEnabled"`
+	IsEnabled                bool     `pulumi:"isEnabled"`
+	IsSecureSiteEnabled      *bool    `pulumi:"isSecureSiteEnabled"`
+	IsTokenEnabled           *bool    `pulumi:"isTokenEnabled"`
+	IsV1Enabled              bool     `pulumi:"isV1Enabled"`
+	IsV3Enabled              bool     `pulumi:"isV3Enabled"`
+	IsWebchatPreviewEnabled  bool     `pulumi:"isWebchatPreviewEnabled"`
+	Key                      string   `pulumi:"key"`
+	Key2                     string   `pulumi:"key2"`
+	SiteId                   string   `pulumi:"siteId"`
+	SiteName                 string   `pulumi:"siteName"`
+	TrustedOrigins           []string `pulumi:"trustedOrigins"`
+}
+
+
+
+
+
+type SiteResponseInput interface {
+	pulumi.Input
+
+	ToSiteResponseOutput() SiteResponseOutput
+	ToSiteResponseOutputWithContext(context.Context) SiteResponseOutput
+}
+
+type SiteResponseArgs struct {
+	ETag                     pulumi.StringPtrInput   `pulumi:"eTag"`
+	IsBlockUserUploadEnabled pulumi.BoolPtrInput     `pulumi:"isBlockUserUploadEnabled"`
+	IsEnabled                pulumi.BoolInput        `pulumi:"isEnabled"`
+	IsSecureSiteEnabled      pulumi.BoolPtrInput     `pulumi:"isSecureSiteEnabled"`
+	IsTokenEnabled           pulumi.BoolPtrInput     `pulumi:"isTokenEnabled"`
+	IsV1Enabled              pulumi.BoolInput        `pulumi:"isV1Enabled"`
+	IsV3Enabled              pulumi.BoolInput        `pulumi:"isV3Enabled"`
+	IsWebchatPreviewEnabled  pulumi.BoolInput        `pulumi:"isWebchatPreviewEnabled"`
+	Key                      pulumi.StringInput      `pulumi:"key"`
+	Key2                     pulumi.StringInput      `pulumi:"key2"`
+	SiteId                   pulumi.StringInput      `pulumi:"siteId"`
+	SiteName                 pulumi.StringInput      `pulumi:"siteName"`
+	TrustedOrigins           pulumi.StringArrayInput `pulumi:"trustedOrigins"`
+}
+
+func (SiteResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteResponse)(nil)).Elem()
+}
+
+func (i SiteResponseArgs) ToSiteResponseOutput() SiteResponseOutput {
+	return i.ToSiteResponseOutputWithContext(context.Background())
+}
+
+func (i SiteResponseArgs) ToSiteResponseOutputWithContext(ctx context.Context) SiteResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteResponseOutput)
+}
+
+
+
+
+
+type SiteResponseArrayInput interface {
+	pulumi.Input
+
+	ToSiteResponseArrayOutput() SiteResponseArrayOutput
+	ToSiteResponseArrayOutputWithContext(context.Context) SiteResponseArrayOutput
+}
+
+type SiteResponseArray []SiteResponseInput
+
+func (SiteResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SiteResponse)(nil)).Elem()
+}
+
+func (i SiteResponseArray) ToSiteResponseArrayOutput() SiteResponseArrayOutput {
+	return i.ToSiteResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SiteResponseArray) ToSiteResponseArrayOutputWithContext(ctx context.Context) SiteResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SiteResponseArrayOutput)
+}
+
+type SiteResponseOutput struct{ *pulumi.OutputState }
+
+func (SiteResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SiteResponse)(nil)).Elem()
+}
+
+func (o SiteResponseOutput) ToSiteResponseOutput() SiteResponseOutput {
+	return o
+}
+
+func (o SiteResponseOutput) ToSiteResponseOutputWithContext(ctx context.Context) SiteResponseOutput {
+	return o
+}
+
+func (o SiteResponseOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteResponse) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
+func (o SiteResponseOutput) IsBlockUserUploadEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteResponse) *bool { return v.IsBlockUserUploadEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o SiteResponseOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SiteResponse) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+func (o SiteResponseOutput) IsSecureSiteEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteResponse) *bool { return v.IsSecureSiteEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o SiteResponseOutput) IsTokenEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteResponse) *bool { return v.IsTokenEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o SiteResponseOutput) IsV1Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SiteResponse) bool { return v.IsV1Enabled }).(pulumi.BoolOutput)
+}
+
+func (o SiteResponseOutput) IsV3Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SiteResponse) bool { return v.IsV3Enabled }).(pulumi.BoolOutput)
+}
+
+func (o SiteResponseOutput) IsWebchatPreviewEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v SiteResponse) bool { return v.IsWebchatPreviewEnabled }).(pulumi.BoolOutput)
+}
+
+func (o SiteResponseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteResponse) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o SiteResponseOutput) Key2() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteResponse) string { return v.Key2 }).(pulumi.StringOutput)
+}
+
+func (o SiteResponseOutput) SiteId() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteResponse) string { return v.SiteId }).(pulumi.StringOutput)
+}
+
+func (o SiteResponseOutput) SiteName() pulumi.StringOutput {
+	return o.ApplyT(func(v SiteResponse) string { return v.SiteName }).(pulumi.StringOutput)
+}
+
+func (o SiteResponseOutput) TrustedOrigins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SiteResponse) []string { return v.TrustedOrigins }).(pulumi.StringArrayOutput)
+}
+
+type SiteResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SiteResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SiteResponse)(nil)).Elem()
+}
+
+func (o SiteResponseArrayOutput) ToSiteResponseArrayOutput() SiteResponseArrayOutput {
+	return o
+}
+
+func (o SiteResponseArrayOutput) ToSiteResponseArrayOutputWithContext(ctx context.Context) SiteResponseArrayOutput {
+	return o
+}
+
+func (o SiteResponseArrayOutput) Index(i pulumi.IntInput) SiteResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SiteResponse {
+		return vs[0].([]SiteResponse)[vs[1].(int)]
+	}).(SiteResponseOutput)
+}
+
 type Sku struct {
 	Name string `pulumi:"name"`
 }
@@ -7874,6 +8425,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 type SkypeChannel struct {
 	ChannelName string                  `pulumi:"channelName"`
 	Etag        *string                 `pulumi:"etag"`
+	Location    *string                 `pulumi:"location"`
 	Properties  *SkypeChannelProperties `pulumi:"properties"`
 }
 
@@ -7891,6 +8443,7 @@ type SkypeChannelInput interface {
 type SkypeChannelArgs struct {
 	ChannelName pulumi.StringInput             `pulumi:"channelName"`
 	Etag        pulumi.StringPtrInput          `pulumi:"etag"`
+	Location    pulumi.StringPtrInput          `pulumi:"location"`
 	Properties  SkypeChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
@@ -7926,6 +8479,10 @@ func (o SkypeChannelOutput) ChannelName() pulumi.StringOutput {
 
 func (o SkypeChannelOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkypeChannel) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+func (o SkypeChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkypeChannel) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 func (o SkypeChannelOutput) Properties() SkypeChannelPropertiesPtrOutput {
@@ -8469,9 +9026,11 @@ func (o SkypeChannelPropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutpu
 }
 
 type SkypeChannelResponse struct {
-	ChannelName string                          `pulumi:"channelName"`
-	Etag        *string                         `pulumi:"etag"`
-	Properties  *SkypeChannelPropertiesResponse `pulumi:"properties"`
+	ChannelName       string                          `pulumi:"channelName"`
+	Etag              *string                         `pulumi:"etag"`
+	Location          *string                         `pulumi:"location"`
+	Properties        *SkypeChannelPropertiesResponse `pulumi:"properties"`
+	ProvisioningState string                          `pulumi:"provisioningState"`
 }
 
 
@@ -8486,9 +9045,11 @@ type SkypeChannelResponseInput interface {
 }
 
 type SkypeChannelResponseArgs struct {
-	ChannelName pulumi.StringInput                     `pulumi:"channelName"`
-	Etag        pulumi.StringPtrInput                  `pulumi:"etag"`
-	Properties  SkypeChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ChannelName       pulumi.StringInput                     `pulumi:"channelName"`
+	Etag              pulumi.StringPtrInput                  `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                  `pulumi:"location"`
+	Properties        SkypeChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ProvisioningState pulumi.StringInput                     `pulumi:"provisioningState"`
 }
 
 func (SkypeChannelResponseArgs) ElementType() reflect.Type {
@@ -8525,8 +9086,16 @@ func (o SkypeChannelResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkypeChannelResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+func (o SkypeChannelResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SkypeChannelResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 func (o SkypeChannelResponseOutput) Properties() SkypeChannelPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v SkypeChannelResponse) *SkypeChannelPropertiesResponse { return v.Properties }).(SkypeChannelPropertiesResponsePtrOutput)
+}
+
+func (o SkypeChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v SkypeChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type SlackChannel struct {
@@ -9103,10 +9672,11 @@ func (o SlackChannelPropertiesResponsePtrOutput) VerificationToken() pulumi.Stri
 }
 
 type SlackChannelResponse struct {
-	ChannelName string                          `pulumi:"channelName"`
-	Etag        *string                         `pulumi:"etag"`
-	Location    *string                         `pulumi:"location"`
-	Properties  *SlackChannelPropertiesResponse `pulumi:"properties"`
+	ChannelName       string                          `pulumi:"channelName"`
+	Etag              *string                         `pulumi:"etag"`
+	Location          *string                         `pulumi:"location"`
+	Properties        *SlackChannelPropertiesResponse `pulumi:"properties"`
+	ProvisioningState string                          `pulumi:"provisioningState"`
 }
 
 
@@ -9121,10 +9691,11 @@ type SlackChannelResponseInput interface {
 }
 
 type SlackChannelResponseArgs struct {
-	ChannelName pulumi.StringInput                     `pulumi:"channelName"`
-	Etag        pulumi.StringPtrInput                  `pulumi:"etag"`
-	Location    pulumi.StringPtrInput                  `pulumi:"location"`
-	Properties  SlackChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ChannelName       pulumi.StringInput                     `pulumi:"channelName"`
+	Etag              pulumi.StringPtrInput                  `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                  `pulumi:"location"`
+	Properties        SlackChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ProvisioningState pulumi.StringInput                     `pulumi:"provisioningState"`
 }
 
 func (SlackChannelResponseArgs) ElementType() reflect.Type {
@@ -9169,9 +9740,14 @@ func (o SlackChannelResponseOutput) Properties() SlackChannelPropertiesResponseP
 	return o.ApplyT(func(v SlackChannelResponse) *SlackChannelPropertiesResponse { return v.Properties }).(SlackChannelPropertiesResponsePtrOutput)
 }
 
+func (o SlackChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v SlackChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 type SmsChannel struct {
 	ChannelName string                `pulumi:"channelName"`
 	Etag        *string               `pulumi:"etag"`
+	Location    *string               `pulumi:"location"`
 	Properties  *SmsChannelProperties `pulumi:"properties"`
 }
 
@@ -9189,6 +9765,7 @@ type SmsChannelInput interface {
 type SmsChannelArgs struct {
 	ChannelName pulumi.StringInput           `pulumi:"channelName"`
 	Etag        pulumi.StringPtrInput        `pulumi:"etag"`
+	Location    pulumi.StringPtrInput        `pulumi:"location"`
 	Properties  SmsChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
@@ -9224,6 +9801,10 @@ func (o SmsChannelOutput) ChannelName() pulumi.StringOutput {
 
 func (o SmsChannelOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SmsChannel) *string { return v.Etag }).(pulumi.StringPtrOutput)
+}
+
+func (o SmsChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmsChannel) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 func (o SmsChannelOutput) Properties() SmsChannelPropertiesPtrOutput {
@@ -9617,9 +10198,11 @@ func (o SmsChannelPropertiesResponsePtrOutput) Phone() pulumi.StringPtrOutput {
 }
 
 type SmsChannelResponse struct {
-	ChannelName string                        `pulumi:"channelName"`
-	Etag        *string                       `pulumi:"etag"`
-	Properties  *SmsChannelPropertiesResponse `pulumi:"properties"`
+	ChannelName       string                        `pulumi:"channelName"`
+	Etag              *string                       `pulumi:"etag"`
+	Location          *string                       `pulumi:"location"`
+	Properties        *SmsChannelPropertiesResponse `pulumi:"properties"`
+	ProvisioningState string                        `pulumi:"provisioningState"`
 }
 
 
@@ -9634,9 +10217,11 @@ type SmsChannelResponseInput interface {
 }
 
 type SmsChannelResponseArgs struct {
-	ChannelName pulumi.StringInput                   `pulumi:"channelName"`
-	Etag        pulumi.StringPtrInput                `pulumi:"etag"`
-	Properties  SmsChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ChannelName       pulumi.StringInput                   `pulumi:"channelName"`
+	Etag              pulumi.StringPtrInput                `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                `pulumi:"location"`
+	Properties        SmsChannelPropertiesResponsePtrInput `pulumi:"properties"`
+	ProvisioningState pulumi.StringInput                   `pulumi:"provisioningState"`
 }
 
 func (SmsChannelResponseArgs) ElementType() reflect.Type {
@@ -9673,15 +10258,23 @@ func (o SmsChannelResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SmsChannelResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+func (o SmsChannelResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SmsChannelResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 func (o SmsChannelResponseOutput) Properties() SmsChannelPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v SmsChannelResponse) *SmsChannelPropertiesResponse { return v.Properties }).(SmsChannelPropertiesResponsePtrOutput)
 }
 
+func (o SmsChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v SmsChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 type TelegramChannel struct {
-	ChannelName       string                     `pulumi:"channelName"`
-	Etag              *string                    `pulumi:"etag"`
-	Properties        *TelegramChannelProperties `pulumi:"properties"`
-	ProvisioningState *string                    `pulumi:"provisioningState"`
+	ChannelName string                     `pulumi:"channelName"`
+	Etag        *string                    `pulumi:"etag"`
+	Location    *string                    `pulumi:"location"`
+	Properties  *TelegramChannelProperties `pulumi:"properties"`
 }
 
 
@@ -9696,10 +10289,10 @@ type TelegramChannelInput interface {
 }
 
 type TelegramChannelArgs struct {
-	ChannelName       pulumi.StringInput                `pulumi:"channelName"`
-	Etag              pulumi.StringPtrInput             `pulumi:"etag"`
-	Properties        TelegramChannelPropertiesPtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput             `pulumi:"provisioningState"`
+	ChannelName pulumi.StringInput                `pulumi:"channelName"`
+	Etag        pulumi.StringPtrInput             `pulumi:"etag"`
+	Location    pulumi.StringPtrInput             `pulumi:"location"`
+	Properties  TelegramChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
 func (TelegramChannelArgs) ElementType() reflect.Type {
@@ -9736,12 +10329,12 @@ func (o TelegramChannelOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelegramChannel) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
-func (o TelegramChannelOutput) Properties() TelegramChannelPropertiesPtrOutput {
-	return o.ApplyT(func(v TelegramChannel) *TelegramChannelProperties { return v.Properties }).(TelegramChannelPropertiesPtrOutput)
+func (o TelegramChannelOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelegramChannel) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-func (o TelegramChannelOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TelegramChannel) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o TelegramChannelOutput) Properties() TelegramChannelPropertiesPtrOutput {
+	return o.ApplyT(func(v TelegramChannel) *TelegramChannelProperties { return v.Properties }).(TelegramChannelPropertiesPtrOutput)
 }
 
 type TelegramChannelProperties struct {
@@ -10073,8 +10666,9 @@ func (o TelegramChannelPropertiesResponsePtrOutput) IsValidated() pulumi.BoolPtr
 type TelegramChannelResponse struct {
 	ChannelName       string                             `pulumi:"channelName"`
 	Etag              *string                            `pulumi:"etag"`
+	Location          *string                            `pulumi:"location"`
 	Properties        *TelegramChannelPropertiesResponse `pulumi:"properties"`
-	ProvisioningState *string                            `pulumi:"provisioningState"`
+	ProvisioningState string                             `pulumi:"provisioningState"`
 }
 
 
@@ -10091,8 +10685,9 @@ type TelegramChannelResponseInput interface {
 type TelegramChannelResponseArgs struct {
 	ChannelName       pulumi.StringInput                        `pulumi:"channelName"`
 	Etag              pulumi.StringPtrInput                     `pulumi:"etag"`
+	Location          pulumi.StringPtrInput                     `pulumi:"location"`
 	Properties        TelegramChannelPropertiesResponsePtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput                     `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput                        `pulumi:"provisioningState"`
 }
 
 func (TelegramChannelResponseArgs) ElementType() reflect.Type {
@@ -10129,20 +10724,23 @@ func (o TelegramChannelResponseOutput) Etag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelegramChannelResponse) *string { return v.Etag }).(pulumi.StringPtrOutput)
 }
 
+func (o TelegramChannelResponseOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelegramChannelResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
 func (o TelegramChannelResponseOutput) Properties() TelegramChannelPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v TelegramChannelResponse) *TelegramChannelPropertiesResponse { return v.Properties }).(TelegramChannelPropertiesResponsePtrOutput)
 }
 
-func (o TelegramChannelResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TelegramChannelResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o TelegramChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v TelegramChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type WebChatChannel struct {
-	ChannelName       string                    `pulumi:"channelName"`
-	Etag              *string                   `pulumi:"etag"`
-	Location          *string                   `pulumi:"location"`
-	Properties        *WebChatChannelProperties `pulumi:"properties"`
-	ProvisioningState *string                   `pulumi:"provisioningState"`
+	ChannelName string                    `pulumi:"channelName"`
+	Etag        *string                   `pulumi:"etag"`
+	Location    *string                   `pulumi:"location"`
+	Properties  *WebChatChannelProperties `pulumi:"properties"`
 }
 
 
@@ -10157,11 +10755,10 @@ type WebChatChannelInput interface {
 }
 
 type WebChatChannelArgs struct {
-	ChannelName       pulumi.StringInput               `pulumi:"channelName"`
-	Etag              pulumi.StringPtrInput            `pulumi:"etag"`
-	Location          pulumi.StringPtrInput            `pulumi:"location"`
-	Properties        WebChatChannelPropertiesPtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput            `pulumi:"provisioningState"`
+	ChannelName pulumi.StringInput               `pulumi:"channelName"`
+	Etag        pulumi.StringPtrInput            `pulumi:"etag"`
+	Location    pulumi.StringPtrInput            `pulumi:"location"`
+	Properties  WebChatChannelPropertiesPtrInput `pulumi:"properties"`
 }
 
 func (WebChatChannelArgs) ElementType() reflect.Type {
@@ -10204,10 +10801,6 @@ func (o WebChatChannelOutput) Location() pulumi.StringPtrOutput {
 
 func (o WebChatChannelOutput) Properties() WebChatChannelPropertiesPtrOutput {
 	return o.ApplyT(func(v WebChatChannel) *WebChatChannelProperties { return v.Properties }).(WebChatChannelPropertiesPtrOutput)
-}
-
-func (o WebChatChannelOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebChatChannel) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 type WebChatChannelProperties struct {
@@ -10496,7 +11089,7 @@ type WebChatChannelResponse struct {
 	Etag              *string                           `pulumi:"etag"`
 	Location          *string                           `pulumi:"location"`
 	Properties        *WebChatChannelPropertiesResponse `pulumi:"properties"`
-	ProvisioningState *string                           `pulumi:"provisioningState"`
+	ProvisioningState string                            `pulumi:"provisioningState"`
 }
 
 
@@ -10515,7 +11108,7 @@ type WebChatChannelResponseArgs struct {
 	Etag              pulumi.StringPtrInput                    `pulumi:"etag"`
 	Location          pulumi.StringPtrInput                    `pulumi:"location"`
 	Properties        WebChatChannelPropertiesResponsePtrInput `pulumi:"properties"`
-	ProvisioningState pulumi.StringPtrInput                    `pulumi:"provisioningState"`
+	ProvisioningState pulumi.StringInput                       `pulumi:"provisioningState"`
 }
 
 func (WebChatChannelResponseArgs) ElementType() reflect.Type {
@@ -10560,8 +11153,8 @@ func (o WebChatChannelResponseOutput) Properties() WebChatChannelPropertiesRespo
 	return o.ApplyT(func(v WebChatChannelResponse) *WebChatChannelPropertiesResponse { return v.Properties }).(WebChatChannelPropertiesResponsePtrOutput)
 }
 
-func (o WebChatChannelResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WebChatChannelResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+func (o WebChatChannelResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v WebChatChannelResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
 type WebChatSite struct {
@@ -10805,6 +11398,8 @@ func init() {
 	pulumi.RegisterOutputType(BotPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(BotPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(BotPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ChannelSettingsResponseOutput{})
+	pulumi.RegisterOutputType(ChannelSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingParameterOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingParameterArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionSettingParameterResponseOutput{})
@@ -10884,6 +11479,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceProviderPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceProviderResponseOutput{})
 	pulumi.RegisterOutputType(ServiceProviderResponseArrayOutput{})
+	pulumi.RegisterOutputType(SiteResponseOutput{})
+	pulumi.RegisterOutputType(SiteResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

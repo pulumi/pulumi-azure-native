@@ -35,6 +35,7 @@ namespace Pulumi.AzureNative.BotService.Inputs
 
         public WebChatSiteArgs()
         {
+            IsWebchatPreviewEnabled = false;
         }
     }
 }

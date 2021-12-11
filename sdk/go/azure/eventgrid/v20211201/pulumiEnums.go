@@ -25,6 +25,13 @@ const (
 	AdvancedFilterOperatorTypeStringBeginsWith          = AdvancedFilterOperatorType("StringBeginsWith")
 	AdvancedFilterOperatorTypeStringEndsWith            = AdvancedFilterOperatorType("StringEndsWith")
 	AdvancedFilterOperatorTypeStringContains            = AdvancedFilterOperatorType("StringContains")
+	AdvancedFilterOperatorTypeNumberInRange             = AdvancedFilterOperatorType("NumberInRange")
+	AdvancedFilterOperatorTypeNumberNotInRange          = AdvancedFilterOperatorType("NumberNotInRange")
+	AdvancedFilterOperatorTypeStringNotBeginsWith       = AdvancedFilterOperatorType("StringNotBeginsWith")
+	AdvancedFilterOperatorTypeStringNotEndsWith         = AdvancedFilterOperatorType("StringNotEndsWith")
+	AdvancedFilterOperatorTypeStringNotContains         = AdvancedFilterOperatorType("StringNotContains")
+	AdvancedFilterOperatorTypeIsNullOrUndefined         = AdvancedFilterOperatorType("IsNullOrUndefined")
+	AdvancedFilterOperatorTypeIsNotNull                 = AdvancedFilterOperatorType("IsNotNull")
 )
 
 func (AdvancedFilterOperatorType) ElementType() reflect.Type {

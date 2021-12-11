@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Inputs
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// The set of properties specific to Skype channel resource
         /// </summary>
         [Input("properties")]

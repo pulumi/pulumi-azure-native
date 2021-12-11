@@ -26,9 +26,17 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The set of properties specific to line channel resource
         /// </summary>
         public readonly Outputs.LineChannelPropertiesResponse? Properties;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private LineChannelResponse(
@@ -36,11 +44,17 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview.Outputs
 
             string? etag,
 
-            Outputs.LineChannelPropertiesResponse? properties)
+            string? location,
+
+            Outputs.LineChannelPropertiesResponse? properties,
+
+            string provisioningState)
         {
             ChannelName = channelName;
             Etag = etag;
+            Location = location;
             Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

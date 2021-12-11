@@ -90,17 +90,21 @@ class AlexaChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['AlexaChannelPropertiesArgs']] = None):
         """
         Alexa channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'AlexaChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['AlexaChannelPropertiesArgs'] properties: The set of properties specific to Alexa channel resource
         """
         pulumi.set(__self__, "channel_name", 'AlexaChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -128,6 +132,18 @@ class AlexaChannelArgs:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
@@ -171,7 +187,8 @@ class BotPropertiesArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  publishing_credentials: Optional[pulumi.Input[str]] = None,
-                 schema_transformation_version: Optional[pulumi.Input[str]] = None):
+                 schema_transformation_version: Optional[pulumi.Input[str]] = None,
+                 storage_resource_id: Optional[pulumi.Input[str]] = None):
         """
         The parameters to provide for the Bot.
         :param pulumi.Input[str] display_name: The Name of the bot
@@ -201,6 +218,7 @@ class BotPropertiesArgs:
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether the bot is in an isolated network
         :param pulumi.Input[str] publishing_credentials: Publishing credentials of the resource
         :param pulumi.Input[str] schema_transformation_version: The channel schema transformation version for the bot
+        :param pulumi.Input[str] storage_resource_id: The storage resourceId for the bot
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "endpoint", endpoint)
@@ -255,6 +273,8 @@ class BotPropertiesArgs:
             pulumi.set(__self__, "publishing_credentials", publishing_credentials)
         if schema_transformation_version is not None:
             pulumi.set(__self__, "schema_transformation_version", schema_transformation_version)
+        if storage_resource_id is not None:
+            pulumi.set(__self__, "storage_resource_id", storage_resource_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -580,6 +600,18 @@ class BotPropertiesArgs:
     def schema_transformation_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema_transformation_version", value)
 
+    @property
+    @pulumi.getter(name="storageResourceId")
+    def storage_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage resourceId for the bot
+        """
+        return pulumi.get(self, "storage_resource_id")
+
+    @storage_resource_id.setter
+    def storage_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_resource_id", value)
+
 
 @pulumi.input_type
 class ConnectionSettingParameterArgs:
@@ -626,6 +658,8 @@ class ConnectionSettingPropertiesArgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[str]] = None,
@@ -635,6 +669,8 @@ class ConnectionSettingPropertiesArgs:
         Properties for a Connection Setting Item
         :param pulumi.Input[str] client_id: Client Id associated with the Connection Setting.
         :param pulumi.Input[str] client_secret: Client Secret associated with the Connection Setting
+        :param pulumi.Input[str] id: Id associated with the Connection Setting.
+        :param pulumi.Input[str] name: Name associated with the Connection Setting.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]] parameters: Service Provider Parameters associated with the Connection Setting
         :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         :param pulumi.Input[str] scopes: Scopes associated with the Connection Setting
@@ -645,6 +681,10 @@ class ConnectionSettingPropertiesArgs:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if provisioning_state is not None:
@@ -679,6 +719,30 @@ class ConnectionSettingPropertiesArgs:
     @client_secret.setter
     def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id associated with the Connection Setting.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name associated with the Connection Setting.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -787,16 +851,14 @@ class DirectLineChannelArgs:
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['DirectLineChannelPropertiesArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 properties: Optional[pulumi.Input['DirectLineChannelPropertiesArgs']] = None):
         """
         Direct Line channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'DirectLineChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
-        :param pulumi.Input[str] location: Location of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['DirectLineChannelPropertiesArgs'] properties: The set of properties specific to Direct Line channel resource
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         """
         pulumi.set(__self__, "channel_name", 'DirectLineChannel')
         if etag is not None:
@@ -805,8 +867,6 @@ class DirectLineChannelArgs:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="channelName")
@@ -837,7 +897,7 @@ class DirectLineChannelArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Location of the resource
+        Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -856,18 +916,6 @@ class DirectLineChannelArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['DirectLineChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -1093,23 +1141,23 @@ class DirectLineSpeechChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']] = None):
         """
         DirectLine Speech channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'DirectLineSpeechChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['DirectLineSpeechChannelPropertiesArgs'] properties: The set of properties specific to DirectLine Speech channel resource
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         """
         pulumi.set(__self__, "channel_name", 'DirectLineSpeechChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1138,6 +1186,18 @@ class DirectLineSpeechChannelArgs:
 
     @property
     @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']]:
         """
         The set of properties specific to DirectLine Speech channel resource
@@ -1147,18 +1207,6 @@ class DirectLineSpeechChannelArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['DirectLineSpeechChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -1220,23 +1268,23 @@ class EmailChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['EmailChannelPropertiesArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['EmailChannelPropertiesArgs']] = None):
         """
         Email channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'EmailChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['EmailChannelPropertiesArgs'] properties: The set of properties specific to email channel resource
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         """
         pulumi.set(__self__, "channel_name", 'EmailChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1265,6 +1313,18 @@ class EmailChannelArgs:
 
     @property
     @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['EmailChannelPropertiesArgs']]:
         """
         The set of properties specific to email channel resource
@@ -1274,18 +1334,6 @@ class EmailChannelArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['EmailChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -1364,16 +1412,14 @@ class FacebookChannelArgs:
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['FacebookChannelPropertiesArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 properties: Optional[pulumi.Input['FacebookChannelPropertiesArgs']] = None):
         """
         Facebook channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'FacebookChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
-        :param pulumi.Input[str] location: Location of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['FacebookChannelPropertiesArgs'] properties: The set of properties specific to bot facebook channel
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         """
         pulumi.set(__self__, "channel_name", 'FacebookChannel')
         if etag is not None:
@@ -1382,8 +1428,6 @@ class FacebookChannelArgs:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1414,7 +1458,7 @@ class FacebookChannelArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Location of the resource
+        Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -1433,18 +1477,6 @@ class FacebookChannelArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['FacebookChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -1561,17 +1593,21 @@ class KikChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['KikChannelPropertiesArgs']] = None):
         """
         Kik channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'KikChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['KikChannelPropertiesArgs'] properties: The set of properties specific to Kik channel resource
         """
         pulumi.set(__self__, "channel_name", 'KikChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1599,6 +1635,18 @@ class KikChannelArgs:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
@@ -1641,17 +1689,21 @@ class LineChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['LineChannelPropertiesArgs']] = None):
         """
         Line channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'LineChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['LineChannelPropertiesArgs'] properties: The set of properties specific to line channel resource
         """
         pulumi.set(__self__, "channel_name", 'LineChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -1679,6 +1731,18 @@ class LineChannelArgs:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
@@ -1842,16 +1906,14 @@ class MsTeamsChannelArgs:
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 properties: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']] = None):
         """
         Microsoft Teams channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'MsTeamsChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
-        :param pulumi.Input[str] location: Location of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['MsTeamsChannelPropertiesArgs'] properties: The set of properties specific to Microsoft Teams channel resource
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         """
         pulumi.set(__self__, "channel_name", 'MsTeamsChannel')
         if etag is not None:
@@ -1860,8 +1922,6 @@ class MsTeamsChannelArgs:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="channelName")
@@ -1892,7 +1952,7 @@ class MsTeamsChannelArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Location of the resource
+        Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -1911,18 +1971,6 @@ class MsTeamsChannelArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['MsTeamsChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -2176,17 +2224,21 @@ class SkypeChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['SkypeChannelPropertiesArgs']] = None):
         """
         Skype channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'SkypeChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['SkypeChannelPropertiesArgs'] properties: The set of properties specific to Skype channel resource
         """
         pulumi.set(__self__, "channel_name", 'SkypeChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -2214,6 +2266,18 @@ class SkypeChannelArgs:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
@@ -2359,7 +2423,7 @@ class SlackChannelArgs:
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'SlackChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
-        :param pulumi.Input[str] location: Location of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['SlackChannelPropertiesArgs'] properties: The set of properties specific to Slack channel resource
         """
         pulumi.set(__self__, "channel_name", 'SlackChannel')
@@ -2399,7 +2463,7 @@ class SlackChannelArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Location of the resource
+        Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -2510,17 +2574,21 @@ class SmsChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['SmsChannelPropertiesArgs']] = None):
         """
         Sms channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'SmsChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['SmsChannelPropertiesArgs'] properties: The set of properties specific to Sms channel resource
         """
         pulumi.set(__self__, "channel_name", 'SmsChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -2548,6 +2616,18 @@ class SmsChannelArgs:
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
@@ -2622,23 +2702,23 @@ class TelegramChannelArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['TelegramChannelPropertiesArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 location: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['TelegramChannelPropertiesArgs']] = None):
         """
         Telegram channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'TelegramChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['TelegramChannelPropertiesArgs'] properties: The set of properties specific to Telegram channel resource
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         """
         pulumi.set(__self__, "channel_name", 'TelegramChannel')
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2667,6 +2747,18 @@ class TelegramChannelArgs:
 
     @property
     @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the location of the resource.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['TelegramChannelPropertiesArgs']]:
         """
         The set of properties specific to Telegram channel resource
@@ -2676,18 +2768,6 @@ class TelegramChannelArgs:
     @properties.setter
     def properties(self, value: Optional[pulumi.Input['TelegramChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -2720,16 +2800,14 @@ class WebChatChannelArgs:
                  channel_name: pulumi.Input[str],
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['WebChatChannelPropertiesArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 properties: Optional[pulumi.Input['WebChatChannelPropertiesArgs']] = None):
         """
         Web Chat channel definition
         :param pulumi.Input[str] channel_name: The channel name
                Expected value is 'WebChatChannel'.
         :param pulumi.Input[str] etag: Entity Tag of the resource
-        :param pulumi.Input[str] location: Location of the resource
+        :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input['WebChatChannelPropertiesArgs'] properties: The set of properties specific to Web Chat channel resource
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         """
         pulumi.set(__self__, "channel_name", 'WebChatChannel')
         if etag is not None:
@@ -2738,8 +2816,6 @@ class WebChatChannelArgs:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
 
     @property
     @pulumi.getter(name="channelName")
@@ -2770,7 +2846,7 @@ class WebChatChannelArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Location of the resource
+        Specifies the location of the resource.
         """
         return pulumi.get(self, "location")
 
@@ -2790,18 +2866,6 @@ class WebChatChannelArgs:
     def properties(self, value: Optional[pulumi.Input['WebChatChannelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Provisioning state of the resource
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
 
 @pulumi.input_type
 class WebChatSiteArgs:
@@ -2816,6 +2880,8 @@ class WebChatSiteArgs:
         :param pulumi.Input[str] site_name: Site name
         """
         pulumi.set(__self__, "is_enabled", is_enabled)
+        if is_webchat_preview_enabled is None:
+            is_webchat_preview_enabled = False
         pulumi.set(__self__, "is_webchat_preview_enabled", is_webchat_preview_enabled)
         pulumi.set(__self__, "site_name", site_name)
 

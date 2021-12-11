@@ -26,9 +26,17 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Specifies the location of the resource.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The set of properties specific to bot facebook channel
         /// </summary>
         public readonly Outputs.FacebookChannelPropertiesResponse? Properties;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private FacebookChannelResponse(
@@ -36,11 +44,17 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             string? etag,
 
-            Outputs.FacebookChannelPropertiesResponse? properties)
+            string? location,
+
+            Outputs.FacebookChannelPropertiesResponse? properties,
+
+            string provisioningState)
         {
             ChannelName = channelName;
             Etag = etag;
+            Location = location;
             Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

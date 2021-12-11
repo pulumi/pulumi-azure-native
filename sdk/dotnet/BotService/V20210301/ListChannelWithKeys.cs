@@ -13,13 +13,13 @@ namespace Pulumi.AzureNative.BotService.V20210301
     public static class ListChannelWithKeys
     {
         /// <summary>
-        /// Bot channel resource definition
+        /// The ARM channel of list channel with keys operation response.
         /// </summary>
         public static Task<ListChannelWithKeysResult> InvokeAsync(ListChannelWithKeysArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListChannelWithKeysResult>("azure-native:botservice/v20210301:listChannelWithKeys", args ?? new ListChannelWithKeysArgs(), options.WithVersion());
 
         /// <summary>
-        /// Bot channel resource definition
+        /// The ARM channel of list channel with keys operation response.
         /// </summary>
         public static Output<ListChannelWithKeysResult> Invoke(ListChannelWithKeysInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListChannelWithKeysResult>("azure-native:botservice/v20210301:listChannelWithKeys", args ?? new ListChannelWithKeysInvokeArgs(), options.WithVersion());
@@ -105,6 +105,14 @@ namespace Pulumi.AzureNative.BotService.V20210301
         /// </summary>
         public readonly object Properties;
         /// <summary>
+        /// The set of properties specific to bot channel resource
+        /// </summary>
+        public readonly object? Resource;
+        /// <summary>
+        /// Channel settings
+        /// </summary>
+        public readonly Outputs.ChannelSettingsResponse? Setting;
+        /// <summary>
         /// Gets or sets the SKU of the resource.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
@@ -135,6 +143,10 @@ namespace Pulumi.AzureNative.BotService.V20210301
 
             object properties,
 
+            object? resource,
+
+            Outputs.ChannelSettingsResponse? setting,
+
             Outputs.SkuResponse? sku,
 
             ImmutableDictionary<string, string>? tags,
@@ -149,6 +161,8 @@ namespace Pulumi.AzureNative.BotService.V20210301
             Location = location;
             Name = name;
             Properties = properties;
+            Resource = resource;
+            Setting = setting;
             Sku = sku;
             Tags = tags;
             Type = type;
