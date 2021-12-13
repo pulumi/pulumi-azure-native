@@ -141,7 +141,7 @@ export class Application extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -150,64 +150,64 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["jitAccessPolicy"] = args ? args.jitAccessPolicy : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedBy"] = args ? args.managedBy : undefined;
-            inputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["artifacts"] = undefined /*out*/;
-            inputs["authorizations"] = undefined /*out*/;
-            inputs["billingDetails"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["customerSupport"] = undefined /*out*/;
-            inputs["managementMode"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publisherTenantId"] = undefined /*out*/;
-            inputs["supportUrls"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["jitAccessPolicy"] = args ? args.jitAccessPolicy : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
+            resourceInputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["artifacts"] = undefined /*out*/;
+            resourceInputs["authorizations"] = undefined /*out*/;
+            resourceInputs["billingDetails"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["customerSupport"] = undefined /*out*/;
+            resourceInputs["managementMode"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publisherTenantId"] = undefined /*out*/;
+            resourceInputs["supportUrls"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
         } else {
-            inputs["applicationDefinitionId"] = undefined /*out*/;
-            inputs["artifacts"] = undefined /*out*/;
-            inputs["authorizations"] = undefined /*out*/;
-            inputs["billingDetails"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["customerSupport"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["jitAccessPolicy"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["managedResourceGroupId"] = undefined /*out*/;
-            inputs["managementMode"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["plan"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publisherTenantId"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["supportUrls"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["applicationDefinitionId"] = undefined /*out*/;
+            resourceInputs["artifacts"] = undefined /*out*/;
+            resourceInputs["authorizations"] = undefined /*out*/;
+            resourceInputs["billingDetails"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["customerSupport"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["jitAccessPolicy"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["managedResourceGroupId"] = undefined /*out*/;
+            resourceInputs["managementMode"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publisherTenantId"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["supportUrls"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:solutions/v20160901preview:Application" }, { type: "azure-native:solutions/v20170901:Application" }, { type: "azure-native:solutions/v20180601:Application" }, { type: "azure-native:solutions/v20190701:Application" }, { type: "azure-native:solutions/v20200821preview:Application" }, { type: "azure-native:solutions/v20210701:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Application.__pulumiType, name, inputs, opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

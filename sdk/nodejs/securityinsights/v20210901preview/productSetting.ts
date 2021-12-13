@@ -69,7 +69,7 @@ export class ProductSetting extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba. */
     constructor(name: string, args: ProductSettingArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ProductSetting is deprecated: Please use one of the variants: Anomalies, EntityAnalytics, EyesOn, Ueba.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -81,27 +81,27 @@ export class ProductSetting extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["settingsName"] = args ? args.settingsName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["settingsName"] = args ? args.settingsName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:ProductSetting" }, { type: "azure-native:securityinsights/v20190101preview:ProductSetting" }, { type: "azure-native:securityinsights/v20210301preview:ProductSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ProductSetting.__pulumiType, name, inputs, opts);
+        super(ProductSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

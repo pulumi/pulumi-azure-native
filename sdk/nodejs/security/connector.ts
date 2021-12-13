@@ -61,26 +61,26 @@ export class Connector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["authenticationDetails"] = args ? args.authenticationDetails : undefined;
-            inputs["connectorName"] = args ? args.connectorName : undefined;
-            inputs["hybridComputeSettings"] = args ? args.hybridComputeSettings : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authenticationDetails"] = args ? args.authenticationDetails : undefined;
+            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
+            resourceInputs["hybridComputeSettings"] = args ? args.hybridComputeSettings : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authenticationDetails"] = undefined /*out*/;
-            inputs["hybridComputeSettings"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authenticationDetails"] = undefined /*out*/;
+            resourceInputs["hybridComputeSettings"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security/v20200101preview:Connector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Connector.__pulumiType, name, inputs, opts);
+        super(Connector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

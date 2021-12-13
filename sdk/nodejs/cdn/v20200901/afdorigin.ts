@@ -97,7 +97,7 @@ export class AFDOrigin extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AFDOriginArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hostName === undefined) && !opts.urn) {
@@ -112,46 +112,46 @@ export class AFDOrigin extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["azureOrigin"] = args ? args.azureOrigin : undefined;
-            inputs["enabledState"] = args ? args.enabledState : undefined;
-            inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["httpPort"] = args ? args.httpPort : undefined;
-            inputs["httpsPort"] = args ? args.httpsPort : undefined;
-            inputs["originGroupName"] = args ? args.originGroupName : undefined;
-            inputs["originHostHeader"] = args ? args.originHostHeader : undefined;
-            inputs["originName"] = args ? args.originName : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sharedPrivateLinkResource"] = args ? args.sharedPrivateLinkResource : undefined;
-            inputs["weight"] = args ? args.weight : undefined;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["azureOrigin"] = args ? args.azureOrigin : undefined;
+            resourceInputs["enabledState"] = args ? args.enabledState : undefined;
+            resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["httpPort"] = args ? args.httpPort : undefined;
+            resourceInputs["httpsPort"] = args ? args.httpsPort : undefined;
+            resourceInputs["originGroupName"] = args ? args.originGroupName : undefined;
+            resourceInputs["originHostHeader"] = args ? args.originHostHeader : undefined;
+            resourceInputs["originName"] = args ? args.originName : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sharedPrivateLinkResource"] = args ? args.sharedPrivateLinkResource : undefined;
+            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["azureOrigin"] = undefined /*out*/;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["enabledState"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["httpPort"] = undefined /*out*/;
-            inputs["httpsPort"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["originHostHeader"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sharedPrivateLinkResource"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["weight"] = undefined /*out*/;
+            resourceInputs["azureOrigin"] = undefined /*out*/;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["enabledState"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["httpPort"] = undefined /*out*/;
+            resourceInputs["httpsPort"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["originHostHeader"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sharedPrivateLinkResource"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["weight"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:AFDOrigin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AFDOrigin.__pulumiType, name, inputs, opts);
+        super(AFDOrigin.__pulumiType, name, resourceInputs, opts);
     }
 }
 

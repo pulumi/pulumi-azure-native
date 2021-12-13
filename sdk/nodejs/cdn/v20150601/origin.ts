@@ -71,7 +71,7 @@ export class Origin extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OriginArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.endpointName === undefined) && !opts.urn) {
@@ -86,32 +86,32 @@ export class Origin extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["httpPort"] = args ? args.httpPort : undefined;
-            inputs["httpsPort"] = args ? args.httpsPort : undefined;
-            inputs["originName"] = args ? args.originName : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["httpPort"] = args ? args.httpPort : undefined;
+            resourceInputs["httpsPort"] = args ? args.httpsPort : undefined;
+            resourceInputs["originName"] = args ? args.originName : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["hostName"] = undefined /*out*/;
-            inputs["httpPort"] = undefined /*out*/;
-            inputs["httpsPort"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["httpPort"] = undefined /*out*/;
+            resourceInputs["httpsPort"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:Origin" }, { type: "azure-native:cdn/v20160402:Origin" }, { type: "azure-native:cdn/v20191231:Origin" }, { type: "azure-native:cdn/v20200331:Origin" }, { type: "azure-native:cdn/v20200415:Origin" }, { type: "azure-native:cdn/v20200901:Origin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Origin.__pulumiType, name, inputs, opts);
+        super(Origin.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -75,7 +75,7 @@ export class Configuration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -84,33 +84,33 @@ export class Configuration extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["configurationName"] = args ? args.configurationName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["allowedValues"] = undefined /*out*/;
-            inputs["dataType"] = undefined /*out*/;
-            inputs["defaultValue"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["allowedValues"] = undefined /*out*/;
+            resourceInputs["dataType"] = undefined /*out*/;
+            resourceInputs["defaultValue"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["allowedValues"] = undefined /*out*/;
-            inputs["dataType"] = undefined /*out*/;
-            inputs["defaultValue"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["value"] = undefined /*out*/;
+            resourceInputs["allowedValues"] = undefined /*out*/;
+            resourceInputs["dataType"] = undefined /*out*/;
+            resourceInputs["defaultValue"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["value"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:Configuration" }, { type: "azure-native:dbforpostgresql/v20171201:Configuration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Configuration.__pulumiType, name, inputs, opts);
+        super(Configuration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

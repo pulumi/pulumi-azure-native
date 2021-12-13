@@ -96,7 +96,7 @@ export class MSIXPackage extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MSIXPackageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hostPoolName === undefined) && !opts.urn) {
@@ -105,43 +105,43 @@ export class MSIXPackage extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["hostPoolName"] = args ? args.hostPoolName : undefined;
-            inputs["imagePath"] = args ? args.imagePath : undefined;
-            inputs["isActive"] = args ? args.isActive : undefined;
-            inputs["isRegularRegistration"] = args ? args.isRegularRegistration : undefined;
-            inputs["lastUpdated"] = args ? args.lastUpdated : undefined;
-            inputs["msixPackageFullName"] = args ? args.msixPackageFullName : undefined;
-            inputs["packageApplications"] = args ? args.packageApplications : undefined;
-            inputs["packageDependencies"] = args ? args.packageDependencies : undefined;
-            inputs["packageFamilyName"] = args ? args.packageFamilyName : undefined;
-            inputs["packageName"] = args ? args.packageName : undefined;
-            inputs["packageRelativePath"] = args ? args.packageRelativePath : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["hostPoolName"] = args ? args.hostPoolName : undefined;
+            resourceInputs["imagePath"] = args ? args.imagePath : undefined;
+            resourceInputs["isActive"] = args ? args.isActive : undefined;
+            resourceInputs["isRegularRegistration"] = args ? args.isRegularRegistration : undefined;
+            resourceInputs["lastUpdated"] = args ? args.lastUpdated : undefined;
+            resourceInputs["msixPackageFullName"] = args ? args.msixPackageFullName : undefined;
+            resourceInputs["packageApplications"] = args ? args.packageApplications : undefined;
+            resourceInputs["packageDependencies"] = args ? args.packageDependencies : undefined;
+            resourceInputs["packageFamilyName"] = args ? args.packageFamilyName : undefined;
+            resourceInputs["packageName"] = args ? args.packageName : undefined;
+            resourceInputs["packageRelativePath"] = args ? args.packageRelativePath : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["displayName"] = undefined /*out*/;
-            inputs["imagePath"] = undefined /*out*/;
-            inputs["isActive"] = undefined /*out*/;
-            inputs["isRegularRegistration"] = undefined /*out*/;
-            inputs["lastUpdated"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["packageApplications"] = undefined /*out*/;
-            inputs["packageDependencies"] = undefined /*out*/;
-            inputs["packageFamilyName"] = undefined /*out*/;
-            inputs["packageName"] = undefined /*out*/;
-            inputs["packageRelativePath"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["imagePath"] = undefined /*out*/;
+            resourceInputs["isActive"] = undefined /*out*/;
+            resourceInputs["isRegularRegistration"] = undefined /*out*/;
+            resourceInputs["lastUpdated"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packageApplications"] = undefined /*out*/;
+            resourceInputs["packageDependencies"] = undefined /*out*/;
+            resourceInputs["packageFamilyName"] = undefined /*out*/;
+            resourceInputs["packageName"] = undefined /*out*/;
+            resourceInputs["packageRelativePath"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20200921preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201019preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201102preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20201110preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210201preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210309preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210401preview:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210712:MSIXPackage" }, { type: "azure-native:desktopvirtualization/v20210903preview:MSIXPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MSIXPackage.__pulumiType, name, inputs, opts);
+        super(MSIXPackage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

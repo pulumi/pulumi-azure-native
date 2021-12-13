@@ -105,7 +105,7 @@ export class TiTaxiiDataConnector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TiTaxiiDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataTypes === undefined) && !opts.urn) {
@@ -126,47 +126,47 @@ export class TiTaxiiDataConnector extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["collectionId"] = args ? args.collectionId : undefined;
-            inputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            inputs["dataTypes"] = args ? args.dataTypes : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["kind"] = "ThreatIntelligenceTaxii";
-            inputs["password"] = args ? args.password : undefined;
-            inputs["pollingFrequency"] = args ? args.pollingFrequency : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["taxiiLookbackPeriod"] = args ? args.taxiiLookbackPeriod : undefined;
-            inputs["taxiiServer"] = args ? args.taxiiServer : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["collectionId"] = args ? args.collectionId : undefined;
+            resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
+            resourceInputs["dataTypes"] = args ? args.dataTypes : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["kind"] = "ThreatIntelligenceTaxii";
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["pollingFrequency"] = args ? args.pollingFrequency : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["taxiiLookbackPeriod"] = args ? args.taxiiLookbackPeriod : undefined;
+            resourceInputs["taxiiServer"] = args ? args.taxiiServer : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["collectionId"] = undefined /*out*/;
-            inputs["dataTypes"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
-            inputs["pollingFrequency"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["taxiiLookbackPeriod"] = undefined /*out*/;
-            inputs["taxiiServer"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
+            resourceInputs["collectionId"] = undefined /*out*/;
+            resourceInputs["dataTypes"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["pollingFrequency"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["taxiiLookbackPeriod"] = undefined /*out*/;
+            resourceInputs["taxiiServer"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:TiTaxiiDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:TiTaxiiDataConnector" }, { type: "azure-native:securityinsights/v20200101:TiTaxiiDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:TiTaxiiDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(TiTaxiiDataConnector.__pulumiType, name, inputs, opts);
+        super(TiTaxiiDataConnector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

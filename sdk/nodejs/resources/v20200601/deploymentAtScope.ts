@@ -64,7 +64,7 @@ export class DeploymentAtScope extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DeploymentAtScopeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.properties === undefined) && !opts.urn) {
@@ -73,26 +73,26 @@ export class DeploymentAtScope extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["deploymentName"] = args ? args.deploymentName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources:DeploymentAtScope" }, { type: "azure-native:resources/v20190701:DeploymentAtScope" }, { type: "azure-native:resources/v20190801:DeploymentAtScope" }, { type: "azure-native:resources/v20191001:DeploymentAtScope" }, { type: "azure-native:resources/v20200801:DeploymentAtScope" }, { type: "azure-native:resources/v20201001:DeploymentAtScope" }, { type: "azure-native:resources/v20210101:DeploymentAtScope" }, { type: "azure-native:resources/v20210401:DeploymentAtScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DeploymentAtScope.__pulumiType, name, inputs, opts);
+        super(DeploymentAtScope.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -84,7 +84,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualNetworkPeeringArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -93,38 +93,38 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            inputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
-            inputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
-            inputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["peeringState"] = args ? args.peeringState : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
-            inputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
-            inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            inputs["virtualNetworkPeeringName"] = args ? args.virtualNetworkPeeringName : undefined;
+            resourceInputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
+            resourceInputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
+            resourceInputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["peeringState"] = args ? args.peeringState : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
+            resourceInputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
+            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["virtualNetworkPeeringName"] = args ? args.virtualNetworkPeeringName : undefined;
         } else {
-            inputs["allowForwardedTraffic"] = undefined /*out*/;
-            inputs["allowGatewayTransit"] = undefined /*out*/;
-            inputs["allowVirtualNetworkAccess"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peeringState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["remoteAddressSpace"] = undefined /*out*/;
-            inputs["remoteVirtualNetwork"] = undefined /*out*/;
-            inputs["useRemoteGateways"] = undefined /*out*/;
+            resourceInputs["allowForwardedTraffic"] = undefined /*out*/;
+            resourceInputs["allowGatewayTransit"] = undefined /*out*/;
+            resourceInputs["allowVirtualNetworkAccess"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peeringState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["remoteAddressSpace"] = undefined /*out*/;
+            resourceInputs["remoteVirtualNetwork"] = undefined /*out*/;
+            resourceInputs["useRemoteGateways"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualNetworkPeering" }, { type: "azure-native:network/v20160601:VirtualNetworkPeering" }, { type: "azure-native:network/v20160901:VirtualNetworkPeering" }, { type: "azure-native:network/v20161201:VirtualNetworkPeering" }, { type: "azure-native:network/v20170301:VirtualNetworkPeering" }, { type: "azure-native:network/v20170601:VirtualNetworkPeering" }, { type: "azure-native:network/v20170801:VirtualNetworkPeering" }, { type: "azure-native:network/v20170901:VirtualNetworkPeering" }, { type: "azure-native:network/v20171001:VirtualNetworkPeering" }, { type: "azure-native:network/v20171101:VirtualNetworkPeering" }, { type: "azure-native:network/v20180101:VirtualNetworkPeering" }, { type: "azure-native:network/v20180201:VirtualNetworkPeering" }, { type: "azure-native:network/v20180401:VirtualNetworkPeering" }, { type: "azure-native:network/v20180701:VirtualNetworkPeering" }, { type: "azure-native:network/v20180801:VirtualNetworkPeering" }, { type: "azure-native:network/v20181001:VirtualNetworkPeering" }, { type: "azure-native:network/v20181101:VirtualNetworkPeering" }, { type: "azure-native:network/v20181201:VirtualNetworkPeering" }, { type: "azure-native:network/v20190201:VirtualNetworkPeering" }, { type: "azure-native:network/v20190401:VirtualNetworkPeering" }, { type: "azure-native:network/v20190601:VirtualNetworkPeering" }, { type: "azure-native:network/v20190701:VirtualNetworkPeering" }, { type: "azure-native:network/v20190801:VirtualNetworkPeering" }, { type: "azure-native:network/v20190901:VirtualNetworkPeering" }, { type: "azure-native:network/v20191101:VirtualNetworkPeering" }, { type: "azure-native:network/v20191201:VirtualNetworkPeering" }, { type: "azure-native:network/v20200301:VirtualNetworkPeering" }, { type: "azure-native:network/v20200401:VirtualNetworkPeering" }, { type: "azure-native:network/v20200501:VirtualNetworkPeering" }, { type: "azure-native:network/v20200601:VirtualNetworkPeering" }, { type: "azure-native:network/v20200701:VirtualNetworkPeering" }, { type: "azure-native:network/v20200801:VirtualNetworkPeering" }, { type: "azure-native:network/v20201101:VirtualNetworkPeering" }, { type: "azure-native:network/v20210201:VirtualNetworkPeering" }, { type: "azure-native:network/v20210301:VirtualNetworkPeering" }, { type: "azure-native:network/v20210501:VirtualNetworkPeering" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualNetworkPeering.__pulumiType, name, inputs, opts);
+        super(VirtualNetworkPeering.__pulumiType, name, resourceInputs, opts);
     }
 }
 

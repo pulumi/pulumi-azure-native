@@ -68,7 +68,7 @@ export class StaticSiteUserProvidedFunctionAppForStaticSiteBuild extends pulumi.
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.environmentName === undefined) && !opts.urn) {
@@ -80,30 +80,30 @@ export class StaticSiteUserProvidedFunctionAppForStaticSiteBuild extends pulumi.
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["functionAppName"] = args ? args.functionAppName : undefined;
-            inputs["functionAppRegion"] = args ? args.functionAppRegion : undefined;
-            inputs["functionAppResourceId"] = args ? args.functionAppResourceId : undefined;
-            inputs["isForced"] = args ? args.isForced : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["functionAppName"] = args ? args.functionAppName : undefined;
+            resourceInputs["functionAppRegion"] = args ? args.functionAppRegion : undefined;
+            resourceInputs["functionAppResourceId"] = args ? args.functionAppResourceId : undefined;
+            resourceInputs["isForced"] = args ? args.isForced : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["functionAppRegion"] = undefined /*out*/;
-            inputs["functionAppResourceId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["functionAppRegion"] = undefined /*out*/;
+            resourceInputs["functionAppResourceId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }, { type: "azure-native:web/v20210101:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }, { type: "azure-native:web/v20210115:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }, { type: "azure-native:web/v20210201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(StaticSiteUserProvidedFunctionAppForStaticSiteBuild.__pulumiType, name, inputs, opts);
+        super(StaticSiteUserProvidedFunctionAppForStaticSiteBuild.__pulumiType, name, resourceInputs, opts);
     }
 }
 

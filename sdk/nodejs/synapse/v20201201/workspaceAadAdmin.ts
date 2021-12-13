@@ -67,7 +67,7 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkspaceAadAdminArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -76,28 +76,28 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["administratorType"] = args ? args.administratorType : undefined;
-            inputs["login"] = args ? args.login : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sid"] = args ? args.sid : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["administratorType"] = args ? args.administratorType : undefined;
+            resourceInputs["login"] = args ? args.login : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sid"] = args ? args.sid : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["administratorType"] = undefined /*out*/;
-            inputs["login"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sid"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["administratorType"] = undefined /*out*/;
+            resourceInputs["login"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sid"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:WorkspaceAadAdmin" }, { type: "azure-native:synapse/v20190601preview:WorkspaceAadAdmin" }, { type: "azure-native:synapse/v20210301:WorkspaceAadAdmin" }, { type: "azure-native:synapse/v20210401preview:WorkspaceAadAdmin" }, { type: "azure-native:synapse/v20210501:WorkspaceAadAdmin" }, { type: "azure-native:synapse/v20210601:WorkspaceAadAdmin" }, { type: "azure-native:synapse/v20210601preview:WorkspaceAadAdmin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WorkspaceAadAdmin.__pulumiType, name, inputs, opts);
+        super(WorkspaceAadAdmin.__pulumiType, name, resourceInputs, opts);
     }
 }
 

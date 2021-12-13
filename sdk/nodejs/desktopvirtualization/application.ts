@@ -109,7 +109,7 @@ export class Application extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationGroupName === undefined) && !opts.urn) {
@@ -121,49 +121,49 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["applicationType"] = args ? args.applicationType : undefined;
-            inputs["commandLineArguments"] = args ? args.commandLineArguments : undefined;
-            inputs["commandLineSetting"] = args ? args.commandLineSetting : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["filePath"] = args ? args.filePath : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["iconIndex"] = args ? args.iconIndex : undefined;
-            inputs["iconPath"] = args ? args.iconPath : undefined;
-            inputs["msixPackageApplicationId"] = args ? args.msixPackageApplicationId : undefined;
-            inputs["msixPackageFamilyName"] = args ? args.msixPackageFamilyName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["showInPortal"] = args ? args.showInPortal : undefined;
-            inputs["iconContent"] = undefined /*out*/;
-            inputs["iconHash"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["objectId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["applicationType"] = args ? args.applicationType : undefined;
+            resourceInputs["commandLineArguments"] = args ? args.commandLineArguments : undefined;
+            resourceInputs["commandLineSetting"] = args ? args.commandLineSetting : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["filePath"] = args ? args.filePath : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["iconIndex"] = args ? args.iconIndex : undefined;
+            resourceInputs["iconPath"] = args ? args.iconPath : undefined;
+            resourceInputs["msixPackageApplicationId"] = args ? args.msixPackageApplicationId : undefined;
+            resourceInputs["msixPackageFamilyName"] = args ? args.msixPackageFamilyName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["showInPortal"] = args ? args.showInPortal : undefined;
+            resourceInputs["iconContent"] = undefined /*out*/;
+            resourceInputs["iconHash"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["applicationType"] = undefined /*out*/;
-            inputs["commandLineArguments"] = undefined /*out*/;
-            inputs["commandLineSetting"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["filePath"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["iconContent"] = undefined /*out*/;
-            inputs["iconHash"] = undefined /*out*/;
-            inputs["iconIndex"] = undefined /*out*/;
-            inputs["iconPath"] = undefined /*out*/;
-            inputs["msixPackageApplicationId"] = undefined /*out*/;
-            inputs["msixPackageFamilyName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["objectId"] = undefined /*out*/;
-            inputs["showInPortal"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationType"] = undefined /*out*/;
+            resourceInputs["commandLineArguments"] = undefined /*out*/;
+            resourceInputs["commandLineSetting"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["filePath"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["iconContent"] = undefined /*out*/;
+            resourceInputs["iconHash"] = undefined /*out*/;
+            resourceInputs["iconIndex"] = undefined /*out*/;
+            resourceInputs["iconPath"] = undefined /*out*/;
+            resourceInputs["msixPackageApplicationId"] = undefined /*out*/;
+            resourceInputs["msixPackageFamilyName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["showInPortal"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization/v20190123preview:Application" }, { type: "azure-native:desktopvirtualization/v20190924preview:Application" }, { type: "azure-native:desktopvirtualization/v20191210preview:Application" }, { type: "azure-native:desktopvirtualization/v20200921preview:Application" }, { type: "azure-native:desktopvirtualization/v20201019preview:Application" }, { type: "azure-native:desktopvirtualization/v20201102preview:Application" }, { type: "azure-native:desktopvirtualization/v20201110preview:Application" }, { type: "azure-native:desktopvirtualization/v20210114preview:Application" }, { type: "azure-native:desktopvirtualization/v20210201preview:Application" }, { type: "azure-native:desktopvirtualization/v20210309preview:Application" }, { type: "azure-native:desktopvirtualization/v20210401preview:Application" }, { type: "azure-native:desktopvirtualization/v20210712:Application" }, { type: "azure-native:desktopvirtualization/v20210903preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Application.__pulumiType, name, inputs, opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

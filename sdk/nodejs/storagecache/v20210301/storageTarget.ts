@@ -88,7 +88,7 @@ export class StorageTarget extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StorageTargetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cacheName === undefined) && !opts.urn) {
@@ -100,39 +100,39 @@ export class StorageTarget extends pulumi.CustomResource {
             if ((!args || args.targetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            inputs["blobNfs"] = args ? args.blobNfs : undefined;
-            inputs["cacheName"] = args ? args.cacheName : undefined;
-            inputs["clfs"] = args ? args.clfs : undefined;
-            inputs["junctions"] = args ? args.junctions : undefined;
-            inputs["nfs3"] = args ? args.nfs3 : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageTargetName"] = args ? args.storageTargetName : undefined;
-            inputs["targetType"] = args ? args.targetType : undefined;
-            inputs["unknown"] = args ? args.unknown : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["blobNfs"] = args ? args.blobNfs : undefined;
+            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
+            resourceInputs["clfs"] = args ? args.clfs : undefined;
+            resourceInputs["junctions"] = args ? args.junctions : undefined;
+            resourceInputs["nfs3"] = args ? args.nfs3 : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageTargetName"] = args ? args.storageTargetName : undefined;
+            resourceInputs["targetType"] = args ? args.targetType : undefined;
+            resourceInputs["unknown"] = args ? args.unknown : undefined;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["blobNfs"] = undefined /*out*/;
-            inputs["clfs"] = undefined /*out*/;
-            inputs["junctions"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nfs3"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["targetType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["unknown"] = undefined /*out*/;
+            resourceInputs["blobNfs"] = undefined /*out*/;
+            resourceInputs["clfs"] = undefined /*out*/;
+            resourceInputs["junctions"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nfs3"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["targetType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["unknown"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagecache:StorageTarget" }, { type: "azure-native:storagecache/v20190801preview:StorageTarget" }, { type: "azure-native:storagecache/v20191101:StorageTarget" }, { type: "azure-native:storagecache/v20200301:StorageTarget" }, { type: "azure-native:storagecache/v20201001:StorageTarget" }, { type: "azure-native:storagecache/v20210501:StorageTarget" }, { type: "azure-native:storagecache/v20210901:StorageTarget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(StorageTarget.__pulumiType, name, inputs, opts);
+        super(StorageTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

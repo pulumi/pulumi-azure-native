@@ -56,7 +56,7 @@ export class TableServiceProperties extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TableServicePropertiesArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -65,23 +65,23 @@ export class TableServiceProperties extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["cors"] = args ? args.cors : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tableServiceName"] = args ? args.tableServiceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tableServiceName"] = args ? args.tableServiceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["cors"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cors"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:TableServiceProperties" }, { type: "azure-native:storage/v20190601:TableServiceProperties" }, { type: "azure-native:storage/v20210101:TableServiceProperties" }, { type: "azure-native:storage/v20210201:TableServiceProperties" }, { type: "azure-native:storage/v20210401:TableServiceProperties" }, { type: "azure-native:storage/v20210601:TableServiceProperties" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(TableServiceProperties.__pulumiType, name, inputs, opts);
+        super(TableServiceProperties.__pulumiType, name, resourceInputs, opts);
     }
 }
 

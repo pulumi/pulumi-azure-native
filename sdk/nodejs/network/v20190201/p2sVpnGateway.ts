@@ -92,47 +92,47 @@ export class P2sVpnGateway extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: P2sVpnGatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customRoutes"] = args ? args.customRoutes : undefined;
-            inputs["gatewayName"] = args ? args.gatewayName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["p2SVpnServerConfiguration"] = args ? args.p2SVpnServerConfiguration : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualHub"] = args ? args.virtualHub : undefined;
-            inputs["vpnClientAddressPool"] = args ? args.vpnClientAddressPool : undefined;
-            inputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vpnClientConnectionHealth"] = undefined /*out*/;
+            resourceInputs["customRoutes"] = args ? args.customRoutes : undefined;
+            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["p2SVpnServerConfiguration"] = args ? args.p2SVpnServerConfiguration : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["vpnClientAddressPool"] = args ? args.vpnClientAddressPool : undefined;
+            resourceInputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vpnClientConnectionHealth"] = undefined /*out*/;
         } else {
-            inputs["customRoutes"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["p2SVpnServerConfiguration"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualHub"] = undefined /*out*/;
-            inputs["vpnClientAddressPool"] = undefined /*out*/;
-            inputs["vpnClientConnectionHealth"] = undefined /*out*/;
-            inputs["vpnGatewayScaleUnit"] = undefined /*out*/;
+            resourceInputs["customRoutes"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["p2SVpnServerConfiguration"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualHub"] = undefined /*out*/;
+            resourceInputs["vpnClientAddressPool"] = undefined /*out*/;
+            resourceInputs["vpnClientConnectionHealth"] = undefined /*out*/;
+            resourceInputs["vpnGatewayScaleUnit"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:P2sVpnGateway" }, { type: "azure-native:network/v20180801:P2sVpnGateway" }, { type: "azure-native:network/v20181001:P2sVpnGateway" }, { type: "azure-native:network/v20181101:P2sVpnGateway" }, { type: "azure-native:network/v20181201:P2sVpnGateway" }, { type: "azure-native:network/v20190401:P2sVpnGateway" }, { type: "azure-native:network/v20190601:P2sVpnGateway" }, { type: "azure-native:network/v20190701:P2sVpnGateway" }, { type: "azure-native:network/v20190801:P2sVpnGateway" }, { type: "azure-native:network/v20190901:P2sVpnGateway" }, { type: "azure-native:network/v20191101:P2sVpnGateway" }, { type: "azure-native:network/v20191201:P2sVpnGateway" }, { type: "azure-native:network/v20200301:P2sVpnGateway" }, { type: "azure-native:network/v20200401:P2sVpnGateway" }, { type: "azure-native:network/v20200501:P2sVpnGateway" }, { type: "azure-native:network/v20200601:P2sVpnGateway" }, { type: "azure-native:network/v20200701:P2sVpnGateway" }, { type: "azure-native:network/v20200801:P2sVpnGateway" }, { type: "azure-native:network/v20201101:P2sVpnGateway" }, { type: "azure-native:network/v20210201:P2sVpnGateway" }, { type: "azure-native:network/v20210301:P2sVpnGateway" }, { type: "azure-native:network/v20210501:P2sVpnGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(P2sVpnGateway.__pulumiType, name, inputs, opts);
+        super(P2sVpnGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

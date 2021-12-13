@@ -76,7 +76,7 @@ export class DedicatedCloudService extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DedicatedCloudServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.gatewaySubnet === undefined) && !opts.urn) {
@@ -85,32 +85,32 @@ export class DedicatedCloudService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dedicatedCloudServiceName"] = args ? args.dedicatedCloudServiceName : undefined;
-            inputs["gatewaySubnet"] = args ? args.gatewaySubnet : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["isAccountOnboarded"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nodes"] = undefined /*out*/;
-            inputs["serviceURL"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dedicatedCloudServiceName"] = args ? args.dedicatedCloudServiceName : undefined;
+            resourceInputs["gatewaySubnet"] = args ? args.gatewaySubnet : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["isAccountOnboarded"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodes"] = undefined /*out*/;
+            resourceInputs["serviceURL"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["gatewaySubnet"] = undefined /*out*/;
-            inputs["isAccountOnboarded"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nodes"] = undefined /*out*/;
-            inputs["serviceURL"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["gatewaySubnet"] = undefined /*out*/;
+            resourceInputs["isAccountOnboarded"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodes"] = undefined /*out*/;
+            resourceInputs["serviceURL"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DedicatedCloudService.__pulumiType, name, inputs, opts);
+        super(DedicatedCloudService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

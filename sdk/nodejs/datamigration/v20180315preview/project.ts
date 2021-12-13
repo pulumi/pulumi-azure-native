@@ -88,7 +88,7 @@ export class Project extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupName === undefined) && !opts.urn) {
@@ -103,39 +103,39 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.targetPlatform === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetPlatform'");
             }
-            inputs["databasesInfo"] = args ? args.databasesInfo : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["sourceConnectionInfo"] = args ? args.sourceConnectionInfo : undefined;
-            inputs["sourcePlatform"] = args ? args.sourcePlatform : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetConnectionInfo"] = args ? args.targetConnectionInfo : undefined;
-            inputs["targetPlatform"] = args ? args.targetPlatform : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["databasesInfo"] = args ? args.databasesInfo : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["sourceConnectionInfo"] = args ? (args.sourceConnectionInfo ? pulumi.output(args.sourceConnectionInfo).apply(inputs.datamigration.v20180315preview.sqlConnectionInfoArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["sourcePlatform"] = args ? args.sourcePlatform : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetConnectionInfo"] = args ? (args.targetConnectionInfo ? pulumi.output(args.targetConnectionInfo).apply(inputs.datamigration.v20180315preview.sqlConnectionInfoArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["targetPlatform"] = args ? args.targetPlatform : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["databasesInfo"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sourceConnectionInfo"] = undefined /*out*/;
-            inputs["sourcePlatform"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetConnectionInfo"] = undefined /*out*/;
-            inputs["targetPlatform"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["databasesInfo"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourceConnectionInfo"] = undefined /*out*/;
+            resourceInputs["sourcePlatform"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetConnectionInfo"] = undefined /*out*/;
+            resourceInputs["targetPlatform"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datamigration:Project" }, { type: "azure-native:datamigration/v20171115preview:Project" }, { type: "azure-native:datamigration/v20180331preview:Project" }, { type: "azure-native:datamigration/v20180419:Project" }, { type: "azure-native:datamigration/v20180715preview:Project" }, { type: "azure-native:datamigration/v20210630:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Project.__pulumiType, name, inputs, opts);
+        super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }
 

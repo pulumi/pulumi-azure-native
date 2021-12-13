@@ -88,45 +88,45 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: InterfaceEndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["endpointService"] = args ? args.endpointService : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["fqdn"] = args ? args.fqdn : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["interfaceEndpointName"] = args ? args.interfaceEndpointName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnet"] = args ? args.subnet : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["endpointService"] = args ? args.endpointService : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["interfaceEndpointName"] = args ? args.interfaceEndpointName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnet"] = args ? args.subnet : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["endpointService"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["subnet"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["endpointService"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["subnet"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:InterfaceEndpoint" }, { type: "azure-native:network/v20181001:InterfaceEndpoint" }, { type: "azure-native:network/v20181101:InterfaceEndpoint" }, { type: "azure-native:network/v20181201:InterfaceEndpoint" }, { type: "azure-native:network/v20190201:InterfaceEndpoint" }, { type: "azure-native:network/v20190401:InterfaceEndpoint" }, { type: "azure-native:network/v20190601:InterfaceEndpoint" }, { type: "azure-native:network/v20190701:InterfaceEndpoint" }, { type: "azure-native:network/v20190801:InterfaceEndpoint" }, { type: "azure-native:network/v20190901:InterfaceEndpoint" }, { type: "azure-native:network/v20191101:InterfaceEndpoint" }, { type: "azure-native:network/v20191201:InterfaceEndpoint" }, { type: "azure-native:network/v20200301:InterfaceEndpoint" }, { type: "azure-native:network/v20200401:InterfaceEndpoint" }, { type: "azure-native:network/v20200501:InterfaceEndpoint" }, { type: "azure-native:network/v20200601:InterfaceEndpoint" }, { type: "azure-native:network/v20200701:InterfaceEndpoint" }, { type: "azure-native:network/v20200801:InterfaceEndpoint" }, { type: "azure-native:network/v20201101:InterfaceEndpoint" }, { type: "azure-native:network/v20210201:InterfaceEndpoint" }, { type: "azure-native:network/v20210301:InterfaceEndpoint" }, { type: "azure-native:network/v20210501:InterfaceEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(InterfaceEndpoint.__pulumiType, name, inputs, opts);
+        super(InterfaceEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

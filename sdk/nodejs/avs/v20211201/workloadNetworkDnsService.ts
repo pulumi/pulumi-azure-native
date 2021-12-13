@@ -84,7 +84,7 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkloadNetworkDnsServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
@@ -93,37 +93,37 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["defaultDnsZone"] = args ? args.defaultDnsZone : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["dnsServiceId"] = args ? args.dnsServiceId : undefined;
-            inputs["dnsServiceIp"] = args ? args.dnsServiceIp : undefined;
-            inputs["fqdnZones"] = args ? args.fqdnZones : undefined;
-            inputs["logLevel"] = args ? args.logLevel : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["revision"] = args ? args.revision : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["defaultDnsZone"] = args ? args.defaultDnsZone : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["dnsServiceId"] = args ? args.dnsServiceId : undefined;
+            resourceInputs["dnsServiceIp"] = args ? args.dnsServiceIp : undefined;
+            resourceInputs["fqdnZones"] = args ? args.fqdnZones : undefined;
+            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["revision"] = args ? args.revision : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["defaultDnsZone"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["dnsServiceIp"] = undefined /*out*/;
-            inputs["fqdnZones"] = undefined /*out*/;
-            inputs["logLevel"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["revision"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["defaultDnsZone"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["dnsServiceIp"] = undefined /*out*/;
+            resourceInputs["fqdnZones"] = undefined /*out*/;
+            resourceInputs["logLevel"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20200717preview:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20210101preview:WorkloadNetworkDnsService" }, { type: "azure-native:avs/v20210601:WorkloadNetworkDnsService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WorkloadNetworkDnsService.__pulumiType, name, inputs, opts);
+        super(WorkloadNetworkDnsService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

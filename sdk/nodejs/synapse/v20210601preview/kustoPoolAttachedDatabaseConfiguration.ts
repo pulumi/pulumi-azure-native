@@ -84,7 +84,7 @@ export class KustoPoolAttachedDatabaseConfiguration extends pulumi.CustomResourc
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KustoPoolAttachedDatabaseConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -105,38 +105,38 @@ export class KustoPoolAttachedDatabaseConfiguration extends pulumi.CustomResourc
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["attachedDatabaseConfigurationName"] = args ? args.attachedDatabaseConfigurationName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["defaultPrincipalsModificationKind"] = args ? args.defaultPrincipalsModificationKind : undefined;
-            inputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
-            inputs["kustoPoolResourceId"] = args ? args.kustoPoolResourceId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tableLevelSharingProperties"] = args ? args.tableLevelSharingProperties : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["attachedDatabaseNames"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["attachedDatabaseConfigurationName"] = args ? args.attachedDatabaseConfigurationName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["defaultPrincipalsModificationKind"] = args ? args.defaultPrincipalsModificationKind : undefined;
+            resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
+            resourceInputs["kustoPoolResourceId"] = args ? args.kustoPoolResourceId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tableLevelSharingProperties"] = args ? args.tableLevelSharingProperties : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["attachedDatabaseNames"] = undefined /*out*/;
-            inputs["databaseName"] = undefined /*out*/;
-            inputs["defaultPrincipalsModificationKind"] = undefined /*out*/;
-            inputs["kustoPoolResourceId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tableLevelSharingProperties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
+            resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["defaultPrincipalsModificationKind"] = undefined /*out*/;
+            resourceInputs["kustoPoolResourceId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tableLevelSharingProperties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:KustoPoolAttachedDatabaseConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(KustoPoolAttachedDatabaseConfiguration.__pulumiType, name, inputs, opts);
+        super(KustoPoolAttachedDatabaseConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

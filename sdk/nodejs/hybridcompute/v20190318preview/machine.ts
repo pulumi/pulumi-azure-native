@@ -120,59 +120,59 @@ export class Machine extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MachineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["physicalLocation"] = args ? args.physicalLocation : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["agentVersion"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["errorDetails"] = undefined /*out*/;
-            inputs["lastStatusChange"] = undefined /*out*/;
-            inputs["machineFqdn"] = undefined /*out*/;
-            inputs["osName"] = undefined /*out*/;
-            inputs["osProfile"] = undefined /*out*/;
-            inputs["osVersion"] = undefined /*out*/;
-            inputs["principalId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["vmId"] = undefined /*out*/;
+            resourceInputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["physicalLocation"] = args ? args.physicalLocation : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["errorDetails"] = undefined /*out*/;
+            resourceInputs["lastStatusChange"] = undefined /*out*/;
+            resourceInputs["machineFqdn"] = undefined /*out*/;
+            resourceInputs["osName"] = undefined /*out*/;
+            resourceInputs["osProfile"] = undefined /*out*/;
+            resourceInputs["osVersion"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["vmId"] = undefined /*out*/;
         } else {
-            inputs["agentVersion"] = undefined /*out*/;
-            inputs["clientPublicKey"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["errorDetails"] = undefined /*out*/;
-            inputs["lastStatusChange"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["machineFqdn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["osName"] = undefined /*out*/;
-            inputs["osProfile"] = undefined /*out*/;
-            inputs["osVersion"] = undefined /*out*/;
-            inputs["physicalLocation"] = undefined /*out*/;
-            inputs["principalId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vmId"] = undefined /*out*/;
+            resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["clientPublicKey"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["errorDetails"] = undefined /*out*/;
+            resourceInputs["lastStatusChange"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["machineFqdn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["osName"] = undefined /*out*/;
+            resourceInputs["osProfile"] = undefined /*out*/;
+            resourceInputs["osVersion"] = undefined /*out*/;
+            resourceInputs["physicalLocation"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:Machine" }, { type: "azure-native:hybridcompute/v20190802preview:Machine" }, { type: "azure-native:hybridcompute/v20191212:Machine" }, { type: "azure-native:hybridcompute/v20200730preview:Machine" }, { type: "azure-native:hybridcompute/v20200802:Machine" }, { type: "azure-native:hybridcompute/v20200815preview:Machine" }, { type: "azure-native:hybridcompute/v20210128preview:Machine" }, { type: "azure-native:hybridcompute/v20210325preview:Machine" }, { type: "azure-native:hybridcompute/v20210422preview:Machine" }, { type: "azure-native:hybridcompute/v20210517preview:Machine" }, { type: "azure-native:hybridcompute/v20210520:Machine" }, { type: "azure-native:hybridcompute/v20210610preview:Machine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Machine.__pulumiType, name, inputs, opts);
+        super(Machine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

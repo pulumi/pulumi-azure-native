@@ -65,7 +65,7 @@ export class BandwidthSetting extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BandwidthSettingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managerName === undefined) && !opts.urn) {
@@ -77,27 +77,27 @@ export class BandwidthSetting extends pulumi.CustomResource {
             if ((!args || args.schedules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedules'");
             }
-            inputs["bandwidthSettingName"] = args ? args.bandwidthSettingName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schedules"] = args ? args.schedules : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["volumeCount"] = undefined /*out*/;
+            resourceInputs["bandwidthSettingName"] = args ? args.bandwidthSettingName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schedules"] = args ? args.schedules : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["volumeCount"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["schedules"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["volumeCount"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["schedules"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["volumeCount"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20170601:BandwidthSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BandwidthSetting.__pulumiType, name, inputs, opts);
+        super(BandwidthSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

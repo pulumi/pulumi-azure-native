@@ -137,68 +137,68 @@ export class StreamingJob extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StreamingJobArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
-            inputs["dataLocale"] = args ? args.dataLocale : undefined;
-            inputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
-            inputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
-            inputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
-            inputs["functions"] = args ? args.functions : undefined;
-            inputs["inputs"] = args ? args.inputs : undefined;
-            inputs["jobName"] = args ? args.jobName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
-            inputs["outputStartMode"] = args ? args.outputStartMode : undefined;
-            inputs["outputStartTime"] = args ? args.outputStartTime : undefined;
-            inputs["outputs"] = args ? args.outputs : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transformation"] = args ? args.transformation : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["jobId"] = undefined /*out*/;
-            inputs["jobState"] = undefined /*out*/;
-            inputs["lastOutputEventTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
+            resourceInputs["dataLocale"] = args ? args.dataLocale : undefined;
+            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
+            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
+            resourceInputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
+            resourceInputs["functions"] = args ? args.functions : undefined;
+            resourceInputs["inputs"] = args ? args.inputs : undefined;
+            resourceInputs["jobName"] = args ? args.jobName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
+            resourceInputs["outputStartMode"] = args ? args.outputStartMode : undefined;
+            resourceInputs["outputStartTime"] = args ? args.outputStartTime : undefined;
+            resourceInputs["outputs"] = args ? args.outputs : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transformation"] = args ? args.transformation : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["jobId"] = undefined /*out*/;
+            resourceInputs["jobState"] = undefined /*out*/;
+            resourceInputs["lastOutputEventTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["compatibilityLevel"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["dataLocale"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["eventsLateArrivalMaxDelayInSeconds"] = undefined /*out*/;
-            inputs["eventsOutOfOrderMaxDelayInSeconds"] = undefined /*out*/;
-            inputs["eventsOutOfOrderPolicy"] = undefined /*out*/;
-            inputs["functions"] = undefined /*out*/;
-            inputs["inputs"] = undefined /*out*/;
-            inputs["jobId"] = undefined /*out*/;
-            inputs["jobState"] = undefined /*out*/;
-            inputs["lastOutputEventTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outputErrorPolicy"] = undefined /*out*/;
-            inputs["outputStartMode"] = undefined /*out*/;
-            inputs["outputStartTime"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["transformation"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["compatibilityLevel"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["dataLocale"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = undefined /*out*/;
+            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = undefined /*out*/;
+            resourceInputs["eventsOutOfOrderPolicy"] = undefined /*out*/;
+            resourceInputs["functions"] = undefined /*out*/;
+            resourceInputs["inputs"] = undefined /*out*/;
+            resourceInputs["jobId"] = undefined /*out*/;
+            resourceInputs["jobState"] = undefined /*out*/;
+            resourceInputs["lastOutputEventTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputErrorPolicy"] = undefined /*out*/;
+            resourceInputs["outputStartMode"] = undefined /*out*/;
+            resourceInputs["outputStartTime"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["transformation"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:streamanalytics/v20160301:StreamingJob" }, { type: "azure-native:streamanalytics/v20170401preview:StreamingJob" }, { type: "azure-native:streamanalytics/v20200301:StreamingJob" }, { type: "azure-native:streamanalytics/v20211001preview:StreamingJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(StreamingJob.__pulumiType, name, inputs, opts);
+        super(StreamingJob.__pulumiType, name, resourceInputs, opts);
     }
 }
 

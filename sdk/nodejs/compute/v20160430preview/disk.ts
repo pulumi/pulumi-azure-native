@@ -92,7 +92,7 @@ export class Disk extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.creationData === undefined) && !opts.urn) {
@@ -101,40 +101,40 @@ export class Disk extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountType"] = args ? args.accountType : undefined;
-            inputs["creationData"] = args ? args.creationData : undefined;
-            inputs["diskName"] = args ? args.diskName : undefined;
-            inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
-            inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountType"] = args ? args.accountType : undefined;
+            resourceInputs["creationData"] = args ? args.creationData : undefined;
+            resourceInputs["diskName"] = args ? args.diskName : undefined;
+            resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
+            resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accountType"] = undefined /*out*/;
-            inputs["creationData"] = undefined /*out*/;
-            inputs["diskSizeGB"] = undefined /*out*/;
-            inputs["encryptionSettings"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["osType"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountType"] = undefined /*out*/;
+            resourceInputs["creationData"] = undefined /*out*/;
+            resourceInputs["diskSizeGB"] = undefined /*out*/;
+            resourceInputs["encryptionSettings"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:Disk" }, { type: "azure-native:compute/v20170330:Disk" }, { type: "azure-native:compute/v20180401:Disk" }, { type: "azure-native:compute/v20180601:Disk" }, { type: "azure-native:compute/v20180930:Disk" }, { type: "azure-native:compute/v20190301:Disk" }, { type: "azure-native:compute/v20190701:Disk" }, { type: "azure-native:compute/v20191101:Disk" }, { type: "azure-native:compute/v20200501:Disk" }, { type: "azure-native:compute/v20200630:Disk" }, { type: "azure-native:compute/v20200930:Disk" }, { type: "azure-native:compute/v20201201:Disk" }, { type: "azure-native:compute/v20210401:Disk" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Disk.__pulumiType, name, inputs, opts);
+        super(Disk.__pulumiType, name, resourceInputs, opts);
     }
 }
 

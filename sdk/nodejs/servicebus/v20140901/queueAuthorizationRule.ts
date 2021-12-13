@@ -88,7 +88,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: QueueAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -103,40 +103,40 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.rights === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rights'");
             }
-            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
-            inputs["claimType"] = args ? args.claimType : undefined;
-            inputs["claimValue"] = args ? args.claimValue : undefined;
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["primaryKey"] = args ? args.primaryKey : undefined;
-            inputs["queueName"] = args ? args.queueName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rights"] = args ? args.rights : undefined;
-            inputs["secondaryKey"] = args ? args.secondaryKey : undefined;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["modifiedTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
+            resourceInputs["claimType"] = args ? args.claimType : undefined;
+            resourceInputs["claimValue"] = args ? args.claimValue : undefined;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
+            resourceInputs["queueName"] = args ? args.queueName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rights"] = args ? args.rights : undefined;
+            resourceInputs["secondaryKey"] = args ? args.secondaryKey : undefined;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["modifiedTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["claimType"] = undefined /*out*/;
-            inputs["claimValue"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["keyName"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["modifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["primaryKey"] = undefined /*out*/;
-            inputs["rights"] = undefined /*out*/;
-            inputs["secondaryKey"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["claimType"] = undefined /*out*/;
+            resourceInputs["claimValue"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["keyName"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["modifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["primaryKey"] = undefined /*out*/;
+            resourceInputs["rights"] = undefined /*out*/;
+            resourceInputs["secondaryKey"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20150801:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20210101preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20210601preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20211101:QueueAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(QueueAuthorizationRule.__pulumiType, name, inputs, opts);
+        super(QueueAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

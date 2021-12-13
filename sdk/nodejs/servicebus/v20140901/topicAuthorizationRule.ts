@@ -88,7 +88,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -103,40 +103,40 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
-            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
-            inputs["claimType"] = args ? args.claimType : undefined;
-            inputs["claimValue"] = args ? args.claimValue : undefined;
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["primaryKey"] = args ? args.primaryKey : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rights"] = args ? args.rights : undefined;
-            inputs["secondaryKey"] = args ? args.secondaryKey : undefined;
-            inputs["topicName"] = args ? args.topicName : undefined;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["modifiedTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
+            resourceInputs["claimType"] = args ? args.claimType : undefined;
+            resourceInputs["claimValue"] = args ? args.claimValue : undefined;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rights"] = args ? args.rights : undefined;
+            resourceInputs["secondaryKey"] = args ? args.secondaryKey : undefined;
+            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["modifiedTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["claimType"] = undefined /*out*/;
-            inputs["claimValue"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["keyName"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["modifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["primaryKey"] = undefined /*out*/;
-            inputs["rights"] = undefined /*out*/;
-            inputs["secondaryKey"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["claimType"] = undefined /*out*/;
+            resourceInputs["claimValue"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["keyName"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["modifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["primaryKey"] = undefined /*out*/;
+            resourceInputs["rights"] = undefined /*out*/;
+            resourceInputs["secondaryKey"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20150801:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20180101preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20210101preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20210601preview:TopicAuthorizationRule" }, { type: "azure-native:servicebus/v20211101:TopicAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(TopicAuthorizationRule.__pulumiType, name, inputs, opts);
+        super(TopicAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

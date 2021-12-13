@@ -48,23 +48,23 @@ export class Console extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConsoleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            inputs["consoleName"] = args ? args.consoleName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["consoleName"] = args ? args.consoleName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
         } else {
-            inputs["properties"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:portal:Console" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Console.__pulumiType, name, inputs, opts);
+        super(Console.__pulumiType, name, resourceInputs, opts);
     }
 }
 

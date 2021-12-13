@@ -56,7 +56,7 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerAzureADOnlyAuthenticationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.azureADOnlyAuthentication === undefined) && !opts.urn) {
@@ -68,23 +68,23 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["authenticationName"] = args ? args.authenticationName : undefined;
-            inputs["azureADOnlyAuthentication"] = args ? args.azureADOnlyAuthentication : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authenticationName"] = args ? args.authenticationName : undefined;
+            resourceInputs["azureADOnlyAuthentication"] = args ? args.azureADOnlyAuthentication : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["azureADOnlyAuthentication"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["azureADOnlyAuthentication"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20200202preview:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20200801preview:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20201101preview:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20210201preview:ServerAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20210501preview:ServerAzureADOnlyAuthentication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServerAzureADOnlyAuthentication.__pulumiType, name, inputs, opts);
+        super(ServerAzureADOnlyAuthentication.__pulumiType, name, resourceInputs, opts);
     }
 }
 

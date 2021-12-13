@@ -55,7 +55,7 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagedInstanceAzureADOnlyAuthenticationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.azureADOnlyAuthentication === undefined) && !opts.urn) {
@@ -67,23 +67,23 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authenticationName"] = args ? args.authenticationName : undefined;
-            inputs["azureADOnlyAuthentication"] = args ? args.azureADOnlyAuthentication : undefined;
-            inputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authenticationName"] = args ? args.authenticationName : undefined;
+            resourceInputs["azureADOnlyAuthentication"] = args ? args.azureADOnlyAuthentication : undefined;
+            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["azureADOnlyAuthentication"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["azureADOnlyAuthentication"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication" }, { type: "azure-native:sql/v20210501preview:ManagedInstanceAzureADOnlyAuthentication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagedInstanceAzureADOnlyAuthentication.__pulumiType, name, inputs, opts);
+        super(ManagedInstanceAzureADOnlyAuthentication.__pulumiType, name, resourceInputs, opts);
     }
 }
 

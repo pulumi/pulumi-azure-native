@@ -84,7 +84,7 @@ export class SqlDBTableDataSetMapping extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlDBTableDataSetMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -114,38 +114,38 @@ export class SqlDBTableDataSetMapping extends pulumi.CustomResource {
             if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["dataSetId"] = args ? args.dataSetId : undefined;
-            inputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["kind"] = "SqlDBTable";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schemaName"] = args ? args.schemaName : undefined;
-            inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            inputs["sqlServerResourceId"] = args ? args.sqlServerResourceId : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
-            inputs["dataSetMappingStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
+            resourceInputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["kind"] = "SqlDBTable";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+            resourceInputs["sqlServerResourceId"] = args ? args.sqlServerResourceId : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["dataSetMappingStatus"] = undefined /*out*/;
-            inputs["databaseName"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["schemaName"] = undefined /*out*/;
-            inputs["sqlServerResourceId"] = undefined /*out*/;
-            inputs["tableName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
+            resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["schemaName"] = undefined /*out*/;
+            resourceInputs["sqlServerResourceId"] = undefined /*out*/;
+            resourceInputs["tableName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:SqlDBTableDataSetMapping" }, { type: "azure-native:datashare/v20181101preview:SqlDBTableDataSetMapping" }, { type: "azure-native:datashare/v20200901:SqlDBTableDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:SqlDBTableDataSetMapping" }, { type: "azure-native:datashare/v20210801:SqlDBTableDataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlDBTableDataSetMapping.__pulumiType, name, inputs, opts);
+        super(SqlDBTableDataSetMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

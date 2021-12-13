@@ -101,7 +101,7 @@ export class WatchlistItem extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WatchlistItemArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.itemsKeyValue === undefined) && !opts.urn) {
@@ -119,46 +119,46 @@ export class WatchlistItem extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["created"] = args ? args.created : undefined;
-            inputs["createdBy"] = args ? args.createdBy : undefined;
-            inputs["entityMapping"] = args ? args.entityMapping : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["isDeleted"] = args ? args.isDeleted : undefined;
-            inputs["itemsKeyValue"] = args ? args.itemsKeyValue : undefined;
-            inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["updated"] = args ? args.updated : undefined;
-            inputs["updatedBy"] = args ? args.updatedBy : undefined;
-            inputs["watchlistAlias"] = args ? args.watchlistAlias : undefined;
-            inputs["watchlistItemId"] = args ? args.watchlistItemId : undefined;
-            inputs["watchlistItemType"] = args ? args.watchlistItemType : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["created"] = args ? args.created : undefined;
+            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
+            resourceInputs["entityMapping"] = args ? args.entityMapping : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["isDeleted"] = args ? args.isDeleted : undefined;
+            resourceInputs["itemsKeyValue"] = args ? args.itemsKeyValue : undefined;
+            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["updated"] = args ? args.updated : undefined;
+            resourceInputs["updatedBy"] = args ? args.updatedBy : undefined;
+            resourceInputs["watchlistAlias"] = args ? args.watchlistAlias : undefined;
+            resourceInputs["watchlistItemId"] = args ? args.watchlistItemId : undefined;
+            resourceInputs["watchlistItemType"] = args ? args.watchlistItemType : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["created"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["entityMapping"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["isDeleted"] = undefined /*out*/;
-            inputs["itemsKeyValue"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updated"] = undefined /*out*/;
-            inputs["updatedBy"] = undefined /*out*/;
-            inputs["watchlistItemId"] = undefined /*out*/;
-            inputs["watchlistItemType"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["entityMapping"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["isDeleted"] = undefined /*out*/;
+            resourceInputs["itemsKeyValue"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updated"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["watchlistItemId"] = undefined /*out*/;
+            resourceInputs["watchlistItemType"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20210301preview:WatchlistItem" }, { type: "azure-native:securityinsights/v20210401:WatchlistItem" }, { type: "azure-native:securityinsights/v20210901preview:WatchlistItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WatchlistItem.__pulumiType, name, inputs, opts);
+        super(WatchlistItem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

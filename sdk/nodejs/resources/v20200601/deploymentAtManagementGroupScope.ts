@@ -64,7 +64,7 @@ export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DeploymentAtManagementGroupScopeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupId === undefined) && !opts.urn) {
@@ -73,26 +73,26 @@ export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
             if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            inputs["deploymentName"] = args ? args.deploymentName : undefined;
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190501:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190510:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190701:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20190801:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20191001:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20200801:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20201001:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20210101:DeploymentAtManagementGroupScope" }, { type: "azure-native:resources/v20210401:DeploymentAtManagementGroupScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DeploymentAtManagementGroupScope.__pulumiType, name, inputs, opts);
+        super(DeploymentAtManagementGroupScope.__pulumiType, name, resourceInputs, opts);
     }
 }
 

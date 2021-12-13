@@ -72,7 +72,7 @@ export class JobSchedule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: JobScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -87,30 +87,30 @@ export class JobSchedule extends pulumi.CustomResource {
             if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["jobScheduleId"] = args ? args.jobScheduleId : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["runOn"] = args ? args.runOn : undefined;
-            inputs["runbook"] = args ? args.runbook : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["jobScheduleId"] = args ? args.jobScheduleId : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["runOn"] = args ? args.runOn : undefined;
+            resourceInputs["runbook"] = args ? args.runbook : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["jobScheduleId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["runOn"] = undefined /*out*/;
-            inputs["runbook"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["jobScheduleId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["runOn"] = undefined /*out*/;
+            resourceInputs["runbook"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:JobSchedule" }, { type: "azure-native:automation/v20151031:JobSchedule" }, { type: "azure-native:automation/v20190601:JobSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(JobSchedule.__pulumiType, name, inputs, opts);
+        super(JobSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

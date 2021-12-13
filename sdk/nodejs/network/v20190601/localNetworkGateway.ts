@@ -84,43 +84,43 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LocalNetworkGatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["localNetworkAddressSpace"] = args ? args.localNetworkAddressSpace : undefined;
-            inputs["localNetworkGatewayName"] = args ? args.localNetworkGatewayName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["localNetworkAddressSpace"] = args ? args.localNetworkAddressSpace : undefined;
+            resourceInputs["localNetworkGatewayName"] = args ? args.localNetworkGatewayName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGuid"] = args ? args.resourceGuid : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["bgpSettings"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["gatewayIpAddress"] = undefined /*out*/;
-            inputs["localNetworkAddressSpace"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bgpSettings"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["gatewayIpAddress"] = undefined /*out*/;
+            resourceInputs["localNetworkAddressSpace"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:LocalNetworkGateway" }, { type: "azure-native:network/v20150615:LocalNetworkGateway" }, { type: "azure-native:network/v20160330:LocalNetworkGateway" }, { type: "azure-native:network/v20160601:LocalNetworkGateway" }, { type: "azure-native:network/v20160901:LocalNetworkGateway" }, { type: "azure-native:network/v20161201:LocalNetworkGateway" }, { type: "azure-native:network/v20170301:LocalNetworkGateway" }, { type: "azure-native:network/v20170601:LocalNetworkGateway" }, { type: "azure-native:network/v20170801:LocalNetworkGateway" }, { type: "azure-native:network/v20170901:LocalNetworkGateway" }, { type: "azure-native:network/v20171001:LocalNetworkGateway" }, { type: "azure-native:network/v20171101:LocalNetworkGateway" }, { type: "azure-native:network/v20180101:LocalNetworkGateway" }, { type: "azure-native:network/v20180201:LocalNetworkGateway" }, { type: "azure-native:network/v20180401:LocalNetworkGateway" }, { type: "azure-native:network/v20180601:LocalNetworkGateway" }, { type: "azure-native:network/v20180701:LocalNetworkGateway" }, { type: "azure-native:network/v20180801:LocalNetworkGateway" }, { type: "azure-native:network/v20181001:LocalNetworkGateway" }, { type: "azure-native:network/v20181101:LocalNetworkGateway" }, { type: "azure-native:network/v20181201:LocalNetworkGateway" }, { type: "azure-native:network/v20190201:LocalNetworkGateway" }, { type: "azure-native:network/v20190401:LocalNetworkGateway" }, { type: "azure-native:network/v20190701:LocalNetworkGateway" }, { type: "azure-native:network/v20190801:LocalNetworkGateway" }, { type: "azure-native:network/v20190901:LocalNetworkGateway" }, { type: "azure-native:network/v20191101:LocalNetworkGateway" }, { type: "azure-native:network/v20191201:LocalNetworkGateway" }, { type: "azure-native:network/v20200301:LocalNetworkGateway" }, { type: "azure-native:network/v20200401:LocalNetworkGateway" }, { type: "azure-native:network/v20200501:LocalNetworkGateway" }, { type: "azure-native:network/v20200601:LocalNetworkGateway" }, { type: "azure-native:network/v20200701:LocalNetworkGateway" }, { type: "azure-native:network/v20200801:LocalNetworkGateway" }, { type: "azure-native:network/v20201101:LocalNetworkGateway" }, { type: "azure-native:network/v20210201:LocalNetworkGateway" }, { type: "azure-native:network/v20210301:LocalNetworkGateway" }, { type: "azure-native:network/v20210501:LocalNetworkGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LocalNetworkGateway.__pulumiType, name, inputs, opts);
+        super(LocalNetworkGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

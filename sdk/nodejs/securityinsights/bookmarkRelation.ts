@@ -72,7 +72,7 @@ export class BookmarkRelation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BookmarkRelationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.bookmarkId === undefined) && !opts.urn) {
@@ -90,33 +90,33 @@ export class BookmarkRelation extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["bookmarkId"] = args ? args.bookmarkId : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
-            inputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
-            inputs["relationName"] = args ? args.relationName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["relatedResourceKind"] = undefined /*out*/;
-            inputs["relatedResourceName"] = undefined /*out*/;
-            inputs["relatedResourceType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bookmarkId"] = args ? args.bookmarkId : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
+            resourceInputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
+            resourceInputs["relationName"] = args ? args.relationName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["relatedResourceKind"] = undefined /*out*/;
+            resourceInputs["relatedResourceName"] = undefined /*out*/;
+            resourceInputs["relatedResourceType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["relatedResourceId"] = undefined /*out*/;
-            inputs["relatedResourceKind"] = undefined /*out*/;
-            inputs["relatedResourceName"] = undefined /*out*/;
-            inputs["relatedResourceType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["relatedResourceId"] = undefined /*out*/;
+            resourceInputs["relatedResourceKind"] = undefined /*out*/;
+            resourceInputs["relatedResourceName"] = undefined /*out*/;
+            resourceInputs["relatedResourceType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20210901preview:BookmarkRelation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BookmarkRelation.__pulumiType, name, inputs, opts);
+        super(BookmarkRelation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

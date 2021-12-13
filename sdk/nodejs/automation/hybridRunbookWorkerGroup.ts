@@ -69,7 +69,7 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HybridRunbookWorkerGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -78,29 +78,29 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["credential"] = args ? args.credential : undefined;
-            inputs["hybridRunbookWorkerGroupName"] = args ? args.hybridRunbookWorkerGroupName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["groupType"] = undefined /*out*/;
-            inputs["hybridRunbookWorkers"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["credential"] = args ? args.credential : undefined;
+            resourceInputs["hybridRunbookWorkerGroupName"] = args ? args.hybridRunbookWorkerGroupName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["groupType"] = undefined /*out*/;
+            resourceInputs["hybridRunbookWorkers"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["credential"] = undefined /*out*/;
-            inputs["groupType"] = undefined /*out*/;
-            inputs["hybridRunbookWorkers"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["credential"] = undefined /*out*/;
+            resourceInputs["groupType"] = undefined /*out*/;
+            resourceInputs["hybridRunbookWorkers"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation/v20210622:HybridRunbookWorkerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(HybridRunbookWorkerGroup.__pulumiType, name, inputs, opts);
+        super(HybridRunbookWorkerGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

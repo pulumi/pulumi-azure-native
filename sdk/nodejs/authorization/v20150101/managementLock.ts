@@ -60,26 +60,26 @@ export class ManagementLock extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ManagementLockArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["level"] = args ? args.level : undefined;
-            inputs["lockName"] = args ? args.lockName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["level"] = args ? args.level : undefined;
+            resourceInputs["lockName"] = args ? args.lockName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["level"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["level"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:ManagementLock" }, { type: "azure-native:authorization/v20160901:ManagementLock" }, { type: "azure-native:authorization/v20170401:ManagementLock" }, { type: "azure-native:authorization/v20200501:ManagementLock" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagementLock.__pulumiType, name, inputs, opts);
+        super(ManagementLock.__pulumiType, name, resourceInputs, opts);
     }
 }
 

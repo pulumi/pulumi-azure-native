@@ -80,40 +80,40 @@ export class NotebookProxy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NotebookProxyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["hostname"] = args ? args.hostname : undefined;
-            inputs["publicDns"] = args ? args.publicDns : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            inputs["region"] = args ? args.region : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["secondaryAppId"] = args ? args.secondaryAppId : undefined;
-            inputs["systemData"] = args ? args.systemData : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hostname"] = args ? args.hostname : undefined;
+            resourceInputs["publicDns"] = args ? args.publicDns : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["secondaryAppId"] = args ? args.secondaryAppId : undefined;
+            resourceInputs["systemData"] = args ? args.systemData : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["hostname"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["publicDns"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["region"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["secondaryAppId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publicDns"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["secondaryAppId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:notebooks:NotebookProxy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NotebookProxy.__pulumiType, name, inputs, opts);
+        super(NotebookProxy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

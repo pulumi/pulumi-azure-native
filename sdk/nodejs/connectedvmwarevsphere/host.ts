@@ -105,52 +105,52 @@ export class Host extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HostArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["moRefId"] = args ? args.moRefId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vCenterId"] = args ? args.vCenterId : undefined;
-            inputs["customResourceName"] = undefined /*out*/;
-            inputs["moName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["moRefId"] = args ? args.moRefId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
+            resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["moName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
         } else {
-            inputs["customResourceName"] = undefined /*out*/;
-            inputs["extendedLocation"] = undefined /*out*/;
-            inputs["inventoryItemId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["moName"] = undefined /*out*/;
-            inputs["moRefId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
-            inputs["vCenterId"] = undefined /*out*/;
+            resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["inventoryItemId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["moName"] = undefined /*out*/;
+            resourceInputs["moRefId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
+            resourceInputs["vCenterId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:Host" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Host.__pulumiType, name, inputs, opts);
+        super(Host.__pulumiType, name, resourceInputs, opts);
     }
 }
 

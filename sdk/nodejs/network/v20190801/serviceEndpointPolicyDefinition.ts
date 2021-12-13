@@ -67,7 +67,7 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceEndpointPolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -76,30 +76,30 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointPolicyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointPolicyName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["service"] = args ? args.service : undefined;
-            inputs["serviceEndpointPolicyDefinitionName"] = args ? args.serviceEndpointPolicyDefinitionName : undefined;
-            inputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
-            inputs["serviceResources"] = args ? args.serviceResources : undefined;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["service"] = args ? args.service : undefined;
+            resourceInputs["serviceEndpointPolicyDefinitionName"] = args ? args.serviceEndpointPolicyDefinitionName : undefined;
+            resourceInputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
+            resourceInputs["serviceResources"] = args ? args.serviceResources : undefined;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["service"] = undefined /*out*/;
-            inputs["serviceResources"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["service"] = undefined /*out*/;
+            resourceInputs["serviceResources"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20180701:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20180801:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20181001:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20181101:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20181201:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190201:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190401:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190601:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190701:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20190901:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20191101:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20191201:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200301:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200401:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200501:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200601:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200701:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20200801:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20201101:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20210201:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20210301:ServiceEndpointPolicyDefinition" }, { type: "azure-native:network/v20210501:ServiceEndpointPolicyDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServiceEndpointPolicyDefinition.__pulumiType, name, inputs, opts);
+        super(ServiceEndpointPolicyDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

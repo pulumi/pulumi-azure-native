@@ -128,7 +128,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StreamingEndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -140,60 +140,60 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             if ((!args || args.scaleUnits === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scaleUnits'");
             }
-            inputs["accessControl"] = args ? args.accessControl : undefined;
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["autoStart"] = args ? args.autoStart : undefined;
-            inputs["availabilitySetName"] = args ? args.availabilitySetName : undefined;
-            inputs["cdnEnabled"] = args ? args.cdnEnabled : undefined;
-            inputs["cdnProfile"] = args ? args.cdnProfile : undefined;
-            inputs["cdnProvider"] = args ? args.cdnProvider : undefined;
-            inputs["crossSiteAccessPolicies"] = args ? args.crossSiteAccessPolicies : undefined;
-            inputs["customHostNames"] = args ? args.customHostNames : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxCacheAge"] = args ? args.maxCacheAge : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scaleUnits"] = args ? args.scaleUnits : undefined;
-            inputs["streamingEndpointName"] = args ? args.streamingEndpointName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["created"] = undefined /*out*/;
-            inputs["freeTrialEndTime"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accessControl"] = args ? args.accessControl : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["autoStart"] = args ? args.autoStart : undefined;
+            resourceInputs["availabilitySetName"] = args ? args.availabilitySetName : undefined;
+            resourceInputs["cdnEnabled"] = args ? args.cdnEnabled : undefined;
+            resourceInputs["cdnProfile"] = args ? args.cdnProfile : undefined;
+            resourceInputs["cdnProvider"] = args ? args.cdnProvider : undefined;
+            resourceInputs["crossSiteAccessPolicies"] = args ? args.crossSiteAccessPolicies : undefined;
+            resourceInputs["customHostNames"] = args ? args.customHostNames : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxCacheAge"] = args ? args.maxCacheAge : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
+            resourceInputs["streamingEndpointName"] = args ? args.streamingEndpointName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["freeTrialEndTime"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accessControl"] = undefined /*out*/;
-            inputs["availabilitySetName"] = undefined /*out*/;
-            inputs["cdnEnabled"] = undefined /*out*/;
-            inputs["cdnProfile"] = undefined /*out*/;
-            inputs["cdnProvider"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["crossSiteAccessPolicies"] = undefined /*out*/;
-            inputs["customHostNames"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["freeTrialEndTime"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maxCacheAge"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["scaleUnits"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accessControl"] = undefined /*out*/;
+            resourceInputs["availabilitySetName"] = undefined /*out*/;
+            resourceInputs["cdnEnabled"] = undefined /*out*/;
+            resourceInputs["cdnProfile"] = undefined /*out*/;
+            resourceInputs["cdnProvider"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["crossSiteAccessPolicies"] = undefined /*out*/;
+            resourceInputs["customHostNames"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["freeTrialEndTime"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxCacheAge"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["scaleUnits"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:StreamingEndpoint" }, { type: "azure-native:media/v20180330preview:StreamingEndpoint" }, { type: "azure-native:media/v20180601preview:StreamingEndpoint" }, { type: "azure-native:media/v20180701:StreamingEndpoint" }, { type: "azure-native:media/v20190501preview:StreamingEndpoint" }, { type: "azure-native:media/v20210601:StreamingEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(StreamingEndpoint.__pulumiType, name, inputs, opts);
+        super(StreamingEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

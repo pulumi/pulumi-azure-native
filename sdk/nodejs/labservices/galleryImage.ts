@@ -109,7 +109,7 @@ export class GalleryImage extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GalleryImageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labAccountName === undefined) && !opts.urn) {
@@ -118,49 +118,49 @@ export class GalleryImage extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["galleryImageName"] = args ? args.galleryImageName : undefined;
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["isOverride"] = args ? args.isOverride : undefined;
-            inputs["isPlanAuthorized"] = args ? args.isPlanAuthorized : undefined;
-            inputs["labAccountName"] = args ? args.labAccountName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["author"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["icon"] = undefined /*out*/;
-            inputs["imageReference"] = undefined /*out*/;
-            inputs["latestOperationResult"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["planId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["galleryImageName"] = args ? args.galleryImageName : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["isOverride"] = args ? args.isOverride : undefined;
+            resourceInputs["isPlanAuthorized"] = args ? args.isPlanAuthorized : undefined;
+            resourceInputs["labAccountName"] = args ? args.labAccountName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["icon"] = undefined /*out*/;
+            resourceInputs["imageReference"] = undefined /*out*/;
+            resourceInputs["latestOperationResult"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["planId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["author"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["icon"] = undefined /*out*/;
-            inputs["imageReference"] = undefined /*out*/;
-            inputs["isEnabled"] = undefined /*out*/;
-            inputs["isOverride"] = undefined /*out*/;
-            inputs["isPlanAuthorized"] = undefined /*out*/;
-            inputs["latestOperationResult"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["planId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["icon"] = undefined /*out*/;
+            resourceInputs["imageReference"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = undefined /*out*/;
+            resourceInputs["isOverride"] = undefined /*out*/;
+            resourceInputs["isPlanAuthorized"] = undefined /*out*/;
+            resourceInputs["latestOperationResult"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["planId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20181015:GalleryImage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GalleryImage.__pulumiType, name, inputs, opts);
+        super(GalleryImage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

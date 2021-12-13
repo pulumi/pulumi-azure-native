@@ -56,28 +56,28 @@ export class DeviceGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DeviceGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.iotDefenderLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iotDefenderLocation'");
             }
-            inputs["deviceGroupName"] = args ? args.deviceGroupName : undefined;
-            inputs["iotDefenderLocation"] = args ? args.iotDefenderLocation : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deviceGroupName"] = args ? args.deviceGroupName : undefined;
+            resourceInputs["iotDefenderLocation"] = args ? args.iotDefenderLocation : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:iotsecurity:DeviceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DeviceGroup.__pulumiType, name, inputs, opts);
+        super(DeviceGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -77,7 +77,7 @@ export class IncidentComment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IncidentCommentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.incidentId === undefined) && !opts.urn) {
@@ -95,35 +95,35 @@ export class IncidentComment extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["incidentCommentId"] = args ? args.incidentCommentId : undefined;
-            inputs["incidentId"] = args ? args.incidentId : undefined;
-            inputs["message"] = args ? args.message : undefined;
-            inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["author"] = undefined /*out*/;
-            inputs["createdTimeUtc"] = undefined /*out*/;
-            inputs["lastModifiedTimeUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["incidentCommentId"] = args ? args.incidentCommentId : undefined;
+            resourceInputs["incidentId"] = args ? args.incidentId : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["createdTimeUtc"] = undefined /*out*/;
+            resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["author"] = undefined /*out*/;
-            inputs["createdTimeUtc"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["lastModifiedTimeUtc"] = undefined /*out*/;
-            inputs["message"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["createdTimeUtc"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            resourceInputs["message"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210301preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210401:IncidentComment" }, { type: "azure-native:securityinsights/v20210901preview:IncidentComment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IncidentComment.__pulumiType, name, inputs, opts);
+        super(IncidentComment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

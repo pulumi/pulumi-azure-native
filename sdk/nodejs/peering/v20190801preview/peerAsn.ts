@@ -68,30 +68,30 @@ export class PeerAsn extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: PeerAsnArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["peerAsn"] = args ? args.peerAsn : undefined;
-            inputs["peerAsnName"] = args ? args.peerAsnName : undefined;
-            inputs["peerContactInfo"] = args ? args.peerContactInfo : undefined;
-            inputs["peerName"] = args ? args.peerName : undefined;
-            inputs["validationState"] = args ? args.validationState : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
+            resourceInputs["peerAsnName"] = args ? args.peerAsnName : undefined;
+            resourceInputs["peerContactInfo"] = args ? args.peerContactInfo : undefined;
+            resourceInputs["peerName"] = args ? args.peerName : undefined;
+            resourceInputs["validationState"] = args ? args.validationState : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["peerAsn"] = undefined /*out*/;
-            inputs["peerContactInfo"] = undefined /*out*/;
-            inputs["peerName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validationState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peerAsn"] = undefined /*out*/;
+            resourceInputs["peerContactInfo"] = undefined /*out*/;
+            resourceInputs["peerName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationState"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:peering:PeerAsn" }, { type: "azure-native:peering/v20190901preview:PeerAsn" }, { type: "azure-native:peering/v20200101preview:PeerAsn" }, { type: "azure-native:peering/v20200401:PeerAsn" }, { type: "azure-native:peering/v20201001:PeerAsn" }, { type: "azure-native:peering/v20210101:PeerAsn" }, { type: "azure-native:peering/v20210601:PeerAsn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PeerAsn.__pulumiType, name, inputs, opts);
+        super(PeerAsn.__pulumiType, name, resourceInputs, opts);
     }
 }
 

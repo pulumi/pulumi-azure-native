@@ -112,56 +112,56 @@ export class FrontDoor extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FrontDoorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["backendPools"] = args ? args.backendPools : undefined;
-            inputs["backendPoolsSettings"] = args ? args.backendPoolsSettings : undefined;
-            inputs["enabledState"] = args ? args.enabledState : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["frontDoorName"] = args ? args.frontDoorName : undefined;
-            inputs["frontendEndpoints"] = args ? args.frontendEndpoints : undefined;
-            inputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
-            inputs["loadBalancingSettings"] = args ? args.loadBalancingSettings : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routingRules"] = args ? args.routingRules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["cname"] = undefined /*out*/;
-            inputs["frontdoorId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["rulesEngines"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backendPools"] = args ? args.backendPools : undefined;
+            resourceInputs["backendPoolsSettings"] = args ? (args.backendPoolsSettings ? pulumi.output(args.backendPoolsSettings).apply(inputs.network.v20200101.backendPoolsSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["enabledState"] = args ? args.enabledState : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["frontDoorName"] = args ? args.frontDoorName : undefined;
+            resourceInputs["frontendEndpoints"] = args ? args.frontendEndpoints : undefined;
+            resourceInputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
+            resourceInputs["loadBalancingSettings"] = args ? args.loadBalancingSettings : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routingRules"] = args ? args.routingRules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cname"] = undefined /*out*/;
+            resourceInputs["frontdoorId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["rulesEngines"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["backendPools"] = undefined /*out*/;
-            inputs["backendPoolsSettings"] = undefined /*out*/;
-            inputs["cname"] = undefined /*out*/;
-            inputs["enabledState"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["frontdoorId"] = undefined /*out*/;
-            inputs["frontendEndpoints"] = undefined /*out*/;
-            inputs["healthProbeSettings"] = undefined /*out*/;
-            inputs["loadBalancingSettings"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["routingRules"] = undefined /*out*/;
-            inputs["rulesEngines"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backendPools"] = undefined /*out*/;
+            resourceInputs["backendPoolsSettings"] = undefined /*out*/;
+            resourceInputs["cname"] = undefined /*out*/;
+            resourceInputs["enabledState"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["frontdoorId"] = undefined /*out*/;
+            resourceInputs["frontendEndpoints"] = undefined /*out*/;
+            resourceInputs["healthProbeSettings"] = undefined /*out*/;
+            resourceInputs["loadBalancingSettings"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["routingRules"] = undefined /*out*/;
+            resourceInputs["rulesEngines"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:FrontDoor" }, { type: "azure-native:network/v20190401:FrontDoor" }, { type: "azure-native:network/v20190501:FrontDoor" }, { type: "azure-native:network/v20200401:FrontDoor" }, { type: "azure-native:network/v20200501:FrontDoor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FrontDoor.__pulumiType, name, inputs, opts);
+        super(FrontDoor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

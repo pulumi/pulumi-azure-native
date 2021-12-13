@@ -69,7 +69,7 @@ export class SynapseWorkspaceSqlPoolTableDataSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SynapseWorkspaceSqlPoolTableDataSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -87,30 +87,30 @@ export class SynapseWorkspaceSqlPoolTableDataSet extends pulumi.CustomResource {
             if ((!args || args.synapseWorkspaceSqlPoolTableResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceSqlPoolTableResourceId'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["dataSetName"] = args ? args.dataSetName : undefined;
-            inputs["kind"] = "SynapseWorkspaceSqlPoolTable";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["synapseWorkspaceSqlPoolTableResourceId"] = args ? args.synapseWorkspaceSqlPoolTableResourceId : undefined;
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
+            resourceInputs["kind"] = "SynapseWorkspaceSqlPoolTable";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["synapseWorkspaceSqlPoolTableResourceId"] = args ? args.synapseWorkspaceSqlPoolTableResourceId : undefined;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["synapseWorkspaceSqlPoolTableResourceId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["synapseWorkspaceSqlPoolTableResourceId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSet" }, { type: "azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSet" }, { type: "azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSet" }, { type: "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSet" }, { type: "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SynapseWorkspaceSqlPoolTableDataSet.__pulumiType, name, inputs, opts);
+        super(SynapseWorkspaceSqlPoolTableDataSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

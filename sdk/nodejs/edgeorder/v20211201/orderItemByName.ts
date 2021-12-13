@@ -80,7 +80,7 @@ export class OrderItemByName extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OrderItemByNameArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.addressDetails === undefined) && !opts.urn) {
@@ -95,34 +95,34 @@ export class OrderItemByName extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["addressDetails"] = args ? args.addressDetails : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["orderId"] = args ? args.orderId : undefined;
-            inputs["orderItemDetails"] = args ? args.orderItemDetails : undefined;
-            inputs["orderItemName"] = args ? args.orderItemName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addressDetails"] = args ? args.addressDetails : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["orderId"] = args ? args.orderId : undefined;
+            resourceInputs["orderItemDetails"] = args ? args.orderItemDetails : undefined;
+            resourceInputs["orderItemName"] = args ? args.orderItemName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["addressDetails"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["orderId"] = undefined /*out*/;
-            inputs["orderItemDetails"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addressDetails"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["orderId"] = undefined /*out*/;
+            resourceInputs["orderItemDetails"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:edgeorder:OrderItemByName" }, { type: "azure-native:edgeorder/v20201201preview:OrderItemByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(OrderItemByName.__pulumiType, name, inputs, opts);
+        super(OrderItemByName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -80,41 +80,41 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SecurityPartnerProviderArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securityPartnerProviderName"] = args ? args.securityPartnerProviderName : undefined;
-            inputs["securityProviderName"] = args ? args.securityProviderName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualHub"] = args ? args.virtualHub : undefined;
-            inputs["connectionStatus"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securityPartnerProviderName"] = args ? args.securityPartnerProviderName : undefined;
+            resourceInputs["securityProviderName"] = args ? args.securityProviderName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["connectionStatus"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["connectionStatus"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["securityProviderName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualHub"] = undefined /*out*/;
+            resourceInputs["connectionStatus"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["securityProviderName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualHub"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:SecurityPartnerProvider" }, { type: "azure-native:network/v20200301:SecurityPartnerProvider" }, { type: "azure-native:network/v20200401:SecurityPartnerProvider" }, { type: "azure-native:network/v20200501:SecurityPartnerProvider" }, { type: "azure-native:network/v20200701:SecurityPartnerProvider" }, { type: "azure-native:network/v20200801:SecurityPartnerProvider" }, { type: "azure-native:network/v20201101:SecurityPartnerProvider" }, { type: "azure-native:network/v20210201:SecurityPartnerProvider" }, { type: "azure-native:network/v20210301:SecurityPartnerProvider" }, { type: "azure-native:network/v20210501:SecurityPartnerProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SecurityPartnerProvider.__pulumiType, name, inputs, opts);
+        super(SecurityPartnerProvider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

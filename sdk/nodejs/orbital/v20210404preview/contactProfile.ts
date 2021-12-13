@@ -88,7 +88,7 @@ export class ContactProfile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ContactProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.links === undefined) && !opts.urn) {
@@ -97,38 +97,38 @@ export class ContactProfile extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoTrackingConfiguration"] = args ? args.autoTrackingConfiguration : undefined;
-            inputs["contactProfileName"] = args ? args.contactProfileName : undefined;
-            inputs["eventHubUri"] = args ? args.eventHubUri : undefined;
-            inputs["links"] = args ? args.links : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["minimumElevationDegrees"] = args ? args.minimumElevationDegrees : undefined;
-            inputs["minimumViableContactDuration"] = args ? args.minimumViableContactDuration : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoTrackingConfiguration"] = args ? args.autoTrackingConfiguration : undefined;
+            resourceInputs["contactProfileName"] = args ? args.contactProfileName : undefined;
+            resourceInputs["eventHubUri"] = args ? args.eventHubUri : undefined;
+            resourceInputs["links"] = args ? args.links : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumElevationDegrees"] = args ? args.minimumElevationDegrees : undefined;
+            resourceInputs["minimumViableContactDuration"] = args ? args.minimumViableContactDuration : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["autoTrackingConfiguration"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["eventHubUri"] = undefined /*out*/;
-            inputs["links"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["minimumElevationDegrees"] = undefined /*out*/;
-            inputs["minimumViableContactDuration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoTrackingConfiguration"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eventHubUri"] = undefined /*out*/;
+            resourceInputs["links"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["minimumElevationDegrees"] = undefined /*out*/;
+            resourceInputs["minimumViableContactDuration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:orbital:ContactProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ContactProfile.__pulumiType, name, inputs, opts);
+        super(ContactProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

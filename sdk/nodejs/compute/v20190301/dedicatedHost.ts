@@ -96,7 +96,7 @@ export class DedicatedHost extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DedicatedHostArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hostGroupName === undefined) && !opts.urn) {
@@ -108,43 +108,43 @@ export class DedicatedHost extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["autoReplaceOnFailure"] = args ? args.autoReplaceOnFailure : undefined;
-            inputs["hostGroupName"] = args ? args.hostGroupName : undefined;
-            inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["licenseType"] = args ? args.licenseType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["hostId"] = undefined /*out*/;
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["provisioningTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualMachines"] = undefined /*out*/;
+            resourceInputs["autoReplaceOnFailure"] = args ? args.autoReplaceOnFailure : undefined;
+            resourceInputs["hostGroupName"] = args ? args.hostGroupName : undefined;
+            resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hostId"] = undefined /*out*/;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["provisioningTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachines"] = undefined /*out*/;
         } else {
-            inputs["autoReplaceOnFailure"] = undefined /*out*/;
-            inputs["hostId"] = undefined /*out*/;
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["licenseType"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["platformFaultDomain"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["provisioningTime"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualMachines"] = undefined /*out*/;
+            resourceInputs["autoReplaceOnFailure"] = undefined /*out*/;
+            resourceInputs["hostId"] = undefined /*out*/;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["licenseType"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["platformFaultDomain"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["provisioningTime"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachines"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:DedicatedHost" }, { type: "azure-native:compute/v20190701:DedicatedHost" }, { type: "azure-native:compute/v20191201:DedicatedHost" }, { type: "azure-native:compute/v20200601:DedicatedHost" }, { type: "azure-native:compute/v20201201:DedicatedHost" }, { type: "azure-native:compute/v20210301:DedicatedHost" }, { type: "azure-native:compute/v20210401:DedicatedHost" }, { type: "azure-native:compute/v20210701:DedicatedHost" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DedicatedHost.__pulumiType, name, inputs, opts);
+        super(DedicatedHost.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -73,7 +73,7 @@ export class ApiDiagnosticLogger extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiDiagnosticLoggerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -88,33 +88,33 @@ export class ApiDiagnosticLogger extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["diagnosticId"] = args ? args.diagnosticId : undefined;
-            inputs["loggerid"] = args ? args.loggerid : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["credentials"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["isBuffered"] = undefined /*out*/;
-            inputs["loggerType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sampling"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["diagnosticId"] = args ? args.diagnosticId : undefined;
+            resourceInputs["loggerid"] = args ? args.loggerid : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["isBuffered"] = undefined /*out*/;
+            resourceInputs["loggerType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sampling"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["credentials"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["isBuffered"] = undefined /*out*/;
-            inputs["loggerType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sampling"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["isBuffered"] = undefined /*out*/;
+            resourceInputs["loggerType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sampling"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiDiagnosticLogger" }, { type: "azure-native:apimanagement/v20180101:ApiDiagnosticLogger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApiDiagnosticLogger.__pulumiType, name, inputs, opts);
+        super(ApiDiagnosticLogger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

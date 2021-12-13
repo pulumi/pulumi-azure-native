@@ -55,7 +55,7 @@ export class AccessControlRecord extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccessControlRecordArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.initiatorName === undefined) && !opts.urn) {
@@ -67,23 +67,23 @@ export class AccessControlRecord extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accessControlRecordName"] = args ? args.accessControlRecordName : undefined;
-            inputs["initiatorName"] = args ? args.initiatorName : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accessControlRecordName"] = args ? args.accessControlRecordName : undefined;
+            resourceInputs["initiatorName"] = args ? args.initiatorName : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["initiatorName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["initiatorName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:AccessControlRecord" }, { type: "azure-native:storsimple/v20170601:AccessControlRecord" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AccessControlRecord.__pulumiType, name, inputs, opts);
+        super(AccessControlRecord.__pulumiType, name, resourceInputs, opts);
     }
 }
 

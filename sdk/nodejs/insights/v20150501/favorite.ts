@@ -88,7 +88,7 @@ export class Favorite extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FavoriteArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -97,38 +97,38 @@ export class Favorite extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["category"] = args ? args.category : undefined;
-            inputs["config"] = args ? args.config : undefined;
-            inputs["favoriteId"] = args ? args.favoriteId : undefined;
-            inputs["favoriteType"] = args ? args.favoriteType : undefined;
-            inputs["isGeneratedFromTemplate"] = args ? args.isGeneratedFromTemplate : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["sourceType"] = args ? args.sourceType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["timeModified"] = undefined /*out*/;
-            inputs["userId"] = undefined /*out*/;
+            resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["config"] = args ? args.config : undefined;
+            resourceInputs["favoriteId"] = args ? args.favoriteId : undefined;
+            resourceInputs["favoriteType"] = args ? args.favoriteType : undefined;
+            resourceInputs["isGeneratedFromTemplate"] = args ? args.isGeneratedFromTemplate : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["userId"] = undefined /*out*/;
         } else {
-            inputs["category"] = undefined /*out*/;
-            inputs["config"] = undefined /*out*/;
-            inputs["favoriteId"] = undefined /*out*/;
-            inputs["favoriteType"] = undefined /*out*/;
-            inputs["isGeneratedFromTemplate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sourceType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeModified"] = undefined /*out*/;
-            inputs["userId"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["category"] = undefined /*out*/;
+            resourceInputs["config"] = undefined /*out*/;
+            resourceInputs["favoriteId"] = undefined /*out*/;
+            resourceInputs["favoriteType"] = undefined /*out*/;
+            resourceInputs["isGeneratedFromTemplate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["userId"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:Favorite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Favorite.__pulumiType, name, inputs, opts);
+        super(Favorite.__pulumiType, name, resourceInputs, opts);
     }
 }
 

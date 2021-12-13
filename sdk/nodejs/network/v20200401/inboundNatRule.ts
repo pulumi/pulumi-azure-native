@@ -92,7 +92,7 @@ export class InboundNatRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: InboundNatRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
@@ -101,42 +101,42 @@ export class InboundNatRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["backendPort"] = args ? args.backendPort : undefined;
-            inputs["enableFloatingIP"] = args ? args.enableFloatingIP : undefined;
-            inputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
-            inputs["frontendIPConfiguration"] = args ? args.frontendIPConfiguration : undefined;
-            inputs["frontendPort"] = args ? args.frontendPort : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            inputs["inboundNatRuleName"] = args ? args.inboundNatRuleName : undefined;
-            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["backendIPConfiguration"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backendPort"] = args ? args.backendPort : undefined;
+            resourceInputs["enableFloatingIP"] = args ? args.enableFloatingIP : undefined;
+            resourceInputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
+            resourceInputs["frontendIPConfiguration"] = args ? args.frontendIPConfiguration : undefined;
+            resourceInputs["frontendPort"] = args ? args.frontendPort : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
+            resourceInputs["inboundNatRuleName"] = args ? args.inboundNatRuleName : undefined;
+            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["backendIPConfiguration"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["backendIPConfiguration"] = undefined /*out*/;
-            inputs["backendPort"] = undefined /*out*/;
-            inputs["enableFloatingIP"] = undefined /*out*/;
-            inputs["enableTcpReset"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["frontendIPConfiguration"] = undefined /*out*/;
-            inputs["frontendPort"] = undefined /*out*/;
-            inputs["idleTimeoutInMinutes"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backendIPConfiguration"] = undefined /*out*/;
+            resourceInputs["backendPort"] = undefined /*out*/;
+            resourceInputs["enableFloatingIP"] = undefined /*out*/;
+            resourceInputs["enableTcpReset"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["frontendIPConfiguration"] = undefined /*out*/;
+            resourceInputs["frontendPort"] = undefined /*out*/;
+            resourceInputs["idleTimeoutInMinutes"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:InboundNatRule" }, { type: "azure-native:network/v20170601:InboundNatRule" }, { type: "azure-native:network/v20170801:InboundNatRule" }, { type: "azure-native:network/v20170901:InboundNatRule" }, { type: "azure-native:network/v20171001:InboundNatRule" }, { type: "azure-native:network/v20171101:InboundNatRule" }, { type: "azure-native:network/v20180101:InboundNatRule" }, { type: "azure-native:network/v20180201:InboundNatRule" }, { type: "azure-native:network/v20180401:InboundNatRule" }, { type: "azure-native:network/v20180601:InboundNatRule" }, { type: "azure-native:network/v20180701:InboundNatRule" }, { type: "azure-native:network/v20180801:InboundNatRule" }, { type: "azure-native:network/v20181001:InboundNatRule" }, { type: "azure-native:network/v20181101:InboundNatRule" }, { type: "azure-native:network/v20181201:InboundNatRule" }, { type: "azure-native:network/v20190201:InboundNatRule" }, { type: "azure-native:network/v20190401:InboundNatRule" }, { type: "azure-native:network/v20190601:InboundNatRule" }, { type: "azure-native:network/v20190701:InboundNatRule" }, { type: "azure-native:network/v20190801:InboundNatRule" }, { type: "azure-native:network/v20190901:InboundNatRule" }, { type: "azure-native:network/v20191101:InboundNatRule" }, { type: "azure-native:network/v20191201:InboundNatRule" }, { type: "azure-native:network/v20200301:InboundNatRule" }, { type: "azure-native:network/v20200501:InboundNatRule" }, { type: "azure-native:network/v20200601:InboundNatRule" }, { type: "azure-native:network/v20200701:InboundNatRule" }, { type: "azure-native:network/v20200801:InboundNatRule" }, { type: "azure-native:network/v20201101:InboundNatRule" }, { type: "azure-native:network/v20210201:InboundNatRule" }, { type: "azure-native:network/v20210301:InboundNatRule" }, { type: "azure-native:network/v20210501:InboundNatRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(InboundNatRule.__pulumiType, name, inputs, opts);
+        super(InboundNatRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

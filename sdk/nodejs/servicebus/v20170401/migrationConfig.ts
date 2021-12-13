@@ -71,7 +71,7 @@ export class MigrationConfig extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MigrationConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -86,31 +86,31 @@ export class MigrationConfig extends pulumi.CustomResource {
             if ((!args || args.targetNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetNamespace'");
             }
-            inputs["configName"] = args ? args.configName : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["postMigrationName"] = args ? args.postMigrationName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["targetNamespace"] = args ? args.targetNamespace : undefined;
-            inputs["migrationState"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["pendingReplicationOperationsCount"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configName"] = args ? args.configName : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["postMigrationName"] = args ? args.postMigrationName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["targetNamespace"] = args ? args.targetNamespace : undefined;
+            resourceInputs["migrationState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pendingReplicationOperationsCount"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["migrationState"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["pendingReplicationOperationsCount"] = undefined /*out*/;
-            inputs["postMigrationName"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["targetNamespace"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["migrationState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pendingReplicationOperationsCount"] = undefined /*out*/;
+            resourceInputs["postMigrationName"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["targetNamespace"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:MigrationConfig" }, { type: "azure-native:servicebus/v20180101preview:MigrationConfig" }, { type: "azure-native:servicebus/v20210101preview:MigrationConfig" }, { type: "azure-native:servicebus/v20210601preview:MigrationConfig" }, { type: "azure-native:servicebus/v20211101:MigrationConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MigrationConfig.__pulumiType, name, inputs, opts);
+        super(MigrationConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

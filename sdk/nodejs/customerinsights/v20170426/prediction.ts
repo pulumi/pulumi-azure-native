@@ -120,7 +120,7 @@ export class Prediction extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PredictionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autoAnalyze === undefined) && !opts.urn) {
@@ -150,54 +150,54 @@ export class Prediction extends pulumi.CustomResource {
             if ((!args || args.scoreLabel === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scoreLabel'");
             }
-            inputs["autoAnalyze"] = args ? args.autoAnalyze : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["grades"] = args ? args.grades : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["involvedInteractionTypes"] = args ? args.involvedInteractionTypes : undefined;
-            inputs["involvedKpiTypes"] = args ? args.involvedKpiTypes : undefined;
-            inputs["involvedRelationships"] = args ? args.involvedRelationships : undefined;
-            inputs["mappings"] = args ? args.mappings : undefined;
-            inputs["negativeOutcomeExpression"] = args ? args.negativeOutcomeExpression : undefined;
-            inputs["positiveOutcomeExpression"] = args ? args.positiveOutcomeExpression : undefined;
-            inputs["predictionName"] = args ? args.predictionName : undefined;
-            inputs["primaryProfileType"] = args ? args.primaryProfileType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scopeExpression"] = args ? args.scopeExpression : undefined;
-            inputs["scoreLabel"] = args ? args.scoreLabel : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemGeneratedEntities"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoAnalyze"] = args ? args.autoAnalyze : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["grades"] = args ? args.grades : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["involvedInteractionTypes"] = args ? args.involvedInteractionTypes : undefined;
+            resourceInputs["involvedKpiTypes"] = args ? args.involvedKpiTypes : undefined;
+            resourceInputs["involvedRelationships"] = args ? args.involvedRelationships : undefined;
+            resourceInputs["mappings"] = args ? args.mappings : undefined;
+            resourceInputs["negativeOutcomeExpression"] = args ? args.negativeOutcomeExpression : undefined;
+            resourceInputs["positiveOutcomeExpression"] = args ? args.positiveOutcomeExpression : undefined;
+            resourceInputs["predictionName"] = args ? args.predictionName : undefined;
+            resourceInputs["primaryProfileType"] = args ? args.primaryProfileType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scopeExpression"] = args ? args.scopeExpression : undefined;
+            resourceInputs["scoreLabel"] = args ? args.scoreLabel : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemGeneratedEntities"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["autoAnalyze"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["grades"] = undefined /*out*/;
-            inputs["involvedInteractionTypes"] = undefined /*out*/;
-            inputs["involvedKpiTypes"] = undefined /*out*/;
-            inputs["involvedRelationships"] = undefined /*out*/;
-            inputs["mappings"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["negativeOutcomeExpression"] = undefined /*out*/;
-            inputs["positiveOutcomeExpression"] = undefined /*out*/;
-            inputs["predictionName"] = undefined /*out*/;
-            inputs["primaryProfileType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["scopeExpression"] = undefined /*out*/;
-            inputs["scoreLabel"] = undefined /*out*/;
-            inputs["systemGeneratedEntities"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoAnalyze"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["grades"] = undefined /*out*/;
+            resourceInputs["involvedInteractionTypes"] = undefined /*out*/;
+            resourceInputs["involvedKpiTypes"] = undefined /*out*/;
+            resourceInputs["involvedRelationships"] = undefined /*out*/;
+            resourceInputs["mappings"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["negativeOutcomeExpression"] = undefined /*out*/;
+            resourceInputs["positiveOutcomeExpression"] = undefined /*out*/;
+            resourceInputs["predictionName"] = undefined /*out*/;
+            resourceInputs["primaryProfileType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["scopeExpression"] = undefined /*out*/;
+            resourceInputs["scoreLabel"] = undefined /*out*/;
+            resourceInputs["systemGeneratedEntities"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Prediction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Prediction.__pulumiType, name, inputs, opts);
+        super(Prediction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -108,54 +108,54 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RemediationAtResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["failureThreshold"] = args ? args.failureThreshold : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
-            inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            inputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
-            inputs["remediationName"] = args ? args.remediationName : undefined;
-            inputs["resourceCount"] = args ? args.resourceCount : undefined;
-            inputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["correlationId"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["lastUpdatedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["failureThreshold"] = args ? args.failureThreshold : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
+            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
+            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
+            resourceInputs["remediationName"] = args ? args.remediationName : undefined;
+            resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
+            resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["correlationId"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["lastUpdatedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["correlationId"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["failureThreshold"] = undefined /*out*/;
-            inputs["filters"] = undefined /*out*/;
-            inputs["lastUpdatedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parallelDeployments"] = undefined /*out*/;
-            inputs["policyAssignmentId"] = undefined /*out*/;
-            inputs["policyDefinitionReferenceId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceCount"] = undefined /*out*/;
-            inputs["resourceDiscoveryMode"] = undefined /*out*/;
-            inputs["statusMessage"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["correlationId"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["failureThreshold"] = undefined /*out*/;
+            resourceInputs["filters"] = undefined /*out*/;
+            resourceInputs["lastUpdatedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parallelDeployments"] = undefined /*out*/;
+            resourceInputs["policyAssignmentId"] = undefined /*out*/;
+            resourceInputs["policyDefinitionReferenceId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceCount"] = undefined /*out*/;
+            resourceInputs["resourceDiscoveryMode"] = undefined /*out*/;
+            resourceInputs["statusMessage"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:policyinsights:RemediationAtResourceGroup" }, { type: "azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup" }, { type: "azure-native:policyinsights/v20190701:RemediationAtResourceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RemediationAtResourceGroup.__pulumiType, name, inputs, opts);
+        super(RemediationAtResourceGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

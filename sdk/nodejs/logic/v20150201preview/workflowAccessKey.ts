@@ -56,7 +56,7 @@ export class WorkflowAccessKey extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkflowAccessKeyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -65,26 +65,26 @@ export class WorkflowAccessKey extends pulumi.CustomResource {
             if ((!args || args.workflowName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workflowName'");
             }
-            inputs["accessKeyName"] = args ? args.accessKeyName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["notAfter"] = args ? args.notAfter : undefined;
-            inputs["notBefore"] = args ? args.notBefore : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["workflowName"] = args ? args.workflowName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accessKeyName"] = args ? args.accessKeyName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["notAfter"] = args ? args.notAfter : undefined;
+            resourceInputs["notBefore"] = args ? args.notBefore : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["notAfter"] = undefined /*out*/;
-            inputs["notBefore"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notAfter"] = undefined /*out*/;
+            resourceInputs["notBefore"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:WorkflowAccessKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WorkflowAccessKey.__pulumiType, name, inputs, opts);
+        super(WorkflowAccessKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

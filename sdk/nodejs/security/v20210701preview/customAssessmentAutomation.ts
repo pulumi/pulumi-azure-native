@@ -84,42 +84,42 @@ export class CustomAssessmentAutomation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CustomAssessmentAutomationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["compressedQuery"] = args ? args.compressedQuery : undefined;
-            inputs["customAssessmentAutomationName"] = args ? args.customAssessmentAutomationName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["remediationDescription"] = args ? args.remediationDescription : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["supportedCloud"] = args ? args.supportedCloud : undefined;
-            inputs["assessmentKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["compressedQuery"] = args ? args.compressedQuery : undefined;
+            resourceInputs["customAssessmentAutomationName"] = args ? args.customAssessmentAutomationName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["remediationDescription"] = args ? args.remediationDescription : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["supportedCloud"] = args ? args.supportedCloud : undefined;
+            resourceInputs["assessmentKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["assessmentKey"] = undefined /*out*/;
-            inputs["compressedQuery"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["remediationDescription"] = undefined /*out*/;
-            inputs["severity"] = undefined /*out*/;
-            inputs["supportedCloud"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["assessmentKey"] = undefined /*out*/;
+            resourceInputs["compressedQuery"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["remediationDescription"] = undefined /*out*/;
+            resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["supportedCloud"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:CustomAssessmentAutomation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CustomAssessmentAutomation.__pulumiType, name, inputs, opts);
+        super(CustomAssessmentAutomation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

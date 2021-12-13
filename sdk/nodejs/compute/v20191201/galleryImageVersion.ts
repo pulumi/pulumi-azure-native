@@ -76,7 +76,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GalleryImageVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.galleryImageName === undefined) && !opts.urn) {
@@ -91,34 +91,34 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             if ((!args || args.storageProfile === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageProfile'");
             }
-            inputs["galleryImageName"] = args ? args.galleryImageName : undefined;
-            inputs["galleryImageVersionName"] = args ? args.galleryImageVersionName : undefined;
-            inputs["galleryName"] = args ? args.galleryName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["publishingProfile"] = args ? args.publishingProfile : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageProfile"] = args ? args.storageProfile : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["replicationStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["galleryImageName"] = args ? args.galleryImageName : undefined;
+            resourceInputs["galleryImageVersionName"] = args ? args.galleryImageVersionName : undefined;
+            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["publishingProfile"] = args ? args.publishingProfile : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["replicationStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publishingProfile"] = undefined /*out*/;
-            inputs["replicationStatus"] = undefined /*out*/;
-            inputs["storageProfile"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publishingProfile"] = undefined /*out*/;
+            resourceInputs["replicationStatus"] = undefined /*out*/;
+            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:GalleryImageVersion" }, { type: "azure-native:compute/v20180601:GalleryImageVersion" }, { type: "azure-native:compute/v20190301:GalleryImageVersion" }, { type: "azure-native:compute/v20190701:GalleryImageVersion" }, { type: "azure-native:compute/v20200930:GalleryImageVersion" }, { type: "azure-native:compute/v20210701:GalleryImageVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GalleryImageVersion.__pulumiType, name, inputs, opts);
+        super(GalleryImageVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

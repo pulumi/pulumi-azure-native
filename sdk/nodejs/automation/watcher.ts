@@ -100,7 +100,7 @@ export class Watcher extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WatcherArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -109,45 +109,45 @@ export class Watcher extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["executionFrequencyInSeconds"] = args ? args.executionFrequencyInSeconds : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scriptName"] = args ? args.scriptName : undefined;
-            inputs["scriptParameters"] = args ? args.scriptParameters : undefined;
-            inputs["scriptRunOn"] = args ? args.scriptRunOn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["watcherName"] = args ? args.watcherName : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["lastModifiedBy"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["executionFrequencyInSeconds"] = args ? args.executionFrequencyInSeconds : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scriptName"] = args ? args.scriptName : undefined;
+            resourceInputs["scriptParameters"] = args ? args.scriptParameters : undefined;
+            resourceInputs["scriptRunOn"] = args ? args.scriptRunOn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["executionFrequencyInSeconds"] = undefined /*out*/;
-            inputs["lastModifiedBy"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scriptName"] = undefined /*out*/;
-            inputs["scriptParameters"] = undefined /*out*/;
-            inputs["scriptRunOn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["executionFrequencyInSeconds"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scriptName"] = undefined /*out*/;
+            resourceInputs["scriptParameters"] = undefined /*out*/;
+            resourceInputs["scriptRunOn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Watcher" }, { type: "azure-native:automation/v20190601:Watcher" }, { type: "azure-native:automation/v20200113preview:Watcher" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Watcher.__pulumiType, name, inputs, opts);
+        super(Watcher.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -56,7 +56,7 @@ export class MonitoringConfig extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MonitoringConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -71,23 +71,23 @@ export class MonitoringConfig extends pulumi.CustomResource {
             if ((!args || args.roleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["metricConfigurations"] = args ? args.metricConfigurations : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["roleName"] = args ? args.roleName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["metricConfigurations"] = args ? args.metricConfigurations : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["metricConfigurations"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["metricConfigurations"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:MonitoringConfig" }, { type: "azure-native:databoxedge/v20200901:MonitoringConfig" }, { type: "azure-native:databoxedge/v20201201:MonitoringConfig" }, { type: "azure-native:databoxedge/v20210201:MonitoringConfig" }, { type: "azure-native:databoxedge/v20210201preview:MonitoringConfig" }, { type: "azure-native:databoxedge/v20210601:MonitoringConfig" }, { type: "azure-native:databoxedge/v20210601preview:MonitoringConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MonitoringConfig.__pulumiType, name, inputs, opts);
+        super(MonitoringConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

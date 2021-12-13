@@ -73,36 +73,36 @@ export class Linker extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LinkerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            inputs["authInfo"] = args ? args.authInfo : undefined;
-            inputs["clientType"] = args ? args.clientType : undefined;
-            inputs["linkerName"] = args ? args.linkerName : undefined;
-            inputs["resourceUri"] = args ? args.resourceUri : undefined;
-            inputs["targetId"] = args ? args.targetId : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authInfo"] = args ? args.authInfo : undefined;
+            resourceInputs["clientType"] = args ? args.clientType : undefined;
+            resourceInputs["linkerName"] = args ? args.linkerName : undefined;
+            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["targetId"] = args ? args.targetId : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authInfo"] = undefined /*out*/;
-            inputs["clientType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["targetId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authInfo"] = undefined /*out*/;
+            resourceInputs["clientType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["targetId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicelinker/v20211101preview:Linker" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Linker.__pulumiType, name, inputs, opts);
+        super(Linker.__pulumiType, name, resourceInputs, opts);
     }
 }
 

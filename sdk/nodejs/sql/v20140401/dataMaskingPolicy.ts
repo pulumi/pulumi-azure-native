@@ -76,7 +76,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DataMaskingPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataMaskingState === undefined) && !opts.urn) {
@@ -91,34 +91,34 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["dataMaskingPolicyName"] = args ? args.dataMaskingPolicyName : undefined;
-            inputs["dataMaskingState"] = args ? args.dataMaskingState : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["exemptPrincipals"] = args ? args.exemptPrincipals : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["applicationPrincipals"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maskingLevel"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataMaskingPolicyName"] = args ? args.dataMaskingPolicyName : undefined;
+            resourceInputs["dataMaskingState"] = args ? args.dataMaskingState : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["exemptPrincipals"] = args ? args.exemptPrincipals : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["applicationPrincipals"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maskingLevel"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["applicationPrincipals"] = undefined /*out*/;
-            inputs["dataMaskingState"] = undefined /*out*/;
-            inputs["exemptPrincipals"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maskingLevel"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationPrincipals"] = undefined /*out*/;
+            resourceInputs["dataMaskingState"] = undefined /*out*/;
+            resourceInputs["exemptPrincipals"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maskingLevel"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:DataMaskingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DataMaskingPolicy.__pulumiType, name, inputs, opts);
+        super(DataMaskingPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

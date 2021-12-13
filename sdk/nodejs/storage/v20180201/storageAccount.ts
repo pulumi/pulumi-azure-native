@@ -132,7 +132,7 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -144,60 +144,60 @@ export class StorageAccount extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["accessTier"] = args ? args.accessTier : undefined;
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["customDomain"] = args ? args.customDomain : undefined;
-            inputs["enableHttpsTrafficOnly"] = (args ? args.enableHttpsTrafficOnly : undefined) ?? false;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["isHnsEnabled"] = (args ? args.isHnsEnabled : undefined) ?? false;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["lastGeoFailoverTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["primaryEndpoints"] = undefined /*out*/;
-            inputs["primaryLocation"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["secondaryEndpoints"] = undefined /*out*/;
-            inputs["secondaryLocation"] = undefined /*out*/;
-            inputs["statusOfPrimary"] = undefined /*out*/;
-            inputs["statusOfSecondary"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["customDomain"] = args ? args.customDomain : undefined;
+            resourceInputs["enableHttpsTrafficOnly"] = (args ? args.enableHttpsTrafficOnly : undefined) ?? false;
+            resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.storage.v20180201.encryptionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["isHnsEnabled"] = (args ? args.isHnsEnabled : undefined) ?? false;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkRuleSet"] = args ? (args.networkRuleSet ? pulumi.output(args.networkRuleSet).apply(inputs.storage.v20180201.networkRuleSetArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["lastGeoFailoverTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["primaryEndpoints"] = undefined /*out*/;
+            resourceInputs["primaryLocation"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["secondaryEndpoints"] = undefined /*out*/;
+            resourceInputs["secondaryLocation"] = undefined /*out*/;
+            resourceInputs["statusOfPrimary"] = undefined /*out*/;
+            resourceInputs["statusOfSecondary"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accessTier"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["customDomain"] = undefined /*out*/;
-            inputs["enableHttpsTrafficOnly"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["isHnsEnabled"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastGeoFailoverTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkRuleSet"] = undefined /*out*/;
-            inputs["primaryEndpoints"] = undefined /*out*/;
-            inputs["primaryLocation"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["secondaryEndpoints"] = undefined /*out*/;
-            inputs["secondaryLocation"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["statusOfPrimary"] = undefined /*out*/;
-            inputs["statusOfSecondary"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accessTier"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["customDomain"] = undefined /*out*/;
+            resourceInputs["enableHttpsTrafficOnly"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["isHnsEnabled"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastGeoFailoverTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkRuleSet"] = undefined /*out*/;
+            resourceInputs["primaryEndpoints"] = undefined /*out*/;
+            resourceInputs["primaryLocation"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["secondaryEndpoints"] = undefined /*out*/;
+            resourceInputs["secondaryLocation"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["statusOfPrimary"] = undefined /*out*/;
+            resourceInputs["statusOfSecondary"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:StorageAccount" }, { type: "azure-native:storage/v20150501preview:StorageAccount" }, { type: "azure-native:storage/v20150615:StorageAccount" }, { type: "azure-native:storage/v20160101:StorageAccount" }, { type: "azure-native:storage/v20160501:StorageAccount" }, { type: "azure-native:storage/v20161201:StorageAccount" }, { type: "azure-native:storage/v20170601:StorageAccount" }, { type: "azure-native:storage/v20171001:StorageAccount" }, { type: "azure-native:storage/v20180301preview:StorageAccount" }, { type: "azure-native:storage/v20180701:StorageAccount" }, { type: "azure-native:storage/v20181101:StorageAccount" }, { type: "azure-native:storage/v20190401:StorageAccount" }, { type: "azure-native:storage/v20190601:StorageAccount" }, { type: "azure-native:storage/v20200801preview:StorageAccount" }, { type: "azure-native:storage/v20210101:StorageAccount" }, { type: "azure-native:storage/v20210201:StorageAccount" }, { type: "azure-native:storage/v20210401:StorageAccount" }, { type: "azure-native:storage/v20210601:StorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(StorageAccount.__pulumiType, name, inputs, opts);
+        super(StorageAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

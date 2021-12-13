@@ -97,48 +97,48 @@ export class DataCollectionRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DataCollectionRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dataCollectionRuleName"] = args ? args.dataCollectionRuleName : undefined;
-            inputs["dataFlows"] = args ? args.dataFlows : undefined;
-            inputs["dataSources"] = args ? args.dataSources : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destinations"] = args ? args.destinations : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["immutableId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataCollectionRuleName"] = args ? args.dataCollectionRuleName : undefined;
+            resourceInputs["dataFlows"] = args ? args.dataFlows : undefined;
+            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinations"] = args ? args.destinations : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["immutableId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dataFlows"] = undefined /*out*/;
-            inputs["dataSources"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["destinations"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["immutableId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataFlows"] = undefined /*out*/;
+            resourceInputs["dataSources"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinations"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["immutableId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:DataCollectionRule" }, { type: "azure-native:insights/v20191101preview:DataCollectionRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DataCollectionRule.__pulumiType, name, inputs, opts);
+        super(DataCollectionRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

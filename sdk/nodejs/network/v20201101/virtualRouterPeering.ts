@@ -67,7 +67,7 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualRouterPeeringArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -76,30 +76,30 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
             if ((!args || args.virtualRouterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualRouterName'");
             }
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["peerAsn"] = args ? args.peerAsn : undefined;
-            inputs["peerIp"] = args ? args.peerIp : undefined;
-            inputs["peeringName"] = args ? args.peeringName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
+            resourceInputs["peerIp"] = args ? args.peerIp : undefined;
+            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peerAsn"] = undefined /*out*/;
-            inputs["peerIp"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peerAsn"] = undefined /*out*/;
+            resourceInputs["peerIp"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualRouterPeering" }, { type: "azure-native:network/v20190701:VirtualRouterPeering" }, { type: "azure-native:network/v20190801:VirtualRouterPeering" }, { type: "azure-native:network/v20190901:VirtualRouterPeering" }, { type: "azure-native:network/v20191101:VirtualRouterPeering" }, { type: "azure-native:network/v20191201:VirtualRouterPeering" }, { type: "azure-native:network/v20200301:VirtualRouterPeering" }, { type: "azure-native:network/v20200401:VirtualRouterPeering" }, { type: "azure-native:network/v20200501:VirtualRouterPeering" }, { type: "azure-native:network/v20200601:VirtualRouterPeering" }, { type: "azure-native:network/v20200701:VirtualRouterPeering" }, { type: "azure-native:network/v20200801:VirtualRouterPeering" }, { type: "azure-native:network/v20210201:VirtualRouterPeering" }, { type: "azure-native:network/v20210301:VirtualRouterPeering" }, { type: "azure-native:network/v20210501:VirtualRouterPeering" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualRouterPeering.__pulumiType, name, inputs, opts);
+        super(VirtualRouterPeering.__pulumiType, name, resourceInputs, opts);
     }
 }
 

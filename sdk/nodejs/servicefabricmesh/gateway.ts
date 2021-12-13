@@ -97,7 +97,7 @@ export class Gateway extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.destinationNetwork === undefined) && !opts.urn) {
@@ -109,42 +109,42 @@ export class Gateway extends pulumi.CustomResource {
             if ((!args || args.sourceNetwork === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceNetwork'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destinationNetwork"] = args ? args.destinationNetwork : undefined;
-            inputs["gatewayResourceName"] = args ? args.gatewayResourceName : undefined;
-            inputs["http"] = args ? args.http : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceNetwork"] = args ? args.sourceNetwork : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tcp"] = args ? args.tcp : undefined;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDetails"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationNetwork"] = args ? args.destinationNetwork : undefined;
+            resourceInputs["gatewayResourceName"] = args ? args.gatewayResourceName : undefined;
+            resourceInputs["http"] = args ? args.http : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceNetwork"] = args ? args.sourceNetwork : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tcp"] = args ? args.tcp : undefined;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["destinationNetwork"] = undefined /*out*/;
-            inputs["http"] = undefined /*out*/;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sourceNetwork"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDetails"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tcp"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinationNetwork"] = undefined /*out*/;
+            resourceInputs["http"] = undefined /*out*/;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourceNetwork"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tcp"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabricmesh/v20180901preview:Gateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Gateway.__pulumiType, name, inputs, opts);
+        super(Gateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

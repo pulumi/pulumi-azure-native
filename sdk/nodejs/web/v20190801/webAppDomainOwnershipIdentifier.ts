@@ -59,7 +59,7 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppDomainOwnershipIdentifierArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -68,24 +68,24 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["domainOwnershipIdentifierName"] = args ? args.domainOwnershipIdentifierName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["domainOwnershipIdentifierName"] = args ? args.domainOwnershipIdentifierName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["value"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["value"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20160801:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20180201:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20181101:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20200601:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20200901:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20201001:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20201201:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20210101:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20210115:WebAppDomainOwnershipIdentifier" }, { type: "azure-native:web/v20210201:WebAppDomainOwnershipIdentifier" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppDomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
+        super(WebAppDomainOwnershipIdentifier.__pulumiType, name, resourceInputs, opts);
     }
 }
 

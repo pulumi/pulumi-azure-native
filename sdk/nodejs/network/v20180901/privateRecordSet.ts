@@ -104,7 +104,7 @@ export class PrivateRecordSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateRecordSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateZoneName === undefined) && !opts.urn) {
@@ -116,48 +116,48 @@ export class PrivateRecordSet extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["aRecords"] = args ? args.aRecords : undefined;
-            inputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
-            inputs["cnameRecord"] = args ? args.cnameRecord : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["mxRecords"] = args ? args.mxRecords : undefined;
-            inputs["privateZoneName"] = args ? args.privateZoneName : undefined;
-            inputs["ptrRecords"] = args ? args.ptrRecords : undefined;
-            inputs["recordType"] = args ? args.recordType : undefined;
-            inputs["relativeRecordSetName"] = args ? args.relativeRecordSetName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["soaRecord"] = args ? args.soaRecord : undefined;
-            inputs["srvRecords"] = args ? args.srvRecords : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["txtRecords"] = args ? args.txtRecords : undefined;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["isAutoRegistered"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aRecords"] = args ? args.aRecords : undefined;
+            resourceInputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
+            resourceInputs["cnameRecord"] = args ? args.cnameRecord : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["mxRecords"] = args ? args.mxRecords : undefined;
+            resourceInputs["privateZoneName"] = args ? args.privateZoneName : undefined;
+            resourceInputs["ptrRecords"] = args ? args.ptrRecords : undefined;
+            resourceInputs["recordType"] = args ? args.recordType : undefined;
+            resourceInputs["relativeRecordSetName"] = args ? args.relativeRecordSetName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["soaRecord"] = args ? args.soaRecord : undefined;
+            resourceInputs["srvRecords"] = args ? args.srvRecords : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["txtRecords"] = args ? args.txtRecords : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["isAutoRegistered"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["aRecords"] = undefined /*out*/;
-            inputs["aaaaRecords"] = undefined /*out*/;
-            inputs["cnameRecord"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["isAutoRegistered"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["mxRecords"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ptrRecords"] = undefined /*out*/;
-            inputs["soaRecord"] = undefined /*out*/;
-            inputs["srvRecords"] = undefined /*out*/;
-            inputs["ttl"] = undefined /*out*/;
-            inputs["txtRecords"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aRecords"] = undefined /*out*/;
+            resourceInputs["aaaaRecords"] = undefined /*out*/;
+            resourceInputs["cnameRecord"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["isAutoRegistered"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["mxRecords"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ptrRecords"] = undefined /*out*/;
+            resourceInputs["soaRecord"] = undefined /*out*/;
+            resourceInputs["srvRecords"] = undefined /*out*/;
+            resourceInputs["ttl"] = undefined /*out*/;
+            resourceInputs["txtRecords"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:PrivateRecordSet" }, { type: "azure-native:network/v20200101:PrivateRecordSet" }, { type: "azure-native:network/v20200601:PrivateRecordSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PrivateRecordSet.__pulumiType, name, inputs, opts);
+        super(PrivateRecordSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

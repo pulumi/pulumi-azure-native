@@ -68,7 +68,7 @@ export class Route extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.nextHopType === undefined) && !opts.urn) {
@@ -80,30 +80,30 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.routeTableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableName'");
             }
-            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nextHopIpAddress"] = args ? args.nextHopIpAddress : undefined;
-            inputs["nextHopType"] = args ? args.nextHopType : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeName"] = args ? args.routeName : undefined;
-            inputs["routeTableName"] = args ? args.routeTableName : undefined;
+            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nextHopIpAddress"] = args ? args.nextHopIpAddress : undefined;
+            resourceInputs["nextHopType"] = args ? args.nextHopType : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routeName"] = args ? args.routeName : undefined;
+            resourceInputs["routeTableName"] = args ? args.routeTableName : undefined;
         } else {
-            inputs["addressPrefix"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nextHopIpAddress"] = undefined /*out*/;
-            inputs["nextHopType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["addressPrefix"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextHopIpAddress"] = undefined /*out*/;
+            resourceInputs["nextHopType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Route" }, { type: "azure-native:network/v20150501preview:Route" }, { type: "azure-native:network/v20150615:Route" }, { type: "azure-native:network/v20160330:Route" }, { type: "azure-native:network/v20160601:Route" }, { type: "azure-native:network/v20160901:Route" }, { type: "azure-native:network/v20161201:Route" }, { type: "azure-native:network/v20170301:Route" }, { type: "azure-native:network/v20170601:Route" }, { type: "azure-native:network/v20170801:Route" }, { type: "azure-native:network/v20170901:Route" }, { type: "azure-native:network/v20171001:Route" }, { type: "azure-native:network/v20180101:Route" }, { type: "azure-native:network/v20180201:Route" }, { type: "azure-native:network/v20180401:Route" }, { type: "azure-native:network/v20180601:Route" }, { type: "azure-native:network/v20180701:Route" }, { type: "azure-native:network/v20180801:Route" }, { type: "azure-native:network/v20181001:Route" }, { type: "azure-native:network/v20181101:Route" }, { type: "azure-native:network/v20181201:Route" }, { type: "azure-native:network/v20190201:Route" }, { type: "azure-native:network/v20190401:Route" }, { type: "azure-native:network/v20190601:Route" }, { type: "azure-native:network/v20190701:Route" }, { type: "azure-native:network/v20190801:Route" }, { type: "azure-native:network/v20190901:Route" }, { type: "azure-native:network/v20191101:Route" }, { type: "azure-native:network/v20191201:Route" }, { type: "azure-native:network/v20200301:Route" }, { type: "azure-native:network/v20200401:Route" }, { type: "azure-native:network/v20200501:Route" }, { type: "azure-native:network/v20200601:Route" }, { type: "azure-native:network/v20200701:Route" }, { type: "azure-native:network/v20200801:Route" }, { type: "azure-native:network/v20201101:Route" }, { type: "azure-native:network/v20210201:Route" }, { type: "azure-native:network/v20210301:Route" }, { type: "azure-native:network/v20210501:Route" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Route.__pulumiType, name, inputs, opts);
+        super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -80,7 +80,7 @@ export class Product extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProductArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -92,35 +92,35 @@ export class Product extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["approvalRequired"] = args ? args.approvalRequired : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
-            inputs["subscriptionsLimit"] = args ? args.subscriptionsLimit : undefined;
-            inputs["terms"] = args ? args.terms : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["approvalRequired"] = args ? args.approvalRequired : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
+            resourceInputs["subscriptionsLimit"] = args ? args.subscriptionsLimit : undefined;
+            resourceInputs["terms"] = args ? args.terms : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["approvalRequired"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["subscriptionRequired"] = undefined /*out*/;
-            inputs["subscriptionsLimit"] = undefined /*out*/;
-            inputs["terms"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["approvalRequired"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["subscriptionRequired"] = undefined /*out*/;
+            resourceInputs["subscriptionsLimit"] = undefined /*out*/;
+            resourceInputs["terms"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Product" }, { type: "azure-native:apimanagement/v20160707:Product" }, { type: "azure-native:apimanagement/v20161010:Product" }, { type: "azure-native:apimanagement/v20170301:Product" }, { type: "azure-native:apimanagement/v20180601preview:Product" }, { type: "azure-native:apimanagement/v20190101:Product" }, { type: "azure-native:apimanagement/v20191201:Product" }, { type: "azure-native:apimanagement/v20191201preview:Product" }, { type: "azure-native:apimanagement/v20200601preview:Product" }, { type: "azure-native:apimanagement/v20201201:Product" }, { type: "azure-native:apimanagement/v20210101preview:Product" }, { type: "azure-native:apimanagement/v20210401preview:Product" }, { type: "azure-native:apimanagement/v20210801:Product" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Product.__pulumiType, name, inputs, opts);
+        super(Product.__pulumiType, name, resourceInputs, opts);
     }
 }
 

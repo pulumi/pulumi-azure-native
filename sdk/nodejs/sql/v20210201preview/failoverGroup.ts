@@ -84,7 +84,7 @@ export class FailoverGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FailoverGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.partnerServers === undefined) && !opts.urn) {
@@ -99,37 +99,37 @@ export class FailoverGroup extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["databases"] = args ? args.databases : undefined;
-            inputs["failoverGroupName"] = args ? args.failoverGroupName : undefined;
-            inputs["partnerServers"] = args ? args.partnerServers : undefined;
-            inputs["readOnlyEndpoint"] = args ? args.readOnlyEndpoint : undefined;
-            inputs["readWriteEndpoint"] = args ? args.readWriteEndpoint : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["replicationRole"] = undefined /*out*/;
-            inputs["replicationState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["databases"] = args ? args.databases : undefined;
+            resourceInputs["failoverGroupName"] = args ? args.failoverGroupName : undefined;
+            resourceInputs["partnerServers"] = args ? args.partnerServers : undefined;
+            resourceInputs["readOnlyEndpoint"] = args ? args.readOnlyEndpoint : undefined;
+            resourceInputs["readWriteEndpoint"] = args ? args.readWriteEndpoint : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["replicationRole"] = undefined /*out*/;
+            resourceInputs["replicationState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["databases"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnerServers"] = undefined /*out*/;
-            inputs["readOnlyEndpoint"] = undefined /*out*/;
-            inputs["readWriteEndpoint"] = undefined /*out*/;
-            inputs["replicationRole"] = undefined /*out*/;
-            inputs["replicationState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["databases"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnerServers"] = undefined /*out*/;
+            resourceInputs["readOnlyEndpoint"] = undefined /*out*/;
+            resourceInputs["readWriteEndpoint"] = undefined /*out*/;
+            resourceInputs["replicationRole"] = undefined /*out*/;
+            resourceInputs["replicationState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:FailoverGroup" }, { type: "azure-native:sql/v20150501preview:FailoverGroup" }, { type: "azure-native:sql/v20200202preview:FailoverGroup" }, { type: "azure-native:sql/v20200801preview:FailoverGroup" }, { type: "azure-native:sql/v20201101preview:FailoverGroup" }, { type: "azure-native:sql/v20210501preview:FailoverGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FailoverGroup.__pulumiType, name, inputs, opts);
+        super(FailoverGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

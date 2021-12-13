@@ -84,42 +84,42 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AvailabilitySetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["availabilitySetName"] = args ? args.availabilitySetName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
-            inputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
-            inputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualMachines"] = args ? args.virtualMachines : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["availabilitySetName"] = args ? args.availabilitySetName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
+            resourceInputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
+            resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualMachines"] = args ? args.virtualMachines : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["platformFaultDomainCount"] = undefined /*out*/;
-            inputs["platformUpdateDomainCount"] = undefined /*out*/;
-            inputs["proximityPlacementGroup"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualMachines"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["platformFaultDomainCount"] = undefined /*out*/;
+            resourceInputs["platformUpdateDomainCount"] = undefined /*out*/;
+            resourceInputs["proximityPlacementGroup"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachines"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:AvailabilitySet" }, { type: "azure-native:compute/v20150615:AvailabilitySet" }, { type: "azure-native:compute/v20160330:AvailabilitySet" }, { type: "azure-native:compute/v20160430preview:AvailabilitySet" }, { type: "azure-native:compute/v20170330:AvailabilitySet" }, { type: "azure-native:compute/v20171201:AvailabilitySet" }, { type: "azure-native:compute/v20180401:AvailabilitySet" }, { type: "azure-native:compute/v20180601:AvailabilitySet" }, { type: "azure-native:compute/v20181001:AvailabilitySet" }, { type: "azure-native:compute/v20190301:AvailabilitySet" }, { type: "azure-native:compute/v20190701:AvailabilitySet" }, { type: "azure-native:compute/v20191201:AvailabilitySet" }, { type: "azure-native:compute/v20201201:AvailabilitySet" }, { type: "azure-native:compute/v20210301:AvailabilitySet" }, { type: "azure-native:compute/v20210401:AvailabilitySet" }, { type: "azure-native:compute/v20210701:AvailabilitySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AvailabilitySet.__pulumiType, name, inputs, opts);
+        super(AvailabilitySet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

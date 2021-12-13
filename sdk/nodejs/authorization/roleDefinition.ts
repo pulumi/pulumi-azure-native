@@ -73,36 +73,36 @@ export class RoleDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RoleDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["assignableScopes"] = args ? args.assignableScopes : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            inputs["roleName"] = args ? args.roleName : undefined;
-            inputs["roleType"] = args ? args.roleType : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["assignableScopes"] = args ? args.assignableScopes : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["roleType"] = args ? args.roleType : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["assignableScopes"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["permissions"] = undefined /*out*/;
-            inputs["roleName"] = undefined /*out*/;
-            inputs["roleType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["assignableScopes"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["permissions"] = undefined /*out*/;
+            resourceInputs["roleName"] = undefined /*out*/;
+            resourceInputs["roleType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20150701:RoleDefinition" }, { type: "azure-native:authorization/v20180101preview:RoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RoleDefinition.__pulumiType, name, inputs, opts);
+        super(RoleDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -88,44 +88,44 @@ export class ADCCatalog extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ADCCatalogArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["admins"] = args ? args.admins : undefined;
-            inputs["catalogName"] = args ? args.catalogName : undefined;
-            inputs["enableAutomaticUnitAdjustment"] = args ? args.enableAutomaticUnitAdjustment : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["successfullyProvisioned"] = args ? args.successfullyProvisioned : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["units"] = args ? args.units : undefined;
-            inputs["users"] = args ? args.users : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["admins"] = args ? args.admins : undefined;
+            resourceInputs["catalogName"] = args ? args.catalogName : undefined;
+            resourceInputs["enableAutomaticUnitAdjustment"] = args ? args.enableAutomaticUnitAdjustment : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["successfullyProvisioned"] = args ? args.successfullyProvisioned : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["units"] = args ? args.units : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["admins"] = undefined /*out*/;
-            inputs["enableAutomaticUnitAdjustment"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["successfullyProvisioned"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["units"] = undefined /*out*/;
-            inputs["users"] = undefined /*out*/;
+            resourceInputs["admins"] = undefined /*out*/;
+            resourceInputs["enableAutomaticUnitAdjustment"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["successfullyProvisioned"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["units"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datacatalog:ADCCatalog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ADCCatalog.__pulumiType, name, inputs, opts);
+        super(ADCCatalog.__pulumiType, name, resourceInputs, opts);
     }
 }
 

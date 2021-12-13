@@ -88,7 +88,7 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseThreatDetectionPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -103,41 +103,41 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
             if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
-            inputs["emailAccountAdmins"] = args ? args.emailAccountAdmins : undefined;
-            inputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionDays"] = args ? args.retentionDays : undefined;
-            inputs["securityAlertPolicyName"] = args ? args.securityAlertPolicyName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
-            inputs["useServerDefault"] = args ? args.useServerDefault : undefined;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
+            resourceInputs["emailAccountAdmins"] = args ? args.emailAccountAdmins : undefined;
+            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["securityAlertPolicyName"] = args ? args.securityAlertPolicyName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["useServerDefault"] = args ? args.useServerDefault : undefined;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["disabledAlerts"] = undefined /*out*/;
-            inputs["emailAccountAdmins"] = undefined /*out*/;
-            inputs["emailAddresses"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["retentionDays"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["storageEndpoint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["useServerDefault"] = undefined /*out*/;
+            resourceInputs["disabledAlerts"] = undefined /*out*/;
+            resourceInputs["emailAccountAdmins"] = undefined /*out*/;
+            resourceInputs["emailAddresses"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["retentionDays"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["storageEndpoint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["useServerDefault"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20180601preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200202preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20200801preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20201101preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20210201preview:DatabaseThreatDetectionPolicy" }, { type: "azure-native:sql/v20210501preview:DatabaseThreatDetectionPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabaseThreatDetectionPolicy.__pulumiType, name, inputs, opts);
+        super(DatabaseThreatDetectionPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

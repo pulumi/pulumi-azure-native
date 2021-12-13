@@ -92,7 +92,7 @@ export class PublicIpAddress extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PublicIpAddressArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.publicIPAllocationMethod === undefined) && !opts.urn) {
@@ -104,40 +104,40 @@ export class PublicIpAddress extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["ipConfiguration"] = args ? args.ipConfiguration : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["publicIPAllocationMethod"] = args ? args.publicIPAllocationMethod : undefined;
-            inputs["publicIpAddressName"] = args ? args.publicIpAddressName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["ipConfiguration"] = args ? args.ipConfiguration : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["publicIPAllocationMethod"] = args ? args.publicIPAllocationMethod : undefined;
+            resourceInputs["publicIpAddressName"] = args ? args.publicIpAddressName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGuid"] = args ? args.resourceGuid : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dnsSettings"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["idleTimeoutInMinutes"] = undefined /*out*/;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["ipConfiguration"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicIPAllocationMethod"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dnsSettings"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["idleTimeoutInMinutes"] = undefined /*out*/;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["ipConfiguration"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPAllocationMethod"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:PublicIpAddress" }, { type: "azure-native:network/v20150615:PublicIpAddress" }, { type: "azure-native:network/v20160330:PublicIpAddress" }, { type: "azure-native:network/v20160601:PublicIpAddress" }, { type: "azure-native:network/v20160901:PublicIpAddress" }, { type: "azure-native:network/v20161201:PublicIpAddress" }, { type: "azure-native:network/v20170301:PublicIpAddress" }, { type: "azure-native:network/v20170601:PublicIpAddress" }, { type: "azure-native:network/v20170801:PublicIpAddress" }, { type: "azure-native:network/v20170901:PublicIpAddress" }, { type: "azure-native:network/v20171001:PublicIpAddress" }, { type: "azure-native:network/v20171101:PublicIpAddress" }, { type: "azure-native:network/v20180101:PublicIpAddress" }, { type: "azure-native:network/v20180201:PublicIpAddress" }, { type: "azure-native:network/v20180401:PublicIpAddress" }, { type: "azure-native:network/v20180601:PublicIpAddress" }, { type: "azure-native:network/v20180701:PublicIpAddress" }, { type: "azure-native:network/v20180801:PublicIpAddress" }, { type: "azure-native:network/v20181001:PublicIpAddress" }, { type: "azure-native:network/v20181101:PublicIpAddress" }, { type: "azure-native:network/v20181201:PublicIpAddress" }, { type: "azure-native:network/v20190201:PublicIpAddress" }, { type: "azure-native:network/v20190401:PublicIpAddress" }, { type: "azure-native:network/v20190601:PublicIpAddress" }, { type: "azure-native:network/v20190701:PublicIpAddress" }, { type: "azure-native:network/v20190801:PublicIpAddress" }, { type: "azure-native:network/v20190901:PublicIpAddress" }, { type: "azure-native:network/v20191101:PublicIpAddress" }, { type: "azure-native:network/v20191201:PublicIpAddress" }, { type: "azure-native:network/v20200301:PublicIpAddress" }, { type: "azure-native:network/v20200401:PublicIpAddress" }, { type: "azure-native:network/v20200501:PublicIpAddress" }, { type: "azure-native:network/v20200601:PublicIpAddress" }, { type: "azure-native:network/v20200701:PublicIpAddress" }, { type: "azure-native:network/v20200801:PublicIpAddress" }, { type: "azure-native:network/v20201101:PublicIpAddress" }, { type: "azure-native:network/v20210201:PublicIpAddress" }, { type: "azure-native:network/v20210301:PublicIpAddress" }, { type: "azure-native:network/v20210501:PublicIpAddress" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PublicIpAddress.__pulumiType, name, inputs, opts);
+        super(PublicIpAddress.__pulumiType, name, resourceInputs, opts);
     }
 }
 

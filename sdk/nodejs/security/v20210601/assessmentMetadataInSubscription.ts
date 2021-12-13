@@ -98,7 +98,7 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AssessmentMetadataInSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.assessmentType === undefined) && !opts.urn) {
@@ -110,51 +110,51 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
             if ((!args || args.severity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            inputs["assessmentMetadataName"] = args ? args.assessmentMetadataName : undefined;
-            inputs["assessmentType"] = args ? args.assessmentType : undefined;
-            inputs["categories"] = args ? args.categories : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["implementationEffort"] = args ? args.implementationEffort : undefined;
-            inputs["partnerData"] = args ? args.partnerData : undefined;
-            inputs["plannedDeprecationDate"] = args ? args.plannedDeprecationDate : undefined;
-            inputs["preview"] = args ? args.preview : undefined;
-            inputs["publishDates"] = args ? args.publishDates : undefined;
-            inputs["remediationDescription"] = args ? args.remediationDescription : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["tactics"] = args ? args.tactics : undefined;
-            inputs["techniques"] = args ? args.techniques : undefined;
-            inputs["threats"] = args ? args.threats : undefined;
-            inputs["userImpact"] = args ? args.userImpact : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["policyDefinitionId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["assessmentMetadataName"] = args ? args.assessmentMetadataName : undefined;
+            resourceInputs["assessmentType"] = args ? args.assessmentType : undefined;
+            resourceInputs["categories"] = args ? args.categories : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["implementationEffort"] = args ? args.implementationEffort : undefined;
+            resourceInputs["partnerData"] = args ? args.partnerData : undefined;
+            resourceInputs["plannedDeprecationDate"] = args ? args.plannedDeprecationDate : undefined;
+            resourceInputs["preview"] = args ? args.preview : undefined;
+            resourceInputs["publishDates"] = args ? args.publishDates : undefined;
+            resourceInputs["remediationDescription"] = args ? args.remediationDescription : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["tactics"] = args ? args.tactics : undefined;
+            resourceInputs["techniques"] = args ? args.techniques : undefined;
+            resourceInputs["threats"] = args ? args.threats : undefined;
+            resourceInputs["userImpact"] = args ? args.userImpact : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policyDefinitionId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["assessmentType"] = undefined /*out*/;
-            inputs["categories"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["implementationEffort"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnerData"] = undefined /*out*/;
-            inputs["plannedDeprecationDate"] = undefined /*out*/;
-            inputs["policyDefinitionId"] = undefined /*out*/;
-            inputs["preview"] = undefined /*out*/;
-            inputs["publishDates"] = undefined /*out*/;
-            inputs["remediationDescription"] = undefined /*out*/;
-            inputs["severity"] = undefined /*out*/;
-            inputs["tactics"] = undefined /*out*/;
-            inputs["techniques"] = undefined /*out*/;
-            inputs["threats"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userImpact"] = undefined /*out*/;
+            resourceInputs["assessmentType"] = undefined /*out*/;
+            resourceInputs["categories"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["implementationEffort"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnerData"] = undefined /*out*/;
+            resourceInputs["plannedDeprecationDate"] = undefined /*out*/;
+            resourceInputs["policyDefinitionId"] = undefined /*out*/;
+            resourceInputs["preview"] = undefined /*out*/;
+            resourceInputs["publishDates"] = undefined /*out*/;
+            resourceInputs["remediationDescription"] = undefined /*out*/;
+            resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["tactics"] = undefined /*out*/;
+            resourceInputs["techniques"] = undefined /*out*/;
+            resourceInputs["threats"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userImpact"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20190101preview:AssessmentMetadataInSubscription" }, { type: "azure-native:security/v20200101:AssessmentMetadataInSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AssessmentMetadataInSubscription.__pulumiType, name, inputs, opts);
+        super(AssessmentMetadataInSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -88,7 +88,7 @@ export class Asset extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AssetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -97,39 +97,39 @@ export class Asset extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["alternateId"] = args ? args.alternateId : undefined;
-            inputs["assetName"] = args ? args.assetName : undefined;
-            inputs["container"] = args ? args.container : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["assetId"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["storageEncryptionFormat"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["alternateId"] = args ? args.alternateId : undefined;
+            resourceInputs["assetName"] = args ? args.assetName : undefined;
+            resourceInputs["container"] = args ? args.container : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["assetId"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["storageEncryptionFormat"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["alternateId"] = undefined /*out*/;
-            inputs["assetId"] = undefined /*out*/;
-            inputs["container"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["storageAccountName"] = undefined /*out*/;
-            inputs["storageEncryptionFormat"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alternateId"] = undefined /*out*/;
+            resourceInputs["assetId"] = undefined /*out*/;
+            resourceInputs["container"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["storageAccountName"] = undefined /*out*/;
+            resourceInputs["storageEncryptionFormat"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:Asset" }, { type: "azure-native:media/v20180330preview:Asset" }, { type: "azure-native:media/v20180601preview:Asset" }, { type: "azure-native:media/v20180701:Asset" }, { type: "azure-native:media/v20200501:Asset" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Asset.__pulumiType, name, inputs, opts);
+        super(Asset.__pulumiType, name, resourceInputs, opts);
     }
 }
 

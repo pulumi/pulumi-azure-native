@@ -113,7 +113,7 @@ export class VCenter extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VCenterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.fqdn === undefined) && !opts.urn) {
@@ -122,50 +122,50 @@ export class VCenter extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            inputs["fqdn"] = args ? args.fqdn : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vcenterName"] = args ? args.vcenterName : undefined;
-            inputs["connectionStatus"] = undefined /*out*/;
-            inputs["customResourceName"] = undefined /*out*/;
-            inputs["instanceUuid"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
+            resourceInputs["connectionStatus"] = undefined /*out*/;
+            resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["instanceUuid"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["connectionStatus"] = undefined /*out*/;
-            inputs["credentials"] = undefined /*out*/;
-            inputs["customResourceName"] = undefined /*out*/;
-            inputs["extendedLocation"] = undefined /*out*/;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["instanceUuid"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["connectionStatus"] = undefined /*out*/;
+            resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["instanceUuid"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:VCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VCenter.__pulumiType, name, inputs, opts);
+        super(VCenter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

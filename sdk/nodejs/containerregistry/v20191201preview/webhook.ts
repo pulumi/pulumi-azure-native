@@ -80,7 +80,7 @@ export class Webhook extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actions === undefined) && !opts.urn) {
@@ -95,37 +95,37 @@ export class Webhook extends pulumi.CustomResource {
             if ((!args || args.serviceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceUri'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["customHeaders"] = args ? args.customHeaders : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["serviceUri"] = args ? args.serviceUri : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["webhookName"] = args ? args.webhookName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["serviceUri"] = args ? args.serviceUri : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["webhookName"] = args ? args.webhookName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:Webhook" }, { type: "azure-native:containerregistry/v20170601preview:Webhook" }, { type: "azure-native:containerregistry/v20171001:Webhook" }, { type: "azure-native:containerregistry/v20190501:Webhook" }, { type: "azure-native:containerregistry/v20201101preview:Webhook" }, { type: "azure-native:containerregistry/v20210601preview:Webhook" }, { type: "azure-native:containerregistry/v20210801preview:Webhook" }, { type: "azure-native:containerregistry/v20210901:Webhook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Webhook.__pulumiType, name, inputs, opts);
+        super(Webhook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

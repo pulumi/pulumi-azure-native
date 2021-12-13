@@ -96,7 +96,7 @@ export class EventHubEventSource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EventHubEventSourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.consumerGroupName === undefined) && !opts.urn) {
@@ -126,44 +126,44 @@ export class EventHubEventSource extends pulumi.CustomResource {
             if ((!args || args.sharedAccessKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessKey'");
             }
-            inputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["eventHubName"] = args ? args.eventHubName : undefined;
-            inputs["eventSourceName"] = args ? args.eventSourceName : undefined;
-            inputs["eventSourceResourceId"] = args ? args.eventSourceResourceId : undefined;
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["kind"] = "Microsoft.EventHub";
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
-            inputs["sharedAccessKey"] = args ? args.sharedAccessKey : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
+            resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
+            resourceInputs["eventSourceResourceId"] = args ? args.eventSourceResourceId : undefined;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["kind"] = "Microsoft.EventHub";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
+            resourceInputs["sharedAccessKey"] = args ? args.sharedAccessKey : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["consumerGroupName"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["eventHubName"] = undefined /*out*/;
-            inputs["eventSourceResourceId"] = undefined /*out*/;
-            inputs["keyName"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceBusNamespace"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timestampPropertyName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["consumerGroupName"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["eventHubName"] = undefined /*out*/;
+            resourceInputs["eventSourceResourceId"] = undefined /*out*/;
+            resourceInputs["keyName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceBusNamespace"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timestampPropertyName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20170228preview:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20180815preview:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20200515:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:EventHubEventSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(EventHubEventSource.__pulumiType, name, inputs, opts);
+        super(EventHubEventSource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

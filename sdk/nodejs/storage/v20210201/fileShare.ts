@@ -112,7 +112,7 @@ export class FileShare extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FileShareArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -121,52 +121,52 @@ export class FileShare extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accessTier"] = args ? args.accessTier : undefined;
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["enabledProtocols"] = args ? args.enabledProtocols : undefined;
-            inputs["expand"] = args ? args.expand : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rootSquash"] = args ? args.rootSquash : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["shareQuota"] = args ? args.shareQuota : undefined;
-            inputs["accessTierChangeTime"] = undefined /*out*/;
-            inputs["accessTierStatus"] = undefined /*out*/;
-            inputs["deleted"] = undefined /*out*/;
-            inputs["deletedTime"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["remainingRetentionDays"] = undefined /*out*/;
-            inputs["shareUsageBytes"] = undefined /*out*/;
-            inputs["snapshotTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["enabledProtocols"] = args ? args.enabledProtocols : undefined;
+            resourceInputs["expand"] = args ? args.expand : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rootSquash"] = args ? args.rootSquash : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["shareQuota"] = args ? args.shareQuota : undefined;
+            resourceInputs["accessTierChangeTime"] = undefined /*out*/;
+            resourceInputs["accessTierStatus"] = undefined /*out*/;
+            resourceInputs["deleted"] = undefined /*out*/;
+            resourceInputs["deletedTime"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["remainingRetentionDays"] = undefined /*out*/;
+            resourceInputs["shareUsageBytes"] = undefined /*out*/;
+            resourceInputs["snapshotTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["accessTier"] = undefined /*out*/;
-            inputs["accessTierChangeTime"] = undefined /*out*/;
-            inputs["accessTierStatus"] = undefined /*out*/;
-            inputs["deleted"] = undefined /*out*/;
-            inputs["deletedTime"] = undefined /*out*/;
-            inputs["enabledProtocols"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["remainingRetentionDays"] = undefined /*out*/;
-            inputs["rootSquash"] = undefined /*out*/;
-            inputs["shareQuota"] = undefined /*out*/;
-            inputs["shareUsageBytes"] = undefined /*out*/;
-            inputs["snapshotTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["accessTier"] = undefined /*out*/;
+            resourceInputs["accessTierChangeTime"] = undefined /*out*/;
+            resourceInputs["accessTierStatus"] = undefined /*out*/;
+            resourceInputs["deleted"] = undefined /*out*/;
+            resourceInputs["deletedTime"] = undefined /*out*/;
+            resourceInputs["enabledProtocols"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["remainingRetentionDays"] = undefined /*out*/;
+            resourceInputs["rootSquash"] = undefined /*out*/;
+            resourceInputs["shareQuota"] = undefined /*out*/;
+            resourceInputs["shareUsageBytes"] = undefined /*out*/;
+            resourceInputs["snapshotTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:FileShare" }, { type: "azure-native:storage/v20190401:FileShare" }, { type: "azure-native:storage/v20190601:FileShare" }, { type: "azure-native:storage/v20200801preview:FileShare" }, { type: "azure-native:storage/v20210101:FileShare" }, { type: "azure-native:storage/v20210401:FileShare" }, { type: "azure-native:storage/v20210601:FileShare" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FileShare.__pulumiType, name, inputs, opts);
+        super(FileShare.__pulumiType, name, resourceInputs, opts);
     }
 }
 

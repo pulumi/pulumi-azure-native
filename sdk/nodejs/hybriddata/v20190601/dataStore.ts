@@ -72,7 +72,7 @@ export class DataStore extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DataStoreArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataManagerName === undefined) && !opts.urn) {
@@ -87,31 +87,31 @@ export class DataStore extends pulumi.CustomResource {
             if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            inputs["customerSecrets"] = args ? args.customerSecrets : undefined;
-            inputs["dataManagerName"] = args ? args.dataManagerName : undefined;
-            inputs["dataStoreName"] = args ? args.dataStoreName : undefined;
-            inputs["dataStoreTypeId"] = args ? args.dataStoreTypeId : undefined;
-            inputs["extendedProperties"] = args ? args.extendedProperties : undefined;
-            inputs["repositoryId"] = args ? args.repositoryId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customerSecrets"] = args ? args.customerSecrets : undefined;
+            resourceInputs["dataManagerName"] = args ? args.dataManagerName : undefined;
+            resourceInputs["dataStoreName"] = args ? args.dataStoreName : undefined;
+            resourceInputs["dataStoreTypeId"] = args ? args.dataStoreTypeId : undefined;
+            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
+            resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["customerSecrets"] = undefined /*out*/;
-            inputs["dataStoreTypeId"] = undefined /*out*/;
-            inputs["extendedProperties"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["repositoryId"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customerSecrets"] = undefined /*out*/;
+            resourceInputs["dataStoreTypeId"] = undefined /*out*/;
+            resourceInputs["extendedProperties"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["repositoryId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybriddata:DataStore" }, { type: "azure-native:hybriddata/v20160601:DataStore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DataStore.__pulumiType, name, inputs, opts);
+        super(DataStore.__pulumiType, name, resourceInputs, opts);
     }
 }
 

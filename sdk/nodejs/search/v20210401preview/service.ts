@@ -132,66 +132,66 @@ export class Service extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authOptions"] = args ? args.authOptions : undefined;
-            inputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
-            inputs["disabledDataExfiltrationOptions"] = args ? args.disabledDataExfiltrationOptions : undefined;
-            inputs["encryptionWithCmk"] = args ? args.encryptionWithCmk : undefined;
-            inputs["hostingMode"] = (args ? args.hostingMode : undefined) ?? "default";
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
-            inputs["partitionCount"] = (args ? args.partitionCount : undefined) ?? 1;
-            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "enabled";
-            inputs["replicaCount"] = (args ? args.replicaCount : undefined) ?? 1;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["searchServiceName"] = args ? args.searchServiceName : undefined;
-            inputs["semanticSearch"] = args ? args.semanticSearch : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sharedPrivateLinkResources"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDetails"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authOptions"] = args ? args.authOptions : undefined;
+            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
+            resourceInputs["disabledDataExfiltrationOptions"] = args ? args.disabledDataExfiltrationOptions : undefined;
+            resourceInputs["encryptionWithCmk"] = args ? args.encryptionWithCmk : undefined;
+            resourceInputs["hostingMode"] = (args ? args.hostingMode : undefined) ?? "default";
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
+            resourceInputs["partitionCount"] = (args ? args.partitionCount : undefined) ?? 1;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "enabled";
+            resourceInputs["replicaCount"] = (args ? args.replicaCount : undefined) ?? 1;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["searchServiceName"] = args ? args.searchServiceName : undefined;
+            resourceInputs["semanticSearch"] = args ? args.semanticSearch : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sharedPrivateLinkResources"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authOptions"] = undefined /*out*/;
-            inputs["disableLocalAuth"] = undefined /*out*/;
-            inputs["disabledDataExfiltrationOptions"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["encryptionWithCmk"] = undefined /*out*/;
-            inputs["hostingMode"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkRuleSet"] = undefined /*out*/;
-            inputs["partitionCount"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["replicaCount"] = undefined /*out*/;
-            inputs["semanticSearch"] = undefined /*out*/;
-            inputs["sharedPrivateLinkResources"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDetails"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authOptions"] = undefined /*out*/;
+            resourceInputs["disableLocalAuth"] = undefined /*out*/;
+            resourceInputs["disabledDataExfiltrationOptions"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["encryptionWithCmk"] = undefined /*out*/;
+            resourceInputs["hostingMode"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkRuleSet"] = undefined /*out*/;
+            resourceInputs["partitionCount"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["replicaCount"] = undefined /*out*/;
+            resourceInputs["semanticSearch"] = undefined /*out*/;
+            resourceInputs["sharedPrivateLinkResources"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:search:Service" }, { type: "azure-native:search/v20150819:Service" }, { type: "azure-native:search/v20191001preview:Service" }, { type: "azure-native:search/v20200313:Service" }, { type: "azure-native:search/v20200801:Service" }, { type: "azure-native:search/v20200801preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Service.__pulumiType, name, inputs, opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

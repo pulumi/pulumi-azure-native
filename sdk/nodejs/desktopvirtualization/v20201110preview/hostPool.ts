@@ -132,7 +132,7 @@ export class HostPool extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HostPoolArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hostPoolType === undefined) && !opts.urn) {
@@ -147,60 +147,60 @@ export class HostPool extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customRdpProperty"] = args ? args.customRdpProperty : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["hostPoolName"] = args ? args.hostPoolName : undefined;
-            inputs["hostPoolType"] = args ? args.hostPoolType : undefined;
-            inputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxSessionLimit"] = args ? args.maxSessionLimit : undefined;
-            inputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
-            inputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
-            inputs["registrationInfo"] = args ? args.registrationInfo : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ring"] = args ? args.ring : undefined;
-            inputs["ssoClientId"] = args ? args.ssoClientId : undefined;
-            inputs["ssoClientSecretKeyVaultPath"] = args ? args.ssoClientSecretKeyVaultPath : undefined;
-            inputs["ssoSecretType"] = args ? args.ssoSecretType : undefined;
-            inputs["ssoadfsAuthority"] = args ? args.ssoadfsAuthority : undefined;
-            inputs["startVMOnConnect"] = args ? args.startVMOnConnect : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validationEnvironment"] = args ? args.validationEnvironment : undefined;
-            inputs["vmTemplate"] = args ? args.vmTemplate : undefined;
-            inputs["applicationGroupReferences"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customRdpProperty"] = args ? args.customRdpProperty : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["hostPoolName"] = args ? args.hostPoolName : undefined;
+            resourceInputs["hostPoolType"] = args ? args.hostPoolType : undefined;
+            resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxSessionLimit"] = args ? args.maxSessionLimit : undefined;
+            resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
+            resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
+            resourceInputs["registrationInfo"] = args ? args.registrationInfo : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ring"] = args ? args.ring : undefined;
+            resourceInputs["ssoClientId"] = args ? args.ssoClientId : undefined;
+            resourceInputs["ssoClientSecretKeyVaultPath"] = args ? args.ssoClientSecretKeyVaultPath : undefined;
+            resourceInputs["ssoSecretType"] = args ? args.ssoSecretType : undefined;
+            resourceInputs["ssoadfsAuthority"] = args ? args.ssoadfsAuthority : undefined;
+            resourceInputs["startVMOnConnect"] = args ? args.startVMOnConnect : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validationEnvironment"] = args ? args.validationEnvironment : undefined;
+            resourceInputs["vmTemplate"] = args ? args.vmTemplate : undefined;
+            resourceInputs["applicationGroupReferences"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["applicationGroupReferences"] = undefined /*out*/;
-            inputs["customRdpProperty"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["hostPoolType"] = undefined /*out*/;
-            inputs["loadBalancerType"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maxSessionLimit"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["personalDesktopAssignmentType"] = undefined /*out*/;
-            inputs["preferredAppGroupType"] = undefined /*out*/;
-            inputs["registrationInfo"] = undefined /*out*/;
-            inputs["ring"] = undefined /*out*/;
-            inputs["ssoClientId"] = undefined /*out*/;
-            inputs["ssoClientSecretKeyVaultPath"] = undefined /*out*/;
-            inputs["ssoSecretType"] = undefined /*out*/;
-            inputs["ssoadfsAuthority"] = undefined /*out*/;
-            inputs["startVMOnConnect"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validationEnvironment"] = undefined /*out*/;
-            inputs["vmTemplate"] = undefined /*out*/;
+            resourceInputs["applicationGroupReferences"] = undefined /*out*/;
+            resourceInputs["customRdpProperty"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["hostPoolType"] = undefined /*out*/;
+            resourceInputs["loadBalancerType"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxSessionLimit"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["personalDesktopAssignmentType"] = undefined /*out*/;
+            resourceInputs["preferredAppGroupType"] = undefined /*out*/;
+            resourceInputs["registrationInfo"] = undefined /*out*/;
+            resourceInputs["ring"] = undefined /*out*/;
+            resourceInputs["ssoClientId"] = undefined /*out*/;
+            resourceInputs["ssoClientSecretKeyVaultPath"] = undefined /*out*/;
+            resourceInputs["ssoSecretType"] = undefined /*out*/;
+            resourceInputs["ssoadfsAuthority"] = undefined /*out*/;
+            resourceInputs["startVMOnConnect"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationEnvironment"] = undefined /*out*/;
+            resourceInputs["vmTemplate"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:HostPool" }, { type: "azure-native:desktopvirtualization/v20190123preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20190924preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20191210preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20200921preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20201019preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20201102preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210114preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210201preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210309preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210401preview:HostPool" }, { type: "azure-native:desktopvirtualization/v20210712:HostPool" }, { type: "azure-native:desktopvirtualization/v20210903preview:HostPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(HostPool.__pulumiType, name, inputs, opts);
+        super(HostPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

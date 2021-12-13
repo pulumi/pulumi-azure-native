@@ -113,7 +113,7 @@ export class Extension extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExtensionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.arcSettingName === undefined) && !opts.urn) {
@@ -125,52 +125,52 @@ export class Extension extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["arcSettingName"] = args ? args.arcSettingName : undefined;
-            inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["createdAt"] = args ? args.createdAt : undefined;
-            inputs["createdBy"] = args ? args.createdBy : undefined;
-            inputs["createdByType"] = args ? args.createdByType : undefined;
-            inputs["extensionName"] = args ? args.extensionName : undefined;
-            inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            inputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
-            inputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            inputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
-            inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
-            inputs["publisher"] = args ? args.publisher : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
-            inputs["aggregateState"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["perNodeExtensionDetails"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["arcSettingName"] = args ? args.arcSettingName : undefined;
+            resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
+            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
+            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
+            resourceInputs["extensionName"] = args ? args.extensionName : undefined;
+            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
+            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
+            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
+            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
+            resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["publisher"] = args ? args.publisher : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            resourceInputs["aggregateState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["perNodeExtensionDetails"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["aggregateState"] = undefined /*out*/;
-            inputs["autoUpgradeMinorVersion"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["createdByType"] = undefined /*out*/;
-            inputs["forceUpdateTag"] = undefined /*out*/;
-            inputs["lastModifiedAt"] = undefined /*out*/;
-            inputs["lastModifiedBy"] = undefined /*out*/;
-            inputs["lastModifiedByType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["perNodeExtensionDetails"] = undefined /*out*/;
-            inputs["protectedSettings"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publisher"] = undefined /*out*/;
-            inputs["settings"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["typeHandlerVersion"] = undefined /*out*/;
+            resourceInputs["aggregateState"] = undefined /*out*/;
+            resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["createdByType"] = undefined /*out*/;
+            resourceInputs["forceUpdateTag"] = undefined /*out*/;
+            resourceInputs["lastModifiedAt"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["lastModifiedByType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["perNodeExtensionDetails"] = undefined /*out*/;
+            resourceInputs["protectedSettings"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publisher"] = undefined /*out*/;
+            resourceInputs["settings"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210101preview:Extension" }, { type: "azure-native:azurestackhci/v20210901:Extension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Extension.__pulumiType, name, inputs, opts);
+        super(Extension.__pulumiType, name, resourceInputs, opts);
     }
 }
 

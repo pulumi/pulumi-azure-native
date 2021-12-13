@@ -64,7 +64,7 @@ export class ServerTrustCertificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerTrustCertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
@@ -73,26 +73,26 @@ export class ServerTrustCertificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            inputs["publicBlob"] = args ? args.publicBlob : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
+            resourceInputs["publicBlob"] = args ? args.publicBlob : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["certificateName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["publicBlob"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["certificateName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publicBlob"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20210501preview:ServerTrustCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServerTrustCertificate.__pulumiType, name, inputs, opts);
+        super(ServerTrustCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

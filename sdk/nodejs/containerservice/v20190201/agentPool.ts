@@ -100,7 +100,7 @@ export class AgentPool extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AgentPoolArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.count === undefined) && !opts.urn) {
@@ -115,45 +115,45 @@ export class AgentPool extends pulumi.CustomResource {
             if ((!args || args.vmSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmSize'");
             }
-            inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["count"] = (args ? args.count : undefined) ?? 1;
-            inputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
-            inputs["managedClusterName"] = args ? args.managedClusterName : undefined;
-            inputs["maxCount"] = args ? args.maxCount : undefined;
-            inputs["maxPods"] = args ? args.maxPods : undefined;
-            inputs["minCount"] = args ? args.minCount : undefined;
-            inputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
-            inputs["osDiskSizeGB"] = args ? args.osDiskSizeGB : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vmSize"] = args ? args.vmSize : undefined;
-            inputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
+            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["count"] = (args ? args.count : undefined) ?? 1;
+            resourceInputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
+            resourceInputs["managedClusterName"] = args ? args.managedClusterName : undefined;
+            resourceInputs["maxCount"] = args ? args.maxCount : undefined;
+            resourceInputs["maxPods"] = args ? args.maxPods : undefined;
+            resourceInputs["minCount"] = args ? args.minCount : undefined;
+            resourceInputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
+            resourceInputs["osDiskSizeGB"] = args ? args.osDiskSizeGB : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["availabilityZones"] = undefined /*out*/;
-            inputs["count"] = undefined /*out*/;
-            inputs["enableAutoScaling"] = undefined /*out*/;
-            inputs["maxCount"] = undefined /*out*/;
-            inputs["maxPods"] = undefined /*out*/;
-            inputs["minCount"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["orchestratorVersion"] = undefined /*out*/;
-            inputs["osDiskSizeGB"] = undefined /*out*/;
-            inputs["osType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vmSize"] = undefined /*out*/;
-            inputs["vnetSubnetID"] = undefined /*out*/;
+            resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["count"] = undefined /*out*/;
+            resourceInputs["enableAutoScaling"] = undefined /*out*/;
+            resourceInputs["maxCount"] = undefined /*out*/;
+            resourceInputs["maxPods"] = undefined /*out*/;
+            resourceInputs["minCount"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["orchestratorVersion"] = undefined /*out*/;
+            resourceInputs["osDiskSizeGB"] = undefined /*out*/;
+            resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmSize"] = undefined /*out*/;
+            resourceInputs["vnetSubnetID"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice:AgentPool" }, { type: "azure-native:containerservice/v20190401:AgentPool" }, { type: "azure-native:containerservice/v20190601:AgentPool" }, { type: "azure-native:containerservice/v20190801:AgentPool" }, { type: "azure-native:containerservice/v20191001:AgentPool" }, { type: "azure-native:containerservice/v20191101:AgentPool" }, { type: "azure-native:containerservice/v20200101:AgentPool" }, { type: "azure-native:containerservice/v20200201:AgentPool" }, { type: "azure-native:containerservice/v20200301:AgentPool" }, { type: "azure-native:containerservice/v20200401:AgentPool" }, { type: "azure-native:containerservice/v20200601:AgentPool" }, { type: "azure-native:containerservice/v20200701:AgentPool" }, { type: "azure-native:containerservice/v20200901:AgentPool" }, { type: "azure-native:containerservice/v20201101:AgentPool" }, { type: "azure-native:containerservice/v20201201:AgentPool" }, { type: "azure-native:containerservice/v20210201:AgentPool" }, { type: "azure-native:containerservice/v20210301:AgentPool" }, { type: "azure-native:containerservice/v20210501:AgentPool" }, { type: "azure-native:containerservice/v20210701:AgentPool" }, { type: "azure-native:containerservice/v20210801:AgentPool" }, { type: "azure-native:containerservice/v20210901:AgentPool" }, { type: "azure-native:containerservice/v20211001:AgentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AgentPool.__pulumiType, name, inputs, opts);
+        super(AgentPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

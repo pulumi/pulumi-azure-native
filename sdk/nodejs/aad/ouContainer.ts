@@ -101,7 +101,7 @@ export class OuContainer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OuContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domainServiceName === undefined) && !opts.urn) {
@@ -110,48 +110,48 @@ export class OuContainer extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["domainServiceName"] = args ? args.domainServiceName : undefined;
-            inputs["ouContainerName"] = args ? args.ouContainerName : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["spn"] = args ? args.spn : undefined;
-            inputs["accounts"] = undefined /*out*/;
-            inputs["containerId"] = undefined /*out*/;
-            inputs["deploymentId"] = undefined /*out*/;
-            inputs["distinguishedName"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceStatus"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["domainServiceName"] = args ? args.domainServiceName : undefined;
+            resourceInputs["ouContainerName"] = args ? args.ouContainerName : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["spn"] = args ? args.spn : undefined;
+            resourceInputs["accounts"] = undefined /*out*/;
+            resourceInputs["containerId"] = undefined /*out*/;
+            resourceInputs["deploymentId"] = undefined /*out*/;
+            resourceInputs["distinguishedName"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accounts"] = undefined /*out*/;
-            inputs["containerId"] = undefined /*out*/;
-            inputs["deploymentId"] = undefined /*out*/;
-            inputs["distinguishedName"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceStatus"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accounts"] = undefined /*out*/;
+            resourceInputs["containerId"] = undefined /*out*/;
+            resourceInputs["deploymentId"] = undefined /*out*/;
+            resourceInputs["distinguishedName"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:aad/v20170601:OuContainer" }, { type: "azure-native:aad/v20200101:OuContainer" }, { type: "azure-native:aad/v20210301:OuContainer" }, { type: "azure-native:aad/v20210501:OuContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(OuContainer.__pulumiType, name, inputs, opts);
+        super(OuContainer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

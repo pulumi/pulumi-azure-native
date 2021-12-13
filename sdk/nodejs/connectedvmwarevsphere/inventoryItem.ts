@@ -81,7 +81,7 @@ export class InventoryItem extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: InventoryItemArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.inventoryType === undefined) && !opts.urn) {
@@ -93,35 +93,35 @@ export class InventoryItem extends pulumi.CustomResource {
             if ((!args || args.vcenterName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vcenterName'");
             }
-            inputs["inventoryItemName"] = args ? args.inventoryItemName : undefined;
-            inputs["inventoryType"] = args ? args.inventoryType : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["managedResourceId"] = args ? args.managedResourceId : undefined;
-            inputs["moName"] = args ? args.moName : undefined;
-            inputs["moRefId"] = args ? args.moRefId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["vcenterName"] = args ? args.vcenterName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["inventoryItemName"] = args ? args.inventoryItemName : undefined;
+            resourceInputs["inventoryType"] = args ? args.inventoryType : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["managedResourceId"] = args ? args.managedResourceId : undefined;
+            resourceInputs["moName"] = args ? args.moName : undefined;
+            resourceInputs["moRefId"] = args ? args.moRefId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["inventoryType"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["managedResourceId"] = undefined /*out*/;
-            inputs["moName"] = undefined /*out*/;
-            inputs["moRefId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["inventoryType"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["managedResourceId"] = undefined /*out*/;
+            resourceInputs["moName"] = undefined /*out*/;
+            resourceInputs["moRefId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:InventoryItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(InventoryItem.__pulumiType, name, inputs, opts);
+        super(InventoryItem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

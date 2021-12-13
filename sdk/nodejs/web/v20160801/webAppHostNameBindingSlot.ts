@@ -92,7 +92,7 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppHostNameBindingSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -104,41 +104,41 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["azureResourceName"] = args ? args.azureResourceName : undefined;
-            inputs["azureResourceType"] = args ? args.azureResourceType : undefined;
-            inputs["customHostNameDnsRecordType"] = args ? args.customHostNameDnsRecordType : undefined;
-            inputs["domainId"] = args ? args.domainId : undefined;
-            inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["hostNameType"] = args ? args.hostNameType : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["siteName"] = args ? args.siteName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["sslState"] = args ? args.sslState : undefined;
-            inputs["thumbprint"] = args ? args.thumbprint : undefined;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualIP"] = undefined /*out*/;
+            resourceInputs["azureResourceName"] = args ? args.azureResourceName : undefined;
+            resourceInputs["azureResourceType"] = args ? args.azureResourceType : undefined;
+            resourceInputs["customHostNameDnsRecordType"] = args ? args.customHostNameDnsRecordType : undefined;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["hostNameType"] = args ? args.hostNameType : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["siteName"] = args ? args.siteName : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["sslState"] = args ? args.sslState : undefined;
+            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualIP"] = undefined /*out*/;
         } else {
-            inputs["azureResourceName"] = undefined /*out*/;
-            inputs["azureResourceType"] = undefined /*out*/;
-            inputs["customHostNameDnsRecordType"] = undefined /*out*/;
-            inputs["domainId"] = undefined /*out*/;
-            inputs["hostNameType"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["siteName"] = undefined /*out*/;
-            inputs["sslState"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualIP"] = undefined /*out*/;
+            resourceInputs["azureResourceName"] = undefined /*out*/;
+            resourceInputs["azureResourceType"] = undefined /*out*/;
+            resourceInputs["customHostNameDnsRecordType"] = undefined /*out*/;
+            resourceInputs["domainId"] = undefined /*out*/;
+            resourceInputs["hostNameType"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["siteName"] = undefined /*out*/;
+            resourceInputs["sslState"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualIP"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppHostNameBindingSlot" }, { type: "azure-native:web/v20150801:WebAppHostNameBindingSlot" }, { type: "azure-native:web/v20180201:WebAppHostNameBindingSlot" }, { type: "azure-native:web/v20181101:WebAppHostNameBindingSlot" }, { type: "azure-native:web/v20190801:WebAppHostNameBindingSlot" }, { type: "azure-native:web/v20200601:WebAppHostNameBindingSlot" }, { type: "azure-native:web/v20200901:WebAppHostNameBindingSlot" }, { type: "azure-native:web/v20201001:WebAppHostNameBindingSlot" }, { type: "azure-native:web/v20201201:WebAppHostNameBindingSlot" }, { type: "azure-native:web/v20210101:WebAppHostNameBindingSlot" }, { type: "azure-native:web/v20210115:WebAppHostNameBindingSlot" }, { type: "azure-native:web/v20210201:WebAppHostNameBindingSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppHostNameBindingSlot.__pulumiType, name, inputs, opts);
+        super(WebAppHostNameBindingSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

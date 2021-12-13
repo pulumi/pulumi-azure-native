@@ -59,7 +59,7 @@ export class WebAppMetadataSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppMetadataSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -71,24 +71,24 @@ export class WebAppMetadataSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppMetadataSlot" }, { type: "azure-native:web/v20150801:WebAppMetadataSlot" }, { type: "azure-native:web/v20180201:WebAppMetadataSlot" }, { type: "azure-native:web/v20181101:WebAppMetadataSlot" }, { type: "azure-native:web/v20190801:WebAppMetadataSlot" }, { type: "azure-native:web/v20200601:WebAppMetadataSlot" }, { type: "azure-native:web/v20200901:WebAppMetadataSlot" }, { type: "azure-native:web/v20201001:WebAppMetadataSlot" }, { type: "azure-native:web/v20201201:WebAppMetadataSlot" }, { type: "azure-native:web/v20210101:WebAppMetadataSlot" }, { type: "azure-native:web/v20210115:WebAppMetadataSlot" }, { type: "azure-native:web/v20210201:WebAppMetadataSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppMetadataSlot.__pulumiType, name, inputs, opts);
+        super(WebAppMetadataSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

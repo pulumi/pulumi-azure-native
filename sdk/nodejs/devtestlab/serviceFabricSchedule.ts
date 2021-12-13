@@ -105,7 +105,7 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceFabricScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labName === undefined) && !opts.urn) {
@@ -120,48 +120,48 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
-            inputs["hourlyRecurrence"] = args ? args.hourlyRecurrence : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationSettings"] = args ? args.notificationSettings : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceFabricName"] = args ? args.serviceFabricName : undefined;
-            inputs["status"] = (args ? args.status : undefined) ?? "Disabled";
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            inputs["taskType"] = args ? args.taskType : undefined;
-            inputs["timeZoneId"] = args ? args.timeZoneId : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
+            resourceInputs["hourlyRecurrence"] = args ? args.hourlyRecurrence : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationSettings"] = args ? (args.notificationSettings ? pulumi.output(args.notificationSettings).apply(inputs.devtestlab.notificationSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceFabricName"] = args ? args.serviceFabricName : undefined;
+            resourceInputs["status"] = (args ? args.status : undefined) ?? "Disabled";
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["taskType"] = args ? args.taskType : undefined;
+            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["dailyRecurrence"] = undefined /*out*/;
-            inputs["hourlyRecurrence"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notificationSettings"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetResourceId"] = undefined /*out*/;
-            inputs["taskType"] = undefined /*out*/;
-            inputs["timeZoneId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
-            inputs["weeklyRecurrence"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["dailyRecurrence"] = undefined /*out*/;
+            resourceInputs["hourlyRecurrence"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notificationSettings"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetResourceId"] = undefined /*out*/;
+            resourceInputs["taskType"] = undefined /*out*/;
+            resourceInputs["timeZoneId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["weeklyRecurrence"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab/v20180915:ServiceFabricSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServiceFabricSchedule.__pulumiType, name, inputs, opts);
+        super(ServiceFabricSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

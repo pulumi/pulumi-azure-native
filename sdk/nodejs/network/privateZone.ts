@@ -96,48 +96,48 @@ export class PrivateZone extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateZoneArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["privateZoneName"] = args ? args.privateZoneName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["internalId"] = undefined /*out*/;
-            inputs["maxNumberOfRecordSets"] = undefined /*out*/;
-            inputs["maxNumberOfVirtualNetworkLinks"] = undefined /*out*/;
-            inputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfRecordSets"] = undefined /*out*/;
-            inputs["numberOfVirtualNetworkLinks"] = undefined /*out*/;
-            inputs["numberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["privateZoneName"] = args ? args.privateZoneName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["internalId"] = undefined /*out*/;
+            resourceInputs["maxNumberOfRecordSets"] = undefined /*out*/;
+            resourceInputs["maxNumberOfVirtualNetworkLinks"] = undefined /*out*/;
+            resourceInputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfRecordSets"] = undefined /*out*/;
+            resourceInputs["numberOfVirtualNetworkLinks"] = undefined /*out*/;
+            resourceInputs["numberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["internalId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maxNumberOfRecordSets"] = undefined /*out*/;
-            inputs["maxNumberOfVirtualNetworkLinks"] = undefined /*out*/;
-            inputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfRecordSets"] = undefined /*out*/;
-            inputs["numberOfVirtualNetworkLinks"] = undefined /*out*/;
-            inputs["numberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["internalId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxNumberOfRecordSets"] = undefined /*out*/;
+            resourceInputs["maxNumberOfVirtualNetworkLinks"] = undefined /*out*/;
+            resourceInputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfRecordSets"] = undefined /*out*/;
+            resourceInputs["numberOfVirtualNetworkLinks"] = undefined /*out*/;
+            resourceInputs["numberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20180901:PrivateZone" }, { type: "azure-native:network/v20200101:PrivateZone" }, { type: "azure-native:network/v20200601:PrivateZone" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PrivateZone.__pulumiType, name, inputs, opts);
+        super(PrivateZone.__pulumiType, name, resourceInputs, opts);
     }
 }
 

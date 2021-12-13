@@ -88,44 +88,44 @@ export class VendorSkus extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VendorSkusArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.vendorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vendorName'");
             }
-            inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            inputs["managedApplicationParameters"] = args ? args.managedApplicationParameters : undefined;
-            inputs["managedApplicationTemplate"] = args ? args.managedApplicationTemplate : undefined;
-            inputs["networkFunctionTemplate"] = args ? args.networkFunctionTemplate : undefined;
-            inputs["networkFunctionType"] = args ? args.networkFunctionType : undefined;
-            inputs["preview"] = args ? args.preview : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["skuType"] = args ? args.skuType : undefined;
-            inputs["vendorName"] = args ? args.vendorName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
+            resourceInputs["managedApplicationParameters"] = args ? args.managedApplicationParameters : undefined;
+            resourceInputs["managedApplicationTemplate"] = args ? args.managedApplicationTemplate : undefined;
+            resourceInputs["networkFunctionTemplate"] = args ? args.networkFunctionTemplate : undefined;
+            resourceInputs["networkFunctionType"] = args ? args.networkFunctionType : undefined;
+            resourceInputs["preview"] = args ? args.preview : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["skuType"] = args ? args.skuType : undefined;
+            resourceInputs["vendorName"] = args ? args.vendorName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["deploymentMode"] = undefined /*out*/;
-            inputs["managedApplicationParameters"] = undefined /*out*/;
-            inputs["managedApplicationTemplate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkFunctionTemplate"] = undefined /*out*/;
-            inputs["networkFunctionType"] = undefined /*out*/;
-            inputs["preview"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["skuType"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deploymentMode"] = undefined /*out*/;
+            resourceInputs["managedApplicationParameters"] = undefined /*out*/;
+            resourceInputs["managedApplicationTemplate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkFunctionTemplate"] = undefined /*out*/;
+            resourceInputs["networkFunctionType"] = undefined /*out*/;
+            resourceInputs["preview"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["skuType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:VendorSkus" }, { type: "azure-native:hybridnetwork/v20200101preview:VendorSkus" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VendorSkus.__pulumiType, name, inputs, opts);
+        super(VendorSkus.__pulumiType, name, resourceInputs, opts);
     }
 }
 

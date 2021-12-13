@@ -65,7 +65,7 @@ export class DataSetMapping extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping. */
     constructor(name: string, args: DataSetMappingArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DataSetMapping is deprecated: Please use one of the variants: ADLSGen2FileDataSetMapping, ADLSGen2FileSystemDataSetMapping, ADLSGen2FolderDataSetMapping, BlobContainerDataSetMapping, BlobDataSetMapping, BlobFolderDataSetMapping, KustoClusterDataSetMapping, KustoDatabaseDataSetMapping, SqlDBTableDataSetMapping, SqlDWTableDataSetMapping, SynapseWorkspaceSqlPoolTableDataSetMapping.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -80,26 +80,26 @@ export class DataSetMapping extends pulumi.CustomResource {
             if ((!args || args.shareSubscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:DataSetMapping" }, { type: "azure-native:datashare/v20181101preview:DataSetMapping" }, { type: "azure-native:datashare/v20191101:DataSetMapping" }, { type: "azure-native:datashare/v20201001preview:DataSetMapping" }, { type: "azure-native:datashare/v20210801:DataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DataSetMapping.__pulumiType, name, inputs, opts);
+        super(DataSetMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

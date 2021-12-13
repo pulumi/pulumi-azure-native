@@ -68,34 +68,34 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagementGroupSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parent"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tenant"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parent"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tenant"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parent"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tenant"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parent"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tenant"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:management:ManagementGroupSubscription" }, { type: "azure-native:management/v20200501:ManagementGroupSubscription" }, { type: "azure-native:management/v20201001:ManagementGroupSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagementGroupSubscription.__pulumiType, name, inputs, opts);
+        super(ManagementGroupSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

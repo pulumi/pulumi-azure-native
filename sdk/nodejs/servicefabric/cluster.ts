@@ -182,7 +182,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managementEndpoint === undefined) && !opts.urn) {
@@ -194,74 +194,74 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["addOnFeatures"] = args ? args.addOnFeatures : undefined;
-            inputs["applicationTypeVersionsCleanupPolicy"] = args ? args.applicationTypeVersionsCleanupPolicy : undefined;
-            inputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["certificateCommonNames"] = args ? args.certificateCommonNames : undefined;
-            inputs["clientCertificateCommonNames"] = args ? args.clientCertificateCommonNames : undefined;
-            inputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
-            inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["diagnosticsStorageAccountConfig"] = args ? args.diagnosticsStorageAccountConfig : undefined;
-            inputs["eventStoreServiceEnabled"] = args ? args.eventStoreServiceEnabled : undefined;
-            inputs["fabricSettings"] = args ? args.fabricSettings : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managementEndpoint"] = args ? args.managementEndpoint : undefined;
-            inputs["nodeTypes"] = args ? args.nodeTypes : undefined;
-            inputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
-            inputs["reverseProxyCertificateCommonNames"] = args ? args.reverseProxyCertificateCommonNames : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["upgradeDescription"] = args ? args.upgradeDescription : undefined;
-            inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
-            inputs["vmImage"] = args ? args.vmImage : undefined;
-            inputs["availableClusterVersions"] = undefined /*out*/;
-            inputs["clusterEndpoint"] = undefined /*out*/;
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["clusterState"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addOnFeatures"] = args ? args.addOnFeatures : undefined;
+            resourceInputs["applicationTypeVersionsCleanupPolicy"] = args ? args.applicationTypeVersionsCleanupPolicy : undefined;
+            resourceInputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["certificateCommonNames"] = args ? args.certificateCommonNames : undefined;
+            resourceInputs["clientCertificateCommonNames"] = args ? args.clientCertificateCommonNames : undefined;
+            resourceInputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
+            resourceInputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["diagnosticsStorageAccountConfig"] = args ? args.diagnosticsStorageAccountConfig : undefined;
+            resourceInputs["eventStoreServiceEnabled"] = args ? args.eventStoreServiceEnabled : undefined;
+            resourceInputs["fabricSettings"] = args ? args.fabricSettings : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managementEndpoint"] = args ? args.managementEndpoint : undefined;
+            resourceInputs["nodeTypes"] = args ? args.nodeTypes : undefined;
+            resourceInputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
+            resourceInputs["reverseProxyCertificateCommonNames"] = args ? args.reverseProxyCertificateCommonNames : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradeDescription"] = args ? (args.upgradeDescription ? pulumi.output(args.upgradeDescription).apply(inputs.servicefabric.clusterUpgradePolicyArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["upgradeMode"] = args ? args.upgradeMode : undefined;
+            resourceInputs["vmImage"] = args ? args.vmImage : undefined;
+            resourceInputs["availableClusterVersions"] = undefined /*out*/;
+            resourceInputs["clusterEndpoint"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["clusterState"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["addOnFeatures"] = undefined /*out*/;
-            inputs["applicationTypeVersionsCleanupPolicy"] = undefined /*out*/;
-            inputs["availableClusterVersions"] = undefined /*out*/;
-            inputs["azureActiveDirectory"] = undefined /*out*/;
-            inputs["certificate"] = undefined /*out*/;
-            inputs["certificateCommonNames"] = undefined /*out*/;
-            inputs["clientCertificateCommonNames"] = undefined /*out*/;
-            inputs["clientCertificateThumbprints"] = undefined /*out*/;
-            inputs["clusterCodeVersion"] = undefined /*out*/;
-            inputs["clusterEndpoint"] = undefined /*out*/;
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["clusterState"] = undefined /*out*/;
-            inputs["diagnosticsStorageAccountConfig"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["eventStoreServiceEnabled"] = undefined /*out*/;
-            inputs["fabricSettings"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managementEndpoint"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nodeTypes"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["reliabilityLevel"] = undefined /*out*/;
-            inputs["reverseProxyCertificate"] = undefined /*out*/;
-            inputs["reverseProxyCertificateCommonNames"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["upgradeDescription"] = undefined /*out*/;
-            inputs["upgradeMode"] = undefined /*out*/;
-            inputs["vmImage"] = undefined /*out*/;
+            resourceInputs["addOnFeatures"] = undefined /*out*/;
+            resourceInputs["applicationTypeVersionsCleanupPolicy"] = undefined /*out*/;
+            resourceInputs["availableClusterVersions"] = undefined /*out*/;
+            resourceInputs["azureActiveDirectory"] = undefined /*out*/;
+            resourceInputs["certificate"] = undefined /*out*/;
+            resourceInputs["certificateCommonNames"] = undefined /*out*/;
+            resourceInputs["clientCertificateCommonNames"] = undefined /*out*/;
+            resourceInputs["clientCertificateThumbprints"] = undefined /*out*/;
+            resourceInputs["clusterCodeVersion"] = undefined /*out*/;
+            resourceInputs["clusterEndpoint"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["clusterState"] = undefined /*out*/;
+            resourceInputs["diagnosticsStorageAccountConfig"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eventStoreServiceEnabled"] = undefined /*out*/;
+            resourceInputs["fabricSettings"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managementEndpoint"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodeTypes"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["reliabilityLevel"] = undefined /*out*/;
+            resourceInputs["reverseProxyCertificate"] = undefined /*out*/;
+            resourceInputs["reverseProxyCertificateCommonNames"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["upgradeDescription"] = undefined /*out*/;
+            resourceInputs["upgradeMode"] = undefined /*out*/;
+            resourceInputs["vmImage"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20160901:Cluster" }, { type: "azure-native:servicefabric/v20170701preview:Cluster" }, { type: "azure-native:servicefabric/v20180201:Cluster" }, { type: "azure-native:servicefabric/v20190301:Cluster" }, { type: "azure-native:servicefabric/v20190301preview:Cluster" }, { type: "azure-native:servicefabric/v20190601preview:Cluster" }, { type: "azure-native:servicefabric/v20191101preview:Cluster" }, { type: "azure-native:servicefabric/v20200301:Cluster" }, { type: "azure-native:servicefabric/v20201201preview:Cluster" }, { type: "azure-native:servicefabric/v20210601:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Cluster.__pulumiType, name, inputs, opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

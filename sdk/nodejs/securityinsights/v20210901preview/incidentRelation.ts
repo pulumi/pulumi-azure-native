@@ -76,7 +76,7 @@ export class IncidentRelation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IncidentRelationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.incidentId === undefined) && !opts.urn) {
@@ -91,34 +91,34 @@ export class IncidentRelation extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["incidentId"] = args ? args.incidentId : undefined;
-            inputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
-            inputs["relationName"] = args ? args.relationName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["relatedResourceKind"] = undefined /*out*/;
-            inputs["relatedResourceName"] = undefined /*out*/;
-            inputs["relatedResourceType"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["incidentId"] = args ? args.incidentId : undefined;
+            resourceInputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
+            resourceInputs["relationName"] = args ? args.relationName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["relatedResourceKind"] = undefined /*out*/;
+            resourceInputs["relatedResourceName"] = undefined /*out*/;
+            resourceInputs["relatedResourceType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["relatedResourceId"] = undefined /*out*/;
-            inputs["relatedResourceKind"] = undefined /*out*/;
-            inputs["relatedResourceName"] = undefined /*out*/;
-            inputs["relatedResourceType"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["relatedResourceId"] = undefined /*out*/;
+            resourceInputs["relatedResourceKind"] = undefined /*out*/;
+            resourceInputs["relatedResourceName"] = undefined /*out*/;
+            resourceInputs["relatedResourceType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:IncidentRelation" }, { type: "azure-native:securityinsights/v20190101preview:IncidentRelation" }, { type: "azure-native:securityinsights/v20210301preview:IncidentRelation" }, { type: "azure-native:securityinsights/v20210401:IncidentRelation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IncidentRelation.__pulumiType, name, inputs, opts);
+        super(IncidentRelation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

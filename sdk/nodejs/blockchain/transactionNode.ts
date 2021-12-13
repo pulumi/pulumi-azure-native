@@ -81,7 +81,7 @@ export class TransactionNode extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TransactionNodeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.blockchainMemberName === undefined) && !opts.urn) {
@@ -90,35 +90,35 @@ export class TransactionNode extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["blockchainMemberName"] = args ? args.blockchainMemberName : undefined;
-            inputs["firewallRules"] = args ? args.firewallRules : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["transactionNodeName"] = args ? args.transactionNodeName : undefined;
-            inputs["dns"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicKey"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["blockchainMemberName"] = args ? args.blockchainMemberName : undefined;
+            resourceInputs["firewallRules"] = args ? args.firewallRules : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["transactionNodeName"] = args ? args.transactionNodeName : undefined;
+            resourceInputs["dns"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicKey"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         } else {
-            inputs["dns"] = undefined /*out*/;
-            inputs["firewallRules"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicKey"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["dns"] = undefined /*out*/;
+            resourceInputs["firewallRules"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicKey"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:blockchain/v20180601preview:TransactionNode" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(TransactionNode.__pulumiType, name, inputs, opts);
+        super(TransactionNode.__pulumiType, name, resourceInputs, opts);
     }
 }
 

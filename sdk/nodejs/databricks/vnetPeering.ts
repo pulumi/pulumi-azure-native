@@ -93,7 +93,7 @@ export class VNetPeering extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VNetPeeringArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.remoteVirtualNetwork === undefined) && !opts.urn) {
@@ -105,41 +105,41 @@ export class VNetPeering extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
-            inputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
-            inputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
-            inputs["databricksAddressSpace"] = args ? args.databricksAddressSpace : undefined;
-            inputs["databricksVirtualNetwork"] = args ? args.databricksVirtualNetwork : undefined;
-            inputs["peeringName"] = args ? args.peeringName : undefined;
-            inputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
-            inputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["peeringState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
+            resourceInputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
+            resourceInputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
+            resourceInputs["databricksAddressSpace"] = args ? args.databricksAddressSpace : undefined;
+            resourceInputs["databricksVirtualNetwork"] = args ? args.databricksVirtualNetwork : undefined;
+            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
+            resourceInputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
+            resourceInputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peeringState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["allowForwardedTraffic"] = undefined /*out*/;
-            inputs["allowGatewayTransit"] = undefined /*out*/;
-            inputs["allowVirtualNetworkAccess"] = undefined /*out*/;
-            inputs["databricksAddressSpace"] = undefined /*out*/;
-            inputs["databricksVirtualNetwork"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peeringState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["remoteAddressSpace"] = undefined /*out*/;
-            inputs["remoteVirtualNetwork"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["useRemoteGateways"] = undefined /*out*/;
+            resourceInputs["allowForwardedTraffic"] = undefined /*out*/;
+            resourceInputs["allowGatewayTransit"] = undefined /*out*/;
+            resourceInputs["allowVirtualNetworkAccess"] = undefined /*out*/;
+            resourceInputs["databricksAddressSpace"] = undefined /*out*/;
+            resourceInputs["databricksVirtualNetwork"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peeringState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["remoteAddressSpace"] = undefined /*out*/;
+            resourceInputs["remoteVirtualNetwork"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["useRemoteGateways"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20180401:vNetPeering" }, { type: "azure-native:databricks/v20210401preview:vNetPeering" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VNetPeering.__pulumiType, name, inputs, opts);
+        super(VNetPeering.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -83,7 +83,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -95,43 +95,43 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["data"] = args ? args.data : undefined;
-            inputs["format"] = args ? args.format : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["thumbprint"] = args ? args.thumbprint : undefined;
-            inputs["thumbprintAlgorithm"] = args ? args.thumbprintAlgorithm : undefined;
-            inputs["deleteCertificateError"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["previousProvisioningState"] = undefined /*out*/;
-            inputs["previousProvisioningStateTransitionTime"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["provisioningStateTransitionTime"] = undefined /*out*/;
-            inputs["publicData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["data"] = args ? args.data : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["thumbprintAlgorithm"] = args ? args.thumbprintAlgorithm : undefined;
+            resourceInputs["deleteCertificateError"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["previousProvisioningState"] = undefined /*out*/;
+            resourceInputs["previousProvisioningStateTransitionTime"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["provisioningStateTransitionTime"] = undefined /*out*/;
+            resourceInputs["publicData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["deleteCertificateError"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["format"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["previousProvisioningState"] = undefined /*out*/;
-            inputs["previousProvisioningStateTransitionTime"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["provisioningStateTransitionTime"] = undefined /*out*/;
-            inputs["publicData"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["thumbprintAlgorithm"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deleteCertificateError"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["format"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["previousProvisioningState"] = undefined /*out*/;
+            resourceInputs["previousProvisioningStateTransitionTime"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["provisioningStateTransitionTime"] = undefined /*out*/;
+            resourceInputs["publicData"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["thumbprintAlgorithm"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:batch:Certificate" }, { type: "azure-native:batch/v20170901:Certificate" }, { type: "azure-native:batch/v20190401:Certificate" }, { type: "azure-native:batch/v20190801:Certificate" }, { type: "azure-native:batch/v20200301:Certificate" }, { type: "azure-native:batch/v20200501:Certificate" }, { type: "azure-native:batch/v20200901:Certificate" }, { type: "azure-native:batch/v20210101:Certificate" }, { type: "azure-native:batch/v20210601:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Certificate.__pulumiType, name, inputs, opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

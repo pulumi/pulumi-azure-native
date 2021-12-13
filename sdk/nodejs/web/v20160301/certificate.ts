@@ -140,7 +140,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.password === undefined) && !opts.urn) {
@@ -149,64 +149,64 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["hostNames"] = args ? args.hostNames : undefined;
-            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            inputs["keyVaultSecretName"] = args ? args.keyVaultSecretName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["pfxBlob"] = args ? args.pfxBlob : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverFarmId"] = args ? args.serverFarmId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["cerBlob"] = undefined /*out*/;
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["geoRegion"] = undefined /*out*/;
-            inputs["hostingEnvironmentProfile"] = undefined /*out*/;
-            inputs["issueDate"] = undefined /*out*/;
-            inputs["issuer"] = undefined /*out*/;
-            inputs["keyVaultSecretStatus"] = undefined /*out*/;
-            inputs["publicKeyHash"] = undefined /*out*/;
-            inputs["selfLink"] = undefined /*out*/;
-            inputs["siteName"] = undefined /*out*/;
-            inputs["subjectName"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["valid"] = undefined /*out*/;
+            resourceInputs["hostNames"] = args ? args.hostNames : undefined;
+            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["keyVaultSecretName"] = args ? args.keyVaultSecretName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["pfxBlob"] = args ? args.pfxBlob : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverFarmId"] = args ? args.serverFarmId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cerBlob"] = undefined /*out*/;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["geoRegion"] = undefined /*out*/;
+            resourceInputs["hostingEnvironmentProfile"] = undefined /*out*/;
+            resourceInputs["issueDate"] = undefined /*out*/;
+            resourceInputs["issuer"] = undefined /*out*/;
+            resourceInputs["keyVaultSecretStatus"] = undefined /*out*/;
+            resourceInputs["publicKeyHash"] = undefined /*out*/;
+            resourceInputs["selfLink"] = undefined /*out*/;
+            resourceInputs["siteName"] = undefined /*out*/;
+            resourceInputs["subjectName"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["valid"] = undefined /*out*/;
         } else {
-            inputs["cerBlob"] = undefined /*out*/;
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["geoRegion"] = undefined /*out*/;
-            inputs["hostNames"] = undefined /*out*/;
-            inputs["hostingEnvironmentProfile"] = undefined /*out*/;
-            inputs["issueDate"] = undefined /*out*/;
-            inputs["issuer"] = undefined /*out*/;
-            inputs["keyVaultId"] = undefined /*out*/;
-            inputs["keyVaultSecretName"] = undefined /*out*/;
-            inputs["keyVaultSecretStatus"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["pfxBlob"] = undefined /*out*/;
-            inputs["publicKeyHash"] = undefined /*out*/;
-            inputs["selfLink"] = undefined /*out*/;
-            inputs["serverFarmId"] = undefined /*out*/;
-            inputs["siteName"] = undefined /*out*/;
-            inputs["subjectName"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["valid"] = undefined /*out*/;
+            resourceInputs["cerBlob"] = undefined /*out*/;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["geoRegion"] = undefined /*out*/;
+            resourceInputs["hostNames"] = undefined /*out*/;
+            resourceInputs["hostingEnvironmentProfile"] = undefined /*out*/;
+            resourceInputs["issueDate"] = undefined /*out*/;
+            resourceInputs["issuer"] = undefined /*out*/;
+            resourceInputs["keyVaultId"] = undefined /*out*/;
+            resourceInputs["keyVaultSecretName"] = undefined /*out*/;
+            resourceInputs["keyVaultSecretStatus"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pfxBlob"] = undefined /*out*/;
+            resourceInputs["publicKeyHash"] = undefined /*out*/;
+            resourceInputs["selfLink"] = undefined /*out*/;
+            resourceInputs["serverFarmId"] = undefined /*out*/;
+            resourceInputs["siteName"] = undefined /*out*/;
+            resourceInputs["subjectName"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["valid"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:Certificate" }, { type: "azure-native:web/v20150801:Certificate" }, { type: "azure-native:web/v20180201:Certificate" }, { type: "azure-native:web/v20181101:Certificate" }, { type: "azure-native:web/v20190801:Certificate" }, { type: "azure-native:web/v20200601:Certificate" }, { type: "azure-native:web/v20200901:Certificate" }, { type: "azure-native:web/v20201001:Certificate" }, { type: "azure-native:web/v20201201:Certificate" }, { type: "azure-native:web/v20210101:Certificate" }, { type: "azure-native:web/v20210115:Certificate" }, { type: "azure-native:web/v20210201:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Certificate.__pulumiType, name, inputs, opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

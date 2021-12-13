@@ -88,7 +88,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SoftwareUpdateConfigurationByNameArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -103,39 +103,39 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             if ((!args || args.updateConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'updateConfiguration'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["error"] = args ? args.error : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scheduleInfo"] = args ? args.scheduleInfo : undefined;
-            inputs["softwareUpdateConfigurationName"] = args ? args.softwareUpdateConfigurationName : undefined;
-            inputs["tasks"] = args ? args.tasks : undefined;
-            inputs["updateConfiguration"] = args ? args.updateConfiguration : undefined;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["lastModifiedBy"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["error"] = args ? args.error : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scheduleInfo"] = args ? (args.scheduleInfo ? pulumi.output(args.scheduleInfo).apply(inputs.automation.v20170515preview.schedulePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["softwareUpdateConfigurationName"] = args ? args.softwareUpdateConfigurationName : undefined;
+            resourceInputs["tasks"] = args ? args.tasks : undefined;
+            resourceInputs["updateConfiguration"] = args ? args.updateConfiguration : undefined;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["error"] = undefined /*out*/;
-            inputs["lastModifiedBy"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["scheduleInfo"] = undefined /*out*/;
-            inputs["tasks"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updateConfiguration"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["error"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["scheduleInfo"] = undefined /*out*/;
+            resourceInputs["tasks"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updateConfiguration"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:SoftwareUpdateConfigurationByName" }, { type: "azure-native:automation/v20190601:SoftwareUpdateConfigurationByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SoftwareUpdateConfigurationByName.__pulumiType, name, inputs, opts);
+        super(SoftwareUpdateConfigurationByName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

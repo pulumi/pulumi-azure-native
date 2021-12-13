@@ -80,7 +80,7 @@ export class BackupSchedule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BackupScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.backupPolicyName === undefined) && !opts.urn) {
@@ -110,37 +110,37 @@ export class BackupSchedule extends pulumi.CustomResource {
             if ((!args || args.startTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
-            inputs["backupScheduleName"] = args ? args.backupScheduleName : undefined;
-            inputs["backupType"] = args ? args.backupType : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionCount"] = args ? args.retentionCount : undefined;
-            inputs["scheduleRecurrence"] = args ? args.scheduleRecurrence : undefined;
-            inputs["scheduleStatus"] = args ? args.scheduleStatus : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["lastSuccessfulRun"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
+            resourceInputs["backupScheduleName"] = args ? args.backupScheduleName : undefined;
+            resourceInputs["backupType"] = args ? args.backupType : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionCount"] = args ? args.retentionCount : undefined;
+            resourceInputs["scheduleRecurrence"] = args ? args.scheduleRecurrence : undefined;
+            resourceInputs["scheduleStatus"] = args ? args.scheduleStatus : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["lastSuccessfulRun"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["backupType"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastSuccessfulRun"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["retentionCount"] = undefined /*out*/;
-            inputs["scheduleRecurrence"] = undefined /*out*/;
-            inputs["scheduleStatus"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backupType"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastSuccessfulRun"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["retentionCount"] = undefined /*out*/;
+            resourceInputs["scheduleRecurrence"] = undefined /*out*/;
+            resourceInputs["scheduleStatus"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:BackupSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BackupSchedule.__pulumiType, name, inputs, opts);
+        super(BackupSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

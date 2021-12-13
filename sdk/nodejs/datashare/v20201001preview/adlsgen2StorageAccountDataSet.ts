@@ -77,7 +77,7 @@ export class ADLSGen2StorageAccountDataSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ADLSGen2StorageAccountDataSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -98,34 +98,34 @@ export class ADLSGen2StorageAccountDataSet extends pulumi.CustomResource {
             if ((!args || args.storageAccountResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountResourceId'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["dataSetName"] = args ? args.dataSetName : undefined;
-            inputs["kind"] = "AdlsGen2StorageAccount";
-            inputs["paths"] = args ? args.paths : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
+            resourceInputs["kind"] = "AdlsGen2StorageAccount";
+            resourceInputs["paths"] = args ? args.paths : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["paths"] = undefined /*out*/;
-            inputs["storageAccountResourceId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["paths"] = undefined /*out*/;
+            resourceInputs["storageAccountResourceId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen2StorageAccountDataSet" }, { type: "azure-native:datashare/v20181101preview:ADLSGen2StorageAccountDataSet" }, { type: "azure-native:datashare/v20191101:ADLSGen2StorageAccountDataSet" }, { type: "azure-native:datashare/v20200901:ADLSGen2StorageAccountDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen2StorageAccountDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ADLSGen2StorageAccountDataSet.__pulumiType, name, inputs, opts);
+        super(ADLSGen2StorageAccountDataSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

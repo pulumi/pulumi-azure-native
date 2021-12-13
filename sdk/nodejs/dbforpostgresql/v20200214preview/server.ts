@@ -154,82 +154,82 @@ export class Server extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["delegatedSubnetArguments"] = args ? args.delegatedSubnetArguments : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["haEnabled"] = args ? args.haEnabled : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["logBackupStorageSku"] = args ? args.logBackupStorageSku : undefined;
-            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            inputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
-            inputs["privateDnsZoneArguments"] = args ? args.privateDnsZoneArguments : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["sourceResourceGroupName"] = args ? args.sourceResourceGroupName : undefined;
-            inputs["sourceServerName"] = args ? args.sourceServerName : undefined;
-            inputs["sourceSubscriptionId"] = args ? args.sourceSubscriptionId : undefined;
-            inputs["standbyCount"] = args ? args.standbyCount : undefined;
-            inputs["storageProfile"] = args ? args.storageProfile : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["byokEnforcement"] = undefined /*out*/;
-            inputs["earliestRestoreDate"] = undefined /*out*/;
-            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
-            inputs["haState"] = undefined /*out*/;
-            inputs["minorVersion"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["standbyAvailabilityZone"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["delegatedSubnetArguments"] = args ? args.delegatedSubnetArguments : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["haEnabled"] = args ? args.haEnabled : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logBackupStorageSku"] = args ? args.logBackupStorageSku : undefined;
+            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            resourceInputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
+            resourceInputs["privateDnsZoneArguments"] = args ? args.privateDnsZoneArguments : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sourceResourceGroupName"] = args ? args.sourceResourceGroupName : undefined;
+            resourceInputs["sourceServerName"] = args ? args.sourceServerName : undefined;
+            resourceInputs["sourceSubscriptionId"] = args ? args.sourceSubscriptionId : undefined;
+            resourceInputs["standbyCount"] = args ? args.standbyCount : undefined;
+            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["byokEnforcement"] = undefined /*out*/;
+            resourceInputs["earliestRestoreDate"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            resourceInputs["haState"] = undefined /*out*/;
+            resourceInputs["minorVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["standbyAvailabilityZone"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["administratorLogin"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["byokEnforcement"] = undefined /*out*/;
-            inputs["delegatedSubnetArguments"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["earliestRestoreDate"] = undefined /*out*/;
-            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
-            inputs["haEnabled"] = undefined /*out*/;
-            inputs["haState"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["logBackupStorageSku"] = undefined /*out*/;
-            inputs["maintenanceWindow"] = undefined /*out*/;
-            inputs["minorVersion"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["pointInTimeUTC"] = undefined /*out*/;
-            inputs["privateDnsZoneArguments"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["sourceResourceGroupName"] = undefined /*out*/;
-            inputs["sourceServerName"] = undefined /*out*/;
-            inputs["sourceSubscriptionId"] = undefined /*out*/;
-            inputs["standbyAvailabilityZone"] = undefined /*out*/;
-            inputs["standbyCount"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["storageProfile"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["byokEnforcement"] = undefined /*out*/;
+            resourceInputs["delegatedSubnetArguments"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["earliestRestoreDate"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            resourceInputs["haEnabled"] = undefined /*out*/;
+            resourceInputs["haState"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["logBackupStorageSku"] = undefined /*out*/;
+            resourceInputs["maintenanceWindow"] = undefined /*out*/;
+            resourceInputs["minorVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pointInTimeUTC"] = undefined /*out*/;
+            resourceInputs["privateDnsZoneArguments"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["sourceResourceGroupName"] = undefined /*out*/;
+            resourceInputs["sourceServerName"] = undefined /*out*/;
+            resourceInputs["sourceSubscriptionId"] = undefined /*out*/;
+            resourceInputs["standbyAvailabilityZone"] = undefined /*out*/;
+            resourceInputs["standbyCount"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210601:Server" }, { type: "azure-native:dbforpostgresql/v20210601preview:Server" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:Server" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Server.__pulumiType, name, inputs, opts);
+        super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }
 

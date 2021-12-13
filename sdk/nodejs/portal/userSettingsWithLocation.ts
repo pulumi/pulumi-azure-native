@@ -49,7 +49,7 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: UserSettingsWithLocationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.location === undefined) && !opts.urn) {
@@ -58,18 +58,18 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
             if ((!args || args.properties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["userSettingsName"] = args ? args.userSettingsName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["userSettingsName"] = args ? args.userSettingsName : undefined;
         } else {
-            inputs["properties"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:portal/v20181001:UserSettingsWithLocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(UserSettingsWithLocation.__pulumiType, name, inputs, opts);
+        super(UserSettingsWithLocation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -63,32 +63,32 @@ export class PolicyAssignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PolicyAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyAssignmentName"] = args ? args.policyAssignmentName : undefined;
-            inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyAssignmentName"] = args ? args.policyAssignmentName : undefined;
+            resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["policyDefinitionId"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policyDefinitionId"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicyAssignment" }, { type: "azure-native:authorization/v20151001preview:PolicyAssignment" }, { type: "azure-native:authorization/v20161201:PolicyAssignment" }, { type: "azure-native:authorization/v20170601preview:PolicyAssignment" }, { type: "azure-native:authorization/v20180301:PolicyAssignment" }, { type: "azure-native:authorization/v20180501:PolicyAssignment" }, { type: "azure-native:authorization/v20190101:PolicyAssignment" }, { type: "azure-native:authorization/v20190601:PolicyAssignment" }, { type: "azure-native:authorization/v20190901:PolicyAssignment" }, { type: "azure-native:authorization/v20200301:PolicyAssignment" }, { type: "azure-native:authorization/v20200901:PolicyAssignment" }, { type: "azure-native:authorization/v20210601:PolicyAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PolicyAssignment.__pulumiType, name, inputs, opts);
+        super(PolicyAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

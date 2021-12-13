@@ -84,7 +84,7 @@ export class BackupPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -99,38 +99,38 @@ export class BackupPolicy extends pulumi.CustomResource {
             if ((!args || args.volumeIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeIds'");
             }
-            inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["volumeIds"] = args ? args.volumeIds : undefined;
-            inputs["backupPolicyCreationType"] = undefined /*out*/;
-            inputs["lastBackupTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nextBackupTime"] = undefined /*out*/;
-            inputs["scheduledBackupStatus"] = undefined /*out*/;
-            inputs["schedulesCount"] = undefined /*out*/;
-            inputs["ssmHostName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["volumeIds"] = args ? args.volumeIds : undefined;
+            resourceInputs["backupPolicyCreationType"] = undefined /*out*/;
+            resourceInputs["lastBackupTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextBackupTime"] = undefined /*out*/;
+            resourceInputs["scheduledBackupStatus"] = undefined /*out*/;
+            resourceInputs["schedulesCount"] = undefined /*out*/;
+            resourceInputs["ssmHostName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["backupPolicyCreationType"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastBackupTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nextBackupTime"] = undefined /*out*/;
-            inputs["scheduledBackupStatus"] = undefined /*out*/;
-            inputs["schedulesCount"] = undefined /*out*/;
-            inputs["ssmHostName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["volumeIds"] = undefined /*out*/;
+            resourceInputs["backupPolicyCreationType"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastBackupTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextBackupTime"] = undefined /*out*/;
+            resourceInputs["scheduledBackupStatus"] = undefined /*out*/;
+            resourceInputs["schedulesCount"] = undefined /*out*/;
+            resourceInputs["ssmHostName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["volumeIds"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:BackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BackupPolicy.__pulumiType, name, inputs, opts);
+        super(BackupPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

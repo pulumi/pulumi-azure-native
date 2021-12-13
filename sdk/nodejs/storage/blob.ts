@@ -72,7 +72,7 @@ export class Blob extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BlobArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -84,31 +84,31 @@ export class Blob extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accessTier"] = args ? args.accessTier : undefined;
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["blobName"] = args ? args.blobName : undefined;
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["contentMd5"] = args ? args.contentMd5 : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["type"] = (args ? args.type : undefined) ?? "Block";
-            inputs["name"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["blobName"] = args ? args.blobName : undefined;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["contentMd5"] = args ? args.contentMd5 : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["type"] = (args ? args.type : undefined) ?? "Block";
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         } else {
-            inputs["accessTier"] = undefined /*out*/;
-            inputs["contentMd5"] = undefined /*out*/;
-            inputs["contentType"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["accessTier"] = undefined /*out*/;
+            resourceInputs["contentMd5"] = undefined /*out*/;
+            resourceInputs["contentType"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Blob.__pulumiType, name, inputs, opts);
+        super(Blob.__pulumiType, name, resourceInputs, opts);
     }
 }
 

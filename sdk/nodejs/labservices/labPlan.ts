@@ -97,48 +97,48 @@ export class LabPlan extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LabPlanArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allowedRegions"] = args ? args.allowedRegions : undefined;
-            inputs["defaultAutoShutdownProfile"] = args ? args.defaultAutoShutdownProfile : undefined;
-            inputs["defaultConnectionProfile"] = args ? args.defaultConnectionProfile : undefined;
-            inputs["defaultNetworkProfile"] = args ? args.defaultNetworkProfile : undefined;
-            inputs["labPlanName"] = args ? args.labPlanName : undefined;
-            inputs["linkedLmsInstance"] = args ? args.linkedLmsInstance : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sharedGalleryId"] = args ? args.sharedGalleryId : undefined;
-            inputs["supportInfo"] = args ? args.supportInfo : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowedRegions"] = args ? args.allowedRegions : undefined;
+            resourceInputs["defaultAutoShutdownProfile"] = args ? (args.defaultAutoShutdownProfile ? pulumi.output(args.defaultAutoShutdownProfile).apply(inputs.labservices.autoShutdownProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["defaultConnectionProfile"] = args ? (args.defaultConnectionProfile ? pulumi.output(args.defaultConnectionProfile).apply(inputs.labservices.connectionProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["defaultNetworkProfile"] = args ? args.defaultNetworkProfile : undefined;
+            resourceInputs["labPlanName"] = args ? args.labPlanName : undefined;
+            resourceInputs["linkedLmsInstance"] = args ? args.linkedLmsInstance : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sharedGalleryId"] = args ? args.sharedGalleryId : undefined;
+            resourceInputs["supportInfo"] = args ? args.supportInfo : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["allowedRegions"] = undefined /*out*/;
-            inputs["defaultAutoShutdownProfile"] = undefined /*out*/;
-            inputs["defaultConnectionProfile"] = undefined /*out*/;
-            inputs["defaultNetworkProfile"] = undefined /*out*/;
-            inputs["linkedLmsInstance"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sharedGalleryId"] = undefined /*out*/;
-            inputs["supportInfo"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowedRegions"] = undefined /*out*/;
+            resourceInputs["defaultAutoShutdownProfile"] = undefined /*out*/;
+            resourceInputs["defaultConnectionProfile"] = undefined /*out*/;
+            resourceInputs["defaultNetworkProfile"] = undefined /*out*/;
+            resourceInputs["linkedLmsInstance"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sharedGalleryId"] = undefined /*out*/;
+            resourceInputs["supportInfo"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211001preview:LabPlan" }, { type: "azure-native:labservices/v20211115preview:LabPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LabPlan.__pulumiType, name, inputs, opts);
+        super(LabPlan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

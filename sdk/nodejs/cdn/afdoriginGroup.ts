@@ -82,7 +82,7 @@ export class AFDOriginGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AFDOriginGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.profileName === undefined) && !opts.urn) {
@@ -91,37 +91,37 @@ export class AFDOriginGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
-            inputs["loadBalancingSettings"] = args ? args.loadBalancingSettings : undefined;
-            inputs["originGroupName"] = args ? args.originGroupName : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["responseBasedAfdOriginErrorDetectionSettings"] = args ? args.responseBasedAfdOriginErrorDetectionSettings : undefined;
-            inputs["sessionAffinityState"] = args ? args.sessionAffinityState : undefined;
-            inputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args ? args.trafficRestorationTimeToHealedOrNewEndpointsInMinutes : undefined;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
+            resourceInputs["loadBalancingSettings"] = args ? args.loadBalancingSettings : undefined;
+            resourceInputs["originGroupName"] = args ? args.originGroupName : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["responseBasedAfdOriginErrorDetectionSettings"] = args ? args.responseBasedAfdOriginErrorDetectionSettings : undefined;
+            resourceInputs["sessionAffinityState"] = args ? args.sessionAffinityState : undefined;
+            resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args ? args.trafficRestorationTimeToHealedOrNewEndpointsInMinutes : undefined;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["healthProbeSettings"] = undefined /*out*/;
-            inputs["loadBalancingSettings"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["responseBasedAfdOriginErrorDetectionSettings"] = undefined /*out*/;
-            inputs["sessionAffinityState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["healthProbeSettings"] = undefined /*out*/;
+            resourceInputs["loadBalancingSettings"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["responseBasedAfdOriginErrorDetectionSettings"] = undefined /*out*/;
+            resourceInputs["sessionAffinityState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDOriginGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AFDOriginGroup.__pulumiType, name, inputs, opts);
+        super(AFDOriginGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

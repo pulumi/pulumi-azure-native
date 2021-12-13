@@ -148,7 +148,7 @@ export class ApiManagementService extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.publisherEmail === undefined) && !opts.urn) {
@@ -163,68 +163,68 @@ export class ApiManagementService extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
-            inputs["certificates"] = args ? args.certificates : undefined;
-            inputs["customProperties"] = args ? args.customProperties : undefined;
-            inputs["hostnameConfigurations"] = args ? args.hostnameConfigurations : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
-            inputs["publisherEmail"] = args ? args.publisherEmail : undefined;
-            inputs["publisherName"] = args ? args.publisherName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
-            inputs["virtualNetworkType"] = (args ? args.virtualNetworkType : undefined) ?? "None";
-            inputs["createdAtUtc"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["gatewayRegionalUrl"] = undefined /*out*/;
-            inputs["gatewayUrl"] = undefined /*out*/;
-            inputs["managementApiUrl"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["portalUrl"] = undefined /*out*/;
-            inputs["privateIPAddresses"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicIPAddresses"] = undefined /*out*/;
-            inputs["scmUrl"] = undefined /*out*/;
-            inputs["targetProvisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["additionalLocations"] = args ? args.additionalLocations : undefined;
+            resourceInputs["certificates"] = args ? args.certificates : undefined;
+            resourceInputs["customProperties"] = args ? args.customProperties : undefined;
+            resourceInputs["hostnameConfigurations"] = args ? args.hostnameConfigurations : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
+            resourceInputs["publisherEmail"] = args ? args.publisherEmail : undefined;
+            resourceInputs["publisherName"] = args ? args.publisherName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.apimanagement.v20180101.apiManagementServiceSkuPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
+            resourceInputs["virtualNetworkType"] = (args ? args.virtualNetworkType : undefined) ?? "None";
+            resourceInputs["createdAtUtc"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["gatewayRegionalUrl"] = undefined /*out*/;
+            resourceInputs["gatewayUrl"] = undefined /*out*/;
+            resourceInputs["managementApiUrl"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["privateIPAddresses"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPAddresses"] = undefined /*out*/;
+            resourceInputs["scmUrl"] = undefined /*out*/;
+            resourceInputs["targetProvisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["additionalLocations"] = undefined /*out*/;
-            inputs["certificates"] = undefined /*out*/;
-            inputs["createdAtUtc"] = undefined /*out*/;
-            inputs["customProperties"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["gatewayRegionalUrl"] = undefined /*out*/;
-            inputs["gatewayUrl"] = undefined /*out*/;
-            inputs["hostnameConfigurations"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managementApiUrl"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notificationSenderEmail"] = undefined /*out*/;
-            inputs["portalUrl"] = undefined /*out*/;
-            inputs["privateIPAddresses"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicIPAddresses"] = undefined /*out*/;
-            inputs["publisherEmail"] = undefined /*out*/;
-            inputs["publisherName"] = undefined /*out*/;
-            inputs["scmUrl"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetProvisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkConfiguration"] = undefined /*out*/;
-            inputs["virtualNetworkType"] = undefined /*out*/;
+            resourceInputs["additionalLocations"] = undefined /*out*/;
+            resourceInputs["certificates"] = undefined /*out*/;
+            resourceInputs["createdAtUtc"] = undefined /*out*/;
+            resourceInputs["customProperties"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["gatewayRegionalUrl"] = undefined /*out*/;
+            resourceInputs["gatewayUrl"] = undefined /*out*/;
+            resourceInputs["hostnameConfigurations"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managementApiUrl"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notificationSenderEmail"] = undefined /*out*/;
+            resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["privateIPAddresses"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPAddresses"] = undefined /*out*/;
+            resourceInputs["publisherEmail"] = undefined /*out*/;
+            resourceInputs["publisherName"] = undefined /*out*/;
+            resourceInputs["scmUrl"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetProvisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetworkConfiguration"] = undefined /*out*/;
+            resourceInputs["virtualNetworkType"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiManagementService" }, { type: "azure-native:apimanagement/v20160707:ApiManagementService" }, { type: "azure-native:apimanagement/v20161010:ApiManagementService" }, { type: "azure-native:apimanagement/v20170301:ApiManagementService" }, { type: "azure-native:apimanagement/v20180601preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20190101:ApiManagementService" }, { type: "azure-native:apimanagement/v20191201:ApiManagementService" }, { type: "azure-native:apimanagement/v20191201preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20200601preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20201201:ApiManagementService" }, { type: "azure-native:apimanagement/v20210101preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20210401preview:ApiManagementService" }, { type: "azure-native:apimanagement/v20210801:ApiManagementService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApiManagementService.__pulumiType, name, inputs, opts);
+        super(ApiManagementService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -89,7 +89,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EventHubDataConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -110,40 +110,40 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["compression"] = args ? args.compression : undefined;
-            inputs["consumerGroup"] = args ? args.consumerGroup : undefined;
-            inputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
-            inputs["dataFormat"] = args ? args.dataFormat : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["eventHubResourceId"] = args ? args.eventHubResourceId : undefined;
-            inputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
-            inputs["kind"] = "EventHub";
-            inputs["location"] = args ? args.location : undefined;
-            inputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["compression"] = args ? args.compression : undefined;
+            resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
+            resourceInputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
+            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["eventHubResourceId"] = args ? args.eventHubResourceId : undefined;
+            resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
+            resourceInputs["kind"] = "EventHub";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["compression"] = undefined /*out*/;
-            inputs["consumerGroup"] = undefined /*out*/;
-            inputs["dataFormat"] = undefined /*out*/;
-            inputs["eventHubResourceId"] = undefined /*out*/;
-            inputs["eventSystemProperties"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["mappingRuleName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tableName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["compression"] = undefined /*out*/;
+            resourceInputs["consumerGroup"] = undefined /*out*/;
+            resourceInputs["dataFormat"] = undefined /*out*/;
+            resourceInputs["eventHubResourceId"] = undefined /*out*/;
+            resourceInputs["eventSystemProperties"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["mappingRuleName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tableName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:EventHubDataConnection" }, { type: "azure-native:kusto/v20190121:EventHubDataConnection" }, { type: "azure-native:kusto/v20190515:EventHubDataConnection" }, { type: "azure-native:kusto/v20190907:EventHubDataConnection" }, { type: "azure-native:kusto/v20191109:EventHubDataConnection" }, { type: "azure-native:kusto/v20200614:EventHubDataConnection" }, { type: "azure-native:kusto/v20200918:EventHubDataConnection" }, { type: "azure-native:kusto/v20210101:EventHubDataConnection" }, { type: "azure-native:kusto/v20210827:EventHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(EventHubDataConnection.__pulumiType, name, inputs, opts);
+        super(EventHubDataConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

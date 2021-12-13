@@ -100,7 +100,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConnectedRegistryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.mode === undefined) && !opts.urn) {
@@ -115,45 +115,45 @@ export class ConnectedRegistry extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clientTokenIds"] = args ? args.clientTokenIds : undefined;
-            inputs["connectedRegistryName"] = args ? args.connectedRegistryName : undefined;
-            inputs["logging"] = args ? args.logging : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["parent"] = args ? args.parent : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["activation"] = undefined /*out*/;
-            inputs["connectionState"] = undefined /*out*/;
-            inputs["lastActivityTime"] = undefined /*out*/;
-            inputs["loginServer"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statusDetails"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["clientTokenIds"] = args ? args.clientTokenIds : undefined;
+            resourceInputs["connectedRegistryName"] = args ? args.connectedRegistryName : undefined;
+            resourceInputs["logging"] = args ? (args.logging ? pulumi.output(args.logging).apply(inputs.containerregistry.v20201101preview.loggingPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["parent"] = args ? args.parent : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["activation"] = undefined /*out*/;
+            resourceInputs["connectionState"] = undefined /*out*/;
+            resourceInputs["lastActivityTime"] = undefined /*out*/;
+            resourceInputs["loginServer"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["activation"] = undefined /*out*/;
-            inputs["clientTokenIds"] = undefined /*out*/;
-            inputs["connectionState"] = undefined /*out*/;
-            inputs["lastActivityTime"] = undefined /*out*/;
-            inputs["logging"] = undefined /*out*/;
-            inputs["loginServer"] = undefined /*out*/;
-            inputs["mode"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parent"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statusDetails"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["activation"] = undefined /*out*/;
+            resourceInputs["clientTokenIds"] = undefined /*out*/;
+            resourceInputs["connectionState"] = undefined /*out*/;
+            resourceInputs["lastActivityTime"] = undefined /*out*/;
+            resourceInputs["logging"] = undefined /*out*/;
+            resourceInputs["loginServer"] = undefined /*out*/;
+            resourceInputs["mode"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parent"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:ConnectedRegistry" }, { type: "azure-native:containerregistry/v20210601preview:ConnectedRegistry" }, { type: "azure-native:containerregistry/v20210801preview:ConnectedRegistry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConnectedRegistry.__pulumiType, name, inputs, opts);
+        super(ConnectedRegistry.__pulumiType, name, resourceInputs, opts);
     }
 }
 

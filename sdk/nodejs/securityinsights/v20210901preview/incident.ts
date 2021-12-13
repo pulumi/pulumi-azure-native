@@ -140,7 +140,7 @@ export class Incident extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IncidentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -158,65 +158,65 @@ export class Incident extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["classification"] = args ? args.classification : undefined;
-            inputs["classificationComment"] = args ? args.classificationComment : undefined;
-            inputs["classificationReason"] = args ? args.classificationReason : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["firstActivityTimeUtc"] = args ? args.firstActivityTimeUtc : undefined;
-            inputs["incidentId"] = args ? args.incidentId : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["lastActivityTimeUtc"] = args ? args.lastActivityTimeUtc : undefined;
-            inputs["owner"] = args ? args.owner : undefined;
-            inputs["providerIncidentId"] = args ? args.providerIncidentId : undefined;
-            inputs["providerName"] = args ? args.providerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["additionalData"] = undefined /*out*/;
-            inputs["createdTimeUtc"] = undefined /*out*/;
-            inputs["incidentNumber"] = undefined /*out*/;
-            inputs["incidentUrl"] = undefined /*out*/;
-            inputs["lastModifiedTimeUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["relatedAnalyticRuleIds"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["teamInformation"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["classification"] = args ? args.classification : undefined;
+            resourceInputs["classificationComment"] = args ? args.classificationComment : undefined;
+            resourceInputs["classificationReason"] = args ? args.classificationReason : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["firstActivityTimeUtc"] = args ? args.firstActivityTimeUtc : undefined;
+            resourceInputs["incidentId"] = args ? args.incidentId : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["lastActivityTimeUtc"] = args ? args.lastActivityTimeUtc : undefined;
+            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["providerIncidentId"] = args ? args.providerIncidentId : undefined;
+            resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["additionalData"] = undefined /*out*/;
+            resourceInputs["createdTimeUtc"] = undefined /*out*/;
+            resourceInputs["incidentNumber"] = undefined /*out*/;
+            resourceInputs["incidentUrl"] = undefined /*out*/;
+            resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["relatedAnalyticRuleIds"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["teamInformation"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["additionalData"] = undefined /*out*/;
-            inputs["classification"] = undefined /*out*/;
-            inputs["classificationComment"] = undefined /*out*/;
-            inputs["classificationReason"] = undefined /*out*/;
-            inputs["createdTimeUtc"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["firstActivityTimeUtc"] = undefined /*out*/;
-            inputs["incidentNumber"] = undefined /*out*/;
-            inputs["incidentUrl"] = undefined /*out*/;
-            inputs["labels"] = undefined /*out*/;
-            inputs["lastActivityTimeUtc"] = undefined /*out*/;
-            inputs["lastModifiedTimeUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["providerIncidentId"] = undefined /*out*/;
-            inputs["providerName"] = undefined /*out*/;
-            inputs["relatedAnalyticRuleIds"] = undefined /*out*/;
-            inputs["severity"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["teamInformation"] = undefined /*out*/;
-            inputs["title"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["additionalData"] = undefined /*out*/;
+            resourceInputs["classification"] = undefined /*out*/;
+            resourceInputs["classificationComment"] = undefined /*out*/;
+            resourceInputs["classificationReason"] = undefined /*out*/;
+            resourceInputs["createdTimeUtc"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["firstActivityTimeUtc"] = undefined /*out*/;
+            resourceInputs["incidentNumber"] = undefined /*out*/;
+            resourceInputs["incidentUrl"] = undefined /*out*/;
+            resourceInputs["labels"] = undefined /*out*/;
+            resourceInputs["lastActivityTimeUtc"] = undefined /*out*/;
+            resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["providerIncidentId"] = undefined /*out*/;
+            resourceInputs["providerName"] = undefined /*out*/;
+            resourceInputs["relatedAnalyticRuleIds"] = undefined /*out*/;
+            resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["teamInformation"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Incident" }, { type: "azure-native:securityinsights/v20190101preview:Incident" }, { type: "azure-native:securityinsights/v20200101:Incident" }, { type: "azure-native:securityinsights/v20210301preview:Incident" }, { type: "azure-native:securityinsights/v20210401:Incident" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Incident.__pulumiType, name, inputs, opts);
+        super(Incident.__pulumiType, name, resourceInputs, opts);
     }
 }
 

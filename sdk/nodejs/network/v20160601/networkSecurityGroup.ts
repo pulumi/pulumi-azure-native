@@ -88,45 +88,45 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkSecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["defaultSecurityRules"] = args ? args.defaultSecurityRules : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
-            inputs["securityRules"] = args ? args.securityRules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
-            inputs["subnets"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["defaultSecurityRules"] = args ? args.defaultSecurityRules : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGuid"] = args ? args.resourceGuid : undefined;
+            resourceInputs["securityRules"] = args ? args.securityRules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["subnets"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["defaultSecurityRules"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["securityRules"] = undefined /*out*/;
-            inputs["subnets"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["defaultSecurityRules"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["securityRules"] = undefined /*out*/;
+            resourceInputs["subnets"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkSecurityGroup" }, { type: "azure-native:network/v20150501preview:NetworkSecurityGroup" }, { type: "azure-native:network/v20150615:NetworkSecurityGroup" }, { type: "azure-native:network/v20160330:NetworkSecurityGroup" }, { type: "azure-native:network/v20160901:NetworkSecurityGroup" }, { type: "azure-native:network/v20161201:NetworkSecurityGroup" }, { type: "azure-native:network/v20170301:NetworkSecurityGroup" }, { type: "azure-native:network/v20170601:NetworkSecurityGroup" }, { type: "azure-native:network/v20170801:NetworkSecurityGroup" }, { type: "azure-native:network/v20170901:NetworkSecurityGroup" }, { type: "azure-native:network/v20171001:NetworkSecurityGroup" }, { type: "azure-native:network/v20171101:NetworkSecurityGroup" }, { type: "azure-native:network/v20180101:NetworkSecurityGroup" }, { type: "azure-native:network/v20180201:NetworkSecurityGroup" }, { type: "azure-native:network/v20180401:NetworkSecurityGroup" }, { type: "azure-native:network/v20180601:NetworkSecurityGroup" }, { type: "azure-native:network/v20180701:NetworkSecurityGroup" }, { type: "azure-native:network/v20180801:NetworkSecurityGroup" }, { type: "azure-native:network/v20181001:NetworkSecurityGroup" }, { type: "azure-native:network/v20181101:NetworkSecurityGroup" }, { type: "azure-native:network/v20181201:NetworkSecurityGroup" }, { type: "azure-native:network/v20190201:NetworkSecurityGroup" }, { type: "azure-native:network/v20190401:NetworkSecurityGroup" }, { type: "azure-native:network/v20190601:NetworkSecurityGroup" }, { type: "azure-native:network/v20190701:NetworkSecurityGroup" }, { type: "azure-native:network/v20190801:NetworkSecurityGroup" }, { type: "azure-native:network/v20190901:NetworkSecurityGroup" }, { type: "azure-native:network/v20191101:NetworkSecurityGroup" }, { type: "azure-native:network/v20191201:NetworkSecurityGroup" }, { type: "azure-native:network/v20200301:NetworkSecurityGroup" }, { type: "azure-native:network/v20200401:NetworkSecurityGroup" }, { type: "azure-native:network/v20200501:NetworkSecurityGroup" }, { type: "azure-native:network/v20200601:NetworkSecurityGroup" }, { type: "azure-native:network/v20200701:NetworkSecurityGroup" }, { type: "azure-native:network/v20200801:NetworkSecurityGroup" }, { type: "azure-native:network/v20201101:NetworkSecurityGroup" }, { type: "azure-native:network/v20210201:NetworkSecurityGroup" }, { type: "azure-native:network/v20210301:NetworkSecurityGroup" }, { type: "azure-native:network/v20210501:NetworkSecurityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NetworkSecurityGroup.__pulumiType, name, inputs, opts);
+        super(NetworkSecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

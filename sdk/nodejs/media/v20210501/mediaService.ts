@@ -85,44 +85,44 @@ export class MediaService extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MediaServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["keyDelivery"] = args ? args.keyDelivery : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            inputs["storageAuthentication"] = args ? args.storageAuthentication : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["mediaServiceId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["keyDelivery"] = args ? args.keyDelivery : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
+            resourceInputs["storageAuthentication"] = args ? args.storageAuthentication : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["mediaServiceId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["encryption"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["keyDelivery"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["mediaServiceId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["storageAccounts"] = undefined /*out*/;
-            inputs["storageAuthentication"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["keyDelivery"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["mediaServiceId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["storageAccounts"] = undefined /*out*/;
+            resourceInputs["storageAuthentication"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:MediaService" }, { type: "azure-native:media/v20151001:MediaService" }, { type: "azure-native:media/v20180330preview:MediaService" }, { type: "azure-native:media/v20180601preview:MediaService" }, { type: "azure-native:media/v20180701:MediaService" }, { type: "azure-native:media/v20200501:MediaService" }, { type: "azure-native:media/v20210601:MediaService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MediaService.__pulumiType, name, inputs, opts);
+        super(MediaService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

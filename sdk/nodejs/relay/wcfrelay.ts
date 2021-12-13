@@ -85,7 +85,7 @@ export class WCFRelay extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WCFRelayArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -94,37 +94,37 @@ export class WCFRelay extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["relayName"] = args ? args.relayName : undefined;
-            inputs["relayType"] = args ? args.relayType : undefined;
-            inputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
-            inputs["requiresTransportSecurity"] = args ? args.requiresTransportSecurity : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["userMetadata"] = args ? args.userMetadata : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["isDynamic"] = undefined /*out*/;
-            inputs["listenerCount"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["relayName"] = args ? args.relayName : undefined;
+            resourceInputs["relayType"] = args ? args.relayType : undefined;
+            resourceInputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
+            resourceInputs["requiresTransportSecurity"] = args ? args.requiresTransportSecurity : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["isDynamic"] = undefined /*out*/;
+            resourceInputs["listenerCount"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["isDynamic"] = undefined /*out*/;
-            inputs["listenerCount"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["relayType"] = undefined /*out*/;
-            inputs["requiresClientAuthorization"] = undefined /*out*/;
-            inputs["requiresTransportSecurity"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
-            inputs["userMetadata"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["isDynamic"] = undefined /*out*/;
+            resourceInputs["listenerCount"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["relayType"] = undefined /*out*/;
+            resourceInputs["requiresClientAuthorization"] = undefined /*out*/;
+            resourceInputs["requiresTransportSecurity"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["userMetadata"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:WCFRelay" }, { type: "azure-native:relay/v20170401:WCFRelay" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WCFRelay.__pulumiType, name, inputs, opts);
+        super(WCFRelay.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -84,7 +84,7 @@ export class Blueprint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BlueprintArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceScope === undefined) && !opts.urn) {
@@ -93,36 +93,36 @@ export class Blueprint extends pulumi.CustomResource {
             if ((!args || args.targetScope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetScope'");
             }
-            inputs["blueprintName"] = args ? args.blueprintName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroups"] = args ? args.resourceGroups : undefined;
-            inputs["resourceScope"] = args ? args.resourceScope : undefined;
-            inputs["targetScope"] = args ? args.targetScope : undefined;
-            inputs["versions"] = args ? args.versions : undefined;
-            inputs["layout"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroups"] = args ? args.resourceGroups : undefined;
+            resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
+            resourceInputs["targetScope"] = args ? args.targetScope : undefined;
+            resourceInputs["versions"] = args ? args.versions : undefined;
+            resourceInputs["layout"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["layout"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["resourceGroups"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["targetScope"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["versions"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["layout"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["resourceGroups"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["targetScope"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["versions"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:blueprint:Blueprint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Blueprint.__pulumiType, name, inputs, opts);
+        super(Blueprint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -71,7 +71,7 @@ export class Group extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.machines === undefined) && !opts.urn) {
@@ -83,31 +83,31 @@ export class Group extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["machines"] = args ? args.machines : undefined;
-            inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["assessments"] = undefined /*out*/;
-            inputs["createdTimestamp"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedTimestamp"] = undefined /*out*/;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["machines"] = args ? args.machines : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["assessments"] = undefined /*out*/;
+            resourceInputs["createdTimestamp"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedTimestamp"] = undefined /*out*/;
         } else {
-            inputs["assessments"] = undefined /*out*/;
-            inputs["createdTimestamp"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["machines"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedTimestamp"] = undefined /*out*/;
+            resourceInputs["assessments"] = undefined /*out*/;
+            resourceInputs["createdTimestamp"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["machines"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180202:Group" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Group.__pulumiType, name, inputs, opts);
+        super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -60,7 +60,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ReplicationRecoveryPlanArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.properties === undefined) && !opts.urn) {
@@ -72,25 +72,25 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["recoveryPlanName"] = args ? args.recoveryPlanName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["recoveryPlanName"] = args ? args.recoveryPlanName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20160810:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20180110:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20180710:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20210210:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20210301:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20210401:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20210601:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20210701:ReplicationRecoveryPlan" }, { type: "azure-native:recoveryservices/v20211001:ReplicationRecoveryPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ReplicationRecoveryPlan.__pulumiType, name, inputs, opts);
+        super(ReplicationRecoveryPlan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

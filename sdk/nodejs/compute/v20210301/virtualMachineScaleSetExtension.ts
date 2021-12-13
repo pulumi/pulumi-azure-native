@@ -87,7 +87,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualMachineScaleSetExtensionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -96,39 +96,39 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             if ((!args || args.vmScaleSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-            inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
-            inputs["enableAutomaticUpgrade"] = args ? args.enableAutomaticUpgrade : undefined;
-            inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
-            inputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
-            inputs["publisher"] = args ? args.publisher : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
-            inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-            inputs["vmssExtensionName"] = args ? args.vmssExtensionName : undefined;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            resourceInputs["enableAutomaticUpgrade"] = args ? args.enableAutomaticUpgrade : undefined;
+            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
+            resourceInputs["publisher"] = args ? args.publisher : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            resourceInputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
+            resourceInputs["vmssExtensionName"] = args ? args.vmssExtensionName : undefined;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["autoUpgradeMinorVersion"] = undefined /*out*/;
-            inputs["enableAutomaticUpgrade"] = undefined /*out*/;
-            inputs["forceUpdateTag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["protectedSettings"] = undefined /*out*/;
-            inputs["provisionAfterExtensions"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publisher"] = undefined /*out*/;
-            inputs["settings"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["typeHandlerVersion"] = undefined /*out*/;
+            resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
+            resourceInputs["enableAutomaticUpgrade"] = undefined /*out*/;
+            resourceInputs["forceUpdateTag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["protectedSettings"] = undefined /*out*/;
+            resourceInputs["provisionAfterExtensions"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publisher"] = undefined /*out*/;
+            resourceInputs["settings"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20170330:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20171201:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSetExtension" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSetExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualMachineScaleSetExtension.__pulumiType, name, inputs, opts);
+        super(VirtualMachineScaleSetExtension.__pulumiType, name, resourceInputs, opts);
     }
 }
 

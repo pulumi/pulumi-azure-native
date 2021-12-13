@@ -81,7 +81,7 @@ export class BlobContainerDataSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BlobContainerDataSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -108,36 +108,36 @@ export class BlobContainerDataSet extends pulumi.CustomResource {
             if ((!args || args.subscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["dataSetName"] = args ? args.dataSetName : undefined;
-            inputs["kind"] = "Container";
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
+            resourceInputs["kind"] = "Container";
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["containerName"] = undefined /*out*/;
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceGroup"] = undefined /*out*/;
-            inputs["storageAccountName"] = undefined /*out*/;
-            inputs["subscriptionId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["containerName"] = undefined /*out*/;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["storageAccountName"] = undefined /*out*/;
+            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:BlobContainerDataSet" }, { type: "azure-native:datashare/v20181101preview:BlobContainerDataSet" }, { type: "azure-native:datashare/v20191101:BlobContainerDataSet" }, { type: "azure-native:datashare/v20200901:BlobContainerDataSet" }, { type: "azure-native:datashare/v20210801:BlobContainerDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BlobContainerDataSet.__pulumiType, name, inputs, opts);
+        super(BlobContainerDataSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

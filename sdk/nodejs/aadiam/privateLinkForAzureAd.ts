@@ -80,40 +80,40 @@ export class PrivateLinkForAzureAd extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateLinkForAzureAdArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allTenants"] = args ? args.allTenants : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerTenantId"] = args ? args.ownerTenantId : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenants"] = args ? args.tenants : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allTenants"] = args ? args.allTenants : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerTenantId"] = args ? args.ownerTenantId : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenants"] = args ? args.tenants : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["allTenants"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ownerTenantId"] = undefined /*out*/;
-            inputs["resourceGroup"] = undefined /*out*/;
-            inputs["resourceName"] = undefined /*out*/;
-            inputs["subscriptionId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tenants"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allTenants"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ownerTenantId"] = undefined /*out*/;
+            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["resourceName"] = undefined /*out*/;
+            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenants"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:aadiam/v20200301:privateLinkForAzureAd" }, { type: "azure-native:aadiam/v20200301preview:privateLinkForAzureAd" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PrivateLinkForAzureAd.__pulumiType, name, inputs, opts);
+        super(PrivateLinkForAzureAd.__pulumiType, name, resourceInputs, opts);
     }
 }
 

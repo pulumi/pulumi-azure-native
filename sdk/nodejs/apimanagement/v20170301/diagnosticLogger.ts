@@ -73,7 +73,7 @@ export class DiagnosticLogger extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DiagnosticLoggerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.diagnosticId === undefined) && !opts.urn) {
@@ -85,32 +85,32 @@ export class DiagnosticLogger extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["diagnosticId"] = args ? args.diagnosticId : undefined;
-            inputs["loggerid"] = args ? args.loggerid : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["credentials"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["isBuffered"] = undefined /*out*/;
-            inputs["loggerType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sampling"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["diagnosticId"] = args ? args.diagnosticId : undefined;
+            resourceInputs["loggerid"] = args ? args.loggerid : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["isBuffered"] = undefined /*out*/;
+            resourceInputs["loggerType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sampling"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["credentials"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["isBuffered"] = undefined /*out*/;
-            inputs["loggerType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sampling"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["isBuffered"] = undefined /*out*/;
+            resourceInputs["loggerType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sampling"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:DiagnosticLogger" }, { type: "azure-native:apimanagement/v20180101:DiagnosticLogger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DiagnosticLogger.__pulumiType, name, inputs, opts);
+        super(DiagnosticLogger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

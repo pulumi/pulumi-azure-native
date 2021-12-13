@@ -120,7 +120,7 @@ export class Volume extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -141,56 +141,56 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.usageThreshold === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'usageThreshold'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["creationToken"] = args ? args.creationToken : undefined;
-            inputs["dataProtection"] = args ? args.dataProtection : undefined;
-            inputs["exportPolicy"] = args ? args.exportPolicy : undefined;
-            inputs["isRestoring"] = args ? args.isRestoring : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["poolName"] = args ? args.poolName : undefined;
-            inputs["protocolTypes"] = args ? args.protocolTypes : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceLevel"] = (args ? args.serviceLevel : undefined) ?? "Premium";
-            inputs["snapshotId"] = args ? args.snapshotId : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["usageThreshold"] = (args ? args.usageThreshold : undefined) ?? 107374182400;
-            inputs["volumeName"] = args ? args.volumeName : undefined;
-            inputs["volumeType"] = args ? args.volumeType : undefined;
-            inputs["baremetalTenantId"] = undefined /*out*/;
-            inputs["fileSystemId"] = undefined /*out*/;
-            inputs["mountTargets"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["usedBytes"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["creationToken"] = args ? args.creationToken : undefined;
+            resourceInputs["dataProtection"] = args ? args.dataProtection : undefined;
+            resourceInputs["exportPolicy"] = args ? args.exportPolicy : undefined;
+            resourceInputs["isRestoring"] = args ? args.isRestoring : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["protocolTypes"] = args ? args.protocolTypes : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceLevel"] = (args ? args.serviceLevel : undefined) ?? "Premium";
+            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["usageThreshold"] = (args ? args.usageThreshold : undefined) ?? 107374182400;
+            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["baremetalTenantId"] = undefined /*out*/;
+            resourceInputs["fileSystemId"] = undefined /*out*/;
+            resourceInputs["mountTargets"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["usedBytes"] = undefined /*out*/;
         } else {
-            inputs["baremetalTenantId"] = undefined /*out*/;
-            inputs["creationToken"] = undefined /*out*/;
-            inputs["dataProtection"] = undefined /*out*/;
-            inputs["exportPolicy"] = undefined /*out*/;
-            inputs["fileSystemId"] = undefined /*out*/;
-            inputs["isRestoring"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["mountTargets"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["protocolTypes"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceLevel"] = undefined /*out*/;
-            inputs["snapshotId"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["usageThreshold"] = undefined /*out*/;
-            inputs["usedBytes"] = undefined /*out*/;
-            inputs["volumeType"] = undefined /*out*/;
+            resourceInputs["baremetalTenantId"] = undefined /*out*/;
+            resourceInputs["creationToken"] = undefined /*out*/;
+            resourceInputs["dataProtection"] = undefined /*out*/;
+            resourceInputs["exportPolicy"] = undefined /*out*/;
+            resourceInputs["fileSystemId"] = undefined /*out*/;
+            resourceInputs["isRestoring"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["mountTargets"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["protocolTypes"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceLevel"] = undefined /*out*/;
+            resourceInputs["snapshotId"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["usageThreshold"] = undefined /*out*/;
+            resourceInputs["usedBytes"] = undefined /*out*/;
+            resourceInputs["volumeType"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:Volume" }, { type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-native:netapp/v20201201:Volume" }, { type: "azure-native:netapp/v20210201:Volume" }, { type: "azure-native:netapp/v20210401:Volume" }, { type: "azure-native:netapp/v20210401preview:Volume" }, { type: "azure-native:netapp/v20210601:Volume" }, { type: "azure-native:netapp/v20210801:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Volume.__pulumiType, name, inputs, opts);
+        super(Volume.__pulumiType, name, resourceInputs, opts);
     }
 }
 

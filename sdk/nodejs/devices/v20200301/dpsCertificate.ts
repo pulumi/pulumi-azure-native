@@ -60,7 +60,7 @@ export class DpsCertificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DpsCertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.provisioningServiceName === undefined) && !opts.urn) {
@@ -69,27 +69,27 @@ export class DpsCertificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["isVerified"] = args ? args.isVerified : undefined;
-            inputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["isVerified"] = args ? args.isVerified : undefined;
+            resourceInputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devices:DpsCertificate" }, { type: "azure-native:devices/v20170821preview:DpsCertificate" }, { type: "azure-native:devices/v20171115:DpsCertificate" }, { type: "azure-native:devices/v20180122:DpsCertificate" }, { type: "azure-native:devices/v20200101:DpsCertificate" }, { type: "azure-native:devices/v20200901preview:DpsCertificate" }, { type: "azure-native:devices/v20211015:DpsCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DpsCertificate.__pulumiType, name, inputs, opts);
+        super(DpsCertificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

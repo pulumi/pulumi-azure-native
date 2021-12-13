@@ -109,7 +109,7 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managedResourceGroupId === undefined) && !opts.urn) {
@@ -118,48 +118,48 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizations"] = args ? args.authorizations : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["createdDateTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["storageAccountIdentity"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedBy"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
-            inputs["workspaceUrl"] = undefined /*out*/;
+            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
+            resourceInputs["parameters"] = args ? (args.parameters ? pulumi.output(args.parameters).apply(inputs.databricks.workspaceCustomParametersArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["createdDateTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageAccountIdentity"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
+            resourceInputs["workspaceUrl"] = undefined /*out*/;
         } else {
-            inputs["authorizations"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["createdDateTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedResourceGroupId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["storageAccountIdentity"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uiDefinitionUri"] = undefined /*out*/;
-            inputs["updatedBy"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
-            inputs["workspaceUrl"] = undefined /*out*/;
+            resourceInputs["authorizations"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["createdDateTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedResourceGroupId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["storageAccountIdentity"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uiDefinitionUri"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
+            resourceInputs["workspaceUrl"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20180401:Workspace" }, { type: "azure-native:databricks/v20210401preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

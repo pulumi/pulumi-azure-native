@@ -65,7 +65,7 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagementLockAtResourceLevelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.level === undefined) && !opts.urn) {
@@ -86,30 +86,30 @@ export class ManagementLockAtResourceLevel extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            inputs["level"] = args ? args.level : undefined;
-            inputs["lockName"] = args ? args.lockName : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["owners"] = args ? args.owners : undefined;
-            inputs["parentResourcePath"] = args ? args.parentResourcePath : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["level"] = args ? args.level : undefined;
+            resourceInputs["lockName"] = args ? args.lockName : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["owners"] = args ? args.owners : undefined;
+            resourceInputs["parentResourcePath"] = args ? args.parentResourcePath : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["level"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notes"] = undefined /*out*/;
-            inputs["owners"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["level"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notes"] = undefined /*out*/;
+            resourceInputs["owners"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization/v20160901:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization/v20170401:ManagementLockAtResourceLevel" }, { type: "azure-native:authorization/v20200501:ManagementLockAtResourceLevel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagementLockAtResourceLevel.__pulumiType, name, inputs, opts);
+        super(ManagementLockAtResourceLevel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

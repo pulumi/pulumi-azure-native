@@ -80,40 +80,40 @@ export class Profile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
-            inputs["endpoints"] = args ? args.endpoints : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["monitorConfig"] = args ? args.monitorConfig : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["profileStatus"] = args ? args.profileStatus : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
+            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["monitorConfig"] = args ? args.monitorConfig : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["profileStatus"] = args ? args.profileStatus : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dnsConfig"] = undefined /*out*/;
-            inputs["endpoints"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["monitorConfig"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["profileStatus"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["trafficRoutingMethod"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dnsConfig"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["monitorConfig"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["profileStatus"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trafficRoutingMethod"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Profile" }, { type: "azure-native:network/v20151101:Profile" }, { type: "azure-native:network/v20170301:Profile" }, { type: "azure-native:network/v20180201:Profile" }, { type: "azure-native:network/v20180301:Profile" }, { type: "azure-native:network/v20180401:Profile" }, { type: "azure-native:network/v20180801:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Profile.__pulumiType, name, inputs, opts);
+        super(Profile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

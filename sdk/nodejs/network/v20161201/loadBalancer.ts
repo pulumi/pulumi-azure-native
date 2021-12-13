@@ -100,51 +100,51 @@ export class LoadBalancer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["frontendIPConfigurations"] = args ? args.frontendIPConfigurations : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["inboundNatPools"] = args ? args.inboundNatPools : undefined;
-            inputs["inboundNatRules"] = args ? args.inboundNatRules : undefined;
-            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            inputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["outboundNatRules"] = args ? args.outboundNatRules : undefined;
-            inputs["probes"] = args ? args.probes : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["frontendIPConfigurations"] = args ? args.frontendIPConfigurations : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["inboundNatPools"] = args ? args.inboundNatPools : undefined;
+            resourceInputs["inboundNatRules"] = args ? args.inboundNatRules : undefined;
+            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["outboundNatRules"] = args ? args.outboundNatRules : undefined;
+            resourceInputs["probes"] = args ? args.probes : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGuid"] = args ? args.resourceGuid : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["backendAddressPools"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["frontendIPConfigurations"] = undefined /*out*/;
-            inputs["inboundNatPools"] = undefined /*out*/;
-            inputs["inboundNatRules"] = undefined /*out*/;
-            inputs["loadBalancingRules"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outboundNatRules"] = undefined /*out*/;
-            inputs["probes"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backendAddressPools"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["frontendIPConfigurations"] = undefined /*out*/;
+            resourceInputs["inboundNatPools"] = undefined /*out*/;
+            resourceInputs["inboundNatRules"] = undefined /*out*/;
+            resourceInputs["loadBalancingRules"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outboundNatRules"] = undefined /*out*/;
+            resourceInputs["probes"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:LoadBalancer" }, { type: "azure-native:network/v20150501preview:LoadBalancer" }, { type: "azure-native:network/v20150615:LoadBalancer" }, { type: "azure-native:network/v20160330:LoadBalancer" }, { type: "azure-native:network/v20160601:LoadBalancer" }, { type: "azure-native:network/v20160901:LoadBalancer" }, { type: "azure-native:network/v20170301:LoadBalancer" }, { type: "azure-native:network/v20170601:LoadBalancer" }, { type: "azure-native:network/v20170801:LoadBalancer" }, { type: "azure-native:network/v20170901:LoadBalancer" }, { type: "azure-native:network/v20171001:LoadBalancer" }, { type: "azure-native:network/v20171101:LoadBalancer" }, { type: "azure-native:network/v20180101:LoadBalancer" }, { type: "azure-native:network/v20180201:LoadBalancer" }, { type: "azure-native:network/v20180401:LoadBalancer" }, { type: "azure-native:network/v20180601:LoadBalancer" }, { type: "azure-native:network/v20180701:LoadBalancer" }, { type: "azure-native:network/v20180801:LoadBalancer" }, { type: "azure-native:network/v20181001:LoadBalancer" }, { type: "azure-native:network/v20181101:LoadBalancer" }, { type: "azure-native:network/v20181201:LoadBalancer" }, { type: "azure-native:network/v20190201:LoadBalancer" }, { type: "azure-native:network/v20190401:LoadBalancer" }, { type: "azure-native:network/v20190601:LoadBalancer" }, { type: "azure-native:network/v20190701:LoadBalancer" }, { type: "azure-native:network/v20190801:LoadBalancer" }, { type: "azure-native:network/v20190901:LoadBalancer" }, { type: "azure-native:network/v20191101:LoadBalancer" }, { type: "azure-native:network/v20191201:LoadBalancer" }, { type: "azure-native:network/v20200301:LoadBalancer" }, { type: "azure-native:network/v20200401:LoadBalancer" }, { type: "azure-native:network/v20200501:LoadBalancer" }, { type: "azure-native:network/v20200601:LoadBalancer" }, { type: "azure-native:network/v20200701:LoadBalancer" }, { type: "azure-native:network/v20200801:LoadBalancer" }, { type: "azure-native:network/v20201101:LoadBalancer" }, { type: "azure-native:network/v20210201:LoadBalancer" }, { type: "azure-native:network/v20210301:LoadBalancer" }, { type: "azure-native:network/v20210501:LoadBalancer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LoadBalancer.__pulumiType, name, inputs, opts);
+        super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

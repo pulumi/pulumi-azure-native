@@ -63,7 +63,7 @@ export class IpFirewallRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IpFirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -72,27 +72,27 @@ export class IpFirewallRule extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["endIpAddress"] = args ? args.endIpAddress : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["endIpAddress"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["startIpAddress"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["endIpAddress"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["startIpAddress"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:IpFirewallRule" }, { type: "azure-native:synapse/v20201201:IpFirewallRule" }, { type: "azure-native:synapse/v20210301:IpFirewallRule" }, { type: "azure-native:synapse/v20210401preview:IpFirewallRule" }, { type: "azure-native:synapse/v20210501:IpFirewallRule" }, { type: "azure-native:synapse/v20210601:IpFirewallRule" }, { type: "azure-native:synapse/v20210601preview:IpFirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IpFirewallRule.__pulumiType, name, inputs, opts);
+        super(IpFirewallRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

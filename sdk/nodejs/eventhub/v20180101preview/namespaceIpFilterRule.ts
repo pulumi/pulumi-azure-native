@@ -64,7 +64,7 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NamespaceIpFilterRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -73,27 +73,27 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["filterName"] = args ? args.filterName : undefined;
-            inputs["ipFilterRuleName"] = args ? args.ipFilterRuleName : undefined;
-            inputs["ipMask"] = args ? args.ipMask : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["filterName"] = args ? args.filterName : undefined;
+            resourceInputs["ipFilterRuleName"] = args ? args.ipFilterRuleName : undefined;
+            resourceInputs["ipMask"] = args ? args.ipMask : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["action"] = undefined /*out*/;
-            inputs["filterName"] = undefined /*out*/;
-            inputs["ipMask"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["filterName"] = undefined /*out*/;
+            resourceInputs["ipMask"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub:NamespaceIpFilterRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NamespaceIpFilterRule.__pulumiType, name, inputs, opts);
+        super(NamespaceIpFilterRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

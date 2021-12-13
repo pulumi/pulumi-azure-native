@@ -80,7 +80,7 @@ export class PipelineJob extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PipelineJobArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -92,35 +92,35 @@ export class PipelineJob extends pulumi.CustomResource {
             if ((!args || args.topologyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topologyName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["pipelineJobName"] = args ? args.pipelineJobName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["topologyName"] = args ? args.topologyName : undefined;
-            inputs["error"] = undefined /*out*/;
-            inputs["expiration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["pipelineJobName"] = args ? args.pipelineJobName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["topologyName"] = args ? args.topologyName : undefined;
+            resourceInputs["error"] = undefined /*out*/;
+            resourceInputs["expiration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["error"] = undefined /*out*/;
-            inputs["expiration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["topologyName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["error"] = undefined /*out*/;
+            resourceInputs["expiration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["topologyName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer:PipelineJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PipelineJob.__pulumiType, name, inputs, opts);
+        super(PipelineJob.__pulumiType, name, resourceInputs, opts);
     }
 }
 

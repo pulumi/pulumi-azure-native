@@ -86,7 +86,7 @@ export class Key extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KeyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.properties === undefined) && !opts.urn) {
@@ -98,40 +98,40 @@ export class Key extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
-            inputs["attributes"] = undefined /*out*/;
-            inputs["curveName"] = undefined /*out*/;
-            inputs["keyOps"] = undefined /*out*/;
-            inputs["keySize"] = undefined /*out*/;
-            inputs["keyUri"] = undefined /*out*/;
-            inputs["keyUriWithVersion"] = undefined /*out*/;
-            inputs["kty"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["curveName"] = undefined /*out*/;
+            resourceInputs["keyOps"] = undefined /*out*/;
+            resourceInputs["keySize"] = undefined /*out*/;
+            resourceInputs["keyUri"] = undefined /*out*/;
+            resourceInputs["keyUriWithVersion"] = undefined /*out*/;
+            resourceInputs["kty"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["attributes"] = undefined /*out*/;
-            inputs["curveName"] = undefined /*out*/;
-            inputs["keyOps"] = undefined /*out*/;
-            inputs["keySize"] = undefined /*out*/;
-            inputs["keyUri"] = undefined /*out*/;
-            inputs["keyUriWithVersion"] = undefined /*out*/;
-            inputs["kty"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["curveName"] = undefined /*out*/;
+            resourceInputs["keyOps"] = undefined /*out*/;
+            resourceInputs["keySize"] = undefined /*out*/;
+            resourceInputs["keyUri"] = undefined /*out*/;
+            resourceInputs["keyUriWithVersion"] = undefined /*out*/;
+            resourceInputs["kty"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:keyvault/v20190901:Key" }, { type: "azure-native:keyvault/v20200401preview:Key" }, { type: "azure-native:keyvault/v20210401preview:Key" }, { type: "azure-native:keyvault/v20210601preview:Key" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Key.__pulumiType, name, inputs, opts);
+        super(Key.__pulumiType, name, resourceInputs, opts);
     }
 }
 

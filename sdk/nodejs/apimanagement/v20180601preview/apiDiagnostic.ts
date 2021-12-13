@@ -76,7 +76,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiDiagnosticArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -91,34 +91,34 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["alwaysLog"] = args ? args.alwaysLog : undefined;
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["backend"] = args ? args.backend : undefined;
-            inputs["diagnosticId"] = args ? args.diagnosticId : undefined;
-            inputs["enableHttpCorrelationHeaders"] = args ? args.enableHttpCorrelationHeaders : undefined;
-            inputs["frontend"] = args ? args.frontend : undefined;
-            inputs["loggerId"] = args ? args.loggerId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sampling"] = args ? args.sampling : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alwaysLog"] = args ? args.alwaysLog : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["backend"] = args ? args.backend : undefined;
+            resourceInputs["diagnosticId"] = args ? args.diagnosticId : undefined;
+            resourceInputs["enableHttpCorrelationHeaders"] = args ? args.enableHttpCorrelationHeaders : undefined;
+            resourceInputs["frontend"] = args ? args.frontend : undefined;
+            resourceInputs["loggerId"] = args ? args.loggerId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sampling"] = args ? args.sampling : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["alwaysLog"] = undefined /*out*/;
-            inputs["backend"] = undefined /*out*/;
-            inputs["enableHttpCorrelationHeaders"] = undefined /*out*/;
-            inputs["frontend"] = undefined /*out*/;
-            inputs["loggerId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sampling"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alwaysLog"] = undefined /*out*/;
+            resourceInputs["backend"] = undefined /*out*/;
+            resourceInputs["enableHttpCorrelationHeaders"] = undefined /*out*/;
+            resourceInputs["frontend"] = undefined /*out*/;
+            resourceInputs["loggerId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sampling"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20170301:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20180101:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20190101:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20191201:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20191201preview:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20200601preview:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20201201:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20210101preview:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20210401preview:ApiDiagnostic" }, { type: "azure-native:apimanagement/v20210801:ApiDiagnostic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApiDiagnostic.__pulumiType, name, inputs, opts);
+        super(ApiDiagnostic.__pulumiType, name, resourceInputs, opts);
     }
 }
 

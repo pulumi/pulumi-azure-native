@@ -80,41 +80,41 @@ export class NetworkProfile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["containerNetworkInterfaceConfigurations"] = args ? args.containerNetworkInterfaceConfigurations : undefined;
-            inputs["containerNetworkInterfaces"] = args ? args.containerNetworkInterfaces : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkProfileName"] = args ? args.networkProfileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["containerNetworkInterfaceConfigurations"] = args ? args.containerNetworkInterfaceConfigurations : undefined;
+            resourceInputs["containerNetworkInterfaces"] = args ? args.containerNetworkInterfaces : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkProfileName"] = args ? args.networkProfileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["containerNetworkInterfaceConfigurations"] = undefined /*out*/;
-            inputs["containerNetworkInterfaces"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["containerNetworkInterfaceConfigurations"] = undefined /*out*/;
+            resourceInputs["containerNetworkInterfaces"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkProfile" }, { type: "azure-native:network/v20180801:NetworkProfile" }, { type: "azure-native:network/v20181001:NetworkProfile" }, { type: "azure-native:network/v20181101:NetworkProfile" }, { type: "azure-native:network/v20181201:NetworkProfile" }, { type: "azure-native:network/v20190201:NetworkProfile" }, { type: "azure-native:network/v20190601:NetworkProfile" }, { type: "azure-native:network/v20190701:NetworkProfile" }, { type: "azure-native:network/v20190801:NetworkProfile" }, { type: "azure-native:network/v20190901:NetworkProfile" }, { type: "azure-native:network/v20191101:NetworkProfile" }, { type: "azure-native:network/v20191201:NetworkProfile" }, { type: "azure-native:network/v20200301:NetworkProfile" }, { type: "azure-native:network/v20200401:NetworkProfile" }, { type: "azure-native:network/v20200501:NetworkProfile" }, { type: "azure-native:network/v20200601:NetworkProfile" }, { type: "azure-native:network/v20200701:NetworkProfile" }, { type: "azure-native:network/v20200801:NetworkProfile" }, { type: "azure-native:network/v20201101:NetworkProfile" }, { type: "azure-native:network/v20210201:NetworkProfile" }, { type: "azure-native:network/v20210301:NetworkProfile" }, { type: "azure-native:network/v20210501:NetworkProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NetworkProfile.__pulumiType, name, inputs, opts);
+        super(NetworkProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

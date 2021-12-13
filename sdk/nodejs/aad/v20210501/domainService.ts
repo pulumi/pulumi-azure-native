@@ -132,66 +132,66 @@ export class DomainService extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DomainServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["configDiagnostics"] = args ? args.configDiagnostics : undefined;
-            inputs["domainConfigurationType"] = args ? args.domainConfigurationType : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["domainSecuritySettings"] = args ? args.domainSecuritySettings : undefined;
-            inputs["domainServiceName"] = args ? args.domainServiceName : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["filteredSync"] = args ? args.filteredSync : undefined;
-            inputs["ldapsSettings"] = args ? args.ldapsSettings : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["notificationSettings"] = args ? args.notificationSettings : undefined;
-            inputs["replicaSets"] = args ? args.replicaSets : undefined;
-            inputs["resourceForestSettings"] = args ? args.resourceForestSettings : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["deploymentId"] = undefined /*out*/;
-            inputs["migrationProperties"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["syncOwner"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["configDiagnostics"] = args ? args.configDiagnostics : undefined;
+            resourceInputs["domainConfigurationType"] = args ? args.domainConfigurationType : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["domainSecuritySettings"] = args ? (args.domainSecuritySettings ? pulumi.output(args.domainSecuritySettings).apply(inputs.aad.v20210501.domainSecuritySettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["domainServiceName"] = args ? args.domainServiceName : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["filteredSync"] = args ? args.filteredSync : undefined;
+            resourceInputs["ldapsSettings"] = args ? (args.ldapsSettings ? pulumi.output(args.ldapsSettings).apply(inputs.aad.v20210501.ldapsSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["notificationSettings"] = args ? args.notificationSettings : undefined;
+            resourceInputs["replicaSets"] = args ? args.replicaSets : undefined;
+            resourceInputs["resourceForestSettings"] = args ? args.resourceForestSettings : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["deploymentId"] = undefined /*out*/;
+            resourceInputs["migrationProperties"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["syncOwner"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["configDiagnostics"] = undefined /*out*/;
-            inputs["deploymentId"] = undefined /*out*/;
-            inputs["domainConfigurationType"] = undefined /*out*/;
-            inputs["domainName"] = undefined /*out*/;
-            inputs["domainSecuritySettings"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["filteredSync"] = undefined /*out*/;
-            inputs["ldapsSettings"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["migrationProperties"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notificationSettings"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["replicaSets"] = undefined /*out*/;
-            inputs["resourceForestSettings"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["syncOwner"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["configDiagnostics"] = undefined /*out*/;
+            resourceInputs["deploymentId"] = undefined /*out*/;
+            resourceInputs["domainConfigurationType"] = undefined /*out*/;
+            resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["domainSecuritySettings"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["filteredSync"] = undefined /*out*/;
+            resourceInputs["ldapsSettings"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["migrationProperties"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notificationSettings"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["replicaSets"] = undefined /*out*/;
+            resourceInputs["resourceForestSettings"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["syncOwner"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:aad:DomainService" }, { type: "azure-native:aad/v20170101:DomainService" }, { type: "azure-native:aad/v20170601:DomainService" }, { type: "azure-native:aad/v20200101:DomainService" }, { type: "azure-native:aad/v20210301:DomainService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DomainService.__pulumiType, name, inputs, opts);
+        super(DomainService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -73,7 +73,7 @@ export class HybridUseBenefit extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HybridUseBenefitArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.scope === undefined) && !opts.urn) {
@@ -82,30 +82,30 @@ export class HybridUseBenefit extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["planId"] = args ? args.planId : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["planId"] = args ? args.planId : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["lastUpdatedDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["lastUpdatedDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:softwareplan/v20190601preview:HybridUseBenefit" }, { type: "azure-native:softwareplan/v20191201:HybridUseBenefit" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(HybridUseBenefit.__pulumiType, name, inputs, opts);
+        super(HybridUseBenefit.__pulumiType, name, resourceInputs, opts);
     }
 }
 

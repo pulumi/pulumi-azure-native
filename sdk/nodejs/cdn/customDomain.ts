@@ -85,7 +85,7 @@ export class CustomDomain extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.endpointName === undefined) && !opts.urn) {
@@ -100,38 +100,38 @@ export class CustomDomain extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customDomainName"] = args ? args.customDomainName : undefined;
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["customHttpsParameters"] = undefined /*out*/;
-            inputs["customHttpsProvisioningState"] = undefined /*out*/;
-            inputs["customHttpsProvisioningSubstate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validationData"] = undefined /*out*/;
+            resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["customHttpsParameters"] = undefined /*out*/;
+            resourceInputs["customHttpsProvisioningState"] = undefined /*out*/;
+            resourceInputs["customHttpsProvisioningSubstate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationData"] = undefined /*out*/;
         } else {
-            inputs["customHttpsParameters"] = undefined /*out*/;
-            inputs["customHttpsProvisioningState"] = undefined /*out*/;
-            inputs["customHttpsProvisioningSubstate"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validationData"] = undefined /*out*/;
+            resourceInputs["customHttpsParameters"] = undefined /*out*/;
+            resourceInputs["customHttpsProvisioningState"] = undefined /*out*/;
+            resourceInputs["customHttpsProvisioningSubstate"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationData"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20150601:CustomDomain" }, { type: "azure-native:cdn/v20160402:CustomDomain" }, { type: "azure-native:cdn/v20161002:CustomDomain" }, { type: "azure-native:cdn/v20170402:CustomDomain" }, { type: "azure-native:cdn/v20171012:CustomDomain" }, { type: "azure-native:cdn/v20190415:CustomDomain" }, { type: "azure-native:cdn/v20190615:CustomDomain" }, { type: "azure-native:cdn/v20190615preview:CustomDomain" }, { type: "azure-native:cdn/v20191231:CustomDomain" }, { type: "azure-native:cdn/v20200331:CustomDomain" }, { type: "azure-native:cdn/v20200415:CustomDomain" }, { type: "azure-native:cdn/v20200901:CustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CustomDomain.__pulumiType, name, inputs, opts);
+        super(CustomDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

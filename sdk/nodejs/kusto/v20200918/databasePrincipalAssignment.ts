@@ -80,7 +80,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabasePrincipalAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -101,36 +101,36 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["principalAssignmentName"] = args ? args.principalAssignmentName : undefined;
-            inputs["principalId"] = args ? args.principalId : undefined;
-            inputs["principalType"] = args ? args.principalType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["principalName"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tenantName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["principalAssignmentName"] = args ? args.principalAssignmentName : undefined;
+            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalName"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tenantName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["principalId"] = undefined /*out*/;
-            inputs["principalName"] = undefined /*out*/;
-            inputs["principalType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["tenantName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
+            resourceInputs["principalName"] = undefined /*out*/;
+            resourceInputs["principalType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["tenantName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20191109:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200215:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200614:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210101:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210827:DatabasePrincipalAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabasePrincipalAssignment.__pulumiType, name, inputs, opts);
+        super(DatabasePrincipalAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

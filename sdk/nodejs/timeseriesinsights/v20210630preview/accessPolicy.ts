@@ -64,7 +64,7 @@ export class AccessPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.environmentName === undefined) && !opts.urn) {
@@ -73,27 +73,27 @@ export class AccessPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["principalObjectId"] = args ? args.principalObjectId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["principalObjectId"] = args ? args.principalObjectId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["principalObjectId"] = undefined /*out*/;
-            inputs["roles"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalObjectId"] = undefined /*out*/;
+            resourceInputs["roles"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20170228preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20171115:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20180815preview:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20200515:AccessPolicy" }, { type: "azure-native:timeseriesinsights/v20210331preview:AccessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AccessPolicy.__pulumiType, name, inputs, opts);
+        super(AccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

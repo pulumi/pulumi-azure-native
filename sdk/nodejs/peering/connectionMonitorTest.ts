@@ -80,7 +80,7 @@ export class ConnectionMonitorTest extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConnectionMonitorTestArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.peeringServiceName === undefined) && !opts.urn) {
@@ -89,35 +89,35 @@ export class ConnectionMonitorTest extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["connectionMonitorTestName"] = args ? args.connectionMonitorTestName : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["destinationPort"] = args ? args.destinationPort : undefined;
-            inputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceAgent"] = args ? args.sourceAgent : undefined;
-            inputs["testFrequencyInSec"] = args ? args.testFrequencyInSec : undefined;
-            inputs["isTestSuccessful"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["connectionMonitorTestName"] = args ? args.connectionMonitorTestName : undefined;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
+            resourceInputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceAgent"] = args ? args.sourceAgent : undefined;
+            resourceInputs["testFrequencyInSec"] = args ? args.testFrequencyInSec : undefined;
+            resourceInputs["isTestSuccessful"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["destination"] = undefined /*out*/;
-            inputs["destinationPort"] = undefined /*out*/;
-            inputs["isTestSuccessful"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sourceAgent"] = undefined /*out*/;
-            inputs["testFrequencyInSec"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["destination"] = undefined /*out*/;
+            resourceInputs["destinationPort"] = undefined /*out*/;
+            resourceInputs["isTestSuccessful"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourceAgent"] = undefined /*out*/;
+            resourceInputs["testFrequencyInSec"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:peering/v20210601:ConnectionMonitorTest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConnectionMonitorTest.__pulumiType, name, inputs, opts);
+        super(ConnectionMonitorTest.__pulumiType, name, resourceInputs, opts);
     }
 }
 

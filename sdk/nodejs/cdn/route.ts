@@ -110,7 +110,7 @@ export class Route extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.endpointName === undefined) && !opts.urn) {
@@ -125,52 +125,52 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["compressionSettings"] = args ? args.compressionSettings : undefined;
-            inputs["customDomains"] = args ? args.customDomains : undefined;
-            inputs["enabledState"] = args ? args.enabledState : undefined;
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["forwardingProtocol"] = args ? args.forwardingProtocol : undefined;
-            inputs["httpsRedirect"] = args ? args.httpsRedirect : undefined;
-            inputs["linkToDefaultDomain"] = args ? args.linkToDefaultDomain : undefined;
-            inputs["originGroup"] = args ? args.originGroup : undefined;
-            inputs["originPath"] = args ? args.originPath : undefined;
-            inputs["patternsToMatch"] = args ? args.patternsToMatch : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["queryStringCachingBehavior"] = args ? args.queryStringCachingBehavior : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeName"] = args ? args.routeName : undefined;
-            inputs["ruleSets"] = args ? args.ruleSets : undefined;
-            inputs["supportedProtocols"] = args ? args.supportedProtocols : undefined;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["compressionSettings"] = args ? args.compressionSettings : undefined;
+            resourceInputs["customDomains"] = args ? args.customDomains : undefined;
+            resourceInputs["enabledState"] = args ? args.enabledState : undefined;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["forwardingProtocol"] = args ? args.forwardingProtocol : undefined;
+            resourceInputs["httpsRedirect"] = args ? args.httpsRedirect : undefined;
+            resourceInputs["linkToDefaultDomain"] = args ? args.linkToDefaultDomain : undefined;
+            resourceInputs["originGroup"] = args ? args.originGroup : undefined;
+            resourceInputs["originPath"] = args ? args.originPath : undefined;
+            resourceInputs["patternsToMatch"] = args ? args.patternsToMatch : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["queryStringCachingBehavior"] = args ? args.queryStringCachingBehavior : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routeName"] = args ? args.routeName : undefined;
+            resourceInputs["ruleSets"] = args ? args.ruleSets : undefined;
+            resourceInputs["supportedProtocols"] = args ? args.supportedProtocols : undefined;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["compressionSettings"] = undefined /*out*/;
-            inputs["customDomains"] = undefined /*out*/;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["enabledState"] = undefined /*out*/;
-            inputs["forwardingProtocol"] = undefined /*out*/;
-            inputs["httpsRedirect"] = undefined /*out*/;
-            inputs["linkToDefaultDomain"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["originGroup"] = undefined /*out*/;
-            inputs["originPath"] = undefined /*out*/;
-            inputs["patternsToMatch"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["queryStringCachingBehavior"] = undefined /*out*/;
-            inputs["ruleSets"] = undefined /*out*/;
-            inputs["supportedProtocols"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["compressionSettings"] = undefined /*out*/;
+            resourceInputs["customDomains"] = undefined /*out*/;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["enabledState"] = undefined /*out*/;
+            resourceInputs["forwardingProtocol"] = undefined /*out*/;
+            resourceInputs["httpsRedirect"] = undefined /*out*/;
+            resourceInputs["linkToDefaultDomain"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["originGroup"] = undefined /*out*/;
+            resourceInputs["originPath"] = undefined /*out*/;
+            resourceInputs["patternsToMatch"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["queryStringCachingBehavior"] = undefined /*out*/;
+            resourceInputs["ruleSets"] = undefined /*out*/;
+            resourceInputs["supportedProtocols"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Route" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Route.__pulumiType, name, inputs, opts);
+        super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }
 

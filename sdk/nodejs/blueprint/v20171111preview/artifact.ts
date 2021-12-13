@@ -61,7 +61,7 @@ export class Artifact extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact. */
     constructor(name: string, args: ArtifactArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Artifact is deprecated: Please use one of the variants: PolicyAssignmentArtifact, RoleAssignmentArtifact, TemplateArtifact.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.blueprintName === undefined) && !opts.urn) {
@@ -73,21 +73,21 @@ export class Artifact extends pulumi.CustomResource {
             if ((!args || args.managementGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupName'");
             }
-            inputs["artifactName"] = args ? args.artifactName : undefined;
-            inputs["blueprintName"] = args ? args.blueprintName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["managementGroupName"] = args ? args.managementGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["artifactName"] = args ? args.artifactName : undefined;
+            resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Artifact.__pulumiType, name, inputs, opts);
+        super(Artifact.__pulumiType, name, resourceInputs, opts);
     }
 }
 

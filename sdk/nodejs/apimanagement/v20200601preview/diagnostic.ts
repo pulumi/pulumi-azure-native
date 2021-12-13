@@ -88,7 +88,7 @@ export class Diagnostic extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DiagnosticArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.loggerId === undefined) && !opts.urn) {
@@ -100,39 +100,39 @@ export class Diagnostic extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["alwaysLog"] = args ? args.alwaysLog : undefined;
-            inputs["backend"] = args ? args.backend : undefined;
-            inputs["diagnosticId"] = args ? args.diagnosticId : undefined;
-            inputs["frontend"] = args ? args.frontend : undefined;
-            inputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
-            inputs["logClientIp"] = args ? args.logClientIp : undefined;
-            inputs["loggerId"] = args ? args.loggerId : undefined;
-            inputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sampling"] = args ? args.sampling : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["verbosity"] = args ? args.verbosity : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alwaysLog"] = args ? args.alwaysLog : undefined;
+            resourceInputs["backend"] = args ? args.backend : undefined;
+            resourceInputs["diagnosticId"] = args ? args.diagnosticId : undefined;
+            resourceInputs["frontend"] = args ? args.frontend : undefined;
+            resourceInputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
+            resourceInputs["logClientIp"] = args ? args.logClientIp : undefined;
+            resourceInputs["loggerId"] = args ? args.loggerId : undefined;
+            resourceInputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sampling"] = args ? args.sampling : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["verbosity"] = args ? args.verbosity : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["alwaysLog"] = undefined /*out*/;
-            inputs["backend"] = undefined /*out*/;
-            inputs["frontend"] = undefined /*out*/;
-            inputs["httpCorrelationProtocol"] = undefined /*out*/;
-            inputs["logClientIp"] = undefined /*out*/;
-            inputs["loggerId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["operationNameFormat"] = undefined /*out*/;
-            inputs["sampling"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["verbosity"] = undefined /*out*/;
+            resourceInputs["alwaysLog"] = undefined /*out*/;
+            resourceInputs["backend"] = undefined /*out*/;
+            resourceInputs["frontend"] = undefined /*out*/;
+            resourceInputs["httpCorrelationProtocol"] = undefined /*out*/;
+            resourceInputs["logClientIp"] = undefined /*out*/;
+            resourceInputs["loggerId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["operationNameFormat"] = undefined /*out*/;
+            resourceInputs["sampling"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["verbosity"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Diagnostic" }, { type: "azure-native:apimanagement/v20170301:Diagnostic" }, { type: "azure-native:apimanagement/v20180101:Diagnostic" }, { type: "azure-native:apimanagement/v20180601preview:Diagnostic" }, { type: "azure-native:apimanagement/v20190101:Diagnostic" }, { type: "azure-native:apimanagement/v20191201:Diagnostic" }, { type: "azure-native:apimanagement/v20191201preview:Diagnostic" }, { type: "azure-native:apimanagement/v20201201:Diagnostic" }, { type: "azure-native:apimanagement/v20210101preview:Diagnostic" }, { type: "azure-native:apimanagement/v20210401preview:Diagnostic" }, { type: "azure-native:apimanagement/v20210801:Diagnostic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Diagnostic.__pulumiType, name, inputs, opts);
+        super(Diagnostic.__pulumiType, name, resourceInputs, opts);
     }
 }
 

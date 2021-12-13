@@ -53,28 +53,28 @@ export class SubscriptionFeatureRegistration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SubscriptionFeatureRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.providerNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            inputs["featureName"] = args ? args.featureName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["featureName"] = args ? args.featureName : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.features.v20210701.subscriptionFeatureRegistrationPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:features:SubscriptionFeatureRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SubscriptionFeatureRegistration.__pulumiType, name, inputs, opts);
+        super(SubscriptionFeatureRegistration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

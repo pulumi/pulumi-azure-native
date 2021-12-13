@@ -101,7 +101,7 @@ export class LongTermEnvironment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LongTermEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -119,44 +119,44 @@ export class LongTermEnvironment extends pulumi.CustomResource {
             if ((!args || args.timeSeriesIdProperties === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeSeriesIdProperties'");
             }
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["kind"] = "LongTerm";
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeSeriesIdProperties"] = args ? args.timeSeriesIdProperties : undefined;
-            inputs["warmStoreConfiguration"] = args ? args.warmStoreConfiguration : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["dataAccessFqdn"] = undefined /*out*/;
-            inputs["dataAccessId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["kind"] = "LongTerm";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeSeriesIdProperties"] = args ? args.timeSeriesIdProperties : undefined;
+            resourceInputs["warmStoreConfiguration"] = args ? args.warmStoreConfiguration : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["dataAccessFqdn"] = undefined /*out*/;
+            resourceInputs["dataAccessId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["dataAccessFqdn"] = undefined /*out*/;
-            inputs["dataAccessId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["storageConfiguration"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeSeriesIdProperties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["warmStoreConfiguration"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["dataAccessFqdn"] = undefined /*out*/;
+            resourceInputs["dataAccessId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["storageConfiguration"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeSeriesIdProperties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["warmStoreConfiguration"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20170228preview:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20171115:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20200515:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20210331preview:LongTermEnvironment" }, { type: "azure-native:timeseriesinsights/v20210630preview:LongTermEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LongTermEnvironment.__pulumiType, name, inputs, opts);
+        super(LongTermEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

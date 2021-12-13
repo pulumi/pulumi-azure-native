@@ -69,7 +69,7 @@ export class EventSource extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: EventHubEventSource, IoTHubEventSource. */
     constructor(name: string, args: EventSourceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("EventSource is deprecated: Please use one of the variants: EventHubEventSource, IoTHubEventSource.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.environmentName === undefined) && !opts.urn) {
@@ -81,27 +81,27 @@ export class EventSource extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["eventSourceName"] = args ? args.eventSourceName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:EventSource" }, { type: "azure-native:timeseriesinsights/v20171115:EventSource" }, { type: "azure-native:timeseriesinsights/v20180815preview:EventSource" }, { type: "azure-native:timeseriesinsights/v20200515:EventSource" }, { type: "azure-native:timeseriesinsights/v20210331preview:EventSource" }, { type: "azure-native:timeseriesinsights/v20210630preview:EventSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(EventSource.__pulumiType, name, inputs, opts);
+        super(EventSource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

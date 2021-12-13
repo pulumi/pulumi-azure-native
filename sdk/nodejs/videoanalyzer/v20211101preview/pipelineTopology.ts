@@ -89,7 +89,7 @@ export class PipelineTopology extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PipelineTopologyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -110,37 +110,37 @@ export class PipelineTopology extends pulumi.CustomResource {
             if ((!args || args.sources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sources'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["pipelineTopologyName"] = args ? args.pipelineTopologyName : undefined;
-            inputs["processors"] = args ? args.processors : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sinks"] = args ? args.sinks : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["sources"] = args ? args.sources : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["pipelineTopologyName"] = args ? args.pipelineTopologyName : undefined;
+            resourceInputs["processors"] = args ? args.processors : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sinks"] = args ? args.sinks : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["processors"] = undefined /*out*/;
-            inputs["sinks"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["sources"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["processors"] = undefined /*out*/;
+            resourceInputs["sinks"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["sources"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer:PipelineTopology" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PipelineTopology.__pulumiType, name, inputs, opts);
+        super(PipelineTopology.__pulumiType, name, resourceInputs, opts);
     }
 }
 

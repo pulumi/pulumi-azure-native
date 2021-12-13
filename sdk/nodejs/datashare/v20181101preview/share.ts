@@ -80,7 +80,7 @@ export class Share extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ShareArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -89,35 +89,35 @@ export class Share extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareKind"] = args ? args.shareKind : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["terms"] = args ? args.terms : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userEmail"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareKind"] = args ? args.shareKind : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["terms"] = args ? args.terms : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userEmail"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["shareKind"] = undefined /*out*/;
-            inputs["terms"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userEmail"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["shareKind"] = undefined /*out*/;
+            resourceInputs["terms"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userEmail"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:Share" }, { type: "azure-native:datashare/v20191101:Share" }, { type: "azure-native:datashare/v20200901:Share" }, { type: "azure-native:datashare/v20201001preview:Share" }, { type: "azure-native:datashare/v20210801:Share" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Share.__pulumiType, name, inputs, opts);
+        super(Share.__pulumiType, name, resourceInputs, opts);
     }
 }
 

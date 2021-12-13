@@ -60,7 +60,7 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateDnsZoneGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateEndpointName === undefined) && !opts.urn) {
@@ -69,26 +69,26 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateDnsZoneConfigs"] = args ? args.privateDnsZoneConfigs : undefined;
-            inputs["privateDnsZoneGroupName"] = args ? args.privateDnsZoneGroupName : undefined;
-            inputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateDnsZoneConfigs"] = args ? args.privateDnsZoneConfigs : undefined;
+            resourceInputs["privateDnsZoneGroupName"] = args ? args.privateDnsZoneGroupName : undefined;
+            resourceInputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateDnsZoneConfigs"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateDnsZoneConfigs"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200301:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200401:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200601:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200701:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20200801:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20201101:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20210201:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20210301:PrivateDnsZoneGroup" }, { type: "azure-native:network/v20210501:PrivateDnsZoneGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PrivateDnsZoneGroup.__pulumiType, name, inputs, opts);
+        super(PrivateDnsZoneGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

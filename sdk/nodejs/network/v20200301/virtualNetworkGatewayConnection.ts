@@ -152,7 +152,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualNetworkGatewayConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.connectionType === undefined) && !opts.urn) {
@@ -164,71 +164,71 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkGateway1 === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkGateway1'");
             }
-            inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            inputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
-            inputs["connectionType"] = args ? args.connectionType : undefined;
-            inputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
-            inputs["enableBgp"] = args ? args.enableBgp : undefined;
-            inputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
-            inputs["localNetworkGateway2"] = args ? args.localNetworkGateway2 : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["peer"] = args ? args.peer : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routingWeight"] = args ? args.routingWeight : undefined;
-            inputs["sharedKey"] = args ? args.sharedKey : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
-            inputs["useLocalAzureIpAddress"] = args ? args.useLocalAzureIpAddress : undefined;
-            inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
-            inputs["virtualNetworkGateway1"] = args ? args.virtualNetworkGateway1 : undefined;
-            inputs["virtualNetworkGateway2"] = args ? args.virtualNetworkGateway2 : undefined;
-            inputs["virtualNetworkGatewayConnectionName"] = args ? args.virtualNetworkGatewayConnectionName : undefined;
-            inputs["connectionStatus"] = undefined /*out*/;
-            inputs["egressBytesTransferred"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ingressBytesTransferred"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["tunnelConnectionStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            resourceInputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
+            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
+            resourceInputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
+            resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
+            resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
+            resourceInputs["localNetworkGateway2"] = args ? args.localNetworkGateway2 : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["peer"] = args ? args.peer : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
+            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
+            resourceInputs["useLocalAzureIpAddress"] = args ? args.useLocalAzureIpAddress : undefined;
+            resourceInputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
+            resourceInputs["virtualNetworkGateway1"] = args ? args.virtualNetworkGateway1 : undefined;
+            resourceInputs["virtualNetworkGateway2"] = args ? args.virtualNetworkGateway2 : undefined;
+            resourceInputs["virtualNetworkGatewayConnectionName"] = args ? args.virtualNetworkGatewayConnectionName : undefined;
+            resourceInputs["connectionStatus"] = undefined /*out*/;
+            resourceInputs["egressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ingressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["tunnelConnectionStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authorizationKey"] = undefined /*out*/;
-            inputs["connectionProtocol"] = undefined /*out*/;
-            inputs["connectionStatus"] = undefined /*out*/;
-            inputs["connectionType"] = undefined /*out*/;
-            inputs["dpdTimeoutSeconds"] = undefined /*out*/;
-            inputs["egressBytesTransferred"] = undefined /*out*/;
-            inputs["enableBgp"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["expressRouteGatewayBypass"] = undefined /*out*/;
-            inputs["ingressBytesTransferred"] = undefined /*out*/;
-            inputs["ipsecPolicies"] = undefined /*out*/;
-            inputs["localNetworkGateway2"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peer"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["routingWeight"] = undefined /*out*/;
-            inputs["sharedKey"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["trafficSelectorPolicies"] = undefined /*out*/;
-            inputs["tunnelConnectionStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["useLocalAzureIpAddress"] = undefined /*out*/;
-            inputs["usePolicyBasedTrafficSelectors"] = undefined /*out*/;
-            inputs["virtualNetworkGateway1"] = undefined /*out*/;
-            inputs["virtualNetworkGateway2"] = undefined /*out*/;
+            resourceInputs["authorizationKey"] = undefined /*out*/;
+            resourceInputs["connectionProtocol"] = undefined /*out*/;
+            resourceInputs["connectionStatus"] = undefined /*out*/;
+            resourceInputs["connectionType"] = undefined /*out*/;
+            resourceInputs["dpdTimeoutSeconds"] = undefined /*out*/;
+            resourceInputs["egressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["enableBgp"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["expressRouteGatewayBypass"] = undefined /*out*/;
+            resourceInputs["ingressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["ipsecPolicies"] = undefined /*out*/;
+            resourceInputs["localNetworkGateway2"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peer"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["routingWeight"] = undefined /*out*/;
+            resourceInputs["sharedKey"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trafficSelectorPolicies"] = undefined /*out*/;
+            resourceInputs["tunnelConnectionStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["useLocalAzureIpAddress"] = undefined /*out*/;
+            resourceInputs["usePolicyBasedTrafficSelectors"] = undefined /*out*/;
+            resourceInputs["virtualNetworkGateway1"] = undefined /*out*/;
+            resourceInputs["virtualNetworkGateway2"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20150615:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20160330:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20160601:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20160901:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20161201:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20170301:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20170601:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20170801:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20170901:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20171001:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20171101:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20180101:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20180201:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20180401:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20180601:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20180701:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20180801:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20181001:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20181101:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20181201:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20190201:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20190401:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20190601:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20190701:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20190801:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20190901:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20191101:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20191201:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20200401:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20200501:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20200601:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20200701:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20200801:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20201101:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20210201:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20210301:VirtualNetworkGatewayConnection" }, { type: "azure-native:network/v20210501:VirtualNetworkGatewayConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualNetworkGatewayConnection.__pulumiType, name, inputs, opts);
+        super(VirtualNetworkGatewayConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

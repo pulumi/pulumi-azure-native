@@ -112,7 +112,7 @@ export class ConnectorMapping extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConnectorMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.connectorName === undefined) && !opts.urn) {
@@ -133,51 +133,51 @@ export class ConnectorMapping extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["connectorName"] = args ? args.connectorName : undefined;
-            inputs["connectorType"] = args ? args.connectorType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["entityType"] = args ? args.entityType : undefined;
-            inputs["entityTypeName"] = args ? args.entityTypeName : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["mappingName"] = args ? args.mappingName : undefined;
-            inputs["mappingProperties"] = args ? args.mappingProperties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["connectorMappingName"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["dataFormatId"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nextRunTime"] = undefined /*out*/;
-            inputs["runId"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
+            resourceInputs["connectorType"] = args ? args.connectorType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["entityType"] = args ? args.entityType : undefined;
+            resourceInputs["entityTypeName"] = args ? args.entityTypeName : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["mappingName"] = args ? args.mappingName : undefined;
+            resourceInputs["mappingProperties"] = args ? args.mappingProperties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["connectorMappingName"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["dataFormatId"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextRunTime"] = undefined /*out*/;
+            resourceInputs["runId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["connectorMappingName"] = undefined /*out*/;
-            inputs["connectorName"] = undefined /*out*/;
-            inputs["connectorType"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["dataFormatId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["entityType"] = undefined /*out*/;
-            inputs["entityTypeName"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["mappingProperties"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nextRunTime"] = undefined /*out*/;
-            inputs["runId"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["connectorMappingName"] = undefined /*out*/;
+            resourceInputs["connectorName"] = undefined /*out*/;
+            resourceInputs["connectorType"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["dataFormatId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["entityType"] = undefined /*out*/;
+            resourceInputs["entityTypeName"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["mappingProperties"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextRunTime"] = undefined /*out*/;
+            resourceInputs["runId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:ConnectorMapping" }, { type: "azure-native:customerinsights/v20170101:ConnectorMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConnectorMapping.__pulumiType, name, inputs, opts);
+        super(ConnectorMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

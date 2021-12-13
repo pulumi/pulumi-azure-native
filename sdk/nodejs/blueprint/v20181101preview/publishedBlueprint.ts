@@ -84,7 +84,7 @@ export class PublishedBlueprint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PublishedBlueprintArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.blueprintName === undefined) && !opts.urn) {
@@ -93,36 +93,36 @@ export class PublishedBlueprint extends pulumi.CustomResource {
             if ((!args || args.resourceScope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            inputs["blueprintName"] = args ? args.blueprintName : undefined;
-            inputs["changeNotes"] = args ? args.changeNotes : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroups"] = args ? args.resourceGroups : undefined;
-            inputs["resourceScope"] = args ? args.resourceScope : undefined;
-            inputs["targetScope"] = args ? args.targetScope : undefined;
-            inputs["versionId"] = args ? args.versionId : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
+            resourceInputs["changeNotes"] = args ? args.changeNotes : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroups"] = args ? args.resourceGroups : undefined;
+            resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
+            resourceInputs["targetScope"] = args ? args.targetScope : undefined;
+            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["blueprintName"] = undefined /*out*/;
-            inputs["changeNotes"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["resourceGroups"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["targetScope"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["blueprintName"] = undefined /*out*/;
+            resourceInputs["changeNotes"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["resourceGroups"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["targetScope"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:blueprint:PublishedBlueprint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PublishedBlueprint.__pulumiType, name, inputs, opts);
+        super(PublishedBlueprint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

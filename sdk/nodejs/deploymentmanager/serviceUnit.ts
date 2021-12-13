@@ -73,7 +73,7 @@ export class ServiceUnit extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceUnitArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deploymentMode === undefined) && !opts.urn) {
@@ -91,32 +91,32 @@ export class ServiceUnit extends pulumi.CustomResource {
             if ((!args || args.targetResourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceGroup'");
             }
-            inputs["artifacts"] = args ? args.artifacts : undefined;
-            inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["serviceTopologyName"] = args ? args.serviceTopologyName : undefined;
-            inputs["serviceUnitName"] = args ? args.serviceUnitName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetResourceGroup"] = args ? args.targetResourceGroup : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
+            resourceInputs["deploymentMode"] = args ? args.deploymentMode : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["serviceTopologyName"] = args ? args.serviceTopologyName : undefined;
+            resourceInputs["serviceUnitName"] = args ? args.serviceUnitName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetResourceGroup"] = args ? args.targetResourceGroup : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["artifacts"] = undefined /*out*/;
-            inputs["deploymentMode"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetResourceGroup"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["artifacts"] = undefined /*out*/;
+            resourceInputs["deploymentMode"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetResourceGroup"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager/v20180901preview:ServiceUnit" }, { type: "azure-native:deploymentmanager/v20191101preview:ServiceUnit" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServiceUnit.__pulumiType, name, inputs, opts);
+        super(ServiceUnit.__pulumiType, name, resourceInputs, opts);
     }
 }
 

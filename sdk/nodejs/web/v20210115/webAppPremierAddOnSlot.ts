@@ -83,7 +83,7 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppPremierAddOnSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -95,37 +95,37 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["marketplaceOffer"] = args ? args.marketplaceOffer : undefined;
-            inputs["marketplacePublisher"] = args ? args.marketplacePublisher : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["premierAddOnName"] = args ? args.premierAddOnName : undefined;
-            inputs["product"] = args ? args.product : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vendor"] = args ? args.vendor : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["marketplaceOffer"] = args ? args.marketplaceOffer : undefined;
+            resourceInputs["marketplacePublisher"] = args ? args.marketplacePublisher : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["premierAddOnName"] = args ? args.premierAddOnName : undefined;
+            resourceInputs["product"] = args ? args.product : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vendor"] = args ? args.vendor : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["marketplaceOffer"] = undefined /*out*/;
-            inputs["marketplacePublisher"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["product"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vendor"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["marketplaceOffer"] = undefined /*out*/;
+            resourceInputs["marketplacePublisher"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["product"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vendor"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20150801:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20160801:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20180201:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20181101:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20190801:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20200601:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20200901:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20201001:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20201201:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20210101:WebAppPremierAddOnSlot" }, { type: "azure-native:web/v20210201:WebAppPremierAddOnSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppPremierAddOnSlot.__pulumiType, name, inputs, opts);
+        super(WebAppPremierAddOnSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

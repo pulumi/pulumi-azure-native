@@ -125,7 +125,7 @@ export class Runbook extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RunbookArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -137,57 +137,57 @@ export class Runbook extends pulumi.CustomResource {
             if ((!args || args.runbookType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'runbookType'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["draft"] = args ? args.draft : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["logActivityTrace"] = args ? args.logActivityTrace : undefined;
-            inputs["logProgress"] = args ? args.logProgress : undefined;
-            inputs["logVerbose"] = args ? args.logVerbose : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publishContentLink"] = args ? args.publishContentLink : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["runbookName"] = args ? args.runbookName : undefined;
-            inputs["runbookType"] = args ? args.runbookType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["jobCount"] = undefined /*out*/;
-            inputs["lastModifiedBy"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["outputTypes"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["draft"] = args ? args.draft : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logActivityTrace"] = args ? args.logActivityTrace : undefined;
+            resourceInputs["logProgress"] = args ? args.logProgress : undefined;
+            resourceInputs["logVerbose"] = args ? args.logVerbose : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publishContentLink"] = args ? args.publishContentLink : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["runbookName"] = args ? args.runbookName : undefined;
+            resourceInputs["runbookType"] = args ? args.runbookType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["jobCount"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["outputTypes"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["draft"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["jobCount"] = undefined /*out*/;
-            inputs["lastModifiedBy"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["logActivityTrace"] = undefined /*out*/;
-            inputs["logProgress"] = undefined /*out*/;
-            inputs["logVerbose"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outputTypes"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publishContentLink"] = undefined /*out*/;
-            inputs["runbookType"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["draft"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["jobCount"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["logActivityTrace"] = undefined /*out*/;
+            resourceInputs["logProgress"] = undefined /*out*/;
+            resourceInputs["logVerbose"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputTypes"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publishContentLink"] = undefined /*out*/;
+            resourceInputs["runbookType"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Runbook" }, { type: "azure-native:automation/v20180630:Runbook" }, { type: "azure-native:automation/v20190601:Runbook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Runbook.__pulumiType, name, inputs, opts);
+        super(Runbook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

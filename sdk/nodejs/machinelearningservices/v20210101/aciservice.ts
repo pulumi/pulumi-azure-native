@@ -76,7 +76,7 @@ export class ACIService extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ACIServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.computeType === undefined) && !opts.urn) {
@@ -88,49 +88,49 @@ export class ACIService extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["appInsightsEnabled"] = (args ? args.appInsightsEnabled : undefined) ?? false;
-            inputs["authEnabled"] = (args ? args.authEnabled : undefined) ?? false;
-            inputs["cname"] = args ? args.cname : undefined;
-            inputs["computeType"] = "ACI";
-            inputs["containerResourceRequirements"] = args ? args.containerResourceRequirements : undefined;
-            inputs["dataCollection"] = args ? args.dataCollection : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dnsNameLabel"] = args ? args.dnsNameLabel : undefined;
-            inputs["encryptionProperties"] = args ? args.encryptionProperties : undefined;
-            inputs["environmentImageRequest"] = args ? args.environmentImageRequest : undefined;
-            inputs["keys"] = args ? args.keys : undefined;
-            inputs["kvTags"] = args ? args.kvTags : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["sslCertificate"] = args ? args.sslCertificate : undefined;
-            inputs["sslEnabled"] = (args ? args.sslEnabled : undefined) ?? false;
-            inputs["sslKey"] = args ? args.sslKey : undefined;
-            inputs["vnetConfiguration"] = args ? args.vnetConfiguration : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["identity"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appInsightsEnabled"] = (args ? args.appInsightsEnabled : undefined) ?? false;
+            resourceInputs["authEnabled"] = (args ? args.authEnabled : undefined) ?? false;
+            resourceInputs["cname"] = args ? args.cname : undefined;
+            resourceInputs["computeType"] = "ACI";
+            resourceInputs["containerResourceRequirements"] = args ? args.containerResourceRequirements : undefined;
+            resourceInputs["dataCollection"] = args ? args.dataCollection : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dnsNameLabel"] = args ? args.dnsNameLabel : undefined;
+            resourceInputs["encryptionProperties"] = args ? args.encryptionProperties : undefined;
+            resourceInputs["environmentImageRequest"] = args ? args.environmentImageRequest : undefined;
+            resourceInputs["keys"] = args ? args.keys : undefined;
+            resourceInputs["kvTags"] = args ? args.kvTags : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["sslCertificate"] = args ? args.sslCertificate : undefined;
+            resourceInputs["sslEnabled"] = (args ? args.sslEnabled : undefined) ?? false;
+            resourceInputs["sslKey"] = args ? args.sslKey : undefined;
+            resourceInputs["vnetConfiguration"] = args ? args.vnetConfiguration : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:ACIService" }, { type: "azure-native:machinelearningservices/v20200501preview:ACIService" }, { type: "azure-native:machinelearningservices/v20200515preview:ACIService" }, { type: "azure-native:machinelearningservices/v20200901preview:ACIService" }, { type: "azure-native:machinelearningservices/v20210401:ACIService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ACIService.__pulumiType, name, inputs, opts);
+        super(ACIService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

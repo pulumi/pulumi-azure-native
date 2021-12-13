@@ -67,7 +67,7 @@ export class ApiRelease extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiReleaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -79,29 +79,29 @@ export class ApiRelease extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["releaseId"] = args ? args.releaseId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["createdDateTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedDateTime"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["releaseId"] = args ? args.releaseId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["createdDateTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedDateTime"] = undefined /*out*/;
         } else {
-            inputs["apiId"] = undefined /*out*/;
-            inputs["createdDateTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedDateTime"] = undefined /*out*/;
+            resourceInputs["apiId"] = undefined /*out*/;
+            resourceInputs["createdDateTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedDateTime"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiRelease" }, { type: "azure-native:apimanagement/v20170301:ApiRelease" }, { type: "azure-native:apimanagement/v20180601preview:ApiRelease" }, { type: "azure-native:apimanagement/v20190101:ApiRelease" }, { type: "azure-native:apimanagement/v20191201:ApiRelease" }, { type: "azure-native:apimanagement/v20191201preview:ApiRelease" }, { type: "azure-native:apimanagement/v20200601preview:ApiRelease" }, { type: "azure-native:apimanagement/v20201201:ApiRelease" }, { type: "azure-native:apimanagement/v20210101preview:ApiRelease" }, { type: "azure-native:apimanagement/v20210401preview:ApiRelease" }, { type: "azure-native:apimanagement/v20210801:ApiRelease" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApiRelease.__pulumiType, name, inputs, opts);
+        super(ApiRelease.__pulumiType, name, resourceInputs, opts);
     }
 }
 

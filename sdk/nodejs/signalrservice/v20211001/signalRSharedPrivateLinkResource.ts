@@ -76,7 +76,7 @@ export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SignalRSharedPrivateLinkResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupId === undefined) && !opts.urn) {
@@ -91,33 +91,33 @@ export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            inputs["requestMessage"] = args ? args.requestMessage : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["sharedPrivateLinkResourceName"] = args ? args.sharedPrivateLinkResourceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
+            resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["sharedPrivateLinkResourceName"] = args ? args.sharedPrivateLinkResourceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["groupId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateLinkResourceId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["requestMessage"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["groupId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateLinkResourceId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["requestMessage"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20210401preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20210601preview:SignalRSharedPrivateLinkResource" }, { type: "azure-native:signalrservice/v20210901preview:SignalRSharedPrivateLinkResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SignalRSharedPrivateLinkResource.__pulumiType, name, inputs, opts);
+        super(SignalRSharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

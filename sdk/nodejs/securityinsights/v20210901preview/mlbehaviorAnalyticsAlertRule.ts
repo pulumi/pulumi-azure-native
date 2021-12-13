@@ -93,7 +93,7 @@ export class MLBehaviorAnalyticsAlertRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MLBehaviorAnalyticsAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.alertRuleTemplateName === undefined) && !opts.urn) {
@@ -111,41 +111,41 @@ export class MLBehaviorAnalyticsAlertRule extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["kind"] = "MLBehaviorAnalytics";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleId"] = args ? args.ruleId : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["lastModifiedUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["severity"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tactics"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["kind"] = "MLBehaviorAnalytics";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleId"] = args ? args.ruleId : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["lastModifiedUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tactics"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["alertRuleTemplateName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastModifiedUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["severity"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tactics"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alertRuleTemplateName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastModifiedUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tactics"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MLBehaviorAnalyticsAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:MLBehaviorAnalyticsAlertRule" }, { type: "azure-native:securityinsights/v20200101:MLBehaviorAnalyticsAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:MLBehaviorAnalyticsAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MLBehaviorAnalyticsAlertRule.__pulumiType, name, inputs, opts);
+        super(MLBehaviorAnalyticsAlertRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

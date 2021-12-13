@@ -76,7 +76,7 @@ export class JobStep extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: JobStepArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -100,35 +100,35 @@ export class JobStep extends pulumi.CustomResource {
             if ((!args || args.targetGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetGroup'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["credential"] = args ? args.credential : undefined;
-            inputs["executionOptions"] = args ? args.executionOptions : undefined;
-            inputs["jobAgentName"] = args ? args.jobAgentName : undefined;
-            inputs["jobName"] = args ? args.jobName : undefined;
-            inputs["output"] = args ? args.output : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["stepId"] = args ? args.stepId : undefined;
-            inputs["stepName"] = args ? args.stepName : undefined;
-            inputs["targetGroup"] = args ? args.targetGroup : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["action"] = args ? (args.action ? pulumi.output(args.action).apply(inputs.sql.v20210201preview.jobStepActionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["credential"] = args ? args.credential : undefined;
+            resourceInputs["executionOptions"] = args ? (args.executionOptions ? pulumi.output(args.executionOptions).apply(inputs.sql.v20210201preview.jobStepExecutionOptionsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["jobAgentName"] = args ? args.jobAgentName : undefined;
+            resourceInputs["jobName"] = args ? args.jobName : undefined;
+            resourceInputs["output"] = args ? (args.output ? pulumi.output(args.output).apply(inputs.sql.v20210201preview.jobStepOutputArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["stepId"] = args ? args.stepId : undefined;
+            resourceInputs["stepName"] = args ? args.stepName : undefined;
+            resourceInputs["targetGroup"] = args ? args.targetGroup : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["action"] = undefined /*out*/;
-            inputs["credential"] = undefined /*out*/;
-            inputs["executionOptions"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["output"] = undefined /*out*/;
-            inputs["stepId"] = undefined /*out*/;
-            inputs["targetGroup"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["credential"] = undefined /*out*/;
+            resourceInputs["executionOptions"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["output"] = undefined /*out*/;
+            resourceInputs["stepId"] = undefined /*out*/;
+            resourceInputs["targetGroup"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:JobStep" }, { type: "azure-native:sql/v20170301preview:JobStep" }, { type: "azure-native:sql/v20200202preview:JobStep" }, { type: "azure-native:sql/v20200801preview:JobStep" }, { type: "azure-native:sql/v20201101preview:JobStep" }, { type: "azure-native:sql/v20210501preview:JobStep" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(JobStep.__pulumiType, name, inputs, opts);
+        super(JobStep.__pulumiType, name, resourceInputs, opts);
     }
 }
 

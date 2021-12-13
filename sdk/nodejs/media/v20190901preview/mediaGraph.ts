@@ -76,7 +76,7 @@ export class MediaGraph extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MediaGraphArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -91,33 +91,33 @@ export class MediaGraph extends pulumi.CustomResource {
             if ((!args || args.sources === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sources'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["mediaGraphName"] = args ? args.mediaGraphName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sinks"] = args ? args.sinks : undefined;
-            inputs["sources"] = args ? args.sources : undefined;
-            inputs["created"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["mediaGraphName"] = args ? args.mediaGraphName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sinks"] = args ? args.sinks : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["created"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sinks"] = undefined /*out*/;
-            inputs["sources"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sinks"] = undefined /*out*/;
+            resourceInputs["sources"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:MediaGraph" }, { type: "azure-native:media/v20200201preview:MediaGraph" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MediaGraph.__pulumiType, name, inputs, opts);
+        super(MediaGraph.__pulumiType, name, resourceInputs, opts);
     }
 }
 

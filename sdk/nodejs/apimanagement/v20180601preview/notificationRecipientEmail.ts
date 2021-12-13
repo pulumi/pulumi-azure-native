@@ -55,7 +55,7 @@ export class NotificationRecipientEmail extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NotificationRecipientEmailArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.notificationName === undefined) && !opts.urn) {
@@ -67,23 +67,23 @@ export class NotificationRecipientEmail extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["email"] = args ? args.email : undefined;
-            inputs["notificationName"] = args ? args.notificationName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["notificationName"] = args ? args.notificationName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["email"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["email"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20170301:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20180101:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20190101:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20191201:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20191201preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20200601preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20201201:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210101preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210401preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210801:NotificationRecipientEmail" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NotificationRecipientEmail.__pulumiType, name, inputs, opts);
+        super(NotificationRecipientEmail.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -84,7 +84,7 @@ export class EncryptionProtector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EncryptionProtectorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -96,37 +96,37 @@ export class EncryptionProtector extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["autoRotationEnabled"] = args ? args.autoRotationEnabled : undefined;
-            inputs["encryptionProtectorName"] = args ? args.encryptionProtectorName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverKeyName"] = args ? args.serverKeyName : undefined;
-            inputs["serverKeyType"] = args ? args.serverKeyType : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["subregion"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            resourceInputs["autoRotationEnabled"] = args ? args.autoRotationEnabled : undefined;
+            resourceInputs["encryptionProtectorName"] = args ? args.encryptionProtectorName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverKeyName"] = args ? args.serverKeyName : undefined;
+            resourceInputs["serverKeyType"] = args ? args.serverKeyType : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["subregion"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
         } else {
-            inputs["autoRotationEnabled"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["serverKeyName"] = undefined /*out*/;
-            inputs["serverKeyType"] = undefined /*out*/;
-            inputs["subregion"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            resourceInputs["autoRotationEnabled"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["serverKeyName"] = undefined /*out*/;
+            resourceInputs["serverKeyType"] = undefined /*out*/;
+            resourceInputs["subregion"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:EncryptionProtector" }, { type: "azure-native:sql/v20150501preview:EncryptionProtector" }, { type: "azure-native:sql/v20200202preview:EncryptionProtector" }, { type: "azure-native:sql/v20200801preview:EncryptionProtector" }, { type: "azure-native:sql/v20201101preview:EncryptionProtector" }, { type: "azure-native:sql/v20210201preview:EncryptionProtector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(EncryptionProtector.__pulumiType, name, inputs, opts);
+        super(EncryptionProtector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

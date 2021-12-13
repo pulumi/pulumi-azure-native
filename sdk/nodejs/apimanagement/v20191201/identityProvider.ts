@@ -88,7 +88,7 @@ export class IdentityProvider extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IdentityProviderArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clientId === undefined) && !opts.urn) {
@@ -103,39 +103,39 @@ export class IdentityProvider extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["allowedTenants"] = args ? args.allowedTenants : undefined;
-            inputs["authority"] = args ? args.authority : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["identityProviderName"] = args ? args.identityProviderName : undefined;
-            inputs["passwordResetPolicyName"] = args ? args.passwordResetPolicyName : undefined;
-            inputs["profileEditingPolicyName"] = args ? args.profileEditingPolicyName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["signinPolicyName"] = args ? args.signinPolicyName : undefined;
-            inputs["signinTenant"] = args ? args.signinTenant : undefined;
-            inputs["signupPolicyName"] = args ? args.signupPolicyName : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["allowedTenants"] = args ? args.allowedTenants : undefined;
+            resourceInputs["authority"] = args ? args.authority : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
+            resourceInputs["passwordResetPolicyName"] = args ? args.passwordResetPolicyName : undefined;
+            resourceInputs["profileEditingPolicyName"] = args ? args.profileEditingPolicyName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["signinPolicyName"] = args ? args.signinPolicyName : undefined;
+            resourceInputs["signinTenant"] = args ? args.signinTenant : undefined;
+            resourceInputs["signupPolicyName"] = args ? args.signupPolicyName : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = undefined /*out*/;
         } else {
-            inputs["allowedTenants"] = undefined /*out*/;
-            inputs["authority"] = undefined /*out*/;
-            inputs["clientId"] = undefined /*out*/;
-            inputs["clientSecret"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["passwordResetPolicyName"] = undefined /*out*/;
-            inputs["profileEditingPolicyName"] = undefined /*out*/;
-            inputs["signinPolicyName"] = undefined /*out*/;
-            inputs["signinTenant"] = undefined /*out*/;
-            inputs["signupPolicyName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowedTenants"] = undefined /*out*/;
+            resourceInputs["authority"] = undefined /*out*/;
+            resourceInputs["clientId"] = undefined /*out*/;
+            resourceInputs["clientSecret"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["passwordResetPolicyName"] = undefined /*out*/;
+            resourceInputs["profileEditingPolicyName"] = undefined /*out*/;
+            resourceInputs["signinPolicyName"] = undefined /*out*/;
+            resourceInputs["signinTenant"] = undefined /*out*/;
+            resourceInputs["signupPolicyName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:IdentityProvider" }, { type: "azure-native:apimanagement/v20160707:IdentityProvider" }, { type: "azure-native:apimanagement/v20161010:IdentityProvider" }, { type: "azure-native:apimanagement/v20170301:IdentityProvider" }, { type: "azure-native:apimanagement/v20180101:IdentityProvider" }, { type: "azure-native:apimanagement/v20180601preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20190101:IdentityProvider" }, { type: "azure-native:apimanagement/v20191201preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20200601preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20201201:IdentityProvider" }, { type: "azure-native:apimanagement/v20210101preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20210401preview:IdentityProvider" }, { type: "azure-native:apimanagement/v20210801:IdentityProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IdentityProvider.__pulumiType, name, inputs, opts);
+        super(IdentityProvider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

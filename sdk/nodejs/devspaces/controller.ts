@@ -84,7 +84,7 @@ export class Controller extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ControllerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -99,36 +99,36 @@ export class Controller extends pulumi.CustomResource {
             if ((!args || args.targetContainerHostResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetContainerHostResourceId'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetContainerHostCredentialsBase64"] = args ? args.targetContainerHostCredentialsBase64 : undefined;
-            inputs["targetContainerHostResourceId"] = args ? args.targetContainerHostResourceId : undefined;
-            inputs["dataPlaneFqdn"] = undefined /*out*/;
-            inputs["hostSuffix"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["targetContainerHostApiServerFqdn"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetContainerHostCredentialsBase64"] = args ? args.targetContainerHostCredentialsBase64 : undefined;
+            resourceInputs["targetContainerHostResourceId"] = args ? args.targetContainerHostResourceId : undefined;
+            resourceInputs["dataPlaneFqdn"] = undefined /*out*/;
+            resourceInputs["hostSuffix"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["targetContainerHostApiServerFqdn"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dataPlaneFqdn"] = undefined /*out*/;
-            inputs["hostSuffix"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetContainerHostApiServerFqdn"] = undefined /*out*/;
-            inputs["targetContainerHostResourceId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataPlaneFqdn"] = undefined /*out*/;
+            resourceInputs["hostSuffix"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetContainerHostApiServerFqdn"] = undefined /*out*/;
+            resourceInputs["targetContainerHostResourceId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devspaces/v20190401:Controller" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Controller.__pulumiType, name, inputs, opts);
+        super(Controller.__pulumiType, name, resourceInputs, opts);
     }
 }
 

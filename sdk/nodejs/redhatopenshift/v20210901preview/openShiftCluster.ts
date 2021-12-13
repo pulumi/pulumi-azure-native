@@ -100,50 +100,50 @@ export class OpenShiftCluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OpenShiftClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiserverProfile"] = args ? args.apiserverProfile : undefined;
-            inputs["clusterProfile"] = args ? args.clusterProfile : undefined;
-            inputs["consoleProfile"] = args ? args.consoleProfile : undefined;
-            inputs["ingressProfiles"] = args ? args.ingressProfiles : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["masterProfile"] = args ? args.masterProfile : undefined;
-            inputs["networkProfile"] = args ? args.networkProfile : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workerProfiles"] = args ? args.workerProfiles : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiserverProfile"] = args ? args.apiserverProfile : undefined;
+            resourceInputs["clusterProfile"] = args ? args.clusterProfile : undefined;
+            resourceInputs["consoleProfile"] = args ? args.consoleProfile : undefined;
+            resourceInputs["ingressProfiles"] = args ? args.ingressProfiles : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["masterProfile"] = args ? args.masterProfile : undefined;
+            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workerProfiles"] = args ? args.workerProfiles : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["apiserverProfile"] = undefined /*out*/;
-            inputs["clusterProfile"] = undefined /*out*/;
-            inputs["consoleProfile"] = undefined /*out*/;
-            inputs["ingressProfiles"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["masterProfile"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkProfile"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["servicePrincipalProfile"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workerProfiles"] = undefined /*out*/;
+            resourceInputs["apiserverProfile"] = undefined /*out*/;
+            resourceInputs["clusterProfile"] = undefined /*out*/;
+            resourceInputs["consoleProfile"] = undefined /*out*/;
+            resourceInputs["ingressProfiles"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["masterProfile"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["servicePrincipalProfile"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workerProfiles"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20200430:OpenShiftCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(OpenShiftCluster.__pulumiType, name, inputs, opts);
+        super(OpenShiftCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

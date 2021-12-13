@@ -60,7 +60,7 @@ export class ServerTrustGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerTrustGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupMembers === undefined) && !opts.urn) {
@@ -75,25 +75,25 @@ export class ServerTrustGroup extends pulumi.CustomResource {
             if ((!args || args.trustScopes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trustScopes'");
             }
-            inputs["groupMembers"] = args ? args.groupMembers : undefined;
-            inputs["locationName"] = args ? args.locationName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverTrustGroupName"] = args ? args.serverTrustGroupName : undefined;
-            inputs["trustScopes"] = args ? args.trustScopes : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["groupMembers"] = args ? args.groupMembers : undefined;
+            resourceInputs["locationName"] = args ? args.locationName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverTrustGroupName"] = args ? args.serverTrustGroupName : undefined;
+            resourceInputs["trustScopes"] = args ? args.trustScopes : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["groupMembers"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["trustScopes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["groupMembers"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["trustScopes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerTrustGroup" }, { type: "azure-native:sql/v20200801preview:ServerTrustGroup" }, { type: "azure-native:sql/v20201101preview:ServerTrustGroup" }, { type: "azure-native:sql/v20210201preview:ServerTrustGroup" }, { type: "azure-native:sql/v20210501preview:ServerTrustGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServerTrustGroup.__pulumiType, name, inputs, opts);
+        super(ServerTrustGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

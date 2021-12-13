@@ -107,7 +107,7 @@ export class Origin extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OriginArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.endpointName === undefined) && !opts.urn) {
@@ -122,50 +122,50 @@ export class Origin extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["httpPort"] = args ? args.httpPort : undefined;
-            inputs["httpsPort"] = args ? args.httpsPort : undefined;
-            inputs["originHostHeader"] = args ? args.originHostHeader : undefined;
-            inputs["originName"] = args ? args.originName : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["privateLinkAlias"] = args ? args.privateLinkAlias : undefined;
-            inputs["privateLinkApprovalMessage"] = args ? args.privateLinkApprovalMessage : undefined;
-            inputs["privateLinkLocation"] = args ? args.privateLinkLocation : undefined;
-            inputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["weight"] = args ? args.weight : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointStatus"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["httpPort"] = args ? args.httpPort : undefined;
+            resourceInputs["httpsPort"] = args ? args.httpsPort : undefined;
+            resourceInputs["originHostHeader"] = args ? args.originHostHeader : undefined;
+            resourceInputs["originName"] = args ? args.originName : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["privateLinkAlias"] = args ? args.privateLinkAlias : undefined;
+            resourceInputs["privateLinkApprovalMessage"] = args ? args.privateLinkApprovalMessage : undefined;
+            resourceInputs["privateLinkLocation"] = args ? args.privateLinkLocation : undefined;
+            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointStatus"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["enabled"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["httpPort"] = undefined /*out*/;
-            inputs["httpsPort"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["originHostHeader"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["privateEndpointStatus"] = undefined /*out*/;
-            inputs["privateLinkAlias"] = undefined /*out*/;
-            inputs["privateLinkApprovalMessage"] = undefined /*out*/;
-            inputs["privateLinkLocation"] = undefined /*out*/;
-            inputs["privateLinkResourceId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["weight"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["httpPort"] = undefined /*out*/;
+            resourceInputs["httpsPort"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["originHostHeader"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["privateEndpointStatus"] = undefined /*out*/;
+            resourceInputs["privateLinkAlias"] = undefined /*out*/;
+            resourceInputs["privateLinkApprovalMessage"] = undefined /*out*/;
+            resourceInputs["privateLinkLocation"] = undefined /*out*/;
+            resourceInputs["privateLinkResourceId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["weight"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:Origin" }, { type: "azure-native:cdn/v20150601:Origin" }, { type: "azure-native:cdn/v20160402:Origin" }, { type: "azure-native:cdn/v20191231:Origin" }, { type: "azure-native:cdn/v20200331:Origin" }, { type: "azure-native:cdn/v20200901:Origin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Origin.__pulumiType, name, inputs, opts);
+        super(Origin.__pulumiType, name, resourceInputs, opts);
     }
 }
 

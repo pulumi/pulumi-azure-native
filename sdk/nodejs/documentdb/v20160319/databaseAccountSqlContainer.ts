@@ -92,7 +92,7 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseAccountSqlContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -110,44 +110,44 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["conflictResolutionPolicy"] = undefined /*out*/;
-            inputs["defaultTtl"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["indexingPolicy"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partitionKey"] = undefined /*out*/;
-            inputs["rid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["ts"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueKeyPolicy"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["resource"] = args ? (args.resource ? pulumi.output(args.resource).apply(inputs.documentdb.v20160319.sqlContainerResourceArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["conflictResolutionPolicy"] = undefined /*out*/;
+            resourceInputs["defaultTtl"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["indexingPolicy"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partitionKey"] = undefined /*out*/;
+            resourceInputs["rid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["ts"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueKeyPolicy"] = undefined /*out*/;
         } else {
-            inputs["conflictResolutionPolicy"] = undefined /*out*/;
-            inputs["defaultTtl"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["indexingPolicy"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partitionKey"] = undefined /*out*/;
-            inputs["rid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["ts"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueKeyPolicy"] = undefined /*out*/;
+            resourceInputs["conflictResolutionPolicy"] = undefined /*out*/;
+            resourceInputs["defaultTtl"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["indexingPolicy"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partitionKey"] = undefined /*out*/;
+            resourceInputs["rid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["ts"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueKeyPolicy"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountSqlContainer" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountSqlContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabaseAccountSqlContainer.__pulumiType, name, inputs, opts);
+        super(DatabaseAccountSqlContainer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

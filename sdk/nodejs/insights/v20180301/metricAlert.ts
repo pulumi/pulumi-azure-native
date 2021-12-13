@@ -112,7 +112,7 @@ export class MetricAlert extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MetricAlertArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.criteria === undefined) && !opts.urn) {
@@ -136,50 +136,50 @@ export class MetricAlert extends pulumi.CustomResource {
             if ((!args || args.windowSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'windowSize'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["autoMitigate"] = args ? args.autoMitigate : undefined;
-            inputs["criteria"] = args ? args.criteria : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetResourceRegion"] = args ? args.targetResourceRegion : undefined;
-            inputs["targetResourceType"] = args ? args.targetResourceType : undefined;
-            inputs["windowSize"] = args ? args.windowSize : undefined;
-            inputs["isMigrated"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["autoMitigate"] = args ? args.autoMitigate : undefined;
+            resourceInputs["criteria"] = args ? args.criteria : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetResourceRegion"] = args ? args.targetResourceRegion : undefined;
+            resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
+            resourceInputs["windowSize"] = args ? args.windowSize : undefined;
+            resourceInputs["isMigrated"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["autoMitigate"] = undefined /*out*/;
-            inputs["criteria"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["evaluationFrequency"] = undefined /*out*/;
-            inputs["isMigrated"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scopes"] = undefined /*out*/;
-            inputs["severity"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetResourceRegion"] = undefined /*out*/;
-            inputs["targetResourceType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["windowSize"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["autoMitigate"] = undefined /*out*/;
+            resourceInputs["criteria"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["evaluationFrequency"] = undefined /*out*/;
+            resourceInputs["isMigrated"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scopes"] = undefined /*out*/;
+            resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetResourceRegion"] = undefined /*out*/;
+            resourceInputs["targetResourceType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["windowSize"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:MetricAlert" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MetricAlert.__pulumiType, name, inputs, opts);
+        super(MetricAlert.__pulumiType, name, resourceInputs, opts);
     }
 }
 

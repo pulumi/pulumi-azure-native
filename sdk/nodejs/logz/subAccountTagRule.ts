@@ -61,7 +61,7 @@ export class SubAccountTagRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SubAccountTagRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.monitorName === undefined) && !opts.urn) {
@@ -73,26 +73,26 @@ export class SubAccountTagRule extends pulumi.CustomResource {
             if ((!args || args.subAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subAccountName'");
             }
-            inputs["monitorName"] = args ? args.monitorName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
-            inputs["subAccountName"] = args ? args.subAccountName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["subAccountName"] = args ? args.subAccountName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logz/v20201001:SubAccountTagRule" }, { type: "azure-native:logz/v20201001preview:SubAccountTagRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SubAccountTagRule.__pulumiType, name, inputs, opts);
+        super(SubAccountTagRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

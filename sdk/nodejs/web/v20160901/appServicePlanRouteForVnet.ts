@@ -77,7 +77,7 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AppServicePlanRouteForVnetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -89,31 +89,31 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
             if ((!args || args.vnetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vnetName'");
             }
-            inputs["endAddress"] = args ? args.endAddress : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeName"] = args ? args.routeName : undefined;
-            inputs["routeType"] = args ? args.routeType : undefined;
-            inputs["startAddress"] = args ? args.startAddress : undefined;
-            inputs["vnetName"] = args ? args.vnetName : undefined;
-            inputs["vnetRouteName"] = args ? args.vnetRouteName : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["endAddress"] = args ? args.endAddress : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routeName"] = args ? args.routeName : undefined;
+            resourceInputs["routeType"] = args ? args.routeType : undefined;
+            resourceInputs["startAddress"] = args ? args.startAddress : undefined;
+            resourceInputs["vnetName"] = args ? args.vnetName : undefined;
+            resourceInputs["vnetRouteName"] = args ? args.vnetRouteName : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["endAddress"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["routeType"] = undefined /*out*/;
-            inputs["startAddress"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vnetRouteName"] = undefined /*out*/;
+            resourceInputs["endAddress"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["routeType"] = undefined /*out*/;
+            resourceInputs["startAddress"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vnetRouteName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20150801:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20180201:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20190801:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20200601:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20200901:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20201001:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20201201:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20210101:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20210115:AppServicePlanRouteForVnet" }, { type: "azure-native:web/v20210201:AppServicePlanRouteForVnet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AppServicePlanRouteForVnet.__pulumiType, name, inputs, opts);
+        super(AppServicePlanRouteForVnet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

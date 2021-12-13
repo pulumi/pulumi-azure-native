@@ -112,7 +112,7 @@ export class ScriptExecution extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScriptExecutionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
@@ -124,51 +124,51 @@ export class ScriptExecution extends pulumi.CustomResource {
             if ((!args || args.timeout === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeout'");
             }
-            inputs["failureReason"] = args ? args.failureReason : undefined;
-            inputs["hiddenParameters"] = args ? args.hiddenParameters : undefined;
-            inputs["namedOutputs"] = args ? args.namedOutputs : undefined;
-            inputs["output"] = args ? args.output : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retention"] = args ? args.retention : undefined;
-            inputs["scriptCmdletId"] = args ? args.scriptCmdletId : undefined;
-            inputs["scriptExecutionName"] = args ? args.scriptExecutionName : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["errors"] = undefined /*out*/;
-            inputs["finishedAt"] = undefined /*out*/;
-            inputs["information"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["startedAt"] = undefined /*out*/;
-            inputs["submittedAt"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["warnings"] = undefined /*out*/;
+            resourceInputs["failureReason"] = args ? args.failureReason : undefined;
+            resourceInputs["hiddenParameters"] = args ? args.hiddenParameters : undefined;
+            resourceInputs["namedOutputs"] = args ? args.namedOutputs : undefined;
+            resourceInputs["output"] = args ? args.output : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retention"] = args ? args.retention : undefined;
+            resourceInputs["scriptCmdletId"] = args ? args.scriptCmdletId : undefined;
+            resourceInputs["scriptExecutionName"] = args ? args.scriptExecutionName : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["errors"] = undefined /*out*/;
+            resourceInputs["finishedAt"] = undefined /*out*/;
+            resourceInputs["information"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["startedAt"] = undefined /*out*/;
+            resourceInputs["submittedAt"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["warnings"] = undefined /*out*/;
         } else {
-            inputs["errors"] = undefined /*out*/;
-            inputs["failureReason"] = undefined /*out*/;
-            inputs["finishedAt"] = undefined /*out*/;
-            inputs["hiddenParameters"] = undefined /*out*/;
-            inputs["information"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["namedOutputs"] = undefined /*out*/;
-            inputs["output"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["retention"] = undefined /*out*/;
-            inputs["scriptCmdletId"] = undefined /*out*/;
-            inputs["startedAt"] = undefined /*out*/;
-            inputs["submittedAt"] = undefined /*out*/;
-            inputs["timeout"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["warnings"] = undefined /*out*/;
+            resourceInputs["errors"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
+            resourceInputs["finishedAt"] = undefined /*out*/;
+            resourceInputs["hiddenParameters"] = undefined /*out*/;
+            resourceInputs["information"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["namedOutputs"] = undefined /*out*/;
+            resourceInputs["output"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["retention"] = undefined /*out*/;
+            resourceInputs["scriptCmdletId"] = undefined /*out*/;
+            resourceInputs["startedAt"] = undefined /*out*/;
+            resourceInputs["submittedAt"] = undefined /*out*/;
+            resourceInputs["timeout"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["warnings"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:ScriptExecution" }, { type: "azure-native:avs/v20211201:ScriptExecution" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ScriptExecution.__pulumiType, name, inputs, opts);
+        super(ScriptExecution.__pulumiType, name, resourceInputs, opts);
     }
 }
 

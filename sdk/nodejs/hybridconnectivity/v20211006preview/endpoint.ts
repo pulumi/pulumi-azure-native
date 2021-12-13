@@ -81,7 +81,7 @@ export class Endpoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
@@ -90,36 +90,36 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["createdAt"] = args ? args.createdAt : undefined;
-            inputs["createdBy"] = args ? args.createdBy : undefined;
-            inputs["createdByType"] = args ? args.createdByType : undefined;
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
-            inputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            inputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["resourceUri"] = args ? args.resourceUri : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
+            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
+            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
+            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
+            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["createdByType"] = undefined /*out*/;
-            inputs["lastModifiedAt"] = undefined /*out*/;
-            inputs["lastModifiedBy"] = undefined /*out*/;
-            inputs["lastModifiedByType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["createdByType"] = undefined /*out*/;
+            resourceInputs["lastModifiedAt"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["lastModifiedByType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybridconnectivity:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

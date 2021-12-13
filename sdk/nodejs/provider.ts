@@ -31,26 +31,26 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
-            inputs["clientCertificatePassword"] = args?.clientCertificatePassword ? pulumi.secret(args.clientCertificatePassword) : undefined;
-            inputs["clientCertificatePath"] = args ? args.clientCertificatePath : undefined;
-            inputs["clientId"] = args?.clientId ? pulumi.secret(args.clientId) : undefined;
-            inputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
-            inputs["disablePulumiPartnerId"] = pulumi.output(args ? args.disablePulumiPartnerId : undefined).apply(JSON.stringify);
-            inputs["environment"] = (args ? args.environment : undefined) ?? "public";
-            inputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
-            inputs["partnerId"] = args ? args.partnerId : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["useMsi"] = pulumi.output((args ? args.useMsi : undefined) ?? false).apply(JSON.stringify);
+            resourceInputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
+            resourceInputs["clientCertificatePassword"] = args?.clientCertificatePassword ? pulumi.secret(args.clientCertificatePassword) : undefined;
+            resourceInputs["clientCertificatePath"] = args ? args.clientCertificatePath : undefined;
+            resourceInputs["clientId"] = args?.clientId ? pulumi.secret(args.clientId) : undefined;
+            resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
+            resourceInputs["disablePulumiPartnerId"] = pulumi.output(args ? args.disablePulumiPartnerId : undefined).apply(JSON.stringify);
+            resourceInputs["environment"] = (args ? args.environment : undefined) ?? "public";
+            resourceInputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
+            resourceInputs["partnerId"] = args ? args.partnerId : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["useMsi"] = pulumi.output((args ? args.useMsi : undefined) ?? false).apply(JSON.stringify);
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Provider.__pulumiType, name, inputs, opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

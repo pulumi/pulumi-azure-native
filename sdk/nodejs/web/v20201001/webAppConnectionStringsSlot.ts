@@ -64,7 +64,7 @@ export class WebAppConnectionStringsSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppConnectionStringsSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -76,26 +76,26 @@ export class WebAppConnectionStringsSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20150801:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20160801:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20180201:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20181101:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20190801:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20200601:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20200901:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20201201:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20210101:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20210115:WebAppConnectionStringsSlot" }, { type: "azure-native:web/v20210201:WebAppConnectionStringsSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppConnectionStringsSlot.__pulumiType, name, inputs, opts);
+        super(WebAppConnectionStringsSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

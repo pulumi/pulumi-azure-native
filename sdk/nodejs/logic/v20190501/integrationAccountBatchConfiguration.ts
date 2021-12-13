@@ -64,7 +64,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IntegrationAccountBatchConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
@@ -76,27 +76,27 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["batchConfigurationName"] = args ? args.batchConfigurationName : undefined;
-            inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["batchConfigurationName"] = args ? args.batchConfigurationName : undefined;
+            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/v20160601:IntegrationAccountBatchConfiguration" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountBatchConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IntegrationAccountBatchConfiguration.__pulumiType, name, inputs, opts);
+        super(IntegrationAccountBatchConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

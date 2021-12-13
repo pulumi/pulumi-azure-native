@@ -65,7 +65,7 @@ export class Target extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TargetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.parentProviderNamespace === undefined) && !opts.urn) {
@@ -83,29 +83,29 @@ export class Target extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["parentProviderNamespace"] = args ? args.parentProviderNamespace : undefined;
-            inputs["parentResourceName"] = args ? args.parentResourceName : undefined;
-            inputs["parentResourceType"] = args ? args.parentResourceType : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["targetName"] = args ? args.targetName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["parentProviderNamespace"] = args ? args.parentProviderNamespace : undefined;
+            resourceInputs["parentResourceName"] = args ? args.parentResourceName : undefined;
+            resourceInputs["parentResourceType"] = args ? args.parentResourceType : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["targetName"] = args ? args.targetName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:chaos/v20210915preview:Target" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Target.__pulumiType, name, inputs, opts);
+        super(Target.__pulumiType, name, resourceInputs, opts);
     }
 }
 

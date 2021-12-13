@@ -72,7 +72,7 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppDiagnosticLogsConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -81,29 +81,29 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationLogs"] = args ? args.applicationLogs : undefined;
-            inputs["detailedErrorMessages"] = args ? args.detailedErrorMessages : undefined;
-            inputs["failedRequestsTracing"] = args ? args.failedRequestsTracing : undefined;
-            inputs["httpLogs"] = args ? args.httpLogs : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationLogs"] = args ? (args.applicationLogs ? pulumi.output(args.applicationLogs).apply(inputs.web.v20180201.applicationLogsConfigArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["detailedErrorMessages"] = args ? args.detailedErrorMessages : undefined;
+            resourceInputs["failedRequestsTracing"] = args ? args.failedRequestsTracing : undefined;
+            resourceInputs["httpLogs"] = args ? args.httpLogs : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["applicationLogs"] = undefined /*out*/;
-            inputs["detailedErrorMessages"] = undefined /*out*/;
-            inputs["failedRequestsTracing"] = undefined /*out*/;
-            inputs["httpLogs"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationLogs"] = undefined /*out*/;
+            resourceInputs["detailedErrorMessages"] = undefined /*out*/;
+            resourceInputs["failedRequestsTracing"] = undefined /*out*/;
+            resourceInputs["httpLogs"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20150801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20160801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20181101:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20190801:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20200601:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20200901:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20201001:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20201201:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20210101:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20210115:WebAppDiagnosticLogsConfiguration" }, { type: "azure-native:web/v20210201:WebAppDiagnosticLogsConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppDiagnosticLogsConfiguration.__pulumiType, name, inputs, opts);
+        super(WebAppDiagnosticLogsConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

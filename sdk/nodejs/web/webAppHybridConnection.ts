@@ -89,7 +89,7 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppHybridConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -101,38 +101,38 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["hostname"] = args ? args.hostname : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["relayArmUri"] = args ? args.relayArmUri : undefined;
-            inputs["relayName"] = args ? args.relayName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sendKeyName"] = args ? args.sendKeyName : undefined;
-            inputs["sendKeyValue"] = args ? args.sendKeyValue : undefined;
-            inputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
-            inputs["serviceBusSuffix"] = args ? args.serviceBusSuffix : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hostname"] = args ? args.hostname : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["relayArmUri"] = args ? args.relayArmUri : undefined;
+            resourceInputs["relayName"] = args ? args.relayName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sendKeyName"] = args ? args.sendKeyName : undefined;
+            resourceInputs["sendKeyValue"] = args ? args.sendKeyValue : undefined;
+            resourceInputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
+            resourceInputs["serviceBusSuffix"] = args ? args.serviceBusSuffix : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["hostname"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["relayArmUri"] = undefined /*out*/;
-            inputs["relayName"] = undefined /*out*/;
-            inputs["sendKeyName"] = undefined /*out*/;
-            inputs["sendKeyValue"] = undefined /*out*/;
-            inputs["serviceBusNamespace"] = undefined /*out*/;
-            inputs["serviceBusSuffix"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["relayArmUri"] = undefined /*out*/;
+            resourceInputs["relayName"] = undefined /*out*/;
+            resourceInputs["sendKeyName"] = undefined /*out*/;
+            resourceInputs["sendKeyValue"] = undefined /*out*/;
+            resourceInputs["serviceBusNamespace"] = undefined /*out*/;
+            resourceInputs["serviceBusSuffix"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web/v20160801:WebAppHybridConnection" }, { type: "azure-native:web/v20180201:WebAppHybridConnection" }, { type: "azure-native:web/v20181101:WebAppHybridConnection" }, { type: "azure-native:web/v20190801:WebAppHybridConnection" }, { type: "azure-native:web/v20200601:WebAppHybridConnection" }, { type: "azure-native:web/v20200901:WebAppHybridConnection" }, { type: "azure-native:web/v20201001:WebAppHybridConnection" }, { type: "azure-native:web/v20201201:WebAppHybridConnection" }, { type: "azure-native:web/v20210101:WebAppHybridConnection" }, { type: "azure-native:web/v20210115:WebAppHybridConnection" }, { type: "azure-native:web/v20210201:WebAppHybridConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppHybridConnection.__pulumiType, name, inputs, opts);
+        super(WebAppHybridConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

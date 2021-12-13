@@ -76,38 +76,38 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DataCollectionRuleAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            inputs["associationName"] = args ? args.associationName : undefined;
-            inputs["dataCollectionEndpointId"] = args ? args.dataCollectionEndpointId : undefined;
-            inputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["resourceUri"] = args ? args.resourceUri : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["associationName"] = args ? args.associationName : undefined;
+            resourceInputs["dataCollectionEndpointId"] = args ? args.dataCollectionEndpointId : undefined;
+            resourceInputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dataCollectionEndpointId"] = undefined /*out*/;
-            inputs["dataCollectionRuleId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataCollectionEndpointId"] = undefined /*out*/;
+            resourceInputs["dataCollectionRuleId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:DataCollectionRuleAssociation" }, { type: "azure-native:insights/v20191101preview:DataCollectionRuleAssociation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DataCollectionRuleAssociation.__pulumiType, name, inputs, opts);
+        super(DataCollectionRuleAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

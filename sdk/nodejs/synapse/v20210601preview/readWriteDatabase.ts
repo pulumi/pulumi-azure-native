@@ -85,7 +85,7 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ReadWriteDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -100,38 +100,38 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
-            inputs["kind"] = "ReadWrite";
-            inputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["softDeletePeriod"] = args ? args.softDeletePeriod : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["isFollowed"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statistics"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
+            resourceInputs["kind"] = "ReadWrite";
+            resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["softDeletePeriod"] = args ? args.softDeletePeriod : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["isFollowed"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["hotCachePeriod"] = undefined /*out*/;
-            inputs["isFollowed"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["softDeletePeriod"] = undefined /*out*/;
-            inputs["statistics"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hotCachePeriod"] = undefined /*out*/;
+            resourceInputs["isFollowed"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["softDeletePeriod"] = undefined /*out*/;
+            resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:ReadWriteDatabase" }, { type: "azure-native:synapse/v20210401preview:ReadWriteDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ReadWriteDatabase.__pulumiType, name, inputs, opts);
+        super(ReadWriteDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

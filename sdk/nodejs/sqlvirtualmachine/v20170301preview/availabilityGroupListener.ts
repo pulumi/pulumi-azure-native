@@ -72,7 +72,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AvailabilityGroupListenerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -81,31 +81,31 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
             if ((!args || args.sqlVirtualMachineGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlVirtualMachineGroupName'");
             }
-            inputs["availabilityGroupListenerName"] = args ? args.availabilityGroupListenerName : undefined;
-            inputs["availabilityGroupName"] = args ? args.availabilityGroupName : undefined;
-            inputs["createDefaultAvailabilityGroupIfNotExist"] = args ? args.createDefaultAvailabilityGroupIfNotExist : undefined;
-            inputs["loadBalancerConfigurations"] = args ? args.loadBalancerConfigurations : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sqlVirtualMachineGroupName"] = args ? args.sqlVirtualMachineGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["availabilityGroupListenerName"] = args ? args.availabilityGroupListenerName : undefined;
+            resourceInputs["availabilityGroupName"] = args ? args.availabilityGroupName : undefined;
+            resourceInputs["createDefaultAvailabilityGroupIfNotExist"] = args ? args.createDefaultAvailabilityGroupIfNotExist : undefined;
+            resourceInputs["loadBalancerConfigurations"] = args ? args.loadBalancerConfigurations : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sqlVirtualMachineGroupName"] = args ? args.sqlVirtualMachineGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["availabilityGroupName"] = undefined /*out*/;
-            inputs["createDefaultAvailabilityGroupIfNotExist"] = undefined /*out*/;
-            inputs["loadBalancerConfigurations"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["availabilityGroupName"] = undefined /*out*/;
+            resourceInputs["createDefaultAvailabilityGroupIfNotExist"] = undefined /*out*/;
+            resourceInputs["loadBalancerConfigurations"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:AvailabilityGroupListener" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AvailabilityGroupListener.__pulumiType, name, inputs, opts);
+        super(AvailabilityGroupListener.__pulumiType, name, resourceInputs, opts);
     }
 }
 

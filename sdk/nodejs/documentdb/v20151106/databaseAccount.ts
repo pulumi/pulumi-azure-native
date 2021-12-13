@@ -124,7 +124,7 @@ export class DatabaseAccount extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseAccountArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.databaseAccountOfferType === undefined) && !opts.urn) {
@@ -136,57 +136,57 @@ export class DatabaseAccount extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["capabilities"] = args ? args.capabilities : undefined;
-            inputs["connectorOffer"] = args ? args.connectorOffer : undefined;
-            inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
-            inputs["databaseAccountOfferType"] = args ? args.databaseAccountOfferType : undefined;
-            inputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
-            inputs["enableCassandraConnector"] = args ? args.enableCassandraConnector : undefined;
-            inputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
-            inputs["ipRangeFilter"] = args ? args.ipRangeFilter : undefined;
-            inputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
-            inputs["kind"] = (args ? args.kind : undefined) ?? "GlobalDocumentDB";
-            inputs["location"] = args ? args.location : undefined;
-            inputs["locations"] = args ? args.locations : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
-            inputs["documentEndpoint"] = undefined /*out*/;
-            inputs["failoverPolicies"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["readLocations"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["writeLocations"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
+            resourceInputs["connectorOffer"] = args ? args.connectorOffer : undefined;
+            resourceInputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
+            resourceInputs["databaseAccountOfferType"] = args ? args.databaseAccountOfferType : undefined;
+            resourceInputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
+            resourceInputs["enableCassandraConnector"] = args ? args.enableCassandraConnector : undefined;
+            resourceInputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
+            resourceInputs["ipRangeFilter"] = args ? args.ipRangeFilter : undefined;
+            resourceInputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
+            resourceInputs["kind"] = (args ? args.kind : undefined) ?? "GlobalDocumentDB";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["locations"] = args ? args.locations : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            resourceInputs["documentEndpoint"] = undefined /*out*/;
+            resourceInputs["failoverPolicies"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["readLocations"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["writeLocations"] = undefined /*out*/;
         } else {
-            inputs["capabilities"] = undefined /*out*/;
-            inputs["connectorOffer"] = undefined /*out*/;
-            inputs["consistencyPolicy"] = undefined /*out*/;
-            inputs["databaseAccountOfferType"] = undefined /*out*/;
-            inputs["documentEndpoint"] = undefined /*out*/;
-            inputs["enableAutomaticFailover"] = undefined /*out*/;
-            inputs["enableCassandraConnector"] = undefined /*out*/;
-            inputs["enableMultipleWriteLocations"] = undefined /*out*/;
-            inputs["failoverPolicies"] = undefined /*out*/;
-            inputs["ipRangeFilter"] = undefined /*out*/;
-            inputs["isVirtualNetworkFilterEnabled"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["readLocations"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkRules"] = undefined /*out*/;
-            inputs["writeLocations"] = undefined /*out*/;
+            resourceInputs["capabilities"] = undefined /*out*/;
+            resourceInputs["connectorOffer"] = undefined /*out*/;
+            resourceInputs["consistencyPolicy"] = undefined /*out*/;
+            resourceInputs["databaseAccountOfferType"] = undefined /*out*/;
+            resourceInputs["documentEndpoint"] = undefined /*out*/;
+            resourceInputs["enableAutomaticFailover"] = undefined /*out*/;
+            resourceInputs["enableCassandraConnector"] = undefined /*out*/;
+            resourceInputs["enableMultipleWriteLocations"] = undefined /*out*/;
+            resourceInputs["failoverPolicies"] = undefined /*out*/;
+            resourceInputs["ipRangeFilter"] = undefined /*out*/;
+            resourceInputs["isVirtualNetworkFilterEnabled"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["readLocations"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetworkRules"] = undefined /*out*/;
+            resourceInputs["writeLocations"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccount" }, { type: "azure-native:documentdb/v20150401:DatabaseAccount" }, { type: "azure-native:documentdb/v20150408:DatabaseAccount" }, { type: "azure-native:documentdb/v20160319:DatabaseAccount" }, { type: "azure-native:documentdb/v20160331:DatabaseAccount" }, { type: "azure-native:documentdb/v20190801:DatabaseAccount" }, { type: "azure-native:documentdb/v20191212:DatabaseAccount" }, { type: "azure-native:documentdb/v20200301:DatabaseAccount" }, { type: "azure-native:documentdb/v20200401:DatabaseAccount" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccount" }, { type: "azure-native:documentdb/v20200901:DatabaseAccount" }, { type: "azure-native:documentdb/v20210115:DatabaseAccount" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccount" }, { type: "azure-native:documentdb/v20210315:DatabaseAccount" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccount" }, { type: "azure-native:documentdb/v20210415:DatabaseAccount" }, { type: "azure-native:documentdb/v20210515:DatabaseAccount" }, { type: "azure-native:documentdb/v20210615:DatabaseAccount" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccount" }, { type: "azure-native:documentdb/v20211015:DatabaseAccount" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabaseAccount.__pulumiType, name, inputs, opts);
+        super(DatabaseAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

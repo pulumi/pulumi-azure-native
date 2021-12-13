@@ -92,7 +92,7 @@ export class SecurityRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SecurityRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.access === undefined) && !opts.urn) {
@@ -116,42 +116,42 @@ export class SecurityRule extends pulumi.CustomResource {
             if ((!args || args.sourceAddressPrefix === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceAddressPrefix'");
             }
-            inputs["access"] = args ? args.access : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destinationAddressPrefix"] = args ? args.destinationAddressPrefix : undefined;
-            inputs["destinationPortRange"] = args ? args.destinationPortRange : undefined;
-            inputs["direction"] = args ? args.direction : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securityRuleName"] = args ? args.securityRuleName : undefined;
-            inputs["sourceAddressPrefix"] = args ? args.sourceAddressPrefix : undefined;
-            inputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
+            resourceInputs["access"] = args ? args.access : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationAddressPrefix"] = args ? args.destinationAddressPrefix : undefined;
+            resourceInputs["destinationPortRange"] = args ? args.destinationPortRange : undefined;
+            resourceInputs["direction"] = args ? args.direction : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securityRuleName"] = args ? args.securityRuleName : undefined;
+            resourceInputs["sourceAddressPrefix"] = args ? args.sourceAddressPrefix : undefined;
+            resourceInputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
         } else {
-            inputs["access"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["destinationAddressPrefix"] = undefined /*out*/;
-            inputs["destinationPortRange"] = undefined /*out*/;
-            inputs["direction"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sourceAddressPrefix"] = undefined /*out*/;
-            inputs["sourcePortRange"] = undefined /*out*/;
+            resourceInputs["access"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinationAddressPrefix"] = undefined /*out*/;
+            resourceInputs["destinationPortRange"] = undefined /*out*/;
+            resourceInputs["direction"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourceAddressPrefix"] = undefined /*out*/;
+            resourceInputs["sourcePortRange"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:SecurityRule" }, { type: "azure-native:network/v20150615:SecurityRule" }, { type: "azure-native:network/v20160330:SecurityRule" }, { type: "azure-native:network/v20160601:SecurityRule" }, { type: "azure-native:network/v20160901:SecurityRule" }, { type: "azure-native:network/v20161201:SecurityRule" }, { type: "azure-native:network/v20170301:SecurityRule" }, { type: "azure-native:network/v20170601:SecurityRule" }, { type: "azure-native:network/v20170801:SecurityRule" }, { type: "azure-native:network/v20170901:SecurityRule" }, { type: "azure-native:network/v20171001:SecurityRule" }, { type: "azure-native:network/v20171101:SecurityRule" }, { type: "azure-native:network/v20180101:SecurityRule" }, { type: "azure-native:network/v20180201:SecurityRule" }, { type: "azure-native:network/v20180401:SecurityRule" }, { type: "azure-native:network/v20180601:SecurityRule" }, { type: "azure-native:network/v20180701:SecurityRule" }, { type: "azure-native:network/v20180801:SecurityRule" }, { type: "azure-native:network/v20181001:SecurityRule" }, { type: "azure-native:network/v20181101:SecurityRule" }, { type: "azure-native:network/v20181201:SecurityRule" }, { type: "azure-native:network/v20190201:SecurityRule" }, { type: "azure-native:network/v20190401:SecurityRule" }, { type: "azure-native:network/v20190601:SecurityRule" }, { type: "azure-native:network/v20190701:SecurityRule" }, { type: "azure-native:network/v20190801:SecurityRule" }, { type: "azure-native:network/v20190901:SecurityRule" }, { type: "azure-native:network/v20191101:SecurityRule" }, { type: "azure-native:network/v20191201:SecurityRule" }, { type: "azure-native:network/v20200301:SecurityRule" }, { type: "azure-native:network/v20200401:SecurityRule" }, { type: "azure-native:network/v20200501:SecurityRule" }, { type: "azure-native:network/v20200601:SecurityRule" }, { type: "azure-native:network/v20200701:SecurityRule" }, { type: "azure-native:network/v20200801:SecurityRule" }, { type: "azure-native:network/v20201101:SecurityRule" }, { type: "azure-native:network/v20210201:SecurityRule" }, { type: "azure-native:network/v20210301:SecurityRule" }, { type: "azure-native:network/v20210501:SecurityRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SecurityRule.__pulumiType, name, inputs, opts);
+        super(SecurityRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

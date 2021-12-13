@@ -88,7 +88,7 @@ export class ContainerService extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ContainerServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.agentPoolProfiles === undefined) && !opts.urn) {
@@ -103,38 +103,38 @@ export class ContainerService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
-            inputs["containerServiceName"] = args ? args.containerServiceName : undefined;
-            inputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
-            inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["masterProfile"] = args ? args.masterProfile : undefined;
-            inputs["orchestratorProfile"] = args ? args.orchestratorProfile : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["windowsProfile"] = args ? args.windowsProfile : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
+            resourceInputs["containerServiceName"] = args ? args.containerServiceName : undefined;
+            resourceInputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
+            resourceInputs["linuxProfile"] = args ? args.linuxProfile : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["masterProfile"] = args ? args.masterProfile : undefined;
+            resourceInputs["orchestratorProfile"] = args ? args.orchestratorProfile : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["agentPoolProfiles"] = undefined /*out*/;
-            inputs["diagnosticsProfile"] = undefined /*out*/;
-            inputs["linuxProfile"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["masterProfile"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["orchestratorProfile"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["windowsProfile"] = undefined /*out*/;
+            resourceInputs["agentPoolProfiles"] = undefined /*out*/;
+            resourceInputs["diagnosticsProfile"] = undefined /*out*/;
+            resourceInputs["linuxProfile"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["masterProfile"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["orchestratorProfile"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["windowsProfile"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20160330:ContainerService" }, { type: "azure-native:containerservice/v20160930:ContainerService" }, { type: "azure-native:containerservice/v20170131:ContainerService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ContainerService.__pulumiType, name, inputs, opts);
+        super(ContainerService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

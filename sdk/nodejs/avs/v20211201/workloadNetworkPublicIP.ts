@@ -67,7 +67,7 @@ export class WorkloadNetworkPublicIP extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkloadNetworkPublicIPArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
@@ -76,29 +76,29 @@ export class WorkloadNetworkPublicIP extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["numberOfPublicIPs"] = args ? args.numberOfPublicIPs : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["publicIPId"] = args ? args.publicIPId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicIPBlock"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["numberOfPublicIPs"] = args ? args.numberOfPublicIPs : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["publicIPId"] = args ? args.publicIPId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPBlock"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfPublicIPs"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicIPBlock"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfPublicIPs"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPBlock"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:WorkloadNetworkPublicIP" }, { type: "azure-native:avs/v20210601:WorkloadNetworkPublicIP" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WorkloadNetworkPublicIP.__pulumiType, name, inputs, opts);
+        super(WorkloadNetworkPublicIP.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -67,35 +67,35 @@ export class NetworkWatcher extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkWatcherArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkWatcher" }, { type: "azure-native:network/v20161201:NetworkWatcher" }, { type: "azure-native:network/v20170301:NetworkWatcher" }, { type: "azure-native:network/v20170601:NetworkWatcher" }, { type: "azure-native:network/v20170801:NetworkWatcher" }, { type: "azure-native:network/v20170901:NetworkWatcher" }, { type: "azure-native:network/v20171001:NetworkWatcher" }, { type: "azure-native:network/v20171101:NetworkWatcher" }, { type: "azure-native:network/v20180101:NetworkWatcher" }, { type: "azure-native:network/v20180201:NetworkWatcher" }, { type: "azure-native:network/v20180401:NetworkWatcher" }, { type: "azure-native:network/v20180601:NetworkWatcher" }, { type: "azure-native:network/v20180701:NetworkWatcher" }, { type: "azure-native:network/v20180801:NetworkWatcher" }, { type: "azure-native:network/v20181001:NetworkWatcher" }, { type: "azure-native:network/v20181101:NetworkWatcher" }, { type: "azure-native:network/v20181201:NetworkWatcher" }, { type: "azure-native:network/v20190201:NetworkWatcher" }, { type: "azure-native:network/v20190401:NetworkWatcher" }, { type: "azure-native:network/v20190601:NetworkWatcher" }, { type: "azure-native:network/v20190701:NetworkWatcher" }, { type: "azure-native:network/v20190801:NetworkWatcher" }, { type: "azure-native:network/v20190901:NetworkWatcher" }, { type: "azure-native:network/v20191101:NetworkWatcher" }, { type: "azure-native:network/v20191201:NetworkWatcher" }, { type: "azure-native:network/v20200301:NetworkWatcher" }, { type: "azure-native:network/v20200401:NetworkWatcher" }, { type: "azure-native:network/v20200501:NetworkWatcher" }, { type: "azure-native:network/v20200601:NetworkWatcher" }, { type: "azure-native:network/v20200701:NetworkWatcher" }, { type: "azure-native:network/v20200801:NetworkWatcher" }, { type: "azure-native:network/v20201101:NetworkWatcher" }, { type: "azure-native:network/v20210201:NetworkWatcher" }, { type: "azure-native:network/v20210301:NetworkWatcher" }, { type: "azure-native:network/v20210501:NetworkWatcher" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NetworkWatcher.__pulumiType, name, inputs, opts);
+        super(NetworkWatcher.__pulumiType, name, resourceInputs, opts);
     }
 }
 

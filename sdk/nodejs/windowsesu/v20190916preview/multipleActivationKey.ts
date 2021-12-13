@@ -89,46 +89,46 @@ export class MultipleActivationKey extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MultipleActivationKeyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["agreementNumber"] = args ? args.agreementNumber : undefined;
-            inputs["installedServerNumber"] = args ? args.installedServerNumber : undefined;
-            inputs["isEligible"] = args ? args.isEligible : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["multipleActivationKeyName"] = args ? args.multipleActivationKeyName : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["supportType"] = (args ? args.supportType : undefined) ?? "SupplementalServicing";
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["multipleActivationKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agreementNumber"] = args ? args.agreementNumber : undefined;
+            resourceInputs["installedServerNumber"] = args ? args.installedServerNumber : undefined;
+            resourceInputs["isEligible"] = args ? args.isEligible : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["multipleActivationKeyName"] = args ? args.multipleActivationKeyName : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["supportType"] = (args ? args.supportType : undefined) ?? "SupplementalServicing";
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["multipleActivationKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["agreementNumber"] = undefined /*out*/;
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["installedServerNumber"] = undefined /*out*/;
-            inputs["isEligible"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["multipleActivationKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["osType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["supportType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agreementNumber"] = undefined /*out*/;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["installedServerNumber"] = undefined /*out*/;
+            resourceInputs["isEligible"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["multipleActivationKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["supportType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:windowsesu:MultipleActivationKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MultipleActivationKey.__pulumiType, name, inputs, opts);
+        super(MultipleActivationKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -85,7 +85,7 @@ export class DatabaseAdvisor extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseAdvisorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autoExecuteStatus === undefined) && !opts.urn) {
@@ -100,38 +100,38 @@ export class DatabaseAdvisor extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["advisorName"] = args ? args.advisorName : undefined;
-            inputs["autoExecuteStatus"] = args ? args.autoExecuteStatus : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["advisorStatus"] = undefined /*out*/;
-            inputs["autoExecuteStatusInheritedFrom"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastChecked"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["recommendationsStatus"] = undefined /*out*/;
-            inputs["recommendedActions"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["advisorName"] = args ? args.advisorName : undefined;
+            resourceInputs["autoExecuteStatus"] = args ? args.autoExecuteStatus : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["advisorStatus"] = undefined /*out*/;
+            resourceInputs["autoExecuteStatusInheritedFrom"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastChecked"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["recommendationsStatus"] = undefined /*out*/;
+            resourceInputs["recommendedActions"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["advisorStatus"] = undefined /*out*/;
-            inputs["autoExecuteStatus"] = undefined /*out*/;
-            inputs["autoExecuteStatusInheritedFrom"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastChecked"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["recommendationsStatus"] = undefined /*out*/;
-            inputs["recommendedActions"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["advisorStatus"] = undefined /*out*/;
+            resourceInputs["autoExecuteStatus"] = undefined /*out*/;
+            resourceInputs["autoExecuteStatusInheritedFrom"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastChecked"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["recommendationsStatus"] = undefined /*out*/;
+            resourceInputs["recommendedActions"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:DatabaseAdvisor" }, { type: "azure-native:sql/v20150501preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20200202preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20200801preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20201101preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20210201preview:DatabaseAdvisor" }, { type: "azure-native:sql/v20210501preview:DatabaseAdvisor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabaseAdvisor.__pulumiType, name, inputs, opts);
+        super(DatabaseAdvisor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

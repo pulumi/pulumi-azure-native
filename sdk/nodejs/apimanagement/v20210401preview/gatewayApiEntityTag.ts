@@ -136,7 +136,7 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GatewayApiEntityTagArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.gatewayId === undefined) && !opts.urn) {
@@ -148,65 +148,65 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["gatewayId"] = args ? args.gatewayId : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["apiRevision"] = undefined /*out*/;
-            inputs["apiRevisionDescription"] = undefined /*out*/;
-            inputs["apiType"] = undefined /*out*/;
-            inputs["apiVersion"] = undefined /*out*/;
-            inputs["apiVersionDescription"] = undefined /*out*/;
-            inputs["apiVersionSet"] = undefined /*out*/;
-            inputs["apiVersionSetId"] = undefined /*out*/;
-            inputs["authenticationSettings"] = undefined /*out*/;
-            inputs["contact"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["isCurrent"] = undefined /*out*/;
-            inputs["isOnline"] = undefined /*out*/;
-            inputs["license"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["protocols"] = undefined /*out*/;
-            inputs["serviceUrl"] = undefined /*out*/;
-            inputs["sourceApiId"] = undefined /*out*/;
-            inputs["subscriptionKeyParameterNames"] = undefined /*out*/;
-            inputs["subscriptionRequired"] = undefined /*out*/;
-            inputs["termsOfServiceUrl"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["apiRevision"] = undefined /*out*/;
+            resourceInputs["apiRevisionDescription"] = undefined /*out*/;
+            resourceInputs["apiType"] = undefined /*out*/;
+            resourceInputs["apiVersion"] = undefined /*out*/;
+            resourceInputs["apiVersionDescription"] = undefined /*out*/;
+            resourceInputs["apiVersionSet"] = undefined /*out*/;
+            resourceInputs["apiVersionSetId"] = undefined /*out*/;
+            resourceInputs["authenticationSettings"] = undefined /*out*/;
+            resourceInputs["contact"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["isCurrent"] = undefined /*out*/;
+            resourceInputs["isOnline"] = undefined /*out*/;
+            resourceInputs["license"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["protocols"] = undefined /*out*/;
+            resourceInputs["serviceUrl"] = undefined /*out*/;
+            resourceInputs["sourceApiId"] = undefined /*out*/;
+            resourceInputs["subscriptionKeyParameterNames"] = undefined /*out*/;
+            resourceInputs["subscriptionRequired"] = undefined /*out*/;
+            resourceInputs["termsOfServiceUrl"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["apiRevision"] = undefined /*out*/;
-            inputs["apiRevisionDescription"] = undefined /*out*/;
-            inputs["apiType"] = undefined /*out*/;
-            inputs["apiVersion"] = undefined /*out*/;
-            inputs["apiVersionDescription"] = undefined /*out*/;
-            inputs["apiVersionSet"] = undefined /*out*/;
-            inputs["apiVersionSetId"] = undefined /*out*/;
-            inputs["authenticationSettings"] = undefined /*out*/;
-            inputs["contact"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["isCurrent"] = undefined /*out*/;
-            inputs["isOnline"] = undefined /*out*/;
-            inputs["license"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["protocols"] = undefined /*out*/;
-            inputs["serviceUrl"] = undefined /*out*/;
-            inputs["sourceApiId"] = undefined /*out*/;
-            inputs["subscriptionKeyParameterNames"] = undefined /*out*/;
-            inputs["subscriptionRequired"] = undefined /*out*/;
-            inputs["termsOfServiceUrl"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiRevision"] = undefined /*out*/;
+            resourceInputs["apiRevisionDescription"] = undefined /*out*/;
+            resourceInputs["apiType"] = undefined /*out*/;
+            resourceInputs["apiVersion"] = undefined /*out*/;
+            resourceInputs["apiVersionDescription"] = undefined /*out*/;
+            resourceInputs["apiVersionSet"] = undefined /*out*/;
+            resourceInputs["apiVersionSetId"] = undefined /*out*/;
+            resourceInputs["authenticationSettings"] = undefined /*out*/;
+            resourceInputs["contact"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["isCurrent"] = undefined /*out*/;
+            resourceInputs["isOnline"] = undefined /*out*/;
+            resourceInputs["license"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["protocols"] = undefined /*out*/;
+            resourceInputs["serviceUrl"] = undefined /*out*/;
+            resourceInputs["sourceApiId"] = undefined /*out*/;
+            resourceInputs["subscriptionKeyParameterNames"] = undefined /*out*/;
+            resourceInputs["subscriptionRequired"] = undefined /*out*/;
+            resourceInputs["termsOfServiceUrl"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20200601preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20201201:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210101preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210801:GatewayApiEntityTag" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GatewayApiEntityTag.__pulumiType, name, inputs, opts);
+        super(GatewayApiEntityTag.__pulumiType, name, resourceInputs, opts);
     }
 }
 

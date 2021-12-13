@@ -52,7 +52,7 @@ export class VendorSkuPreview extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VendorSkuPreviewArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.skuName === undefined) && !opts.urn) {
@@ -61,21 +61,21 @@ export class VendorSkuPreview extends pulumi.CustomResource {
             if ((!args || args.vendorName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vendorName'");
             }
-            inputs["previewSubscription"] = args ? args.previewSubscription : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["vendorName"] = args ? args.vendorName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["previewSubscription"] = args ? args.previewSubscription : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["vendorName"] = args ? args.vendorName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork/v20200101preview:VendorSkuPreview" }, { type: "azure-native:hybridnetwork/v20210501:VendorSkuPreview" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VendorSkuPreview.__pulumiType, name, inputs, opts);
+        super(VendorSkuPreview.__pulumiType, name, resourceInputs, opts);
     }
 }
 

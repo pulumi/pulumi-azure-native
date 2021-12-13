@@ -64,7 +64,7 @@ export class AssetFilter extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AssetFilterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -76,28 +76,28 @@ export class AssetFilter extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["assetName"] = args ? args.assetName : undefined;
-            inputs["filterName"] = args ? args.filterName : undefined;
-            inputs["firstQuality"] = args ? args.firstQuality : undefined;
-            inputs["presentationTimeRange"] = args ? args.presentationTimeRange : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tracks"] = args ? args.tracks : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["assetName"] = args ? args.assetName : undefined;
+            resourceInputs["filterName"] = args ? args.filterName : undefined;
+            resourceInputs["firstQuality"] = args ? args.firstQuality : undefined;
+            resourceInputs["presentationTimeRange"] = args ? args.presentationTimeRange : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tracks"] = args ? args.tracks : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["firstQuality"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["presentationTimeRange"] = undefined /*out*/;
-            inputs["tracks"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["firstQuality"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["presentationTimeRange"] = undefined /*out*/;
+            resourceInputs["tracks"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:AssetFilter" }, { type: "azure-native:media/v20200501:AssetFilter" }, { type: "azure-native:media/v20210601:AssetFilter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AssetFilter.__pulumiType, name, inputs, opts);
+        super(AssetFilter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

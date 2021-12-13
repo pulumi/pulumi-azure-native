@@ -112,7 +112,7 @@ export class Endpoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.origins === undefined) && !opts.urn) {
@@ -124,51 +124,51 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["contentTypesToCompress"] = args ? args.contentTypesToCompress : undefined;
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["geoFilters"] = args ? args.geoFilters : undefined;
-            inputs["isCompressionEnabled"] = args ? args.isCompressionEnabled : undefined;
-            inputs["isHttpAllowed"] = args ? args.isHttpAllowed : undefined;
-            inputs["isHttpsAllowed"] = args ? args.isHttpsAllowed : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["optimizationType"] = args ? args.optimizationType : undefined;
-            inputs["originHostHeader"] = args ? args.originHostHeader : undefined;
-            inputs["originPath"] = args ? args.originPath : undefined;
-            inputs["origins"] = args ? args.origins : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["queryStringCachingBehavior"] = args ? args.queryStringCachingBehavior : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["contentTypesToCompress"] = args ? args.contentTypesToCompress : undefined;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["geoFilters"] = args ? args.geoFilters : undefined;
+            resourceInputs["isCompressionEnabled"] = args ? args.isCompressionEnabled : undefined;
+            resourceInputs["isHttpAllowed"] = args ? args.isHttpAllowed : undefined;
+            resourceInputs["isHttpsAllowed"] = args ? args.isHttpsAllowed : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["optimizationType"] = args ? args.optimizationType : undefined;
+            resourceInputs["originHostHeader"] = args ? args.originHostHeader : undefined;
+            resourceInputs["originPath"] = args ? args.originPath : undefined;
+            resourceInputs["origins"] = args ? args.origins : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["queryStringCachingBehavior"] = args ? args.queryStringCachingBehavior : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["contentTypesToCompress"] = undefined /*out*/;
-            inputs["geoFilters"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["isCompressionEnabled"] = undefined /*out*/;
-            inputs["isHttpAllowed"] = undefined /*out*/;
-            inputs["isHttpsAllowed"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["optimizationType"] = undefined /*out*/;
-            inputs["originHostHeader"] = undefined /*out*/;
-            inputs["originPath"] = undefined /*out*/;
-            inputs["origins"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["queryStringCachingBehavior"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["contentTypesToCompress"] = undefined /*out*/;
+            resourceInputs["geoFilters"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["isCompressionEnabled"] = undefined /*out*/;
+            resourceInputs["isHttpAllowed"] = undefined /*out*/;
+            resourceInputs["isHttpsAllowed"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["optimizationType"] = undefined /*out*/;
+            resourceInputs["originHostHeader"] = undefined /*out*/;
+            resourceInputs["originPath"] = undefined /*out*/;
+            resourceInputs["origins"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["queryStringCachingBehavior"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:Endpoint" }, { type: "azure-native:cdn/v20150601:Endpoint" }, { type: "azure-native:cdn/v20160402:Endpoint" }, { type: "azure-native:cdn/v20170402:Endpoint" }, { type: "azure-native:cdn/v20171012:Endpoint" }, { type: "azure-native:cdn/v20190415:Endpoint" }, { type: "azure-native:cdn/v20190615:Endpoint" }, { type: "azure-native:cdn/v20190615preview:Endpoint" }, { type: "azure-native:cdn/v20191231:Endpoint" }, { type: "azure-native:cdn/v20200331:Endpoint" }, { type: "azure-native:cdn/v20200415:Endpoint" }, { type: "azure-native:cdn/v20200901:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

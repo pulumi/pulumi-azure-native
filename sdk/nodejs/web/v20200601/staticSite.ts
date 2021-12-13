@@ -92,45 +92,45 @@ export class StaticSite extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StaticSiteArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["branch"] = args ? args.branch : undefined;
-            inputs["buildProperties"] = args ? args.buildProperties : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["repositoryToken"] = args ? args.repositoryToken : undefined;
-            inputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["customDomains"] = undefined /*out*/;
-            inputs["defaultHostname"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["branch"] = args ? args.branch : undefined;
+            resourceInputs["buildProperties"] = args ? args.buildProperties : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["repositoryToken"] = args ? args.repositoryToken : undefined;
+            resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customDomains"] = undefined /*out*/;
+            resourceInputs["defaultHostname"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["branch"] = undefined /*out*/;
-            inputs["buildProperties"] = undefined /*out*/;
-            inputs["customDomains"] = undefined /*out*/;
-            inputs["defaultHostname"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["repositoryToken"] = undefined /*out*/;
-            inputs["repositoryUrl"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["branch"] = undefined /*out*/;
+            resourceInputs["buildProperties"] = undefined /*out*/;
+            resourceInputs["customDomains"] = undefined /*out*/;
+            resourceInputs["defaultHostname"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["repositoryToken"] = undefined /*out*/;
+            resourceInputs["repositoryUrl"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:StaticSite" }, { type: "azure-native:web/v20190801:StaticSite" }, { type: "azure-native:web/v20200901:StaticSite" }, { type: "azure-native:web/v20201001:StaticSite" }, { type: "azure-native:web/v20201201:StaticSite" }, { type: "azure-native:web/v20210101:StaticSite" }, { type: "azure-native:web/v20210115:StaticSite" }, { type: "azure-native:web/v20210201:StaticSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(StaticSite.__pulumiType, name, inputs, opts);
+        super(StaticSite.__pulumiType, name, resourceInputs, opts);
     }
 }
 

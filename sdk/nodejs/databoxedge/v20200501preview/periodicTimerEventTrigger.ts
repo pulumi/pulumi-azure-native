@@ -69,7 +69,7 @@ export class PeriodicTimerEventTrigger extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PeriodicTimerEventTriggerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -87,28 +87,28 @@ export class PeriodicTimerEventTrigger extends pulumi.CustomResource {
             if ((!args || args.sourceInfo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceInfo'");
             }
-            inputs["customContextTag"] = args ? args.customContextTag : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["kind"] = "PeriodicTimerEvent";
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sinkInfo"] = args ? args.sinkInfo : undefined;
-            inputs["sourceInfo"] = args ? args.sourceInfo : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customContextTag"] = args ? args.customContextTag : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["kind"] = "PeriodicTimerEvent";
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sinkInfo"] = args ? args.sinkInfo : undefined;
+            resourceInputs["sourceInfo"] = args ? args.sourceInfo : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["customContextTag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sinkInfo"] = undefined /*out*/;
-            inputs["sourceInfo"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customContextTag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sinkInfo"] = undefined /*out*/;
+            resourceInputs["sourceInfo"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20190301:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20190701:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20190801:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20200901:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20200901preview:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20201201:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20210201:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20210201preview:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20210601:PeriodicTimerEventTrigger" }, { type: "azure-native:databoxedge/v20210601preview:PeriodicTimerEventTrigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PeriodicTimerEventTrigger.__pulumiType, name, inputs, opts);
+        super(PeriodicTimerEventTrigger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

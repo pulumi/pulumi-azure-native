@@ -104,7 +104,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -113,47 +113,47 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
             if ((!args || args.vmName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vmName'");
             }
-            inputs["asyncExecution"] = (args ? args.asyncExecution : undefined) ?? false;
-            inputs["errorBlobUri"] = args ? args.errorBlobUri : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["outputBlobUri"] = args ? args.outputBlobUri : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["protectedParameters"] = args ? args.protectedParameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["runAsPassword"] = args ? args.runAsPassword : undefined;
-            inputs["runAsUser"] = args ? args.runAsUser : undefined;
-            inputs["runCommandName"] = args ? args.runCommandName : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
-            inputs["vmName"] = args ? args.vmName : undefined;
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["asyncExecution"] = (args ? args.asyncExecution : undefined) ?? false;
+            resourceInputs["errorBlobUri"] = args ? args.errorBlobUri : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["outputBlobUri"] = args ? args.outputBlobUri : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["protectedParameters"] = args ? args.protectedParameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["runAsPassword"] = args ? args.runAsPassword : undefined;
+            resourceInputs["runAsUser"] = args ? args.runAsUser : undefined;
+            resourceInputs["runCommandName"] = args ? args.runCommandName : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
+            resourceInputs["vmName"] = args ? args.vmName : undefined;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["asyncExecution"] = undefined /*out*/;
-            inputs["errorBlobUri"] = undefined /*out*/;
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outputBlobUri"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["protectedParameters"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["runAsPassword"] = undefined /*out*/;
-            inputs["runAsUser"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeoutInSeconds"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["asyncExecution"] = undefined /*out*/;
+            resourceInputs["errorBlobUri"] = undefined /*out*/;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputBlobUri"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["protectedParameters"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["runAsPassword"] = undefined /*out*/;
+            resourceInputs["runAsUser"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeoutInSeconds"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20200601:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20201201:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine" }, { type: "azure-native:compute/v20210701:VirtualMachineRunCommandByVirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualMachineRunCommandByVirtualMachine.__pulumiType, name, inputs, opts);
+        super(VirtualMachineRunCommandByVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

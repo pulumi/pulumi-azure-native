@@ -104,52 +104,52 @@ export class NetworkFunction extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkFunctionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["device"] = args ? args.device : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedApplicationParameters"] = args ? args.managedApplicationParameters : undefined;
-            inputs["networkFunctionName"] = args ? args.networkFunctionName : undefined;
-            inputs["networkFunctionUserConfigurations"] = args ? args.networkFunctionUserConfigurations : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["skuName"] = args ? args.skuName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vendorName"] = args ? args.vendorName : undefined;
-            inputs["managedApplication"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceKey"] = undefined /*out*/;
-            inputs["skuType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vendorProvisioningState"] = undefined /*out*/;
+            resourceInputs["device"] = args ? args.device : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedApplicationParameters"] = args ? args.managedApplicationParameters : undefined;
+            resourceInputs["networkFunctionName"] = args ? args.networkFunctionName : undefined;
+            resourceInputs["networkFunctionUserConfigurations"] = args ? args.networkFunctionUserConfigurations : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["skuName"] = args ? args.skuName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vendorName"] = args ? args.vendorName : undefined;
+            resourceInputs["managedApplication"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceKey"] = undefined /*out*/;
+            resourceInputs["skuType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vendorProvisioningState"] = undefined /*out*/;
         } else {
-            inputs["device"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedApplication"] = undefined /*out*/;
-            inputs["managedApplicationParameters"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkFunctionUserConfigurations"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceKey"] = undefined /*out*/;
-            inputs["skuName"] = undefined /*out*/;
-            inputs["skuType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vendorName"] = undefined /*out*/;
-            inputs["vendorProvisioningState"] = undefined /*out*/;
+            resourceInputs["device"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedApplication"] = undefined /*out*/;
+            resourceInputs["managedApplicationParameters"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkFunctionUserConfigurations"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceKey"] = undefined /*out*/;
+            resourceInputs["skuName"] = undefined /*out*/;
+            resourceInputs["skuType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vendorName"] = undefined /*out*/;
+            resourceInputs["vendorProvisioningState"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybridnetwork:NetworkFunction" }, { type: "azure-native:hybridnetwork/v20210501:NetworkFunction" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NetworkFunction.__pulumiType, name, inputs, opts);
+        super(NetworkFunction.__pulumiType, name, resourceInputs, opts);
     }
 }
 

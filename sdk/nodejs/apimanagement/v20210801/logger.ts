@@ -73,7 +73,7 @@ export class Logger extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LoggerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.loggerType === undefined) && !opts.urn) {
@@ -85,31 +85,31 @@ export class Logger extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["isBuffered"] = args ? args.isBuffered : undefined;
-            inputs["loggerId"] = args ? args.loggerId : undefined;
-            inputs["loggerType"] = args ? args.loggerType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["isBuffered"] = args ? args.isBuffered : undefined;
+            resourceInputs["loggerId"] = args ? args.loggerId : undefined;
+            resourceInputs["loggerType"] = args ? args.loggerType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["credentials"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["isBuffered"] = undefined /*out*/;
-            inputs["loggerType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["isBuffered"] = undefined /*out*/;
+            resourceInputs["loggerType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Logger" }, { type: "azure-native:apimanagement/v20160707:Logger" }, { type: "azure-native:apimanagement/v20161010:Logger" }, { type: "azure-native:apimanagement/v20170301:Logger" }, { type: "azure-native:apimanagement/v20180101:Logger" }, { type: "azure-native:apimanagement/v20180601preview:Logger" }, { type: "azure-native:apimanagement/v20190101:Logger" }, { type: "azure-native:apimanagement/v20191201:Logger" }, { type: "azure-native:apimanagement/v20191201preview:Logger" }, { type: "azure-native:apimanagement/v20200601preview:Logger" }, { type: "azure-native:apimanagement/v20201201:Logger" }, { type: "azure-native:apimanagement/v20210101preview:Logger" }, { type: "azure-native:apimanagement/v20210401preview:Logger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Logger.__pulumiType, name, inputs, opts);
+        super(Logger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

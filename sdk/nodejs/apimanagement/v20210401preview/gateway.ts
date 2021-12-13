@@ -60,7 +60,7 @@ export class Gateway extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -69,25 +69,25 @@ export class Gateway extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["gatewayId"] = args ? args.gatewayId : undefined;
-            inputs["locationData"] = args ? args.locationData : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
+            resourceInputs["locationData"] = args ? args.locationData : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["locationData"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["locationData"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Gateway" }, { type: "azure-native:apimanagement/v20191201:Gateway" }, { type: "azure-native:apimanagement/v20191201preview:Gateway" }, { type: "azure-native:apimanagement/v20200601preview:Gateway" }, { type: "azure-native:apimanagement/v20201201:Gateway" }, { type: "azure-native:apimanagement/v20210101preview:Gateway" }, { type: "azure-native:apimanagement/v20210801:Gateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Gateway.__pulumiType, name, inputs, opts);
+        super(Gateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

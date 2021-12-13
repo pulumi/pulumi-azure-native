@@ -68,30 +68,30 @@ export class ResourceGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedBy"] = args ? args.managedBy : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources:ResourceGroup" }, { type: "azure-native:resources/v20151101:ResourceGroup" }, { type: "azure-native:resources/v20160201:ResourceGroup" }, { type: "azure-native:resources/v20160701:ResourceGroup" }, { type: "azure-native:resources/v20160901:ResourceGroup" }, { type: "azure-native:resources/v20170510:ResourceGroup" }, { type: "azure-native:resources/v20180201:ResourceGroup" }, { type: "azure-native:resources/v20180501:ResourceGroup" }, { type: "azure-native:resources/v20190301:ResourceGroup" }, { type: "azure-native:resources/v20190501:ResourceGroup" }, { type: "azure-native:resources/v20190510:ResourceGroup" }, { type: "azure-native:resources/v20190701:ResourceGroup" }, { type: "azure-native:resources/v20190801:ResourceGroup" }, { type: "azure-native:resources/v20191001:ResourceGroup" }, { type: "azure-native:resources/v20200801:ResourceGroup" }, { type: "azure-native:resources/v20201001:ResourceGroup" }, { type: "azure-native:resources/v20210101:ResourceGroup" }, { type: "azure-native:resources/v20210401:ResourceGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ResourceGroup.__pulumiType, name, inputs, opts);
+        super(ResourceGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -93,7 +93,7 @@ export class Volume extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accessControlRecordIds === undefined) && !opts.urn) {
@@ -123,43 +123,43 @@ export class Volume extends pulumi.CustomResource {
             if ((!args || args.volumeType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeType'");
             }
-            inputs["accessControlRecordIds"] = args ? args.accessControlRecordIds : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sizeInBytes"] = args ? args.sizeInBytes : undefined;
-            inputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
-            inputs["volumeName"] = args ? args.volumeName : undefined;
-            inputs["volumeStatus"] = args ? args.volumeStatus : undefined;
-            inputs["volumeType"] = args ? args.volumeType : undefined;
-            inputs["backupPolicyIds"] = undefined /*out*/;
-            inputs["backupStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["operationStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["volumeContainerId"] = undefined /*out*/;
+            resourceInputs["accessControlRecordIds"] = args ? args.accessControlRecordIds : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sizeInBytes"] = args ? args.sizeInBytes : undefined;
+            resourceInputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
+            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["volumeStatus"] = args ? args.volumeStatus : undefined;
+            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["backupPolicyIds"] = undefined /*out*/;
+            resourceInputs["backupStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["operationStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["volumeContainerId"] = undefined /*out*/;
         } else {
-            inputs["accessControlRecordIds"] = undefined /*out*/;
-            inputs["backupPolicyIds"] = undefined /*out*/;
-            inputs["backupStatus"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["monitoringStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["operationStatus"] = undefined /*out*/;
-            inputs["sizeInBytes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["volumeContainerId"] = undefined /*out*/;
-            inputs["volumeStatus"] = undefined /*out*/;
-            inputs["volumeType"] = undefined /*out*/;
+            resourceInputs["accessControlRecordIds"] = undefined /*out*/;
+            resourceInputs["backupPolicyIds"] = undefined /*out*/;
+            resourceInputs["backupStatus"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["monitoringStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["operationStatus"] = undefined /*out*/;
+            resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["volumeContainerId"] = undefined /*out*/;
+            resourceInputs["volumeStatus"] = undefined /*out*/;
+            resourceInputs["volumeType"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20170601:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Volume.__pulumiType, name, inputs, opts);
+        super(Volume.__pulumiType, name, resourceInputs, opts);
     }
 }
 

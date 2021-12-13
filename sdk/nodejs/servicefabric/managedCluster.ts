@@ -134,7 +134,7 @@ export class ManagedCluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.adminUserName === undefined) && !opts.urn) {
@@ -146,60 +146,60 @@ export class ManagedCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["addonFeatures"] = args ? args.addonFeatures : undefined;
-            inputs["adminPassword"] = args ? args.adminPassword : undefined;
-            inputs["adminUserName"] = args ? args.adminUserName : undefined;
-            inputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
-            inputs["clientConnectionPort"] = (args ? args.clientConnectionPort : undefined) ?? 19000;
-            inputs["clients"] = args ? args.clients : undefined;
-            inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["dnsName"] = args ? args.dnsName : undefined;
-            inputs["fabricSettings"] = args ? args.fabricSettings : undefined;
-            inputs["httpGatewayConnectionPort"] = (args ? args.httpGatewayConnectionPort : undefined) ?? 19080;
-            inputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["clusterCertificateThumbprint"] = undefined /*out*/;
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["clusterState"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addonFeatures"] = args ? args.addonFeatures : undefined;
+            resourceInputs["adminPassword"] = args ? args.adminPassword : undefined;
+            resourceInputs["adminUserName"] = args ? args.adminUserName : undefined;
+            resourceInputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
+            resourceInputs["clientConnectionPort"] = (args ? args.clientConnectionPort : undefined) ?? 19000;
+            resourceInputs["clients"] = args ? args.clients : undefined;
+            resourceInputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["dnsName"] = args ? args.dnsName : undefined;
+            resourceInputs["fabricSettings"] = args ? args.fabricSettings : undefined;
+            resourceInputs["httpGatewayConnectionPort"] = (args ? args.httpGatewayConnectionPort : undefined) ?? 19080;
+            resourceInputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["clusterState"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["addonFeatures"] = undefined /*out*/;
-            inputs["adminPassword"] = undefined /*out*/;
-            inputs["adminUserName"] = undefined /*out*/;
-            inputs["azureActiveDirectory"] = undefined /*out*/;
-            inputs["clientConnectionPort"] = undefined /*out*/;
-            inputs["clients"] = undefined /*out*/;
-            inputs["clusterCertificateThumbprint"] = undefined /*out*/;
-            inputs["clusterCodeVersion"] = undefined /*out*/;
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["clusterState"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["fabricSettings"] = undefined /*out*/;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["httpGatewayConnectionPort"] = undefined /*out*/;
-            inputs["loadBalancingRules"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addonFeatures"] = undefined /*out*/;
+            resourceInputs["adminPassword"] = undefined /*out*/;
+            resourceInputs["adminUserName"] = undefined /*out*/;
+            resourceInputs["azureActiveDirectory"] = undefined /*out*/;
+            resourceInputs["clientConnectionPort"] = undefined /*out*/;
+            resourceInputs["clients"] = undefined /*out*/;
+            resourceInputs["clusterCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["clusterCodeVersion"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["clusterState"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["fabricSettings"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["httpGatewayConnectionPort"] = undefined /*out*/;
+            resourceInputs["loadBalancingRules"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric/v20200101preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210101preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210501:ManagedCluster" }, { type: "azure-native:servicefabric/v20210701preview:ManagedCluster" }, { type: "azure-native:servicefabric/v20210901privatepreview:ManagedCluster" }, { type: "azure-native:servicefabric/v20211101preview:ManagedCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagedCluster.__pulumiType, name, inputs, opts);
+        super(ManagedCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

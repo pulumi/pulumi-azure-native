@@ -68,34 +68,34 @@ export class ScopeAssignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScopeAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["assignedManagedNetwork"] = args ? args.assignedManagedNetwork : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["scopeAssignmentName"] = args ? args.scopeAssignmentName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["assignedManagedNetwork"] = args ? args.assignedManagedNetwork : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["scopeAssignmentName"] = args ? args.scopeAssignmentName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["assignedManagedNetwork"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["assignedManagedNetwork"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:managednetwork/v20190601preview:ScopeAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ScopeAssignment.__pulumiType, name, inputs, opts);
+        super(ScopeAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

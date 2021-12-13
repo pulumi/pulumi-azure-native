@@ -132,7 +132,7 @@ export class Subnet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -141,62 +141,62 @@ export class Subnet extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            inputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
-            inputs["applicationGatewayIpConfigurations"] = args ? args.applicationGatewayIpConfigurations : undefined;
-            inputs["delegations"] = args ? args.delegations : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["ipAllocations"] = args ? args.ipAllocations : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["natGateway"] = args ? args.natGateway : undefined;
-            inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            inputs["privateEndpointNetworkPolicies"] = (args ? args.privateEndpointNetworkPolicies : undefined) ?? "Enabled";
-            inputs["privateLinkServiceNetworkPolicies"] = (args ? args.privateLinkServiceNetworkPolicies : undefined) ?? "Enabled";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeTable"] = args ? args.routeTable : undefined;
-            inputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
-            inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
-            inputs["subnetName"] = args ? args.subnetName : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ipConfigurationProfiles"] = undefined /*out*/;
-            inputs["ipConfigurations"] = undefined /*out*/;
-            inputs["privateEndpoints"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["purpose"] = undefined /*out*/;
-            inputs["resourceNavigationLinks"] = undefined /*out*/;
-            inputs["serviceAssociationLinks"] = undefined /*out*/;
+            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
+            resourceInputs["applicationGatewayIpConfigurations"] = args ? args.applicationGatewayIpConfigurations : undefined;
+            resourceInputs["delegations"] = args ? args.delegations : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ipAllocations"] = args ? args.ipAllocations : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["natGateway"] = args ? args.natGateway : undefined;
+            resourceInputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
+            resourceInputs["privateEndpointNetworkPolicies"] = (args ? args.privateEndpointNetworkPolicies : undefined) ?? "Enabled";
+            resourceInputs["privateLinkServiceNetworkPolicies"] = (args ? args.privateLinkServiceNetworkPolicies : undefined) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routeTable"] = args ? args.routeTable : undefined;
+            resourceInputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
+            resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
+            resourceInputs["subnetName"] = args ? args.subnetName : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ipConfigurationProfiles"] = undefined /*out*/;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["privateEndpoints"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["purpose"] = undefined /*out*/;
+            resourceInputs["resourceNavigationLinks"] = undefined /*out*/;
+            resourceInputs["serviceAssociationLinks"] = undefined /*out*/;
         } else {
-            inputs["addressPrefix"] = undefined /*out*/;
-            inputs["addressPrefixes"] = undefined /*out*/;
-            inputs["applicationGatewayIpConfigurations"] = undefined /*out*/;
-            inputs["delegations"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ipAllocations"] = undefined /*out*/;
-            inputs["ipConfigurationProfiles"] = undefined /*out*/;
-            inputs["ipConfigurations"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["natGateway"] = undefined /*out*/;
-            inputs["networkSecurityGroup"] = undefined /*out*/;
-            inputs["privateEndpointNetworkPolicies"] = undefined /*out*/;
-            inputs["privateEndpoints"] = undefined /*out*/;
-            inputs["privateLinkServiceNetworkPolicies"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["purpose"] = undefined /*out*/;
-            inputs["resourceNavigationLinks"] = undefined /*out*/;
-            inputs["routeTable"] = undefined /*out*/;
-            inputs["serviceAssociationLinks"] = undefined /*out*/;
-            inputs["serviceEndpointPolicies"] = undefined /*out*/;
-            inputs["serviceEndpoints"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addressPrefix"] = undefined /*out*/;
+            resourceInputs["addressPrefixes"] = undefined /*out*/;
+            resourceInputs["applicationGatewayIpConfigurations"] = undefined /*out*/;
+            resourceInputs["delegations"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ipAllocations"] = undefined /*out*/;
+            resourceInputs["ipConfigurationProfiles"] = undefined /*out*/;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["natGateway"] = undefined /*out*/;
+            resourceInputs["networkSecurityGroup"] = undefined /*out*/;
+            resourceInputs["privateEndpointNetworkPolicies"] = undefined /*out*/;
+            resourceInputs["privateEndpoints"] = undefined /*out*/;
+            resourceInputs["privateLinkServiceNetworkPolicies"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["purpose"] = undefined /*out*/;
+            resourceInputs["resourceNavigationLinks"] = undefined /*out*/;
+            resourceInputs["routeTable"] = undefined /*out*/;
+            resourceInputs["serviceAssociationLinks"] = undefined /*out*/;
+            resourceInputs["serviceEndpointPolicies"] = undefined /*out*/;
+            resourceInputs["serviceEndpoints"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Subnet" }, { type: "azure-native:network/v20150501preview:Subnet" }, { type: "azure-native:network/v20150615:Subnet" }, { type: "azure-native:network/v20160330:Subnet" }, { type: "azure-native:network/v20160601:Subnet" }, { type: "azure-native:network/v20160901:Subnet" }, { type: "azure-native:network/v20161201:Subnet" }, { type: "azure-native:network/v20170301:Subnet" }, { type: "azure-native:network/v20170601:Subnet" }, { type: "azure-native:network/v20170801:Subnet" }, { type: "azure-native:network/v20170901:Subnet" }, { type: "azure-native:network/v20171001:Subnet" }, { type: "azure-native:network/v20171101:Subnet" }, { type: "azure-native:network/v20180101:Subnet" }, { type: "azure-native:network/v20180201:Subnet" }, { type: "azure-native:network/v20180401:Subnet" }, { type: "azure-native:network/v20180601:Subnet" }, { type: "azure-native:network/v20180701:Subnet" }, { type: "azure-native:network/v20180801:Subnet" }, { type: "azure-native:network/v20181001:Subnet" }, { type: "azure-native:network/v20181101:Subnet" }, { type: "azure-native:network/v20181201:Subnet" }, { type: "azure-native:network/v20190201:Subnet" }, { type: "azure-native:network/v20190401:Subnet" }, { type: "azure-native:network/v20190601:Subnet" }, { type: "azure-native:network/v20190701:Subnet" }, { type: "azure-native:network/v20190801:Subnet" }, { type: "azure-native:network/v20190901:Subnet" }, { type: "azure-native:network/v20191101:Subnet" }, { type: "azure-native:network/v20191201:Subnet" }, { type: "azure-native:network/v20200301:Subnet" }, { type: "azure-native:network/v20200401:Subnet" }, { type: "azure-native:network/v20200501:Subnet" }, { type: "azure-native:network/v20200601:Subnet" }, { type: "azure-native:network/v20200701:Subnet" }, { type: "azure-native:network/v20200801:Subnet" }, { type: "azure-native:network/v20201101:Subnet" }, { type: "azure-native:network/v20210201:Subnet" }, { type: "azure-native:network/v20210501:Subnet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Subnet.__pulumiType, name, inputs, opts);
+        super(Subnet.__pulumiType, name, resourceInputs, opts);
     }
 }
 
