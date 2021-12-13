@@ -97,7 +97,7 @@ type OutboundFirewallRuleInput interface {
 }
 
 func (*OutboundFirewallRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutboundFirewallRule)(nil))
+	return reflect.TypeOf((**OutboundFirewallRule)(nil)).Elem()
 }
 
 func (i *OutboundFirewallRule) ToOutboundFirewallRuleOutput() OutboundFirewallRuleOutput {
@@ -111,7 +111,7 @@ func (i *OutboundFirewallRule) ToOutboundFirewallRuleOutputWithContext(ctx conte
 type OutboundFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (OutboundFirewallRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutboundFirewallRule)(nil))
+	return reflect.TypeOf((**OutboundFirewallRule)(nil)).Elem()
 }
 
 func (o OutboundFirewallRuleOutput) ToOutboundFirewallRuleOutput() OutboundFirewallRuleOutput {

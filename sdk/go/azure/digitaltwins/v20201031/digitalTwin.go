@@ -104,7 +104,7 @@ type DigitalTwinInput interface {
 }
 
 func (*DigitalTwin) ElementType() reflect.Type {
-	return reflect.TypeOf((*DigitalTwin)(nil))
+	return reflect.TypeOf((**DigitalTwin)(nil)).Elem()
 }
 
 func (i *DigitalTwin) ToDigitalTwinOutput() DigitalTwinOutput {
@@ -118,7 +118,7 @@ func (i *DigitalTwin) ToDigitalTwinOutputWithContext(ctx context.Context) Digita
 type DigitalTwinOutput struct{ *pulumi.OutputState }
 
 func (DigitalTwinOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DigitalTwin)(nil))
+	return reflect.TypeOf((**DigitalTwin)(nil)).Elem()
 }
 
 func (o DigitalTwinOutput) ToDigitalTwinOutput() DigitalTwinOutput {

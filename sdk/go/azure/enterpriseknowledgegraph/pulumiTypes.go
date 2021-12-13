@@ -179,76 +179,6 @@ type EnterpriseKnowledgeGraphPropertiesResponse struct {
 	ProvisioningState *string     `pulumi:"provisioningState"`
 }
 
-
-
-
-
-type EnterpriseKnowledgeGraphPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToEnterpriseKnowledgeGraphPropertiesResponseOutput() EnterpriseKnowledgeGraphPropertiesResponseOutput
-	ToEnterpriseKnowledgeGraphPropertiesResponseOutputWithContext(context.Context) EnterpriseKnowledgeGraphPropertiesResponseOutput
-}
-
-type EnterpriseKnowledgeGraphPropertiesResponseArgs struct {
-	Description       pulumi.StringPtrInput `pulumi:"description"`
-	Metadata          pulumi.Input          `pulumi:"metadata"`
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-}
-
-func (EnterpriseKnowledgeGraphPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseKnowledgeGraphPropertiesResponse)(nil)).Elem()
-}
-
-func (i EnterpriseKnowledgeGraphPropertiesResponseArgs) ToEnterpriseKnowledgeGraphPropertiesResponseOutput() EnterpriseKnowledgeGraphPropertiesResponseOutput {
-	return i.ToEnterpriseKnowledgeGraphPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i EnterpriseKnowledgeGraphPropertiesResponseArgs) ToEnterpriseKnowledgeGraphPropertiesResponseOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseKnowledgeGraphPropertiesResponseOutput)
-}
-
-func (i EnterpriseKnowledgeGraphPropertiesResponseArgs) ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutput() EnterpriseKnowledgeGraphPropertiesResponsePtrOutput {
-	return i.ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EnterpriseKnowledgeGraphPropertiesResponseArgs) ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseKnowledgeGraphPropertiesResponseOutput).ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EnterpriseKnowledgeGraphPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutput() EnterpriseKnowledgeGraphPropertiesResponsePtrOutput
-	ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutputWithContext(context.Context) EnterpriseKnowledgeGraphPropertiesResponsePtrOutput
-}
-
-type enterpriseKnowledgeGraphPropertiesResponsePtrType EnterpriseKnowledgeGraphPropertiesResponseArgs
-
-func EnterpriseKnowledgeGraphPropertiesResponsePtr(v *EnterpriseKnowledgeGraphPropertiesResponseArgs) EnterpriseKnowledgeGraphPropertiesResponsePtrInput {
-	return (*enterpriseKnowledgeGraphPropertiesResponsePtrType)(v)
-}
-
-func (*enterpriseKnowledgeGraphPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterpriseKnowledgeGraphPropertiesResponse)(nil)).Elem()
-}
-
-func (i *enterpriseKnowledgeGraphPropertiesResponsePtrType) ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutput() EnterpriseKnowledgeGraphPropertiesResponsePtrOutput {
-	return i.ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *enterpriseKnowledgeGraphPropertiesResponsePtrType) ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterpriseKnowledgeGraphPropertiesResponsePtrOutput)
-}
-
 type EnterpriseKnowledgeGraphPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseKnowledgeGraphPropertiesResponseOutput) ElementType() reflect.Type {
@@ -263,16 +193,6 @@ func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) ToEnterpriseKnowledgeG
 	return o
 }
 
-func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutput() EnterpriseKnowledgeGraphPropertiesResponsePtrOutput {
-	return o.ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterpriseKnowledgeGraphPropertiesResponse) *EnterpriseKnowledgeGraphPropertiesResponse {
-		return &v
-	}).(EnterpriseKnowledgeGraphPropertiesResponsePtrOutput)
-}
-
 func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnterpriseKnowledgeGraphPropertiesResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -283,57 +203,6 @@ func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) Metadata() pulumi.AnyO
 
 func (o EnterpriseKnowledgeGraphPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnterpriseKnowledgeGraphPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-type EnterpriseKnowledgeGraphPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterpriseKnowledgeGraphPropertiesResponse)(nil)).Elem()
-}
-
-func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutput() EnterpriseKnowledgeGraphPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) ToEnterpriseKnowledgeGraphPropertiesResponsePtrOutputWithContext(ctx context.Context) EnterpriseKnowledgeGraphPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) Elem() EnterpriseKnowledgeGraphPropertiesResponseOutput {
-	return o.ApplyT(func(v *EnterpriseKnowledgeGraphPropertiesResponse) EnterpriseKnowledgeGraphPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EnterpriseKnowledgeGraphPropertiesResponse
-		return ret
-	}).(EnterpriseKnowledgeGraphPropertiesResponseOutput)
-}
-
-func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnterpriseKnowledgeGraphPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) Metadata() pulumi.AnyOutput {
-	return o.ApplyT(func(v *EnterpriseKnowledgeGraphPropertiesResponse) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(pulumi.AnyOutput)
-}
-
-func (o EnterpriseKnowledgeGraphPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnterpriseKnowledgeGraphPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
 }
 
 type Sku struct {
@@ -473,74 +342,6 @@ type SkuResponse struct {
 	Name string `pulumi:"name"`
 }
 
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
-}
-
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -553,16 +354,6 @@ func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
 
 func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
 	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
 }
 
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
@@ -606,7 +397,6 @@ func init() {
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesOutput{})
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(EnterpriseKnowledgeGraphPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})

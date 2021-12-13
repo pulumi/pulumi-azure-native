@@ -120,7 +120,7 @@ type ServerSecurityAlertPolicyInput interface {
 }
 
 func (*ServerSecurityAlertPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((**ServerSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (i *ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyOutput() ServerSecurityAlertPolicyOutput {
@@ -134,7 +134,7 @@ func (i *ServerSecurityAlertPolicy) ToServerSecurityAlertPolicyOutputWithContext
 type ServerSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerSecurityAlertPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((**ServerSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (o ServerSecurityAlertPolicyOutput) ToServerSecurityAlertPolicyOutput() ServerSecurityAlertPolicyOutput {

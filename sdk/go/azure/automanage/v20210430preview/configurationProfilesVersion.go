@@ -97,7 +97,7 @@ type ConfigurationProfilesVersionInput interface {
 }
 
 func (*ConfigurationProfilesVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfilesVersion)(nil))
+	return reflect.TypeOf((**ConfigurationProfilesVersion)(nil)).Elem()
 }
 
 func (i *ConfigurationProfilesVersion) ToConfigurationProfilesVersionOutput() ConfigurationProfilesVersionOutput {
@@ -111,7 +111,7 @@ func (i *ConfigurationProfilesVersion) ToConfigurationProfilesVersionOutputWithC
 type ConfigurationProfilesVersionOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilesVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfilesVersion)(nil))
+	return reflect.TypeOf((**ConfigurationProfilesVersion)(nil)).Elem()
 }
 
 func (o ConfigurationProfilesVersionOutput) ToConfigurationProfilesVersionOutput() ConfigurationProfilesVersionOutput {

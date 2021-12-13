@@ -40,7 +40,7 @@ func NewPolicyAssignment(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
-	if args.EnforcementMode == nil {
+	if isZero(args.EnforcementMode) {
 		args.EnforcementMode = pulumi.StringPtr("Default")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -156,7 +156,7 @@ type PolicyAssignmentInput interface {
 }
 
 func (*PolicyAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAssignment)(nil))
+	return reflect.TypeOf((**PolicyAssignment)(nil)).Elem()
 }
 
 func (i *PolicyAssignment) ToPolicyAssignmentOutput() PolicyAssignmentOutput {
@@ -170,7 +170,7 @@ func (i *PolicyAssignment) ToPolicyAssignmentOutputWithContext(ctx context.Conte
 type PolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAssignment)(nil))
+	return reflect.TypeOf((**PolicyAssignment)(nil)).Elem()
 }
 
 func (o PolicyAssignmentOutput) ToPolicyAssignmentOutput() PolicyAssignmentOutput {

@@ -106,7 +106,7 @@ type IotDpsResourcePrivateEndpointConnectionInput interface {
 }
 
 func (*IotDpsResourcePrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotDpsResourcePrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**IotDpsResourcePrivateEndpointConnection)(nil)).Elem()
 }
 
 func (i *IotDpsResourcePrivateEndpointConnection) ToIotDpsResourcePrivateEndpointConnectionOutput() IotDpsResourcePrivateEndpointConnectionOutput {
@@ -120,7 +120,7 @@ func (i *IotDpsResourcePrivateEndpointConnection) ToIotDpsResourcePrivateEndpoin
 type IotDpsResourcePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (IotDpsResourcePrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotDpsResourcePrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**IotDpsResourcePrivateEndpointConnection)(nil)).Elem()
 }
 
 func (o IotDpsResourcePrivateEndpointConnectionOutput) ToIotDpsResourcePrivateEndpointConnectionOutput() IotDpsResourcePrivateEndpointConnectionOutput {

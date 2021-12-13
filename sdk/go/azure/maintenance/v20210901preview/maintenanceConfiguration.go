@@ -41,6 +41,9 @@ func NewMaintenanceConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.InstallPatches != nil {
+		args.InstallPatches = args.InstallPatches.ToInputPatchConfigurationPtrOutput().ApplyT(func(v *InputPatchConfiguration) *InputPatchConfiguration { return v.Defaults() }).(InputPatchConfigurationPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:maintenance:MaintenanceConfiguration"),
@@ -140,7 +143,7 @@ type MaintenanceConfigurationInput interface {
 }
 
 func (*MaintenanceConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceConfiguration)(nil))
+	return reflect.TypeOf((**MaintenanceConfiguration)(nil)).Elem()
 }
 
 func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutput() MaintenanceConfigurationOutput {
@@ -154,7 +157,7 @@ func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutputWithContext(c
 type MaintenanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceConfiguration)(nil))
+	return reflect.TypeOf((**MaintenanceConfiguration)(nil)).Elem()
 }
 
 func (o MaintenanceConfigurationOutput) ToMaintenanceConfigurationOutput() MaintenanceConfigurationOutput {

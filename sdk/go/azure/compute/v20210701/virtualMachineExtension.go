@@ -174,7 +174,7 @@ type VirtualMachineExtensionInput interface {
 }
 
 func (*VirtualMachineExtension) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineExtension)(nil))
+	return reflect.TypeOf((**VirtualMachineExtension)(nil)).Elem()
 }
 
 func (i *VirtualMachineExtension) ToVirtualMachineExtensionOutput() VirtualMachineExtensionOutput {
@@ -188,7 +188,7 @@ func (i *VirtualMachineExtension) ToVirtualMachineExtensionOutputWithContext(ctx
 type VirtualMachineExtensionOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineExtension)(nil))
+	return reflect.TypeOf((**VirtualMachineExtension)(nil)).Elem()
 }
 
 func (o VirtualMachineExtensionOutput) ToVirtualMachineExtensionOutput() VirtualMachineExtensionOutput {

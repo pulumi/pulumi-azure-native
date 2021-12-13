@@ -124,7 +124,7 @@ type ManagementPolicyInput interface {
 }
 
 func (*ManagementPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementPolicy)(nil))
+	return reflect.TypeOf((**ManagementPolicy)(nil)).Elem()
 }
 
 func (i *ManagementPolicy) ToManagementPolicyOutput() ManagementPolicyOutput {
@@ -138,7 +138,7 @@ func (i *ManagementPolicy) ToManagementPolicyOutputWithContext(ctx context.Conte
 type ManagementPolicyOutput struct{ *pulumi.OutputState }
 
 func (ManagementPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementPolicy)(nil))
+	return reflect.TypeOf((**ManagementPolicy)(nil)).Elem()
 }
 
 func (o ManagementPolicyOutput) ToManagementPolicyOutput() ManagementPolicyOutput {

@@ -130,7 +130,7 @@ type WebAppMetadataInput interface {
 }
 
 func (*WebAppMetadata) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppMetadata)(nil))
+	return reflect.TypeOf((**WebAppMetadata)(nil)).Elem()
 }
 
 func (i *WebAppMetadata) ToWebAppMetadataOutput() WebAppMetadataOutput {
@@ -144,7 +144,7 @@ func (i *WebAppMetadata) ToWebAppMetadataOutputWithContext(ctx context.Context) 
 type WebAppMetadataOutput struct{ *pulumi.OutputState }
 
 func (WebAppMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppMetadata)(nil))
+	return reflect.TypeOf((**WebAppMetadata)(nil)).Elem()
 }
 
 func (o WebAppMetadataOutput) ToWebAppMetadataOutput() WebAppMetadataOutput {

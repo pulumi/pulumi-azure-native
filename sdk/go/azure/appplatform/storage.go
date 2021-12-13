@@ -97,7 +97,7 @@ type StorageInput interface {
 }
 
 func (*Storage) ElementType() reflect.Type {
-	return reflect.TypeOf((*Storage)(nil))
+	return reflect.TypeOf((**Storage)(nil)).Elem()
 }
 
 func (i *Storage) ToStorageOutput() StorageOutput {
@@ -111,7 +111,7 @@ func (i *Storage) ToStorageOutputWithContext(ctx context.Context) StorageOutput 
 type StorageOutput struct{ *pulumi.OutputState }
 
 func (StorageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Storage)(nil))
+	return reflect.TypeOf((**Storage)(nil)).Elem()
 }
 
 func (o StorageOutput) ToStorageOutput() StorageOutput {

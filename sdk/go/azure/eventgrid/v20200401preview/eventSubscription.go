@@ -40,8 +40,11 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
-	if args.EventDeliverySchema == nil {
+	if isZero(args.EventDeliverySchema) {
 		args.EventDeliverySchema = pulumi.StringPtr("EventGridSchema")
+	}
+	if args.Filter != nil {
+		args.Filter = args.Filter.ToEventSubscriptionFilterPtrOutput().ApplyT(func(v *EventSubscriptionFilter) *EventSubscriptionFilter { return v.Defaults() }).(EventSubscriptionFilterPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -160,7 +163,7 @@ type EventSubscriptionInput interface {
 }
 
 func (*EventSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscription)(nil))
+	return reflect.TypeOf((**EventSubscription)(nil)).Elem()
 }
 
 func (i *EventSubscription) ToEventSubscriptionOutput() EventSubscriptionOutput {
@@ -174,7 +177,7 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 type EventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscription)(nil))
+	return reflect.TypeOf((**EventSubscription)(nil)).Elem()
 }
 
 func (o EventSubscriptionOutput) ToEventSubscriptionOutput() EventSubscriptionOutput {

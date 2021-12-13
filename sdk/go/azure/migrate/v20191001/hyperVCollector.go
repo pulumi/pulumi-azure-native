@@ -99,7 +99,7 @@ type HyperVCollectorInput interface {
 }
 
 func (*HyperVCollector) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVCollector)(nil))
+	return reflect.TypeOf((**HyperVCollector)(nil)).Elem()
 }
 
 func (i *HyperVCollector) ToHyperVCollectorOutput() HyperVCollectorOutput {
@@ -113,7 +113,7 @@ func (i *HyperVCollector) ToHyperVCollectorOutputWithContext(ctx context.Context
 type HyperVCollectorOutput struct{ *pulumi.OutputState }
 
 func (HyperVCollectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVCollector)(nil))
+	return reflect.TypeOf((**HyperVCollector)(nil)).Elem()
 }
 
 func (o HyperVCollectorOutput) ToHyperVCollectorOutput() HyperVCollectorOutput {

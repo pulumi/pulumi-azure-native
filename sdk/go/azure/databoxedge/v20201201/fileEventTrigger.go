@@ -146,7 +146,7 @@ type FileEventTriggerInput interface {
 }
 
 func (*FileEventTrigger) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileEventTrigger)(nil))
+	return reflect.TypeOf((**FileEventTrigger)(nil)).Elem()
 }
 
 func (i *FileEventTrigger) ToFileEventTriggerOutput() FileEventTriggerOutput {
@@ -160,7 +160,7 @@ func (i *FileEventTrigger) ToFileEventTriggerOutputWithContext(ctx context.Conte
 type FileEventTriggerOutput struct{ *pulumi.OutputState }
 
 func (FileEventTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileEventTrigger)(nil))
+	return reflect.TypeOf((**FileEventTrigger)(nil)).Elem()
 }
 
 func (o FileEventTriggerOutput) ToFileEventTriggerOutput() FileEventTriggerOutput {

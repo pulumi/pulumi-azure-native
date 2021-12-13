@@ -140,7 +140,7 @@ type Gen1EnvironmentInput interface {
 }
 
 func (*Gen1Environment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Gen1Environment)(nil))
+	return reflect.TypeOf((**Gen1Environment)(nil)).Elem()
 }
 
 func (i *Gen1Environment) ToGen1EnvironmentOutput() Gen1EnvironmentOutput {
@@ -154,7 +154,7 @@ func (i *Gen1Environment) ToGen1EnvironmentOutputWithContext(ctx context.Context
 type Gen1EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (Gen1EnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Gen1Environment)(nil))
+	return reflect.TypeOf((**Gen1Environment)(nil)).Elem()
 }
 
 func (o Gen1EnvironmentOutput) ToGen1EnvironmentOutput() Gen1EnvironmentOutput {

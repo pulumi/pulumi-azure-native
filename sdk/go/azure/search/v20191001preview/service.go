@@ -40,13 +40,16 @@ func NewService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.HostingMode == nil {
+	if isZero(args.HostingMode) {
 		args.HostingMode = HostingMode("default")
 	}
-	if args.PartitionCount == nil {
+	if args.NetworkRuleSet != nil {
+		args.NetworkRuleSet = args.NetworkRuleSet.ToNetworkRuleSetPtrOutput().ApplyT(func(v *NetworkRuleSet) *NetworkRuleSet { return v.Defaults() }).(NetworkRuleSetPtrOutput)
+	}
+	if isZero(args.PartitionCount) {
 		args.PartitionCount = pulumi.IntPtr(1)
 	}
-	if args.ReplicaCount == nil {
+	if isZero(args.ReplicaCount) {
 		args.ReplicaCount = pulumi.IntPtr(1)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -140,7 +143,7 @@ type ServiceInput interface {
 }
 
 func (*Service) ElementType() reflect.Type {
-	return reflect.TypeOf((*Service)(nil))
+	return reflect.TypeOf((**Service)(nil)).Elem()
 }
 
 func (i *Service) ToServiceOutput() ServiceOutput {
@@ -154,7 +157,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Service)(nil))
+	return reflect.TypeOf((**Service)(nil)).Elem()
 }
 
 func (o ServiceOutput) ToServiceOutput() ServiceOutput {

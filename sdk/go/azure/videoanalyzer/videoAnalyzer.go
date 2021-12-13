@@ -114,7 +114,7 @@ type VideoAnalyzerInput interface {
 }
 
 func (*VideoAnalyzer) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoAnalyzer)(nil))
+	return reflect.TypeOf((**VideoAnalyzer)(nil)).Elem()
 }
 
 func (i *VideoAnalyzer) ToVideoAnalyzerOutput() VideoAnalyzerOutput {
@@ -128,7 +128,7 @@ func (i *VideoAnalyzer) ToVideoAnalyzerOutputWithContext(ctx context.Context) Vi
 type VideoAnalyzerOutput struct{ *pulumi.OutputState }
 
 func (VideoAnalyzerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VideoAnalyzer)(nil))
+	return reflect.TypeOf((**VideoAnalyzer)(nil)).Elem()
 }
 
 func (o VideoAnalyzerOutput) ToVideoAnalyzerOutput() VideoAnalyzerOutput {

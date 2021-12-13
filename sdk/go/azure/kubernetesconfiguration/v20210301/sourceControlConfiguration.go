@@ -51,7 +51,7 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.OperatorNamespace == nil {
+	if isZero(args.OperatorNamespace) {
 		args.OperatorNamespace = pulumi.StringPtr("default")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -158,7 +158,7 @@ type SourceControlConfigurationInput interface {
 }
 
 func (*SourceControlConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceControlConfiguration)(nil))
+	return reflect.TypeOf((**SourceControlConfiguration)(nil)).Elem()
 }
 
 func (i *SourceControlConfiguration) ToSourceControlConfigurationOutput() SourceControlConfigurationOutput {
@@ -172,7 +172,7 @@ func (i *SourceControlConfiguration) ToSourceControlConfigurationOutputWithConte
 type SourceControlConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SourceControlConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceControlConfiguration)(nil))
+	return reflect.TypeOf((**SourceControlConfiguration)(nil)).Elem()
 }
 
 func (o SourceControlConfigurationOutput) ToSourceControlConfigurationOutput() SourceControlConfigurationOutput {

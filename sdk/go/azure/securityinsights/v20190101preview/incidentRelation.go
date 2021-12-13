@@ -124,7 +124,7 @@ type IncidentRelationInput interface {
 }
 
 func (*IncidentRelation) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentRelation)(nil))
+	return reflect.TypeOf((**IncidentRelation)(nil)).Elem()
 }
 
 func (i *IncidentRelation) ToIncidentRelationOutput() IncidentRelationOutput {
@@ -138,7 +138,7 @@ func (i *IncidentRelation) ToIncidentRelationOutputWithContext(ctx context.Conte
 type IncidentRelationOutput struct{ *pulumi.OutputState }
 
 func (IncidentRelationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentRelation)(nil))
+	return reflect.TypeOf((**IncidentRelation)(nil)).Elem()
 }
 
 func (o IncidentRelationOutput) ToIncidentRelationOutput() IncidentRelationOutput {

@@ -49,6 +49,9 @@ func NewConnectedRegistry(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Logging != nil {
+		args.Logging = args.Logging.ToLoggingPropertiesPtrOutput().ApplyT(func(v *LoggingProperties) *LoggingProperties { return v.Defaults() }).(LoggingPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:containerregistry:ConnectedRegistry"),
@@ -125,7 +128,7 @@ type ConnectedRegistryInput interface {
 }
 
 func (*ConnectedRegistry) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedRegistry)(nil))
+	return reflect.TypeOf((**ConnectedRegistry)(nil)).Elem()
 }
 
 func (i *ConnectedRegistry) ToConnectedRegistryOutput() ConnectedRegistryOutput {
@@ -139,7 +142,7 @@ func (i *ConnectedRegistry) ToConnectedRegistryOutputWithContext(ctx context.Con
 type ConnectedRegistryOutput struct{ *pulumi.OutputState }
 
 func (ConnectedRegistryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedRegistry)(nil))
+	return reflect.TypeOf((**ConnectedRegistry)(nil)).Elem()
 }
 
 func (o ConnectedRegistryOutput) ToConnectedRegistryOutput() ConnectedRegistryOutput {

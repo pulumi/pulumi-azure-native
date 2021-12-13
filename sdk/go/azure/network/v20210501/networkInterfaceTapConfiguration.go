@@ -34,6 +34,9 @@ func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.VirtualNetworkTap != nil {
+		args.VirtualNetworkTap = args.VirtualNetworkTap.ToVirtualNetworkTapTypePtrOutput().ApplyT(func(v *VirtualNetworkTapType) *VirtualNetworkTapType { return v.Defaults() }).(VirtualNetworkTapTypePtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:network:NetworkInterfaceTapConfiguration"),
@@ -165,7 +168,7 @@ type NetworkInterfaceTapConfigurationInput interface {
 }
 
 func (*NetworkInterfaceTapConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceTapConfiguration)(nil))
+	return reflect.TypeOf((**NetworkInterfaceTapConfiguration)(nil)).Elem()
 }
 
 func (i *NetworkInterfaceTapConfiguration) ToNetworkInterfaceTapConfigurationOutput() NetworkInterfaceTapConfigurationOutput {
@@ -179,7 +182,7 @@ func (i *NetworkInterfaceTapConfiguration) ToNetworkInterfaceTapConfigurationOut
 type NetworkInterfaceTapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceTapConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkInterfaceTapConfiguration)(nil))
+	return reflect.TypeOf((**NetworkInterfaceTapConfiguration)(nil)).Elem()
 }
 
 func (o NetworkInterfaceTapConfigurationOutput) ToNetworkInterfaceTapConfigurationOutput() NetworkInterfaceTapConfigurationOutput {

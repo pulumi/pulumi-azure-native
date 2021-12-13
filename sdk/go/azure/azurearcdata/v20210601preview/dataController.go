@@ -113,7 +113,7 @@ type DataControllerInput interface {
 }
 
 func (*DataController) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataController)(nil))
+	return reflect.TypeOf((**DataController)(nil)).Elem()
 }
 
 func (i *DataController) ToDataControllerOutput() DataControllerOutput {
@@ -127,7 +127,7 @@ func (i *DataController) ToDataControllerOutputWithContext(ctx context.Context) 
 type DataControllerOutput struct{ *pulumi.OutputState }
 
 func (DataControllerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataController)(nil))
+	return reflect.TypeOf((**DataController)(nil)).Elem()
 }
 
 func (o DataControllerOutput) ToDataControllerOutput() DataControllerOutput {

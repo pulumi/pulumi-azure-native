@@ -137,7 +137,7 @@ type ScheduledTriggerInput interface {
 }
 
 func (*ScheduledTrigger) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledTrigger)(nil))
+	return reflect.TypeOf((**ScheduledTrigger)(nil)).Elem()
 }
 
 func (i *ScheduledTrigger) ToScheduledTriggerOutput() ScheduledTriggerOutput {
@@ -151,7 +151,7 @@ func (i *ScheduledTrigger) ToScheduledTriggerOutputWithContext(ctx context.Conte
 type ScheduledTriggerOutput struct{ *pulumi.OutputState }
 
 func (ScheduledTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledTrigger)(nil))
+	return reflect.TypeOf((**ScheduledTrigger)(nil)).Elem()
 }
 
 func (o ScheduledTriggerOutput) ToScheduledTriggerOutput() ScheduledTriggerOutput {

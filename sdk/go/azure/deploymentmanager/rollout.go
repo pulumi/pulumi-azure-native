@@ -124,7 +124,7 @@ type RolloutInput interface {
 }
 
 func (*Rollout) ElementType() reflect.Type {
-	return reflect.TypeOf((*Rollout)(nil))
+	return reflect.TypeOf((**Rollout)(nil)).Elem()
 }
 
 func (i *Rollout) ToRolloutOutput() RolloutOutput {
@@ -138,7 +138,7 @@ func (i *Rollout) ToRolloutOutputWithContext(ctx context.Context) RolloutOutput 
 type RolloutOutput struct{ *pulumi.OutputState }
 
 func (RolloutOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Rollout)(nil))
+	return reflect.TypeOf((**Rollout)(nil)).Elem()
 }
 
 func (o RolloutOutput) ToRolloutOutput() RolloutOutput {

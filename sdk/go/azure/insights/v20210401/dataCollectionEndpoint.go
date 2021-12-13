@@ -111,7 +111,7 @@ type DataCollectionEndpointInput interface {
 }
 
 func (*DataCollectionEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionEndpoint)(nil))
+	return reflect.TypeOf((**DataCollectionEndpoint)(nil)).Elem()
 }
 
 func (i *DataCollectionEndpoint) ToDataCollectionEndpointOutput() DataCollectionEndpointOutput {
@@ -125,7 +125,7 @@ func (i *DataCollectionEndpoint) ToDataCollectionEndpointOutputWithContext(ctx c
 type DataCollectionEndpointOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionEndpoint)(nil))
+	return reflect.TypeOf((**DataCollectionEndpoint)(nil)).Elem()
 }
 
 func (o DataCollectionEndpointOutput) ToDataCollectionEndpointOutput() DataCollectionEndpointOutput {

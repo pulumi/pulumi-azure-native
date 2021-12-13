@@ -13,7 +13,7 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAccountArgs struct {
@@ -33,4 +33,15 @@ type LookupAccountResult struct {
 	SystemData SystemDataResponse              `pulumi:"systemData"`
 	Tags       map[string]string               `pulumi:"tags"`
 	Type       string                          `pulumi:"type"`
+}
+
+
+func (val *LookupAccountResult) Defaults() *LookupAccountResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

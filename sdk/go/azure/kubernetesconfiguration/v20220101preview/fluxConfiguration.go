@@ -53,13 +53,19 @@ func NewFluxConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Namespace == nil {
+	if args.Bucket != nil {
+		args.Bucket = args.Bucket.ToBucketDefinitionPtrOutput().ApplyT(func(v *BucketDefinition) *BucketDefinition { return v.Defaults() }).(BucketDefinitionPtrOutput)
+	}
+	if args.GitRepository != nil {
+		args.GitRepository = args.GitRepository.ToGitRepositoryDefinitionPtrOutput().ApplyT(func(v *GitRepositoryDefinition) *GitRepositoryDefinition { return v.Defaults() }).(GitRepositoryDefinitionPtrOutput)
+	}
+	if isZero(args.Namespace) {
 		args.Namespace = pulumi.StringPtr("default")
 	}
-	if args.SourceKind == nil {
+	if isZero(args.SourceKind) {
 		args.SourceKind = pulumi.StringPtr("GitRepository")
 	}
-	if args.Suspend == nil {
+	if isZero(args.Suspend) {
 		args.Suspend = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -147,7 +153,7 @@ type FluxConfigurationInput interface {
 }
 
 func (*FluxConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*FluxConfiguration)(nil))
+	return reflect.TypeOf((**FluxConfiguration)(nil)).Elem()
 }
 
 func (i *FluxConfiguration) ToFluxConfigurationOutput() FluxConfigurationOutput {
@@ -161,7 +167,7 @@ func (i *FluxConfiguration) ToFluxConfigurationOutputWithContext(ctx context.Con
 type FluxConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FluxConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FluxConfiguration)(nil))
+	return reflect.TypeOf((**FluxConfiguration)(nil)).Elem()
 }
 
 func (o FluxConfigurationOutput) ToFluxConfigurationOutput() FluxConfigurationOutput {

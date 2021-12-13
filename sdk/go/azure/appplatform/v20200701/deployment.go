@@ -36,6 +36,9 @@ func NewDeployment(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToDeploymentResourcePropertiesPtrOutput().ApplyT(func(v *DeploymentResourceProperties) *DeploymentResourceProperties { return v.Defaults() }).(DeploymentResourcePropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:appplatform:Deployment"),
@@ -116,7 +119,7 @@ type DeploymentInput interface {
 }
 
 func (*Deployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Deployment)(nil))
+	return reflect.TypeOf((**Deployment)(nil)).Elem()
 }
 
 func (i *Deployment) ToDeploymentOutput() DeploymentOutput {
@@ -130,7 +133,7 @@ func (i *Deployment) ToDeploymentOutputWithContext(ctx context.Context) Deployme
 type DeploymentOutput struct{ *pulumi.OutputState }
 
 func (DeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Deployment)(nil))
+	return reflect.TypeOf((**Deployment)(nil)).Elem()
 }
 
 func (o DeploymentOutput) ToDeploymentOutput() DeploymentOutput {

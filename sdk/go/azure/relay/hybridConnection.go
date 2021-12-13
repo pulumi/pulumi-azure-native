@@ -105,7 +105,7 @@ type HybridConnectionInput interface {
 }
 
 func (*HybridConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnection)(nil))
+	return reflect.TypeOf((**HybridConnection)(nil)).Elem()
 }
 
 func (i *HybridConnection) ToHybridConnectionOutput() HybridConnectionOutput {
@@ -119,7 +119,7 @@ func (i *HybridConnection) ToHybridConnectionOutputWithContext(ctx context.Conte
 type HybridConnectionOutput struct{ *pulumi.OutputState }
 
 func (HybridConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnection)(nil))
+	return reflect.TypeOf((**HybridConnection)(nil)).Elem()
 }
 
 func (o HybridConnectionOutput) ToHybridConnectionOutput() HybridConnectionOutput {

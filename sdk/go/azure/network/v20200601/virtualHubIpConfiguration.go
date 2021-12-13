@@ -132,7 +132,7 @@ type VirtualHubIpConfigurationInput interface {
 }
 
 func (*VirtualHubIpConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubIpConfiguration)(nil))
+	return reflect.TypeOf((**VirtualHubIpConfiguration)(nil)).Elem()
 }
 
 func (i *VirtualHubIpConfiguration) ToVirtualHubIpConfigurationOutput() VirtualHubIpConfigurationOutput {
@@ -146,7 +146,7 @@ func (i *VirtualHubIpConfiguration) ToVirtualHubIpConfigurationOutputWithContext
 type VirtualHubIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubIpConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubIpConfiguration)(nil))
+	return reflect.TypeOf((**VirtualHubIpConfiguration)(nil)).Elem()
 }
 
 func (o VirtualHubIpConfigurationOutput) ToVirtualHubIpConfigurationOutput() VirtualHubIpConfigurationOutput {

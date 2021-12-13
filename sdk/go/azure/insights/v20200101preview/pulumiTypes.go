@@ -115,59 +115,6 @@ type ManagementGroupLogSettingsResponse struct {
 	Enabled  bool   `pulumi:"enabled"`
 }
 
-
-
-
-
-type ManagementGroupLogSettingsResponseInput interface {
-	pulumi.Input
-
-	ToManagementGroupLogSettingsResponseOutput() ManagementGroupLogSettingsResponseOutput
-	ToManagementGroupLogSettingsResponseOutputWithContext(context.Context) ManagementGroupLogSettingsResponseOutput
-}
-
-type ManagementGroupLogSettingsResponseArgs struct {
-	Category pulumi.StringInput `pulumi:"category"`
-	Enabled  pulumi.BoolInput   `pulumi:"enabled"`
-}
-
-func (ManagementGroupLogSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupLogSettingsResponse)(nil)).Elem()
-}
-
-func (i ManagementGroupLogSettingsResponseArgs) ToManagementGroupLogSettingsResponseOutput() ManagementGroupLogSettingsResponseOutput {
-	return i.ToManagementGroupLogSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i ManagementGroupLogSettingsResponseArgs) ToManagementGroupLogSettingsResponseOutputWithContext(ctx context.Context) ManagementGroupLogSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupLogSettingsResponseOutput)
-}
-
-
-
-
-
-type ManagementGroupLogSettingsResponseArrayInput interface {
-	pulumi.Input
-
-	ToManagementGroupLogSettingsResponseArrayOutput() ManagementGroupLogSettingsResponseArrayOutput
-	ToManagementGroupLogSettingsResponseArrayOutputWithContext(context.Context) ManagementGroupLogSettingsResponseArrayOutput
-}
-
-type ManagementGroupLogSettingsResponseArray []ManagementGroupLogSettingsResponseInput
-
-func (ManagementGroupLogSettingsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagementGroupLogSettingsResponse)(nil)).Elem()
-}
-
-func (i ManagementGroupLogSettingsResponseArray) ToManagementGroupLogSettingsResponseArrayOutput() ManagementGroupLogSettingsResponseArrayOutput {
-	return i.ToManagementGroupLogSettingsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ManagementGroupLogSettingsResponseArray) ToManagementGroupLogSettingsResponseArrayOutputWithContext(ctx context.Context) ManagementGroupLogSettingsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupLogSettingsResponseArrayOutput)
-}
-
 type ManagementGroupLogSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupLogSettingsResponseOutput) ElementType() reflect.Type {

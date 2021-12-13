@@ -106,7 +106,7 @@ type PrivateStoreCollectionInput interface {
 }
 
 func (*PrivateStoreCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateStoreCollection)(nil))
+	return reflect.TypeOf((**PrivateStoreCollection)(nil)).Elem()
 }
 
 func (i *PrivateStoreCollection) ToPrivateStoreCollectionOutput() PrivateStoreCollectionOutput {
@@ -120,7 +120,7 @@ func (i *PrivateStoreCollection) ToPrivateStoreCollectionOutputWithContext(ctx c
 type PrivateStoreCollectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateStoreCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateStoreCollection)(nil))
+	return reflect.TypeOf((**PrivateStoreCollection)(nil)).Elem()
 }
 
 func (o PrivateStoreCollectionOutput) ToPrivateStoreCollectionOutput() PrivateStoreCollectionOutput {

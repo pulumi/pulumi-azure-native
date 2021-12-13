@@ -121,7 +121,7 @@ type StorageAccountManagementPoliciesInput interface {
 }
 
 func (*StorageAccountManagementPolicies) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountManagementPolicies)(nil))
+	return reflect.TypeOf((**StorageAccountManagementPolicies)(nil)).Elem()
 }
 
 func (i *StorageAccountManagementPolicies) ToStorageAccountManagementPoliciesOutput() StorageAccountManagementPoliciesOutput {
@@ -135,7 +135,7 @@ func (i *StorageAccountManagementPolicies) ToStorageAccountManagementPoliciesOut
 type StorageAccountManagementPoliciesOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountManagementPoliciesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountManagementPolicies)(nil))
+	return reflect.TypeOf((**StorageAccountManagementPolicies)(nil)).Elem()
 }
 
 func (o StorageAccountManagementPoliciesOutput) ToStorageAccountManagementPoliciesOutput() StorageAccountManagementPoliciesOutput {

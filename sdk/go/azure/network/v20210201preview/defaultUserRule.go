@@ -124,7 +124,7 @@ type DefaultUserRuleInput interface {
 }
 
 func (*DefaultUserRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultUserRule)(nil))
+	return reflect.TypeOf((**DefaultUserRule)(nil)).Elem()
 }
 
 func (i *DefaultUserRule) ToDefaultUserRuleOutput() DefaultUserRuleOutput {
@@ -138,7 +138,7 @@ func (i *DefaultUserRule) ToDefaultUserRuleOutputWithContext(ctx context.Context
 type DefaultUserRuleOutput struct{ *pulumi.OutputState }
 
 func (DefaultUserRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultUserRule)(nil))
+	return reflect.TypeOf((**DefaultUserRule)(nil)).Elem()
 }
 
 func (o DefaultUserRuleOutput) ToDefaultUserRuleOutput() DefaultUserRuleOutput {

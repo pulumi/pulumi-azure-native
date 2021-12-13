@@ -111,7 +111,7 @@ type QueueServicePropertiesInput interface {
 }
 
 func (*QueueServiceProperties) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueueServiceProperties)(nil))
+	return reflect.TypeOf((**QueueServiceProperties)(nil)).Elem()
 }
 
 func (i *QueueServiceProperties) ToQueueServicePropertiesOutput() QueueServicePropertiesOutput {
@@ -125,7 +125,7 @@ func (i *QueueServiceProperties) ToQueueServicePropertiesOutputWithContext(ctx c
 type QueueServicePropertiesOutput struct{ *pulumi.OutputState }
 
 func (QueueServicePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueueServiceProperties)(nil))
+	return reflect.TypeOf((**QueueServiceProperties)(nil)).Elem()
 }
 
 func (o QueueServicePropertiesOutput) ToQueueServicePropertiesOutput() QueueServicePropertiesOutput {

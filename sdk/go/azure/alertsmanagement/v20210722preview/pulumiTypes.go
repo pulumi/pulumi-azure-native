@@ -257,59 +257,6 @@ type PrometheusRuleGroupActionResponse struct {
 	ActionProperties map[string]string `pulumi:"actionProperties"`
 }
 
-
-
-
-
-type PrometheusRuleGroupActionResponseInput interface {
-	pulumi.Input
-
-	ToPrometheusRuleGroupActionResponseOutput() PrometheusRuleGroupActionResponseOutput
-	ToPrometheusRuleGroupActionResponseOutputWithContext(context.Context) PrometheusRuleGroupActionResponseOutput
-}
-
-type PrometheusRuleGroupActionResponseArgs struct {
-	ActionGroupId    pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	ActionProperties pulumi.StringMapInput `pulumi:"actionProperties"`
-}
-
-func (PrometheusRuleGroupActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrometheusRuleGroupActionResponse)(nil)).Elem()
-}
-
-func (i PrometheusRuleGroupActionResponseArgs) ToPrometheusRuleGroupActionResponseOutput() PrometheusRuleGroupActionResponseOutput {
-	return i.ToPrometheusRuleGroupActionResponseOutputWithContext(context.Background())
-}
-
-func (i PrometheusRuleGroupActionResponseArgs) ToPrometheusRuleGroupActionResponseOutputWithContext(ctx context.Context) PrometheusRuleGroupActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrometheusRuleGroupActionResponseOutput)
-}
-
-
-
-
-
-type PrometheusRuleGroupActionResponseArrayInput interface {
-	pulumi.Input
-
-	ToPrometheusRuleGroupActionResponseArrayOutput() PrometheusRuleGroupActionResponseArrayOutput
-	ToPrometheusRuleGroupActionResponseArrayOutputWithContext(context.Context) PrometheusRuleGroupActionResponseArrayOutput
-}
-
-type PrometheusRuleGroupActionResponseArray []PrometheusRuleGroupActionResponseInput
-
-func (PrometheusRuleGroupActionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrometheusRuleGroupActionResponse)(nil)).Elem()
-}
-
-func (i PrometheusRuleGroupActionResponseArray) ToPrometheusRuleGroupActionResponseArrayOutput() PrometheusRuleGroupActionResponseArrayOutput {
-	return i.ToPrometheusRuleGroupActionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PrometheusRuleGroupActionResponseArray) ToPrometheusRuleGroupActionResponseArrayOutputWithContext(ctx context.Context) PrometheusRuleGroupActionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrometheusRuleGroupActionResponseArrayOutput)
-}
-
 type PrometheusRuleGroupActionResponseOutput struct{ *pulumi.OutputState }
 
 func (PrometheusRuleGroupActionResponseOutput) ElementType() reflect.Type {
@@ -505,75 +452,6 @@ type PrometheusRuleResolveConfigurationResponse struct {
 	TimeToResolve *string `pulumi:"timeToResolve"`
 }
 
-
-
-
-
-type PrometheusRuleResolveConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToPrometheusRuleResolveConfigurationResponseOutput() PrometheusRuleResolveConfigurationResponseOutput
-	ToPrometheusRuleResolveConfigurationResponseOutputWithContext(context.Context) PrometheusRuleResolveConfigurationResponseOutput
-}
-
-type PrometheusRuleResolveConfigurationResponseArgs struct {
-	AutoResolved  pulumi.BoolPtrInput   `pulumi:"autoResolved"`
-	TimeToResolve pulumi.StringPtrInput `pulumi:"timeToResolve"`
-}
-
-func (PrometheusRuleResolveConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrometheusRuleResolveConfigurationResponse)(nil)).Elem()
-}
-
-func (i PrometheusRuleResolveConfigurationResponseArgs) ToPrometheusRuleResolveConfigurationResponseOutput() PrometheusRuleResolveConfigurationResponseOutput {
-	return i.ToPrometheusRuleResolveConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i PrometheusRuleResolveConfigurationResponseArgs) ToPrometheusRuleResolveConfigurationResponseOutputWithContext(ctx context.Context) PrometheusRuleResolveConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrometheusRuleResolveConfigurationResponseOutput)
-}
-
-func (i PrometheusRuleResolveConfigurationResponseArgs) ToPrometheusRuleResolveConfigurationResponsePtrOutput() PrometheusRuleResolveConfigurationResponsePtrOutput {
-	return i.ToPrometheusRuleResolveConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PrometheusRuleResolveConfigurationResponseArgs) ToPrometheusRuleResolveConfigurationResponsePtrOutputWithContext(ctx context.Context) PrometheusRuleResolveConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrometheusRuleResolveConfigurationResponseOutput).ToPrometheusRuleResolveConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrometheusRuleResolveConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToPrometheusRuleResolveConfigurationResponsePtrOutput() PrometheusRuleResolveConfigurationResponsePtrOutput
-	ToPrometheusRuleResolveConfigurationResponsePtrOutputWithContext(context.Context) PrometheusRuleResolveConfigurationResponsePtrOutput
-}
-
-type prometheusRuleResolveConfigurationResponsePtrType PrometheusRuleResolveConfigurationResponseArgs
-
-func PrometheusRuleResolveConfigurationResponsePtr(v *PrometheusRuleResolveConfigurationResponseArgs) PrometheusRuleResolveConfigurationResponsePtrInput {
-	return (*prometheusRuleResolveConfigurationResponsePtrType)(v)
-}
-
-func (*prometheusRuleResolveConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrometheusRuleResolveConfigurationResponse)(nil)).Elem()
-}
-
-func (i *prometheusRuleResolveConfigurationResponsePtrType) ToPrometheusRuleResolveConfigurationResponsePtrOutput() PrometheusRuleResolveConfigurationResponsePtrOutput {
-	return i.ToPrometheusRuleResolveConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *prometheusRuleResolveConfigurationResponsePtrType) ToPrometheusRuleResolveConfigurationResponsePtrOutputWithContext(ctx context.Context) PrometheusRuleResolveConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrometheusRuleResolveConfigurationResponsePtrOutput)
-}
-
 type PrometheusRuleResolveConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (PrometheusRuleResolveConfigurationResponseOutput) ElementType() reflect.Type {
@@ -586,16 +464,6 @@ func (o PrometheusRuleResolveConfigurationResponseOutput) ToPrometheusRuleResolv
 
 func (o PrometheusRuleResolveConfigurationResponseOutput) ToPrometheusRuleResolveConfigurationResponseOutputWithContext(ctx context.Context) PrometheusRuleResolveConfigurationResponseOutput {
 	return o
-}
-
-func (o PrometheusRuleResolveConfigurationResponseOutput) ToPrometheusRuleResolveConfigurationResponsePtrOutput() PrometheusRuleResolveConfigurationResponsePtrOutput {
-	return o.ToPrometheusRuleResolveConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PrometheusRuleResolveConfigurationResponseOutput) ToPrometheusRuleResolveConfigurationResponsePtrOutputWithContext(ctx context.Context) PrometheusRuleResolveConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrometheusRuleResolveConfigurationResponse) *PrometheusRuleResolveConfigurationResponse {
-		return &v
-	}).(PrometheusRuleResolveConfigurationResponsePtrOutput)
 }
 
 func (o PrometheusRuleResolveConfigurationResponseOutput) AutoResolved() pulumi.BoolPtrOutput {
@@ -658,66 +526,6 @@ type PrometheusRuleResponse struct {
 	Record               *string                                     `pulumi:"record"`
 	ResolveConfiguration *PrometheusRuleResolveConfigurationResponse `pulumi:"resolveConfiguration"`
 	Severity             *int                                        `pulumi:"severity"`
-}
-
-
-
-
-
-type PrometheusRuleResponseInput interface {
-	pulumi.Input
-
-	ToPrometheusRuleResponseOutput() PrometheusRuleResponseOutput
-	ToPrometheusRuleResponseOutputWithContext(context.Context) PrometheusRuleResponseOutput
-}
-
-type PrometheusRuleResponseArgs struct {
-	Actions              PrometheusRuleGroupActionResponseArrayInput        `pulumi:"actions"`
-	Alert                pulumi.StringPtrInput                              `pulumi:"alert"`
-	Annotations          pulumi.StringMapInput                              `pulumi:"annotations"`
-	Expression           pulumi.StringPtrInput                              `pulumi:"expression"`
-	For                  pulumi.StringPtrInput                              `pulumi:"for"`
-	Labels               pulumi.StringMapInput                              `pulumi:"labels"`
-	Record               pulumi.StringPtrInput                              `pulumi:"record"`
-	ResolveConfiguration PrometheusRuleResolveConfigurationResponsePtrInput `pulumi:"resolveConfiguration"`
-	Severity             pulumi.IntPtrInput                                 `pulumi:"severity"`
-}
-
-func (PrometheusRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrometheusRuleResponse)(nil)).Elem()
-}
-
-func (i PrometheusRuleResponseArgs) ToPrometheusRuleResponseOutput() PrometheusRuleResponseOutput {
-	return i.ToPrometheusRuleResponseOutputWithContext(context.Background())
-}
-
-func (i PrometheusRuleResponseArgs) ToPrometheusRuleResponseOutputWithContext(ctx context.Context) PrometheusRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrometheusRuleResponseOutput)
-}
-
-
-
-
-
-type PrometheusRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToPrometheusRuleResponseArrayOutput() PrometheusRuleResponseArrayOutput
-	ToPrometheusRuleResponseArrayOutputWithContext(context.Context) PrometheusRuleResponseArrayOutput
-}
-
-type PrometheusRuleResponseArray []PrometheusRuleResponseInput
-
-func (PrometheusRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrometheusRuleResponse)(nil)).Elem()
-}
-
-func (i PrometheusRuleResponseArray) ToPrometheusRuleResponseArrayOutput() PrometheusRuleResponseArrayOutput {
-	return i.ToPrometheusRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PrometheusRuleResponseArray) ToPrometheusRuleResponseArrayOutputWithContext(ctx context.Context) PrometheusRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrometheusRuleResponseArrayOutput)
 }
 
 type PrometheusRuleResponseOutput struct{ *pulumi.OutputState }
@@ -801,79 +609,6 @@ type SystemDataResponse struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -886,16 +621,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -922,84 +647,6 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(PrometheusRuleOutput{})
 	pulumi.RegisterOutputType(PrometheusRuleArrayOutput{})
@@ -1014,5 +661,4 @@ func init() {
 	pulumi.RegisterOutputType(PrometheusRuleResponseOutput{})
 	pulumi.RegisterOutputType(PrometheusRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

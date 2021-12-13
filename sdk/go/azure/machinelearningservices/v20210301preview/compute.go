@@ -160,7 +160,7 @@ type ComputeInput interface {
 }
 
 func (*Compute) ElementType() reflect.Type {
-	return reflect.TypeOf((*Compute)(nil))
+	return reflect.TypeOf((**Compute)(nil)).Elem()
 }
 
 func (i *Compute) ToComputeOutput() ComputeOutput {
@@ -174,7 +174,7 @@ func (i *Compute) ToComputeOutputWithContext(ctx context.Context) ComputeOutput 
 type ComputeOutput struct{ *pulumi.OutputState }
 
 func (ComputeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Compute)(nil))
+	return reflect.TypeOf((**Compute)(nil)).Elem()
 }
 
 func (o ComputeOutput) ToComputeOutput() ComputeOutput {

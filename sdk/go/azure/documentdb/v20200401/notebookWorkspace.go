@@ -140,7 +140,7 @@ type NotebookWorkspaceInput interface {
 }
 
 func (*NotebookWorkspace) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookWorkspace)(nil))
+	return reflect.TypeOf((**NotebookWorkspace)(nil)).Elem()
 }
 
 func (i *NotebookWorkspace) ToNotebookWorkspaceOutput() NotebookWorkspaceOutput {
@@ -154,7 +154,7 @@ func (i *NotebookWorkspace) ToNotebookWorkspaceOutputWithContext(ctx context.Con
 type NotebookWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (NotebookWorkspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookWorkspace)(nil))
+	return reflect.TypeOf((**NotebookWorkspace)(nil)).Elem()
 }
 
 func (o NotebookWorkspaceOutput) ToNotebookWorkspaceOutput() NotebookWorkspaceOutput {

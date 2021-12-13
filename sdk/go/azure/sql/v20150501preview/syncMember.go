@@ -141,7 +141,7 @@ type SyncMemberInput interface {
 }
 
 func (*SyncMember) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncMember)(nil))
+	return reflect.TypeOf((**SyncMember)(nil)).Elem()
 }
 
 func (i *SyncMember) ToSyncMemberOutput() SyncMemberOutput {
@@ -155,7 +155,7 @@ func (i *SyncMember) ToSyncMemberOutputWithContext(ctx context.Context) SyncMemb
 type SyncMemberOutput struct{ *pulumi.OutputState }
 
 func (SyncMemberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncMember)(nil))
+	return reflect.TypeOf((**SyncMember)(nil)).Elem()
 }
 
 func (o SyncMemberOutput) ToSyncMemberOutput() SyncMemberOutput {

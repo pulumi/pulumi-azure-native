@@ -46,6 +46,10 @@ func NewOperationalizationCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	args.ContainerService = args.ContainerService.ToAcsClusterPropertiesOutput().ApplyT(func(v AcsClusterProperties) AcsClusterProperties { return *v.Defaults() }).(AcsClusterPropertiesOutput)
+	if args.GlobalServiceConfiguration != nil {
+		args.GlobalServiceConfiguration = args.GlobalServiceConfiguration.ToGlobalServiceConfigurationPtrOutput().ApplyT(func(v *GlobalServiceConfiguration) *GlobalServiceConfiguration { return v.Defaults() }).(GlobalServiceConfigurationPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:machinelearningcompute:OperationalizationCluster"),
@@ -127,7 +131,7 @@ type OperationalizationClusterInput interface {
 }
 
 func (*OperationalizationCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationalizationCluster)(nil))
+	return reflect.TypeOf((**OperationalizationCluster)(nil)).Elem()
 }
 
 func (i *OperationalizationCluster) ToOperationalizationClusterOutput() OperationalizationClusterOutput {
@@ -141,7 +145,7 @@ func (i *OperationalizationCluster) ToOperationalizationClusterOutputWithContext
 type OperationalizationClusterOutput struct{ *pulumi.OutputState }
 
 func (OperationalizationClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationalizationCluster)(nil))
+	return reflect.TypeOf((**OperationalizationCluster)(nil)).Elem()
 }
 
 func (o OperationalizationClusterOutput) ToOperationalizationClusterOutput() OperationalizationClusterOutput {

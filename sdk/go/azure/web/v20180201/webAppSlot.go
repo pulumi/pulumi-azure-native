@@ -71,17 +71,20 @@ func NewWebAppSlot(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.HyperV == nil {
+	if isZero(args.HyperV) {
 		args.HyperV = pulumi.BoolPtr(false)
 	}
-	if args.IsXenon == nil {
+	if isZero(args.IsXenon) {
 		args.IsXenon = pulumi.BoolPtr(false)
 	}
-	if args.Reserved == nil {
+	if isZero(args.Reserved) {
 		args.Reserved = pulumi.BoolPtr(false)
 	}
-	if args.ScmSiteAlsoStopped == nil {
+	if isZero(args.ScmSiteAlsoStopped) {
 		args.ScmSiteAlsoStopped = pulumi.BoolPtr(false)
+	}
+	if args.SiteConfig != nil {
+		args.SiteConfig = args.SiteConfig.ToSiteConfigPtrOutput().ApplyT(func(v *SiteConfig) *SiteConfig { return v.Defaults() }).(SiteConfigPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -224,7 +227,7 @@ type WebAppSlotInput interface {
 }
 
 func (*WebAppSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSlot)(nil))
+	return reflect.TypeOf((**WebAppSlot)(nil)).Elem()
 }
 
 func (i *WebAppSlot) ToWebAppSlotOutput() WebAppSlotOutput {
@@ -238,7 +241,7 @@ func (i *WebAppSlot) ToWebAppSlotOutputWithContext(ctx context.Context) WebAppSl
 type WebAppSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSlot)(nil))
+	return reflect.TypeOf((**WebAppSlot)(nil)).Elem()
 }
 
 func (o WebAppSlotOutput) ToWebAppSlotOutput() WebAppSlotOutput {

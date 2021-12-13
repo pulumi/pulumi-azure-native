@@ -95,7 +95,7 @@ type AzureADMetricInput interface {
 }
 
 func (*AzureADMetric) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureADMetric)(nil))
+	return reflect.TypeOf((**AzureADMetric)(nil)).Elem()
 }
 
 func (i *AzureADMetric) ToAzureADMetricOutput() AzureADMetricOutput {
@@ -109,7 +109,7 @@ func (i *AzureADMetric) ToAzureADMetricOutputWithContext(ctx context.Context) Az
 type AzureADMetricOutput struct{ *pulumi.OutputState }
 
 func (AzureADMetricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureADMetric)(nil))
+	return reflect.TypeOf((**AzureADMetric)(nil)).Elem()
 }
 
 func (o AzureADMetricOutput) ToAzureADMetricOutput() AzureADMetricOutput {

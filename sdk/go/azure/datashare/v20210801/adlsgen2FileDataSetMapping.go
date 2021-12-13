@@ -159,7 +159,7 @@ type ADLSGen2FileDataSetMappingInput interface {
 }
 
 func (*ADLSGen2FileDataSetMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADLSGen2FileDataSetMapping)(nil))
+	return reflect.TypeOf((**ADLSGen2FileDataSetMapping)(nil)).Elem()
 }
 
 func (i *ADLSGen2FileDataSetMapping) ToADLSGen2FileDataSetMappingOutput() ADLSGen2FileDataSetMappingOutput {
@@ -173,7 +173,7 @@ func (i *ADLSGen2FileDataSetMapping) ToADLSGen2FileDataSetMappingOutputWithConte
 type ADLSGen2FileDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (ADLSGen2FileDataSetMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADLSGen2FileDataSetMapping)(nil))
+	return reflect.TypeOf((**ADLSGen2FileDataSetMapping)(nil)).Elem()
 }
 
 func (o ADLSGen2FileDataSetMappingOutput) ToADLSGen2FileDataSetMappingOutput() ADLSGen2FileDataSetMappingOutput {

@@ -103,7 +103,7 @@ type DataCollectionRuleAssociationInput interface {
 }
 
 func (*DataCollectionRuleAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRuleAssociation)(nil))
+	return reflect.TypeOf((**DataCollectionRuleAssociation)(nil)).Elem()
 }
 
 func (i *DataCollectionRuleAssociation) ToDataCollectionRuleAssociationOutput() DataCollectionRuleAssociationOutput {
@@ -117,7 +117,7 @@ func (i *DataCollectionRuleAssociation) ToDataCollectionRuleAssociationOutputWit
 type DataCollectionRuleAssociationOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRuleAssociation)(nil))
+	return reflect.TypeOf((**DataCollectionRuleAssociation)(nil)).Elem()
 }
 
 func (o DataCollectionRuleAssociationOutput) ToDataCollectionRuleAssociationOutput() DataCollectionRuleAssociationOutput {

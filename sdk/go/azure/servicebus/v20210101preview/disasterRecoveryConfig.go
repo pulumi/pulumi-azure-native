@@ -115,7 +115,7 @@ type DisasterRecoveryConfigInput interface {
 }
 
 func (*DisasterRecoveryConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*DisasterRecoveryConfig)(nil))
+	return reflect.TypeOf((**DisasterRecoveryConfig)(nil)).Elem()
 }
 
 func (i *DisasterRecoveryConfig) ToDisasterRecoveryConfigOutput() DisasterRecoveryConfigOutput {
@@ -129,7 +129,7 @@ func (i *DisasterRecoveryConfig) ToDisasterRecoveryConfigOutputWithContext(ctx c
 type DisasterRecoveryConfigOutput struct{ *pulumi.OutputState }
 
 func (DisasterRecoveryConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DisasterRecoveryConfig)(nil))
+	return reflect.TypeOf((**DisasterRecoveryConfig)(nil)).Elem()
 }
 
 func (o DisasterRecoveryConfigOutput) ToDisasterRecoveryConfigOutput() DisasterRecoveryConfigOutput {

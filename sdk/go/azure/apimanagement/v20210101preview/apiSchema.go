@@ -134,7 +134,7 @@ type ApiSchemaInput interface {
 }
 
 func (*ApiSchema) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiSchema)(nil))
+	return reflect.TypeOf((**ApiSchema)(nil)).Elem()
 }
 
 func (i *ApiSchema) ToApiSchemaOutput() ApiSchemaOutput {
@@ -148,7 +148,7 @@ func (i *ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaO
 type ApiSchemaOutput struct{ *pulumi.OutputState }
 
 func (ApiSchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiSchema)(nil))
+	return reflect.TypeOf((**ApiSchema)(nil)).Elem()
 }
 
 func (o ApiSchemaOutput) ToApiSchemaOutput() ApiSchemaOutput {

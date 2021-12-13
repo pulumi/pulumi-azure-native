@@ -100,7 +100,7 @@ type EnterpriseKnowledgeGraphInput interface {
 }
 
 func (*EnterpriseKnowledgeGraph) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseKnowledgeGraph)(nil))
+	return reflect.TypeOf((**EnterpriseKnowledgeGraph)(nil)).Elem()
 }
 
 func (i *EnterpriseKnowledgeGraph) ToEnterpriseKnowledgeGraphOutput() EnterpriseKnowledgeGraphOutput {
@@ -114,7 +114,7 @@ func (i *EnterpriseKnowledgeGraph) ToEnterpriseKnowledgeGraphOutputWithContext(c
 type EnterpriseKnowledgeGraphOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseKnowledgeGraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseKnowledgeGraph)(nil))
+	return reflect.TypeOf((**EnterpriseKnowledgeGraph)(nil)).Elem()
 }
 
 func (o EnterpriseKnowledgeGraphOutput) ToEnterpriseKnowledgeGraphOutput() EnterpriseKnowledgeGraphOutput {

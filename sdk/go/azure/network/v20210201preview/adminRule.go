@@ -112,7 +112,7 @@ type AdminRuleInput interface {
 }
 
 func (*AdminRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminRule)(nil))
+	return reflect.TypeOf((**AdminRule)(nil)).Elem()
 }
 
 func (i *AdminRule) ToAdminRuleOutput() AdminRuleOutput {
@@ -126,7 +126,7 @@ func (i *AdminRule) ToAdminRuleOutputWithContext(ctx context.Context) AdminRuleO
 type AdminRuleOutput struct{ *pulumi.OutputState }
 
 func (AdminRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminRule)(nil))
+	return reflect.TypeOf((**AdminRule)(nil)).Elem()
 }
 
 func (o AdminRuleOutput) ToAdminRuleOutput() AdminRuleOutput {

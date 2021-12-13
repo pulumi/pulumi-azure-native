@@ -13,7 +13,7 @@ func LookupWebTest(ctx *pulumi.Context, args *LookupWebTestArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupWebTestArgs struct {
@@ -42,4 +42,28 @@ type LookupWebTestResult struct {
 	ValidationRules    *WebTestPropertiesResponseValidationRules `pulumi:"validationRules"`
 	WebTestKind        string                                    `pulumi:"webTestKind"`
 	WebTestName        string                                    `pulumi:"webTestName"`
+}
+
+
+func (val *LookupWebTestResult) Defaults() *LookupWebTestResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Frequency) {
+		frequency_ := 300
+		tmp.Frequency = &frequency_
+	}
+	if isZero(tmp.Kind) {
+		kind_ := "ping"
+		tmp.Kind = &kind_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := 30
+		tmp.Timeout = &timeout_
+	}
+	if isZero(tmp.WebTestKind) {
+		tmp.WebTestKind = "ping"
+	}
+	return &tmp
 }

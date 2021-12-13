@@ -98,7 +98,7 @@ type QueryPackInput interface {
 }
 
 func (*QueryPack) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryPack)(nil))
+	return reflect.TypeOf((**QueryPack)(nil)).Elem()
 }
 
 func (i *QueryPack) ToQueryPackOutput() QueryPackOutput {
@@ -112,7 +112,7 @@ func (i *QueryPack) ToQueryPackOutputWithContext(ctx context.Context) QueryPackO
 type QueryPackOutput struct{ *pulumi.OutputState }
 
 func (QueryPackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueryPack)(nil))
+	return reflect.TypeOf((**QueryPack)(nil)).Elem()
 }
 
 func (o QueryPackOutput) ToQueryPackOutput() QueryPackOutput {

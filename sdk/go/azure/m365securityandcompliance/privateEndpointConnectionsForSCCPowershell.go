@@ -102,7 +102,7 @@ type PrivateEndpointConnectionsForSCCPowershellInput interface {
 }
 
 func (*PrivateEndpointConnectionsForSCCPowershell) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionsForSCCPowershell)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionsForSCCPowershell)(nil)).Elem()
 }
 
 func (i *PrivateEndpointConnectionsForSCCPowershell) ToPrivateEndpointConnectionsForSCCPowershellOutput() PrivateEndpointConnectionsForSCCPowershellOutput {
@@ -116,7 +116,7 @@ func (i *PrivateEndpointConnectionsForSCCPowershell) ToPrivateEndpointConnection
 type PrivateEndpointConnectionsForSCCPowershellOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionsForSCCPowershellOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionsForSCCPowershell)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionsForSCCPowershell)(nil)).Elem()
 }
 
 func (o PrivateEndpointConnectionsForSCCPowershellOutput) ToPrivateEndpointConnectionsForSCCPowershellOutput() PrivateEndpointConnectionsForSCCPowershellOutput {

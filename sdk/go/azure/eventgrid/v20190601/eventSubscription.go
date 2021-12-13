@@ -36,6 +36,9 @@ func NewEventSubscription(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	if args.Filter != nil {
+		args.Filter = args.Filter.ToEventSubscriptionFilterPtrOutput().ApplyT(func(v *EventSubscriptionFilter) *EventSubscriptionFilter { return v.Defaults() }).(EventSubscriptionFilterPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:eventgrid:EventSubscription"),
@@ -147,7 +150,7 @@ type EventSubscriptionInput interface {
 }
 
 func (*EventSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscription)(nil))
+	return reflect.TypeOf((**EventSubscription)(nil)).Elem()
 }
 
 func (i *EventSubscription) ToEventSubscriptionOutput() EventSubscriptionOutput {
@@ -161,7 +164,7 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 type EventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscription)(nil))
+	return reflect.TypeOf((**EventSubscription)(nil)).Elem()
 }
 
 func (o EventSubscriptionOutput) ToEventSubscriptionOutput() EventSubscriptionOutput {

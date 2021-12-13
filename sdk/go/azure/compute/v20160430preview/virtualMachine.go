@@ -170,7 +170,7 @@ type VirtualMachineInput interface {
 }
 
 func (*VirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachine)(nil))
+	return reflect.TypeOf((**VirtualMachine)(nil)).Elem()
 }
 
 func (i *VirtualMachine) ToVirtualMachineOutput() VirtualMachineOutput {
@@ -184,7 +184,7 @@ func (i *VirtualMachine) ToVirtualMachineOutputWithContext(ctx context.Context) 
 type VirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachine)(nil))
+	return reflect.TypeOf((**VirtualMachine)(nil)).Elem()
 }
 
 func (o VirtualMachineOutput) ToVirtualMachineOutput() VirtualMachineOutput {

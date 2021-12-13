@@ -101,7 +101,7 @@ type UserAssignedIdentityInput interface {
 }
 
 func (*UserAssignedIdentity) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentity)(nil))
+	return reflect.TypeOf((**UserAssignedIdentity)(nil)).Elem()
 }
 
 func (i *UserAssignedIdentity) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {
@@ -115,7 +115,7 @@ func (i *UserAssignedIdentity) ToUserAssignedIdentityOutputWithContext(ctx conte
 type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentity)(nil))
+	return reflect.TypeOf((**UserAssignedIdentity)(nil)).Elem()
 }
 
 func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedIdentityOutput {

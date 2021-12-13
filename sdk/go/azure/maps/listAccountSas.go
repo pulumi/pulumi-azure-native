@@ -9,7 +9,7 @@ import (
 
 func ListAccountSas(ctx *pulumi.Context, args *ListAccountSasArgs, opts ...pulumi.InvokeOption) (*ListAccountSasResult, error) {
 	var rv ListAccountSasResult
-	err := ctx.Invoke("azure-native:maps:listAccountSas", args, &rv, opts...)
+	err := ctx.Invoke("azure-native:maps:listAccountSas", args.Defaults(), &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -25,6 +25,18 @@ type ListAccountSasArgs struct {
 	ResourceGroupName string   `pulumi:"resourceGroupName"`
 	SigningKey        string   `pulumi:"signingKey"`
 	Start             string   `pulumi:"start"`
+}
+
+
+func (val *ListAccountSasArgs) Defaults() *ListAccountSasArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxRatePerSecond) {
+		tmp.MaxRatePerSecond = 500
+	}
+	return &tmp
 }
 
 

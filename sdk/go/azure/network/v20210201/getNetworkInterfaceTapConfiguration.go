@@ -13,7 +13,7 @@ func LookupNetworkInterfaceTapConfiguration(ctx *pulumi.Context, args *LookupNet
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupNetworkInterfaceTapConfigurationArgs struct {
@@ -30,4 +30,15 @@ type LookupNetworkInterfaceTapConfigurationResult struct {
 	ProvisioningState string                     `pulumi:"provisioningState"`
 	Type              string                     `pulumi:"type"`
 	VirtualNetworkTap *VirtualNetworkTapResponse `pulumi:"virtualNetworkTap"`
+}
+
+
+func (val *LookupNetworkInterfaceTapConfigurationResult) Defaults() *LookupNetworkInterfaceTapConfigurationResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.VirtualNetworkTap = tmp.VirtualNetworkTap.Defaults()
+
+	return &tmp
 }

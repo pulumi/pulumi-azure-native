@@ -53,37 +53,37 @@ func NewAndroidMAMPolicyByName(ctx *pulumi.Context,
 	if args.HostName == nil {
 		return nil, errors.New("invalid value for required argument 'HostName'")
 	}
-	if args.AppSharingFromLevel == nil {
+	if isZero(args.AppSharingFromLevel) {
 		args.AppSharingFromLevel = pulumi.StringPtr("none")
 	}
-	if args.AppSharingToLevel == nil {
+	if isZero(args.AppSharingToLevel) {
 		args.AppSharingToLevel = pulumi.StringPtr("none")
 	}
-	if args.Authentication == nil {
+	if isZero(args.Authentication) {
 		args.Authentication = pulumi.StringPtr("required")
 	}
-	if args.ClipboardSharingLevel == nil {
+	if isZero(args.ClipboardSharingLevel) {
 		args.ClipboardSharingLevel = pulumi.StringPtr("blocked")
 	}
-	if args.DataBackup == nil {
+	if isZero(args.DataBackup) {
 		args.DataBackup = pulumi.StringPtr("allow")
 	}
-	if args.DeviceCompliance == nil {
+	if isZero(args.DeviceCompliance) {
 		args.DeviceCompliance = pulumi.StringPtr("enable")
 	}
-	if args.FileEncryption == nil {
+	if isZero(args.FileEncryption) {
 		args.FileEncryption = pulumi.StringPtr("required")
 	}
-	if args.FileSharingSaveAs == nil {
+	if isZero(args.FileSharingSaveAs) {
 		args.FileSharingSaveAs = pulumi.StringPtr("allow")
 	}
-	if args.ManagedBrowser == nil {
+	if isZero(args.ManagedBrowser) {
 		args.ManagedBrowser = pulumi.StringPtr("required")
 	}
-	if args.Pin == nil {
+	if isZero(args.Pin) {
 		args.Pin = pulumi.StringPtr("required")
 	}
-	if args.ScreenCapture == nil {
+	if isZero(args.ScreenCapture) {
 		args.ScreenCapture = pulumi.StringPtr("allow")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -187,7 +187,7 @@ type AndroidMAMPolicyByNameInput interface {
 }
 
 func (*AndroidMAMPolicyByName) ElementType() reflect.Type {
-	return reflect.TypeOf((*AndroidMAMPolicyByName)(nil))
+	return reflect.TypeOf((**AndroidMAMPolicyByName)(nil)).Elem()
 }
 
 func (i *AndroidMAMPolicyByName) ToAndroidMAMPolicyByNameOutput() AndroidMAMPolicyByNameOutput {
@@ -201,7 +201,7 @@ func (i *AndroidMAMPolicyByName) ToAndroidMAMPolicyByNameOutputWithContext(ctx c
 type AndroidMAMPolicyByNameOutput struct{ *pulumi.OutputState }
 
 func (AndroidMAMPolicyByNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AndroidMAMPolicyByName)(nil))
+	return reflect.TypeOf((**AndroidMAMPolicyByName)(nil)).Elem()
 }
 
 func (o AndroidMAMPolicyByNameOutput) ToAndroidMAMPolicyByNameOutput() AndroidMAMPolicyByNameOutput {

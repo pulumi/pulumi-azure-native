@@ -13,7 +13,7 @@ func LookupIotSecuritySolution(ctx *pulumi.Context, args *LookupIotSecuritySolut
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupIotSecuritySolutionArgs struct {
@@ -37,4 +37,17 @@ type LookupIotSecuritySolutionResult struct {
 	Type                         string                                          `pulumi:"type"`
 	UserDefinedResources         *UserDefinedResourcesPropertiesResponse         `pulumi:"userDefinedResources"`
 	Workspace                    string                                          `pulumi:"workspace"`
+}
+
+
+func (val *LookupIotSecuritySolutionResult) Defaults() *LookupIotSecuritySolutionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }

@@ -35,7 +35,7 @@ func NewTopic(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.InputSchema == nil {
+	if isZero(args.InputSchema) {
 		args.InputSchema = pulumi.StringPtr("EventGridSchema")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -145,7 +145,7 @@ type TopicInput interface {
 }
 
 func (*Topic) ElementType() reflect.Type {
-	return reflect.TypeOf((*Topic)(nil))
+	return reflect.TypeOf((**Topic)(nil)).Elem()
 }
 
 func (i *Topic) ToTopicOutput() TopicOutput {
@@ -159,7 +159,7 @@ func (i *Topic) ToTopicOutputWithContext(ctx context.Context) TopicOutput {
 type TopicOutput struct{ *pulumi.OutputState }
 
 func (TopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Topic)(nil))
+	return reflect.TypeOf((**Topic)(nil)).Elem()
 }
 
 func (o TopicOutput) ToTopicOutput() TopicOutput {

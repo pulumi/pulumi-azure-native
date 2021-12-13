@@ -130,7 +130,7 @@ type WebAppApplicationSettingsInput interface {
 }
 
 func (*WebAppApplicationSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppApplicationSettings)(nil))
+	return reflect.TypeOf((**WebAppApplicationSettings)(nil)).Elem()
 }
 
 func (i *WebAppApplicationSettings) ToWebAppApplicationSettingsOutput() WebAppApplicationSettingsOutput {
@@ -144,7 +144,7 @@ func (i *WebAppApplicationSettings) ToWebAppApplicationSettingsOutputWithContext
 type WebAppApplicationSettingsOutput struct{ *pulumi.OutputState }
 
 func (WebAppApplicationSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppApplicationSettings)(nil))
+	return reflect.TypeOf((**WebAppApplicationSettings)(nil)).Elem()
 }
 
 func (o WebAppApplicationSettingsOutput) ToWebAppApplicationSettingsOutput() WebAppApplicationSettingsOutput {

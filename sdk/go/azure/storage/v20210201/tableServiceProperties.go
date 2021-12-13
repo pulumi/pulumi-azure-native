@@ -111,7 +111,7 @@ type TableServicePropertiesInput interface {
 }
 
 func (*TableServiceProperties) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableServiceProperties)(nil))
+	return reflect.TypeOf((**TableServiceProperties)(nil)).Elem()
 }
 
 func (i *TableServiceProperties) ToTableServicePropertiesOutput() TableServicePropertiesOutput {
@@ -125,7 +125,7 @@ func (i *TableServiceProperties) ToTableServicePropertiesOutputWithContext(ctx c
 type TableServicePropertiesOutput struct{ *pulumi.OutputState }
 
 func (TableServicePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableServiceProperties)(nil))
+	return reflect.TypeOf((**TableServiceProperties)(nil)).Elem()
 }
 
 func (o TableServicePropertiesOutput) ToTableServicePropertiesOutput() TableServicePropertiesOutput {

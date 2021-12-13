@@ -112,7 +112,7 @@ type IntegrationAccountInput interface {
 }
 
 func (*IntegrationAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccount)(nil))
+	return reflect.TypeOf((**IntegrationAccount)(nil)).Elem()
 }
 
 func (i *IntegrationAccount) ToIntegrationAccountOutput() IntegrationAccountOutput {
@@ -126,7 +126,7 @@ func (i *IntegrationAccount) ToIntegrationAccountOutputWithContext(ctx context.C
 type IntegrationAccountOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccount)(nil))
+	return reflect.TypeOf((**IntegrationAccount)(nil)).Elem()
 }
 
 func (o IntegrationAccountOutput) ToIntegrationAccountOutput() IntegrationAccountOutput {

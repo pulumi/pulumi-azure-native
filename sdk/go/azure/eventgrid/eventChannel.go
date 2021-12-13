@@ -39,6 +39,9 @@ func NewEventChannel(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Filter != nil {
+		args.Filter = args.Filter.ToEventChannelFilterPtrOutput().ApplyT(func(v *EventChannelFilter) *EventChannelFilter { return v.Defaults() }).(EventChannelFilterPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20200401preview:EventChannel"),
@@ -117,7 +120,7 @@ type EventChannelInput interface {
 }
 
 func (*EventChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventChannel)(nil))
+	return reflect.TypeOf((**EventChannel)(nil)).Elem()
 }
 
 func (i *EventChannel) ToEventChannelOutput() EventChannelOutput {
@@ -131,7 +134,7 @@ func (i *EventChannel) ToEventChannelOutputWithContext(ctx context.Context) Even
 type EventChannelOutput struct{ *pulumi.OutputState }
 
 func (EventChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventChannel)(nil))
+	return reflect.TypeOf((**EventChannel)(nil)).Elem()
 }
 
 func (o EventChannelOutput) ToEventChannelOutput() EventChannelOutput {

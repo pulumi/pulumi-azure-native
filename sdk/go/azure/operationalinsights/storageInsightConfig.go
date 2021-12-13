@@ -118,7 +118,7 @@ type StorageInsightConfigInput interface {
 }
 
 func (*StorageInsightConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsightConfig)(nil))
+	return reflect.TypeOf((**StorageInsightConfig)(nil)).Elem()
 }
 
 func (i *StorageInsightConfig) ToStorageInsightConfigOutput() StorageInsightConfigOutput {
@@ -132,7 +132,7 @@ func (i *StorageInsightConfig) ToStorageInsightConfigOutputWithContext(ctx conte
 type StorageInsightConfigOutput struct{ *pulumi.OutputState }
 
 func (StorageInsightConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsightConfig)(nil))
+	return reflect.TypeOf((**StorageInsightConfig)(nil)).Elem()
 }
 
 func (o StorageInsightConfigOutput) ToStorageInsightConfigOutput() StorageInsightConfigOutput {

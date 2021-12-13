@@ -148,7 +148,7 @@ type BlobContainerInput interface {
 }
 
 func (*BlobContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobContainer)(nil))
+	return reflect.TypeOf((**BlobContainer)(nil)).Elem()
 }
 
 func (i *BlobContainer) ToBlobContainerOutput() BlobContainerOutput {
@@ -162,7 +162,7 @@ func (i *BlobContainer) ToBlobContainerOutputWithContext(ctx context.Context) Bl
 type BlobContainerOutput struct{ *pulumi.OutputState }
 
 func (BlobContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobContainer)(nil))
+	return reflect.TypeOf((**BlobContainer)(nil)).Elem()
 }
 
 func (o BlobContainerOutput) ToBlobContainerOutput() BlobContainerOutput {

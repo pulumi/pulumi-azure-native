@@ -13,7 +13,7 @@ func LookupLab(ctx *pulumi.Context, args *LookupLabArgs, opts ...pulumi.InvokeOp
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupLabArgs struct {
@@ -40,4 +40,19 @@ type LookupLabResult struct {
 	Title                 *string                       `pulumi:"title"`
 	Type                  string                        `pulumi:"type"`
 	VirtualMachineProfile VirtualMachineProfileResponse `pulumi:"virtualMachineProfile"`
+}
+
+
+func (val *LookupLabResult) Defaults() *LookupLabResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.AutoShutdownProfile = *tmp.AutoShutdownProfile.Defaults()
+
+	tmp.ConnectionProfile = *tmp.ConnectionProfile.Defaults()
+
+	tmp.VirtualMachineProfile = *tmp.VirtualMachineProfile.Defaults()
+
+	return &tmp
 }

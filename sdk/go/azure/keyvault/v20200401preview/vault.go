@@ -35,6 +35,7 @@ func NewVault(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	args.Properties = args.Properties.ToVaultPropertiesOutput().ApplyT(func(v VaultProperties) VaultProperties { return *v.Defaults() }).(VaultPropertiesOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:keyvault:Vault"),
@@ -122,7 +123,7 @@ type VaultInput interface {
 }
 
 func (*Vault) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vault)(nil))
+	return reflect.TypeOf((**Vault)(nil)).Elem()
 }
 
 func (i *Vault) ToVaultOutput() VaultOutput {
@@ -136,7 +137,7 @@ func (i *Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 type VaultOutput struct{ *pulumi.OutputState }
 
 func (VaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vault)(nil))
+	return reflect.TypeOf((**Vault)(nil)).Elem()
 }
 
 func (o VaultOutput) ToVaultOutput() VaultOutput {

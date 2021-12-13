@@ -52,14 +52,20 @@ func NewSignalR(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.DisableAadAuth == nil {
+	if isZero(args.DisableAadAuth) {
 		args.DisableAadAuth = pulumi.BoolPtr(false)
 	}
-	if args.DisableLocalAuth == nil {
+	if isZero(args.DisableLocalAuth) {
 		args.DisableLocalAuth = pulumi.BoolPtr(false)
 	}
-	if args.PublicNetworkAccess == nil {
+	if args.NetworkACLs != nil {
+		args.NetworkACLs = args.NetworkACLs.ToSignalRNetworkACLsPtrOutput().ApplyT(func(v *SignalRNetworkACLs) *SignalRNetworkACLs { return v.Defaults() }).(SignalRNetworkACLsPtrOutput)
+	}
+	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
+	}
+	if args.Tls != nil {
+		args.Tls = args.Tls.ToSignalRTlsSettingsPtrOutput().ApplyT(func(v *SignalRTlsSettings) *SignalRTlsSettings { return v.Defaults() }).(SignalRTlsSettingsPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -170,7 +176,7 @@ type SignalRInput interface {
 }
 
 func (*SignalR) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalR)(nil))
+	return reflect.TypeOf((**SignalR)(nil)).Elem()
 }
 
 func (i *SignalR) ToSignalROutput() SignalROutput {
@@ -184,7 +190,7 @@ func (i *SignalR) ToSignalROutputWithContext(ctx context.Context) SignalROutput 
 type SignalROutput struct{ *pulumi.OutputState }
 
 func (SignalROutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalR)(nil))
+	return reflect.TypeOf((**SignalR)(nil)).Elem()
 }
 
 func (o SignalROutput) ToSignalROutput() SignalROutput {

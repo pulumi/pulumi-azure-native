@@ -95,7 +95,7 @@ type ComponentCurrentBillingFeatureInput interface {
 }
 
 func (*ComponentCurrentBillingFeature) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentCurrentBillingFeature)(nil))
+	return reflect.TypeOf((**ComponentCurrentBillingFeature)(nil)).Elem()
 }
 
 func (i *ComponentCurrentBillingFeature) ToComponentCurrentBillingFeatureOutput() ComponentCurrentBillingFeatureOutput {
@@ -109,7 +109,7 @@ func (i *ComponentCurrentBillingFeature) ToComponentCurrentBillingFeatureOutputW
 type ComponentCurrentBillingFeatureOutput struct{ *pulumi.OutputState }
 
 func (ComponentCurrentBillingFeatureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentCurrentBillingFeature)(nil))
+	return reflect.TypeOf((**ComponentCurrentBillingFeature)(nil)).Elem()
 }
 
 func (o ComponentCurrentBillingFeatureOutput) ToComponentCurrentBillingFeatureOutput() ComponentCurrentBillingFeatureOutput {

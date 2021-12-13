@@ -112,7 +112,7 @@ type ObjectAnchorsAccountInput interface {
 }
 
 func (*ObjectAnchorsAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectAnchorsAccount)(nil))
+	return reflect.TypeOf((**ObjectAnchorsAccount)(nil)).Elem()
 }
 
 func (i *ObjectAnchorsAccount) ToObjectAnchorsAccountOutput() ObjectAnchorsAccountOutput {
@@ -126,7 +126,7 @@ func (i *ObjectAnchorsAccount) ToObjectAnchorsAccountOutputWithContext(ctx conte
 type ObjectAnchorsAccountOutput struct{ *pulumi.OutputState }
 
 func (ObjectAnchorsAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObjectAnchorsAccount)(nil))
+	return reflect.TypeOf((**ObjectAnchorsAccount)(nil)).Elem()
 }
 
 func (o ObjectAnchorsAccountOutput) ToObjectAnchorsAccountOutput() ObjectAnchorsAccountOutput {

@@ -125,7 +125,7 @@ type ApplicationGatewayPrivateEndpointConnectionInput interface {
 }
 
 func (*ApplicationGatewayPrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**ApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (i *ApplicationGatewayPrivateEndpointConnection) ToApplicationGatewayPrivateEndpointConnectionOutput() ApplicationGatewayPrivateEndpointConnectionOutput {
@@ -139,7 +139,7 @@ func (i *ApplicationGatewayPrivateEndpointConnection) ToApplicationGatewayPrivat
 type ApplicationGatewayPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayPrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**ApplicationGatewayPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (o ApplicationGatewayPrivateEndpointConnectionOutput) ToApplicationGatewayPrivateEndpointConnectionOutput() ApplicationGatewayPrivateEndpointConnectionOutput {

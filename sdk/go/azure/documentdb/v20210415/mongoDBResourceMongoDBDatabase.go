@@ -168,7 +168,7 @@ type MongoDBResourceMongoDBDatabaseInput interface {
 }
 
 func (*MongoDBResourceMongoDBDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBDatabase)(nil))
+	return reflect.TypeOf((**MongoDBResourceMongoDBDatabase)(nil)).Elem()
 }
 
 func (i *MongoDBResourceMongoDBDatabase) ToMongoDBResourceMongoDBDatabaseOutput() MongoDBResourceMongoDBDatabaseOutput {
@@ -182,7 +182,7 @@ func (i *MongoDBResourceMongoDBDatabase) ToMongoDBResourceMongoDBDatabaseOutputW
 type MongoDBResourceMongoDBDatabaseOutput struct{ *pulumi.OutputState }
 
 func (MongoDBResourceMongoDBDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBDatabase)(nil))
+	return reflect.TypeOf((**MongoDBResourceMongoDBDatabase)(nil)).Elem()
 }
 
 func (o MongoDBResourceMongoDBDatabaseOutput) ToMongoDBResourceMongoDBDatabaseOutput() MongoDBResourceMongoDBDatabaseOutput {

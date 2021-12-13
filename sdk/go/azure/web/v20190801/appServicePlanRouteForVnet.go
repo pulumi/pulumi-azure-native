@@ -140,7 +140,7 @@ type AppServicePlanRouteForVnetInput interface {
 }
 
 func (*AppServicePlanRouteForVnet) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePlanRouteForVnet)(nil))
+	return reflect.TypeOf((**AppServicePlanRouteForVnet)(nil)).Elem()
 }
 
 func (i *AppServicePlanRouteForVnet) ToAppServicePlanRouteForVnetOutput() AppServicePlanRouteForVnetOutput {
@@ -154,7 +154,7 @@ func (i *AppServicePlanRouteForVnet) ToAppServicePlanRouteForVnetOutputWithConte
 type AppServicePlanRouteForVnetOutput struct{ *pulumi.OutputState }
 
 func (AppServicePlanRouteForVnetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServicePlanRouteForVnet)(nil))
+	return reflect.TypeOf((**AppServicePlanRouteForVnet)(nil)).Elem()
 }
 
 func (o AppServicePlanRouteForVnetOutput) ToAppServicePlanRouteForVnetOutput() AppServicePlanRouteForVnetOutput {

@@ -120,7 +120,7 @@ type VCenterInput interface {
 }
 
 func (*VCenter) ElementType() reflect.Type {
-	return reflect.TypeOf((*VCenter)(nil))
+	return reflect.TypeOf((**VCenter)(nil)).Elem()
 }
 
 func (i *VCenter) ToVCenterOutput() VCenterOutput {
@@ -134,7 +134,7 @@ func (i *VCenter) ToVCenterOutputWithContext(ctx context.Context) VCenterOutput 
 type VCenterOutput struct{ *pulumi.OutputState }
 
 func (VCenterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VCenter)(nil))
+	return reflect.TypeOf((**VCenter)(nil)).Elem()
 }
 
 func (o VCenterOutput) ToVCenterOutput() VCenterOutput {

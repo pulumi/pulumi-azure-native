@@ -13,7 +13,7 @@ func LookupJobStep(ctx *pulumi.Context, args *LookupJobStepArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupJobStepArgs struct {
@@ -35,4 +35,19 @@ type LookupJobStepResult struct {
 	StepId           *int                             `pulumi:"stepId"`
 	TargetGroup      string                           `pulumi:"targetGroup"`
 	Type             string                           `pulumi:"type"`
+}
+
+
+func (val *LookupJobStepResult) Defaults() *LookupJobStepResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Action = *tmp.Action.Defaults()
+
+	tmp.ExecutionOptions = tmp.ExecutionOptions.Defaults()
+
+	tmp.Output = tmp.Output.Defaults()
+
+	return &tmp
 }

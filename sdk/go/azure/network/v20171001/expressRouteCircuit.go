@@ -244,7 +244,7 @@ type ExpressRouteCircuitInput interface {
 }
 
 func (*ExpressRouteCircuit) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuit)(nil))
+	return reflect.TypeOf((**ExpressRouteCircuit)(nil)).Elem()
 }
 
 func (i *ExpressRouteCircuit) ToExpressRouteCircuitOutput() ExpressRouteCircuitOutput {
@@ -258,7 +258,7 @@ func (i *ExpressRouteCircuit) ToExpressRouteCircuitOutputWithContext(ctx context
 type ExpressRouteCircuitOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuit)(nil))
+	return reflect.TypeOf((**ExpressRouteCircuit)(nil)).Elem()
 }
 
 func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutput() ExpressRouteCircuitOutput {

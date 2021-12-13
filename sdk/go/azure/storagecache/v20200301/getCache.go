@@ -13,7 +13,7 @@ func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.Invo
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupCacheArgs struct {
@@ -40,4 +40,15 @@ type LookupCacheResult struct {
 	Tags               interface{}                      `pulumi:"tags"`
 	Type               string                           `pulumi:"type"`
 	UpgradeStatus      *CacheUpgradeStatusResponse      `pulumi:"upgradeStatus"`
+}
+
+
+func (val *LookupCacheResult) Defaults() *LookupCacheResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.NetworkSettings = tmp.NetworkSettings.Defaults()
+
+	return &tmp
 }

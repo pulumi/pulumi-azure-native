@@ -144,7 +144,7 @@ type FileShareInput interface {
 }
 
 func (*FileShare) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileShare)(nil))
+	return reflect.TypeOf((**FileShare)(nil)).Elem()
 }
 
 func (i *FileShare) ToFileShareOutput() FileShareOutput {
@@ -158,7 +158,7 @@ func (i *FileShare) ToFileShareOutputWithContext(ctx context.Context) FileShareO
 type FileShareOutput struct{ *pulumi.OutputState }
 
 func (FileShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileShare)(nil))
+	return reflect.TypeOf((**FileShare)(nil)).Elem()
 }
 
 func (o FileShareOutput) ToFileShareOutput() FileShareOutput {

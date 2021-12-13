@@ -108,7 +108,7 @@ type DataPoolInput interface {
 }
 
 func (*DataPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataPool)(nil))
+	return reflect.TypeOf((**DataPool)(nil)).Elem()
 }
 
 func (i *DataPool) ToDataPoolOutput() DataPoolOutput {
@@ -122,7 +122,7 @@ func (i *DataPool) ToDataPoolOutputWithContext(ctx context.Context) DataPoolOutp
 type DataPoolOutput struct{ *pulumi.OutputState }
 
 func (DataPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataPool)(nil))
+	return reflect.TypeOf((**DataPool)(nil)).Elem()
 }
 
 func (o DataPoolOutput) ToDataPoolOutput() DataPoolOutput {

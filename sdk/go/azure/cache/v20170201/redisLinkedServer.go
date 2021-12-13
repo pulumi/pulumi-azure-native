@@ -127,7 +127,7 @@ type RedisLinkedServerInput interface {
 }
 
 func (*RedisLinkedServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisLinkedServer)(nil))
+	return reflect.TypeOf((**RedisLinkedServer)(nil)).Elem()
 }
 
 func (i *RedisLinkedServer) ToRedisLinkedServerOutput() RedisLinkedServerOutput {
@@ -141,7 +141,7 @@ func (i *RedisLinkedServer) ToRedisLinkedServerOutputWithContext(ctx context.Con
 type RedisLinkedServerOutput struct{ *pulumi.OutputState }
 
 func (RedisLinkedServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisLinkedServer)(nil))
+	return reflect.TypeOf((**RedisLinkedServer)(nil)).Elem()
 }
 
 func (o RedisLinkedServerOutput) ToRedisLinkedServerOutput() RedisLinkedServerOutput {

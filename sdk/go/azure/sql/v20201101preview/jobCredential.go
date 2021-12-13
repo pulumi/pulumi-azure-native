@@ -124,7 +124,7 @@ type JobCredentialInput interface {
 }
 
 func (*JobCredential) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobCredential)(nil))
+	return reflect.TypeOf((**JobCredential)(nil)).Elem()
 }
 
 func (i *JobCredential) ToJobCredentialOutput() JobCredentialOutput {
@@ -138,7 +138,7 @@ func (i *JobCredential) ToJobCredentialOutputWithContext(ctx context.Context) Jo
 type JobCredentialOutput struct{ *pulumi.OutputState }
 
 func (JobCredentialOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobCredential)(nil))
+	return reflect.TypeOf((**JobCredential)(nil)).Elem()
 }
 
 func (o JobCredentialOutput) ToJobCredentialOutput() JobCredentialOutput {

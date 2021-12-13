@@ -96,7 +96,7 @@ type NamespaceVirtualNetworkRuleInput interface {
 }
 
 func (*NamespaceVirtualNetworkRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceVirtualNetworkRule)(nil))
+	return reflect.TypeOf((**NamespaceVirtualNetworkRule)(nil)).Elem()
 }
 
 func (i *NamespaceVirtualNetworkRule) ToNamespaceVirtualNetworkRuleOutput() NamespaceVirtualNetworkRuleOutput {
@@ -110,7 +110,7 @@ func (i *NamespaceVirtualNetworkRule) ToNamespaceVirtualNetworkRuleOutputWithCon
 type NamespaceVirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (NamespaceVirtualNetworkRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceVirtualNetworkRule)(nil))
+	return reflect.TypeOf((**NamespaceVirtualNetworkRule)(nil)).Elem()
 }
 
 func (o NamespaceVirtualNetworkRuleOutput) ToNamespaceVirtualNetworkRuleOutput() NamespaceVirtualNetworkRuleOutput {

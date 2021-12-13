@@ -115,7 +115,7 @@ type HostInput interface {
 }
 
 func (*Host) ElementType() reflect.Type {
-	return reflect.TypeOf((*Host)(nil))
+	return reflect.TypeOf((**Host)(nil)).Elem()
 }
 
 func (i *Host) ToHostOutput() HostOutput {
@@ -129,7 +129,7 @@ func (i *Host) ToHostOutputWithContext(ctx context.Context) HostOutput {
 type HostOutput struct{ *pulumi.OutputState }
 
 func (HostOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Host)(nil))
+	return reflect.TypeOf((**Host)(nil)).Elem()
 }
 
 func (o HostOutput) ToHostOutput() HostOutput {

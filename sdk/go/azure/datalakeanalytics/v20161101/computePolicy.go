@@ -117,7 +117,7 @@ type ComputePolicyInput interface {
 }
 
 func (*ComputePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputePolicy)(nil))
+	return reflect.TypeOf((**ComputePolicy)(nil)).Elem()
 }
 
 func (i *ComputePolicy) ToComputePolicyOutput() ComputePolicyOutput {
@@ -131,7 +131,7 @@ func (i *ComputePolicy) ToComputePolicyOutputWithContext(ctx context.Context) Co
 type ComputePolicyOutput struct{ *pulumi.OutputState }
 
 func (ComputePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputePolicy)(nil))
+	return reflect.TypeOf((**ComputePolicy)(nil)).Elem()
 }
 
 func (o ComputePolicyOutput) ToComputePolicyOutput() ComputePolicyOutput {

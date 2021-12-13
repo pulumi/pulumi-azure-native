@@ -105,7 +105,7 @@ type PrivateEndpointConnectionsAdtAPIInput interface {
 }
 
 func (*PrivateEndpointConnectionsAdtAPI) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionsAdtAPI)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionsAdtAPI)(nil)).Elem()
 }
 
 func (i *PrivateEndpointConnectionsAdtAPI) ToPrivateEndpointConnectionsAdtAPIOutput() PrivateEndpointConnectionsAdtAPIOutput {
@@ -119,7 +119,7 @@ func (i *PrivateEndpointConnectionsAdtAPI) ToPrivateEndpointConnectionsAdtAPIOut
 type PrivateEndpointConnectionsAdtAPIOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionsAdtAPIOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionsAdtAPI)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionsAdtAPI)(nil)).Elem()
 }
 
 func (o PrivateEndpointConnectionsAdtAPIOutput) ToPrivateEndpointConnectionsAdtAPIOutput() PrivateEndpointConnectionsAdtAPIOutput {

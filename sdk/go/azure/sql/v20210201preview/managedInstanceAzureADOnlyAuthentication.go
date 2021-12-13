@@ -111,7 +111,7 @@ type ManagedInstanceAzureADOnlyAuthenticationInput interface {
 }
 
 func (*ManagedInstanceAzureADOnlyAuthentication) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthentication)(nil))
+	return reflect.TypeOf((**ManagedInstanceAzureADOnlyAuthentication)(nil)).Elem()
 }
 
 func (i *ManagedInstanceAzureADOnlyAuthentication) ToManagedInstanceAzureADOnlyAuthenticationOutput() ManagedInstanceAzureADOnlyAuthenticationOutput {
@@ -125,7 +125,7 @@ func (i *ManagedInstanceAzureADOnlyAuthentication) ToManagedInstanceAzureADOnlyA
 type ManagedInstanceAzureADOnlyAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceAzureADOnlyAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstanceAzureADOnlyAuthentication)(nil))
+	return reflect.TypeOf((**ManagedInstanceAzureADOnlyAuthentication)(nil)).Elem()
 }
 
 func (o ManagedInstanceAzureADOnlyAuthenticationOutput) ToManagedInstanceAzureADOnlyAuthenticationOutput() ManagedInstanceAzureADOnlyAuthenticationOutput {

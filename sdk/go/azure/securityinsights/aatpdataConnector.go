@@ -118,7 +118,7 @@ type AATPDataConnectorInput interface {
 }
 
 func (*AATPDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*AATPDataConnector)(nil))
+	return reflect.TypeOf((**AATPDataConnector)(nil)).Elem()
 }
 
 func (i *AATPDataConnector) ToAATPDataConnectorOutput() AATPDataConnectorOutput {
@@ -132,7 +132,7 @@ func (i *AATPDataConnector) ToAATPDataConnectorOutputWithContext(ctx context.Con
 type AATPDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (AATPDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AATPDataConnector)(nil))
+	return reflect.TypeOf((**AATPDataConnector)(nil)).Elem()
 }
 
 func (o AATPDataConnectorOutput) ToAATPDataConnectorOutput() AATPDataConnectorOutput {

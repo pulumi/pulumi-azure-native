@@ -13,7 +13,7 @@ func LookupNetworkInterface(ctx *pulumi.Context, args *LookupNetworkInterfaceArg
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupNetworkInterfaceArgs struct {
@@ -49,4 +49,15 @@ type LookupNetworkInterfaceResult struct {
 	Type                        string                                     `pulumi:"type"`
 	VirtualMachine              SubResourceResponse                        `pulumi:"virtualMachine"`
 	WorkloadType                *string                                    `pulumi:"workloadType"`
+}
+
+
+func (val *LookupNetworkInterfaceResult) Defaults() *LookupNetworkInterfaceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.PrivateEndpoint = *tmp.PrivateEndpoint.Defaults()
+
+	return &tmp
 }

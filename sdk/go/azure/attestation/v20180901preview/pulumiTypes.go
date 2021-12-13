@@ -43,47 +43,6 @@ func (i AttestationServiceCreationSpecificParamsArgs) ToAttestationServiceCreati
 	return pulumi.ToOutputWithContext(ctx, i).(AttestationServiceCreationSpecificParamsOutput)
 }
 
-func (i AttestationServiceCreationSpecificParamsArgs) ToAttestationServiceCreationSpecificParamsPtrOutput() AttestationServiceCreationSpecificParamsPtrOutput {
-	return i.ToAttestationServiceCreationSpecificParamsPtrOutputWithContext(context.Background())
-}
-
-func (i AttestationServiceCreationSpecificParamsArgs) ToAttestationServiceCreationSpecificParamsPtrOutputWithContext(ctx context.Context) AttestationServiceCreationSpecificParamsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AttestationServiceCreationSpecificParamsOutput).ToAttestationServiceCreationSpecificParamsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AttestationServiceCreationSpecificParamsPtrInput interface {
-	pulumi.Input
-
-	ToAttestationServiceCreationSpecificParamsPtrOutput() AttestationServiceCreationSpecificParamsPtrOutput
-	ToAttestationServiceCreationSpecificParamsPtrOutputWithContext(context.Context) AttestationServiceCreationSpecificParamsPtrOutput
-}
-
-type attestationServiceCreationSpecificParamsPtrType AttestationServiceCreationSpecificParamsArgs
-
-func AttestationServiceCreationSpecificParamsPtr(v *AttestationServiceCreationSpecificParamsArgs) AttestationServiceCreationSpecificParamsPtrInput {
-	return (*attestationServiceCreationSpecificParamsPtrType)(v)
-}
-
-func (*attestationServiceCreationSpecificParamsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AttestationServiceCreationSpecificParams)(nil)).Elem()
-}
-
-func (i *attestationServiceCreationSpecificParamsPtrType) ToAttestationServiceCreationSpecificParamsPtrOutput() AttestationServiceCreationSpecificParamsPtrOutput {
-	return i.ToAttestationServiceCreationSpecificParamsPtrOutputWithContext(context.Background())
-}
-
-func (i *attestationServiceCreationSpecificParamsPtrType) ToAttestationServiceCreationSpecificParamsPtrOutputWithContext(ctx context.Context) AttestationServiceCreationSpecificParamsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AttestationServiceCreationSpecificParamsPtrOutput)
-}
-
 type AttestationServiceCreationSpecificParamsOutput struct{ *pulumi.OutputState }
 
 func (AttestationServiceCreationSpecificParamsOutput) ElementType() reflect.Type {
@@ -98,64 +57,12 @@ func (o AttestationServiceCreationSpecificParamsOutput) ToAttestationServiceCrea
 	return o
 }
 
-func (o AttestationServiceCreationSpecificParamsOutput) ToAttestationServiceCreationSpecificParamsPtrOutput() AttestationServiceCreationSpecificParamsPtrOutput {
-	return o.ToAttestationServiceCreationSpecificParamsPtrOutputWithContext(context.Background())
-}
-
-func (o AttestationServiceCreationSpecificParamsOutput) ToAttestationServiceCreationSpecificParamsPtrOutputWithContext(ctx context.Context) AttestationServiceCreationSpecificParamsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AttestationServiceCreationSpecificParams) *AttestationServiceCreationSpecificParams {
-		return &v
-	}).(AttestationServiceCreationSpecificParamsPtrOutput)
-}
-
 func (o AttestationServiceCreationSpecificParamsOutput) AttestationPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AttestationServiceCreationSpecificParams) *string { return v.AttestationPolicy }).(pulumi.StringPtrOutput)
 }
 
 func (o AttestationServiceCreationSpecificParamsOutput) PolicySigningCertificates() JSONWebKeySetPtrOutput {
 	return o.ApplyT(func(v AttestationServiceCreationSpecificParams) *JSONWebKeySet { return v.PolicySigningCertificates }).(JSONWebKeySetPtrOutput)
-}
-
-type AttestationServiceCreationSpecificParamsPtrOutput struct{ *pulumi.OutputState }
-
-func (AttestationServiceCreationSpecificParamsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AttestationServiceCreationSpecificParams)(nil)).Elem()
-}
-
-func (o AttestationServiceCreationSpecificParamsPtrOutput) ToAttestationServiceCreationSpecificParamsPtrOutput() AttestationServiceCreationSpecificParamsPtrOutput {
-	return o
-}
-
-func (o AttestationServiceCreationSpecificParamsPtrOutput) ToAttestationServiceCreationSpecificParamsPtrOutputWithContext(ctx context.Context) AttestationServiceCreationSpecificParamsPtrOutput {
-	return o
-}
-
-func (o AttestationServiceCreationSpecificParamsPtrOutput) Elem() AttestationServiceCreationSpecificParamsOutput {
-	return o.ApplyT(func(v *AttestationServiceCreationSpecificParams) AttestationServiceCreationSpecificParams {
-		if v != nil {
-			return *v
-		}
-		var ret AttestationServiceCreationSpecificParams
-		return ret
-	}).(AttestationServiceCreationSpecificParamsOutput)
-}
-
-func (o AttestationServiceCreationSpecificParamsPtrOutput) AttestationPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AttestationServiceCreationSpecificParams) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AttestationPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AttestationServiceCreationSpecificParamsPtrOutput) PolicySigningCertificates() JSONWebKeySetPtrOutput {
-	return o.ApplyT(func(v *AttestationServiceCreationSpecificParams) *JSONWebKeySet {
-		if v == nil {
-			return nil
-		}
-		return v.PolicySigningCertificates
-	}).(JSONWebKeySetPtrOutput)
 }
 
 type JSONWebKey struct {
@@ -483,7 +390,6 @@ func (o JSONWebKeySetPtrOutput) Keys() JSONWebKeyArrayOutput {
 
 func init() {
 	pulumi.RegisterOutputType(AttestationServiceCreationSpecificParamsOutput{})
-	pulumi.RegisterOutputType(AttestationServiceCreationSpecificParamsPtrOutput{})
 	pulumi.RegisterOutputType(JSONWebKeyOutput{})
 	pulumi.RegisterOutputType(JSONWebKeyArrayOutput{})
 	pulumi.RegisterOutputType(JSONWebKeySetOutput{})

@@ -41,20 +41,23 @@ func NewBastionHost(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.DisableCopyPaste == nil {
+	if isZero(args.DisableCopyPaste) {
 		args.DisableCopyPaste = pulumi.BoolPtr(false)
 	}
-	if args.EnableFileCopy == nil {
+	if isZero(args.EnableFileCopy) {
 		args.EnableFileCopy = pulumi.BoolPtr(false)
 	}
-	if args.EnableIpConnect == nil {
+	if isZero(args.EnableIpConnect) {
 		args.EnableIpConnect = pulumi.BoolPtr(false)
 	}
-	if args.EnableShareableLink == nil {
+	if isZero(args.EnableShareableLink) {
 		args.EnableShareableLink = pulumi.BoolPtr(false)
 	}
-	if args.EnableTunneling == nil {
+	if isZero(args.EnableTunneling) {
 		args.EnableTunneling = pulumi.BoolPtr(false)
+	}
+	if args.Sku != nil {
+		args.Sku = args.Sku.ToSkuPtrOutput().ApplyT(func(v *Sku) *Sku { return v.Defaults() }).(SkuPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -188,7 +191,7 @@ type BastionHostInput interface {
 }
 
 func (*BastionHost) ElementType() reflect.Type {
-	return reflect.TypeOf((*BastionHost)(nil))
+	return reflect.TypeOf((**BastionHost)(nil)).Elem()
 }
 
 func (i *BastionHost) ToBastionHostOutput() BastionHostOutput {
@@ -202,7 +205,7 @@ func (i *BastionHost) ToBastionHostOutputWithContext(ctx context.Context) Bastio
 type BastionHostOutput struct{ *pulumi.OutputState }
 
 func (BastionHostOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BastionHost)(nil))
+	return reflect.TypeOf((**BastionHost)(nil)).Elem()
 }
 
 func (o BastionHostOutput) ToBastionHostOutput() BastionHostOutput {

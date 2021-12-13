@@ -144,7 +144,7 @@ type ManagedDatabaseSensitivityLabelInput interface {
 }
 
 func (*ManagedDatabaseSensitivityLabel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedDatabaseSensitivityLabel)(nil))
+	return reflect.TypeOf((**ManagedDatabaseSensitivityLabel)(nil)).Elem()
 }
 
 func (i *ManagedDatabaseSensitivityLabel) ToManagedDatabaseSensitivityLabelOutput() ManagedDatabaseSensitivityLabelOutput {
@@ -158,7 +158,7 @@ func (i *ManagedDatabaseSensitivityLabel) ToManagedDatabaseSensitivityLabelOutpu
 type ManagedDatabaseSensitivityLabelOutput struct{ *pulumi.OutputState }
 
 func (ManagedDatabaseSensitivityLabelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedDatabaseSensitivityLabel)(nil))
+	return reflect.TypeOf((**ManagedDatabaseSensitivityLabel)(nil)).Elem()
 }
 
 func (o ManagedDatabaseSensitivityLabelOutput) ToManagedDatabaseSensitivityLabelOutput() ManagedDatabaseSensitivityLabelOutput {

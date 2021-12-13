@@ -144,7 +144,7 @@ type QueueAuthorizationRuleInput interface {
 }
 
 func (*QueueAuthorizationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueueAuthorizationRule)(nil))
+	return reflect.TypeOf((**QueueAuthorizationRule)(nil)).Elem()
 }
 
 func (i *QueueAuthorizationRule) ToQueueAuthorizationRuleOutput() QueueAuthorizationRuleOutput {
@@ -158,7 +158,7 @@ func (i *QueueAuthorizationRule) ToQueueAuthorizationRuleOutputWithContext(ctx c
 type QueueAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (QueueAuthorizationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*QueueAuthorizationRule)(nil))
+	return reflect.TypeOf((**QueueAuthorizationRule)(nil)).Elem()
 }
 
 func (o QueueAuthorizationRuleOutput) ToQueueAuthorizationRuleOutput() QueueAuthorizationRuleOutput {

@@ -121,7 +121,7 @@ type KustoPoolInput interface {
 }
 
 func (*KustoPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoPool)(nil))
+	return reflect.TypeOf((**KustoPool)(nil)).Elem()
 }
 
 func (i *KustoPool) ToKustoPoolOutput() KustoPoolOutput {
@@ -135,7 +135,7 @@ func (i *KustoPool) ToKustoPoolOutputWithContext(ctx context.Context) KustoPoolO
 type KustoPoolOutput struct{ *pulumi.OutputState }
 
 func (KustoPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoPool)(nil))
+	return reflect.TypeOf((**KustoPool)(nil)).Elem()
 }
 
 func (o KustoPoolOutput) ToKustoPoolOutput() KustoPoolOutput {

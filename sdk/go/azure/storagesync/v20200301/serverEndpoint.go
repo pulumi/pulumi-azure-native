@@ -52,10 +52,10 @@ func NewServerEndpoint(ctx *pulumi.Context,
 	if args.SyncGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'SyncGroupName'")
 	}
-	if args.InitialDownloadPolicy == nil {
+	if isZero(args.InitialDownloadPolicy) {
 		args.InitialDownloadPolicy = pulumi.StringPtr("NamespaceThenModifiedFiles")
 	}
-	if args.LocalCacheMode == nil {
+	if isZero(args.LocalCacheMode) {
 		args.LocalCacheMode = pulumi.StringPtr("UpdateLocallyCachedFiles")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -169,7 +169,7 @@ type ServerEndpointInput interface {
 }
 
 func (*ServerEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerEndpoint)(nil))
+	return reflect.TypeOf((**ServerEndpoint)(nil)).Elem()
 }
 
 func (i *ServerEndpoint) ToServerEndpointOutput() ServerEndpointOutput {
@@ -183,7 +183,7 @@ func (i *ServerEndpoint) ToServerEndpointOutputWithContext(ctx context.Context) 
 type ServerEndpointOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerEndpoint)(nil))
+	return reflect.TypeOf((**ServerEndpoint)(nil)).Elem()
 }
 
 func (o ServerEndpointOutput) ToServerEndpointOutput() ServerEndpointOutput {

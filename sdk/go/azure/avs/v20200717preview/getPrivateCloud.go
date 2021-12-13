@@ -13,7 +13,7 @@ func LookupPrivateCloud(ctx *pulumi.Context, args *LookupPrivateCloudArgs, opts 
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPrivateCloudArgs struct {
@@ -43,4 +43,17 @@ type LookupPrivateCloudResult struct {
 	VcenterCertificateThumbprint string                    `pulumi:"vcenterCertificateThumbprint"`
 	VcenterPassword              *string                   `pulumi:"vcenterPassword"`
 	VmotionNetwork               string                    `pulumi:"vmotionNetwork"`
+}
+
+
+func (val *LookupPrivateCloudResult) Defaults() *LookupPrivateCloudResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Internet) {
+		internet_ := "Disabled"
+		tmp.Internet = &internet_
+	}
+	return &tmp
 }

@@ -127,7 +127,7 @@ type KubeEnvironmentInput interface {
 }
 
 func (*KubeEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubeEnvironment)(nil))
+	return reflect.TypeOf((**KubeEnvironment)(nil)).Elem()
 }
 
 func (i *KubeEnvironment) ToKubeEnvironmentOutput() KubeEnvironmentOutput {
@@ -141,7 +141,7 @@ func (i *KubeEnvironment) ToKubeEnvironmentOutputWithContext(ctx context.Context
 type KubeEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (KubeEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubeEnvironment)(nil))
+	return reflect.TypeOf((**KubeEnvironment)(nil)).Elem()
 }
 
 func (o KubeEnvironmentOutput) ToKubeEnvironmentOutput() KubeEnvironmentOutput {

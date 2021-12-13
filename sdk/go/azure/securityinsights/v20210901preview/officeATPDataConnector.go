@@ -122,7 +122,7 @@ type OfficeATPDataConnectorInput interface {
 }
 
 func (*OfficeATPDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*OfficeATPDataConnector)(nil))
+	return reflect.TypeOf((**OfficeATPDataConnector)(nil)).Elem()
 }
 
 func (i *OfficeATPDataConnector) ToOfficeATPDataConnectorOutput() OfficeATPDataConnectorOutput {
@@ -136,7 +136,7 @@ func (i *OfficeATPDataConnector) ToOfficeATPDataConnectorOutputWithContext(ctx c
 type OfficeATPDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (OfficeATPDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OfficeATPDataConnector)(nil))
+	return reflect.TypeOf((**OfficeATPDataConnector)(nil)).Elem()
 }
 
 func (o OfficeATPDataConnectorOutput) ToOfficeATPDataConnectorOutput() OfficeATPDataConnectorOutput {

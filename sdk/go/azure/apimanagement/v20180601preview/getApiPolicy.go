@@ -13,7 +13,7 @@ func LookupApiPolicy(ctx *pulumi.Context, args *LookupApiPolicyArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupApiPolicyArgs struct {
@@ -30,4 +30,17 @@ type LookupApiPolicyResult struct {
 	Name          string  `pulumi:"name"`
 	PolicyContent string  `pulumi:"policyContent"`
 	Type          string  `pulumi:"type"`
+}
+
+
+func (val *LookupApiPolicyResult) Defaults() *LookupApiPolicyResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ContentFormat) {
+		contentFormat_ := "xml"
+		tmp.ContentFormat = &contentFormat_
+	}
+	return &tmp
 }

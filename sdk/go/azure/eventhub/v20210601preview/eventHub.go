@@ -127,7 +127,7 @@ type EventHubInput interface {
 }
 
 func (*EventHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHub)(nil))
+	return reflect.TypeOf((**EventHub)(nil)).Elem()
 }
 
 func (i *EventHub) ToEventHubOutput() EventHubOutput {
@@ -141,7 +141,7 @@ func (i *EventHub) ToEventHubOutputWithContext(ctx context.Context) EventHubOutp
 type EventHubOutput struct{ *pulumi.OutputState }
 
 func (EventHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHub)(nil))
+	return reflect.TypeOf((**EventHub)(nil)).Elem()
 }
 
 func (o EventHubOutput) ToEventHubOutput() EventHubOutput {

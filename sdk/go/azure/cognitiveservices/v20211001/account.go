@@ -36,6 +36,9 @@ func NewAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToAccountPropertiesPtrOutput().ApplyT(func(v *AccountProperties) *AccountProperties { return v.Defaults() }).(AccountPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:cognitiveservices:Account"),
@@ -117,7 +120,7 @@ type AccountInput interface {
 }
 
 func (*Account) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (i *Account) ToAccountOutput() AccountOutput {
@@ -131,7 +134,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (o AccountOutput) ToAccountOutput() AccountOutput {

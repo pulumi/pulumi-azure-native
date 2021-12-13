@@ -66,13 +66,13 @@ func NewManagedCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ClientConnectionPort == nil {
+	if isZero(args.ClientConnectionPort) {
 		args.ClientConnectionPort = pulumi.IntPtr(19000)
 	}
-	if args.HttpGatewayConnectionPort == nil {
+	if isZero(args.HttpGatewayConnectionPort) {
 		args.HttpGatewayConnectionPort = pulumi.IntPtr(19080)
 	}
-	if args.ZonalResiliency == nil {
+	if isZero(args.ZonalResiliency) {
 		args.ZonalResiliency = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -198,7 +198,7 @@ type ManagedClusterInput interface {
 }
 
 func (*ManagedCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedCluster)(nil))
+	return reflect.TypeOf((**ManagedCluster)(nil)).Elem()
 }
 
 func (i *ManagedCluster) ToManagedClusterOutput() ManagedClusterOutput {
@@ -212,7 +212,7 @@ func (i *ManagedCluster) ToManagedClusterOutputWithContext(ctx context.Context) 
 type ManagedClusterOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedCluster)(nil))
+	return reflect.TypeOf((**ManagedCluster)(nil)).Elem()
 }
 
 func (o ManagedClusterOutput) ToManagedClusterOutput() ManagedClusterOutput {

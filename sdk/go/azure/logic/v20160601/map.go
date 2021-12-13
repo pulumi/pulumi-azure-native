@@ -129,7 +129,7 @@ type MapInput interface {
 }
 
 func (*Map) ElementType() reflect.Type {
-	return reflect.TypeOf((*Map)(nil))
+	return reflect.TypeOf((**Map)(nil)).Elem()
 }
 
 func (i *Map) ToMapOutput() MapOutput {
@@ -143,7 +143,7 @@ func (i *Map) ToMapOutputWithContext(ctx context.Context) MapOutput {
 type MapOutput struct{ *pulumi.OutputState }
 
 func (MapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Map)(nil))
+	return reflect.TypeOf((**Map)(nil)).Elem()
 }
 
 func (o MapOutput) ToMapOutput() MapOutput {

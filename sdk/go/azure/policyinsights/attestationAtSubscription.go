@@ -110,7 +110,7 @@ type AttestationAtSubscriptionInput interface {
 }
 
 func (*AttestationAtSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttestationAtSubscription)(nil))
+	return reflect.TypeOf((**AttestationAtSubscription)(nil)).Elem()
 }
 
 func (i *AttestationAtSubscription) ToAttestationAtSubscriptionOutput() AttestationAtSubscriptionOutput {
@@ -124,7 +124,7 @@ func (i *AttestationAtSubscription) ToAttestationAtSubscriptionOutputWithContext
 type AttestationAtSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (AttestationAtSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttestationAtSubscription)(nil))
+	return reflect.TypeOf((**AttestationAtSubscription)(nil)).Elem()
 }
 
 func (o AttestationAtSubscriptionOutput) ToAttestationAtSubscriptionOutput() AttestationAtSubscriptionOutput {

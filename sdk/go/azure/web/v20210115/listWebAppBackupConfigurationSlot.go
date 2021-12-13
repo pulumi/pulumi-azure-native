@@ -13,7 +13,7 @@ func ListWebAppBackupConfigurationSlot(ctx *pulumi.Context, args *ListWebAppBack
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type ListWebAppBackupConfigurationSlotArgs struct {
@@ -33,4 +33,15 @@ type ListWebAppBackupConfigurationSlotResult struct {
 	Name              string                          `pulumi:"name"`
 	StorageAccountUrl string                          `pulumi:"storageAccountUrl"`
 	Type              string                          `pulumi:"type"`
+}
+
+
+func (val *ListWebAppBackupConfigurationSlotResult) Defaults() *ListWebAppBackupConfigurationSlotResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.BackupSchedule = tmp.BackupSchedule.Defaults()
+
+	return &tmp
 }

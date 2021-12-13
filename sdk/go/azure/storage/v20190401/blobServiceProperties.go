@@ -132,7 +132,7 @@ type BlobServicePropertiesInput interface {
 }
 
 func (*BlobServiceProperties) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobServiceProperties)(nil))
+	return reflect.TypeOf((**BlobServiceProperties)(nil)).Elem()
 }
 
 func (i *BlobServiceProperties) ToBlobServicePropertiesOutput() BlobServicePropertiesOutput {
@@ -146,7 +146,7 @@ func (i *BlobServiceProperties) ToBlobServicePropertiesOutputWithContext(ctx con
 type BlobServicePropertiesOutput struct{ *pulumi.OutputState }
 
 func (BlobServicePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobServiceProperties)(nil))
+	return reflect.TypeOf((**BlobServiceProperties)(nil)).Elem()
 }
 
 func (o BlobServicePropertiesOutput) ToBlobServicePropertiesOutput() BlobServicePropertiesOutput {

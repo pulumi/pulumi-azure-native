@@ -169,7 +169,7 @@ type VirtualMachineResourceInput interface {
 }
 
 func (*VirtualMachineResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineResource)(nil))
+	return reflect.TypeOf((**VirtualMachineResource)(nil)).Elem()
 }
 
 func (i *VirtualMachineResource) ToVirtualMachineResourceOutput() VirtualMachineResourceOutput {
@@ -183,7 +183,7 @@ func (i *VirtualMachineResource) ToVirtualMachineResourceOutputWithContext(ctx c
 type VirtualMachineResourceOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineResource)(nil))
+	return reflect.TypeOf((**VirtualMachineResource)(nil)).Elem()
 }
 
 func (o VirtualMachineResourceOutput) ToVirtualMachineResourceOutput() VirtualMachineResourceOutput {

@@ -119,63 +119,6 @@ type AccessReviewInstanceResponse struct {
 	Type          string  `pulumi:"type"`
 }
 
-
-
-
-
-type AccessReviewInstanceResponseInput interface {
-	pulumi.Input
-
-	ToAccessReviewInstanceResponseOutput() AccessReviewInstanceResponseOutput
-	ToAccessReviewInstanceResponseOutputWithContext(context.Context) AccessReviewInstanceResponseOutput
-}
-
-type AccessReviewInstanceResponseArgs struct {
-	EndDateTime   pulumi.StringPtrInput `pulumi:"endDateTime"`
-	Id            pulumi.StringInput    `pulumi:"id"`
-	Name          pulumi.StringInput    `pulumi:"name"`
-	StartDateTime pulumi.StringPtrInput `pulumi:"startDateTime"`
-	Status        pulumi.StringInput    `pulumi:"status"`
-	Type          pulumi.StringInput    `pulumi:"type"`
-}
-
-func (AccessReviewInstanceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewInstanceResponse)(nil)).Elem()
-}
-
-func (i AccessReviewInstanceResponseArgs) ToAccessReviewInstanceResponseOutput() AccessReviewInstanceResponseOutput {
-	return i.ToAccessReviewInstanceResponseOutputWithContext(context.Background())
-}
-
-func (i AccessReviewInstanceResponseArgs) ToAccessReviewInstanceResponseOutputWithContext(ctx context.Context) AccessReviewInstanceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewInstanceResponseOutput)
-}
-
-
-
-
-
-type AccessReviewInstanceResponseArrayInput interface {
-	pulumi.Input
-
-	ToAccessReviewInstanceResponseArrayOutput() AccessReviewInstanceResponseArrayOutput
-	ToAccessReviewInstanceResponseArrayOutputWithContext(context.Context) AccessReviewInstanceResponseArrayOutput
-}
-
-type AccessReviewInstanceResponseArray []AccessReviewInstanceResponseInput
-
-func (AccessReviewInstanceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewInstanceResponse)(nil)).Elem()
-}
-
-func (i AccessReviewInstanceResponseArray) ToAccessReviewInstanceResponseArrayOutput() AccessReviewInstanceResponseArrayOutput {
-	return i.ToAccessReviewInstanceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AccessReviewInstanceResponseArray) ToAccessReviewInstanceResponseArrayOutputWithContext(ctx context.Context) AccessReviewInstanceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewInstanceResponseArrayOutput)
-}
-
 type AccessReviewInstanceResponseOutput struct{ *pulumi.OutputState }
 
 func (AccessReviewInstanceResponseOutput) ElementType() reflect.Type {
@@ -331,59 +274,6 @@ func (o AccessReviewReviewerArrayOutput) Index(i pulumi.IntInput) AccessReviewRe
 type AccessReviewReviewerResponse struct {
 	PrincipalId   *string `pulumi:"principalId"`
 	PrincipalType string  `pulumi:"principalType"`
-}
-
-
-
-
-
-type AccessReviewReviewerResponseInput interface {
-	pulumi.Input
-
-	ToAccessReviewReviewerResponseOutput() AccessReviewReviewerResponseOutput
-	ToAccessReviewReviewerResponseOutputWithContext(context.Context) AccessReviewReviewerResponseOutput
-}
-
-type AccessReviewReviewerResponseArgs struct {
-	PrincipalId   pulumi.StringPtrInput `pulumi:"principalId"`
-	PrincipalType pulumi.StringInput    `pulumi:"principalType"`
-}
-
-func (AccessReviewReviewerResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessReviewReviewerResponse)(nil)).Elem()
-}
-
-func (i AccessReviewReviewerResponseArgs) ToAccessReviewReviewerResponseOutput() AccessReviewReviewerResponseOutput {
-	return i.ToAccessReviewReviewerResponseOutputWithContext(context.Background())
-}
-
-func (i AccessReviewReviewerResponseArgs) ToAccessReviewReviewerResponseOutputWithContext(ctx context.Context) AccessReviewReviewerResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewReviewerResponseOutput)
-}
-
-
-
-
-
-type AccessReviewReviewerResponseArrayInput interface {
-	pulumi.Input
-
-	ToAccessReviewReviewerResponseArrayOutput() AccessReviewReviewerResponseArrayOutput
-	ToAccessReviewReviewerResponseArrayOutputWithContext(context.Context) AccessReviewReviewerResponseArrayOutput
-}
-
-type AccessReviewReviewerResponseArray []AccessReviewReviewerResponseInput
-
-func (AccessReviewReviewerResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AccessReviewReviewerResponse)(nil)).Elem()
-}
-
-func (i AccessReviewReviewerResponseArray) ToAccessReviewReviewerResponseArrayOutput() AccessReviewReviewerResponseArrayOutput {
-	return i.ToAccessReviewReviewerResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AccessReviewReviewerResponseArray) ToAccessReviewReviewerResponseArrayOutputWithContext(ctx context.Context) AccessReviewReviewerResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessReviewReviewerResponseArrayOutput)
 }
 
 type AccessReviewReviewerResponseOutput struct{ *pulumi.OutputState }

@@ -52,6 +52,13 @@ func NewJobStep(ctx *pulumi.Context,
 	if args.TargetGroup == nil {
 		return nil, errors.New("invalid value for required argument 'TargetGroup'")
 	}
+	args.Action = args.Action.ToJobStepActionOutput().ApplyT(func(v JobStepAction) JobStepAction { return *v.Defaults() }).(JobStepActionOutput)
+	if args.ExecutionOptions != nil {
+		args.ExecutionOptions = args.ExecutionOptions.ToJobStepExecutionOptionsPtrOutput().ApplyT(func(v *JobStepExecutionOptions) *JobStepExecutionOptions { return v.Defaults() }).(JobStepExecutionOptionsPtrOutput)
+	}
+	if args.Output != nil {
+		args.Output = args.Output.ToJobStepOutputTypePtrOutput().ApplyT(func(v *JobStepOutputType) *JobStepOutputType { return v.Defaults() }).(JobStepOutputTypePtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:sql/v20170301preview:JobStep"),
@@ -145,7 +152,7 @@ type JobStepInput interface {
 }
 
 func (*JobStep) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStep)(nil))
+	return reflect.TypeOf((**JobStep)(nil)).Elem()
 }
 
 func (i *JobStep) ToJobStepOutput() JobStepOutput {
@@ -159,7 +166,7 @@ func (i *JobStep) ToJobStepOutputWithContext(ctx context.Context) JobStepOutput 
 type JobStepOutput struct{ *pulumi.OutputState }
 
 func (JobStepOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobStep)(nil))
+	return reflect.TypeOf((**JobStep)(nil)).Elem()
 }
 
 func (o JobStepOutput) ToJobStepOutput() JobStepOutput {

@@ -143,7 +143,7 @@ type SqlPoolWorkloadGroupInput interface {
 }
 
 func (*SqlPoolWorkloadGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadGroup)(nil))
+	return reflect.TypeOf((**SqlPoolWorkloadGroup)(nil)).Elem()
 }
 
 func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutput() SqlPoolWorkloadGroupOutput {
@@ -157,7 +157,7 @@ func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutputWithContext(ctx conte
 type SqlPoolWorkloadGroupOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadGroup)(nil))
+	return reflect.TypeOf((**SqlPoolWorkloadGroup)(nil)).Elem()
 }
 
 func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupOutput() SqlPoolWorkloadGroupOutput {

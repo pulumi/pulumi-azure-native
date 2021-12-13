@@ -50,6 +50,7 @@ func NewDatabaseAccountGremlinGraph(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	args.Resource = args.Resource.ToGremlinGraphResourceOutput().ApplyT(func(v GremlinGraphResource) GremlinGraphResource { return *v.Defaults() }).(GremlinGraphResourceOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:documentdb:DatabaseAccountGremlinGraph"),
@@ -178,7 +179,7 @@ type DatabaseAccountGremlinGraphInput interface {
 }
 
 func (*DatabaseAccountGremlinGraph) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinGraph)(nil))
+	return reflect.TypeOf((**DatabaseAccountGremlinGraph)(nil)).Elem()
 }
 
 func (i *DatabaseAccountGremlinGraph) ToDatabaseAccountGremlinGraphOutput() DatabaseAccountGremlinGraphOutput {
@@ -192,7 +193,7 @@ func (i *DatabaseAccountGremlinGraph) ToDatabaseAccountGremlinGraphOutputWithCon
 type DatabaseAccountGremlinGraphOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountGremlinGraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountGremlinGraph)(nil))
+	return reflect.TypeOf((**DatabaseAccountGremlinGraph)(nil)).Elem()
 }
 
 func (o DatabaseAccountGremlinGraphOutput) ToDatabaseAccountGremlinGraphOutput() DatabaseAccountGremlinGraphOutput {

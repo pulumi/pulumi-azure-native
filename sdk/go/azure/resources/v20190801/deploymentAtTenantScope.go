@@ -113,7 +113,7 @@ type DeploymentAtTenantScopeInput interface {
 }
 
 func (*DeploymentAtTenantScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtTenantScope)(nil))
+	return reflect.TypeOf((**DeploymentAtTenantScope)(nil)).Elem()
 }
 
 func (i *DeploymentAtTenantScope) ToDeploymentAtTenantScopeOutput() DeploymentAtTenantScopeOutput {
@@ -127,7 +127,7 @@ func (i *DeploymentAtTenantScope) ToDeploymentAtTenantScopeOutputWithContext(ctx
 type DeploymentAtTenantScopeOutput struct{ *pulumi.OutputState }
 
 func (DeploymentAtTenantScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtTenantScope)(nil))
+	return reflect.TypeOf((**DeploymentAtTenantScope)(nil)).Elem()
 }
 
 func (o DeploymentAtTenantScopeOutput) ToDeploymentAtTenantScopeOutput() DeploymentAtTenantScopeOutput {

@@ -107,7 +107,7 @@ type SubscriptionDiagnosticSettingInput interface {
 }
 
 func (*SubscriptionDiagnosticSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionDiagnosticSetting)(nil))
+	return reflect.TypeOf((**SubscriptionDiagnosticSetting)(nil)).Elem()
 }
 
 func (i *SubscriptionDiagnosticSetting) ToSubscriptionDiagnosticSettingOutput() SubscriptionDiagnosticSettingOutput {
@@ -121,7 +121,7 @@ func (i *SubscriptionDiagnosticSetting) ToSubscriptionDiagnosticSettingOutputWit
 type SubscriptionDiagnosticSettingOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionDiagnosticSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionDiagnosticSetting)(nil))
+	return reflect.TypeOf((**SubscriptionDiagnosticSetting)(nil)).Elem()
 }
 
 func (o SubscriptionDiagnosticSettingOutput) ToSubscriptionDiagnosticSettingOutput() SubscriptionDiagnosticSettingOutput {

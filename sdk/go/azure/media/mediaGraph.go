@@ -114,7 +114,7 @@ type MediaGraphInput interface {
 }
 
 func (*MediaGraph) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaGraph)(nil))
+	return reflect.TypeOf((**MediaGraph)(nil)).Elem()
 }
 
 func (i *MediaGraph) ToMediaGraphOutput() MediaGraphOutput {
@@ -128,7 +128,7 @@ func (i *MediaGraph) ToMediaGraphOutputWithContext(ctx context.Context) MediaGra
 type MediaGraphOutput struct{ *pulumi.OutputState }
 
 func (MediaGraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaGraph)(nil))
+	return reflect.TypeOf((**MediaGraph)(nil)).Elem()
 }
 
 func (o MediaGraphOutput) ToMediaGraphOutput() MediaGraphOutput {

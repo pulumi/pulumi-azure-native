@@ -41,8 +41,11 @@ func NewRegistry(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	if args.AdminUserEnabled == nil {
+	if isZero(args.AdminUserEnabled) {
 		args.AdminUserEnabled = pulumi.BoolPtr(false)
+	}
+	if args.NetworkRuleSet != nil {
+		args.NetworkRuleSet = args.NetworkRuleSet.ToNetworkRuleSetPtrOutput().ApplyT(func(v *NetworkRuleSet) *NetworkRuleSet { return v.Defaults() }).(NetworkRuleSetPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -143,7 +146,7 @@ type RegistryInput interface {
 }
 
 func (*Registry) ElementType() reflect.Type {
-	return reflect.TypeOf((*Registry)(nil))
+	return reflect.TypeOf((**Registry)(nil)).Elem()
 }
 
 func (i *Registry) ToRegistryOutput() RegistryOutput {
@@ -157,7 +160,7 @@ func (i *Registry) ToRegistryOutputWithContext(ctx context.Context) RegistryOutp
 type RegistryOutput struct{ *pulumi.OutputState }
 
 func (RegistryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Registry)(nil))
+	return reflect.TypeOf((**Registry)(nil)).Elem()
 }
 
 func (o RegistryOutput) ToRegistryOutput() RegistryOutput {

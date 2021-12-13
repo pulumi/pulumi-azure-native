@@ -43,6 +43,12 @@ func NewCache(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.DirectoryServicesSettings != nil {
+		args.DirectoryServicesSettings = args.DirectoryServicesSettings.ToCacheDirectorySettingsPtrOutput().ApplyT(func(v *CacheDirectorySettings) *CacheDirectorySettings { return v.Defaults() }).(CacheDirectorySettingsPtrOutput)
+	}
+	if args.NetworkSettings != nil {
+		args.NetworkSettings = args.NetworkSettings.ToCacheNetworkSettingsPtrOutput().ApplyT(func(v *CacheNetworkSettings) *CacheNetworkSettings { return v.Defaults() }).(CacheNetworkSettingsPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:storagecache:Cache"),
@@ -141,7 +147,7 @@ type CacheInput interface {
 }
 
 func (*Cache) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cache)(nil))
+	return reflect.TypeOf((**Cache)(nil)).Elem()
 }
 
 func (i *Cache) ToCacheOutput() CacheOutput {
@@ -155,7 +161,7 @@ func (i *Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 type CacheOutput struct{ *pulumi.OutputState }
 
 func (CacheOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cache)(nil))
+	return reflect.TypeOf((**Cache)(nil)).Elem()
 }
 
 func (o CacheOutput) ToCacheOutput() CacheOutput {

@@ -153,7 +153,7 @@ type RecordSetInput interface {
 }
 
 func (*RecordSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecordSet)(nil))
+	return reflect.TypeOf((**RecordSet)(nil)).Elem()
 }
 
 func (i *RecordSet) ToRecordSetOutput() RecordSetOutput {
@@ -167,7 +167,7 @@ func (i *RecordSet) ToRecordSetOutputWithContext(ctx context.Context) RecordSetO
 type RecordSetOutput struct{ *pulumi.OutputState }
 
 func (RecordSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecordSet)(nil))
+	return reflect.TypeOf((**RecordSet)(nil)).Elem()
 }
 
 func (o RecordSetOutput) ToRecordSetOutput() RecordSetOutput {

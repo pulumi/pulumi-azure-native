@@ -106,7 +106,7 @@ type SiteInput interface {
 }
 
 func (*Site) ElementType() reflect.Type {
-	return reflect.TypeOf((*Site)(nil))
+	return reflect.TypeOf((**Site)(nil)).Elem()
 }
 
 func (i *Site) ToSiteOutput() SiteOutput {
@@ -120,7 +120,7 @@ func (i *Site) ToSiteOutputWithContext(ctx context.Context) SiteOutput {
 type SiteOutput struct{ *pulumi.OutputState }
 
 func (SiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Site)(nil))
+	return reflect.TypeOf((**Site)(nil)).Elem()
 }
 
 func (o SiteOutput) ToSiteOutput() SiteOutput {

@@ -141,7 +141,7 @@ type BatchAccountInput interface {
 }
 
 func (*BatchAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccount)(nil))
+	return reflect.TypeOf((**BatchAccount)(nil)).Elem()
 }
 
 func (i *BatchAccount) ToBatchAccountOutput() BatchAccountOutput {
@@ -155,7 +155,7 @@ func (i *BatchAccount) ToBatchAccountOutputWithContext(ctx context.Context) Batc
 type BatchAccountOutput struct{ *pulumi.OutputState }
 
 func (BatchAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccount)(nil))
+	return reflect.TypeOf((**BatchAccount)(nil)).Elem()
 }
 
 func (o BatchAccountOutput) ToBatchAccountOutput() BatchAccountOutput {

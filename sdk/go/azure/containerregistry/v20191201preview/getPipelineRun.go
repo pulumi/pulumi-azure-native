@@ -13,7 +13,7 @@ func LookupPipelineRun(ctx *pulumi.Context, args *LookupPipelineRunArgs, opts ..
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPipelineRunArgs struct {
@@ -32,4 +32,17 @@ type LookupPipelineRunResult struct {
 	Response          PipelineRunResponseResponse `pulumi:"response"`
 	SystemData        SystemDataResponse          `pulumi:"systemData"`
 	Type              string                      `pulumi:"type"`
+}
+
+
+func (val *LookupPipelineRunResult) Defaults() *LookupPipelineRunResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Request = tmp.Request.Defaults()
+
+	tmp.Response = *tmp.Response.Defaults()
+
+	return &tmp
 }

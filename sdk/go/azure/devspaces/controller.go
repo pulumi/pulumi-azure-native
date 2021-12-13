@@ -115,7 +115,7 @@ type ControllerInput interface {
 }
 
 func (*Controller) ElementType() reflect.Type {
-	return reflect.TypeOf((*Controller)(nil))
+	return reflect.TypeOf((**Controller)(nil)).Elem()
 }
 
 func (i *Controller) ToControllerOutput() ControllerOutput {
@@ -129,7 +129,7 @@ func (i *Controller) ToControllerOutputWithContext(ctx context.Context) Controll
 type ControllerOutput struct{ *pulumi.OutputState }
 
 func (ControllerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Controller)(nil))
+	return reflect.TypeOf((**Controller)(nil)).Elem()
 }
 
 func (o ControllerOutput) ToControllerOutput() ControllerOutput {

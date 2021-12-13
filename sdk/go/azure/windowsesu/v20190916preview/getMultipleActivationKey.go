@@ -13,7 +13,7 @@ func LookupMultipleActivationKey(ctx *pulumi.Context, args *LookupMultipleActiva
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupMultipleActivationKeyArgs struct {
@@ -36,4 +36,17 @@ type LookupMultipleActivationKeyResult struct {
 	SupportType           *string           `pulumi:"supportType"`
 	Tags                  map[string]string `pulumi:"tags"`
 	Type                  string            `pulumi:"type"`
+}
+
+
+func (val *LookupMultipleActivationKeyResult) Defaults() *LookupMultipleActivationKeyResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SupportType) {
+		supportType_ := "SupplementalServicing"
+		tmp.SupportType = &supportType_
+	}
+	return &tmp
 }

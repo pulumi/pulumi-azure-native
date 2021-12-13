@@ -142,7 +142,7 @@ type ExtensionInput interface {
 }
 
 func (*Extension) ElementType() reflect.Type {
-	return reflect.TypeOf((*Extension)(nil))
+	return reflect.TypeOf((**Extension)(nil)).Elem()
 }
 
 func (i *Extension) ToExtensionOutput() ExtensionOutput {
@@ -156,7 +156,7 @@ func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionO
 type ExtensionOutput struct{ *pulumi.OutputState }
 
 func (ExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Extension)(nil))
+	return reflect.TypeOf((**Extension)(nil)).Elem()
 }
 
 func (o ExtensionOutput) ToExtensionOutput() ExtensionOutput {

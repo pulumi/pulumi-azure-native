@@ -13,7 +13,7 @@ func LookupPrivateEndpoint(ctx *pulumi.Context, args *LookupPrivateEndpointArgs,
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPrivateEndpointArgs struct {
@@ -36,4 +36,15 @@ type LookupPrivateEndpointResult struct {
 	Subnet                              *SubnetResponse                           `pulumi:"subnet"`
 	Tags                                map[string]string                         `pulumi:"tags"`
 	Type                                string                                    `pulumi:"type"`
+}
+
+
+func (val *LookupPrivateEndpointResult) Defaults() *LookupPrivateEndpointResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
 }

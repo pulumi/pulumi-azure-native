@@ -158,7 +158,7 @@ type FirewallPolicyInput interface {
 }
 
 func (*FirewallPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicy)(nil))
+	return reflect.TypeOf((**FirewallPolicy)(nil)).Elem()
 }
 
 func (i *FirewallPolicy) ToFirewallPolicyOutput() FirewallPolicyOutput {
@@ -172,7 +172,7 @@ func (i *FirewallPolicy) ToFirewallPolicyOutputWithContext(ctx context.Context) 
 type FirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallPolicy)(nil))
+	return reflect.TypeOf((**FirewallPolicy)(nil)).Elem()
 }
 
 func (o FirewallPolicyOutput) ToFirewallPolicyOutput() FirewallPolicyOutput {

@@ -102,7 +102,7 @@ type HybridIdentityMetadatumInput interface {
 }
 
 func (*HybridIdentityMetadatum) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridIdentityMetadatum)(nil))
+	return reflect.TypeOf((**HybridIdentityMetadatum)(nil)).Elem()
 }
 
 func (i *HybridIdentityMetadatum) ToHybridIdentityMetadatumOutput() HybridIdentityMetadatumOutput {
@@ -116,7 +116,7 @@ func (i *HybridIdentityMetadatum) ToHybridIdentityMetadatumOutputWithContext(ctx
 type HybridIdentityMetadatumOutput struct{ *pulumi.OutputState }
 
 func (HybridIdentityMetadatumOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridIdentityMetadatum)(nil))
+	return reflect.TypeOf((**HybridIdentityMetadatum)(nil)).Elem()
 }
 
 func (o HybridIdentityMetadatumOutput) ToHybridIdentityMetadatumOutput() HybridIdentityMetadatumOutput {

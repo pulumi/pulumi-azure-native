@@ -108,7 +108,7 @@ type RemoteRenderingAccountInput interface {
 }
 
 func (*RemoteRenderingAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteRenderingAccount)(nil))
+	return reflect.TypeOf((**RemoteRenderingAccount)(nil)).Elem()
 }
 
 func (i *RemoteRenderingAccount) ToRemoteRenderingAccountOutput() RemoteRenderingAccountOutput {
@@ -122,7 +122,7 @@ func (i *RemoteRenderingAccount) ToRemoteRenderingAccountOutputWithContext(ctx c
 type RemoteRenderingAccountOutput struct{ *pulumi.OutputState }
 
 func (RemoteRenderingAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoteRenderingAccount)(nil))
+	return reflect.TypeOf((**RemoteRenderingAccount)(nil)).Elem()
 }
 
 func (o RemoteRenderingAccountOutput) ToRemoteRenderingAccountOutput() RemoteRenderingAccountOutput {

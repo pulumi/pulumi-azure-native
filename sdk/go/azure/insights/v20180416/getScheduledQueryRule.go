@@ -13,7 +13,7 @@ func LookupScheduledQueryRule(ctx *pulumi.Context, args *LookupScheduledQueryRul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupScheduledQueryRuleArgs struct {
@@ -41,4 +41,17 @@ type LookupScheduledQueryRuleResult struct {
 	Source                   SourceResponse    `pulumi:"source"`
 	Tags                     map[string]string `pulumi:"tags"`
 	Type                     string            `pulumi:"type"`
+}
+
+
+func (val *LookupScheduledQueryRuleResult) Defaults() *LookupScheduledQueryRuleResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AutoMitigate) {
+		autoMitigate_ := false
+		tmp.AutoMitigate = &autoMitigate_
+	}
+	return &tmp
 }

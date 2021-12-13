@@ -17,6 +17,19 @@ type ArmRoleReceiver struct {
 }
 
 
+func (val *ArmRoleReceiver) Defaults() *ArmRoleReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -123,57 +136,16 @@ type ArmRoleReceiverResponse struct {
 }
 
 
-
-
-
-type ArmRoleReceiverResponseInput interface {
-	pulumi.Input
-
-	ToArmRoleReceiverResponseOutput() ArmRoleReceiverResponseOutput
-	ToArmRoleReceiverResponseOutputWithContext(context.Context) ArmRoleReceiverResponseOutput
-}
-
-type ArmRoleReceiverResponseArgs struct {
-	Name                 pulumi.StringInput  `pulumi:"name"`
-	RoleId               pulumi.StringInput  `pulumi:"roleId"`
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
-}
-
-func (ArmRoleReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmRoleReceiverResponse)(nil)).Elem()
-}
-
-func (i ArmRoleReceiverResponseArgs) ToArmRoleReceiverResponseOutput() ArmRoleReceiverResponseOutput {
-	return i.ToArmRoleReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i ArmRoleReceiverResponseArgs) ToArmRoleReceiverResponseOutputWithContext(ctx context.Context) ArmRoleReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmRoleReceiverResponseOutput)
-}
-
-
-
-
-
-type ArmRoleReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToArmRoleReceiverResponseArrayOutput() ArmRoleReceiverResponseArrayOutput
-	ToArmRoleReceiverResponseArrayOutputWithContext(context.Context) ArmRoleReceiverResponseArrayOutput
-}
-
-type ArmRoleReceiverResponseArray []ArmRoleReceiverResponseInput
-
-func (ArmRoleReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ArmRoleReceiverResponse)(nil)).Elem()
-}
-
-func (i ArmRoleReceiverResponseArray) ToArmRoleReceiverResponseArrayOutput() ArmRoleReceiverResponseArrayOutput {
-	return i.ToArmRoleReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ArmRoleReceiverResponseArray) ToArmRoleReceiverResponseArrayOutputWithContext(ctx context.Context) ArmRoleReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmRoleReceiverResponseArrayOutput)
+func (val *ArmRoleReceiverResponse) Defaults() *ArmRoleReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 type ArmRoleReceiverResponseOutput struct{ *pulumi.OutputState }
@@ -230,6 +202,19 @@ type AutomationRunbookReceiver struct {
 	ServiceUri           *string `pulumi:"serviceUri"`
 	UseCommonAlertSchema *bool   `pulumi:"useCommonAlertSchema"`
 	WebhookResourceId    string  `pulumi:"webhookResourceId"`
+}
+
+
+func (val *AutomationRunbookReceiver) Defaults() *AutomationRunbookReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -363,61 +348,16 @@ type AutomationRunbookReceiverResponse struct {
 }
 
 
-
-
-
-type AutomationRunbookReceiverResponseInput interface {
-	pulumi.Input
-
-	ToAutomationRunbookReceiverResponseOutput() AutomationRunbookReceiverResponseOutput
-	ToAutomationRunbookReceiverResponseOutputWithContext(context.Context) AutomationRunbookReceiverResponseOutput
-}
-
-type AutomationRunbookReceiverResponseArgs struct {
-	AutomationAccountId  pulumi.StringInput    `pulumi:"automationAccountId"`
-	IsGlobalRunbook      pulumi.BoolInput      `pulumi:"isGlobalRunbook"`
-	Name                 pulumi.StringPtrInput `pulumi:"name"`
-	RunbookName          pulumi.StringInput    `pulumi:"runbookName"`
-	ServiceUri           pulumi.StringPtrInput `pulumi:"serviceUri"`
-	UseCommonAlertSchema pulumi.BoolPtrInput   `pulumi:"useCommonAlertSchema"`
-	WebhookResourceId    pulumi.StringInput    `pulumi:"webhookResourceId"`
-}
-
-func (AutomationRunbookReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRunbookReceiverResponse)(nil)).Elem()
-}
-
-func (i AutomationRunbookReceiverResponseArgs) ToAutomationRunbookReceiverResponseOutput() AutomationRunbookReceiverResponseOutput {
-	return i.ToAutomationRunbookReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i AutomationRunbookReceiverResponseArgs) ToAutomationRunbookReceiverResponseOutputWithContext(ctx context.Context) AutomationRunbookReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverResponseOutput)
-}
-
-
-
-
-
-type AutomationRunbookReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToAutomationRunbookReceiverResponseArrayOutput() AutomationRunbookReceiverResponseArrayOutput
-	ToAutomationRunbookReceiverResponseArrayOutputWithContext(context.Context) AutomationRunbookReceiverResponseArrayOutput
-}
-
-type AutomationRunbookReceiverResponseArray []AutomationRunbookReceiverResponseInput
-
-func (AutomationRunbookReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationRunbookReceiverResponse)(nil)).Elem()
-}
-
-func (i AutomationRunbookReceiverResponseArray) ToAutomationRunbookReceiverResponseArrayOutput() AutomationRunbookReceiverResponseArrayOutput {
-	return i.ToAutomationRunbookReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AutomationRunbookReceiverResponseArray) ToAutomationRunbookReceiverResponseArrayOutputWithContext(ctx context.Context) AutomationRunbookReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverResponseArrayOutput)
+func (val *AutomationRunbookReceiverResponse) Defaults() *AutomationRunbookReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 type AutomationRunbookReceiverResponseOutput struct{ *pulumi.OutputState }
@@ -587,59 +527,6 @@ type AzureAppPushReceiverResponse struct {
 	Name         string `pulumi:"name"`
 }
 
-
-
-
-
-type AzureAppPushReceiverResponseInput interface {
-	pulumi.Input
-
-	ToAzureAppPushReceiverResponseOutput() AzureAppPushReceiverResponseOutput
-	ToAzureAppPushReceiverResponseOutputWithContext(context.Context) AzureAppPushReceiverResponseOutput
-}
-
-type AzureAppPushReceiverResponseArgs struct {
-	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	Name         pulumi.StringInput `pulumi:"name"`
-}
-
-func (AzureAppPushReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureAppPushReceiverResponse)(nil)).Elem()
-}
-
-func (i AzureAppPushReceiverResponseArgs) ToAzureAppPushReceiverResponseOutput() AzureAppPushReceiverResponseOutput {
-	return i.ToAzureAppPushReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i AzureAppPushReceiverResponseArgs) ToAzureAppPushReceiverResponseOutputWithContext(ctx context.Context) AzureAppPushReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverResponseOutput)
-}
-
-
-
-
-
-type AzureAppPushReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToAzureAppPushReceiverResponseArrayOutput() AzureAppPushReceiverResponseArrayOutput
-	ToAzureAppPushReceiverResponseArrayOutputWithContext(context.Context) AzureAppPushReceiverResponseArrayOutput
-}
-
-type AzureAppPushReceiverResponseArray []AzureAppPushReceiverResponseInput
-
-func (AzureAppPushReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzureAppPushReceiverResponse)(nil)).Elem()
-}
-
-func (i AzureAppPushReceiverResponseArray) ToAzureAppPushReceiverResponseArrayOutput() AzureAppPushReceiverResponseArrayOutput {
-	return i.ToAzureAppPushReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AzureAppPushReceiverResponseArray) ToAzureAppPushReceiverResponseArrayOutputWithContext(ctx context.Context) AzureAppPushReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverResponseArrayOutput)
-}
-
 type AzureAppPushReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureAppPushReceiverResponseOutput) ElementType() reflect.Type {
@@ -688,6 +575,19 @@ type AzureFunctionReceiver struct {
 	HttpTriggerUrl        string `pulumi:"httpTriggerUrl"`
 	Name                  string `pulumi:"name"`
 	UseCommonAlertSchema  *bool  `pulumi:"useCommonAlertSchema"`
+}
+
+
+func (val *AzureFunctionReceiver) Defaults() *AzureFunctionReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -809,59 +709,16 @@ type AzureFunctionReceiverResponse struct {
 }
 
 
-
-
-
-type AzureFunctionReceiverResponseInput interface {
-	pulumi.Input
-
-	ToAzureFunctionReceiverResponseOutput() AzureFunctionReceiverResponseOutput
-	ToAzureFunctionReceiverResponseOutputWithContext(context.Context) AzureFunctionReceiverResponseOutput
-}
-
-type AzureFunctionReceiverResponseArgs struct {
-	FunctionAppResourceId pulumi.StringInput  `pulumi:"functionAppResourceId"`
-	FunctionName          pulumi.StringInput  `pulumi:"functionName"`
-	HttpTriggerUrl        pulumi.StringInput  `pulumi:"httpTriggerUrl"`
-	Name                  pulumi.StringInput  `pulumi:"name"`
-	UseCommonAlertSchema  pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
-}
-
-func (AzureFunctionReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureFunctionReceiverResponse)(nil)).Elem()
-}
-
-func (i AzureFunctionReceiverResponseArgs) ToAzureFunctionReceiverResponseOutput() AzureFunctionReceiverResponseOutput {
-	return i.ToAzureFunctionReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i AzureFunctionReceiverResponseArgs) ToAzureFunctionReceiverResponseOutputWithContext(ctx context.Context) AzureFunctionReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureFunctionReceiverResponseOutput)
-}
-
-
-
-
-
-type AzureFunctionReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToAzureFunctionReceiverResponseArrayOutput() AzureFunctionReceiverResponseArrayOutput
-	ToAzureFunctionReceiverResponseArrayOutputWithContext(context.Context) AzureFunctionReceiverResponseArrayOutput
-}
-
-type AzureFunctionReceiverResponseArray []AzureFunctionReceiverResponseInput
-
-func (AzureFunctionReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzureFunctionReceiverResponse)(nil)).Elem()
-}
-
-func (i AzureFunctionReceiverResponseArray) ToAzureFunctionReceiverResponseArrayOutput() AzureFunctionReceiverResponseArrayOutput {
-	return i.ToAzureFunctionReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AzureFunctionReceiverResponseArray) ToAzureFunctionReceiverResponseArrayOutputWithContext(ctx context.Context) AzureFunctionReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureFunctionReceiverResponseArrayOutput)
+func (val *AzureFunctionReceiverResponse) Defaults() *AzureFunctionReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 type AzureFunctionReceiverResponseOutput struct{ *pulumi.OutputState }
@@ -922,6 +779,19 @@ type EmailReceiver struct {
 	EmailAddress         string `pulumi:"emailAddress"`
 	Name                 string `pulumi:"name"`
 	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
+}
+
+
+func (val *EmailReceiver) Defaults() *EmailReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -1032,58 +902,16 @@ type EmailReceiverResponse struct {
 }
 
 
-
-
-
-type EmailReceiverResponseInput interface {
-	pulumi.Input
-
-	ToEmailReceiverResponseOutput() EmailReceiverResponseOutput
-	ToEmailReceiverResponseOutputWithContext(context.Context) EmailReceiverResponseOutput
-}
-
-type EmailReceiverResponseArgs struct {
-	EmailAddress         pulumi.StringInput  `pulumi:"emailAddress"`
-	Name                 pulumi.StringInput  `pulumi:"name"`
-	Status               pulumi.StringInput  `pulumi:"status"`
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
-}
-
-func (EmailReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailReceiverResponse)(nil)).Elem()
-}
-
-func (i EmailReceiverResponseArgs) ToEmailReceiverResponseOutput() EmailReceiverResponseOutput {
-	return i.ToEmailReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i EmailReceiverResponseArgs) ToEmailReceiverResponseOutputWithContext(ctx context.Context) EmailReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverResponseOutput)
-}
-
-
-
-
-
-type EmailReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToEmailReceiverResponseArrayOutput() EmailReceiverResponseArrayOutput
-	ToEmailReceiverResponseArrayOutputWithContext(context.Context) EmailReceiverResponseArrayOutput
-}
-
-type EmailReceiverResponseArray []EmailReceiverResponseInput
-
-func (EmailReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EmailReceiverResponse)(nil)).Elem()
-}
-
-func (i EmailReceiverResponseArray) ToEmailReceiverResponseArrayOutput() EmailReceiverResponseArrayOutput {
-	return i.ToEmailReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i EmailReceiverResponseArray) ToEmailReceiverResponseArrayOutputWithContext(ctx context.Context) EmailReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverResponseArrayOutput)
+func (val *EmailReceiverResponse) Defaults() *EmailReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 type EmailReceiverResponseOutput struct{ *pulumi.OutputState }
@@ -1262,62 +1090,6 @@ type ItsmReceiverResponse struct {
 	WorkspaceId         string `pulumi:"workspaceId"`
 }
 
-
-
-
-
-type ItsmReceiverResponseInput interface {
-	pulumi.Input
-
-	ToItsmReceiverResponseOutput() ItsmReceiverResponseOutput
-	ToItsmReceiverResponseOutputWithContext(context.Context) ItsmReceiverResponseOutput
-}
-
-type ItsmReceiverResponseArgs struct {
-	ConnectionId        pulumi.StringInput `pulumi:"connectionId"`
-	Name                pulumi.StringInput `pulumi:"name"`
-	Region              pulumi.StringInput `pulumi:"region"`
-	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	WorkspaceId         pulumi.StringInput `pulumi:"workspaceId"`
-}
-
-func (ItsmReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ItsmReceiverResponse)(nil)).Elem()
-}
-
-func (i ItsmReceiverResponseArgs) ToItsmReceiverResponseOutput() ItsmReceiverResponseOutput {
-	return i.ToItsmReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i ItsmReceiverResponseArgs) ToItsmReceiverResponseOutputWithContext(ctx context.Context) ItsmReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverResponseOutput)
-}
-
-
-
-
-
-type ItsmReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToItsmReceiverResponseArrayOutput() ItsmReceiverResponseArrayOutput
-	ToItsmReceiverResponseArrayOutputWithContext(context.Context) ItsmReceiverResponseArrayOutput
-}
-
-type ItsmReceiverResponseArray []ItsmReceiverResponseInput
-
-func (ItsmReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ItsmReceiverResponse)(nil)).Elem()
-}
-
-func (i ItsmReceiverResponseArray) ToItsmReceiverResponseArrayOutput() ItsmReceiverResponseArrayOutput {
-	return i.ToItsmReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ItsmReceiverResponseArray) ToItsmReceiverResponseArrayOutputWithContext(ctx context.Context) ItsmReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverResponseArrayOutput)
-}
-
 type ItsmReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (ItsmReceiverResponseOutput) ElementType() reflect.Type {
@@ -1377,6 +1149,19 @@ type LogicAppReceiver struct {
 	Name                 string `pulumi:"name"`
 	ResourceId           string `pulumi:"resourceId"`
 	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
+}
+
+
+func (val *LogicAppReceiver) Defaults() *LogicAppReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -1492,58 +1277,16 @@ type LogicAppReceiverResponse struct {
 }
 
 
-
-
-
-type LogicAppReceiverResponseInput interface {
-	pulumi.Input
-
-	ToLogicAppReceiverResponseOutput() LogicAppReceiverResponseOutput
-	ToLogicAppReceiverResponseOutputWithContext(context.Context) LogicAppReceiverResponseOutput
-}
-
-type LogicAppReceiverResponseArgs struct {
-	CallbackUrl          pulumi.StringInput  `pulumi:"callbackUrl"`
-	Name                 pulumi.StringInput  `pulumi:"name"`
-	ResourceId           pulumi.StringInput  `pulumi:"resourceId"`
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
-}
-
-func (LogicAppReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogicAppReceiverResponse)(nil)).Elem()
-}
-
-func (i LogicAppReceiverResponseArgs) ToLogicAppReceiverResponseOutput() LogicAppReceiverResponseOutput {
-	return i.ToLogicAppReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i LogicAppReceiverResponseArgs) ToLogicAppReceiverResponseOutputWithContext(ctx context.Context) LogicAppReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogicAppReceiverResponseOutput)
-}
-
-
-
-
-
-type LogicAppReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToLogicAppReceiverResponseArrayOutput() LogicAppReceiverResponseArrayOutput
-	ToLogicAppReceiverResponseArrayOutputWithContext(context.Context) LogicAppReceiverResponseArrayOutput
-}
-
-type LogicAppReceiverResponseArray []LogicAppReceiverResponseInput
-
-func (LogicAppReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogicAppReceiverResponse)(nil)).Elem()
-}
-
-func (i LogicAppReceiverResponseArray) ToLogicAppReceiverResponseArrayOutput() LogicAppReceiverResponseArrayOutput {
-	return i.ToLogicAppReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LogicAppReceiverResponseArray) ToLogicAppReceiverResponseArrayOutputWithContext(ctx context.Context) LogicAppReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogicAppReceiverResponseArrayOutput)
+func (val *LogicAppReceiverResponse) Defaults() *LogicAppReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 type LogicAppReceiverResponseOutput struct{ *pulumi.OutputState }
@@ -1709,61 +1452,6 @@ type SmsReceiverResponse struct {
 	Status      string `pulumi:"status"`
 }
 
-
-
-
-
-type SmsReceiverResponseInput interface {
-	pulumi.Input
-
-	ToSmsReceiverResponseOutput() SmsReceiverResponseOutput
-	ToSmsReceiverResponseOutputWithContext(context.Context) SmsReceiverResponseOutput
-}
-
-type SmsReceiverResponseArgs struct {
-	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	Name        pulumi.StringInput `pulumi:"name"`
-	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
-	Status      pulumi.StringInput `pulumi:"status"`
-}
-
-func (SmsReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmsReceiverResponse)(nil)).Elem()
-}
-
-func (i SmsReceiverResponseArgs) ToSmsReceiverResponseOutput() SmsReceiverResponseOutput {
-	return i.ToSmsReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i SmsReceiverResponseArgs) ToSmsReceiverResponseOutputWithContext(ctx context.Context) SmsReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverResponseOutput)
-}
-
-
-
-
-
-type SmsReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToSmsReceiverResponseArrayOutput() SmsReceiverResponseArrayOutput
-	ToSmsReceiverResponseArrayOutputWithContext(context.Context) SmsReceiverResponseArrayOutput
-}
-
-type SmsReceiverResponseArray []SmsReceiverResponseInput
-
-func (SmsReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SmsReceiverResponse)(nil)).Elem()
-}
-
-func (i SmsReceiverResponseArray) ToSmsReceiverResponseArrayOutput() SmsReceiverResponseArrayOutput {
-	return i.ToSmsReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SmsReceiverResponseArray) ToSmsReceiverResponseArrayOutputWithContext(ctx context.Context) SmsReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverResponseArrayOutput)
-}
-
 type SmsReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (SmsReceiverResponseOutput) ElementType() reflect.Type {
@@ -1926,60 +1614,6 @@ type VoiceReceiverResponse struct {
 	PhoneNumber string `pulumi:"phoneNumber"`
 }
 
-
-
-
-
-type VoiceReceiverResponseInput interface {
-	pulumi.Input
-
-	ToVoiceReceiverResponseOutput() VoiceReceiverResponseOutput
-	ToVoiceReceiverResponseOutputWithContext(context.Context) VoiceReceiverResponseOutput
-}
-
-type VoiceReceiverResponseArgs struct {
-	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	Name        pulumi.StringInput `pulumi:"name"`
-	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
-}
-
-func (VoiceReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceReceiverResponse)(nil)).Elem()
-}
-
-func (i VoiceReceiverResponseArgs) ToVoiceReceiverResponseOutput() VoiceReceiverResponseOutput {
-	return i.ToVoiceReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i VoiceReceiverResponseArgs) ToVoiceReceiverResponseOutputWithContext(ctx context.Context) VoiceReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceReceiverResponseOutput)
-}
-
-
-
-
-
-type VoiceReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToVoiceReceiverResponseArrayOutput() VoiceReceiverResponseArrayOutput
-	ToVoiceReceiverResponseArrayOutputWithContext(context.Context) VoiceReceiverResponseArrayOutput
-}
-
-type VoiceReceiverResponseArray []VoiceReceiverResponseInput
-
-func (VoiceReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VoiceReceiverResponse)(nil)).Elem()
-}
-
-func (i VoiceReceiverResponseArray) ToVoiceReceiverResponseArrayOutput() VoiceReceiverResponseArrayOutput {
-	return i.ToVoiceReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i VoiceReceiverResponseArray) ToVoiceReceiverResponseArrayOutputWithContext(ctx context.Context) VoiceReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceReceiverResponseArrayOutput)
-}
-
 type VoiceReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (VoiceReceiverResponseOutput) ElementType() reflect.Type {
@@ -2030,6 +1664,19 @@ type WebhookReceiver struct {
 	Name                 string `pulumi:"name"`
 	ServiceUri           string `pulumi:"serviceUri"`
 	UseCommonAlertSchema *bool  `pulumi:"useCommonAlertSchema"`
+}
+
+
+func (val *WebhookReceiver) Defaults() *WebhookReceiver {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 
@@ -2139,57 +1786,16 @@ type WebhookReceiverResponse struct {
 }
 
 
-
-
-
-type WebhookReceiverResponseInput interface {
-	pulumi.Input
-
-	ToWebhookReceiverResponseOutput() WebhookReceiverResponseOutput
-	ToWebhookReceiverResponseOutputWithContext(context.Context) WebhookReceiverResponseOutput
-}
-
-type WebhookReceiverResponseArgs struct {
-	Name                 pulumi.StringInput  `pulumi:"name"`
-	ServiceUri           pulumi.StringInput  `pulumi:"serviceUri"`
-	UseCommonAlertSchema pulumi.BoolPtrInput `pulumi:"useCommonAlertSchema"`
-}
-
-func (WebhookReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookReceiverResponse)(nil)).Elem()
-}
-
-func (i WebhookReceiverResponseArgs) ToWebhookReceiverResponseOutput() WebhookReceiverResponseOutput {
-	return i.ToWebhookReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i WebhookReceiverResponseArgs) ToWebhookReceiverResponseOutputWithContext(ctx context.Context) WebhookReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverResponseOutput)
-}
-
-
-
-
-
-type WebhookReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToWebhookReceiverResponseArrayOutput() WebhookReceiverResponseArrayOutput
-	ToWebhookReceiverResponseArrayOutputWithContext(context.Context) WebhookReceiverResponseArrayOutput
-}
-
-type WebhookReceiverResponseArray []WebhookReceiverResponseInput
-
-func (WebhookReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebhookReceiverResponse)(nil)).Elem()
-}
-
-func (i WebhookReceiverResponseArray) ToWebhookReceiverResponseArrayOutput() WebhookReceiverResponseArrayOutput {
-	return i.ToWebhookReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WebhookReceiverResponseArray) ToWebhookReceiverResponseArrayOutputWithContext(ctx context.Context) WebhookReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverResponseArrayOutput)
+func (val *WebhookReceiverResponse) Defaults() *WebhookReceiverResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UseCommonAlertSchema) {
+		useCommonAlertSchema_ := false
+		tmp.UseCommonAlertSchema = &useCommonAlertSchema_
+	}
+	return &tmp
 }
 
 type WebhookReceiverResponseOutput struct{ *pulumi.OutputState }

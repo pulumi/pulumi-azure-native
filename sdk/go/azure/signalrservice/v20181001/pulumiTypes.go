@@ -211,78 +211,6 @@ type ResourceSkuResponse struct {
 	Tier     *string `pulumi:"tier"`
 }
 
-
-
-
-
-type ResourceSkuResponseInput interface {
-	pulumi.Input
-
-	ToResourceSkuResponseOutput() ResourceSkuResponseOutput
-	ToResourceSkuResponseOutputWithContext(context.Context) ResourceSkuResponseOutput
-}
-
-type ResourceSkuResponseArgs struct {
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Family   pulumi.StringPtrInput `pulumi:"family"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Size     pulumi.StringPtrInput `pulumi:"size"`
-	Tier     pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (ResourceSkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSkuResponse)(nil)).Elem()
-}
-
-func (i ResourceSkuResponseArgs) ToResourceSkuResponseOutput() ResourceSkuResponseOutput {
-	return i.ToResourceSkuResponseOutputWithContext(context.Background())
-}
-
-func (i ResourceSkuResponseArgs) ToResourceSkuResponseOutputWithContext(ctx context.Context) ResourceSkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuResponseOutput)
-}
-
-func (i ResourceSkuResponseArgs) ToResourceSkuResponsePtrOutput() ResourceSkuResponsePtrOutput {
-	return i.ToResourceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ResourceSkuResponseArgs) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuResponseOutput).ToResourceSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ResourceSkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToResourceSkuResponsePtrOutput() ResourceSkuResponsePtrOutput
-	ToResourceSkuResponsePtrOutputWithContext(context.Context) ResourceSkuResponsePtrOutput
-}
-
-type resourceSkuResponsePtrType ResourceSkuResponseArgs
-
-func ResourceSkuResponsePtr(v *ResourceSkuResponseArgs) ResourceSkuResponsePtrInput {
-	return (*resourceSkuResponsePtrType)(v)
-}
-
-func (*resourceSkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceSkuResponse)(nil)).Elem()
-}
-
-func (i *resourceSkuResponsePtrType) ToResourceSkuResponsePtrOutput() ResourceSkuResponsePtrOutput {
-	return i.ToResourceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *resourceSkuResponsePtrType) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSkuResponsePtrOutput)
-}
-
 type ResourceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceSkuResponseOutput) ElementType() reflect.Type {
@@ -295,16 +223,6 @@ func (o ResourceSkuResponseOutput) ToResourceSkuResponseOutput() ResourceSkuResp
 
 func (o ResourceSkuResponseOutput) ToResourceSkuResponseOutputWithContext(ctx context.Context) ResourceSkuResponseOutput {
 	return o
-}
-
-func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutput() ResourceSkuResponsePtrOutput {
-	return o.ToResourceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ResourceSkuResponseOutput) ToResourceSkuResponsePtrOutputWithContext(ctx context.Context) ResourceSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSkuResponse) *ResourceSkuResponse {
-		return &v
-	}).(ResourceSkuResponsePtrOutput)
 }
 
 func (o ResourceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
@@ -533,74 +451,6 @@ type SignalRCorsSettingsResponse struct {
 	AllowedOrigins []string `pulumi:"allowedOrigins"`
 }
 
-
-
-
-
-type SignalRCorsSettingsResponseInput interface {
-	pulumi.Input
-
-	ToSignalRCorsSettingsResponseOutput() SignalRCorsSettingsResponseOutput
-	ToSignalRCorsSettingsResponseOutputWithContext(context.Context) SignalRCorsSettingsResponseOutput
-}
-
-type SignalRCorsSettingsResponseArgs struct {
-	AllowedOrigins pulumi.StringArrayInput `pulumi:"allowedOrigins"`
-}
-
-func (SignalRCorsSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRCorsSettingsResponse)(nil)).Elem()
-}
-
-func (i SignalRCorsSettingsResponseArgs) ToSignalRCorsSettingsResponseOutput() SignalRCorsSettingsResponseOutput {
-	return i.ToSignalRCorsSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i SignalRCorsSettingsResponseArgs) ToSignalRCorsSettingsResponseOutputWithContext(ctx context.Context) SignalRCorsSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalRCorsSettingsResponseOutput)
-}
-
-func (i SignalRCorsSettingsResponseArgs) ToSignalRCorsSettingsResponsePtrOutput() SignalRCorsSettingsResponsePtrOutput {
-	return i.ToSignalRCorsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SignalRCorsSettingsResponseArgs) ToSignalRCorsSettingsResponsePtrOutputWithContext(ctx context.Context) SignalRCorsSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalRCorsSettingsResponseOutput).ToSignalRCorsSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SignalRCorsSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToSignalRCorsSettingsResponsePtrOutput() SignalRCorsSettingsResponsePtrOutput
-	ToSignalRCorsSettingsResponsePtrOutputWithContext(context.Context) SignalRCorsSettingsResponsePtrOutput
-}
-
-type signalRCorsSettingsResponsePtrType SignalRCorsSettingsResponseArgs
-
-func SignalRCorsSettingsResponsePtr(v *SignalRCorsSettingsResponseArgs) SignalRCorsSettingsResponsePtrInput {
-	return (*signalRCorsSettingsResponsePtrType)(v)
-}
-
-func (*signalRCorsSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SignalRCorsSettingsResponse)(nil)).Elem()
-}
-
-func (i *signalRCorsSettingsResponsePtrType) ToSignalRCorsSettingsResponsePtrOutput() SignalRCorsSettingsResponsePtrOutput {
-	return i.ToSignalRCorsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *signalRCorsSettingsResponsePtrType) ToSignalRCorsSettingsResponsePtrOutputWithContext(ctx context.Context) SignalRCorsSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalRCorsSettingsResponsePtrOutput)
-}
-
 type SignalRCorsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (SignalRCorsSettingsResponseOutput) ElementType() reflect.Type {
@@ -613,16 +463,6 @@ func (o SignalRCorsSettingsResponseOutput) ToSignalRCorsSettingsResponseOutput()
 
 func (o SignalRCorsSettingsResponseOutput) ToSignalRCorsSettingsResponseOutputWithContext(ctx context.Context) SignalRCorsSettingsResponseOutput {
 	return o
-}
-
-func (o SignalRCorsSettingsResponseOutput) ToSignalRCorsSettingsResponsePtrOutput() SignalRCorsSettingsResponsePtrOutput {
-	return o.ToSignalRCorsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SignalRCorsSettingsResponseOutput) ToSignalRCorsSettingsResponsePtrOutputWithContext(ctx context.Context) SignalRCorsSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SignalRCorsSettingsResponse) *SignalRCorsSettingsResponse {
-		return &v
-	}).(SignalRCorsSettingsResponsePtrOutput)
 }
 
 func (o SignalRCorsSettingsResponseOutput) AllowedOrigins() pulumi.StringArrayOutput {
@@ -935,60 +775,6 @@ type SignalRFeatureResponse struct {
 	Flag       string            `pulumi:"flag"`
 	Properties map[string]string `pulumi:"properties"`
 	Value      string            `pulumi:"value"`
-}
-
-
-
-
-
-type SignalRFeatureResponseInput interface {
-	pulumi.Input
-
-	ToSignalRFeatureResponseOutput() SignalRFeatureResponseOutput
-	ToSignalRFeatureResponseOutputWithContext(context.Context) SignalRFeatureResponseOutput
-}
-
-type SignalRFeatureResponseArgs struct {
-	Flag       pulumi.StringInput    `pulumi:"flag"`
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	Value      pulumi.StringInput    `pulumi:"value"`
-}
-
-func (SignalRFeatureResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalRFeatureResponse)(nil)).Elem()
-}
-
-func (i SignalRFeatureResponseArgs) ToSignalRFeatureResponseOutput() SignalRFeatureResponseOutput {
-	return i.ToSignalRFeatureResponseOutputWithContext(context.Background())
-}
-
-func (i SignalRFeatureResponseArgs) ToSignalRFeatureResponseOutputWithContext(ctx context.Context) SignalRFeatureResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalRFeatureResponseOutput)
-}
-
-
-
-
-
-type SignalRFeatureResponseArrayInput interface {
-	pulumi.Input
-
-	ToSignalRFeatureResponseArrayOutput() SignalRFeatureResponseArrayOutput
-	ToSignalRFeatureResponseArrayOutputWithContext(context.Context) SignalRFeatureResponseArrayOutput
-}
-
-type SignalRFeatureResponseArray []SignalRFeatureResponseInput
-
-func (SignalRFeatureResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SignalRFeatureResponse)(nil)).Elem()
-}
-
-func (i SignalRFeatureResponseArray) ToSignalRFeatureResponseArrayOutput() SignalRFeatureResponseArrayOutput {
-	return i.ToSignalRFeatureResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SignalRFeatureResponseArray) ToSignalRFeatureResponseArrayOutputWithContext(ctx context.Context) SignalRFeatureResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SignalRFeatureResponseArrayOutput)
 }
 
 type SignalRFeatureResponseOutput struct{ *pulumi.OutputState }

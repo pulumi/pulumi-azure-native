@@ -115,7 +115,7 @@ type ManagementGroupInput interface {
 }
 
 func (*ManagementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroup)(nil))
+	return reflect.TypeOf((**ManagementGroup)(nil)).Elem()
 }
 
 func (i *ManagementGroup) ToManagementGroupOutput() ManagementGroupOutput {
@@ -129,7 +129,7 @@ func (i *ManagementGroup) ToManagementGroupOutputWithContext(ctx context.Context
 type ManagementGroupOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroup)(nil))
+	return reflect.TypeOf((**ManagementGroup)(nil)).Elem()
 }
 
 func (o ManagementGroupOutput) ToManagementGroupOutput() ManagementGroupOutput {

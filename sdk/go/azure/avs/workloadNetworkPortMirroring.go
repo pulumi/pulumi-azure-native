@@ -119,7 +119,7 @@ type WorkloadNetworkPortMirroringInput interface {
 }
 
 func (*WorkloadNetworkPortMirroring) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkPortMirroring)(nil))
+	return reflect.TypeOf((**WorkloadNetworkPortMirroring)(nil)).Elem()
 }
 
 func (i *WorkloadNetworkPortMirroring) ToWorkloadNetworkPortMirroringOutput() WorkloadNetworkPortMirroringOutput {
@@ -133,7 +133,7 @@ func (i *WorkloadNetworkPortMirroring) ToWorkloadNetworkPortMirroringOutputWithC
 type WorkloadNetworkPortMirroringOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkPortMirroringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkPortMirroring)(nil))
+	return reflect.TypeOf((**WorkloadNetworkPortMirroring)(nil)).Elem()
 }
 
 func (o WorkloadNetworkPortMirroringOutput) ToWorkloadNetworkPortMirroringOutput() WorkloadNetworkPortMirroringOutput {

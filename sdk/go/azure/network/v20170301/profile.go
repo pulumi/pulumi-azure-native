@@ -127,7 +127,7 @@ type ProfileInput interface {
 }
 
 func (*Profile) ElementType() reflect.Type {
-	return reflect.TypeOf((*Profile)(nil))
+	return reflect.TypeOf((**Profile)(nil)).Elem()
 }
 
 func (i *Profile) ToProfileOutput() ProfileOutput {
@@ -141,7 +141,7 @@ func (i *Profile) ToProfileOutputWithContext(ctx context.Context) ProfileOutput 
 type ProfileOutput struct{ *pulumi.OutputState }
 
 func (ProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Profile)(nil))
+	return reflect.TypeOf((**Profile)(nil)).Elem()
 }
 
 func (o ProfileOutput) ToProfileOutput() ProfileOutput {

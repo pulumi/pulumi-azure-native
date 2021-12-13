@@ -218,7 +218,7 @@ type InboundNatRuleInput interface {
 }
 
 func (*InboundNatRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*InboundNatRule)(nil))
+	return reflect.TypeOf((**InboundNatRule)(nil)).Elem()
 }
 
 func (i *InboundNatRule) ToInboundNatRuleOutput() InboundNatRuleOutput {
@@ -232,7 +232,7 @@ func (i *InboundNatRule) ToInboundNatRuleOutputWithContext(ctx context.Context) 
 type InboundNatRuleOutput struct{ *pulumi.OutputState }
 
 func (InboundNatRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InboundNatRule)(nil))
+	return reflect.TypeOf((**InboundNatRule)(nil)).Elem()
 }
 
 func (o InboundNatRuleOutput) ToInboundNatRuleOutput() InboundNatRuleOutput {

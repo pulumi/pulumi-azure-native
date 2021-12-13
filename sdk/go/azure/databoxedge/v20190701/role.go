@@ -130,7 +130,7 @@ type RoleInput interface {
 }
 
 func (*Role) ElementType() reflect.Type {
-	return reflect.TypeOf((*Role)(nil))
+	return reflect.TypeOf((**Role)(nil)).Elem()
 }
 
 func (i *Role) ToRoleOutput() RoleOutput {
@@ -144,7 +144,7 @@ func (i *Role) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 type RoleOutput struct{ *pulumi.OutputState }
 
 func (RoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Role)(nil))
+	return reflect.TypeOf((**Role)(nil)).Elem()
 }
 
 func (o RoleOutput) ToRoleOutput() RoleOutput {

@@ -105,7 +105,7 @@ type SqlDatabaseInput interface {
 }
 
 func (*SqlDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabase)(nil))
+	return reflect.TypeOf((**SqlDatabase)(nil)).Elem()
 }
 
 func (i *SqlDatabase) ToSqlDatabaseOutput() SqlDatabaseOutput {
@@ -119,7 +119,7 @@ func (i *SqlDatabase) ToSqlDatabaseOutputWithContext(ctx context.Context) SqlDat
 type SqlDatabaseOutput struct{ *pulumi.OutputState }
 
 func (SqlDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabase)(nil))
+	return reflect.TypeOf((**SqlDatabase)(nil)).Elem()
 }
 
 func (o SqlDatabaseOutput) ToSqlDatabaseOutput() SqlDatabaseOutput {

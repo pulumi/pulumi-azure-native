@@ -38,10 +38,10 @@ func NewReplication(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.RegionEndpointEnabled == nil {
+	if isZero(args.RegionEndpointEnabled) {
 		args.RegionEndpointEnabled = pulumi.BoolPtr(true)
 	}
-	if args.ZoneRedundancy == nil {
+	if isZero(args.ZoneRedundancy) {
 		args.ZoneRedundancy = pulumi.StringPtr("Disabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -135,7 +135,7 @@ type ReplicationInput interface {
 }
 
 func (*Replication) ElementType() reflect.Type {
-	return reflect.TypeOf((*Replication)(nil))
+	return reflect.TypeOf((**Replication)(nil)).Elem()
 }
 
 func (i *Replication) ToReplicationOutput() ReplicationOutput {
@@ -149,7 +149,7 @@ func (i *Replication) ToReplicationOutputWithContext(ctx context.Context) Replic
 type ReplicationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Replication)(nil))
+	return reflect.TypeOf((**Replication)(nil)).Elem()
 }
 
 func (o ReplicationOutput) ToReplicationOutput() ReplicationOutput {

@@ -109,7 +109,7 @@ type SuppressionInput interface {
 }
 
 func (*Suppression) ElementType() reflect.Type {
-	return reflect.TypeOf((*Suppression)(nil))
+	return reflect.TypeOf((**Suppression)(nil)).Elem()
 }
 
 func (i *Suppression) ToSuppressionOutput() SuppressionOutput {
@@ -123,7 +123,7 @@ func (i *Suppression) ToSuppressionOutputWithContext(ctx context.Context) Suppre
 type SuppressionOutput struct{ *pulumi.OutputState }
 
 func (SuppressionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Suppression)(nil))
+	return reflect.TypeOf((**Suppression)(nil)).Elem()
 }
 
 func (o SuppressionOutput) ToSuppressionOutput() SuppressionOutput {

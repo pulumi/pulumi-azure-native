@@ -106,7 +106,7 @@ type CustomerEventInput interface {
 }
 
 func (*CustomerEvent) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerEvent)(nil))
+	return reflect.TypeOf((**CustomerEvent)(nil)).Elem()
 }
 
 func (i *CustomerEvent) ToCustomerEventOutput() CustomerEventOutput {
@@ -120,7 +120,7 @@ func (i *CustomerEvent) ToCustomerEventOutputWithContext(ctx context.Context) Cu
 type CustomerEventOutput struct{ *pulumi.OutputState }
 
 func (CustomerEventOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerEvent)(nil))
+	return reflect.TypeOf((**CustomerEvent)(nil)).Elem()
 }
 
 func (o CustomerEventOutput) ToCustomerEventOutput() CustomerEventOutput {

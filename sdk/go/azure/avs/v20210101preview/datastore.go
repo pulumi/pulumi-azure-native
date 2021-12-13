@@ -111,7 +111,7 @@ type DatastoreInput interface {
 }
 
 func (*Datastore) ElementType() reflect.Type {
-	return reflect.TypeOf((*Datastore)(nil))
+	return reflect.TypeOf((**Datastore)(nil)).Elem()
 }
 
 func (i *Datastore) ToDatastoreOutput() DatastoreOutput {
@@ -125,7 +125,7 @@ func (i *Datastore) ToDatastoreOutputWithContext(ctx context.Context) DatastoreO
 type DatastoreOutput struct{ *pulumi.OutputState }
 
 func (DatastoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Datastore)(nil))
+	return reflect.TypeOf((**Datastore)(nil)).Elem()
 }
 
 func (o DatastoreOutput) ToDatastoreOutput() DatastoreOutput {

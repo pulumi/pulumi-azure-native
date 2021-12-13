@@ -198,7 +198,7 @@ type DatabaseInput interface {
 }
 
 func (*Database) ElementType() reflect.Type {
-	return reflect.TypeOf((*Database)(nil))
+	return reflect.TypeOf((**Database)(nil)).Elem()
 }
 
 func (i *Database) ToDatabaseOutput() DatabaseOutput {
@@ -212,7 +212,7 @@ func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutp
 type DatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Database)(nil))
+	return reflect.TypeOf((**Database)(nil)).Elem()
 }
 
 func (o DatabaseOutput) ToDatabaseOutput() DatabaseOutput {

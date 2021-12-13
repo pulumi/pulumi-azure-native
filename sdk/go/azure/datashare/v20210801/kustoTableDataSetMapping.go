@@ -133,7 +133,7 @@ type KustoTableDataSetMappingInput interface {
 }
 
 func (*KustoTableDataSetMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoTableDataSetMapping)(nil))
+	return reflect.TypeOf((**KustoTableDataSetMapping)(nil)).Elem()
 }
 
 func (i *KustoTableDataSetMapping) ToKustoTableDataSetMappingOutput() KustoTableDataSetMappingOutput {
@@ -147,7 +147,7 @@ func (i *KustoTableDataSetMapping) ToKustoTableDataSetMappingOutputWithContext(c
 type KustoTableDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (KustoTableDataSetMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoTableDataSetMapping)(nil))
+	return reflect.TypeOf((**KustoTableDataSetMapping)(nil)).Elem()
 }
 
 func (o KustoTableDataSetMappingOutput) ToKustoTableDataSetMappingOutput() KustoTableDataSetMappingOutput {

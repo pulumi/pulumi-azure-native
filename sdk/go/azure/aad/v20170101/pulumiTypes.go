@@ -179,76 +179,6 @@ type DomainSecuritySettingsResponse struct {
 	TlsV1             *string `pulumi:"tlsV1"`
 }
 
-
-
-
-
-type DomainSecuritySettingsResponseInput interface {
-	pulumi.Input
-
-	ToDomainSecuritySettingsResponseOutput() DomainSecuritySettingsResponseOutput
-	ToDomainSecuritySettingsResponseOutputWithContext(context.Context) DomainSecuritySettingsResponseOutput
-}
-
-type DomainSecuritySettingsResponseArgs struct {
-	NtlmV1            pulumi.StringPtrInput `pulumi:"ntlmV1"`
-	SyncNtlmPasswords pulumi.StringPtrInput `pulumi:"syncNtlmPasswords"`
-	TlsV1             pulumi.StringPtrInput `pulumi:"tlsV1"`
-}
-
-func (DomainSecuritySettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainSecuritySettingsResponse)(nil)).Elem()
-}
-
-func (i DomainSecuritySettingsResponseArgs) ToDomainSecuritySettingsResponseOutput() DomainSecuritySettingsResponseOutput {
-	return i.ToDomainSecuritySettingsResponseOutputWithContext(context.Background())
-}
-
-func (i DomainSecuritySettingsResponseArgs) ToDomainSecuritySettingsResponseOutputWithContext(ctx context.Context) DomainSecuritySettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainSecuritySettingsResponseOutput)
-}
-
-func (i DomainSecuritySettingsResponseArgs) ToDomainSecuritySettingsResponsePtrOutput() DomainSecuritySettingsResponsePtrOutput {
-	return i.ToDomainSecuritySettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DomainSecuritySettingsResponseArgs) ToDomainSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) DomainSecuritySettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainSecuritySettingsResponseOutput).ToDomainSecuritySettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DomainSecuritySettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToDomainSecuritySettingsResponsePtrOutput() DomainSecuritySettingsResponsePtrOutput
-	ToDomainSecuritySettingsResponsePtrOutputWithContext(context.Context) DomainSecuritySettingsResponsePtrOutput
-}
-
-type domainSecuritySettingsResponsePtrType DomainSecuritySettingsResponseArgs
-
-func DomainSecuritySettingsResponsePtr(v *DomainSecuritySettingsResponseArgs) DomainSecuritySettingsResponsePtrInput {
-	return (*domainSecuritySettingsResponsePtrType)(v)
-}
-
-func (*domainSecuritySettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainSecuritySettingsResponse)(nil)).Elem()
-}
-
-func (i *domainSecuritySettingsResponsePtrType) ToDomainSecuritySettingsResponsePtrOutput() DomainSecuritySettingsResponsePtrOutput {
-	return i.ToDomainSecuritySettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *domainSecuritySettingsResponsePtrType) ToDomainSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) DomainSecuritySettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainSecuritySettingsResponsePtrOutput)
-}
-
 type DomainSecuritySettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (DomainSecuritySettingsResponseOutput) ElementType() reflect.Type {
@@ -261,16 +191,6 @@ func (o DomainSecuritySettingsResponseOutput) ToDomainSecuritySettingsResponseOu
 
 func (o DomainSecuritySettingsResponseOutput) ToDomainSecuritySettingsResponseOutputWithContext(ctx context.Context) DomainSecuritySettingsResponseOutput {
 	return o
-}
-
-func (o DomainSecuritySettingsResponseOutput) ToDomainSecuritySettingsResponsePtrOutput() DomainSecuritySettingsResponsePtrOutput {
-	return o.ToDomainSecuritySettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DomainSecuritySettingsResponseOutput) ToDomainSecuritySettingsResponsePtrOutputWithContext(ctx context.Context) DomainSecuritySettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSecuritySettingsResponse) *DomainSecuritySettingsResponse {
-		return &v
-	}).(DomainSecuritySettingsResponsePtrOutput)
 }
 
 func (o DomainSecuritySettingsResponseOutput) NtlmV1() pulumi.StringPtrOutput {
@@ -346,64 +266,6 @@ type HealthAlertResponse struct {
 	Severity      string `pulumi:"severity"`
 }
 
-
-
-
-
-type HealthAlertResponseInput interface {
-	pulumi.Input
-
-	ToHealthAlertResponseOutput() HealthAlertResponseOutput
-	ToHealthAlertResponseOutputWithContext(context.Context) HealthAlertResponseOutput
-}
-
-type HealthAlertResponseArgs struct {
-	Id            pulumi.StringInput `pulumi:"id"`
-	Issue         pulumi.StringInput `pulumi:"issue"`
-	LastDetected  pulumi.StringInput `pulumi:"lastDetected"`
-	Name          pulumi.StringInput `pulumi:"name"`
-	Raised        pulumi.StringInput `pulumi:"raised"`
-	ResolutionUri pulumi.StringInput `pulumi:"resolutionUri"`
-	Severity      pulumi.StringInput `pulumi:"severity"`
-}
-
-func (HealthAlertResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthAlertResponse)(nil)).Elem()
-}
-
-func (i HealthAlertResponseArgs) ToHealthAlertResponseOutput() HealthAlertResponseOutput {
-	return i.ToHealthAlertResponseOutputWithContext(context.Background())
-}
-
-func (i HealthAlertResponseArgs) ToHealthAlertResponseOutputWithContext(ctx context.Context) HealthAlertResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertResponseOutput)
-}
-
-
-
-
-
-type HealthAlertResponseArrayInput interface {
-	pulumi.Input
-
-	ToHealthAlertResponseArrayOutput() HealthAlertResponseArrayOutput
-	ToHealthAlertResponseArrayOutputWithContext(context.Context) HealthAlertResponseArrayOutput
-}
-
-type HealthAlertResponseArray []HealthAlertResponseInput
-
-func (HealthAlertResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HealthAlertResponse)(nil)).Elem()
-}
-
-func (i HealthAlertResponseArray) ToHealthAlertResponseArrayOutput() HealthAlertResponseArrayOutput {
-	return i.ToHealthAlertResponseArrayOutputWithContext(context.Background())
-}
-
-func (i HealthAlertResponseArray) ToHealthAlertResponseArrayOutputWithContext(ctx context.Context) HealthAlertResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthAlertResponseArrayOutput)
-}
-
 type HealthAlertResponseOutput struct{ *pulumi.OutputState }
 
 func (HealthAlertResponseOutput) ElementType() reflect.Type {
@@ -470,60 +332,6 @@ type HealthMonitorResponse struct {
 	Details string `pulumi:"details"`
 	Id      string `pulumi:"id"`
 	Name    string `pulumi:"name"`
-}
-
-
-
-
-
-type HealthMonitorResponseInput interface {
-	pulumi.Input
-
-	ToHealthMonitorResponseOutput() HealthMonitorResponseOutput
-	ToHealthMonitorResponseOutputWithContext(context.Context) HealthMonitorResponseOutput
-}
-
-type HealthMonitorResponseArgs struct {
-	Details pulumi.StringInput `pulumi:"details"`
-	Id      pulumi.StringInput `pulumi:"id"`
-	Name    pulumi.StringInput `pulumi:"name"`
-}
-
-func (HealthMonitorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HealthMonitorResponse)(nil)).Elem()
-}
-
-func (i HealthMonitorResponseArgs) ToHealthMonitorResponseOutput() HealthMonitorResponseOutput {
-	return i.ToHealthMonitorResponseOutputWithContext(context.Background())
-}
-
-func (i HealthMonitorResponseArgs) ToHealthMonitorResponseOutputWithContext(ctx context.Context) HealthMonitorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthMonitorResponseOutput)
-}
-
-
-
-
-
-type HealthMonitorResponseArrayInput interface {
-	pulumi.Input
-
-	ToHealthMonitorResponseArrayOutput() HealthMonitorResponseArrayOutput
-	ToHealthMonitorResponseArrayOutputWithContext(context.Context) HealthMonitorResponseArrayOutput
-}
-
-type HealthMonitorResponseArray []HealthMonitorResponseInput
-
-func (HealthMonitorResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HealthMonitorResponse)(nil)).Elem()
-}
-
-func (i HealthMonitorResponseArray) ToHealthMonitorResponseArrayOutput() HealthMonitorResponseArrayOutput {
-	return i.ToHealthMonitorResponseArrayOutputWithContext(context.Background())
-}
-
-func (i HealthMonitorResponseArray) ToHealthMonitorResponseArrayOutputWithContext(ctx context.Context) HealthMonitorResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HealthMonitorResponseArrayOutput)
 }
 
 type HealthMonitorResponseOutput struct{ *pulumi.OutputState }
@@ -761,81 +569,6 @@ type LdapsSettingsResponse struct {
 	PublicCertificate       string  `pulumi:"publicCertificate"`
 }
 
-
-
-
-
-type LdapsSettingsResponseInput interface {
-	pulumi.Input
-
-	ToLdapsSettingsResponseOutput() LdapsSettingsResponseOutput
-	ToLdapsSettingsResponseOutputWithContext(context.Context) LdapsSettingsResponseOutput
-}
-
-type LdapsSettingsResponseArgs struct {
-	CertificateNotAfter     pulumi.StringInput    `pulumi:"certificateNotAfter"`
-	CertificateThumbprint   pulumi.StringInput    `pulumi:"certificateThumbprint"`
-	ExternalAccess          pulumi.StringPtrInput `pulumi:"externalAccess"`
-	ExternalAccessIpAddress pulumi.StringInput    `pulumi:"externalAccessIpAddress"`
-	Ldaps                   pulumi.StringPtrInput `pulumi:"ldaps"`
-	PfxCertificate          pulumi.StringPtrInput `pulumi:"pfxCertificate"`
-	PfxCertificatePassword  pulumi.StringPtrInput `pulumi:"pfxCertificatePassword"`
-	PublicCertificate       pulumi.StringInput    `pulumi:"publicCertificate"`
-}
-
-func (LdapsSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LdapsSettingsResponse)(nil)).Elem()
-}
-
-func (i LdapsSettingsResponseArgs) ToLdapsSettingsResponseOutput() LdapsSettingsResponseOutput {
-	return i.ToLdapsSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i LdapsSettingsResponseArgs) ToLdapsSettingsResponseOutputWithContext(ctx context.Context) LdapsSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LdapsSettingsResponseOutput)
-}
-
-func (i LdapsSettingsResponseArgs) ToLdapsSettingsResponsePtrOutput() LdapsSettingsResponsePtrOutput {
-	return i.ToLdapsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LdapsSettingsResponseArgs) ToLdapsSettingsResponsePtrOutputWithContext(ctx context.Context) LdapsSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LdapsSettingsResponseOutput).ToLdapsSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LdapsSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToLdapsSettingsResponsePtrOutput() LdapsSettingsResponsePtrOutput
-	ToLdapsSettingsResponsePtrOutputWithContext(context.Context) LdapsSettingsResponsePtrOutput
-}
-
-type ldapsSettingsResponsePtrType LdapsSettingsResponseArgs
-
-func LdapsSettingsResponsePtr(v *LdapsSettingsResponseArgs) LdapsSettingsResponsePtrInput {
-	return (*ldapsSettingsResponsePtrType)(v)
-}
-
-func (*ldapsSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LdapsSettingsResponse)(nil)).Elem()
-}
-
-func (i *ldapsSettingsResponsePtrType) ToLdapsSettingsResponsePtrOutput() LdapsSettingsResponsePtrOutput {
-	return i.ToLdapsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *ldapsSettingsResponsePtrType) ToLdapsSettingsResponsePtrOutputWithContext(ctx context.Context) LdapsSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LdapsSettingsResponsePtrOutput)
-}
-
 type LdapsSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (LdapsSettingsResponseOutput) ElementType() reflect.Type {
@@ -848,16 +581,6 @@ func (o LdapsSettingsResponseOutput) ToLdapsSettingsResponseOutput() LdapsSettin
 
 func (o LdapsSettingsResponseOutput) ToLdapsSettingsResponseOutputWithContext(ctx context.Context) LdapsSettingsResponseOutput {
 	return o
-}
-
-func (o LdapsSettingsResponseOutput) ToLdapsSettingsResponsePtrOutput() LdapsSettingsResponsePtrOutput {
-	return o.ToLdapsSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LdapsSettingsResponseOutput) ToLdapsSettingsResponsePtrOutputWithContext(ctx context.Context) LdapsSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LdapsSettingsResponse) *LdapsSettingsResponse {
-		return &v
-	}).(LdapsSettingsResponsePtrOutput)
 }
 
 func (o LdapsSettingsResponseOutput) CertificateNotAfter() pulumi.StringOutput {
@@ -1157,76 +880,6 @@ type NotificationSettingsResponse struct {
 	NotifyGlobalAdmins   *string  `pulumi:"notifyGlobalAdmins"`
 }
 
-
-
-
-
-type NotificationSettingsResponseInput interface {
-	pulumi.Input
-
-	ToNotificationSettingsResponseOutput() NotificationSettingsResponseOutput
-	ToNotificationSettingsResponseOutputWithContext(context.Context) NotificationSettingsResponseOutput
-}
-
-type NotificationSettingsResponseArgs struct {
-	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
-	NotifyDcAdmins       pulumi.StringPtrInput   `pulumi:"notifyDcAdmins"`
-	NotifyGlobalAdmins   pulumi.StringPtrInput   `pulumi:"notifyGlobalAdmins"`
-}
-
-func (NotificationSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationSettingsResponse)(nil)).Elem()
-}
-
-func (i NotificationSettingsResponseArgs) ToNotificationSettingsResponseOutput() NotificationSettingsResponseOutput {
-	return i.ToNotificationSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i NotificationSettingsResponseArgs) ToNotificationSettingsResponseOutputWithContext(ctx context.Context) NotificationSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsResponseOutput)
-}
-
-func (i NotificationSettingsResponseArgs) ToNotificationSettingsResponsePtrOutput() NotificationSettingsResponsePtrOutput {
-	return i.ToNotificationSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NotificationSettingsResponseArgs) ToNotificationSettingsResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsResponseOutput).ToNotificationSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type NotificationSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToNotificationSettingsResponsePtrOutput() NotificationSettingsResponsePtrOutput
-	ToNotificationSettingsResponsePtrOutputWithContext(context.Context) NotificationSettingsResponsePtrOutput
-}
-
-type notificationSettingsResponsePtrType NotificationSettingsResponseArgs
-
-func NotificationSettingsResponsePtr(v *NotificationSettingsResponseArgs) NotificationSettingsResponsePtrInput {
-	return (*notificationSettingsResponsePtrType)(v)
-}
-
-func (*notificationSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationSettingsResponse)(nil)).Elem()
-}
-
-func (i *notificationSettingsResponsePtrType) ToNotificationSettingsResponsePtrOutput() NotificationSettingsResponsePtrOutput {
-	return i.ToNotificationSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *notificationSettingsResponsePtrType) ToNotificationSettingsResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsResponsePtrOutput)
-}
-
 type NotificationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationSettingsResponseOutput) ElementType() reflect.Type {
@@ -1239,16 +892,6 @@ func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponseOutput
 
 func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponseOutputWithContext(ctx context.Context) NotificationSettingsResponseOutput {
 	return o
-}
-
-func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOutput() NotificationSettingsResponsePtrOutput {
-	return o.ToNotificationSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationSettingsResponse) *NotificationSettingsResponse {
-		return &v
-	}).(NotificationSettingsResponsePtrOutput)
 }
 
 func (o NotificationSettingsResponseOutput) AdditionalRecipients() pulumi.StringArrayOutput {

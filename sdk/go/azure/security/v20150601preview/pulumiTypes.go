@@ -15,59 +15,6 @@ type AppWhitelistingIssueSummaryResponse struct {
 	NumberOfVms *float64 `pulumi:"numberOfVms"`
 }
 
-
-
-
-
-type AppWhitelistingIssueSummaryResponseInput interface {
-	pulumi.Input
-
-	ToAppWhitelistingIssueSummaryResponseOutput() AppWhitelistingIssueSummaryResponseOutput
-	ToAppWhitelistingIssueSummaryResponseOutputWithContext(context.Context) AppWhitelistingIssueSummaryResponseOutput
-}
-
-type AppWhitelistingIssueSummaryResponseArgs struct {
-	Issue       pulumi.StringPtrInput  `pulumi:"issue"`
-	NumberOfVms pulumi.Float64PtrInput `pulumi:"numberOfVms"`
-}
-
-func (AppWhitelistingIssueSummaryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppWhitelistingIssueSummaryResponse)(nil)).Elem()
-}
-
-func (i AppWhitelistingIssueSummaryResponseArgs) ToAppWhitelistingIssueSummaryResponseOutput() AppWhitelistingIssueSummaryResponseOutput {
-	return i.ToAppWhitelistingIssueSummaryResponseOutputWithContext(context.Background())
-}
-
-func (i AppWhitelistingIssueSummaryResponseArgs) ToAppWhitelistingIssueSummaryResponseOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssueSummaryResponseOutput)
-}
-
-
-
-
-
-type AppWhitelistingIssueSummaryResponseArrayInput interface {
-	pulumi.Input
-
-	ToAppWhitelistingIssueSummaryResponseArrayOutput() AppWhitelistingIssueSummaryResponseArrayOutput
-	ToAppWhitelistingIssueSummaryResponseArrayOutputWithContext(context.Context) AppWhitelistingIssueSummaryResponseArrayOutput
-}
-
-type AppWhitelistingIssueSummaryResponseArray []AppWhitelistingIssueSummaryResponseInput
-
-func (AppWhitelistingIssueSummaryResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppWhitelistingIssueSummaryResponse)(nil)).Elem()
-}
-
-func (i AppWhitelistingIssueSummaryResponseArray) ToAppWhitelistingIssueSummaryResponseArrayOutput() AppWhitelistingIssueSummaryResponseArrayOutput {
-	return i.ToAppWhitelistingIssueSummaryResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AppWhitelistingIssueSummaryResponseArray) ToAppWhitelistingIssueSummaryResponseArrayOutputWithContext(ctx context.Context) AppWhitelistingIssueSummaryResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppWhitelistingIssueSummaryResponseArrayOutput)
-}
-
 type AppWhitelistingIssueSummaryResponseOutput struct{ *pulumi.OutputState }
 
 func (AppWhitelistingIssueSummaryResponseOutput) ElementType() reflect.Type {
@@ -220,60 +167,6 @@ type JitNetworkAccessPolicyVirtualMachineResponse struct {
 	Id              string                             `pulumi:"id"`
 	Ports           []JitNetworkAccessPortRuleResponse `pulumi:"ports"`
 	PublicIpAddress *string                            `pulumi:"publicIpAddress"`
-}
-
-
-
-
-
-type JitNetworkAccessPolicyVirtualMachineResponseInput interface {
-	pulumi.Input
-
-	ToJitNetworkAccessPolicyVirtualMachineResponseOutput() JitNetworkAccessPolicyVirtualMachineResponseOutput
-	ToJitNetworkAccessPolicyVirtualMachineResponseOutputWithContext(context.Context) JitNetworkAccessPolicyVirtualMachineResponseOutput
-}
-
-type JitNetworkAccessPolicyVirtualMachineResponseArgs struct {
-	Id              pulumi.StringInput                         `pulumi:"id"`
-	Ports           JitNetworkAccessPortRuleResponseArrayInput `pulumi:"ports"`
-	PublicIpAddress pulumi.StringPtrInput                      `pulumi:"publicIpAddress"`
-}
-
-func (JitNetworkAccessPolicyVirtualMachineResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitNetworkAccessPolicyVirtualMachineResponse)(nil)).Elem()
-}
-
-func (i JitNetworkAccessPolicyVirtualMachineResponseArgs) ToJitNetworkAccessPolicyVirtualMachineResponseOutput() JitNetworkAccessPolicyVirtualMachineResponseOutput {
-	return i.ToJitNetworkAccessPolicyVirtualMachineResponseOutputWithContext(context.Background())
-}
-
-func (i JitNetworkAccessPolicyVirtualMachineResponseArgs) ToJitNetworkAccessPolicyVirtualMachineResponseOutputWithContext(ctx context.Context) JitNetworkAccessPolicyVirtualMachineResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPolicyVirtualMachineResponseOutput)
-}
-
-
-
-
-
-type JitNetworkAccessPolicyVirtualMachineResponseArrayInput interface {
-	pulumi.Input
-
-	ToJitNetworkAccessPolicyVirtualMachineResponseArrayOutput() JitNetworkAccessPolicyVirtualMachineResponseArrayOutput
-	ToJitNetworkAccessPolicyVirtualMachineResponseArrayOutputWithContext(context.Context) JitNetworkAccessPolicyVirtualMachineResponseArrayOutput
-}
-
-type JitNetworkAccessPolicyVirtualMachineResponseArray []JitNetworkAccessPolicyVirtualMachineResponseInput
-
-func (JitNetworkAccessPolicyVirtualMachineResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JitNetworkAccessPolicyVirtualMachineResponse)(nil)).Elem()
-}
-
-func (i JitNetworkAccessPolicyVirtualMachineResponseArray) ToJitNetworkAccessPolicyVirtualMachineResponseArrayOutput() JitNetworkAccessPolicyVirtualMachineResponseArrayOutput {
-	return i.ToJitNetworkAccessPolicyVirtualMachineResponseArrayOutputWithContext(context.Background())
-}
-
-func (i JitNetworkAccessPolicyVirtualMachineResponseArray) ToJitNetworkAccessPolicyVirtualMachineResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessPolicyVirtualMachineResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPolicyVirtualMachineResponseArrayOutput)
 }
 
 type JitNetworkAccessPolicyVirtualMachineResponseOutput struct{ *pulumi.OutputState }
@@ -448,62 +341,6 @@ type JitNetworkAccessPortRuleResponse struct {
 	MaxRequestAccessDuration     string   `pulumi:"maxRequestAccessDuration"`
 	Number                       int      `pulumi:"number"`
 	Protocol                     string   `pulumi:"protocol"`
-}
-
-
-
-
-
-type JitNetworkAccessPortRuleResponseInput interface {
-	pulumi.Input
-
-	ToJitNetworkAccessPortRuleResponseOutput() JitNetworkAccessPortRuleResponseOutput
-	ToJitNetworkAccessPortRuleResponseOutputWithContext(context.Context) JitNetworkAccessPortRuleResponseOutput
-}
-
-type JitNetworkAccessPortRuleResponseArgs struct {
-	AllowedSourceAddressPrefix   pulumi.StringPtrInput   `pulumi:"allowedSourceAddressPrefix"`
-	AllowedSourceAddressPrefixes pulumi.StringArrayInput `pulumi:"allowedSourceAddressPrefixes"`
-	MaxRequestAccessDuration     pulumi.StringInput      `pulumi:"maxRequestAccessDuration"`
-	Number                       pulumi.IntInput         `pulumi:"number"`
-	Protocol                     pulumi.StringInput      `pulumi:"protocol"`
-}
-
-func (JitNetworkAccessPortRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitNetworkAccessPortRuleResponse)(nil)).Elem()
-}
-
-func (i JitNetworkAccessPortRuleResponseArgs) ToJitNetworkAccessPortRuleResponseOutput() JitNetworkAccessPortRuleResponseOutput {
-	return i.ToJitNetworkAccessPortRuleResponseOutputWithContext(context.Background())
-}
-
-func (i JitNetworkAccessPortRuleResponseArgs) ToJitNetworkAccessPortRuleResponseOutputWithContext(ctx context.Context) JitNetworkAccessPortRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPortRuleResponseOutput)
-}
-
-
-
-
-
-type JitNetworkAccessPortRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToJitNetworkAccessPortRuleResponseArrayOutput() JitNetworkAccessPortRuleResponseArrayOutput
-	ToJitNetworkAccessPortRuleResponseArrayOutputWithContext(context.Context) JitNetworkAccessPortRuleResponseArrayOutput
-}
-
-type JitNetworkAccessPortRuleResponseArray []JitNetworkAccessPortRuleResponseInput
-
-func (JitNetworkAccessPortRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JitNetworkAccessPortRuleResponse)(nil)).Elem()
-}
-
-func (i JitNetworkAccessPortRuleResponseArray) ToJitNetworkAccessPortRuleResponseArrayOutput() JitNetworkAccessPortRuleResponseArrayOutput {
-	return i.ToJitNetworkAccessPortRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i JitNetworkAccessPortRuleResponseArray) ToJitNetworkAccessPortRuleResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessPortRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessPortRuleResponseArrayOutput)
 }
 
 type JitNetworkAccessPortRuleResponseOutput struct{ *pulumi.OutputState }
@@ -812,64 +649,6 @@ type JitNetworkAccessRequestPortResponse struct {
 	StatusReason                 string   `pulumi:"statusReason"`
 }
 
-
-
-
-
-type JitNetworkAccessRequestPortResponseInput interface {
-	pulumi.Input
-
-	ToJitNetworkAccessRequestPortResponseOutput() JitNetworkAccessRequestPortResponseOutput
-	ToJitNetworkAccessRequestPortResponseOutputWithContext(context.Context) JitNetworkAccessRequestPortResponseOutput
-}
-
-type JitNetworkAccessRequestPortResponseArgs struct {
-	AllowedSourceAddressPrefix   pulumi.StringPtrInput   `pulumi:"allowedSourceAddressPrefix"`
-	AllowedSourceAddressPrefixes pulumi.StringArrayInput `pulumi:"allowedSourceAddressPrefixes"`
-	EndTimeUtc                   pulumi.StringInput      `pulumi:"endTimeUtc"`
-	MappedPort                   pulumi.IntPtrInput      `pulumi:"mappedPort"`
-	Number                       pulumi.IntInput         `pulumi:"number"`
-	Status                       pulumi.StringInput      `pulumi:"status"`
-	StatusReason                 pulumi.StringInput      `pulumi:"statusReason"`
-}
-
-func (JitNetworkAccessRequestPortResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitNetworkAccessRequestPortResponse)(nil)).Elem()
-}
-
-func (i JitNetworkAccessRequestPortResponseArgs) ToJitNetworkAccessRequestPortResponseOutput() JitNetworkAccessRequestPortResponseOutput {
-	return i.ToJitNetworkAccessRequestPortResponseOutputWithContext(context.Background())
-}
-
-func (i JitNetworkAccessRequestPortResponseArgs) ToJitNetworkAccessRequestPortResponseOutputWithContext(ctx context.Context) JitNetworkAccessRequestPortResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestPortResponseOutput)
-}
-
-
-
-
-
-type JitNetworkAccessRequestPortResponseArrayInput interface {
-	pulumi.Input
-
-	ToJitNetworkAccessRequestPortResponseArrayOutput() JitNetworkAccessRequestPortResponseArrayOutput
-	ToJitNetworkAccessRequestPortResponseArrayOutputWithContext(context.Context) JitNetworkAccessRequestPortResponseArrayOutput
-}
-
-type JitNetworkAccessRequestPortResponseArray []JitNetworkAccessRequestPortResponseInput
-
-func (JitNetworkAccessRequestPortResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JitNetworkAccessRequestPortResponse)(nil)).Elem()
-}
-
-func (i JitNetworkAccessRequestPortResponseArray) ToJitNetworkAccessRequestPortResponseArrayOutput() JitNetworkAccessRequestPortResponseArrayOutput {
-	return i.ToJitNetworkAccessRequestPortResponseArrayOutputWithContext(context.Background())
-}
-
-func (i JitNetworkAccessRequestPortResponseArray) ToJitNetworkAccessRequestPortResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessRequestPortResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestPortResponseArrayOutput)
-}
-
 type JitNetworkAccessRequestPortResponseOutput struct{ *pulumi.OutputState }
 
 func (JitNetworkAccessRequestPortResponseOutput) ElementType() reflect.Type {
@@ -937,61 +716,6 @@ type JitNetworkAccessRequestResponse struct {
 	Requestor       string                                          `pulumi:"requestor"`
 	StartTimeUtc    string                                          `pulumi:"startTimeUtc"`
 	VirtualMachines []JitNetworkAccessRequestVirtualMachineResponse `pulumi:"virtualMachines"`
-}
-
-
-
-
-
-type JitNetworkAccessRequestResponseInput interface {
-	pulumi.Input
-
-	ToJitNetworkAccessRequestResponseOutput() JitNetworkAccessRequestResponseOutput
-	ToJitNetworkAccessRequestResponseOutputWithContext(context.Context) JitNetworkAccessRequestResponseOutput
-}
-
-type JitNetworkAccessRequestResponseArgs struct {
-	Justification   pulumi.StringPtrInput                                   `pulumi:"justification"`
-	Requestor       pulumi.StringInput                                      `pulumi:"requestor"`
-	StartTimeUtc    pulumi.StringInput                                      `pulumi:"startTimeUtc"`
-	VirtualMachines JitNetworkAccessRequestVirtualMachineResponseArrayInput `pulumi:"virtualMachines"`
-}
-
-func (JitNetworkAccessRequestResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitNetworkAccessRequestResponse)(nil)).Elem()
-}
-
-func (i JitNetworkAccessRequestResponseArgs) ToJitNetworkAccessRequestResponseOutput() JitNetworkAccessRequestResponseOutput {
-	return i.ToJitNetworkAccessRequestResponseOutputWithContext(context.Background())
-}
-
-func (i JitNetworkAccessRequestResponseArgs) ToJitNetworkAccessRequestResponseOutputWithContext(ctx context.Context) JitNetworkAccessRequestResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestResponseOutput)
-}
-
-
-
-
-
-type JitNetworkAccessRequestResponseArrayInput interface {
-	pulumi.Input
-
-	ToJitNetworkAccessRequestResponseArrayOutput() JitNetworkAccessRequestResponseArrayOutput
-	ToJitNetworkAccessRequestResponseArrayOutputWithContext(context.Context) JitNetworkAccessRequestResponseArrayOutput
-}
-
-type JitNetworkAccessRequestResponseArray []JitNetworkAccessRequestResponseInput
-
-func (JitNetworkAccessRequestResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JitNetworkAccessRequestResponse)(nil)).Elem()
-}
-
-func (i JitNetworkAccessRequestResponseArray) ToJitNetworkAccessRequestResponseArrayOutput() JitNetworkAccessRequestResponseArrayOutput {
-	return i.ToJitNetworkAccessRequestResponseArrayOutputWithContext(context.Background())
-}
-
-func (i JitNetworkAccessRequestResponseArray) ToJitNetworkAccessRequestResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessRequestResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestResponseArrayOutput)
 }
 
 type JitNetworkAccessRequestResponseOutput struct{ *pulumi.OutputState }
@@ -1149,59 +873,6 @@ func (o JitNetworkAccessRequestVirtualMachineArrayOutput) Index(i pulumi.IntInpu
 type JitNetworkAccessRequestVirtualMachineResponse struct {
 	Id    string                                `pulumi:"id"`
 	Ports []JitNetworkAccessRequestPortResponse `pulumi:"ports"`
-}
-
-
-
-
-
-type JitNetworkAccessRequestVirtualMachineResponseInput interface {
-	pulumi.Input
-
-	ToJitNetworkAccessRequestVirtualMachineResponseOutput() JitNetworkAccessRequestVirtualMachineResponseOutput
-	ToJitNetworkAccessRequestVirtualMachineResponseOutputWithContext(context.Context) JitNetworkAccessRequestVirtualMachineResponseOutput
-}
-
-type JitNetworkAccessRequestVirtualMachineResponseArgs struct {
-	Id    pulumi.StringInput                            `pulumi:"id"`
-	Ports JitNetworkAccessRequestPortResponseArrayInput `pulumi:"ports"`
-}
-
-func (JitNetworkAccessRequestVirtualMachineResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitNetworkAccessRequestVirtualMachineResponse)(nil)).Elem()
-}
-
-func (i JitNetworkAccessRequestVirtualMachineResponseArgs) ToJitNetworkAccessRequestVirtualMachineResponseOutput() JitNetworkAccessRequestVirtualMachineResponseOutput {
-	return i.ToJitNetworkAccessRequestVirtualMachineResponseOutputWithContext(context.Background())
-}
-
-func (i JitNetworkAccessRequestVirtualMachineResponseArgs) ToJitNetworkAccessRequestVirtualMachineResponseOutputWithContext(ctx context.Context) JitNetworkAccessRequestVirtualMachineResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestVirtualMachineResponseOutput)
-}
-
-
-
-
-
-type JitNetworkAccessRequestVirtualMachineResponseArrayInput interface {
-	pulumi.Input
-
-	ToJitNetworkAccessRequestVirtualMachineResponseArrayOutput() JitNetworkAccessRequestVirtualMachineResponseArrayOutput
-	ToJitNetworkAccessRequestVirtualMachineResponseArrayOutputWithContext(context.Context) JitNetworkAccessRequestVirtualMachineResponseArrayOutput
-}
-
-type JitNetworkAccessRequestVirtualMachineResponseArray []JitNetworkAccessRequestVirtualMachineResponseInput
-
-func (JitNetworkAccessRequestVirtualMachineResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JitNetworkAccessRequestVirtualMachineResponse)(nil)).Elem()
-}
-
-func (i JitNetworkAccessRequestVirtualMachineResponseArray) ToJitNetworkAccessRequestVirtualMachineResponseArrayOutput() JitNetworkAccessRequestVirtualMachineResponseArrayOutput {
-	return i.ToJitNetworkAccessRequestVirtualMachineResponseArrayOutputWithContext(context.Background())
-}
-
-func (i JitNetworkAccessRequestVirtualMachineResponseArray) ToJitNetworkAccessRequestVirtualMachineResponseArrayOutputWithContext(ctx context.Context) JitNetworkAccessRequestVirtualMachineResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitNetworkAccessRequestVirtualMachineResponseArrayOutput)
 }
 
 type JitNetworkAccessRequestVirtualMachineResponseOutput struct{ *pulumi.OutputState }
@@ -1400,66 +1071,6 @@ type PathRecommendationResponse struct {
 	Type                *string                      `pulumi:"type"`
 	UserSids            []string                     `pulumi:"userSids"`
 	Usernames           []UserRecommendationResponse `pulumi:"usernames"`
-}
-
-
-
-
-
-type PathRecommendationResponseInput interface {
-	pulumi.Input
-
-	ToPathRecommendationResponseOutput() PathRecommendationResponseOutput
-	ToPathRecommendationResponseOutputWithContext(context.Context) PathRecommendationResponseOutput
-}
-
-type PathRecommendationResponseArgs struct {
-	Action              pulumi.StringPtrInput                `pulumi:"action"`
-	Common              pulumi.BoolPtrInput                  `pulumi:"common"`
-	ConfigurationStatus pulumi.StringPtrInput                `pulumi:"configurationStatus"`
-	FileType            pulumi.StringPtrInput                `pulumi:"fileType"`
-	Path                pulumi.StringPtrInput                `pulumi:"path"`
-	PublisherInfo       PublisherInfoResponsePtrInput        `pulumi:"publisherInfo"`
-	Type                pulumi.StringPtrInput                `pulumi:"type"`
-	UserSids            pulumi.StringArrayInput              `pulumi:"userSids"`
-	Usernames           UserRecommendationResponseArrayInput `pulumi:"usernames"`
-}
-
-func (PathRecommendationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PathRecommendationResponse)(nil)).Elem()
-}
-
-func (i PathRecommendationResponseArgs) ToPathRecommendationResponseOutput() PathRecommendationResponseOutput {
-	return i.ToPathRecommendationResponseOutputWithContext(context.Background())
-}
-
-func (i PathRecommendationResponseArgs) ToPathRecommendationResponseOutputWithContext(ctx context.Context) PathRecommendationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationResponseOutput)
-}
-
-
-
-
-
-type PathRecommendationResponseArrayInput interface {
-	pulumi.Input
-
-	ToPathRecommendationResponseArrayOutput() PathRecommendationResponseArrayOutput
-	ToPathRecommendationResponseArrayOutputWithContext(context.Context) PathRecommendationResponseArrayOutput
-}
-
-type PathRecommendationResponseArray []PathRecommendationResponseInput
-
-func (PathRecommendationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PathRecommendationResponse)(nil)).Elem()
-}
-
-func (i PathRecommendationResponseArray) ToPathRecommendationResponseArrayOutput() PathRecommendationResponseArrayOutput {
-	return i.ToPathRecommendationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PathRecommendationResponseArray) ToPathRecommendationResponseArrayOutputWithContext(ctx context.Context) PathRecommendationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PathRecommendationResponseArrayOutput)
 }
 
 type PathRecommendationResponseOutput struct{ *pulumi.OutputState }
@@ -1717,77 +1328,6 @@ type ProtectionModeResponse struct {
 	Script     *string `pulumi:"script"`
 }
 
-
-
-
-
-type ProtectionModeResponseInput interface {
-	pulumi.Input
-
-	ToProtectionModeResponseOutput() ProtectionModeResponseOutput
-	ToProtectionModeResponseOutputWithContext(context.Context) ProtectionModeResponseOutput
-}
-
-type ProtectionModeResponseArgs struct {
-	Exe        pulumi.StringPtrInput `pulumi:"exe"`
-	Executable pulumi.StringPtrInput `pulumi:"executable"`
-	Msi        pulumi.StringPtrInput `pulumi:"msi"`
-	Script     pulumi.StringPtrInput `pulumi:"script"`
-}
-
-func (ProtectionModeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectionModeResponse)(nil)).Elem()
-}
-
-func (i ProtectionModeResponseArgs) ToProtectionModeResponseOutput() ProtectionModeResponseOutput {
-	return i.ToProtectionModeResponseOutputWithContext(context.Background())
-}
-
-func (i ProtectionModeResponseArgs) ToProtectionModeResponseOutputWithContext(ctx context.Context) ProtectionModeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModeResponseOutput)
-}
-
-func (i ProtectionModeResponseArgs) ToProtectionModeResponsePtrOutput() ProtectionModeResponsePtrOutput {
-	return i.ToProtectionModeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ProtectionModeResponseArgs) ToProtectionModeResponsePtrOutputWithContext(ctx context.Context) ProtectionModeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModeResponseOutput).ToProtectionModeResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ProtectionModeResponsePtrInput interface {
-	pulumi.Input
-
-	ToProtectionModeResponsePtrOutput() ProtectionModeResponsePtrOutput
-	ToProtectionModeResponsePtrOutputWithContext(context.Context) ProtectionModeResponsePtrOutput
-}
-
-type protectionModeResponsePtrType ProtectionModeResponseArgs
-
-func ProtectionModeResponsePtr(v *ProtectionModeResponseArgs) ProtectionModeResponsePtrInput {
-	return (*protectionModeResponsePtrType)(v)
-}
-
-func (*protectionModeResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProtectionModeResponse)(nil)).Elem()
-}
-
-func (i *protectionModeResponsePtrType) ToProtectionModeResponsePtrOutput() ProtectionModeResponsePtrOutput {
-	return i.ToProtectionModeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *protectionModeResponsePtrType) ToProtectionModeResponsePtrOutputWithContext(ctx context.Context) ProtectionModeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProtectionModeResponsePtrOutput)
-}
-
 type ProtectionModeResponseOutput struct{ *pulumi.OutputState }
 
 func (ProtectionModeResponseOutput) ElementType() reflect.Type {
@@ -1800,16 +1340,6 @@ func (o ProtectionModeResponseOutput) ToProtectionModeResponseOutput() Protectio
 
 func (o ProtectionModeResponseOutput) ToProtectionModeResponseOutputWithContext(ctx context.Context) ProtectionModeResponseOutput {
 	return o
-}
-
-func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutput() ProtectionModeResponsePtrOutput {
-	return o.ToProtectionModeResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ProtectionModeResponseOutput) ToProtectionModeResponsePtrOutputWithContext(ctx context.Context) ProtectionModeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionModeResponse) *ProtectionModeResponse {
-		return &v
-	}).(ProtectionModeResponsePtrOutput)
 }
 
 func (o ProtectionModeResponseOutput) Exe() pulumi.StringPtrOutput {
@@ -2073,77 +1603,6 @@ type PublisherInfoResponse struct {
 	Version       *string `pulumi:"version"`
 }
 
-
-
-
-
-type PublisherInfoResponseInput interface {
-	pulumi.Input
-
-	ToPublisherInfoResponseOutput() PublisherInfoResponseOutput
-	ToPublisherInfoResponseOutputWithContext(context.Context) PublisherInfoResponseOutput
-}
-
-type PublisherInfoResponseArgs struct {
-	BinaryName    pulumi.StringPtrInput `pulumi:"binaryName"`
-	ProductName   pulumi.StringPtrInput `pulumi:"productName"`
-	PublisherName pulumi.StringPtrInput `pulumi:"publisherName"`
-	Version       pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (PublisherInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublisherInfoResponse)(nil)).Elem()
-}
-
-func (i PublisherInfoResponseArgs) ToPublisherInfoResponseOutput() PublisherInfoResponseOutput {
-	return i.ToPublisherInfoResponseOutputWithContext(context.Background())
-}
-
-func (i PublisherInfoResponseArgs) ToPublisherInfoResponseOutputWithContext(ctx context.Context) PublisherInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoResponseOutput)
-}
-
-func (i PublisherInfoResponseArgs) ToPublisherInfoResponsePtrOutput() PublisherInfoResponsePtrOutput {
-	return i.ToPublisherInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PublisherInfoResponseArgs) ToPublisherInfoResponsePtrOutputWithContext(ctx context.Context) PublisherInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoResponseOutput).ToPublisherInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PublisherInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToPublisherInfoResponsePtrOutput() PublisherInfoResponsePtrOutput
-	ToPublisherInfoResponsePtrOutputWithContext(context.Context) PublisherInfoResponsePtrOutput
-}
-
-type publisherInfoResponsePtrType PublisherInfoResponseArgs
-
-func PublisherInfoResponsePtr(v *PublisherInfoResponseArgs) PublisherInfoResponsePtrInput {
-	return (*publisherInfoResponsePtrType)(v)
-}
-
-func (*publisherInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublisherInfoResponse)(nil)).Elem()
-}
-
-func (i *publisherInfoResponsePtrType) ToPublisherInfoResponsePtrOutput() PublisherInfoResponsePtrOutput {
-	return i.ToPublisherInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *publisherInfoResponsePtrType) ToPublisherInfoResponsePtrOutputWithContext(ctx context.Context) PublisherInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublisherInfoResponsePtrOutput)
-}
-
 type PublisherInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (PublisherInfoResponseOutput) ElementType() reflect.Type {
@@ -2156,16 +1615,6 @@ func (o PublisherInfoResponseOutput) ToPublisherInfoResponseOutput() PublisherIn
 
 func (o PublisherInfoResponseOutput) ToPublisherInfoResponseOutputWithContext(ctx context.Context) PublisherInfoResponseOutput {
 	return o
-}
-
-func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutput() PublisherInfoResponsePtrOutput {
-	return o.ToPublisherInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PublisherInfoResponseOutput) ToPublisherInfoResponsePtrOutputWithContext(ctx context.Context) PublisherInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublisherInfoResponse) *PublisherInfoResponse {
-		return &v
-	}).(PublisherInfoResponsePtrOutput)
 }
 
 func (o PublisherInfoResponseOutput) BinaryName() pulumi.StringPtrOutput {
@@ -2349,59 +1798,6 @@ type UserRecommendationResponse struct {
 	Username             *string `pulumi:"username"`
 }
 
-
-
-
-
-type UserRecommendationResponseInput interface {
-	pulumi.Input
-
-	ToUserRecommendationResponseOutput() UserRecommendationResponseOutput
-	ToUserRecommendationResponseOutputWithContext(context.Context) UserRecommendationResponseOutput
-}
-
-type UserRecommendationResponseArgs struct {
-	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
-	Username             pulumi.StringPtrInput `pulumi:"username"`
-}
-
-func (UserRecommendationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserRecommendationResponse)(nil)).Elem()
-}
-
-func (i UserRecommendationResponseArgs) ToUserRecommendationResponseOutput() UserRecommendationResponseOutput {
-	return i.ToUserRecommendationResponseOutputWithContext(context.Background())
-}
-
-func (i UserRecommendationResponseArgs) ToUserRecommendationResponseOutputWithContext(ctx context.Context) UserRecommendationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationResponseOutput)
-}
-
-
-
-
-
-type UserRecommendationResponseArrayInput interface {
-	pulumi.Input
-
-	ToUserRecommendationResponseArrayOutput() UserRecommendationResponseArrayOutput
-	ToUserRecommendationResponseArrayOutputWithContext(context.Context) UserRecommendationResponseArrayOutput
-}
-
-type UserRecommendationResponseArray []UserRecommendationResponseInput
-
-func (UserRecommendationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserRecommendationResponse)(nil)).Elem()
-}
-
-func (i UserRecommendationResponseArray) ToUserRecommendationResponseArrayOutput() UserRecommendationResponseArrayOutput {
-	return i.ToUserRecommendationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i UserRecommendationResponseArray) ToUserRecommendationResponseArrayOutputWithContext(ctx context.Context) UserRecommendationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserRecommendationResponseArrayOutput)
-}
-
 type UserRecommendationResponseOutput struct{ *pulumi.OutputState }
 
 func (UserRecommendationResponseOutput) ElementType() reflect.Type {
@@ -2561,61 +1957,6 @@ type VmRecommendationResponse struct {
 	EnforcementSupport   *string `pulumi:"enforcementSupport"`
 	RecommendationAction *string `pulumi:"recommendationAction"`
 	ResourceId           *string `pulumi:"resourceId"`
-}
-
-
-
-
-
-type VmRecommendationResponseInput interface {
-	pulumi.Input
-
-	ToVmRecommendationResponseOutput() VmRecommendationResponseOutput
-	ToVmRecommendationResponseOutputWithContext(context.Context) VmRecommendationResponseOutput
-}
-
-type VmRecommendationResponseArgs struct {
-	ConfigurationStatus  pulumi.StringPtrInput `pulumi:"configurationStatus"`
-	EnforcementSupport   pulumi.StringPtrInput `pulumi:"enforcementSupport"`
-	RecommendationAction pulumi.StringPtrInput `pulumi:"recommendationAction"`
-	ResourceId           pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (VmRecommendationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VmRecommendationResponse)(nil)).Elem()
-}
-
-func (i VmRecommendationResponseArgs) ToVmRecommendationResponseOutput() VmRecommendationResponseOutput {
-	return i.ToVmRecommendationResponseOutputWithContext(context.Background())
-}
-
-func (i VmRecommendationResponseArgs) ToVmRecommendationResponseOutputWithContext(ctx context.Context) VmRecommendationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationResponseOutput)
-}
-
-
-
-
-
-type VmRecommendationResponseArrayInput interface {
-	pulumi.Input
-
-	ToVmRecommendationResponseArrayOutput() VmRecommendationResponseArrayOutput
-	ToVmRecommendationResponseArrayOutputWithContext(context.Context) VmRecommendationResponseArrayOutput
-}
-
-type VmRecommendationResponseArray []VmRecommendationResponseInput
-
-func (VmRecommendationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VmRecommendationResponse)(nil)).Elem()
-}
-
-func (i VmRecommendationResponseArray) ToVmRecommendationResponseArrayOutput() VmRecommendationResponseArrayOutput {
-	return i.ToVmRecommendationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i VmRecommendationResponseArray) ToVmRecommendationResponseArrayOutputWithContext(ctx context.Context) VmRecommendationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VmRecommendationResponseArrayOutput)
 }
 
 type VmRecommendationResponseOutput struct{ *pulumi.OutputState }

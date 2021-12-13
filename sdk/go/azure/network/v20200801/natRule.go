@@ -127,7 +127,7 @@ type NatRuleInput interface {
 }
 
 func (*NatRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatRule)(nil))
+	return reflect.TypeOf((**NatRule)(nil)).Elem()
 }
 
 func (i *NatRule) ToNatRuleOutput() NatRuleOutput {
@@ -141,7 +141,7 @@ func (i *NatRule) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput 
 type NatRuleOutput struct{ *pulumi.OutputState }
 
 func (NatRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatRule)(nil))
+	return reflect.TypeOf((**NatRule)(nil)).Elem()
 }
 
 func (o NatRuleOutput) ToNatRuleOutput() NatRuleOutput {

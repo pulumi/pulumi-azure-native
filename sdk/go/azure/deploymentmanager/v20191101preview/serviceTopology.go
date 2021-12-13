@@ -100,7 +100,7 @@ type ServiceTopologyInput interface {
 }
 
 func (*ServiceTopology) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTopology)(nil))
+	return reflect.TypeOf((**ServiceTopology)(nil)).Elem()
 }
 
 func (i *ServiceTopology) ToServiceTopologyOutput() ServiceTopologyOutput {
@@ -114,7 +114,7 @@ func (i *ServiceTopology) ToServiceTopologyOutputWithContext(ctx context.Context
 type ServiceTopologyOutput struct{ *pulumi.OutputState }
 
 func (ServiceTopologyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTopology)(nil))
+	return reflect.TypeOf((**ServiceTopology)(nil)).Elem()
 }
 
 func (o ServiceTopologyOutput) ToServiceTopologyOutput() ServiceTopologyOutput {

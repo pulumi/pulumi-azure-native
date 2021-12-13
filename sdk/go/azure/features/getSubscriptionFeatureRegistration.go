@@ -13,7 +13,7 @@ func LookupSubscriptionFeatureRegistration(ctx *pulumi.Context, args *LookupSubs
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupSubscriptionFeatureRegistrationArgs struct {
@@ -27,4 +27,15 @@ type LookupSubscriptionFeatureRegistrationResult struct {
 	Name       string                                            `pulumi:"name"`
 	Properties SubscriptionFeatureRegistrationResponseProperties `pulumi:"properties"`
 	Type       string                                            `pulumi:"type"`
+}
+
+
+func (val *LookupSubscriptionFeatureRegistrationResult) Defaults() *LookupSubscriptionFeatureRegistrationResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

@@ -135,7 +135,7 @@ type WebAppApplicationSettingsSlotInput interface {
 }
 
 func (*WebAppApplicationSettingsSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppApplicationSettingsSlot)(nil))
+	return reflect.TypeOf((**WebAppApplicationSettingsSlot)(nil)).Elem()
 }
 
 func (i *WebAppApplicationSettingsSlot) ToWebAppApplicationSettingsSlotOutput() WebAppApplicationSettingsSlotOutput {
@@ -149,7 +149,7 @@ func (i *WebAppApplicationSettingsSlot) ToWebAppApplicationSettingsSlotOutputWit
 type WebAppApplicationSettingsSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppApplicationSettingsSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppApplicationSettingsSlot)(nil))
+	return reflect.TypeOf((**WebAppApplicationSettingsSlot)(nil)).Elem()
 }
 
 func (o WebAppApplicationSettingsSlotOutput) ToWebAppApplicationSettingsSlotOutput() WebAppApplicationSettingsSlotOutput {

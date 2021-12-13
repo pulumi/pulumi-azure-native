@@ -110,7 +110,7 @@ type AFDCustomDomainInput interface {
 }
 
 func (*AFDCustomDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*AFDCustomDomain)(nil))
+	return reflect.TypeOf((**AFDCustomDomain)(nil)).Elem()
 }
 
 func (i *AFDCustomDomain) ToAFDCustomDomainOutput() AFDCustomDomainOutput {
@@ -124,7 +124,7 @@ func (i *AFDCustomDomain) ToAFDCustomDomainOutputWithContext(ctx context.Context
 type AFDCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (AFDCustomDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AFDCustomDomain)(nil))
+	return reflect.TypeOf((**AFDCustomDomain)(nil)).Elem()
 }
 
 func (o AFDCustomDomainOutput) ToAFDCustomDomainOutput() AFDCustomDomainOutput {

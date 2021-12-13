@@ -156,7 +156,7 @@ type MachineLearningComputeInput interface {
 }
 
 func (*MachineLearningCompute) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningCompute)(nil))
+	return reflect.TypeOf((**MachineLearningCompute)(nil)).Elem()
 }
 
 func (i *MachineLearningCompute) ToMachineLearningComputeOutput() MachineLearningComputeOutput {
@@ -170,7 +170,7 @@ func (i *MachineLearningCompute) ToMachineLearningComputeOutputWithContext(ctx c
 type MachineLearningComputeOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningComputeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningCompute)(nil))
+	return reflect.TypeOf((**MachineLearningCompute)(nil)).Elem()
 }
 
 func (o MachineLearningComputeOutput) ToMachineLearningComputeOutput() MachineLearningComputeOutput {

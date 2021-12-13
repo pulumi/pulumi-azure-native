@@ -98,7 +98,7 @@ type VendorSkuPreviewInput interface {
 }
 
 func (*VendorSkuPreview) ElementType() reflect.Type {
-	return reflect.TypeOf((*VendorSkuPreview)(nil))
+	return reflect.TypeOf((**VendorSkuPreview)(nil)).Elem()
 }
 
 func (i *VendorSkuPreview) ToVendorSkuPreviewOutput() VendorSkuPreviewOutput {
@@ -112,7 +112,7 @@ func (i *VendorSkuPreview) ToVendorSkuPreviewOutputWithContext(ctx context.Conte
 type VendorSkuPreviewOutput struct{ *pulumi.OutputState }
 
 func (VendorSkuPreviewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VendorSkuPreview)(nil))
+	return reflect.TypeOf((**VendorSkuPreview)(nil)).Elem()
 }
 
 func (o VendorSkuPreviewOutput) ToVendorSkuPreviewOutput() VendorSkuPreviewOutput {

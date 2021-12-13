@@ -49,14 +49,23 @@ func NewWebPubSub(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.DisableAadAuth == nil {
+	if isZero(args.DisableAadAuth) {
 		args.DisableAadAuth = pulumi.BoolPtr(false)
 	}
-	if args.DisableLocalAuth == nil {
+	if isZero(args.DisableLocalAuth) {
 		args.DisableLocalAuth = pulumi.BoolPtr(false)
 	}
-	if args.PublicNetworkAccess == nil {
+	if args.LiveTraceConfiguration != nil {
+		args.LiveTraceConfiguration = args.LiveTraceConfiguration.ToLiveTraceConfigurationPtrOutput().ApplyT(func(v *LiveTraceConfiguration) *LiveTraceConfiguration { return v.Defaults() }).(LiveTraceConfigurationPtrOutput)
+	}
+	if args.NetworkACLs != nil {
+		args.NetworkACLs = args.NetworkACLs.ToWebPubSubNetworkACLsPtrOutput().ApplyT(func(v *WebPubSubNetworkACLs) *WebPubSubNetworkACLs { return v.Defaults() }).(WebPubSubNetworkACLsPtrOutput)
+	}
+	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
+	}
+	if args.Tls != nil {
+		args.Tls = args.Tls.ToWebPubSubTlsSettingsPtrOutput().ApplyT(func(v *WebPubSubTlsSettings) *WebPubSubTlsSettings { return v.Defaults() }).(WebPubSubTlsSettingsPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -149,7 +158,7 @@ type WebPubSubInput interface {
 }
 
 func (*WebPubSub) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSub)(nil))
+	return reflect.TypeOf((**WebPubSub)(nil)).Elem()
 }
 
 func (i *WebPubSub) ToWebPubSubOutput() WebPubSubOutput {
@@ -163,7 +172,7 @@ func (i *WebPubSub) ToWebPubSubOutputWithContext(ctx context.Context) WebPubSubO
 type WebPubSubOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSub)(nil))
+	return reflect.TypeOf((**WebPubSub)(nil)).Elem()
 }
 
 func (o WebPubSubOutput) ToWebPubSubOutput() WebPubSubOutput {

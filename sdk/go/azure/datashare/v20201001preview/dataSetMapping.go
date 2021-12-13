@@ -118,7 +118,7 @@ type DataSetMappingInput interface {
 }
 
 func (*DataSetMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetMapping)(nil))
+	return reflect.TypeOf((**DataSetMapping)(nil)).Elem()
 }
 
 func (i *DataSetMapping) ToDataSetMappingOutput() DataSetMappingOutput {
@@ -132,7 +132,7 @@ func (i *DataSetMapping) ToDataSetMappingOutputWithContext(ctx context.Context) 
 type DataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (DataSetMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetMapping)(nil))
+	return reflect.TypeOf((**DataSetMapping)(nil)).Elem()
 }
 
 func (o DataSetMappingOutput) ToDataSetMappingOutput() DataSetMappingOutput {

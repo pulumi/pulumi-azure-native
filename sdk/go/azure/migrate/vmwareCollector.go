@@ -99,7 +99,7 @@ type VMwareCollectorInput interface {
 }
 
 func (*VMwareCollector) ElementType() reflect.Type {
-	return reflect.TypeOf((*VMwareCollector)(nil))
+	return reflect.TypeOf((**VMwareCollector)(nil)).Elem()
 }
 
 func (i *VMwareCollector) ToVMwareCollectorOutput() VMwareCollectorOutput {
@@ -113,7 +113,7 @@ func (i *VMwareCollector) ToVMwareCollectorOutputWithContext(ctx context.Context
 type VMwareCollectorOutput struct{ *pulumi.OutputState }
 
 func (VMwareCollectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VMwareCollector)(nil))
+	return reflect.TypeOf((**VMwareCollector)(nil)).Elem()
 }
 
 func (o VMwareCollectorOutput) ToVMwareCollectorOutput() VMwareCollectorOutput {

@@ -113,63 +113,6 @@ type PlanResponse struct {
 	StackType         string  `pulumi:"stackType"`
 }
 
-
-
-
-
-type PlanResponseInput interface {
-	pulumi.Input
-
-	ToPlanResponseOutput() PlanResponseOutput
-	ToPlanResponseOutputWithContext(context.Context) PlanResponseOutput
-}
-
-type PlanResponseArgs struct {
-	Accessibility     pulumi.StringPtrInput `pulumi:"accessibility"`
-	AltStackReference pulumi.StringInput    `pulumi:"altStackReference"`
-	PlanDisplayName   pulumi.StringInput    `pulumi:"planDisplayName"`
-	PlanId            pulumi.StringInput    `pulumi:"planId"`
-	SkuId             pulumi.StringInput    `pulumi:"skuId"`
-	StackType         pulumi.StringInput    `pulumi:"stackType"`
-}
-
-func (PlanResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlanResponse)(nil)).Elem()
-}
-
-func (i PlanResponseArgs) ToPlanResponseOutput() PlanResponseOutput {
-	return i.ToPlanResponseOutputWithContext(context.Background())
-}
-
-func (i PlanResponseArgs) ToPlanResponseOutputWithContext(ctx context.Context) PlanResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlanResponseOutput)
-}
-
-
-
-
-
-type PlanResponseArrayInput interface {
-	pulumi.Input
-
-	ToPlanResponseArrayOutput() PlanResponseArrayOutput
-	ToPlanResponseArrayOutputWithContext(context.Context) PlanResponseArrayOutput
-}
-
-type PlanResponseArray []PlanResponseInput
-
-func (PlanResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PlanResponse)(nil)).Elem()
-}
-
-func (i PlanResponseArray) ToPlanResponseArrayOutput() PlanResponseArrayOutput {
-	return i.ToPlanResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PlanResponseArray) ToPlanResponseArrayOutputWithContext(ctx context.Context) PlanResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlanResponseArrayOutput)
-}
-
 type PlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PlanResponseOutput) ElementType() reflect.Type {

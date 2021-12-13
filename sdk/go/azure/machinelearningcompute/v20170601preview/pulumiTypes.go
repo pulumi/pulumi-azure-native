@@ -19,6 +19,23 @@ type AcsClusterProperties struct {
 }
 
 
+func (val *AcsClusterProperties) Defaults() *AcsClusterProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AgentCount) {
+		agentCount_ := 2
+		tmp.AgentCount = &agentCount_
+	}
+	if isZero(tmp.AgentVmSize) {
+		agentVmSize_ := "Standard_D2_v2"
+		tmp.AgentVmSize = &agentVmSize_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -49,47 +66,6 @@ func (i AcsClusterPropertiesArgs) ToAcsClusterPropertiesOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AcsClusterPropertiesOutput)
 }
 
-func (i AcsClusterPropertiesArgs) ToAcsClusterPropertiesPtrOutput() AcsClusterPropertiesPtrOutput {
-	return i.ToAcsClusterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i AcsClusterPropertiesArgs) ToAcsClusterPropertiesPtrOutputWithContext(ctx context.Context) AcsClusterPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AcsClusterPropertiesOutput).ToAcsClusterPropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AcsClusterPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToAcsClusterPropertiesPtrOutput() AcsClusterPropertiesPtrOutput
-	ToAcsClusterPropertiesPtrOutputWithContext(context.Context) AcsClusterPropertiesPtrOutput
-}
-
-type acsClusterPropertiesPtrType AcsClusterPropertiesArgs
-
-func AcsClusterPropertiesPtr(v *AcsClusterPropertiesArgs) AcsClusterPropertiesPtrInput {
-	return (*acsClusterPropertiesPtrType)(v)
-}
-
-func (*acsClusterPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AcsClusterProperties)(nil)).Elem()
-}
-
-func (i *acsClusterPropertiesPtrType) ToAcsClusterPropertiesPtrOutput() AcsClusterPropertiesPtrOutput {
-	return i.ToAcsClusterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *acsClusterPropertiesPtrType) ToAcsClusterPropertiesPtrOutputWithContext(ctx context.Context) AcsClusterPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AcsClusterPropertiesPtrOutput)
-}
-
 type AcsClusterPropertiesOutput struct{ *pulumi.OutputState }
 
 func (AcsClusterPropertiesOutput) ElementType() reflect.Type {
@@ -102,16 +78,6 @@ func (o AcsClusterPropertiesOutput) ToAcsClusterPropertiesOutput() AcsClusterPro
 
 func (o AcsClusterPropertiesOutput) ToAcsClusterPropertiesOutputWithContext(ctx context.Context) AcsClusterPropertiesOutput {
 	return o
-}
-
-func (o AcsClusterPropertiesOutput) ToAcsClusterPropertiesPtrOutput() AcsClusterPropertiesPtrOutput {
-	return o.ToAcsClusterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o AcsClusterPropertiesOutput) ToAcsClusterPropertiesPtrOutputWithContext(ctx context.Context) AcsClusterPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AcsClusterProperties) *AcsClusterProperties {
-		return &v
-	}).(AcsClusterPropertiesPtrOutput)
 }
 
 func (o AcsClusterPropertiesOutput) AgentCount() pulumi.IntPtrOutput {
@@ -134,75 +100,6 @@ func (o AcsClusterPropertiesOutput) SystemServices() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AcsClusterProperties) []string { return v.SystemServices }).(pulumi.StringArrayOutput)
 }
 
-type AcsClusterPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (AcsClusterPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AcsClusterProperties)(nil)).Elem()
-}
-
-func (o AcsClusterPropertiesPtrOutput) ToAcsClusterPropertiesPtrOutput() AcsClusterPropertiesPtrOutput {
-	return o
-}
-
-func (o AcsClusterPropertiesPtrOutput) ToAcsClusterPropertiesPtrOutputWithContext(ctx context.Context) AcsClusterPropertiesPtrOutput {
-	return o
-}
-
-func (o AcsClusterPropertiesPtrOutput) Elem() AcsClusterPropertiesOutput {
-	return o.ApplyT(func(v *AcsClusterProperties) AcsClusterProperties {
-		if v != nil {
-			return *v
-		}
-		var ret AcsClusterProperties
-		return ret
-	}).(AcsClusterPropertiesOutput)
-}
-
-func (o AcsClusterPropertiesPtrOutput) AgentCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AcsClusterProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AgentCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o AcsClusterPropertiesPtrOutput) AgentVmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AcsClusterProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AgentVmSize
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AcsClusterPropertiesPtrOutput) OrchestratorProperties() KubernetesClusterPropertiesPtrOutput {
-	return o.ApplyT(func(v *AcsClusterProperties) *KubernetesClusterProperties {
-		if v == nil {
-			return nil
-		}
-		return &v.OrchestratorProperties
-	}).(KubernetesClusterPropertiesPtrOutput)
-}
-
-func (o AcsClusterPropertiesPtrOutput) OrchestratorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AcsClusterProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OrchestratorType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AcsClusterPropertiesPtrOutput) SystemServices() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AcsClusterProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SystemServices
-	}).(pulumi.StringArrayOutput)
-}
-
 type AcsClusterPropertiesResponse struct {
 	AgentCount             *int                                `pulumi:"agentCount"`
 	AgentVmSize            *string                             `pulumi:"agentVmSize"`
@@ -213,76 +110,20 @@ type AcsClusterPropertiesResponse struct {
 }
 
 
-
-
-
-type AcsClusterPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAcsClusterPropertiesResponseOutput() AcsClusterPropertiesResponseOutput
-	ToAcsClusterPropertiesResponseOutputWithContext(context.Context) AcsClusterPropertiesResponseOutput
-}
-
-type AcsClusterPropertiesResponseArgs struct {
-	AgentCount             pulumi.IntPtrInput                       `pulumi:"agentCount"`
-	AgentVmSize            pulumi.StringPtrInput                    `pulumi:"agentVmSize"`
-	ClusterFqdn            pulumi.StringInput                       `pulumi:"clusterFqdn"`
-	OrchestratorProperties KubernetesClusterPropertiesResponseInput `pulumi:"orchestratorProperties"`
-	OrchestratorType       pulumi.StringInput                       `pulumi:"orchestratorType"`
-	SystemServices         pulumi.StringArrayInput                  `pulumi:"systemServices"`
-}
-
-func (AcsClusterPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AcsClusterPropertiesResponse)(nil)).Elem()
-}
-
-func (i AcsClusterPropertiesResponseArgs) ToAcsClusterPropertiesResponseOutput() AcsClusterPropertiesResponseOutput {
-	return i.ToAcsClusterPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AcsClusterPropertiesResponseArgs) ToAcsClusterPropertiesResponseOutputWithContext(ctx context.Context) AcsClusterPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AcsClusterPropertiesResponseOutput)
-}
-
-func (i AcsClusterPropertiesResponseArgs) ToAcsClusterPropertiesResponsePtrOutput() AcsClusterPropertiesResponsePtrOutput {
-	return i.ToAcsClusterPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AcsClusterPropertiesResponseArgs) ToAcsClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) AcsClusterPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AcsClusterPropertiesResponseOutput).ToAcsClusterPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AcsClusterPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToAcsClusterPropertiesResponsePtrOutput() AcsClusterPropertiesResponsePtrOutput
-	ToAcsClusterPropertiesResponsePtrOutputWithContext(context.Context) AcsClusterPropertiesResponsePtrOutput
-}
-
-type acsClusterPropertiesResponsePtrType AcsClusterPropertiesResponseArgs
-
-func AcsClusterPropertiesResponsePtr(v *AcsClusterPropertiesResponseArgs) AcsClusterPropertiesResponsePtrInput {
-	return (*acsClusterPropertiesResponsePtrType)(v)
-}
-
-func (*acsClusterPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AcsClusterPropertiesResponse)(nil)).Elem()
-}
-
-func (i *acsClusterPropertiesResponsePtrType) ToAcsClusterPropertiesResponsePtrOutput() AcsClusterPropertiesResponsePtrOutput {
-	return i.ToAcsClusterPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *acsClusterPropertiesResponsePtrType) ToAcsClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) AcsClusterPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AcsClusterPropertiesResponsePtrOutput)
+func (val *AcsClusterPropertiesResponse) Defaults() *AcsClusterPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AgentCount) {
+		agentCount_ := 2
+		tmp.AgentCount = &agentCount_
+	}
+	if isZero(tmp.AgentVmSize) {
+		agentVmSize_ := "Standard_D2_v2"
+		tmp.AgentVmSize = &agentVmSize_
+	}
+	return &tmp
 }
 
 type AcsClusterPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -297,16 +138,6 @@ func (o AcsClusterPropertiesResponseOutput) ToAcsClusterPropertiesResponseOutput
 
 func (o AcsClusterPropertiesResponseOutput) ToAcsClusterPropertiesResponseOutputWithContext(ctx context.Context) AcsClusterPropertiesResponseOutput {
 	return o
-}
-
-func (o AcsClusterPropertiesResponseOutput) ToAcsClusterPropertiesResponsePtrOutput() AcsClusterPropertiesResponsePtrOutput {
-	return o.ToAcsClusterPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AcsClusterPropertiesResponseOutput) ToAcsClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) AcsClusterPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AcsClusterPropertiesResponse) *AcsClusterPropertiesResponse {
-		return &v
-	}).(AcsClusterPropertiesResponsePtrOutput)
 }
 
 func (o AcsClusterPropertiesResponseOutput) AgentCount() pulumi.IntPtrOutput {
@@ -333,84 +164,6 @@ func (o AcsClusterPropertiesResponseOutput) OrchestratorType() pulumi.StringOutp
 
 func (o AcsClusterPropertiesResponseOutput) SystemServices() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AcsClusterPropertiesResponse) []string { return v.SystemServices }).(pulumi.StringArrayOutput)
-}
-
-type AcsClusterPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AcsClusterPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AcsClusterPropertiesResponse)(nil)).Elem()
-}
-
-func (o AcsClusterPropertiesResponsePtrOutput) ToAcsClusterPropertiesResponsePtrOutput() AcsClusterPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o AcsClusterPropertiesResponsePtrOutput) ToAcsClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) AcsClusterPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o AcsClusterPropertiesResponsePtrOutput) Elem() AcsClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v *AcsClusterPropertiesResponse) AcsClusterPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AcsClusterPropertiesResponse
-		return ret
-	}).(AcsClusterPropertiesResponseOutput)
-}
-
-func (o AcsClusterPropertiesResponsePtrOutput) AgentCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AcsClusterPropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AgentCount
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o AcsClusterPropertiesResponsePtrOutput) AgentVmSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AcsClusterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AgentVmSize
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AcsClusterPropertiesResponsePtrOutput) ClusterFqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AcsClusterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ClusterFqdn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AcsClusterPropertiesResponsePtrOutput) OrchestratorProperties() KubernetesClusterPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *AcsClusterPropertiesResponse) *KubernetesClusterPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.OrchestratorProperties
-	}).(KubernetesClusterPropertiesResponsePtrOutput)
-}
-
-func (o AcsClusterPropertiesResponsePtrOutput) OrchestratorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AcsClusterPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OrchestratorType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AcsClusterPropertiesResponsePtrOutput) SystemServices() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AcsClusterPropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SystemServices
-	}).(pulumi.StringArrayOutput)
 }
 
 type AppInsightsCredentials struct {
@@ -566,75 +319,6 @@ type AppInsightsCredentialsResponse struct {
 	AppId  *string `pulumi:"appId"`
 }
 
-
-
-
-
-type AppInsightsCredentialsResponseInput interface {
-	pulumi.Input
-
-	ToAppInsightsCredentialsResponseOutput() AppInsightsCredentialsResponseOutput
-	ToAppInsightsCredentialsResponseOutputWithContext(context.Context) AppInsightsCredentialsResponseOutput
-}
-
-type AppInsightsCredentialsResponseArgs struct {
-	ApiKey pulumi.StringPtrInput `pulumi:"apiKey"`
-	AppId  pulumi.StringPtrInput `pulumi:"appId"`
-}
-
-func (AppInsightsCredentialsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppInsightsCredentialsResponse)(nil)).Elem()
-}
-
-func (i AppInsightsCredentialsResponseArgs) ToAppInsightsCredentialsResponseOutput() AppInsightsCredentialsResponseOutput {
-	return i.ToAppInsightsCredentialsResponseOutputWithContext(context.Background())
-}
-
-func (i AppInsightsCredentialsResponseArgs) ToAppInsightsCredentialsResponseOutputWithContext(ctx context.Context) AppInsightsCredentialsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppInsightsCredentialsResponseOutput)
-}
-
-func (i AppInsightsCredentialsResponseArgs) ToAppInsightsCredentialsResponsePtrOutput() AppInsightsCredentialsResponsePtrOutput {
-	return i.ToAppInsightsCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AppInsightsCredentialsResponseArgs) ToAppInsightsCredentialsResponsePtrOutputWithContext(ctx context.Context) AppInsightsCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppInsightsCredentialsResponseOutput).ToAppInsightsCredentialsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AppInsightsCredentialsResponsePtrInput interface {
-	pulumi.Input
-
-	ToAppInsightsCredentialsResponsePtrOutput() AppInsightsCredentialsResponsePtrOutput
-	ToAppInsightsCredentialsResponsePtrOutputWithContext(context.Context) AppInsightsCredentialsResponsePtrOutput
-}
-
-type appInsightsCredentialsResponsePtrType AppInsightsCredentialsResponseArgs
-
-func AppInsightsCredentialsResponsePtr(v *AppInsightsCredentialsResponseArgs) AppInsightsCredentialsResponsePtrInput {
-	return (*appInsightsCredentialsResponsePtrType)(v)
-}
-
-func (*appInsightsCredentialsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppInsightsCredentialsResponse)(nil)).Elem()
-}
-
-func (i *appInsightsCredentialsResponsePtrType) ToAppInsightsCredentialsResponsePtrOutput() AppInsightsCredentialsResponsePtrOutput {
-	return i.ToAppInsightsCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *appInsightsCredentialsResponsePtrType) ToAppInsightsCredentialsResponsePtrOutputWithContext(ctx context.Context) AppInsightsCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppInsightsCredentialsResponsePtrOutput)
-}
-
 type AppInsightsCredentialsResponseOutput struct{ *pulumi.OutputState }
 
 func (AppInsightsCredentialsResponseOutput) ElementType() reflect.Type {
@@ -647,16 +331,6 @@ func (o AppInsightsCredentialsResponseOutput) ToAppInsightsCredentialsResponseOu
 
 func (o AppInsightsCredentialsResponseOutput) ToAppInsightsCredentialsResponseOutputWithContext(ctx context.Context) AppInsightsCredentialsResponseOutput {
 	return o
-}
-
-func (o AppInsightsCredentialsResponseOutput) ToAppInsightsCredentialsResponsePtrOutput() AppInsightsCredentialsResponsePtrOutput {
-	return o.ToAppInsightsCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AppInsightsCredentialsResponseOutput) ToAppInsightsCredentialsResponsePtrOutputWithContext(ctx context.Context) AppInsightsCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppInsightsCredentialsResponse) *AppInsightsCredentialsResponse {
-		return &v
-	}).(AppInsightsCredentialsResponsePtrOutput)
 }
 
 func (o AppInsightsCredentialsResponseOutput) ApiKey() pulumi.StringPtrOutput {
@@ -715,6 +389,27 @@ type AutoScaleConfiguration struct {
 	RefreshPeriodInSeconds *int     `pulumi:"refreshPeriodInSeconds"`
 	Status                 *string  `pulumi:"status"`
 	TargetUtilization      *float64 `pulumi:"targetUtilization"`
+}
+
+
+func (val *AutoScaleConfiguration) Defaults() *AutoScaleConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxReplicas) {
+		maxReplicas_ := 100
+		tmp.MaxReplicas = &maxReplicas_
+	}
+	if isZero(tmp.MinReplicas) {
+		minReplicas_ := 1
+		tmp.MinReplicas = &minReplicas_
+	}
+	if isZero(tmp.Status) {
+		status_ := "Disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -911,75 +606,24 @@ type AutoScaleConfigurationResponse struct {
 }
 
 
-
-
-
-type AutoScaleConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToAutoScaleConfigurationResponseOutput() AutoScaleConfigurationResponseOutput
-	ToAutoScaleConfigurationResponseOutputWithContext(context.Context) AutoScaleConfigurationResponseOutput
-}
-
-type AutoScaleConfigurationResponseArgs struct {
-	MaxReplicas            pulumi.IntPtrInput     `pulumi:"maxReplicas"`
-	MinReplicas            pulumi.IntPtrInput     `pulumi:"minReplicas"`
-	RefreshPeriodInSeconds pulumi.IntPtrInput     `pulumi:"refreshPeriodInSeconds"`
-	Status                 pulumi.StringPtrInput  `pulumi:"status"`
-	TargetUtilization      pulumi.Float64PtrInput `pulumi:"targetUtilization"`
-}
-
-func (AutoScaleConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScaleConfigurationResponse)(nil)).Elem()
-}
-
-func (i AutoScaleConfigurationResponseArgs) ToAutoScaleConfigurationResponseOutput() AutoScaleConfigurationResponseOutput {
-	return i.ToAutoScaleConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i AutoScaleConfigurationResponseArgs) ToAutoScaleConfigurationResponseOutputWithContext(ctx context.Context) AutoScaleConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScaleConfigurationResponseOutput)
-}
-
-func (i AutoScaleConfigurationResponseArgs) ToAutoScaleConfigurationResponsePtrOutput() AutoScaleConfigurationResponsePtrOutput {
-	return i.ToAutoScaleConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AutoScaleConfigurationResponseArgs) ToAutoScaleConfigurationResponsePtrOutputWithContext(ctx context.Context) AutoScaleConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScaleConfigurationResponseOutput).ToAutoScaleConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AutoScaleConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToAutoScaleConfigurationResponsePtrOutput() AutoScaleConfigurationResponsePtrOutput
-	ToAutoScaleConfigurationResponsePtrOutputWithContext(context.Context) AutoScaleConfigurationResponsePtrOutput
-}
-
-type autoScaleConfigurationResponsePtrType AutoScaleConfigurationResponseArgs
-
-func AutoScaleConfigurationResponsePtr(v *AutoScaleConfigurationResponseArgs) AutoScaleConfigurationResponsePtrInput {
-	return (*autoScaleConfigurationResponsePtrType)(v)
-}
-
-func (*autoScaleConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AutoScaleConfigurationResponse)(nil)).Elem()
-}
-
-func (i *autoScaleConfigurationResponsePtrType) ToAutoScaleConfigurationResponsePtrOutput() AutoScaleConfigurationResponsePtrOutput {
-	return i.ToAutoScaleConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *autoScaleConfigurationResponsePtrType) ToAutoScaleConfigurationResponsePtrOutputWithContext(ctx context.Context) AutoScaleConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutoScaleConfigurationResponsePtrOutput)
+func (val *AutoScaleConfigurationResponse) Defaults() *AutoScaleConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxReplicas) {
+		maxReplicas_ := 100
+		tmp.MaxReplicas = &maxReplicas_
+	}
+	if isZero(tmp.MinReplicas) {
+		minReplicas_ := 1
+		tmp.MinReplicas = &minReplicas_
+	}
+	if isZero(tmp.Status) {
+		status_ := "Disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 type AutoScaleConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -994,16 +638,6 @@ func (o AutoScaleConfigurationResponseOutput) ToAutoScaleConfigurationResponseOu
 
 func (o AutoScaleConfigurationResponseOutput) ToAutoScaleConfigurationResponseOutputWithContext(ctx context.Context) AutoScaleConfigurationResponseOutput {
 	return o
-}
-
-func (o AutoScaleConfigurationResponseOutput) ToAutoScaleConfigurationResponsePtrOutput() AutoScaleConfigurationResponsePtrOutput {
-	return o.ToAutoScaleConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AutoScaleConfigurationResponseOutput) ToAutoScaleConfigurationResponsePtrOutputWithContext(ctx context.Context) AutoScaleConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScaleConfigurationResponse) *AutoScaleConfigurationResponse {
-		return &v
-	}).(AutoScaleConfigurationResponsePtrOutput)
 }
 
 func (o AutoScaleConfigurationResponseOutput) MaxReplicas() pulumi.IntPtrOutput {
@@ -1099,163 +733,6 @@ type ContainerRegistryCredentialsResponse struct {
 	LoginServer string `pulumi:"loginServer"`
 	Password    string `pulumi:"password"`
 	Password2   string `pulumi:"password2"`
-}
-
-
-
-
-
-type ContainerRegistryCredentialsResponseInput interface {
-	pulumi.Input
-
-	ToContainerRegistryCredentialsResponseOutput() ContainerRegistryCredentialsResponseOutput
-	ToContainerRegistryCredentialsResponseOutputWithContext(context.Context) ContainerRegistryCredentialsResponseOutput
-}
-
-type ContainerRegistryCredentialsResponseArgs struct {
-	LoginServer pulumi.StringInput `pulumi:"loginServer"`
-	Password    pulumi.StringInput `pulumi:"password"`
-	Password2   pulumi.StringInput `pulumi:"password2"`
-}
-
-func (ContainerRegistryCredentialsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerRegistryCredentialsResponse)(nil)).Elem()
-}
-
-func (i ContainerRegistryCredentialsResponseArgs) ToContainerRegistryCredentialsResponseOutput() ContainerRegistryCredentialsResponseOutput {
-	return i.ToContainerRegistryCredentialsResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerRegistryCredentialsResponseArgs) ToContainerRegistryCredentialsResponseOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryCredentialsResponseOutput)
-}
-
-func (i ContainerRegistryCredentialsResponseArgs) ToContainerRegistryCredentialsResponsePtrOutput() ContainerRegistryCredentialsResponsePtrOutput {
-	return i.ToContainerRegistryCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerRegistryCredentialsResponseArgs) ToContainerRegistryCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryCredentialsResponseOutput).ToContainerRegistryCredentialsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerRegistryCredentialsResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerRegistryCredentialsResponsePtrOutput() ContainerRegistryCredentialsResponsePtrOutput
-	ToContainerRegistryCredentialsResponsePtrOutputWithContext(context.Context) ContainerRegistryCredentialsResponsePtrOutput
-}
-
-type containerRegistryCredentialsResponsePtrType ContainerRegistryCredentialsResponseArgs
-
-func ContainerRegistryCredentialsResponsePtr(v *ContainerRegistryCredentialsResponseArgs) ContainerRegistryCredentialsResponsePtrInput {
-	return (*containerRegistryCredentialsResponsePtrType)(v)
-}
-
-func (*containerRegistryCredentialsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerRegistryCredentialsResponse)(nil)).Elem()
-}
-
-func (i *containerRegistryCredentialsResponsePtrType) ToContainerRegistryCredentialsResponsePtrOutput() ContainerRegistryCredentialsResponsePtrOutput {
-	return i.ToContainerRegistryCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerRegistryCredentialsResponsePtrType) ToContainerRegistryCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryCredentialsResponsePtrOutput)
-}
-
-type ContainerRegistryCredentialsResponseOutput struct{ *pulumi.OutputState }
-
-func (ContainerRegistryCredentialsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerRegistryCredentialsResponse)(nil)).Elem()
-}
-
-func (o ContainerRegistryCredentialsResponseOutput) ToContainerRegistryCredentialsResponseOutput() ContainerRegistryCredentialsResponseOutput {
-	return o
-}
-
-func (o ContainerRegistryCredentialsResponseOutput) ToContainerRegistryCredentialsResponseOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponseOutput {
-	return o
-}
-
-func (o ContainerRegistryCredentialsResponseOutput) ToContainerRegistryCredentialsResponsePtrOutput() ContainerRegistryCredentialsResponsePtrOutput {
-	return o.ToContainerRegistryCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerRegistryCredentialsResponseOutput) ToContainerRegistryCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRegistryCredentialsResponse) *ContainerRegistryCredentialsResponse {
-		return &v
-	}).(ContainerRegistryCredentialsResponsePtrOutput)
-}
-
-func (o ContainerRegistryCredentialsResponseOutput) LoginServer() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.LoginServer }).(pulumi.StringOutput)
-}
-
-func (o ContainerRegistryCredentialsResponseOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.Password }).(pulumi.StringOutput)
-}
-
-func (o ContainerRegistryCredentialsResponseOutput) Password2() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerRegistryCredentialsResponse) string { return v.Password2 }).(pulumi.StringOutput)
-}
-
-type ContainerRegistryCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerRegistryCredentialsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerRegistryCredentialsResponse)(nil)).Elem()
-}
-
-func (o ContainerRegistryCredentialsResponsePtrOutput) ToContainerRegistryCredentialsResponsePtrOutput() ContainerRegistryCredentialsResponsePtrOutput {
-	return o
-}
-
-func (o ContainerRegistryCredentialsResponsePtrOutput) ToContainerRegistryCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryCredentialsResponsePtrOutput {
-	return o
-}
-
-func (o ContainerRegistryCredentialsResponsePtrOutput) Elem() ContainerRegistryCredentialsResponseOutput {
-	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) ContainerRegistryCredentialsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerRegistryCredentialsResponse
-		return ret
-	}).(ContainerRegistryCredentialsResponseOutput)
-}
-
-func (o ContainerRegistryCredentialsResponsePtrOutput) LoginServer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LoginServer
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContainerRegistryCredentialsResponsePtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContainerRegistryCredentialsResponsePtrOutput) Password2() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerRegistryCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Password2
-	}).(pulumi.StringPtrOutput)
 }
 
 type ContainerRegistryProperties struct {
@@ -1395,74 +872,6 @@ type ContainerRegistryPropertiesResponse struct {
 	ResourceId *string `pulumi:"resourceId"`
 }
 
-
-
-
-
-type ContainerRegistryPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToContainerRegistryPropertiesResponseOutput() ContainerRegistryPropertiesResponseOutput
-	ToContainerRegistryPropertiesResponseOutputWithContext(context.Context) ContainerRegistryPropertiesResponseOutput
-}
-
-type ContainerRegistryPropertiesResponseArgs struct {
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (ContainerRegistryPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerRegistryPropertiesResponse)(nil)).Elem()
-}
-
-func (i ContainerRegistryPropertiesResponseArgs) ToContainerRegistryPropertiesResponseOutput() ContainerRegistryPropertiesResponseOutput {
-	return i.ToContainerRegistryPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerRegistryPropertiesResponseArgs) ToContainerRegistryPropertiesResponseOutputWithContext(ctx context.Context) ContainerRegistryPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryPropertiesResponseOutput)
-}
-
-func (i ContainerRegistryPropertiesResponseArgs) ToContainerRegistryPropertiesResponsePtrOutput() ContainerRegistryPropertiesResponsePtrOutput {
-	return i.ToContainerRegistryPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerRegistryPropertiesResponseArgs) ToContainerRegistryPropertiesResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryPropertiesResponseOutput).ToContainerRegistryPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerRegistryPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerRegistryPropertiesResponsePtrOutput() ContainerRegistryPropertiesResponsePtrOutput
-	ToContainerRegistryPropertiesResponsePtrOutputWithContext(context.Context) ContainerRegistryPropertiesResponsePtrOutput
-}
-
-type containerRegistryPropertiesResponsePtrType ContainerRegistryPropertiesResponseArgs
-
-func ContainerRegistryPropertiesResponsePtr(v *ContainerRegistryPropertiesResponseArgs) ContainerRegistryPropertiesResponsePtrInput {
-	return (*containerRegistryPropertiesResponsePtrType)(v)
-}
-
-func (*containerRegistryPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerRegistryPropertiesResponse)(nil)).Elem()
-}
-
-func (i *containerRegistryPropertiesResponsePtrType) ToContainerRegistryPropertiesResponsePtrOutput() ContainerRegistryPropertiesResponsePtrOutput {
-	return i.ToContainerRegistryPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerRegistryPropertiesResponsePtrType) ToContainerRegistryPropertiesResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerRegistryPropertiesResponsePtrOutput)
-}
-
 type ContainerRegistryPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerRegistryPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1475,16 +884,6 @@ func (o ContainerRegistryPropertiesResponseOutput) ToContainerRegistryProperties
 
 func (o ContainerRegistryPropertiesResponseOutput) ToContainerRegistryPropertiesResponseOutputWithContext(ctx context.Context) ContainerRegistryPropertiesResponseOutput {
 	return o
-}
-
-func (o ContainerRegistryPropertiesResponseOutput) ToContainerRegistryPropertiesResponsePtrOutput() ContainerRegistryPropertiesResponsePtrOutput {
-	return o.ToContainerRegistryPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerRegistryPropertiesResponseOutput) ToContainerRegistryPropertiesResponsePtrOutputWithContext(ctx context.Context) ContainerRegistryPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRegistryPropertiesResponse) *ContainerRegistryPropertiesResponse {
-		return &v
-	}).(ContainerRegistryPropertiesResponsePtrOutput)
 }
 
 func (o ContainerRegistryPropertiesResponseOutput) ResourceId() pulumi.StringPtrOutput {
@@ -1530,170 +929,24 @@ type ContainerServiceCredentialsResponse struct {
 	ServicePrincipalConfiguration ServicePrincipalPropertiesResponse `pulumi:"servicePrincipalConfiguration"`
 }
 
-
-
-
-
-type ContainerServiceCredentialsResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceCredentialsResponseOutput() ContainerServiceCredentialsResponseOutput
-	ToContainerServiceCredentialsResponseOutputWithContext(context.Context) ContainerServiceCredentialsResponseOutput
-}
-
-type ContainerServiceCredentialsResponseArgs struct {
-	AcsKubeConfig                 pulumi.StringInput                      `pulumi:"acsKubeConfig"`
-	ImagePullSecretName           pulumi.StringInput                      `pulumi:"imagePullSecretName"`
-	ServicePrincipalConfiguration ServicePrincipalPropertiesResponseInput `pulumi:"servicePrincipalConfiguration"`
-}
-
-func (ContainerServiceCredentialsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceCredentialsResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceCredentialsResponseArgs) ToContainerServiceCredentialsResponseOutput() ContainerServiceCredentialsResponseOutput {
-	return i.ToContainerServiceCredentialsResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceCredentialsResponseArgs) ToContainerServiceCredentialsResponseOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceCredentialsResponseOutput)
-}
-
-func (i ContainerServiceCredentialsResponseArgs) ToContainerServiceCredentialsResponsePtrOutput() ContainerServiceCredentialsResponsePtrOutput {
-	return i.ToContainerServiceCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceCredentialsResponseArgs) ToContainerServiceCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceCredentialsResponseOutput).ToContainerServiceCredentialsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceCredentialsResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceCredentialsResponsePtrOutput() ContainerServiceCredentialsResponsePtrOutput
-	ToContainerServiceCredentialsResponsePtrOutputWithContext(context.Context) ContainerServiceCredentialsResponsePtrOutput
-}
-
-type containerServiceCredentialsResponsePtrType ContainerServiceCredentialsResponseArgs
-
-func ContainerServiceCredentialsResponsePtr(v *ContainerServiceCredentialsResponseArgs) ContainerServiceCredentialsResponsePtrInput {
-	return (*containerServiceCredentialsResponsePtrType)(v)
-}
-
-func (*containerServiceCredentialsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceCredentialsResponse)(nil)).Elem()
-}
-
-func (i *containerServiceCredentialsResponsePtrType) ToContainerServiceCredentialsResponsePtrOutput() ContainerServiceCredentialsResponsePtrOutput {
-	return i.ToContainerServiceCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceCredentialsResponsePtrType) ToContainerServiceCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceCredentialsResponsePtrOutput)
-}
-
-type ContainerServiceCredentialsResponseOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceCredentialsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceCredentialsResponse)(nil)).Elem()
-}
-
-func (o ContainerServiceCredentialsResponseOutput) ToContainerServiceCredentialsResponseOutput() ContainerServiceCredentialsResponseOutput {
-	return o
-}
-
-func (o ContainerServiceCredentialsResponseOutput) ToContainerServiceCredentialsResponseOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponseOutput {
-	return o
-}
-
-func (o ContainerServiceCredentialsResponseOutput) ToContainerServiceCredentialsResponsePtrOutput() ContainerServiceCredentialsResponsePtrOutput {
-	return o.ToContainerServiceCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceCredentialsResponseOutput) ToContainerServiceCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceCredentialsResponse) *ContainerServiceCredentialsResponse {
-		return &v
-	}).(ContainerServiceCredentialsResponsePtrOutput)
-}
-
-func (o ContainerServiceCredentialsResponseOutput) AcsKubeConfig() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceCredentialsResponse) string { return v.AcsKubeConfig }).(pulumi.StringOutput)
-}
-
-func (o ContainerServiceCredentialsResponseOutput) ImagePullSecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerServiceCredentialsResponse) string { return v.ImagePullSecretName }).(pulumi.StringOutput)
-}
-
-func (o ContainerServiceCredentialsResponseOutput) ServicePrincipalConfiguration() ServicePrincipalPropertiesResponseOutput {
-	return o.ApplyT(func(v ContainerServiceCredentialsResponse) ServicePrincipalPropertiesResponse {
-		return v.ServicePrincipalConfiguration
-	}).(ServicePrincipalPropertiesResponseOutput)
-}
-
-type ContainerServiceCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceCredentialsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceCredentialsResponse)(nil)).Elem()
-}
-
-func (o ContainerServiceCredentialsResponsePtrOutput) ToContainerServiceCredentialsResponsePtrOutput() ContainerServiceCredentialsResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceCredentialsResponsePtrOutput) ToContainerServiceCredentialsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceCredentialsResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceCredentialsResponsePtrOutput) Elem() ContainerServiceCredentialsResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) ContainerServiceCredentialsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceCredentialsResponse
-		return ret
-	}).(ContainerServiceCredentialsResponseOutput)
-}
-
-func (o ContainerServiceCredentialsResponsePtrOutput) AcsKubeConfig() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AcsKubeConfig
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContainerServiceCredentialsResponsePtrOutput) ImagePullSecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ImagePullSecretName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContainerServiceCredentialsResponsePtrOutput) ServicePrincipalConfiguration() ServicePrincipalPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *ContainerServiceCredentialsResponse) *ServicePrincipalPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.ServicePrincipalConfiguration
-	}).(ServicePrincipalPropertiesResponsePtrOutput)
-}
-
 type GlobalServiceConfiguration struct {
 	AutoScale   *AutoScaleConfiguration   `pulumi:"autoScale"`
 	Etag        *string                   `pulumi:"etag"`
 	ServiceAuth *ServiceAuthConfiguration `pulumi:"serviceAuth"`
 	Ssl         *SslConfiguration         `pulumi:"ssl"`
+}
+
+
+func (val *GlobalServiceConfiguration) Defaults() *GlobalServiceConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.AutoScale = tmp.AutoScale.Defaults()
+
+	tmp.Ssl = tmp.Ssl.Defaults()
+
+	return &tmp
 }
 
 
@@ -1875,74 +1128,16 @@ type GlobalServiceConfigurationResponse struct {
 }
 
 
+func (val *GlobalServiceConfigurationResponse) Defaults() *GlobalServiceConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.AutoScale = tmp.AutoScale.Defaults()
 
+	tmp.Ssl = tmp.Ssl.Defaults()
 
-
-type GlobalServiceConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToGlobalServiceConfigurationResponseOutput() GlobalServiceConfigurationResponseOutput
-	ToGlobalServiceConfigurationResponseOutputWithContext(context.Context) GlobalServiceConfigurationResponseOutput
-}
-
-type GlobalServiceConfigurationResponseArgs struct {
-	AutoScale   AutoScaleConfigurationResponsePtrInput   `pulumi:"autoScale"`
-	Etag        pulumi.StringPtrInput                    `pulumi:"etag"`
-	ServiceAuth ServiceAuthConfigurationResponsePtrInput `pulumi:"serviceAuth"`
-	Ssl         SslConfigurationResponsePtrInput         `pulumi:"ssl"`
-}
-
-func (GlobalServiceConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalServiceConfigurationResponse)(nil)).Elem()
-}
-
-func (i GlobalServiceConfigurationResponseArgs) ToGlobalServiceConfigurationResponseOutput() GlobalServiceConfigurationResponseOutput {
-	return i.ToGlobalServiceConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i GlobalServiceConfigurationResponseArgs) ToGlobalServiceConfigurationResponseOutputWithContext(ctx context.Context) GlobalServiceConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalServiceConfigurationResponseOutput)
-}
-
-func (i GlobalServiceConfigurationResponseArgs) ToGlobalServiceConfigurationResponsePtrOutput() GlobalServiceConfigurationResponsePtrOutput {
-	return i.ToGlobalServiceConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GlobalServiceConfigurationResponseArgs) ToGlobalServiceConfigurationResponsePtrOutputWithContext(ctx context.Context) GlobalServiceConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalServiceConfigurationResponseOutput).ToGlobalServiceConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type GlobalServiceConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToGlobalServiceConfigurationResponsePtrOutput() GlobalServiceConfigurationResponsePtrOutput
-	ToGlobalServiceConfigurationResponsePtrOutputWithContext(context.Context) GlobalServiceConfigurationResponsePtrOutput
-}
-
-type globalServiceConfigurationResponsePtrType GlobalServiceConfigurationResponseArgs
-
-func GlobalServiceConfigurationResponsePtr(v *GlobalServiceConfigurationResponseArgs) GlobalServiceConfigurationResponsePtrInput {
-	return (*globalServiceConfigurationResponsePtrType)(v)
-}
-
-func (*globalServiceConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GlobalServiceConfigurationResponse)(nil)).Elem()
-}
-
-func (i *globalServiceConfigurationResponsePtrType) ToGlobalServiceConfigurationResponsePtrOutput() GlobalServiceConfigurationResponsePtrOutput {
-	return i.ToGlobalServiceConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *globalServiceConfigurationResponsePtrType) ToGlobalServiceConfigurationResponsePtrOutputWithContext(ctx context.Context) GlobalServiceConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalServiceConfigurationResponsePtrOutput)
+	return &tmp
 }
 
 type GlobalServiceConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -1957,16 +1152,6 @@ func (o GlobalServiceConfigurationResponseOutput) ToGlobalServiceConfigurationRe
 
 func (o GlobalServiceConfigurationResponseOutput) ToGlobalServiceConfigurationResponseOutputWithContext(ctx context.Context) GlobalServiceConfigurationResponseOutput {
 	return o
-}
-
-func (o GlobalServiceConfigurationResponseOutput) ToGlobalServiceConfigurationResponsePtrOutput() GlobalServiceConfigurationResponsePtrOutput {
-	return o.ToGlobalServiceConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GlobalServiceConfigurationResponseOutput) ToGlobalServiceConfigurationResponsePtrOutputWithContext(ctx context.Context) GlobalServiceConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalServiceConfigurationResponse) *GlobalServiceConfigurationResponse {
-		return &v
-	}).(GlobalServiceConfigurationResponsePtrOutput)
 }
 
 func (o GlobalServiceConfigurationResponseOutput) AutoScale() AutoScaleConfigurationResponsePtrOutput {
@@ -2076,47 +1261,6 @@ func (i KubernetesClusterPropertiesArgs) ToKubernetesClusterPropertiesOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterPropertiesOutput)
 }
 
-func (i KubernetesClusterPropertiesArgs) ToKubernetesClusterPropertiesPtrOutput() KubernetesClusterPropertiesPtrOutput {
-	return i.ToKubernetesClusterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterPropertiesArgs) ToKubernetesClusterPropertiesPtrOutputWithContext(ctx context.Context) KubernetesClusterPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterPropertiesOutput).ToKubernetesClusterPropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type KubernetesClusterPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterPropertiesPtrOutput() KubernetesClusterPropertiesPtrOutput
-	ToKubernetesClusterPropertiesPtrOutputWithContext(context.Context) KubernetesClusterPropertiesPtrOutput
-}
-
-type kubernetesClusterPropertiesPtrType KubernetesClusterPropertiesArgs
-
-func KubernetesClusterPropertiesPtr(v *KubernetesClusterPropertiesArgs) KubernetesClusterPropertiesPtrInput {
-	return (*kubernetesClusterPropertiesPtrType)(v)
-}
-
-func (*kubernetesClusterPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterProperties)(nil)).Elem()
-}
-
-func (i *kubernetesClusterPropertiesPtrType) ToKubernetesClusterPropertiesPtrOutput() KubernetesClusterPropertiesPtrOutput {
-	return i.ToKubernetesClusterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterPropertiesPtrType) ToKubernetesClusterPropertiesPtrOutputWithContext(ctx context.Context) KubernetesClusterPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterPropertiesPtrOutput)
-}
-
 type KubernetesClusterPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterPropertiesOutput) ElementType() reflect.Type {
@@ -2131,123 +1275,12 @@ func (o KubernetesClusterPropertiesOutput) ToKubernetesClusterPropertiesOutputWi
 	return o
 }
 
-func (o KubernetesClusterPropertiesOutput) ToKubernetesClusterPropertiesPtrOutput() KubernetesClusterPropertiesPtrOutput {
-	return o.ToKubernetesClusterPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterPropertiesOutput) ToKubernetesClusterPropertiesPtrOutputWithContext(ctx context.Context) KubernetesClusterPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterProperties) *KubernetesClusterProperties {
-		return &v
-	}).(KubernetesClusterPropertiesPtrOutput)
-}
-
 func (o KubernetesClusterPropertiesOutput) ServicePrincipal() ServicePrincipalPropertiesOutput {
 	return o.ApplyT(func(v KubernetesClusterProperties) ServicePrincipalProperties { return v.ServicePrincipal }).(ServicePrincipalPropertiesOutput)
 }
 
-type KubernetesClusterPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterProperties)(nil)).Elem()
-}
-
-func (o KubernetesClusterPropertiesPtrOutput) ToKubernetesClusterPropertiesPtrOutput() KubernetesClusterPropertiesPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterPropertiesPtrOutput) ToKubernetesClusterPropertiesPtrOutputWithContext(ctx context.Context) KubernetesClusterPropertiesPtrOutput {
-	return o
-}
-
-func (o KubernetesClusterPropertiesPtrOutput) Elem() KubernetesClusterPropertiesOutput {
-	return o.ApplyT(func(v *KubernetesClusterProperties) KubernetesClusterProperties {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterProperties
-		return ret
-	}).(KubernetesClusterPropertiesOutput)
-}
-
-func (o KubernetesClusterPropertiesPtrOutput) ServicePrincipal() ServicePrincipalPropertiesPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterProperties) *ServicePrincipalProperties {
-		if v == nil {
-			return nil
-		}
-		return &v.ServicePrincipal
-	}).(ServicePrincipalPropertiesPtrOutput)
-}
-
 type KubernetesClusterPropertiesResponse struct {
 	ServicePrincipal ServicePrincipalPropertiesResponse `pulumi:"servicePrincipal"`
-}
-
-
-
-
-
-type KubernetesClusterPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterPropertiesResponseOutput() KubernetesClusterPropertiesResponseOutput
-	ToKubernetesClusterPropertiesResponseOutputWithContext(context.Context) KubernetesClusterPropertiesResponseOutput
-}
-
-type KubernetesClusterPropertiesResponseArgs struct {
-	ServicePrincipal ServicePrincipalPropertiesResponseInput `pulumi:"servicePrincipal"`
-}
-
-func (KubernetesClusterPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesClusterPropertiesResponse)(nil)).Elem()
-}
-
-func (i KubernetesClusterPropertiesResponseArgs) ToKubernetesClusterPropertiesResponseOutput() KubernetesClusterPropertiesResponseOutput {
-	return i.ToKubernetesClusterPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterPropertiesResponseArgs) ToKubernetesClusterPropertiesResponseOutputWithContext(ctx context.Context) KubernetesClusterPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterPropertiesResponseOutput)
-}
-
-func (i KubernetesClusterPropertiesResponseArgs) ToKubernetesClusterPropertiesResponsePtrOutput() KubernetesClusterPropertiesResponsePtrOutput {
-	return i.ToKubernetesClusterPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KubernetesClusterPropertiesResponseArgs) ToKubernetesClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) KubernetesClusterPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterPropertiesResponseOutput).ToKubernetesClusterPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type KubernetesClusterPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToKubernetesClusterPropertiesResponsePtrOutput() KubernetesClusterPropertiesResponsePtrOutput
-	ToKubernetesClusterPropertiesResponsePtrOutputWithContext(context.Context) KubernetesClusterPropertiesResponsePtrOutput
-}
-
-type kubernetesClusterPropertiesResponsePtrType KubernetesClusterPropertiesResponseArgs
-
-func KubernetesClusterPropertiesResponsePtr(v *KubernetesClusterPropertiesResponseArgs) KubernetesClusterPropertiesResponsePtrInput {
-	return (*kubernetesClusterPropertiesResponsePtrType)(v)
-}
-
-func (*kubernetesClusterPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterPropertiesResponse)(nil)).Elem()
-}
-
-func (i *kubernetesClusterPropertiesResponsePtrType) ToKubernetesClusterPropertiesResponsePtrOutput() KubernetesClusterPropertiesResponsePtrOutput {
-	return i.ToKubernetesClusterPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *kubernetesClusterPropertiesResponsePtrType) ToKubernetesClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) KubernetesClusterPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterPropertiesResponsePtrOutput)
 }
 
 type KubernetesClusterPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -2264,53 +1297,10 @@ func (o KubernetesClusterPropertiesResponseOutput) ToKubernetesClusterProperties
 	return o
 }
 
-func (o KubernetesClusterPropertiesResponseOutput) ToKubernetesClusterPropertiesResponsePtrOutput() KubernetesClusterPropertiesResponsePtrOutput {
-	return o.ToKubernetesClusterPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KubernetesClusterPropertiesResponseOutput) ToKubernetesClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) KubernetesClusterPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterPropertiesResponse) *KubernetesClusterPropertiesResponse {
-		return &v
-	}).(KubernetesClusterPropertiesResponsePtrOutput)
-}
-
 func (o KubernetesClusterPropertiesResponseOutput) ServicePrincipal() ServicePrincipalPropertiesResponseOutput {
 	return o.ApplyT(func(v KubernetesClusterPropertiesResponse) ServicePrincipalPropertiesResponse {
 		return v.ServicePrincipal
 	}).(ServicePrincipalPropertiesResponseOutput)
-}
-
-type KubernetesClusterPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (KubernetesClusterPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KubernetesClusterPropertiesResponse)(nil)).Elem()
-}
-
-func (o KubernetesClusterPropertiesResponsePtrOutput) ToKubernetesClusterPropertiesResponsePtrOutput() KubernetesClusterPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KubernetesClusterPropertiesResponsePtrOutput) ToKubernetesClusterPropertiesResponsePtrOutputWithContext(ctx context.Context) KubernetesClusterPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o KubernetesClusterPropertiesResponsePtrOutput) Elem() KubernetesClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v *KubernetesClusterPropertiesResponse) KubernetesClusterPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret KubernetesClusterPropertiesResponse
-		return ret
-	}).(KubernetesClusterPropertiesResponseOutput)
-}
-
-func (o KubernetesClusterPropertiesResponsePtrOutput) ServicePrincipal() ServicePrincipalPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterPropertiesResponse) *ServicePrincipalPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.ServicePrincipal
-	}).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
 type ServiceAuthConfiguration struct {
@@ -2466,75 +1456,6 @@ type ServiceAuthConfigurationResponse struct {
 	SecondaryAuthKeyHash string `pulumi:"secondaryAuthKeyHash"`
 }
 
-
-
-
-
-type ServiceAuthConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToServiceAuthConfigurationResponseOutput() ServiceAuthConfigurationResponseOutput
-	ToServiceAuthConfigurationResponseOutputWithContext(context.Context) ServiceAuthConfigurationResponseOutput
-}
-
-type ServiceAuthConfigurationResponseArgs struct {
-	PrimaryAuthKeyHash   pulumi.StringInput `pulumi:"primaryAuthKeyHash"`
-	SecondaryAuthKeyHash pulumi.StringInput `pulumi:"secondaryAuthKeyHash"`
-}
-
-func (ServiceAuthConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAuthConfigurationResponse)(nil)).Elem()
-}
-
-func (i ServiceAuthConfigurationResponseArgs) ToServiceAuthConfigurationResponseOutput() ServiceAuthConfigurationResponseOutput {
-	return i.ToServiceAuthConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i ServiceAuthConfigurationResponseArgs) ToServiceAuthConfigurationResponseOutputWithContext(ctx context.Context) ServiceAuthConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthConfigurationResponseOutput)
-}
-
-func (i ServiceAuthConfigurationResponseArgs) ToServiceAuthConfigurationResponsePtrOutput() ServiceAuthConfigurationResponsePtrOutput {
-	return i.ToServiceAuthConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceAuthConfigurationResponseArgs) ToServiceAuthConfigurationResponsePtrOutputWithContext(ctx context.Context) ServiceAuthConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthConfigurationResponseOutput).ToServiceAuthConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ServiceAuthConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToServiceAuthConfigurationResponsePtrOutput() ServiceAuthConfigurationResponsePtrOutput
-	ToServiceAuthConfigurationResponsePtrOutputWithContext(context.Context) ServiceAuthConfigurationResponsePtrOutput
-}
-
-type serviceAuthConfigurationResponsePtrType ServiceAuthConfigurationResponseArgs
-
-func ServiceAuthConfigurationResponsePtr(v *ServiceAuthConfigurationResponseArgs) ServiceAuthConfigurationResponsePtrInput {
-	return (*serviceAuthConfigurationResponsePtrType)(v)
-}
-
-func (*serviceAuthConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceAuthConfigurationResponse)(nil)).Elem()
-}
-
-func (i *serviceAuthConfigurationResponsePtrType) ToServiceAuthConfigurationResponsePtrOutput() ServiceAuthConfigurationResponsePtrOutput {
-	return i.ToServiceAuthConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceAuthConfigurationResponsePtrType) ToServiceAuthConfigurationResponsePtrOutputWithContext(ctx context.Context) ServiceAuthConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAuthConfigurationResponsePtrOutput)
-}
-
 type ServiceAuthConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ServiceAuthConfigurationResponseOutput) ElementType() reflect.Type {
@@ -2547,16 +1468,6 @@ func (o ServiceAuthConfigurationResponseOutput) ToServiceAuthConfigurationRespon
 
 func (o ServiceAuthConfigurationResponseOutput) ToServiceAuthConfigurationResponseOutputWithContext(ctx context.Context) ServiceAuthConfigurationResponseOutput {
 	return o
-}
-
-func (o ServiceAuthConfigurationResponseOutput) ToServiceAuthConfigurationResponsePtrOutput() ServiceAuthConfigurationResponsePtrOutput {
-	return o.ToServiceAuthConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceAuthConfigurationResponseOutput) ToServiceAuthConfigurationResponsePtrOutputWithContext(ctx context.Context) ServiceAuthConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAuthConfigurationResponse) *ServiceAuthConfigurationResponse {
-		return &v
-	}).(ServiceAuthConfigurationResponsePtrOutput)
 }
 
 func (o ServiceAuthConfigurationResponseOutput) PrimaryAuthKeyHash() pulumi.StringOutput {
@@ -2642,47 +1553,6 @@ func (i ServicePrincipalPropertiesArgs) ToServicePrincipalPropertiesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesOutput)
 }
 
-func (i ServicePrincipalPropertiesArgs) ToServicePrincipalPropertiesPtrOutput() ServicePrincipalPropertiesPtrOutput {
-	return i.ToServicePrincipalPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ServicePrincipalPropertiesArgs) ToServicePrincipalPropertiesPtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesOutput).ToServicePrincipalPropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ServicePrincipalPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToServicePrincipalPropertiesPtrOutput() ServicePrincipalPropertiesPtrOutput
-	ToServicePrincipalPropertiesPtrOutputWithContext(context.Context) ServicePrincipalPropertiesPtrOutput
-}
-
-type servicePrincipalPropertiesPtrType ServicePrincipalPropertiesArgs
-
-func ServicePrincipalPropertiesPtr(v *ServicePrincipalPropertiesArgs) ServicePrincipalPropertiesPtrInput {
-	return (*servicePrincipalPropertiesPtrType)(v)
-}
-
-func (*servicePrincipalPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServicePrincipalProperties)(nil)).Elem()
-}
-
-func (i *servicePrincipalPropertiesPtrType) ToServicePrincipalPropertiesPtrOutput() ServicePrincipalPropertiesPtrOutput {
-	return i.ToServicePrincipalPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *servicePrincipalPropertiesPtrType) ToServicePrincipalPropertiesPtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesPtrOutput)
-}
-
 type ServicePrincipalPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ServicePrincipalPropertiesOutput) ElementType() reflect.Type {
@@ -2697,16 +1567,6 @@ func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesOutputWith
 	return o
 }
 
-func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesPtrOutput() ServicePrincipalPropertiesPtrOutput {
-	return o.ToServicePrincipalPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ServicePrincipalPropertiesOutput) ToServicePrincipalPropertiesPtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipalProperties) *ServicePrincipalProperties {
-		return &v
-	}).(ServicePrincipalPropertiesPtrOutput)
-}
-
 func (o ServicePrincipalPropertiesOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServicePrincipalProperties) string { return v.ClientId }).(pulumi.StringOutput)
 }
@@ -2715,120 +1575,9 @@ func (o ServicePrincipalPropertiesOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ServicePrincipalProperties) string { return v.Secret }).(pulumi.StringOutput)
 }
 
-type ServicePrincipalPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ServicePrincipalPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServicePrincipalProperties)(nil)).Elem()
-}
-
-func (o ServicePrincipalPropertiesPtrOutput) ToServicePrincipalPropertiesPtrOutput() ServicePrincipalPropertiesPtrOutput {
-	return o
-}
-
-func (o ServicePrincipalPropertiesPtrOutput) ToServicePrincipalPropertiesPtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesPtrOutput {
-	return o
-}
-
-func (o ServicePrincipalPropertiesPtrOutput) Elem() ServicePrincipalPropertiesOutput {
-	return o.ApplyT(func(v *ServicePrincipalProperties) ServicePrincipalProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ServicePrincipalProperties
-		return ret
-	}).(ServicePrincipalPropertiesOutput)
-}
-
-func (o ServicePrincipalPropertiesPtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServicePrincipalProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServicePrincipalPropertiesPtrOutput) Secret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServicePrincipalProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Secret
-	}).(pulumi.StringPtrOutput)
-}
-
 type ServicePrincipalPropertiesResponse struct {
 	ClientId string `pulumi:"clientId"`
 	Secret   string `pulumi:"secret"`
-}
-
-
-
-
-
-type ServicePrincipalPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToServicePrincipalPropertiesResponseOutput() ServicePrincipalPropertiesResponseOutput
-	ToServicePrincipalPropertiesResponseOutputWithContext(context.Context) ServicePrincipalPropertiesResponseOutput
-}
-
-type ServicePrincipalPropertiesResponseArgs struct {
-	ClientId pulumi.StringInput `pulumi:"clientId"`
-	Secret   pulumi.StringInput `pulumi:"secret"`
-}
-
-func (ServicePrincipalPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePrincipalPropertiesResponse)(nil)).Elem()
-}
-
-func (i ServicePrincipalPropertiesResponseArgs) ToServicePrincipalPropertiesResponseOutput() ServicePrincipalPropertiesResponseOutput {
-	return i.ToServicePrincipalPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ServicePrincipalPropertiesResponseArgs) ToServicePrincipalPropertiesResponseOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesResponseOutput)
-}
-
-func (i ServicePrincipalPropertiesResponseArgs) ToServicePrincipalPropertiesResponsePtrOutput() ServicePrincipalPropertiesResponsePtrOutput {
-	return i.ToServicePrincipalPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServicePrincipalPropertiesResponseArgs) ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesResponseOutput).ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ServicePrincipalPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToServicePrincipalPropertiesResponsePtrOutput() ServicePrincipalPropertiesResponsePtrOutput
-	ToServicePrincipalPropertiesResponsePtrOutputWithContext(context.Context) ServicePrincipalPropertiesResponsePtrOutput
-}
-
-type servicePrincipalPropertiesResponsePtrType ServicePrincipalPropertiesResponseArgs
-
-func ServicePrincipalPropertiesResponsePtr(v *ServicePrincipalPropertiesResponseArgs) ServicePrincipalPropertiesResponsePtrInput {
-	return (*servicePrincipalPropertiesResponsePtrType)(v)
-}
-
-func (*servicePrincipalPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServicePrincipalPropertiesResponse)(nil)).Elem()
-}
-
-func (i *servicePrincipalPropertiesResponsePtrType) ToServicePrincipalPropertiesResponsePtrOutput() ServicePrincipalPropertiesResponsePtrOutput {
-	return i.ToServicePrincipalPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *servicePrincipalPropertiesResponsePtrType) ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePrincipalPropertiesResponsePtrOutput)
 }
 
 type ServicePrincipalPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -2845,16 +1594,6 @@ func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesRe
 	return o
 }
 
-func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesResponsePtrOutput() ServicePrincipalPropertiesResponsePtrOutput {
-	return o.ToServicePrincipalPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServicePrincipalPropertiesResponseOutput) ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServicePrincipalPropertiesResponse) *ServicePrincipalPropertiesResponse {
-		return &v
-	}).(ServicePrincipalPropertiesResponsePtrOutput)
-}
-
 func (o ServicePrincipalPropertiesResponseOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServicePrincipalPropertiesResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
@@ -2863,52 +1602,23 @@ func (o ServicePrincipalPropertiesResponseOutput) Secret() pulumi.StringOutput {
 	return o.ApplyT(func(v ServicePrincipalPropertiesResponse) string { return v.Secret }).(pulumi.StringOutput)
 }
 
-type ServicePrincipalPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ServicePrincipalPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServicePrincipalPropertiesResponse)(nil)).Elem()
-}
-
-func (o ServicePrincipalPropertiesResponsePtrOutput) ToServicePrincipalPropertiesResponsePtrOutput() ServicePrincipalPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ServicePrincipalPropertiesResponsePtrOutput) ToServicePrincipalPropertiesResponsePtrOutputWithContext(ctx context.Context) ServicePrincipalPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ServicePrincipalPropertiesResponsePtrOutput) Elem() ServicePrincipalPropertiesResponseOutput {
-	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) ServicePrincipalPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ServicePrincipalPropertiesResponse
-		return ret
-	}).(ServicePrincipalPropertiesResponseOutput)
-}
-
-func (o ServicePrincipalPropertiesResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServicePrincipalPropertiesResponsePtrOutput) Secret() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServicePrincipalPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Secret
-	}).(pulumi.StringPtrOutput)
-}
-
 type SslConfiguration struct {
 	Cert   *string `pulumi:"cert"`
 	Key    *string `pulumi:"key"`
 	Status *string `pulumi:"status"`
+}
+
+
+func (val *SslConfiguration) Defaults() *SslConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -3075,73 +1785,16 @@ type SslConfigurationResponse struct {
 }
 
 
-
-
-
-type SslConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToSslConfigurationResponseOutput() SslConfigurationResponseOutput
-	ToSslConfigurationResponseOutputWithContext(context.Context) SslConfigurationResponseOutput
-}
-
-type SslConfigurationResponseArgs struct {
-	Cert   pulumi.StringPtrInput `pulumi:"cert"`
-	Key    pulumi.StringPtrInput `pulumi:"key"`
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (SslConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SslConfigurationResponse)(nil)).Elem()
-}
-
-func (i SslConfigurationResponseArgs) ToSslConfigurationResponseOutput() SslConfigurationResponseOutput {
-	return i.ToSslConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i SslConfigurationResponseArgs) ToSslConfigurationResponseOutputWithContext(ctx context.Context) SslConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SslConfigurationResponseOutput)
-}
-
-func (i SslConfigurationResponseArgs) ToSslConfigurationResponsePtrOutput() SslConfigurationResponsePtrOutput {
-	return i.ToSslConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SslConfigurationResponseArgs) ToSslConfigurationResponsePtrOutputWithContext(ctx context.Context) SslConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SslConfigurationResponseOutput).ToSslConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SslConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToSslConfigurationResponsePtrOutput() SslConfigurationResponsePtrOutput
-	ToSslConfigurationResponsePtrOutputWithContext(context.Context) SslConfigurationResponsePtrOutput
-}
-
-type sslConfigurationResponsePtrType SslConfigurationResponseArgs
-
-func SslConfigurationResponsePtr(v *SslConfigurationResponseArgs) SslConfigurationResponsePtrInput {
-	return (*sslConfigurationResponsePtrType)(v)
-}
-
-func (*sslConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SslConfigurationResponse)(nil)).Elem()
-}
-
-func (i *sslConfigurationResponsePtrType) ToSslConfigurationResponsePtrOutput() SslConfigurationResponsePtrOutput {
-	return i.ToSslConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sslConfigurationResponsePtrType) ToSslConfigurationResponsePtrOutputWithContext(ctx context.Context) SslConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SslConfigurationResponsePtrOutput)
+func (val *SslConfigurationResponse) Defaults() *SslConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 type SslConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -3156,16 +1809,6 @@ func (o SslConfigurationResponseOutput) ToSslConfigurationResponseOutput() SslCo
 
 func (o SslConfigurationResponseOutput) ToSslConfigurationResponseOutputWithContext(ctx context.Context) SslConfigurationResponseOutput {
 	return o
-}
-
-func (o SslConfigurationResponseOutput) ToSslConfigurationResponsePtrOutput() SslConfigurationResponsePtrOutput {
-	return o.ToSslConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SslConfigurationResponseOutput) ToSslConfigurationResponsePtrOutputWithContext(ctx context.Context) SslConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SslConfigurationResponse) *SslConfigurationResponse {
-		return &v
-	}).(SslConfigurationResponsePtrOutput)
 }
 
 func (o SslConfigurationResponseOutput) Cert() pulumi.StringPtrOutput {
@@ -3235,163 +1878,6 @@ type StorageAccountCredentialsResponse struct {
 	PrimaryKey   string `pulumi:"primaryKey"`
 	ResourceId   string `pulumi:"resourceId"`
 	SecondaryKey string `pulumi:"secondaryKey"`
-}
-
-
-
-
-
-type StorageAccountCredentialsResponseInput interface {
-	pulumi.Input
-
-	ToStorageAccountCredentialsResponseOutput() StorageAccountCredentialsResponseOutput
-	ToStorageAccountCredentialsResponseOutputWithContext(context.Context) StorageAccountCredentialsResponseOutput
-}
-
-type StorageAccountCredentialsResponseArgs struct {
-	PrimaryKey   pulumi.StringInput `pulumi:"primaryKey"`
-	ResourceId   pulumi.StringInput `pulumi:"resourceId"`
-	SecondaryKey pulumi.StringInput `pulumi:"secondaryKey"`
-}
-
-func (StorageAccountCredentialsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountCredentialsResponse)(nil)).Elem()
-}
-
-func (i StorageAccountCredentialsResponseArgs) ToStorageAccountCredentialsResponseOutput() StorageAccountCredentialsResponseOutput {
-	return i.ToStorageAccountCredentialsResponseOutputWithContext(context.Background())
-}
-
-func (i StorageAccountCredentialsResponseArgs) ToStorageAccountCredentialsResponseOutputWithContext(ctx context.Context) StorageAccountCredentialsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialsResponseOutput)
-}
-
-func (i StorageAccountCredentialsResponseArgs) ToStorageAccountCredentialsResponsePtrOutput() StorageAccountCredentialsResponsePtrOutput {
-	return i.ToStorageAccountCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i StorageAccountCredentialsResponseArgs) ToStorageAccountCredentialsResponsePtrOutputWithContext(ctx context.Context) StorageAccountCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialsResponseOutput).ToStorageAccountCredentialsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type StorageAccountCredentialsResponsePtrInput interface {
-	pulumi.Input
-
-	ToStorageAccountCredentialsResponsePtrOutput() StorageAccountCredentialsResponsePtrOutput
-	ToStorageAccountCredentialsResponsePtrOutputWithContext(context.Context) StorageAccountCredentialsResponsePtrOutput
-}
-
-type storageAccountCredentialsResponsePtrType StorageAccountCredentialsResponseArgs
-
-func StorageAccountCredentialsResponsePtr(v *StorageAccountCredentialsResponseArgs) StorageAccountCredentialsResponsePtrInput {
-	return (*storageAccountCredentialsResponsePtrType)(v)
-}
-
-func (*storageAccountCredentialsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAccountCredentialsResponse)(nil)).Elem()
-}
-
-func (i *storageAccountCredentialsResponsePtrType) ToStorageAccountCredentialsResponsePtrOutput() StorageAccountCredentialsResponsePtrOutput {
-	return i.ToStorageAccountCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *storageAccountCredentialsResponsePtrType) ToStorageAccountCredentialsResponsePtrOutputWithContext(ctx context.Context) StorageAccountCredentialsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountCredentialsResponsePtrOutput)
-}
-
-type StorageAccountCredentialsResponseOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountCredentialsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountCredentialsResponse)(nil)).Elem()
-}
-
-func (o StorageAccountCredentialsResponseOutput) ToStorageAccountCredentialsResponseOutput() StorageAccountCredentialsResponseOutput {
-	return o
-}
-
-func (o StorageAccountCredentialsResponseOutput) ToStorageAccountCredentialsResponseOutputWithContext(ctx context.Context) StorageAccountCredentialsResponseOutput {
-	return o
-}
-
-func (o StorageAccountCredentialsResponseOutput) ToStorageAccountCredentialsResponsePtrOutput() StorageAccountCredentialsResponsePtrOutput {
-	return o.ToStorageAccountCredentialsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountCredentialsResponseOutput) ToStorageAccountCredentialsResponsePtrOutputWithContext(ctx context.Context) StorageAccountCredentialsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountCredentialsResponse) *StorageAccountCredentialsResponse {
-		return &v
-	}).(StorageAccountCredentialsResponsePtrOutput)
-}
-
-func (o StorageAccountCredentialsResponseOutput) PrimaryKey() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.PrimaryKey }).(pulumi.StringOutput)
-}
-
-func (o StorageAccountCredentialsResponseOutput) ResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.ResourceId }).(pulumi.StringOutput)
-}
-
-func (o StorageAccountCredentialsResponseOutput) SecondaryKey() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountCredentialsResponse) string { return v.SecondaryKey }).(pulumi.StringOutput)
-}
-
-type StorageAccountCredentialsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountCredentialsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAccountCredentialsResponse)(nil)).Elem()
-}
-
-func (o StorageAccountCredentialsResponsePtrOutput) ToStorageAccountCredentialsResponsePtrOutput() StorageAccountCredentialsResponsePtrOutput {
-	return o
-}
-
-func (o StorageAccountCredentialsResponsePtrOutput) ToStorageAccountCredentialsResponsePtrOutputWithContext(ctx context.Context) StorageAccountCredentialsResponsePtrOutput {
-	return o
-}
-
-func (o StorageAccountCredentialsResponsePtrOutput) Elem() StorageAccountCredentialsResponseOutput {
-	return o.ApplyT(func(v *StorageAccountCredentialsResponse) StorageAccountCredentialsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret StorageAccountCredentialsResponse
-		return ret
-	}).(StorageAccountCredentialsResponseOutput)
-}
-
-func (o StorageAccountCredentialsResponsePtrOutput) PrimaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrimaryKey
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StorageAccountCredentialsResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o StorageAccountCredentialsResponsePtrOutput) SecondaryKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageAccountCredentialsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecondaryKey
-	}).(pulumi.StringPtrOutput)
 }
 
 type StorageAccountProperties struct {
@@ -3531,74 +2017,6 @@ type StorageAccountPropertiesResponse struct {
 	ResourceId *string `pulumi:"resourceId"`
 }
 
-
-
-
-
-type StorageAccountPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToStorageAccountPropertiesResponseOutput() StorageAccountPropertiesResponseOutput
-	ToStorageAccountPropertiesResponseOutputWithContext(context.Context) StorageAccountPropertiesResponseOutput
-}
-
-type StorageAccountPropertiesResponseArgs struct {
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (StorageAccountPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountPropertiesResponse)(nil)).Elem()
-}
-
-func (i StorageAccountPropertiesResponseArgs) ToStorageAccountPropertiesResponseOutput() StorageAccountPropertiesResponseOutput {
-	return i.ToStorageAccountPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i StorageAccountPropertiesResponseArgs) ToStorageAccountPropertiesResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponseOutput)
-}
-
-func (i StorageAccountPropertiesResponseArgs) ToStorageAccountPropertiesResponsePtrOutput() StorageAccountPropertiesResponsePtrOutput {
-	return i.ToStorageAccountPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i StorageAccountPropertiesResponseArgs) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponseOutput).ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type StorageAccountPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToStorageAccountPropertiesResponsePtrOutput() StorageAccountPropertiesResponsePtrOutput
-	ToStorageAccountPropertiesResponsePtrOutputWithContext(context.Context) StorageAccountPropertiesResponsePtrOutput
-}
-
-type storageAccountPropertiesResponsePtrType StorageAccountPropertiesResponseArgs
-
-func StorageAccountPropertiesResponsePtr(v *StorageAccountPropertiesResponseArgs) StorageAccountPropertiesResponsePtrInput {
-	return (*storageAccountPropertiesResponsePtrType)(v)
-}
-
-func (*storageAccountPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAccountPropertiesResponse)(nil)).Elem()
-}
-
-func (i *storageAccountPropertiesResponsePtrType) ToStorageAccountPropertiesResponsePtrOutput() StorageAccountPropertiesResponsePtrOutput {
-	return i.ToStorageAccountPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *storageAccountPropertiesResponsePtrType) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountPropertiesResponsePtrOutput)
-}
-
 type StorageAccountPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3611,16 +2029,6 @@ func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesRespon
 
 func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponseOutputWithContext(ctx context.Context) StorageAccountPropertiesResponseOutput {
 	return o
-}
-
-func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutput() StorageAccountPropertiesResponsePtrOutput {
-	return o.ToStorageAccountPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountPropertiesResponseOutput) ToStorageAccountPropertiesResponsePtrOutputWithContext(ctx context.Context) StorageAccountPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountPropertiesResponse) *StorageAccountPropertiesResponse {
-		return &v
-	}).(StorageAccountPropertiesResponsePtrOutput)
 }
 
 func (o StorageAccountPropertiesResponseOutput) ResourceId() pulumi.StringPtrOutput {
@@ -3662,9 +2070,7 @@ func (o StorageAccountPropertiesResponsePtrOutput) ResourceId() pulumi.StringPtr
 
 func init() {
 	pulumi.RegisterOutputType(AcsClusterPropertiesOutput{})
-	pulumi.RegisterOutputType(AcsClusterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AcsClusterPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(AcsClusterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AppInsightsCredentialsOutput{})
 	pulumi.RegisterOutputType(AppInsightsCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(AppInsightsCredentialsResponseOutput{})
@@ -3673,36 +2079,26 @@ func init() {
 	pulumi.RegisterOutputType(AutoScaleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AutoScaleConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(AutoScaleConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerRegistryCredentialsResponseOutput{})
-	pulumi.RegisterOutputType(ContainerRegistryCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ContainerRegistryPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerServiceCredentialsResponseOutput{})
-	pulumi.RegisterOutputType(ContainerServiceCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(GlobalServiceConfigurationOutput{})
 	pulumi.RegisterOutputType(GlobalServiceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalServiceConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(GlobalServiceConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterPropertiesOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(KubernetesClusterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ServiceAuthConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalPropertiesOutput{})
-	pulumi.RegisterOutputType(ServicePrincipalPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ServicePrincipalPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SslConfigurationOutput{})
 	pulumi.RegisterOutputType(SslConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SslConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(SslConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountCredentialsResponseOutput{})
-	pulumi.RegisterOutputType(StorageAccountCredentialsResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})

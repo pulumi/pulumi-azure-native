@@ -110,7 +110,7 @@ type UserRuleCollectionInput interface {
 }
 
 func (*UserRuleCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserRuleCollection)(nil))
+	return reflect.TypeOf((**UserRuleCollection)(nil)).Elem()
 }
 
 func (i *UserRuleCollection) ToUserRuleCollectionOutput() UserRuleCollectionOutput {
@@ -124,7 +124,7 @@ func (i *UserRuleCollection) ToUserRuleCollectionOutputWithContext(ctx context.C
 type UserRuleCollectionOutput struct{ *pulumi.OutputState }
 
 func (UserRuleCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserRuleCollection)(nil))
+	return reflect.TypeOf((**UserRuleCollection)(nil)).Elem()
 }
 
 func (o UserRuleCollectionOutput) ToUserRuleCollectionOutput() UserRuleCollectionOutput {

@@ -101,7 +101,7 @@ type PowerBIResourceInput interface {
 }
 
 func (*PowerBIResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerBIResource)(nil))
+	return reflect.TypeOf((**PowerBIResource)(nil)).Elem()
 }
 
 func (i *PowerBIResource) ToPowerBIResourceOutput() PowerBIResourceOutput {
@@ -115,7 +115,7 @@ func (i *PowerBIResource) ToPowerBIResourceOutputWithContext(ctx context.Context
 type PowerBIResourceOutput struct{ *pulumi.OutputState }
 
 func (PowerBIResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerBIResource)(nil))
+	return reflect.TypeOf((**PowerBIResource)(nil)).Elem()
 }
 
 func (o PowerBIResourceOutput) ToPowerBIResourceOutput() PowerBIResourceOutput {

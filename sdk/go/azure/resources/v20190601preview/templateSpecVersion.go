@@ -115,7 +115,7 @@ type TemplateSpecVersionInput interface {
 }
 
 func (*TemplateSpecVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecVersion)(nil))
+	return reflect.TypeOf((**TemplateSpecVersion)(nil)).Elem()
 }
 
 func (i *TemplateSpecVersion) ToTemplateSpecVersionOutput() TemplateSpecVersionOutput {
@@ -129,7 +129,7 @@ func (i *TemplateSpecVersion) ToTemplateSpecVersionOutputWithContext(ctx context
 type TemplateSpecVersionOutput struct{ *pulumi.OutputState }
 
 func (TemplateSpecVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateSpecVersion)(nil))
+	return reflect.TypeOf((**TemplateSpecVersion)(nil)).Elem()
 }
 
 func (o TemplateSpecVersionOutput) ToTemplateSpecVersionOutput() TemplateSpecVersionOutput {

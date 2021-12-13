@@ -106,7 +106,7 @@ type EnterpriseChannelInput interface {
 }
 
 func (*EnterpriseChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseChannel)(nil))
+	return reflect.TypeOf((**EnterpriseChannel)(nil)).Elem()
 }
 
 func (i *EnterpriseChannel) ToEnterpriseChannelOutput() EnterpriseChannelOutput {
@@ -120,7 +120,7 @@ func (i *EnterpriseChannel) ToEnterpriseChannelOutputWithContext(ctx context.Con
 type EnterpriseChannelOutput struct{ *pulumi.OutputState }
 
 func (EnterpriseChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterpriseChannel)(nil))
+	return reflect.TypeOf((**EnterpriseChannel)(nil)).Elem()
 }
 
 func (o EnterpriseChannelOutput) ToEnterpriseChannelOutput() EnterpriseChannelOutput {

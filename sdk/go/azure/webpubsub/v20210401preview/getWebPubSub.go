@@ -13,7 +13,7 @@ func LookupWebPubSub(ctx *pulumi.Context, args *LookupWebPubSubArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupWebPubSubArgs struct {
@@ -44,4 +44,21 @@ type LookupWebPubSubResult struct {
 	Tls                        *WebPubSubTlsSettingsResponse       `pulumi:"tls"`
 	Type                       string                              `pulumi:"type"`
 	Version                    string                              `pulumi:"version"`
+}
+
+
+func (val *LookupWebPubSubResult) Defaults() *LookupWebPubSubResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.NetworkACLs = tmp.NetworkACLs.Defaults()
+
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "Enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	tmp.Tls = tmp.Tls.Defaults()
+
+	return &tmp
 }

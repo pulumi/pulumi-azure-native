@@ -157,65 +157,6 @@ type AssetItemResponse struct {
 	Type         string                         `pulumi:"type"`
 }
 
-
-
-
-
-type AssetItemResponseInput interface {
-	pulumi.Input
-
-	ToAssetItemResponseOutput() AssetItemResponseOutput
-	ToAssetItemResponseOutputWithContext(context.Context) AssetItemResponseOutput
-}
-
-type AssetItemResponseArgs struct {
-	Id           pulumi.StringPtrInput                  `pulumi:"id"`
-	InputPorts   InputPortResponseMapInput              `pulumi:"inputPorts"`
-	LocationInfo BlobLocationResponseInput              `pulumi:"locationInfo"`
-	Metadata     pulumi.StringMapInput                  `pulumi:"metadata"`
-	Name         pulumi.StringInput                     `pulumi:"name"`
-	OutputPorts  OutputPortResponseMapInput             `pulumi:"outputPorts"`
-	Parameters   ModuleAssetParameterResponseArrayInput `pulumi:"parameters"`
-	Type         pulumi.StringInput                     `pulumi:"type"`
-}
-
-func (AssetItemResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssetItemResponse)(nil)).Elem()
-}
-
-func (i AssetItemResponseArgs) ToAssetItemResponseOutput() AssetItemResponseOutput {
-	return i.ToAssetItemResponseOutputWithContext(context.Background())
-}
-
-func (i AssetItemResponseArgs) ToAssetItemResponseOutputWithContext(ctx context.Context) AssetItemResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetItemResponseOutput)
-}
-
-
-
-
-
-type AssetItemResponseMapInput interface {
-	pulumi.Input
-
-	ToAssetItemResponseMapOutput() AssetItemResponseMapOutput
-	ToAssetItemResponseMapOutputWithContext(context.Context) AssetItemResponseMapOutput
-}
-
-type AssetItemResponseMap map[string]AssetItemResponseInput
-
-func (AssetItemResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AssetItemResponse)(nil)).Elem()
-}
-
-func (i AssetItemResponseMap) ToAssetItemResponseMapOutput() AssetItemResponseMapOutput {
-	return i.ToAssetItemResponseMapOutputWithContext(context.Background())
-}
-
-func (i AssetItemResponseMap) ToAssetItemResponseMapOutputWithContext(ctx context.Context) AssetItemResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AssetItemResponseMapOutput)
-}
-
 type AssetItemResponseOutput struct{ *pulumi.OutputState }
 
 func (AssetItemResponseOutput) ElementType() reflect.Type {
@@ -435,75 +376,6 @@ type BlobLocationResponse struct {
 	Uri         string  `pulumi:"uri"`
 }
 
-
-
-
-
-type BlobLocationResponseInput interface {
-	pulumi.Input
-
-	ToBlobLocationResponseOutput() BlobLocationResponseOutput
-	ToBlobLocationResponseOutputWithContext(context.Context) BlobLocationResponseOutput
-}
-
-type BlobLocationResponseArgs struct {
-	Credentials pulumi.StringPtrInput `pulumi:"credentials"`
-	Uri         pulumi.StringInput    `pulumi:"uri"`
-}
-
-func (BlobLocationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobLocationResponse)(nil)).Elem()
-}
-
-func (i BlobLocationResponseArgs) ToBlobLocationResponseOutput() BlobLocationResponseOutput {
-	return i.ToBlobLocationResponseOutputWithContext(context.Background())
-}
-
-func (i BlobLocationResponseArgs) ToBlobLocationResponseOutputWithContext(ctx context.Context) BlobLocationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobLocationResponseOutput)
-}
-
-func (i BlobLocationResponseArgs) ToBlobLocationResponsePtrOutput() BlobLocationResponsePtrOutput {
-	return i.ToBlobLocationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BlobLocationResponseArgs) ToBlobLocationResponsePtrOutputWithContext(ctx context.Context) BlobLocationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobLocationResponseOutput).ToBlobLocationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type BlobLocationResponsePtrInput interface {
-	pulumi.Input
-
-	ToBlobLocationResponsePtrOutput() BlobLocationResponsePtrOutput
-	ToBlobLocationResponsePtrOutputWithContext(context.Context) BlobLocationResponsePtrOutput
-}
-
-type blobLocationResponsePtrType BlobLocationResponseArgs
-
-func BlobLocationResponsePtr(v *BlobLocationResponseArgs) BlobLocationResponsePtrInput {
-	return (*blobLocationResponsePtrType)(v)
-}
-
-func (*blobLocationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BlobLocationResponse)(nil)).Elem()
-}
-
-func (i *blobLocationResponsePtrType) ToBlobLocationResponsePtrOutput() BlobLocationResponsePtrOutput {
-	return i.ToBlobLocationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *blobLocationResponsePtrType) ToBlobLocationResponsePtrOutputWithContext(ctx context.Context) BlobLocationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BlobLocationResponsePtrOutput)
-}
-
 type BlobLocationResponseOutput struct{ *pulumi.OutputState }
 
 func (BlobLocationResponseOutput) ElementType() reflect.Type {
@@ -516,16 +388,6 @@ func (o BlobLocationResponseOutput) ToBlobLocationResponseOutput() BlobLocationR
 
 func (o BlobLocationResponseOutput) ToBlobLocationResponseOutputWithContext(ctx context.Context) BlobLocationResponseOutput {
 	return o
-}
-
-func (o BlobLocationResponseOutput) ToBlobLocationResponsePtrOutput() BlobLocationResponsePtrOutput {
-	return o.ToBlobLocationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BlobLocationResponseOutput) ToBlobLocationResponsePtrOutputWithContext(ctx context.Context) BlobLocationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BlobLocationResponse) *BlobLocationResponse {
-		return &v
-	}).(BlobLocationResponsePtrOutput)
 }
 
 func (o BlobLocationResponseOutput) Credentials() pulumi.StringPtrOutput {
@@ -702,62 +564,6 @@ type ColumnSpecificationResponse struct {
 	Type          string        `pulumi:"type"`
 	XMsIsnullable *bool         `pulumi:"xMsIsnullable"`
 	XMsIsordered  *bool         `pulumi:"xMsIsordered"`
-}
-
-
-
-
-
-type ColumnSpecificationResponseInput interface {
-	pulumi.Input
-
-	ToColumnSpecificationResponseOutput() ColumnSpecificationResponseOutput
-	ToColumnSpecificationResponseOutputWithContext(context.Context) ColumnSpecificationResponseOutput
-}
-
-type ColumnSpecificationResponseArgs struct {
-	Enum          pulumi.ArrayInput     `pulumi:"enum"`
-	Format        pulumi.StringPtrInput `pulumi:"format"`
-	Type          pulumi.StringInput    `pulumi:"type"`
-	XMsIsnullable pulumi.BoolPtrInput   `pulumi:"xMsIsnullable"`
-	XMsIsordered  pulumi.BoolPtrInput   `pulumi:"xMsIsordered"`
-}
-
-func (ColumnSpecificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ColumnSpecificationResponse)(nil)).Elem()
-}
-
-func (i ColumnSpecificationResponseArgs) ToColumnSpecificationResponseOutput() ColumnSpecificationResponseOutput {
-	return i.ToColumnSpecificationResponseOutputWithContext(context.Background())
-}
-
-func (i ColumnSpecificationResponseArgs) ToColumnSpecificationResponseOutputWithContext(ctx context.Context) ColumnSpecificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ColumnSpecificationResponseOutput)
-}
-
-
-
-
-
-type ColumnSpecificationResponseMapInput interface {
-	pulumi.Input
-
-	ToColumnSpecificationResponseMapOutput() ColumnSpecificationResponseMapOutput
-	ToColumnSpecificationResponseMapOutputWithContext(context.Context) ColumnSpecificationResponseMapOutput
-}
-
-type ColumnSpecificationResponseMap map[string]ColumnSpecificationResponseInput
-
-func (ColumnSpecificationResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ColumnSpecificationResponse)(nil)).Elem()
-}
-
-func (i ColumnSpecificationResponseMap) ToColumnSpecificationResponseMapOutput() ColumnSpecificationResponseMapOutput {
-	return i.ToColumnSpecificationResponseMapOutputWithContext(context.Background())
-}
-
-func (i ColumnSpecificationResponseMap) ToColumnSpecificationResponseMapOutputWithContext(ctx context.Context) ColumnSpecificationResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ColumnSpecificationResponseMapOutput)
 }
 
 type ColumnSpecificationResponseOutput struct{ *pulumi.OutputState }
@@ -951,74 +757,6 @@ type CommitmentPlanResponse struct {
 	Id string `pulumi:"id"`
 }
 
-
-
-
-
-type CommitmentPlanResponseInput interface {
-	pulumi.Input
-
-	ToCommitmentPlanResponseOutput() CommitmentPlanResponseOutput
-	ToCommitmentPlanResponseOutputWithContext(context.Context) CommitmentPlanResponseOutput
-}
-
-type CommitmentPlanResponseArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
-}
-
-func (CommitmentPlanResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommitmentPlanResponse)(nil)).Elem()
-}
-
-func (i CommitmentPlanResponseArgs) ToCommitmentPlanResponseOutput() CommitmentPlanResponseOutput {
-	return i.ToCommitmentPlanResponseOutputWithContext(context.Background())
-}
-
-func (i CommitmentPlanResponseArgs) ToCommitmentPlanResponseOutputWithContext(ctx context.Context) CommitmentPlanResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanResponseOutput)
-}
-
-func (i CommitmentPlanResponseArgs) ToCommitmentPlanResponsePtrOutput() CommitmentPlanResponsePtrOutput {
-	return i.ToCommitmentPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CommitmentPlanResponseArgs) ToCommitmentPlanResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanResponseOutput).ToCommitmentPlanResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CommitmentPlanResponsePtrInput interface {
-	pulumi.Input
-
-	ToCommitmentPlanResponsePtrOutput() CommitmentPlanResponsePtrOutput
-	ToCommitmentPlanResponsePtrOutputWithContext(context.Context) CommitmentPlanResponsePtrOutput
-}
-
-type commitmentPlanResponsePtrType CommitmentPlanResponseArgs
-
-func CommitmentPlanResponsePtr(v *CommitmentPlanResponseArgs) CommitmentPlanResponsePtrInput {
-	return (*commitmentPlanResponsePtrType)(v)
-}
-
-func (*commitmentPlanResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CommitmentPlanResponse)(nil)).Elem()
-}
-
-func (i *commitmentPlanResponsePtrType) ToCommitmentPlanResponsePtrOutput() CommitmentPlanResponsePtrOutput {
-	return i.ToCommitmentPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *commitmentPlanResponsePtrType) ToCommitmentPlanResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommitmentPlanResponsePtrOutput)
-}
-
 type CommitmentPlanResponseOutput struct{ *pulumi.OutputState }
 
 func (CommitmentPlanResponseOutput) ElementType() reflect.Type {
@@ -1031,16 +769,6 @@ func (o CommitmentPlanResponseOutput) ToCommitmentPlanResponseOutput() Commitmen
 
 func (o CommitmentPlanResponseOutput) ToCommitmentPlanResponseOutputWithContext(ctx context.Context) CommitmentPlanResponseOutput {
 	return o
-}
-
-func (o CommitmentPlanResponseOutput) ToCommitmentPlanResponsePtrOutput() CommitmentPlanResponsePtrOutput {
-	return o.ToCommitmentPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CommitmentPlanResponseOutput) ToCommitmentPlanResponsePtrOutputWithContext(ctx context.Context) CommitmentPlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommitmentPlanResponse) *CommitmentPlanResponse {
-		return &v
-	}).(CommitmentPlanResponsePtrOutput)
 }
 
 func (o CommitmentPlanResponseOutput) Id() pulumi.StringOutput {
@@ -1233,75 +961,6 @@ type DiagnosticsConfigurationResponse struct {
 	Level  string  `pulumi:"level"`
 }
 
-
-
-
-
-type DiagnosticsConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToDiagnosticsConfigurationResponseOutput() DiagnosticsConfigurationResponseOutput
-	ToDiagnosticsConfigurationResponseOutputWithContext(context.Context) DiagnosticsConfigurationResponseOutput
-}
-
-type DiagnosticsConfigurationResponseArgs struct {
-	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
-	Level  pulumi.StringInput    `pulumi:"level"`
-}
-
-func (DiagnosticsConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsConfigurationResponse)(nil)).Elem()
-}
-
-func (i DiagnosticsConfigurationResponseArgs) ToDiagnosticsConfigurationResponseOutput() DiagnosticsConfigurationResponseOutput {
-	return i.ToDiagnosticsConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsConfigurationResponseArgs) ToDiagnosticsConfigurationResponseOutputWithContext(ctx context.Context) DiagnosticsConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsConfigurationResponseOutput)
-}
-
-func (i DiagnosticsConfigurationResponseArgs) ToDiagnosticsConfigurationResponsePtrOutput() DiagnosticsConfigurationResponsePtrOutput {
-	return i.ToDiagnosticsConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsConfigurationResponseArgs) ToDiagnosticsConfigurationResponsePtrOutputWithContext(ctx context.Context) DiagnosticsConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsConfigurationResponseOutput).ToDiagnosticsConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DiagnosticsConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToDiagnosticsConfigurationResponsePtrOutput() DiagnosticsConfigurationResponsePtrOutput
-	ToDiagnosticsConfigurationResponsePtrOutputWithContext(context.Context) DiagnosticsConfigurationResponsePtrOutput
-}
-
-type diagnosticsConfigurationResponsePtrType DiagnosticsConfigurationResponseArgs
-
-func DiagnosticsConfigurationResponsePtr(v *DiagnosticsConfigurationResponseArgs) DiagnosticsConfigurationResponsePtrInput {
-	return (*diagnosticsConfigurationResponsePtrType)(v)
-}
-
-func (*diagnosticsConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticsConfigurationResponse)(nil)).Elem()
-}
-
-func (i *diagnosticsConfigurationResponsePtrType) ToDiagnosticsConfigurationResponsePtrOutput() DiagnosticsConfigurationResponsePtrOutput {
-	return i.ToDiagnosticsConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *diagnosticsConfigurationResponsePtrType) ToDiagnosticsConfigurationResponsePtrOutputWithContext(ctx context.Context) DiagnosticsConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsConfigurationResponsePtrOutput)
-}
-
 type DiagnosticsConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1314,16 +973,6 @@ func (o DiagnosticsConfigurationResponseOutput) ToDiagnosticsConfigurationRespon
 
 func (o DiagnosticsConfigurationResponseOutput) ToDiagnosticsConfigurationResponseOutputWithContext(ctx context.Context) DiagnosticsConfigurationResponseOutput {
 	return o
-}
-
-func (o DiagnosticsConfigurationResponseOutput) ToDiagnosticsConfigurationResponsePtrOutput() DiagnosticsConfigurationResponsePtrOutput {
-	return o.ToDiagnosticsConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DiagnosticsConfigurationResponseOutput) ToDiagnosticsConfigurationResponsePtrOutputWithContext(ctx context.Context) DiagnosticsConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsConfigurationResponse) *DiagnosticsConfigurationResponse {
-		return &v
-	}).(DiagnosticsConfigurationResponsePtrOutput)
 }
 
 func (o DiagnosticsConfigurationResponseOutput) Expiry() pulumi.StringPtrOutput {
@@ -1529,75 +1178,6 @@ type ExampleRequestResponse struct {
 	Inputs           map[string][][]interface{} `pulumi:"inputs"`
 }
 
-
-
-
-
-type ExampleRequestResponseInput interface {
-	pulumi.Input
-
-	ToExampleRequestResponseOutput() ExampleRequestResponseOutput
-	ToExampleRequestResponseOutputWithContext(context.Context) ExampleRequestResponseOutput
-}
-
-type ExampleRequestResponseArgs struct {
-	GlobalParameters pulumi.MapInput           `pulumi:"globalParameters"`
-	Inputs           pulumi.ArrayArrayMapInput `pulumi:"inputs"`
-}
-
-func (ExampleRequestResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExampleRequestResponse)(nil)).Elem()
-}
-
-func (i ExampleRequestResponseArgs) ToExampleRequestResponseOutput() ExampleRequestResponseOutput {
-	return i.ToExampleRequestResponseOutputWithContext(context.Background())
-}
-
-func (i ExampleRequestResponseArgs) ToExampleRequestResponseOutputWithContext(ctx context.Context) ExampleRequestResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExampleRequestResponseOutput)
-}
-
-func (i ExampleRequestResponseArgs) ToExampleRequestResponsePtrOutput() ExampleRequestResponsePtrOutput {
-	return i.ToExampleRequestResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExampleRequestResponseArgs) ToExampleRequestResponsePtrOutputWithContext(ctx context.Context) ExampleRequestResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExampleRequestResponseOutput).ToExampleRequestResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExampleRequestResponsePtrInput interface {
-	pulumi.Input
-
-	ToExampleRequestResponsePtrOutput() ExampleRequestResponsePtrOutput
-	ToExampleRequestResponsePtrOutputWithContext(context.Context) ExampleRequestResponsePtrOutput
-}
-
-type exampleRequestResponsePtrType ExampleRequestResponseArgs
-
-func ExampleRequestResponsePtr(v *ExampleRequestResponseArgs) ExampleRequestResponsePtrInput {
-	return (*exampleRequestResponsePtrType)(v)
-}
-
-func (*exampleRequestResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExampleRequestResponse)(nil)).Elem()
-}
-
-func (i *exampleRequestResponsePtrType) ToExampleRequestResponsePtrOutput() ExampleRequestResponsePtrOutput {
-	return i.ToExampleRequestResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *exampleRequestResponsePtrType) ToExampleRequestResponsePtrOutputWithContext(ctx context.Context) ExampleRequestResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExampleRequestResponsePtrOutput)
-}
-
 type ExampleRequestResponseOutput struct{ *pulumi.OutputState }
 
 func (ExampleRequestResponseOutput) ElementType() reflect.Type {
@@ -1610,16 +1190,6 @@ func (o ExampleRequestResponseOutput) ToExampleRequestResponseOutput() ExampleRe
 
 func (o ExampleRequestResponseOutput) ToExampleRequestResponseOutputWithContext(ctx context.Context) ExampleRequestResponseOutput {
 	return o
-}
-
-func (o ExampleRequestResponseOutput) ToExampleRequestResponsePtrOutput() ExampleRequestResponsePtrOutput {
-	return o.ToExampleRequestResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExampleRequestResponseOutput) ToExampleRequestResponsePtrOutputWithContext(ctx context.Context) ExampleRequestResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExampleRequestResponse) *ExampleRequestResponse {
-		return &v
-	}).(ExampleRequestResponsePtrOutput)
 }
 
 func (o ExampleRequestResponseOutput) GlobalParameters() pulumi.MapOutput {
@@ -1791,61 +1361,6 @@ type GraphEdgeResponse struct {
 	TargetPortId *string `pulumi:"targetPortId"`
 }
 
-
-
-
-
-type GraphEdgeResponseInput interface {
-	pulumi.Input
-
-	ToGraphEdgeResponseOutput() GraphEdgeResponseOutput
-	ToGraphEdgeResponseOutputWithContext(context.Context) GraphEdgeResponseOutput
-}
-
-type GraphEdgeResponseArgs struct {
-	SourceNodeId pulumi.StringPtrInput `pulumi:"sourceNodeId"`
-	SourcePortId pulumi.StringPtrInput `pulumi:"sourcePortId"`
-	TargetNodeId pulumi.StringPtrInput `pulumi:"targetNodeId"`
-	TargetPortId pulumi.StringPtrInput `pulumi:"targetPortId"`
-}
-
-func (GraphEdgeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphEdgeResponse)(nil)).Elem()
-}
-
-func (i GraphEdgeResponseArgs) ToGraphEdgeResponseOutput() GraphEdgeResponseOutput {
-	return i.ToGraphEdgeResponseOutputWithContext(context.Background())
-}
-
-func (i GraphEdgeResponseArgs) ToGraphEdgeResponseOutputWithContext(ctx context.Context) GraphEdgeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphEdgeResponseOutput)
-}
-
-
-
-
-
-type GraphEdgeResponseArrayInput interface {
-	pulumi.Input
-
-	ToGraphEdgeResponseArrayOutput() GraphEdgeResponseArrayOutput
-	ToGraphEdgeResponseArrayOutputWithContext(context.Context) GraphEdgeResponseArrayOutput
-}
-
-type GraphEdgeResponseArray []GraphEdgeResponseInput
-
-func (GraphEdgeResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GraphEdgeResponse)(nil)).Elem()
-}
-
-func (i GraphEdgeResponseArray) ToGraphEdgeResponseArrayOutput() GraphEdgeResponseArrayOutput {
-	return i.ToGraphEdgeResponseArrayOutputWithContext(context.Background())
-}
-
-func (i GraphEdgeResponseArray) ToGraphEdgeResponseArrayOutputWithContext(ctx context.Context) GraphEdgeResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphEdgeResponseArrayOutput)
-}
-
 type GraphEdgeResponseOutput struct{ *pulumi.OutputState }
 
 func (GraphEdgeResponseOutput) ElementType() reflect.Type {
@@ -2013,61 +1528,6 @@ type GraphNodeResponse struct {
 	InputId    *string                                `pulumi:"inputId"`
 	OutputId   *string                                `pulumi:"outputId"`
 	Parameters map[string]WebServiceParameterResponse `pulumi:"parameters"`
-}
-
-
-
-
-
-type GraphNodeResponseInput interface {
-	pulumi.Input
-
-	ToGraphNodeResponseOutput() GraphNodeResponseOutput
-	ToGraphNodeResponseOutputWithContext(context.Context) GraphNodeResponseOutput
-}
-
-type GraphNodeResponseArgs struct {
-	AssetId    pulumi.StringPtrInput               `pulumi:"assetId"`
-	InputId    pulumi.StringPtrInput               `pulumi:"inputId"`
-	OutputId   pulumi.StringPtrInput               `pulumi:"outputId"`
-	Parameters WebServiceParameterResponseMapInput `pulumi:"parameters"`
-}
-
-func (GraphNodeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphNodeResponse)(nil)).Elem()
-}
-
-func (i GraphNodeResponseArgs) ToGraphNodeResponseOutput() GraphNodeResponseOutput {
-	return i.ToGraphNodeResponseOutputWithContext(context.Background())
-}
-
-func (i GraphNodeResponseArgs) ToGraphNodeResponseOutputWithContext(ctx context.Context) GraphNodeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphNodeResponseOutput)
-}
-
-
-
-
-
-type GraphNodeResponseMapInput interface {
-	pulumi.Input
-
-	ToGraphNodeResponseMapOutput() GraphNodeResponseMapOutput
-	ToGraphNodeResponseMapOutputWithContext(context.Context) GraphNodeResponseMapOutput
-}
-
-type GraphNodeResponseMap map[string]GraphNodeResponseInput
-
-func (GraphNodeResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GraphNodeResponse)(nil)).Elem()
-}
-
-func (i GraphNodeResponseMap) ToGraphNodeResponseMapOutput() GraphNodeResponseMapOutput {
-	return i.ToGraphNodeResponseMapOutputWithContext(context.Background())
-}
-
-func (i GraphNodeResponseMap) ToGraphNodeResponseMapOutputWithContext(ctx context.Context) GraphNodeResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphNodeResponseMapOutput)
 }
 
 type GraphNodeResponseOutput struct{ *pulumi.OutputState }
@@ -2289,76 +1749,6 @@ type GraphPackageResponse struct {
 	Nodes           map[string]GraphNodeResponse      `pulumi:"nodes"`
 }
 
-
-
-
-
-type GraphPackageResponseInput interface {
-	pulumi.Input
-
-	ToGraphPackageResponseOutput() GraphPackageResponseOutput
-	ToGraphPackageResponseOutputWithContext(context.Context) GraphPackageResponseOutput
-}
-
-type GraphPackageResponseArgs struct {
-	Edges           GraphEdgeResponseArrayInput    `pulumi:"edges"`
-	GraphParameters GraphParameterResponseMapInput `pulumi:"graphParameters"`
-	Nodes           GraphNodeResponseMapInput      `pulumi:"nodes"`
-}
-
-func (GraphPackageResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphPackageResponse)(nil)).Elem()
-}
-
-func (i GraphPackageResponseArgs) ToGraphPackageResponseOutput() GraphPackageResponseOutput {
-	return i.ToGraphPackageResponseOutputWithContext(context.Background())
-}
-
-func (i GraphPackageResponseArgs) ToGraphPackageResponseOutputWithContext(ctx context.Context) GraphPackageResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageResponseOutput)
-}
-
-func (i GraphPackageResponseArgs) ToGraphPackageResponsePtrOutput() GraphPackageResponsePtrOutput {
-	return i.ToGraphPackageResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GraphPackageResponseArgs) ToGraphPackageResponsePtrOutputWithContext(ctx context.Context) GraphPackageResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageResponseOutput).ToGraphPackageResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type GraphPackageResponsePtrInput interface {
-	pulumi.Input
-
-	ToGraphPackageResponsePtrOutput() GraphPackageResponsePtrOutput
-	ToGraphPackageResponsePtrOutputWithContext(context.Context) GraphPackageResponsePtrOutput
-}
-
-type graphPackageResponsePtrType GraphPackageResponseArgs
-
-func GraphPackageResponsePtr(v *GraphPackageResponseArgs) GraphPackageResponsePtrInput {
-	return (*graphPackageResponsePtrType)(v)
-}
-
-func (*graphPackageResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GraphPackageResponse)(nil)).Elem()
-}
-
-func (i *graphPackageResponsePtrType) ToGraphPackageResponsePtrOutput() GraphPackageResponsePtrOutput {
-	return i.ToGraphPackageResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *graphPackageResponsePtrType) ToGraphPackageResponsePtrOutputWithContext(ctx context.Context) GraphPackageResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphPackageResponsePtrOutput)
-}
-
 type GraphPackageResponseOutput struct{ *pulumi.OutputState }
 
 func (GraphPackageResponseOutput) ElementType() reflect.Type {
@@ -2371,16 +1761,6 @@ func (o GraphPackageResponseOutput) ToGraphPackageResponseOutput() GraphPackageR
 
 func (o GraphPackageResponseOutput) ToGraphPackageResponseOutputWithContext(ctx context.Context) GraphPackageResponseOutput {
 	return o
-}
-
-func (o GraphPackageResponseOutput) ToGraphPackageResponsePtrOutput() GraphPackageResponsePtrOutput {
-	return o.ToGraphPackageResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GraphPackageResponseOutput) ToGraphPackageResponsePtrOutputWithContext(ctx context.Context) GraphPackageResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphPackageResponse) *GraphPackageResponse {
-		return &v
-	}).(GraphPackageResponsePtrOutput)
 }
 
 func (o GraphPackageResponseOutput) Edges() GraphEdgeResponseArrayOutput {
@@ -2657,59 +2037,6 @@ type GraphParameterLinkResponse struct {
 	ParameterKey string `pulumi:"parameterKey"`
 }
 
-
-
-
-
-type GraphParameterLinkResponseInput interface {
-	pulumi.Input
-
-	ToGraphParameterLinkResponseOutput() GraphParameterLinkResponseOutput
-	ToGraphParameterLinkResponseOutputWithContext(context.Context) GraphParameterLinkResponseOutput
-}
-
-type GraphParameterLinkResponseArgs struct {
-	NodeId       pulumi.StringInput `pulumi:"nodeId"`
-	ParameterKey pulumi.StringInput `pulumi:"parameterKey"`
-}
-
-func (GraphParameterLinkResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphParameterLinkResponse)(nil)).Elem()
-}
-
-func (i GraphParameterLinkResponseArgs) ToGraphParameterLinkResponseOutput() GraphParameterLinkResponseOutput {
-	return i.ToGraphParameterLinkResponseOutputWithContext(context.Background())
-}
-
-func (i GraphParameterLinkResponseArgs) ToGraphParameterLinkResponseOutputWithContext(ctx context.Context) GraphParameterLinkResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterLinkResponseOutput)
-}
-
-
-
-
-
-type GraphParameterLinkResponseArrayInput interface {
-	pulumi.Input
-
-	ToGraphParameterLinkResponseArrayOutput() GraphParameterLinkResponseArrayOutput
-	ToGraphParameterLinkResponseArrayOutputWithContext(context.Context) GraphParameterLinkResponseArrayOutput
-}
-
-type GraphParameterLinkResponseArray []GraphParameterLinkResponseInput
-
-func (GraphParameterLinkResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GraphParameterLinkResponse)(nil)).Elem()
-}
-
-func (i GraphParameterLinkResponseArray) ToGraphParameterLinkResponseArrayOutput() GraphParameterLinkResponseArrayOutput {
-	return i.ToGraphParameterLinkResponseArrayOutputWithContext(context.Background())
-}
-
-func (i GraphParameterLinkResponseArray) ToGraphParameterLinkResponseArrayOutputWithContext(ctx context.Context) GraphParameterLinkResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterLinkResponseArrayOutput)
-}
-
 type GraphParameterLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (GraphParameterLinkResponseOutput) ElementType() reflect.Type {
@@ -2756,60 +2083,6 @@ type GraphParameterResponse struct {
 	Description *string                      `pulumi:"description"`
 	Links       []GraphParameterLinkResponse `pulumi:"links"`
 	Type        string                       `pulumi:"type"`
-}
-
-
-
-
-
-type GraphParameterResponseInput interface {
-	pulumi.Input
-
-	ToGraphParameterResponseOutput() GraphParameterResponseOutput
-	ToGraphParameterResponseOutputWithContext(context.Context) GraphParameterResponseOutput
-}
-
-type GraphParameterResponseArgs struct {
-	Description pulumi.StringPtrInput                `pulumi:"description"`
-	Links       GraphParameterLinkResponseArrayInput `pulumi:"links"`
-	Type        pulumi.StringInput                   `pulumi:"type"`
-}
-
-func (GraphParameterResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphParameterResponse)(nil)).Elem()
-}
-
-func (i GraphParameterResponseArgs) ToGraphParameterResponseOutput() GraphParameterResponseOutput {
-	return i.ToGraphParameterResponseOutputWithContext(context.Background())
-}
-
-func (i GraphParameterResponseArgs) ToGraphParameterResponseOutputWithContext(ctx context.Context) GraphParameterResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterResponseOutput)
-}
-
-
-
-
-
-type GraphParameterResponseMapInput interface {
-	pulumi.Input
-
-	ToGraphParameterResponseMapOutput() GraphParameterResponseMapOutput
-	ToGraphParameterResponseMapOutputWithContext(context.Context) GraphParameterResponseMapOutput
-}
-
-type GraphParameterResponseMap map[string]GraphParameterResponseInput
-
-func (GraphParameterResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GraphParameterResponse)(nil)).Elem()
-}
-
-func (i GraphParameterResponseMap) ToGraphParameterResponseMapOutput() GraphParameterResponseMapOutput {
-	return i.ToGraphParameterResponseMapOutputWithContext(context.Background())
-}
-
-func (i GraphParameterResponseMap) ToGraphParameterResponseMapOutputWithContext(ctx context.Context) GraphParameterResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphParameterResponseMapOutput)
 }
 
 type GraphParameterResponseOutput struct{ *pulumi.OutputState }
@@ -2860,6 +2133,19 @@ func (o GraphParameterResponseMapOutput) MapIndex(k pulumi.StringInput) GraphPar
 
 type InputPort struct {
 	Type *string `pulumi:"type"`
+}
+
+
+func (val *InputPort) Defaults() *InputPort {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "Dataset"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 
@@ -2957,55 +2243,16 @@ type InputPortResponse struct {
 }
 
 
-
-
-
-type InputPortResponseInput interface {
-	pulumi.Input
-
-	ToInputPortResponseOutput() InputPortResponseOutput
-	ToInputPortResponseOutputWithContext(context.Context) InputPortResponseOutput
-}
-
-type InputPortResponseArgs struct {
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (InputPortResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputPortResponse)(nil)).Elem()
-}
-
-func (i InputPortResponseArgs) ToInputPortResponseOutput() InputPortResponseOutput {
-	return i.ToInputPortResponseOutputWithContext(context.Background())
-}
-
-func (i InputPortResponseArgs) ToInputPortResponseOutputWithContext(ctx context.Context) InputPortResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputPortResponseOutput)
-}
-
-
-
-
-
-type InputPortResponseMapInput interface {
-	pulumi.Input
-
-	ToInputPortResponseMapOutput() InputPortResponseMapOutput
-	ToInputPortResponseMapOutputWithContext(context.Context) InputPortResponseMapOutput
-}
-
-type InputPortResponseMap map[string]InputPortResponseInput
-
-func (InputPortResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]InputPortResponse)(nil)).Elem()
-}
-
-func (i InputPortResponseMap) ToInputPortResponseMapOutput() InputPortResponseMapOutput {
-	return i.ToInputPortResponseMapOutputWithContext(context.Background())
-}
-
-func (i InputPortResponseMap) ToInputPortResponseMapOutputWithContext(ctx context.Context) InputPortResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputPortResponseMapOutput)
+func (val *InputPortResponse) Defaults() *InputPortResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "Dataset"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 type InputPortResponseOutput struct{ *pulumi.OutputState }
@@ -3183,74 +2430,6 @@ type MachineLearningWorkspaceResponse struct {
 	Id string `pulumi:"id"`
 }
 
-
-
-
-
-type MachineLearningWorkspaceResponseInput interface {
-	pulumi.Input
-
-	ToMachineLearningWorkspaceResponseOutput() MachineLearningWorkspaceResponseOutput
-	ToMachineLearningWorkspaceResponseOutputWithContext(context.Context) MachineLearningWorkspaceResponseOutput
-}
-
-type MachineLearningWorkspaceResponseArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
-}
-
-func (MachineLearningWorkspaceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningWorkspaceResponse)(nil)).Elem()
-}
-
-func (i MachineLearningWorkspaceResponseArgs) ToMachineLearningWorkspaceResponseOutput() MachineLearningWorkspaceResponseOutput {
-	return i.ToMachineLearningWorkspaceResponseOutputWithContext(context.Background())
-}
-
-func (i MachineLearningWorkspaceResponseArgs) ToMachineLearningWorkspaceResponseOutputWithContext(ctx context.Context) MachineLearningWorkspaceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningWorkspaceResponseOutput)
-}
-
-func (i MachineLearningWorkspaceResponseArgs) ToMachineLearningWorkspaceResponsePtrOutput() MachineLearningWorkspaceResponsePtrOutput {
-	return i.ToMachineLearningWorkspaceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MachineLearningWorkspaceResponseArgs) ToMachineLearningWorkspaceResponsePtrOutputWithContext(ctx context.Context) MachineLearningWorkspaceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningWorkspaceResponseOutput).ToMachineLearningWorkspaceResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MachineLearningWorkspaceResponsePtrInput interface {
-	pulumi.Input
-
-	ToMachineLearningWorkspaceResponsePtrOutput() MachineLearningWorkspaceResponsePtrOutput
-	ToMachineLearningWorkspaceResponsePtrOutputWithContext(context.Context) MachineLearningWorkspaceResponsePtrOutput
-}
-
-type machineLearningWorkspaceResponsePtrType MachineLearningWorkspaceResponseArgs
-
-func MachineLearningWorkspaceResponsePtr(v *MachineLearningWorkspaceResponseArgs) MachineLearningWorkspaceResponsePtrInput {
-	return (*machineLearningWorkspaceResponsePtrType)(v)
-}
-
-func (*machineLearningWorkspaceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MachineLearningWorkspaceResponse)(nil)).Elem()
-}
-
-func (i *machineLearningWorkspaceResponsePtrType) ToMachineLearningWorkspaceResponsePtrOutput() MachineLearningWorkspaceResponsePtrOutput {
-	return i.ToMachineLearningWorkspaceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *machineLearningWorkspaceResponsePtrType) ToMachineLearningWorkspaceResponsePtrOutputWithContext(ctx context.Context) MachineLearningWorkspaceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MachineLearningWorkspaceResponsePtrOutput)
-}
-
 type MachineLearningWorkspaceResponseOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningWorkspaceResponseOutput) ElementType() reflect.Type {
@@ -3263,16 +2442,6 @@ func (o MachineLearningWorkspaceResponseOutput) ToMachineLearningWorkspaceRespon
 
 func (o MachineLearningWorkspaceResponseOutput) ToMachineLearningWorkspaceResponseOutputWithContext(ctx context.Context) MachineLearningWorkspaceResponseOutput {
 	return o
-}
-
-func (o MachineLearningWorkspaceResponseOutput) ToMachineLearningWorkspaceResponsePtrOutput() MachineLearningWorkspaceResponsePtrOutput {
-	return o.ToMachineLearningWorkspaceResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MachineLearningWorkspaceResponseOutput) ToMachineLearningWorkspaceResponsePtrOutputWithContext(ctx context.Context) MachineLearningWorkspaceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MachineLearningWorkspaceResponse) *MachineLearningWorkspaceResponse {
-		return &v
-	}).(MachineLearningWorkspaceResponsePtrOutput)
 }
 
 func (o MachineLearningWorkspaceResponseOutput) Id() pulumi.StringOutput {
@@ -3415,59 +2584,6 @@ func (o ModeValueInfoMapOutput) MapIndex(k pulumi.StringInput) ModeValueInfoOutp
 type ModeValueInfoResponse struct {
 	InterfaceString *string                        `pulumi:"interfaceString"`
 	Parameters      []ModuleAssetParameterResponse `pulumi:"parameters"`
-}
-
-
-
-
-
-type ModeValueInfoResponseInput interface {
-	pulumi.Input
-
-	ToModeValueInfoResponseOutput() ModeValueInfoResponseOutput
-	ToModeValueInfoResponseOutputWithContext(context.Context) ModeValueInfoResponseOutput
-}
-
-type ModeValueInfoResponseArgs struct {
-	InterfaceString pulumi.StringPtrInput                  `pulumi:"interfaceString"`
-	Parameters      ModuleAssetParameterResponseArrayInput `pulumi:"parameters"`
-}
-
-func (ModeValueInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModeValueInfoResponse)(nil)).Elem()
-}
-
-func (i ModeValueInfoResponseArgs) ToModeValueInfoResponseOutput() ModeValueInfoResponseOutput {
-	return i.ToModeValueInfoResponseOutputWithContext(context.Background())
-}
-
-func (i ModeValueInfoResponseArgs) ToModeValueInfoResponseOutputWithContext(ctx context.Context) ModeValueInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModeValueInfoResponseOutput)
-}
-
-
-
-
-
-type ModeValueInfoResponseMapInput interface {
-	pulumi.Input
-
-	ToModeValueInfoResponseMapOutput() ModeValueInfoResponseMapOutput
-	ToModeValueInfoResponseMapOutputWithContext(context.Context) ModeValueInfoResponseMapOutput
-}
-
-type ModeValueInfoResponseMap map[string]ModeValueInfoResponseInput
-
-func (ModeValueInfoResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ModeValueInfoResponse)(nil)).Elem()
-}
-
-func (i ModeValueInfoResponseMap) ToModeValueInfoResponseMapOutput() ModeValueInfoResponseMapOutput {
-	return i.ToModeValueInfoResponseMapOutputWithContext(context.Background())
-}
-
-func (i ModeValueInfoResponseMap) ToModeValueInfoResponseMapOutputWithContext(ctx context.Context) ModeValueInfoResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModeValueInfoResponseMapOutput)
 }
 
 type ModeValueInfoResponseOutput struct{ *pulumi.OutputState }
@@ -3624,60 +2740,6 @@ type ModuleAssetParameterResponse struct {
 	ParameterType  *string                          `pulumi:"parameterType"`
 }
 
-
-
-
-
-type ModuleAssetParameterResponseInput interface {
-	pulumi.Input
-
-	ToModuleAssetParameterResponseOutput() ModuleAssetParameterResponseOutput
-	ToModuleAssetParameterResponseOutputWithContext(context.Context) ModuleAssetParameterResponseOutput
-}
-
-type ModuleAssetParameterResponseArgs struct {
-	ModeValuesInfo ModeValueInfoResponseMapInput `pulumi:"modeValuesInfo"`
-	Name           pulumi.StringPtrInput         `pulumi:"name"`
-	ParameterType  pulumi.StringPtrInput         `pulumi:"parameterType"`
-}
-
-func (ModuleAssetParameterResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModuleAssetParameterResponse)(nil)).Elem()
-}
-
-func (i ModuleAssetParameterResponseArgs) ToModuleAssetParameterResponseOutput() ModuleAssetParameterResponseOutput {
-	return i.ToModuleAssetParameterResponseOutputWithContext(context.Background())
-}
-
-func (i ModuleAssetParameterResponseArgs) ToModuleAssetParameterResponseOutputWithContext(ctx context.Context) ModuleAssetParameterResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModuleAssetParameterResponseOutput)
-}
-
-
-
-
-
-type ModuleAssetParameterResponseArrayInput interface {
-	pulumi.Input
-
-	ToModuleAssetParameterResponseArrayOutput() ModuleAssetParameterResponseArrayOutput
-	ToModuleAssetParameterResponseArrayOutputWithContext(context.Context) ModuleAssetParameterResponseArrayOutput
-}
-
-type ModuleAssetParameterResponseArray []ModuleAssetParameterResponseInput
-
-func (ModuleAssetParameterResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ModuleAssetParameterResponse)(nil)).Elem()
-}
-
-func (i ModuleAssetParameterResponseArray) ToModuleAssetParameterResponseArrayOutput() ModuleAssetParameterResponseArrayOutput {
-	return i.ToModuleAssetParameterResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ModuleAssetParameterResponseArray) ToModuleAssetParameterResponseArrayOutputWithContext(ctx context.Context) ModuleAssetParameterResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModuleAssetParameterResponseArrayOutput)
-}
-
 type ModuleAssetParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ModuleAssetParameterResponseOutput) ElementType() reflect.Type {
@@ -3726,6 +2788,19 @@ func (o ModuleAssetParameterResponseArrayOutput) Index(i pulumi.IntInput) Module
 
 type OutputPort struct {
 	Type *string `pulumi:"type"`
+}
+
+
+func (val *OutputPort) Defaults() *OutputPort {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "Dataset"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 
@@ -3823,55 +2898,16 @@ type OutputPortResponse struct {
 }
 
 
-
-
-
-type OutputPortResponseInput interface {
-	pulumi.Input
-
-	ToOutputPortResponseOutput() OutputPortResponseOutput
-	ToOutputPortResponseOutputWithContext(context.Context) OutputPortResponseOutput
-}
-
-type OutputPortResponseArgs struct {
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (OutputPortResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OutputPortResponse)(nil)).Elem()
-}
-
-func (i OutputPortResponseArgs) ToOutputPortResponseOutput() OutputPortResponseOutput {
-	return i.ToOutputPortResponseOutputWithContext(context.Background())
-}
-
-func (i OutputPortResponseArgs) ToOutputPortResponseOutputWithContext(ctx context.Context) OutputPortResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputPortResponseOutput)
-}
-
-
-
-
-
-type OutputPortResponseMapInput interface {
-	pulumi.Input
-
-	ToOutputPortResponseMapOutput() OutputPortResponseMapOutput
-	ToOutputPortResponseMapOutputWithContext(context.Context) OutputPortResponseMapOutput
-}
-
-type OutputPortResponseMap map[string]OutputPortResponseInput
-
-func (OutputPortResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OutputPortResponse)(nil)).Elem()
-}
-
-func (i OutputPortResponseMap) ToOutputPortResponseMapOutput() OutputPortResponseMapOutput {
-	return i.ToOutputPortResponseMapOutputWithContext(context.Background())
-}
-
-func (i OutputPortResponseMap) ToOutputPortResponseMapOutputWithContext(ctx context.Context) OutputPortResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OutputPortResponseMapOutput)
+func (val *OutputPortResponse) Defaults() *OutputPortResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "Dataset"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 type OutputPortResponseOutput struct{ *pulumi.OutputState }
@@ -4049,74 +3085,6 @@ type RealtimeConfigurationResponse struct {
 	MaxConcurrentCalls *int `pulumi:"maxConcurrentCalls"`
 }
 
-
-
-
-
-type RealtimeConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToRealtimeConfigurationResponseOutput() RealtimeConfigurationResponseOutput
-	ToRealtimeConfigurationResponseOutputWithContext(context.Context) RealtimeConfigurationResponseOutput
-}
-
-type RealtimeConfigurationResponseArgs struct {
-	MaxConcurrentCalls pulumi.IntPtrInput `pulumi:"maxConcurrentCalls"`
-}
-
-func (RealtimeConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RealtimeConfigurationResponse)(nil)).Elem()
-}
-
-func (i RealtimeConfigurationResponseArgs) ToRealtimeConfigurationResponseOutput() RealtimeConfigurationResponseOutput {
-	return i.ToRealtimeConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i RealtimeConfigurationResponseArgs) ToRealtimeConfigurationResponseOutputWithContext(ctx context.Context) RealtimeConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RealtimeConfigurationResponseOutput)
-}
-
-func (i RealtimeConfigurationResponseArgs) ToRealtimeConfigurationResponsePtrOutput() RealtimeConfigurationResponsePtrOutput {
-	return i.ToRealtimeConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RealtimeConfigurationResponseArgs) ToRealtimeConfigurationResponsePtrOutputWithContext(ctx context.Context) RealtimeConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RealtimeConfigurationResponseOutput).ToRealtimeConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RealtimeConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToRealtimeConfigurationResponsePtrOutput() RealtimeConfigurationResponsePtrOutput
-	ToRealtimeConfigurationResponsePtrOutputWithContext(context.Context) RealtimeConfigurationResponsePtrOutput
-}
-
-type realtimeConfigurationResponsePtrType RealtimeConfigurationResponseArgs
-
-func RealtimeConfigurationResponsePtr(v *RealtimeConfigurationResponseArgs) RealtimeConfigurationResponsePtrInput {
-	return (*realtimeConfigurationResponsePtrType)(v)
-}
-
-func (*realtimeConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RealtimeConfigurationResponse)(nil)).Elem()
-}
-
-func (i *realtimeConfigurationResponsePtrType) ToRealtimeConfigurationResponsePtrOutput() RealtimeConfigurationResponsePtrOutput {
-	return i.ToRealtimeConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *realtimeConfigurationResponsePtrType) ToRealtimeConfigurationResponsePtrOutputWithContext(ctx context.Context) RealtimeConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RealtimeConfigurationResponsePtrOutput)
-}
-
 type RealtimeConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (RealtimeConfigurationResponseOutput) ElementType() reflect.Type {
@@ -4129,16 +3097,6 @@ func (o RealtimeConfigurationResponseOutput) ToRealtimeConfigurationResponseOutp
 
 func (o RealtimeConfigurationResponseOutput) ToRealtimeConfigurationResponseOutputWithContext(ctx context.Context) RealtimeConfigurationResponseOutput {
 	return o
-}
-
-func (o RealtimeConfigurationResponseOutput) ToRealtimeConfigurationResponsePtrOutput() RealtimeConfigurationResponsePtrOutput {
-	return o.ToRealtimeConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RealtimeConfigurationResponseOutput) ToRealtimeConfigurationResponsePtrOutputWithContext(ctx context.Context) RealtimeConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RealtimeConfigurationResponse) *RealtimeConfigurationResponse {
-		return &v
-	}).(RealtimeConfigurationResponsePtrOutput)
 }
 
 func (o RealtimeConfigurationResponseOutput) MaxConcurrentCalls() pulumi.IntPtrOutput {
@@ -4183,6 +3141,18 @@ type ServiceInputOutputSpecification struct {
 	Properties  map[string]TableSpecification `pulumi:"properties"`
 	Title       *string                       `pulumi:"title"`
 	Type        string                        `pulumi:"type"`
+}
+
+
+func (val *ServiceInputOutputSpecification) Defaults() *ServiceInputOutputSpecification {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = "object"
+	}
+	return &tmp
 }
 
 
@@ -4364,74 +3334,15 @@ type ServiceInputOutputSpecificationResponse struct {
 }
 
 
-
-
-
-type ServiceInputOutputSpecificationResponseInput interface {
-	pulumi.Input
-
-	ToServiceInputOutputSpecificationResponseOutput() ServiceInputOutputSpecificationResponseOutput
-	ToServiceInputOutputSpecificationResponseOutputWithContext(context.Context) ServiceInputOutputSpecificationResponseOutput
-}
-
-type ServiceInputOutputSpecificationResponseArgs struct {
-	Description pulumi.StringPtrInput              `pulumi:"description"`
-	Properties  TableSpecificationResponseMapInput `pulumi:"properties"`
-	Title       pulumi.StringPtrInput              `pulumi:"title"`
-	Type        pulumi.StringInput                 `pulumi:"type"`
-}
-
-func (ServiceInputOutputSpecificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceInputOutputSpecificationResponse)(nil)).Elem()
-}
-
-func (i ServiceInputOutputSpecificationResponseArgs) ToServiceInputOutputSpecificationResponseOutput() ServiceInputOutputSpecificationResponseOutput {
-	return i.ToServiceInputOutputSpecificationResponseOutputWithContext(context.Background())
-}
-
-func (i ServiceInputOutputSpecificationResponseArgs) ToServiceInputOutputSpecificationResponseOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceInputOutputSpecificationResponseOutput)
-}
-
-func (i ServiceInputOutputSpecificationResponseArgs) ToServiceInputOutputSpecificationResponsePtrOutput() ServiceInputOutputSpecificationResponsePtrOutput {
-	return i.ToServiceInputOutputSpecificationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceInputOutputSpecificationResponseArgs) ToServiceInputOutputSpecificationResponsePtrOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceInputOutputSpecificationResponseOutput).ToServiceInputOutputSpecificationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ServiceInputOutputSpecificationResponsePtrInput interface {
-	pulumi.Input
-
-	ToServiceInputOutputSpecificationResponsePtrOutput() ServiceInputOutputSpecificationResponsePtrOutput
-	ToServiceInputOutputSpecificationResponsePtrOutputWithContext(context.Context) ServiceInputOutputSpecificationResponsePtrOutput
-}
-
-type serviceInputOutputSpecificationResponsePtrType ServiceInputOutputSpecificationResponseArgs
-
-func ServiceInputOutputSpecificationResponsePtr(v *ServiceInputOutputSpecificationResponseArgs) ServiceInputOutputSpecificationResponsePtrInput {
-	return (*serviceInputOutputSpecificationResponsePtrType)(v)
-}
-
-func (*serviceInputOutputSpecificationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceInputOutputSpecificationResponse)(nil)).Elem()
-}
-
-func (i *serviceInputOutputSpecificationResponsePtrType) ToServiceInputOutputSpecificationResponsePtrOutput() ServiceInputOutputSpecificationResponsePtrOutput {
-	return i.ToServiceInputOutputSpecificationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceInputOutputSpecificationResponsePtrType) ToServiceInputOutputSpecificationResponsePtrOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceInputOutputSpecificationResponsePtrOutput)
+func (val *ServiceInputOutputSpecificationResponse) Defaults() *ServiceInputOutputSpecificationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = "object"
+	}
+	return &tmp
 }
 
 type ServiceInputOutputSpecificationResponseOutput struct{ *pulumi.OutputState }
@@ -4446,16 +3357,6 @@ func (o ServiceInputOutputSpecificationResponseOutput) ToServiceInputOutputSpeci
 
 func (o ServiceInputOutputSpecificationResponseOutput) ToServiceInputOutputSpecificationResponseOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationResponseOutput {
 	return o
-}
-
-func (o ServiceInputOutputSpecificationResponseOutput) ToServiceInputOutputSpecificationResponsePtrOutput() ServiceInputOutputSpecificationResponsePtrOutput {
-	return o.ToServiceInputOutputSpecificationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceInputOutputSpecificationResponseOutput) ToServiceInputOutputSpecificationResponsePtrOutputWithContext(ctx context.Context) ServiceInputOutputSpecificationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceInputOutputSpecificationResponse) *ServiceInputOutputSpecificationResponse {
-		return &v
-	}).(ServiceInputOutputSpecificationResponsePtrOutput)
 }
 
 func (o ServiceInputOutputSpecificationResponseOutput) Description() pulumi.StringPtrOutput {
@@ -4689,75 +3590,6 @@ type StorageAccountResponse struct {
 	Name *string `pulumi:"name"`
 }
 
-
-
-
-
-type StorageAccountResponseInput interface {
-	pulumi.Input
-
-	ToStorageAccountResponseOutput() StorageAccountResponseOutput
-	ToStorageAccountResponseOutputWithContext(context.Context) StorageAccountResponseOutput
-}
-
-type StorageAccountResponseArgs struct {
-	Key  pulumi.StringPtrInput `pulumi:"key"`
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (StorageAccountResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountResponse)(nil)).Elem()
-}
-
-func (i StorageAccountResponseArgs) ToStorageAccountResponseOutput() StorageAccountResponseOutput {
-	return i.ToStorageAccountResponseOutputWithContext(context.Background())
-}
-
-func (i StorageAccountResponseArgs) ToStorageAccountResponseOutputWithContext(ctx context.Context) StorageAccountResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseOutput)
-}
-
-func (i StorageAccountResponseArgs) ToStorageAccountResponsePtrOutput() StorageAccountResponsePtrOutput {
-	return i.ToStorageAccountResponsePtrOutputWithContext(context.Background())
-}
-
-func (i StorageAccountResponseArgs) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponseOutput).ToStorageAccountResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type StorageAccountResponsePtrInput interface {
-	pulumi.Input
-
-	ToStorageAccountResponsePtrOutput() StorageAccountResponsePtrOutput
-	ToStorageAccountResponsePtrOutputWithContext(context.Context) StorageAccountResponsePtrOutput
-}
-
-type storageAccountResponsePtrType StorageAccountResponseArgs
-
-func StorageAccountResponsePtr(v *StorageAccountResponseArgs) StorageAccountResponsePtrInput {
-	return (*storageAccountResponsePtrType)(v)
-}
-
-func (*storageAccountResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageAccountResponse)(nil)).Elem()
-}
-
-func (i *storageAccountResponsePtrType) ToStorageAccountResponsePtrOutput() StorageAccountResponsePtrOutput {
-	return i.ToStorageAccountResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *storageAccountResponsePtrType) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountResponsePtrOutput)
-}
-
 type StorageAccountResponseOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountResponseOutput) ElementType() reflect.Type {
@@ -4770,16 +3602,6 @@ func (o StorageAccountResponseOutput) ToStorageAccountResponseOutput() StorageAc
 
 func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(ctx context.Context) StorageAccountResponseOutput {
 	return o
-}
-
-func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutput() StorageAccountResponsePtrOutput {
-	return o.ToStorageAccountResponsePtrOutputWithContext(context.Background())
-}
-
-func (o StorageAccountResponseOutput) ToStorageAccountResponsePtrOutputWithContext(ctx context.Context) StorageAccountResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageAccountResponse) *StorageAccountResponse {
-		return &v
-	}).(StorageAccountResponsePtrOutput)
 }
 
 func (o StorageAccountResponseOutput) Key() pulumi.StringPtrOutput {
@@ -4838,6 +3660,18 @@ type TableSpecification struct {
 	Properties  map[string]ColumnSpecification `pulumi:"properties"`
 	Title       *string                        `pulumi:"title"`
 	Type        string                         `pulumi:"type"`
+}
+
+
+func (val *TableSpecification) Defaults() *TableSpecification {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = "object"
+	}
+	return &tmp
 }
 
 
@@ -4959,59 +3793,15 @@ type TableSpecificationResponse struct {
 }
 
 
-
-
-
-type TableSpecificationResponseInput interface {
-	pulumi.Input
-
-	ToTableSpecificationResponseOutput() TableSpecificationResponseOutput
-	ToTableSpecificationResponseOutputWithContext(context.Context) TableSpecificationResponseOutput
-}
-
-type TableSpecificationResponseArgs struct {
-	Description pulumi.StringPtrInput               `pulumi:"description"`
-	Format      pulumi.StringPtrInput               `pulumi:"format"`
-	Properties  ColumnSpecificationResponseMapInput `pulumi:"properties"`
-	Title       pulumi.StringPtrInput               `pulumi:"title"`
-	Type        pulumi.StringInput                  `pulumi:"type"`
-}
-
-func (TableSpecificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableSpecificationResponse)(nil)).Elem()
-}
-
-func (i TableSpecificationResponseArgs) ToTableSpecificationResponseOutput() TableSpecificationResponseOutput {
-	return i.ToTableSpecificationResponseOutputWithContext(context.Background())
-}
-
-func (i TableSpecificationResponseArgs) ToTableSpecificationResponseOutputWithContext(ctx context.Context) TableSpecificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableSpecificationResponseOutput)
-}
-
-
-
-
-
-type TableSpecificationResponseMapInput interface {
-	pulumi.Input
-
-	ToTableSpecificationResponseMapOutput() TableSpecificationResponseMapOutput
-	ToTableSpecificationResponseMapOutputWithContext(context.Context) TableSpecificationResponseMapOutput
-}
-
-type TableSpecificationResponseMap map[string]TableSpecificationResponseInput
-
-func (TableSpecificationResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TableSpecificationResponse)(nil)).Elem()
-}
-
-func (i TableSpecificationResponseMap) ToTableSpecificationResponseMapOutput() TableSpecificationResponseMapOutput {
-	return i.ToTableSpecificationResponseMapOutputWithContext(context.Background())
-}
-
-func (i TableSpecificationResponseMap) ToTableSpecificationResponseMapOutputWithContext(ctx context.Context) TableSpecificationResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableSpecificationResponseMapOutput)
+func (val *TableSpecificationResponse) Defaults() *TableSpecificationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = "object"
+	}
+	return &tmp
 }
 
 type TableSpecificationResponseOutput struct{ *pulumi.OutputState }
@@ -5221,75 +4011,6 @@ type WebServiceKeysResponse struct {
 	Secondary *string `pulumi:"secondary"`
 }
 
-
-
-
-
-type WebServiceKeysResponseInput interface {
-	pulumi.Input
-
-	ToWebServiceKeysResponseOutput() WebServiceKeysResponseOutput
-	ToWebServiceKeysResponseOutputWithContext(context.Context) WebServiceKeysResponseOutput
-}
-
-type WebServiceKeysResponseArgs struct {
-	Primary   pulumi.StringPtrInput `pulumi:"primary"`
-	Secondary pulumi.StringPtrInput `pulumi:"secondary"`
-}
-
-func (WebServiceKeysResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebServiceKeysResponse)(nil)).Elem()
-}
-
-func (i WebServiceKeysResponseArgs) ToWebServiceKeysResponseOutput() WebServiceKeysResponseOutput {
-	return i.ToWebServiceKeysResponseOutputWithContext(context.Background())
-}
-
-func (i WebServiceKeysResponseArgs) ToWebServiceKeysResponseOutputWithContext(ctx context.Context) WebServiceKeysResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServiceKeysResponseOutput)
-}
-
-func (i WebServiceKeysResponseArgs) ToWebServiceKeysResponsePtrOutput() WebServiceKeysResponsePtrOutput {
-	return i.ToWebServiceKeysResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WebServiceKeysResponseArgs) ToWebServiceKeysResponsePtrOutputWithContext(ctx context.Context) WebServiceKeysResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServiceKeysResponseOutput).ToWebServiceKeysResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WebServiceKeysResponsePtrInput interface {
-	pulumi.Input
-
-	ToWebServiceKeysResponsePtrOutput() WebServiceKeysResponsePtrOutput
-	ToWebServiceKeysResponsePtrOutputWithContext(context.Context) WebServiceKeysResponsePtrOutput
-}
-
-type webServiceKeysResponsePtrType WebServiceKeysResponseArgs
-
-func WebServiceKeysResponsePtr(v *WebServiceKeysResponseArgs) WebServiceKeysResponsePtrInput {
-	return (*webServiceKeysResponsePtrType)(v)
-}
-
-func (*webServiceKeysResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebServiceKeysResponse)(nil)).Elem()
-}
-
-func (i *webServiceKeysResponsePtrType) ToWebServiceKeysResponsePtrOutput() WebServiceKeysResponsePtrOutput {
-	return i.ToWebServiceKeysResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *webServiceKeysResponsePtrType) ToWebServiceKeysResponsePtrOutputWithContext(ctx context.Context) WebServiceKeysResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServiceKeysResponsePtrOutput)
-}
-
 type WebServiceKeysResponseOutput struct{ *pulumi.OutputState }
 
 func (WebServiceKeysResponseOutput) ElementType() reflect.Type {
@@ -5302,16 +4023,6 @@ func (o WebServiceKeysResponseOutput) ToWebServiceKeysResponseOutput() WebServic
 
 func (o WebServiceKeysResponseOutput) ToWebServiceKeysResponseOutputWithContext(ctx context.Context) WebServiceKeysResponseOutput {
 	return o
-}
-
-func (o WebServiceKeysResponseOutput) ToWebServiceKeysResponsePtrOutput() WebServiceKeysResponsePtrOutput {
-	return o.ToWebServiceKeysResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WebServiceKeysResponseOutput) ToWebServiceKeysResponsePtrOutputWithContext(ctx context.Context) WebServiceKeysResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebServiceKeysResponse) *WebServiceKeysResponse {
-		return &v
-	}).(WebServiceKeysResponsePtrOutput)
 }
 
 func (o WebServiceKeysResponseOutput) Primary() pulumi.StringPtrOutput {
@@ -5469,59 +4180,6 @@ type WebServiceParameterResponse struct {
 	Value                 interface{} `pulumi:"value"`
 }
 
-
-
-
-
-type WebServiceParameterResponseInput interface {
-	pulumi.Input
-
-	ToWebServiceParameterResponseOutput() WebServiceParameterResponseOutput
-	ToWebServiceParameterResponseOutputWithContext(context.Context) WebServiceParameterResponseOutput
-}
-
-type WebServiceParameterResponseArgs struct {
-	CertificateThumbprint pulumi.StringPtrInput `pulumi:"certificateThumbprint"`
-	Value                 pulumi.Input          `pulumi:"value"`
-}
-
-func (WebServiceParameterResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebServiceParameterResponse)(nil)).Elem()
-}
-
-func (i WebServiceParameterResponseArgs) ToWebServiceParameterResponseOutput() WebServiceParameterResponseOutput {
-	return i.ToWebServiceParameterResponseOutputWithContext(context.Background())
-}
-
-func (i WebServiceParameterResponseArgs) ToWebServiceParameterResponseOutputWithContext(ctx context.Context) WebServiceParameterResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServiceParameterResponseOutput)
-}
-
-
-
-
-
-type WebServiceParameterResponseMapInput interface {
-	pulumi.Input
-
-	ToWebServiceParameterResponseMapOutput() WebServiceParameterResponseMapOutput
-	ToWebServiceParameterResponseMapOutputWithContext(context.Context) WebServiceParameterResponseMapOutput
-}
-
-type WebServiceParameterResponseMap map[string]WebServiceParameterResponseInput
-
-func (WebServiceParameterResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WebServiceParameterResponse)(nil)).Elem()
-}
-
-func (i WebServiceParameterResponseMap) ToWebServiceParameterResponseMapOutput() WebServiceParameterResponseMapOutput {
-	return i.ToWebServiceParameterResponseMapOutputWithContext(context.Background())
-}
-
-func (i WebServiceParameterResponseMap) ToWebServiceParameterResponseMapOutputWithContext(ctx context.Context) WebServiceParameterResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServiceParameterResponseMapOutput)
-}
-
 type WebServiceParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (WebServiceParameterResponseOutput) ElementType() reflect.Type {
@@ -5587,6 +4245,19 @@ type WebServicePropertiesForGraph struct {
 }
 
 
+func (val *WebServicePropertiesForGraph) Defaults() *WebServicePropertiesForGraph {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	tmp.Output = tmp.Output.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -5631,47 +4302,6 @@ func (i WebServicePropertiesForGraphArgs) ToWebServicePropertiesForGraphOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphOutput)
 }
 
-func (i WebServicePropertiesForGraphArgs) ToWebServicePropertiesForGraphPtrOutput() WebServicePropertiesForGraphPtrOutput {
-	return i.ToWebServicePropertiesForGraphPtrOutputWithContext(context.Background())
-}
-
-func (i WebServicePropertiesForGraphArgs) ToWebServicePropertiesForGraphPtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphOutput).ToWebServicePropertiesForGraphPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WebServicePropertiesForGraphPtrInput interface {
-	pulumi.Input
-
-	ToWebServicePropertiesForGraphPtrOutput() WebServicePropertiesForGraphPtrOutput
-	ToWebServicePropertiesForGraphPtrOutputWithContext(context.Context) WebServicePropertiesForGraphPtrOutput
-}
-
-type webServicePropertiesForGraphPtrType WebServicePropertiesForGraphArgs
-
-func WebServicePropertiesForGraphPtr(v *WebServicePropertiesForGraphArgs) WebServicePropertiesForGraphPtrInput {
-	return (*webServicePropertiesForGraphPtrType)(v)
-}
-
-func (*webServicePropertiesForGraphPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebServicePropertiesForGraph)(nil)).Elem()
-}
-
-func (i *webServicePropertiesForGraphPtrType) ToWebServicePropertiesForGraphPtrOutput() WebServicePropertiesForGraphPtrOutput {
-	return i.ToWebServicePropertiesForGraphPtrOutputWithContext(context.Background())
-}
-
-func (i *webServicePropertiesForGraphPtrType) ToWebServicePropertiesForGraphPtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphPtrOutput)
-}
-
 type WebServicePropertiesForGraphOutput struct{ *pulumi.OutputState }
 
 func (WebServicePropertiesForGraphOutput) ElementType() reflect.Type {
@@ -5684,16 +4314,6 @@ func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphOutput
 
 func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphOutputWithContext(ctx context.Context) WebServicePropertiesForGraphOutput {
 	return o
-}
-
-func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphPtrOutput() WebServicePropertiesForGraphPtrOutput {
-	return o.ToWebServicePropertiesForGraphPtrOutputWithContext(context.Background())
-}
-
-func (o WebServicePropertiesForGraphOutput) ToWebServicePropertiesForGraphPtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebServicePropertiesForGraph) *WebServicePropertiesForGraph {
-		return &v
-	}).(WebServicePropertiesForGraphPtrOutput)
 }
 
 func (o WebServicePropertiesForGraphOutput) Assets() AssetItemMapOutput {
@@ -5772,201 +4392,6 @@ func (o WebServicePropertiesForGraphOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebServicePropertiesForGraph) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-type WebServicePropertiesForGraphPtrOutput struct{ *pulumi.OutputState }
-
-func (WebServicePropertiesForGraphPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebServicePropertiesForGraph)(nil)).Elem()
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) ToWebServicePropertiesForGraphPtrOutput() WebServicePropertiesForGraphPtrOutput {
-	return o
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) ToWebServicePropertiesForGraphPtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphPtrOutput {
-	return o
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) Elem() WebServicePropertiesForGraphOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) WebServicePropertiesForGraph {
-		if v != nil {
-			return *v
-		}
-		var ret WebServicePropertiesForGraph
-		return ret
-	}).(WebServicePropertiesForGraphOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) Assets() AssetItemMapOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) map[string]AssetItem {
-		if v == nil {
-			return nil
-		}
-		return v.Assets
-	}).(AssetItemMapOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) CommitmentPlan() CommitmentPlanPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *CommitmentPlan {
-		if v == nil {
-			return nil
-		}
-		return v.CommitmentPlan
-	}).(CommitmentPlanPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) Diagnostics() DiagnosticsConfigurationPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *DiagnosticsConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.Diagnostics
-	}).(DiagnosticsConfigurationPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) ExampleRequest() ExampleRequestPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *ExampleRequest {
-		if v == nil {
-			return nil
-		}
-		return v.ExampleRequest
-	}).(ExampleRequestPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) ExposeSampleData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ExposeSampleData
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) Input() ServiceInputOutputSpecificationPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *ServiceInputOutputSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.Input
-	}).(ServiceInputOutputSpecificationPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) Keys() WebServiceKeysPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *WebServiceKeys {
-		if v == nil {
-			return nil
-		}
-		return v.Keys
-	}).(WebServiceKeysPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) MachineLearningWorkspace() MachineLearningWorkspacePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *MachineLearningWorkspace {
-		if v == nil {
-			return nil
-		}
-		return v.MachineLearningWorkspace
-	}).(MachineLearningWorkspacePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) Output() ServiceInputOutputSpecificationPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *ServiceInputOutputSpecification {
-		if v == nil {
-			return nil
-		}
-		return v.Output
-	}).(ServiceInputOutputSpecificationPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) Package() GraphPackagePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *GraphPackage {
-		if v == nil {
-			return nil
-		}
-		return v.Package
-	}).(GraphPackagePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) PackageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PackageType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) Parameters() WebServiceParameterMapOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) map[string]WebServiceParameter {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(WebServiceParameterMapOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PayloadsInBlobStorage
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) PayloadsLocation() BlobLocationPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *BlobLocation {
-		if v == nil {
-			return nil
-		}
-		return v.PayloadsLocation
-	}).(BlobLocationPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ReadOnly
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) RealtimeConfiguration() RealtimeConfigurationPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *RealtimeConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.RealtimeConfiguration
-	}).(RealtimeConfigurationPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) StorageAccount() StorageAccountPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *StorageAccount {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccount
-	}).(StorageAccountPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraph) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
 type WebServicePropertiesForGraphResponse struct {
 	Assets                   map[string]AssetItemResponse             `pulumi:"assets"`
 	CommitmentPlan           *CommitmentPlanResponse                  `pulumi:"commitmentPlan"`
@@ -5994,93 +4419,16 @@ type WebServicePropertiesForGraphResponse struct {
 }
 
 
+func (val *WebServicePropertiesForGraphResponse) Defaults() *WebServicePropertiesForGraphResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
 
+	tmp.Output = tmp.Output.Defaults()
 
-
-type WebServicePropertiesForGraphResponseInput interface {
-	pulumi.Input
-
-	ToWebServicePropertiesForGraphResponseOutput() WebServicePropertiesForGraphResponseOutput
-	ToWebServicePropertiesForGraphResponseOutputWithContext(context.Context) WebServicePropertiesForGraphResponseOutput
-}
-
-type WebServicePropertiesForGraphResponseArgs struct {
-	Assets                   AssetItemResponseMapInput                       `pulumi:"assets"`
-	CommitmentPlan           CommitmentPlanResponsePtrInput                  `pulumi:"commitmentPlan"`
-	CreatedOn                pulumi.StringInput                              `pulumi:"createdOn"`
-	Description              pulumi.StringPtrInput                           `pulumi:"description"`
-	Diagnostics              DiagnosticsConfigurationResponsePtrInput        `pulumi:"diagnostics"`
-	ExampleRequest           ExampleRequestResponsePtrInput                  `pulumi:"exampleRequest"`
-	ExposeSampleData         pulumi.BoolPtrInput                             `pulumi:"exposeSampleData"`
-	Input                    ServiceInputOutputSpecificationResponsePtrInput `pulumi:"input"`
-	Keys                     WebServiceKeysResponsePtrInput                  `pulumi:"keys"`
-	MachineLearningWorkspace MachineLearningWorkspaceResponsePtrInput        `pulumi:"machineLearningWorkspace"`
-	ModifiedOn               pulumi.StringInput                              `pulumi:"modifiedOn"`
-	Output                   ServiceInputOutputSpecificationResponsePtrInput `pulumi:"output"`
-	Package                  GraphPackageResponsePtrInput                    `pulumi:"package"`
-	PackageType              pulumi.StringInput                              `pulumi:"packageType"`
-	Parameters               WebServiceParameterResponseMapInput             `pulumi:"parameters"`
-	PayloadsInBlobStorage    pulumi.BoolPtrInput                             `pulumi:"payloadsInBlobStorage"`
-	PayloadsLocation         BlobLocationResponsePtrInput                    `pulumi:"payloadsLocation"`
-	ProvisioningState        pulumi.StringInput                              `pulumi:"provisioningState"`
-	ReadOnly                 pulumi.BoolPtrInput                             `pulumi:"readOnly"`
-	RealtimeConfiguration    RealtimeConfigurationResponsePtrInput           `pulumi:"realtimeConfiguration"`
-	StorageAccount           StorageAccountResponsePtrInput                  `pulumi:"storageAccount"`
-	SwaggerLocation          pulumi.StringInput                              `pulumi:"swaggerLocation"`
-	Title                    pulumi.StringPtrInput                           `pulumi:"title"`
-}
-
-func (WebServicePropertiesForGraphResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebServicePropertiesForGraphResponse)(nil)).Elem()
-}
-
-func (i WebServicePropertiesForGraphResponseArgs) ToWebServicePropertiesForGraphResponseOutput() WebServicePropertiesForGraphResponseOutput {
-	return i.ToWebServicePropertiesForGraphResponseOutputWithContext(context.Background())
-}
-
-func (i WebServicePropertiesForGraphResponseArgs) ToWebServicePropertiesForGraphResponseOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphResponseOutput)
-}
-
-func (i WebServicePropertiesForGraphResponseArgs) ToWebServicePropertiesForGraphResponsePtrOutput() WebServicePropertiesForGraphResponsePtrOutput {
-	return i.ToWebServicePropertiesForGraphResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WebServicePropertiesForGraphResponseArgs) ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphResponseOutput).ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WebServicePropertiesForGraphResponsePtrInput interface {
-	pulumi.Input
-
-	ToWebServicePropertiesForGraphResponsePtrOutput() WebServicePropertiesForGraphResponsePtrOutput
-	ToWebServicePropertiesForGraphResponsePtrOutputWithContext(context.Context) WebServicePropertiesForGraphResponsePtrOutput
-}
-
-type webServicePropertiesForGraphResponsePtrType WebServicePropertiesForGraphResponseArgs
-
-func WebServicePropertiesForGraphResponsePtr(v *WebServicePropertiesForGraphResponseArgs) WebServicePropertiesForGraphResponsePtrInput {
-	return (*webServicePropertiesForGraphResponsePtrType)(v)
-}
-
-func (*webServicePropertiesForGraphResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebServicePropertiesForGraphResponse)(nil)).Elem()
-}
-
-func (i *webServicePropertiesForGraphResponsePtrType) ToWebServicePropertiesForGraphResponsePtrOutput() WebServicePropertiesForGraphResponsePtrOutput {
-	return i.ToWebServicePropertiesForGraphResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *webServicePropertiesForGraphResponsePtrType) ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebServicePropertiesForGraphResponsePtrOutput)
+	return &tmp
 }
 
 type WebServicePropertiesForGraphResponseOutput struct{ *pulumi.OutputState }
@@ -6095,16 +4443,6 @@ func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGra
 
 func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGraphResponseOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponseOutput {
 	return o
-}
-
-func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGraphResponsePtrOutput() WebServicePropertiesForGraphResponsePtrOutput {
-	return o.ToWebServicePropertiesForGraphResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WebServicePropertiesForGraphResponseOutput) ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebServicePropertiesForGraphResponse) *WebServicePropertiesForGraphResponse {
-		return &v
-	}).(WebServicePropertiesForGraphResponsePtrOutput)
 }
 
 func (o WebServicePropertiesForGraphResponseOutput) Assets() AssetItemResponseMapOutput {
@@ -6205,237 +4543,6 @@ func (o WebServicePropertiesForGraphResponseOutput) Title() pulumi.StringPtrOutp
 	return o.ApplyT(func(v WebServicePropertiesForGraphResponse) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-type WebServicePropertiesForGraphResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (WebServicePropertiesForGraphResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebServicePropertiesForGraphResponse)(nil)).Elem()
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) ToWebServicePropertiesForGraphResponsePtrOutput() WebServicePropertiesForGraphResponsePtrOutput {
-	return o
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) ToWebServicePropertiesForGraphResponsePtrOutputWithContext(ctx context.Context) WebServicePropertiesForGraphResponsePtrOutput {
-	return o
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) Elem() WebServicePropertiesForGraphResponseOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) WebServicePropertiesForGraphResponse {
-		if v != nil {
-			return *v
-		}
-		var ret WebServicePropertiesForGraphResponse
-		return ret
-	}).(WebServicePropertiesForGraphResponseOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) Assets() AssetItemResponseMapOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) map[string]AssetItemResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Assets
-	}).(AssetItemResponseMapOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) CommitmentPlan() CommitmentPlanResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *CommitmentPlanResponse {
-		if v == nil {
-			return nil
-		}
-		return v.CommitmentPlan
-	}).(CommitmentPlanResponsePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedOn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) Diagnostics() DiagnosticsConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *DiagnosticsConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Diagnostics
-	}).(DiagnosticsConfigurationResponsePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) ExampleRequest() ExampleRequestResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *ExampleRequestResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ExampleRequest
-	}).(ExampleRequestResponsePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) ExposeSampleData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ExposeSampleData
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) Input() ServiceInputOutputSpecificationResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *ServiceInputOutputSpecificationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Input
-	}).(ServiceInputOutputSpecificationResponsePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) Keys() WebServiceKeysResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *WebServiceKeysResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Keys
-	}).(WebServiceKeysResponsePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) MachineLearningWorkspace() MachineLearningWorkspaceResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *MachineLearningWorkspaceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.MachineLearningWorkspace
-	}).(MachineLearningWorkspaceResponsePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) ModifiedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ModifiedOn
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) Output() ServiceInputOutputSpecificationResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *ServiceInputOutputSpecificationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Output
-	}).(ServiceInputOutputSpecificationResponsePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) Package() GraphPackageResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *GraphPackageResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Package
-	}).(GraphPackageResponsePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) PackageType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PackageType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) Parameters() WebServiceParameterResponseMapOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) map[string]WebServiceParameterResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(WebServiceParameterResponseMapOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) PayloadsInBlobStorage() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PayloadsInBlobStorage
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) PayloadsLocation() BlobLocationResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *BlobLocationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.PayloadsLocation
-	}).(BlobLocationResponsePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ReadOnly
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) RealtimeConfiguration() RealtimeConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *RealtimeConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.RealtimeConfiguration
-	}).(RealtimeConfigurationResponsePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) StorageAccount() StorageAccountResponsePtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *StorageAccountResponse {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccount
-	}).(StorageAccountResponsePtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) SwaggerLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SwaggerLocation
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o WebServicePropertiesForGraphResponsePtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebServicePropertiesForGraphResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AssetItemOutput{})
 	pulumi.RegisterOutputType(AssetItemMapOutput{})
@@ -6526,7 +4633,5 @@ func init() {
 	pulumi.RegisterOutputType(WebServiceParameterResponseOutput{})
 	pulumi.RegisterOutputType(WebServiceParameterResponseMapOutput{})
 	pulumi.RegisterOutputType(WebServicePropertiesForGraphOutput{})
-	pulumi.RegisterOutputType(WebServicePropertiesForGraphPtrOutput{})
 	pulumi.RegisterOutputType(WebServicePropertiesForGraphResponseOutput{})
-	pulumi.RegisterOutputType(WebServicePropertiesForGraphResponsePtrOutput{})
 }

@@ -133,7 +133,7 @@ type TIDataConnectorInput interface {
 }
 
 func (*TIDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*TIDataConnector)(nil))
+	return reflect.TypeOf((**TIDataConnector)(nil)).Elem()
 }
 
 func (i *TIDataConnector) ToTIDataConnectorOutput() TIDataConnectorOutput {
@@ -147,7 +147,7 @@ func (i *TIDataConnector) ToTIDataConnectorOutputWithContext(ctx context.Context
 type TIDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (TIDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TIDataConnector)(nil))
+	return reflect.TypeOf((**TIDataConnector)(nil)).Elem()
 }
 
 func (o TIDataConnectorOutput) ToTIDataConnectorOutput() TIDataConnectorOutput {

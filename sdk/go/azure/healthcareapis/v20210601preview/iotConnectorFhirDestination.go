@@ -123,7 +123,7 @@ type IotConnectorFhirDestinationInput interface {
 }
 
 func (*IotConnectorFhirDestination) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotConnectorFhirDestination)(nil))
+	return reflect.TypeOf((**IotConnectorFhirDestination)(nil)).Elem()
 }
 
 func (i *IotConnectorFhirDestination) ToIotConnectorFhirDestinationOutput() IotConnectorFhirDestinationOutput {
@@ -137,7 +137,7 @@ func (i *IotConnectorFhirDestination) ToIotConnectorFhirDestinationOutputWithCon
 type IotConnectorFhirDestinationOutput struct{ *pulumi.OutputState }
 
 func (IotConnectorFhirDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotConnectorFhirDestination)(nil))
+	return reflect.TypeOf((**IotConnectorFhirDestination)(nil)).Elem()
 }
 
 func (o IotConnectorFhirDestinationOutput) ToIotConnectorFhirDestinationOutput() IotConnectorFhirDestinationOutput {

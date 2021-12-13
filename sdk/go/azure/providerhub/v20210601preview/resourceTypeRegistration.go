@@ -101,7 +101,7 @@ type ResourceTypeRegistrationInput interface {
 }
 
 func (*ResourceTypeRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceTypeRegistration)(nil))
+	return reflect.TypeOf((**ResourceTypeRegistration)(nil)).Elem()
 }
 
 func (i *ResourceTypeRegistration) ToResourceTypeRegistrationOutput() ResourceTypeRegistrationOutput {
@@ -115,7 +115,7 @@ func (i *ResourceTypeRegistration) ToResourceTypeRegistrationOutputWithContext(c
 type ResourceTypeRegistrationOutput struct{ *pulumi.OutputState }
 
 func (ResourceTypeRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceTypeRegistration)(nil))
+	return reflect.TypeOf((**ResourceTypeRegistration)(nil)).Elem()
 }
 
 func (o ResourceTypeRegistrationOutput) ToResourceTypeRegistrationOutput() ResourceTypeRegistrationOutput {

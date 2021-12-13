@@ -128,7 +128,7 @@ type SqlResourceSqlRoleDefinitionInput interface {
 }
 
 func (*SqlResourceSqlRoleDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlRoleDefinition)(nil))
+	return reflect.TypeOf((**SqlResourceSqlRoleDefinition)(nil)).Elem()
 }
 
 func (i *SqlResourceSqlRoleDefinition) ToSqlResourceSqlRoleDefinitionOutput() SqlResourceSqlRoleDefinitionOutput {
@@ -142,7 +142,7 @@ func (i *SqlResourceSqlRoleDefinition) ToSqlResourceSqlRoleDefinitionOutputWithC
 type SqlResourceSqlRoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlRoleDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlRoleDefinition)(nil))
+	return reflect.TypeOf((**SqlResourceSqlRoleDefinition)(nil)).Elem()
 }
 
 func (o SqlResourceSqlRoleDefinitionOutput) ToSqlResourceSqlRoleDefinitionOutput() SqlResourceSqlRoleDefinitionOutput {

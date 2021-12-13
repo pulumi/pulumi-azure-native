@@ -107,7 +107,7 @@ type DiskAccessAPrivateEndpointConnectionInput interface {
 }
 
 func (*DiskAccessAPrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskAccessAPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**DiskAccessAPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (i *DiskAccessAPrivateEndpointConnection) ToDiskAccessAPrivateEndpointConnectionOutput() DiskAccessAPrivateEndpointConnectionOutput {
@@ -121,7 +121,7 @@ func (i *DiskAccessAPrivateEndpointConnection) ToDiskAccessAPrivateEndpointConne
 type DiskAccessAPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (DiskAccessAPrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskAccessAPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**DiskAccessAPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (o DiskAccessAPrivateEndpointConnectionOutput) ToDiskAccessAPrivateEndpointConnectionOutput() DiskAccessAPrivateEndpointConnectionOutput {

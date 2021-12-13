@@ -218,7 +218,7 @@ type VirtualHubInput interface {
 }
 
 func (*VirtualHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHub)(nil))
+	return reflect.TypeOf((**VirtualHub)(nil)).Elem()
 }
 
 func (i *VirtualHub) ToVirtualHubOutput() VirtualHubOutput {
@@ -232,7 +232,7 @@ func (i *VirtualHub) ToVirtualHubOutputWithContext(ctx context.Context) VirtualH
 type VirtualHubOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHub)(nil))
+	return reflect.TypeOf((**VirtualHub)(nil)).Elem()
 }
 
 func (o VirtualHubOutput) ToVirtualHubOutput() VirtualHubOutput {

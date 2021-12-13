@@ -117,6 +117,19 @@ type AddStorageAccountWithAccountParameters struct {
 }
 
 
+func (val *AddStorageAccountWithAccountParameters) Defaults() *AddStorageAccountWithAccountParameters {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Suffix) {
+		suffix_ := "azuredatalakestore.net"
+		tmp.Suffix = &suffix_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -224,64 +237,6 @@ type ComputePolicyResponse struct {
 	ObjectId                     string `pulumi:"objectId"`
 	ObjectType                   string `pulumi:"objectType"`
 	Type                         string `pulumi:"type"`
-}
-
-
-
-
-
-type ComputePolicyResponseInput interface {
-	pulumi.Input
-
-	ToComputePolicyResponseOutput() ComputePolicyResponseOutput
-	ToComputePolicyResponseOutputWithContext(context.Context) ComputePolicyResponseOutput
-}
-
-type ComputePolicyResponseArgs struct {
-	Id                           pulumi.StringInput `pulumi:"id"`
-	MaxDegreeOfParallelismPerJob pulumi.IntInput    `pulumi:"maxDegreeOfParallelismPerJob"`
-	MinPriorityPerJob            pulumi.IntInput    `pulumi:"minPriorityPerJob"`
-	Name                         pulumi.StringInput `pulumi:"name"`
-	ObjectId                     pulumi.StringInput `pulumi:"objectId"`
-	ObjectType                   pulumi.StringInput `pulumi:"objectType"`
-	Type                         pulumi.StringInput `pulumi:"type"`
-}
-
-func (ComputePolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputePolicyResponse)(nil)).Elem()
-}
-
-func (i ComputePolicyResponseArgs) ToComputePolicyResponseOutput() ComputePolicyResponseOutput {
-	return i.ToComputePolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ComputePolicyResponseArgs) ToComputePolicyResponseOutputWithContext(ctx context.Context) ComputePolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyResponseOutput)
-}
-
-
-
-
-
-type ComputePolicyResponseArrayInput interface {
-	pulumi.Input
-
-	ToComputePolicyResponseArrayOutput() ComputePolicyResponseArrayOutput
-	ToComputePolicyResponseArrayOutputWithContext(context.Context) ComputePolicyResponseArrayOutput
-}
-
-type ComputePolicyResponseArray []ComputePolicyResponseInput
-
-func (ComputePolicyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ComputePolicyResponse)(nil)).Elem()
-}
-
-func (i ComputePolicyResponseArray) ToComputePolicyResponseArrayOutput() ComputePolicyResponseArrayOutput {
-	return i.ToComputePolicyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ComputePolicyResponseArray) ToComputePolicyResponseArrayOutputWithContext(ctx context.Context) ComputePolicyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyResponseArrayOutput)
 }
 
 type ComputePolicyResponseOutput struct{ *pulumi.OutputState }
@@ -577,61 +532,6 @@ type DataLakeStoreAccountInformationResponse struct {
 	Type   string `pulumi:"type"`
 }
 
-
-
-
-
-type DataLakeStoreAccountInformationResponseInput interface {
-	pulumi.Input
-
-	ToDataLakeStoreAccountInformationResponseOutput() DataLakeStoreAccountInformationResponseOutput
-	ToDataLakeStoreAccountInformationResponseOutputWithContext(context.Context) DataLakeStoreAccountInformationResponseOutput
-}
-
-type DataLakeStoreAccountInformationResponseArgs struct {
-	Id     pulumi.StringInput `pulumi:"id"`
-	Name   pulumi.StringInput `pulumi:"name"`
-	Suffix pulumi.StringInput `pulumi:"suffix"`
-	Type   pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataLakeStoreAccountInformationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataLakeStoreAccountInformationResponse)(nil)).Elem()
-}
-
-func (i DataLakeStoreAccountInformationResponseArgs) ToDataLakeStoreAccountInformationResponseOutput() DataLakeStoreAccountInformationResponseOutput {
-	return i.ToDataLakeStoreAccountInformationResponseOutputWithContext(context.Background())
-}
-
-func (i DataLakeStoreAccountInformationResponseArgs) ToDataLakeStoreAccountInformationResponseOutputWithContext(ctx context.Context) DataLakeStoreAccountInformationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeStoreAccountInformationResponseOutput)
-}
-
-
-
-
-
-type DataLakeStoreAccountInformationResponseArrayInput interface {
-	pulumi.Input
-
-	ToDataLakeStoreAccountInformationResponseArrayOutput() DataLakeStoreAccountInformationResponseArrayOutput
-	ToDataLakeStoreAccountInformationResponseArrayOutputWithContext(context.Context) DataLakeStoreAccountInformationResponseArrayOutput
-}
-
-type DataLakeStoreAccountInformationResponseArray []DataLakeStoreAccountInformationResponseInput
-
-func (DataLakeStoreAccountInformationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataLakeStoreAccountInformationResponse)(nil)).Elem()
-}
-
-func (i DataLakeStoreAccountInformationResponseArray) ToDataLakeStoreAccountInformationResponseArrayOutput() DataLakeStoreAccountInformationResponseArrayOutput {
-	return i.ToDataLakeStoreAccountInformationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DataLakeStoreAccountInformationResponseArray) ToDataLakeStoreAccountInformationResponseArrayOutputWithContext(ctx context.Context) DataLakeStoreAccountInformationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataLakeStoreAccountInformationResponseArrayOutput)
-}
-
 type DataLakeStoreAccountInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (DataLakeStoreAccountInformationResponseOutput) ElementType() reflect.Type {
@@ -688,62 +588,6 @@ type FirewallRuleResponse struct {
 	Name           string `pulumi:"name"`
 	StartIpAddress string `pulumi:"startIpAddress"`
 	Type           string `pulumi:"type"`
-}
-
-
-
-
-
-type FirewallRuleResponseInput interface {
-	pulumi.Input
-
-	ToFirewallRuleResponseOutput() FirewallRuleResponseOutput
-	ToFirewallRuleResponseOutputWithContext(context.Context) FirewallRuleResponseOutput
-}
-
-type FirewallRuleResponseArgs struct {
-	EndIpAddress   pulumi.StringInput `pulumi:"endIpAddress"`
-	Id             pulumi.StringInput `pulumi:"id"`
-	Name           pulumi.StringInput `pulumi:"name"`
-	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
-	Type           pulumi.StringInput `pulumi:"type"`
-}
-
-func (FirewallRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleResponse)(nil)).Elem()
-}
-
-func (i FirewallRuleResponseArgs) ToFirewallRuleResponseOutput() FirewallRuleResponseOutput {
-	return i.ToFirewallRuleResponseOutputWithContext(context.Background())
-}
-
-func (i FirewallRuleResponseArgs) ToFirewallRuleResponseOutputWithContext(ctx context.Context) FirewallRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleResponseOutput)
-}
-
-
-
-
-
-type FirewallRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToFirewallRuleResponseArrayOutput() FirewallRuleResponseArrayOutput
-	ToFirewallRuleResponseArrayOutputWithContext(context.Context) FirewallRuleResponseArrayOutput
-}
-
-type FirewallRuleResponseArray []FirewallRuleResponseInput
-
-func (FirewallRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallRuleResponse)(nil)).Elem()
-}
-
-func (i FirewallRuleResponseArray) ToFirewallRuleResponseArrayOutput() FirewallRuleResponseArrayOutput {
-	return i.ToFirewallRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i FirewallRuleResponseArray) ToFirewallRuleResponseArrayOutputWithContext(ctx context.Context) FirewallRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleResponseArrayOutput)
 }
 
 type FirewallRuleResponseOutput struct{ *pulumi.OutputState }
@@ -810,66 +654,6 @@ type HiveMetastoreResponse struct {
 	ServerUri                       string `pulumi:"serverUri"`
 	Type                            string `pulumi:"type"`
 	UserName                        string `pulumi:"userName"`
-}
-
-
-
-
-
-type HiveMetastoreResponseInput interface {
-	pulumi.Input
-
-	ToHiveMetastoreResponseOutput() HiveMetastoreResponseOutput
-	ToHiveMetastoreResponseOutputWithContext(context.Context) HiveMetastoreResponseOutput
-}
-
-type HiveMetastoreResponseArgs struct {
-	DatabaseName                    pulumi.StringInput `pulumi:"databaseName"`
-	Id                              pulumi.StringInput `pulumi:"id"`
-	Name                            pulumi.StringInput `pulumi:"name"`
-	NestedResourceProvisioningState pulumi.StringInput `pulumi:"nestedResourceProvisioningState"`
-	Password                        pulumi.StringInput `pulumi:"password"`
-	RuntimeVersion                  pulumi.StringInput `pulumi:"runtimeVersion"`
-	ServerUri                       pulumi.StringInput `pulumi:"serverUri"`
-	Type                            pulumi.StringInput `pulumi:"type"`
-	UserName                        pulumi.StringInput `pulumi:"userName"`
-}
-
-func (HiveMetastoreResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HiveMetastoreResponse)(nil)).Elem()
-}
-
-func (i HiveMetastoreResponseArgs) ToHiveMetastoreResponseOutput() HiveMetastoreResponseOutput {
-	return i.ToHiveMetastoreResponseOutputWithContext(context.Background())
-}
-
-func (i HiveMetastoreResponseArgs) ToHiveMetastoreResponseOutputWithContext(ctx context.Context) HiveMetastoreResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HiveMetastoreResponseOutput)
-}
-
-
-
-
-
-type HiveMetastoreResponseArrayInput interface {
-	pulumi.Input
-
-	ToHiveMetastoreResponseArrayOutput() HiveMetastoreResponseArrayOutput
-	ToHiveMetastoreResponseArrayOutputWithContext(context.Context) HiveMetastoreResponseArrayOutput
-}
-
-type HiveMetastoreResponseArray []HiveMetastoreResponseInput
-
-func (HiveMetastoreResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HiveMetastoreResponse)(nil)).Elem()
-}
-
-func (i HiveMetastoreResponseArray) ToHiveMetastoreResponseArrayOutput() HiveMetastoreResponseArrayOutput {
-	return i.ToHiveMetastoreResponseArrayOutputWithContext(context.Background())
-}
-
-func (i HiveMetastoreResponseArray) ToHiveMetastoreResponseArrayOutputWithContext(ctx context.Context) HiveMetastoreResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HiveMetastoreResponseArrayOutput)
 }
 
 type HiveMetastoreResponseOutput struct{ *pulumi.OutputState }
@@ -946,156 +730,11 @@ type SasTokenInformationResponse struct {
 	AccessToken string `pulumi:"accessToken"`
 }
 
-
-
-
-
-type SasTokenInformationResponseInput interface {
-	pulumi.Input
-
-	ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput
-	ToSasTokenInformationResponseOutputWithContext(context.Context) SasTokenInformationResponseOutput
-}
-
-type SasTokenInformationResponseArgs struct {
-	AccessToken pulumi.StringInput `pulumi:"accessToken"`
-}
-
-func (SasTokenInformationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SasTokenInformationResponse)(nil)).Elem()
-}
-
-func (i SasTokenInformationResponseArgs) ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput {
-	return i.ToSasTokenInformationResponseOutputWithContext(context.Background())
-}
-
-func (i SasTokenInformationResponseArgs) ToSasTokenInformationResponseOutputWithContext(ctx context.Context) SasTokenInformationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SasTokenInformationResponseOutput)
-}
-
-
-
-
-
-type SasTokenInformationResponseArrayInput interface {
-	pulumi.Input
-
-	ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput
-	ToSasTokenInformationResponseArrayOutputWithContext(context.Context) SasTokenInformationResponseArrayOutput
-}
-
-type SasTokenInformationResponseArray []SasTokenInformationResponseInput
-
-func (SasTokenInformationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SasTokenInformationResponse)(nil)).Elem()
-}
-
-func (i SasTokenInformationResponseArray) ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput {
-	return i.ToSasTokenInformationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SasTokenInformationResponseArray) ToSasTokenInformationResponseArrayOutputWithContext(ctx context.Context) SasTokenInformationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SasTokenInformationResponseArrayOutput)
-}
-
-type SasTokenInformationResponseOutput struct{ *pulumi.OutputState }
-
-func (SasTokenInformationResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SasTokenInformationResponse)(nil)).Elem()
-}
-
-func (o SasTokenInformationResponseOutput) ToSasTokenInformationResponseOutput() SasTokenInformationResponseOutput {
-	return o
-}
-
-func (o SasTokenInformationResponseOutput) ToSasTokenInformationResponseOutputWithContext(ctx context.Context) SasTokenInformationResponseOutput {
-	return o
-}
-
-func (o SasTokenInformationResponseOutput) AccessToken() pulumi.StringOutput {
-	return o.ApplyT(func(v SasTokenInformationResponse) string { return v.AccessToken }).(pulumi.StringOutput)
-}
-
-type SasTokenInformationResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (SasTokenInformationResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SasTokenInformationResponse)(nil)).Elem()
-}
-
-func (o SasTokenInformationResponseArrayOutput) ToSasTokenInformationResponseArrayOutput() SasTokenInformationResponseArrayOutput {
-	return o
-}
-
-func (o SasTokenInformationResponseArrayOutput) ToSasTokenInformationResponseArrayOutputWithContext(ctx context.Context) SasTokenInformationResponseArrayOutput {
-	return o
-}
-
-func (o SasTokenInformationResponseArrayOutput) Index(i pulumi.IntInput) SasTokenInformationResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SasTokenInformationResponse {
-		return vs[0].([]SasTokenInformationResponse)[vs[1].(int)]
-	}).(SasTokenInformationResponseOutput)
-}
-
 type StorageAccountInformationResponse struct {
 	Id     string `pulumi:"id"`
 	Name   string `pulumi:"name"`
 	Suffix string `pulumi:"suffix"`
 	Type   string `pulumi:"type"`
-}
-
-
-
-
-
-type StorageAccountInformationResponseInput interface {
-	pulumi.Input
-
-	ToStorageAccountInformationResponseOutput() StorageAccountInformationResponseOutput
-	ToStorageAccountInformationResponseOutputWithContext(context.Context) StorageAccountInformationResponseOutput
-}
-
-type StorageAccountInformationResponseArgs struct {
-	Id     pulumi.StringInput `pulumi:"id"`
-	Name   pulumi.StringInput `pulumi:"name"`
-	Suffix pulumi.StringInput `pulumi:"suffix"`
-	Type   pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageAccountInformationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountInformationResponse)(nil)).Elem()
-}
-
-func (i StorageAccountInformationResponseArgs) ToStorageAccountInformationResponseOutput() StorageAccountInformationResponseOutput {
-	return i.ToStorageAccountInformationResponseOutputWithContext(context.Background())
-}
-
-func (i StorageAccountInformationResponseArgs) ToStorageAccountInformationResponseOutputWithContext(ctx context.Context) StorageAccountInformationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInformationResponseOutput)
-}
-
-
-
-
-
-type StorageAccountInformationResponseArrayInput interface {
-	pulumi.Input
-
-	ToStorageAccountInformationResponseArrayOutput() StorageAccountInformationResponseArrayOutput
-	ToStorageAccountInformationResponseArrayOutputWithContext(context.Context) StorageAccountInformationResponseArrayOutput
-}
-
-type StorageAccountInformationResponseArray []StorageAccountInformationResponseInput
-
-func (StorageAccountInformationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StorageAccountInformationResponse)(nil)).Elem()
-}
-
-func (i StorageAccountInformationResponseArray) ToStorageAccountInformationResponseArrayOutput() StorageAccountInformationResponseArrayOutput {
-	return i.ToStorageAccountInformationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i StorageAccountInformationResponseArray) ToStorageAccountInformationResponseArrayOutputWithContext(ctx context.Context) StorageAccountInformationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountInformationResponseArrayOutput)
 }
 
 type StorageAccountInformationResponseOutput struct{ *pulumi.OutputState }
@@ -1154,62 +793,6 @@ type VirtualNetworkRuleResponse struct {
 	SubnetId                string `pulumi:"subnetId"`
 	Type                    string `pulumi:"type"`
 	VirtualNetworkRuleState string `pulumi:"virtualNetworkRuleState"`
-}
-
-
-
-
-
-type VirtualNetworkRuleResponseInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkRuleResponseOutput() VirtualNetworkRuleResponseOutput
-	ToVirtualNetworkRuleResponseOutputWithContext(context.Context) VirtualNetworkRuleResponseOutput
-}
-
-type VirtualNetworkRuleResponseArgs struct {
-	Id                      pulumi.StringInput `pulumi:"id"`
-	Name                    pulumi.StringInput `pulumi:"name"`
-	SubnetId                pulumi.StringInput `pulumi:"subnetId"`
-	Type                    pulumi.StringInput `pulumi:"type"`
-	VirtualNetworkRuleState pulumi.StringInput `pulumi:"virtualNetworkRuleState"`
-}
-
-func (VirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkRuleResponse)(nil)).Elem()
-}
-
-func (i VirtualNetworkRuleResponseArgs) ToVirtualNetworkRuleResponseOutput() VirtualNetworkRuleResponseOutput {
-	return i.ToVirtualNetworkRuleResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkRuleResponseArgs) ToVirtualNetworkRuleResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseOutput)
-}
-
-
-
-
-
-type VirtualNetworkRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkRuleResponseArrayOutput() VirtualNetworkRuleResponseArrayOutput
-	ToVirtualNetworkRuleResponseArrayOutputWithContext(context.Context) VirtualNetworkRuleResponseArrayOutput
-}
-
-type VirtualNetworkRuleResponseArray []VirtualNetworkRuleResponseInput
-
-func (VirtualNetworkRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualNetworkRuleResponse)(nil)).Elem()
-}
-
-func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutput() VirtualNetworkRuleResponseArrayOutput {
-	return i.ToVirtualNetworkRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseArrayOutput)
 }
 
 type VirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
@@ -1283,8 +866,6 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(HiveMetastoreResponseOutput{})
 	pulumi.RegisterOutputType(HiveMetastoreResponseArrayOutput{})
-	pulumi.RegisterOutputType(SasTokenInformationResponseOutput{})
-	pulumi.RegisterOutputType(SasTokenInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountInformationResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})

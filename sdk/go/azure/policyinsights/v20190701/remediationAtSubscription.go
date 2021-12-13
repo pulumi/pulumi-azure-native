@@ -104,7 +104,7 @@ type RemediationAtSubscriptionInput interface {
 }
 
 func (*RemediationAtSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtSubscription)(nil))
+	return reflect.TypeOf((**RemediationAtSubscription)(nil)).Elem()
 }
 
 func (i *RemediationAtSubscription) ToRemediationAtSubscriptionOutput() RemediationAtSubscriptionOutput {
@@ -118,7 +118,7 @@ func (i *RemediationAtSubscription) ToRemediationAtSubscriptionOutputWithContext
 type RemediationAtSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (RemediationAtSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtSubscription)(nil))
+	return reflect.TypeOf((**RemediationAtSubscription)(nil)).Elem()
 }
 
 func (o RemediationAtSubscriptionOutput) ToRemediationAtSubscriptionOutput() RemediationAtSubscriptionOutput {

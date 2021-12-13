@@ -162,74 +162,6 @@ type BasicLoginInformationResponse struct {
 	Username *string `pulumi:"username"`
 }
 
-
-
-
-
-type BasicLoginInformationResponseInput interface {
-	pulumi.Input
-
-	ToBasicLoginInformationResponseOutput() BasicLoginInformationResponseOutput
-	ToBasicLoginInformationResponseOutputWithContext(context.Context) BasicLoginInformationResponseOutput
-}
-
-type BasicLoginInformationResponseArgs struct {
-	Username pulumi.StringPtrInput `pulumi:"username"`
-}
-
-func (BasicLoginInformationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BasicLoginInformationResponse)(nil)).Elem()
-}
-
-func (i BasicLoginInformationResponseArgs) ToBasicLoginInformationResponseOutput() BasicLoginInformationResponseOutput {
-	return i.ToBasicLoginInformationResponseOutputWithContext(context.Background())
-}
-
-func (i BasicLoginInformationResponseArgs) ToBasicLoginInformationResponseOutputWithContext(ctx context.Context) BasicLoginInformationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BasicLoginInformationResponseOutput)
-}
-
-func (i BasicLoginInformationResponseArgs) ToBasicLoginInformationResponsePtrOutput() BasicLoginInformationResponsePtrOutput {
-	return i.ToBasicLoginInformationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BasicLoginInformationResponseArgs) ToBasicLoginInformationResponsePtrOutputWithContext(ctx context.Context) BasicLoginInformationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BasicLoginInformationResponseOutput).ToBasicLoginInformationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type BasicLoginInformationResponsePtrInput interface {
-	pulumi.Input
-
-	ToBasicLoginInformationResponsePtrOutput() BasicLoginInformationResponsePtrOutput
-	ToBasicLoginInformationResponsePtrOutputWithContext(context.Context) BasicLoginInformationResponsePtrOutput
-}
-
-type basicLoginInformationResponsePtrType BasicLoginInformationResponseArgs
-
-func BasicLoginInformationResponsePtr(v *BasicLoginInformationResponseArgs) BasicLoginInformationResponsePtrInput {
-	return (*basicLoginInformationResponsePtrType)(v)
-}
-
-func (*basicLoginInformationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BasicLoginInformationResponse)(nil)).Elem()
-}
-
-func (i *basicLoginInformationResponsePtrType) ToBasicLoginInformationResponsePtrOutput() BasicLoginInformationResponsePtrOutput {
-	return i.ToBasicLoginInformationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *basicLoginInformationResponsePtrType) ToBasicLoginInformationResponsePtrOutputWithContext(ctx context.Context) BasicLoginInformationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BasicLoginInformationResponsePtrOutput)
-}
-
 type BasicLoginInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (BasicLoginInformationResponseOutput) ElementType() reflect.Type {
@@ -242,16 +174,6 @@ func (o BasicLoginInformationResponseOutput) ToBasicLoginInformationResponseOutp
 
 func (o BasicLoginInformationResponseOutput) ToBasicLoginInformationResponseOutputWithContext(ctx context.Context) BasicLoginInformationResponseOutput {
 	return o
-}
-
-func (o BasicLoginInformationResponseOutput) ToBasicLoginInformationResponsePtrOutput() BasicLoginInformationResponsePtrOutput {
-	return o.ToBasicLoginInformationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BasicLoginInformationResponseOutput) ToBasicLoginInformationResponsePtrOutputWithContext(ctx context.Context) BasicLoginInformationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BasicLoginInformationResponse) *BasicLoginInformationResponse {
-		return &v
-	}).(BasicLoginInformationResponsePtrOutput)
 }
 
 func (o BasicLoginInformationResponseOutput) Username() pulumi.StringPtrOutput {
@@ -303,6 +225,19 @@ type DataControllerProperties struct {
 }
 
 
+func (val *DataControllerProperties) Defaults() *DataControllerProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Infrastructure) {
+		infrastructure_ := Infrastructure("other")
+		tmp.Infrastructure = &infrastructure_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -336,47 +271,6 @@ func (i DataControllerPropertiesArgs) ToDataControllerPropertiesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DataControllerPropertiesOutput)
 }
 
-func (i DataControllerPropertiesArgs) ToDataControllerPropertiesPtrOutput() DataControllerPropertiesPtrOutput {
-	return i.ToDataControllerPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DataControllerPropertiesArgs) ToDataControllerPropertiesPtrOutputWithContext(ctx context.Context) DataControllerPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataControllerPropertiesOutput).ToDataControllerPropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DataControllerPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDataControllerPropertiesPtrOutput() DataControllerPropertiesPtrOutput
-	ToDataControllerPropertiesPtrOutputWithContext(context.Context) DataControllerPropertiesPtrOutput
-}
-
-type dataControllerPropertiesPtrType DataControllerPropertiesArgs
-
-func DataControllerPropertiesPtr(v *DataControllerPropertiesArgs) DataControllerPropertiesPtrInput {
-	return (*dataControllerPropertiesPtrType)(v)
-}
-
-func (*dataControllerPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataControllerProperties)(nil)).Elem()
-}
-
-func (i *dataControllerPropertiesPtrType) ToDataControllerPropertiesPtrOutput() DataControllerPropertiesPtrOutput {
-	return i.ToDataControllerPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *dataControllerPropertiesPtrType) ToDataControllerPropertiesPtrOutputWithContext(ctx context.Context) DataControllerPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataControllerPropertiesPtrOutput)
-}
-
 type DataControllerPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataControllerPropertiesOutput) ElementType() reflect.Type {
@@ -389,16 +283,6 @@ func (o DataControllerPropertiesOutput) ToDataControllerPropertiesOutput() DataC
 
 func (o DataControllerPropertiesOutput) ToDataControllerPropertiesOutputWithContext(ctx context.Context) DataControllerPropertiesOutput {
 	return o
-}
-
-func (o DataControllerPropertiesOutput) ToDataControllerPropertiesPtrOutput() DataControllerPropertiesPtrOutput {
-	return o.ToDataControllerPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DataControllerPropertiesOutput) ToDataControllerPropertiesPtrOutputWithContext(ctx context.Context) DataControllerPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataControllerProperties) *DataControllerProperties {
-		return &v
-	}).(DataControllerPropertiesPtrOutput)
 }
 
 func (o DataControllerPropertiesOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
@@ -433,102 +317,6 @@ func (o DataControllerPropertiesOutput) UploadWatermark() UploadWatermarkPtrOutp
 	return o.ApplyT(func(v DataControllerProperties) *UploadWatermark { return v.UploadWatermark }).(UploadWatermarkPtrOutput)
 }
 
-type DataControllerPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (DataControllerPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataControllerProperties)(nil)).Elem()
-}
-
-func (o DataControllerPropertiesPtrOutput) ToDataControllerPropertiesPtrOutput() DataControllerPropertiesPtrOutput {
-	return o
-}
-
-func (o DataControllerPropertiesPtrOutput) ToDataControllerPropertiesPtrOutputWithContext(ctx context.Context) DataControllerPropertiesPtrOutput {
-	return o
-}
-
-func (o DataControllerPropertiesPtrOutput) Elem() DataControllerPropertiesOutput {
-	return o.ApplyT(func(v *DataControllerProperties) DataControllerProperties {
-		if v != nil {
-			return *v
-		}
-		var ret DataControllerProperties
-		return ret
-	}).(DataControllerPropertiesOutput)
-}
-
-func (o DataControllerPropertiesPtrOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
-	return o.ApplyT(func(v *DataControllerProperties) *BasicLoginInformation {
-		if v == nil {
-			return nil
-		}
-		return v.BasicLoginInformation
-	}).(BasicLoginInformationPtrOutput)
-}
-
-func (o DataControllerPropertiesPtrOutput) Infrastructure() InfrastructurePtrOutput {
-	return o.ApplyT(func(v *DataControllerProperties) *Infrastructure {
-		if v == nil {
-			return nil
-		}
-		return v.Infrastructure
-	}).(InfrastructurePtrOutput)
-}
-
-func (o DataControllerPropertiesPtrOutput) K8sRaw() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DataControllerProperties) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.K8sRaw
-	}).(pulumi.AnyOutput)
-}
-
-func (o DataControllerPropertiesPtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataControllerProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastUploadedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataControllerPropertiesPtrOutput) LogAnalyticsWorkspaceConfig() LogAnalyticsWorkspaceConfigPtrOutput {
-	return o.ApplyT(func(v *DataControllerProperties) *LogAnalyticsWorkspaceConfig {
-		if v == nil {
-			return nil
-		}
-		return v.LogAnalyticsWorkspaceConfig
-	}).(LogAnalyticsWorkspaceConfigPtrOutput)
-}
-
-func (o DataControllerPropertiesPtrOutput) OnPremiseProperty() OnPremisePropertyPtrOutput {
-	return o.ApplyT(func(v *DataControllerProperties) *OnPremiseProperty {
-		if v == nil {
-			return nil
-		}
-		return v.OnPremiseProperty
-	}).(OnPremisePropertyPtrOutput)
-}
-
-func (o DataControllerPropertiesPtrOutput) UploadServicePrincipal() UploadServicePrincipalPtrOutput {
-	return o.ApplyT(func(v *DataControllerProperties) *UploadServicePrincipal {
-		if v == nil {
-			return nil
-		}
-		return v.UploadServicePrincipal
-	}).(UploadServicePrincipalPtrOutput)
-}
-
-func (o DataControllerPropertiesPtrOutput) UploadWatermark() UploadWatermarkPtrOutput {
-	return o.ApplyT(func(v *DataControllerProperties) *UploadWatermark {
-		if v == nil {
-			return nil
-		}
-		return v.UploadWatermark
-	}).(UploadWatermarkPtrOutput)
-}
-
 type DataControllerPropertiesResponse struct {
 	BasicLoginInformation       *BasicLoginInformationResponse       `pulumi:"basicLoginInformation"`
 	Infrastructure              *string                              `pulumi:"infrastructure"`
@@ -542,79 +330,16 @@ type DataControllerPropertiesResponse struct {
 }
 
 
-
-
-
-type DataControllerPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToDataControllerPropertiesResponseOutput() DataControllerPropertiesResponseOutput
-	ToDataControllerPropertiesResponseOutputWithContext(context.Context) DataControllerPropertiesResponseOutput
-}
-
-type DataControllerPropertiesResponseArgs struct {
-	BasicLoginInformation       BasicLoginInformationResponsePtrInput       `pulumi:"basicLoginInformation"`
-	Infrastructure              pulumi.StringPtrInput                       `pulumi:"infrastructure"`
-	K8sRaw                      pulumi.Input                                `pulumi:"k8sRaw"`
-	LastUploadedDate            pulumi.StringPtrInput                       `pulumi:"lastUploadedDate"`
-	LogAnalyticsWorkspaceConfig LogAnalyticsWorkspaceConfigResponsePtrInput `pulumi:"logAnalyticsWorkspaceConfig"`
-	OnPremiseProperty           OnPremisePropertyResponsePtrInput           `pulumi:"onPremiseProperty"`
-	ProvisioningState           pulumi.StringInput                          `pulumi:"provisioningState"`
-	UploadServicePrincipal      UploadServicePrincipalResponsePtrInput      `pulumi:"uploadServicePrincipal"`
-	UploadWatermark             UploadWatermarkResponsePtrInput             `pulumi:"uploadWatermark"`
-}
-
-func (DataControllerPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataControllerPropertiesResponse)(nil)).Elem()
-}
-
-func (i DataControllerPropertiesResponseArgs) ToDataControllerPropertiesResponseOutput() DataControllerPropertiesResponseOutput {
-	return i.ToDataControllerPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i DataControllerPropertiesResponseArgs) ToDataControllerPropertiesResponseOutputWithContext(ctx context.Context) DataControllerPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataControllerPropertiesResponseOutput)
-}
-
-func (i DataControllerPropertiesResponseArgs) ToDataControllerPropertiesResponsePtrOutput() DataControllerPropertiesResponsePtrOutput {
-	return i.ToDataControllerPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DataControllerPropertiesResponseArgs) ToDataControllerPropertiesResponsePtrOutputWithContext(ctx context.Context) DataControllerPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataControllerPropertiesResponseOutput).ToDataControllerPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DataControllerPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToDataControllerPropertiesResponsePtrOutput() DataControllerPropertiesResponsePtrOutput
-	ToDataControllerPropertiesResponsePtrOutputWithContext(context.Context) DataControllerPropertiesResponsePtrOutput
-}
-
-type dataControllerPropertiesResponsePtrType DataControllerPropertiesResponseArgs
-
-func DataControllerPropertiesResponsePtr(v *DataControllerPropertiesResponseArgs) DataControllerPropertiesResponsePtrInput {
-	return (*dataControllerPropertiesResponsePtrType)(v)
-}
-
-func (*dataControllerPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataControllerPropertiesResponse)(nil)).Elem()
-}
-
-func (i *dataControllerPropertiesResponsePtrType) ToDataControllerPropertiesResponsePtrOutput() DataControllerPropertiesResponsePtrOutput {
-	return i.ToDataControllerPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *dataControllerPropertiesResponsePtrType) ToDataControllerPropertiesResponsePtrOutputWithContext(ctx context.Context) DataControllerPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataControllerPropertiesResponsePtrOutput)
+func (val *DataControllerPropertiesResponse) Defaults() *DataControllerPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Infrastructure) {
+		infrastructure_ := "other"
+		tmp.Infrastructure = &infrastructure_
+	}
+	return &tmp
 }
 
 type DataControllerPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -629,16 +354,6 @@ func (o DataControllerPropertiesResponseOutput) ToDataControllerPropertiesRespon
 
 func (o DataControllerPropertiesResponseOutput) ToDataControllerPropertiesResponseOutputWithContext(ctx context.Context) DataControllerPropertiesResponseOutput {
 	return o
-}
-
-func (o DataControllerPropertiesResponseOutput) ToDataControllerPropertiesResponsePtrOutput() DataControllerPropertiesResponsePtrOutput {
-	return o.ToDataControllerPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DataControllerPropertiesResponseOutput) ToDataControllerPropertiesResponsePtrOutputWithContext(ctx context.Context) DataControllerPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataControllerPropertiesResponse) *DataControllerPropertiesResponse {
-		return &v
-	}).(DataControllerPropertiesResponsePtrOutput)
 }
 
 func (o DataControllerPropertiesResponseOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
@@ -681,111 +396,6 @@ func (o DataControllerPropertiesResponseOutput) UploadServicePrincipal() UploadS
 
 func (o DataControllerPropertiesResponseOutput) UploadWatermark() UploadWatermarkResponsePtrOutput {
 	return o.ApplyT(func(v DataControllerPropertiesResponse) *UploadWatermarkResponse { return v.UploadWatermark }).(UploadWatermarkResponsePtrOutput)
-}
-
-type DataControllerPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DataControllerPropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataControllerPropertiesResponse)(nil)).Elem()
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) ToDataControllerPropertiesResponsePtrOutput() DataControllerPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) ToDataControllerPropertiesResponsePtrOutputWithContext(ctx context.Context) DataControllerPropertiesResponsePtrOutput {
-	return o
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) Elem() DataControllerPropertiesResponseOutput {
-	return o.ApplyT(func(v *DataControllerPropertiesResponse) DataControllerPropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DataControllerPropertiesResponse
-		return ret
-	}).(DataControllerPropertiesResponseOutput)
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
-	return o.ApplyT(func(v *DataControllerPropertiesResponse) *BasicLoginInformationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.BasicLoginInformation
-	}).(BasicLoginInformationResponsePtrOutput)
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) Infrastructure() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataControllerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Infrastructure
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) K8sRaw() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DataControllerPropertiesResponse) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.K8sRaw
-	}).(pulumi.AnyOutput)
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataControllerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastUploadedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) LogAnalyticsWorkspaceConfig() LogAnalyticsWorkspaceConfigResponsePtrOutput {
-	return o.ApplyT(func(v *DataControllerPropertiesResponse) *LogAnalyticsWorkspaceConfigResponse {
-		if v == nil {
-			return nil
-		}
-		return v.LogAnalyticsWorkspaceConfig
-	}).(LogAnalyticsWorkspaceConfigResponsePtrOutput)
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) OnPremiseProperty() OnPremisePropertyResponsePtrOutput {
-	return o.ApplyT(func(v *DataControllerPropertiesResponse) *OnPremisePropertyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.OnPremiseProperty
-	}).(OnPremisePropertyResponsePtrOutput)
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataControllerPropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) UploadServicePrincipal() UploadServicePrincipalResponsePtrOutput {
-	return o.ApplyT(func(v *DataControllerPropertiesResponse) *UploadServicePrincipalResponse {
-		if v == nil {
-			return nil
-		}
-		return v.UploadServicePrincipal
-	}).(UploadServicePrincipalResponsePtrOutput)
-}
-
-func (o DataControllerPropertiesResponsePtrOutput) UploadWatermark() UploadWatermarkResponsePtrOutput {
-	return o.ApplyT(func(v *DataControllerPropertiesResponse) *UploadWatermarkResponse {
-		if v == nil {
-			return nil
-		}
-		return v.UploadWatermark
-	}).(UploadWatermarkResponsePtrOutput)
 }
 
 type ExtendedLocation struct {
@@ -941,75 +551,6 @@ type ExtendedLocationResponse struct {
 	Type *string `pulumi:"type"`
 }
 
-
-
-
-
-type ExtendedLocationResponseInput interface {
-	pulumi.Input
-
-	ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput
-	ToExtendedLocationResponseOutputWithContext(context.Context) ExtendedLocationResponseOutput
-}
-
-type ExtendedLocationResponseArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (ExtendedLocationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtendedLocationResponse)(nil)).Elem()
-}
-
-func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutput() ExtendedLocationResponseOutput {
-	return i.ToExtendedLocationResponseOutputWithContext(context.Background())
-}
-
-func (i ExtendedLocationResponseArgs) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput)
-}
-
-func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
-	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExtendedLocationResponseArgs) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponseOutput).ToExtendedLocationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExtendedLocationResponsePtrInput interface {
-	pulumi.Input
-
-	ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput
-	ToExtendedLocationResponsePtrOutputWithContext(context.Context) ExtendedLocationResponsePtrOutput
-}
-
-type extendedLocationResponsePtrType ExtendedLocationResponseArgs
-
-func ExtendedLocationResponsePtr(v *ExtendedLocationResponseArgs) ExtendedLocationResponsePtrInput {
-	return (*extendedLocationResponsePtrType)(v)
-}
-
-func (*extendedLocationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExtendedLocationResponse)(nil)).Elem()
-}
-
-func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
-	return i.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *extendedLocationResponsePtrType) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtendedLocationResponsePtrOutput)
-}
-
 type ExtendedLocationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtendedLocationResponseOutput) ElementType() reflect.Type {
@@ -1022,16 +563,6 @@ func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutput() Exten
 
 func (o ExtendedLocationResponseOutput) ToExtendedLocationResponseOutputWithContext(ctx context.Context) ExtendedLocationResponseOutput {
 	return o
-}
-
-func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutput() ExtendedLocationResponsePtrOutput {
-	return o.ToExtendedLocationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExtendedLocationResponseOutput) ToExtendedLocationResponsePtrOutputWithContext(ctx context.Context) ExtendedLocationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExtendedLocationResponse) *ExtendedLocationResponse {
-		return &v
-	}).(ExtendedLocationResponsePtrOutput)
 }
 
 func (o ExtendedLocationResponseOutput) Name() pulumi.StringPtrOutput {
@@ -1236,74 +767,6 @@ type LogAnalyticsWorkspaceConfigResponse struct {
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
-
-
-
-
-type LogAnalyticsWorkspaceConfigResponseInput interface {
-	pulumi.Input
-
-	ToLogAnalyticsWorkspaceConfigResponseOutput() LogAnalyticsWorkspaceConfigResponseOutput
-	ToLogAnalyticsWorkspaceConfigResponseOutputWithContext(context.Context) LogAnalyticsWorkspaceConfigResponseOutput
-}
-
-type LogAnalyticsWorkspaceConfigResponseArgs struct {
-	WorkspaceId pulumi.StringPtrInput `pulumi:"workspaceId"`
-}
-
-func (LogAnalyticsWorkspaceConfigResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogAnalyticsWorkspaceConfigResponse)(nil)).Elem()
-}
-
-func (i LogAnalyticsWorkspaceConfigResponseArgs) ToLogAnalyticsWorkspaceConfigResponseOutput() LogAnalyticsWorkspaceConfigResponseOutput {
-	return i.ToLogAnalyticsWorkspaceConfigResponseOutputWithContext(context.Background())
-}
-
-func (i LogAnalyticsWorkspaceConfigResponseArgs) ToLogAnalyticsWorkspaceConfigResponseOutputWithContext(ctx context.Context) LogAnalyticsWorkspaceConfigResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsWorkspaceConfigResponseOutput)
-}
-
-func (i LogAnalyticsWorkspaceConfigResponseArgs) ToLogAnalyticsWorkspaceConfigResponsePtrOutput() LogAnalyticsWorkspaceConfigResponsePtrOutput {
-	return i.ToLogAnalyticsWorkspaceConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LogAnalyticsWorkspaceConfigResponseArgs) ToLogAnalyticsWorkspaceConfigResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsWorkspaceConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsWorkspaceConfigResponseOutput).ToLogAnalyticsWorkspaceConfigResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LogAnalyticsWorkspaceConfigResponsePtrInput interface {
-	pulumi.Input
-
-	ToLogAnalyticsWorkspaceConfigResponsePtrOutput() LogAnalyticsWorkspaceConfigResponsePtrOutput
-	ToLogAnalyticsWorkspaceConfigResponsePtrOutputWithContext(context.Context) LogAnalyticsWorkspaceConfigResponsePtrOutput
-}
-
-type logAnalyticsWorkspaceConfigResponsePtrType LogAnalyticsWorkspaceConfigResponseArgs
-
-func LogAnalyticsWorkspaceConfigResponsePtr(v *LogAnalyticsWorkspaceConfigResponseArgs) LogAnalyticsWorkspaceConfigResponsePtrInput {
-	return (*logAnalyticsWorkspaceConfigResponsePtrType)(v)
-}
-
-func (*logAnalyticsWorkspaceConfigResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogAnalyticsWorkspaceConfigResponse)(nil)).Elem()
-}
-
-func (i *logAnalyticsWorkspaceConfigResponsePtrType) ToLogAnalyticsWorkspaceConfigResponsePtrOutput() LogAnalyticsWorkspaceConfigResponsePtrOutput {
-	return i.ToLogAnalyticsWorkspaceConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *logAnalyticsWorkspaceConfigResponsePtrType) ToLogAnalyticsWorkspaceConfigResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsWorkspaceConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsWorkspaceConfigResponsePtrOutput)
-}
-
 type LogAnalyticsWorkspaceConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (LogAnalyticsWorkspaceConfigResponseOutput) ElementType() reflect.Type {
@@ -1316,16 +779,6 @@ func (o LogAnalyticsWorkspaceConfigResponseOutput) ToLogAnalyticsWorkspaceConfig
 
 func (o LogAnalyticsWorkspaceConfigResponseOutput) ToLogAnalyticsWorkspaceConfigResponseOutputWithContext(ctx context.Context) LogAnalyticsWorkspaceConfigResponseOutput {
 	return o
-}
-
-func (o LogAnalyticsWorkspaceConfigResponseOutput) ToLogAnalyticsWorkspaceConfigResponsePtrOutput() LogAnalyticsWorkspaceConfigResponsePtrOutput {
-	return o.ToLogAnalyticsWorkspaceConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LogAnalyticsWorkspaceConfigResponseOutput) ToLogAnalyticsWorkspaceConfigResponsePtrOutputWithContext(ctx context.Context) LogAnalyticsWorkspaceConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnalyticsWorkspaceConfigResponse) *LogAnalyticsWorkspaceConfigResponse {
-		return &v
-	}).(LogAnalyticsWorkspaceConfigResponsePtrOutput)
 }
 
 func (o LogAnalyticsWorkspaceConfigResponseOutput) WorkspaceId() pulumi.StringPtrOutput {
@@ -1534,76 +987,6 @@ type OnPremisePropertyResponse struct {
 	SigningCertificateThumbprint *string `pulumi:"signingCertificateThumbprint"`
 }
 
-
-
-
-
-type OnPremisePropertyResponseInput interface {
-	pulumi.Input
-
-	ToOnPremisePropertyResponseOutput() OnPremisePropertyResponseOutput
-	ToOnPremisePropertyResponseOutputWithContext(context.Context) OnPremisePropertyResponseOutput
-}
-
-type OnPremisePropertyResponseArgs struct {
-	Id                           pulumi.StringInput    `pulumi:"id"`
-	PublicSigningKey             pulumi.StringInput    `pulumi:"publicSigningKey"`
-	SigningCertificateThumbprint pulumi.StringPtrInput `pulumi:"signingCertificateThumbprint"`
-}
-
-func (OnPremisePropertyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnPremisePropertyResponse)(nil)).Elem()
-}
-
-func (i OnPremisePropertyResponseArgs) ToOnPremisePropertyResponseOutput() OnPremisePropertyResponseOutput {
-	return i.ToOnPremisePropertyResponseOutputWithContext(context.Background())
-}
-
-func (i OnPremisePropertyResponseArgs) ToOnPremisePropertyResponseOutputWithContext(ctx context.Context) OnPremisePropertyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnPremisePropertyResponseOutput)
-}
-
-func (i OnPremisePropertyResponseArgs) ToOnPremisePropertyResponsePtrOutput() OnPremisePropertyResponsePtrOutput {
-	return i.ToOnPremisePropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OnPremisePropertyResponseArgs) ToOnPremisePropertyResponsePtrOutputWithContext(ctx context.Context) OnPremisePropertyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnPremisePropertyResponseOutput).ToOnPremisePropertyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OnPremisePropertyResponsePtrInput interface {
-	pulumi.Input
-
-	ToOnPremisePropertyResponsePtrOutput() OnPremisePropertyResponsePtrOutput
-	ToOnPremisePropertyResponsePtrOutputWithContext(context.Context) OnPremisePropertyResponsePtrOutput
-}
-
-type onPremisePropertyResponsePtrType OnPremisePropertyResponseArgs
-
-func OnPremisePropertyResponsePtr(v *OnPremisePropertyResponseArgs) OnPremisePropertyResponsePtrInput {
-	return (*onPremisePropertyResponsePtrType)(v)
-}
-
-func (*onPremisePropertyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OnPremisePropertyResponse)(nil)).Elem()
-}
-
-func (i *onPremisePropertyResponsePtrType) ToOnPremisePropertyResponsePtrOutput() OnPremisePropertyResponsePtrOutput {
-	return i.ToOnPremisePropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *onPremisePropertyResponsePtrType) ToOnPremisePropertyResponsePtrOutputWithContext(ctx context.Context) OnPremisePropertyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OnPremisePropertyResponsePtrOutput)
-}
-
 type OnPremisePropertyResponseOutput struct{ *pulumi.OutputState }
 
 func (OnPremisePropertyResponseOutput) ElementType() reflect.Type {
@@ -1616,16 +999,6 @@ func (o OnPremisePropertyResponseOutput) ToOnPremisePropertyResponseOutput() OnP
 
 func (o OnPremisePropertyResponseOutput) ToOnPremisePropertyResponseOutputWithContext(ctx context.Context) OnPremisePropertyResponseOutput {
 	return o
-}
-
-func (o OnPremisePropertyResponseOutput) ToOnPremisePropertyResponsePtrOutput() OnPremisePropertyResponsePtrOutput {
-	return o.ToOnPremisePropertyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OnPremisePropertyResponseOutput) ToOnPremisePropertyResponsePtrOutputWithContext(ctx context.Context) OnPremisePropertyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OnPremisePropertyResponse) *OnPremisePropertyResponse {
-		return &v
-	}).(OnPremisePropertyResponsePtrOutput)
 }
 
 func (o OnPremisePropertyResponseOutput) Id() pulumi.StringOutput {
@@ -1730,47 +1103,6 @@ func (i PostgresInstancePropertiesArgs) ToPostgresInstancePropertiesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstancePropertiesOutput)
 }
 
-func (i PostgresInstancePropertiesArgs) ToPostgresInstancePropertiesPtrOutput() PostgresInstancePropertiesPtrOutput {
-	return i.ToPostgresInstancePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PostgresInstancePropertiesArgs) ToPostgresInstancePropertiesPtrOutputWithContext(ctx context.Context) PostgresInstancePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstancePropertiesOutput).ToPostgresInstancePropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PostgresInstancePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToPostgresInstancePropertiesPtrOutput() PostgresInstancePropertiesPtrOutput
-	ToPostgresInstancePropertiesPtrOutputWithContext(context.Context) PostgresInstancePropertiesPtrOutput
-}
-
-type postgresInstancePropertiesPtrType PostgresInstancePropertiesArgs
-
-func PostgresInstancePropertiesPtr(v *PostgresInstancePropertiesArgs) PostgresInstancePropertiesPtrInput {
-	return (*postgresInstancePropertiesPtrType)(v)
-}
-
-func (*postgresInstancePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresInstanceProperties)(nil)).Elem()
-}
-
-func (i *postgresInstancePropertiesPtrType) ToPostgresInstancePropertiesPtrOutput() PostgresInstancePropertiesPtrOutput {
-	return i.ToPostgresInstancePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *postgresInstancePropertiesPtrType) ToPostgresInstancePropertiesPtrOutputWithContext(ctx context.Context) PostgresInstancePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstancePropertiesPtrOutput)
-}
-
 type PostgresInstancePropertiesOutput struct{ *pulumi.OutputState }
 
 func (PostgresInstancePropertiesOutput) ElementType() reflect.Type {
@@ -1783,16 +1115,6 @@ func (o PostgresInstancePropertiesOutput) ToPostgresInstancePropertiesOutput() P
 
 func (o PostgresInstancePropertiesOutput) ToPostgresInstancePropertiesOutputWithContext(ctx context.Context) PostgresInstancePropertiesOutput {
 	return o
-}
-
-func (o PostgresInstancePropertiesOutput) ToPostgresInstancePropertiesPtrOutput() PostgresInstancePropertiesPtrOutput {
-	return o.ToPostgresInstancePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o PostgresInstancePropertiesOutput) ToPostgresInstancePropertiesPtrOutputWithContext(ctx context.Context) PostgresInstancePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresInstanceProperties) *PostgresInstanceProperties {
-		return &v
-	}).(PostgresInstancePropertiesPtrOutput)
 }
 
 func (o PostgresInstancePropertiesOutput) Admin() pulumi.StringPtrOutput {
@@ -1815,75 +1137,6 @@ func (o PostgresInstancePropertiesOutput) LastUploadedDate() pulumi.StringPtrOut
 	return o.ApplyT(func(v PostgresInstanceProperties) *string { return v.LastUploadedDate }).(pulumi.StringPtrOutput)
 }
 
-type PostgresInstancePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresInstancePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresInstanceProperties)(nil)).Elem()
-}
-
-func (o PostgresInstancePropertiesPtrOutput) ToPostgresInstancePropertiesPtrOutput() PostgresInstancePropertiesPtrOutput {
-	return o
-}
-
-func (o PostgresInstancePropertiesPtrOutput) ToPostgresInstancePropertiesPtrOutputWithContext(ctx context.Context) PostgresInstancePropertiesPtrOutput {
-	return o
-}
-
-func (o PostgresInstancePropertiesPtrOutput) Elem() PostgresInstancePropertiesOutput {
-	return o.ApplyT(func(v *PostgresInstanceProperties) PostgresInstanceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PostgresInstanceProperties
-		return ret
-	}).(PostgresInstancePropertiesOutput)
-}
-
-func (o PostgresInstancePropertiesPtrOutput) Admin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Admin
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PostgresInstancePropertiesPtrOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceProperties) *BasicLoginInformation {
-		if v == nil {
-			return nil
-		}
-		return v.BasicLoginInformation
-	}).(BasicLoginInformationPtrOutput)
-}
-
-func (o PostgresInstancePropertiesPtrOutput) DataControllerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DataControllerId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PostgresInstancePropertiesPtrOutput) K8sRaw() pulumi.AnyOutput {
-	return o.ApplyT(func(v *PostgresInstanceProperties) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.K8sRaw
-	}).(pulumi.AnyOutput)
-}
-
-func (o PostgresInstancePropertiesPtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstanceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastUploadedDate
-	}).(pulumi.StringPtrOutput)
-}
-
 type PostgresInstancePropertiesResponse struct {
 	Admin                 *string                        `pulumi:"admin"`
 	BasicLoginInformation *BasicLoginInformationResponse `pulumi:"basicLoginInformation"`
@@ -1891,79 +1144,6 @@ type PostgresInstancePropertiesResponse struct {
 	K8sRaw                interface{}                    `pulumi:"k8sRaw"`
 	LastUploadedDate      *string                        `pulumi:"lastUploadedDate"`
 	ProvisioningState     string                         `pulumi:"provisioningState"`
-}
-
-
-
-
-
-type PostgresInstancePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToPostgresInstancePropertiesResponseOutput() PostgresInstancePropertiesResponseOutput
-	ToPostgresInstancePropertiesResponseOutputWithContext(context.Context) PostgresInstancePropertiesResponseOutput
-}
-
-type PostgresInstancePropertiesResponseArgs struct {
-	Admin                 pulumi.StringPtrInput                 `pulumi:"admin"`
-	BasicLoginInformation BasicLoginInformationResponsePtrInput `pulumi:"basicLoginInformation"`
-	DataControllerId      pulumi.StringPtrInput                 `pulumi:"dataControllerId"`
-	K8sRaw                pulumi.Input                          `pulumi:"k8sRaw"`
-	LastUploadedDate      pulumi.StringPtrInput                 `pulumi:"lastUploadedDate"`
-	ProvisioningState     pulumi.StringInput                    `pulumi:"provisioningState"`
-}
-
-func (PostgresInstancePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstancePropertiesResponse)(nil)).Elem()
-}
-
-func (i PostgresInstancePropertiesResponseArgs) ToPostgresInstancePropertiesResponseOutput() PostgresInstancePropertiesResponseOutput {
-	return i.ToPostgresInstancePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i PostgresInstancePropertiesResponseArgs) ToPostgresInstancePropertiesResponseOutputWithContext(ctx context.Context) PostgresInstancePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstancePropertiesResponseOutput)
-}
-
-func (i PostgresInstancePropertiesResponseArgs) ToPostgresInstancePropertiesResponsePtrOutput() PostgresInstancePropertiesResponsePtrOutput {
-	return i.ToPostgresInstancePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PostgresInstancePropertiesResponseArgs) ToPostgresInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) PostgresInstancePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstancePropertiesResponseOutput).ToPostgresInstancePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PostgresInstancePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToPostgresInstancePropertiesResponsePtrOutput() PostgresInstancePropertiesResponsePtrOutput
-	ToPostgresInstancePropertiesResponsePtrOutputWithContext(context.Context) PostgresInstancePropertiesResponsePtrOutput
-}
-
-type postgresInstancePropertiesResponsePtrType PostgresInstancePropertiesResponseArgs
-
-func PostgresInstancePropertiesResponsePtr(v *PostgresInstancePropertiesResponseArgs) PostgresInstancePropertiesResponsePtrInput {
-	return (*postgresInstancePropertiesResponsePtrType)(v)
-}
-
-func (*postgresInstancePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresInstancePropertiesResponse)(nil)).Elem()
-}
-
-func (i *postgresInstancePropertiesResponsePtrType) ToPostgresInstancePropertiesResponsePtrOutput() PostgresInstancePropertiesResponsePtrOutput {
-	return i.ToPostgresInstancePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *postgresInstancePropertiesResponsePtrType) ToPostgresInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) PostgresInstancePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstancePropertiesResponsePtrOutput)
 }
 
 type PostgresInstancePropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -1978,16 +1158,6 @@ func (o PostgresInstancePropertiesResponseOutput) ToPostgresInstancePropertiesRe
 
 func (o PostgresInstancePropertiesResponseOutput) ToPostgresInstancePropertiesResponseOutputWithContext(ctx context.Context) PostgresInstancePropertiesResponseOutput {
 	return o
-}
-
-func (o PostgresInstancePropertiesResponseOutput) ToPostgresInstancePropertiesResponsePtrOutput() PostgresInstancePropertiesResponsePtrOutput {
-	return o.ToPostgresInstancePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PostgresInstancePropertiesResponseOutput) ToPostgresInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) PostgresInstancePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresInstancePropertiesResponse) *PostgresInstancePropertiesResponse {
-		return &v
-	}).(PostgresInstancePropertiesResponsePtrOutput)
 }
 
 func (o PostgresInstancePropertiesResponseOutput) Admin() pulumi.StringPtrOutput {
@@ -2016,84 +1186,6 @@ func (o PostgresInstancePropertiesResponseOutput) ProvisioningState() pulumi.Str
 	return o.ApplyT(func(v PostgresInstancePropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-type PostgresInstancePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PostgresInstancePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresInstancePropertiesResponse)(nil)).Elem()
-}
-
-func (o PostgresInstancePropertiesResponsePtrOutput) ToPostgresInstancePropertiesResponsePtrOutput() PostgresInstancePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o PostgresInstancePropertiesResponsePtrOutput) ToPostgresInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) PostgresInstancePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o PostgresInstancePropertiesResponsePtrOutput) Elem() PostgresInstancePropertiesResponseOutput {
-	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) PostgresInstancePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PostgresInstancePropertiesResponse
-		return ret
-	}).(PostgresInstancePropertiesResponseOutput)
-}
-
-func (o PostgresInstancePropertiesResponsePtrOutput) Admin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Admin
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PostgresInstancePropertiesResponsePtrOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
-	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) *BasicLoginInformationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.BasicLoginInformation
-	}).(BasicLoginInformationResponsePtrOutput)
-}
-
-func (o PostgresInstancePropertiesResponsePtrOutput) DataControllerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DataControllerId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PostgresInstancePropertiesResponsePtrOutput) K8sRaw() pulumi.AnyOutput {
-	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.K8sRaw
-	}).(pulumi.AnyOutput)
-}
-
-func (o PostgresInstancePropertiesResponsePtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastUploadedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PostgresInstancePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PostgresInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
 type PostgresInstanceSku struct {
 	Capacity *int                     `pulumi:"capacity"`
 	Dev      *bool                    `pulumi:"dev"`
@@ -2101,6 +1193,23 @@ type PostgresInstanceSku struct {
 	Name     string                   `pulumi:"name"`
 	Size     *string                  `pulumi:"size"`
 	Tier     *PostgresInstanceSkuTier `pulumi:"tier"`
+}
+
+
+func (val *PostgresInstanceSku) Defaults() *PostgresInstanceSku {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := PostgresInstanceSkuTier("Hyperscale")
+		tmp.Tier = &tier_
+	}
+	return &tmp
 }
 
 
@@ -2312,76 +1421,20 @@ type PostgresInstanceSkuResponse struct {
 }
 
 
-
-
-
-type PostgresInstanceSkuResponseInput interface {
-	pulumi.Input
-
-	ToPostgresInstanceSkuResponseOutput() PostgresInstanceSkuResponseOutput
-	ToPostgresInstanceSkuResponseOutputWithContext(context.Context) PostgresInstanceSkuResponseOutput
-}
-
-type PostgresInstanceSkuResponseArgs struct {
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Dev      pulumi.BoolPtrInput   `pulumi:"dev"`
-	Family   pulumi.StringPtrInput `pulumi:"family"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Size     pulumi.StringPtrInput `pulumi:"size"`
-	Tier     pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (PostgresInstanceSkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstanceSkuResponse)(nil)).Elem()
-}
-
-func (i PostgresInstanceSkuResponseArgs) ToPostgresInstanceSkuResponseOutput() PostgresInstanceSkuResponseOutput {
-	return i.ToPostgresInstanceSkuResponseOutputWithContext(context.Background())
-}
-
-func (i PostgresInstanceSkuResponseArgs) ToPostgresInstanceSkuResponseOutputWithContext(ctx context.Context) PostgresInstanceSkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstanceSkuResponseOutput)
-}
-
-func (i PostgresInstanceSkuResponseArgs) ToPostgresInstanceSkuResponsePtrOutput() PostgresInstanceSkuResponsePtrOutput {
-	return i.ToPostgresInstanceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PostgresInstanceSkuResponseArgs) ToPostgresInstanceSkuResponsePtrOutputWithContext(ctx context.Context) PostgresInstanceSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstanceSkuResponseOutput).ToPostgresInstanceSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PostgresInstanceSkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToPostgresInstanceSkuResponsePtrOutput() PostgresInstanceSkuResponsePtrOutput
-	ToPostgresInstanceSkuResponsePtrOutputWithContext(context.Context) PostgresInstanceSkuResponsePtrOutput
-}
-
-type postgresInstanceSkuResponsePtrType PostgresInstanceSkuResponseArgs
-
-func PostgresInstanceSkuResponsePtr(v *PostgresInstanceSkuResponseArgs) PostgresInstanceSkuResponsePtrInput {
-	return (*postgresInstanceSkuResponsePtrType)(v)
-}
-
-func (*postgresInstanceSkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PostgresInstanceSkuResponse)(nil)).Elem()
-}
-
-func (i *postgresInstanceSkuResponsePtrType) ToPostgresInstanceSkuResponsePtrOutput() PostgresInstanceSkuResponsePtrOutput {
-	return i.ToPostgresInstanceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *postgresInstanceSkuResponsePtrType) ToPostgresInstanceSkuResponsePtrOutputWithContext(ctx context.Context) PostgresInstanceSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PostgresInstanceSkuResponsePtrOutput)
+func (val *PostgresInstanceSkuResponse) Defaults() *PostgresInstanceSkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := "Hyperscale"
+		tmp.Tier = &tier_
+	}
+	return &tmp
 }
 
 type PostgresInstanceSkuResponseOutput struct{ *pulumi.OutputState }
@@ -2396,16 +1449,6 @@ func (o PostgresInstanceSkuResponseOutput) ToPostgresInstanceSkuResponseOutput()
 
 func (o PostgresInstanceSkuResponseOutput) ToPostgresInstanceSkuResponseOutputWithContext(ctx context.Context) PostgresInstanceSkuResponseOutput {
 	return o
-}
-
-func (o PostgresInstanceSkuResponseOutput) ToPostgresInstanceSkuResponsePtrOutput() PostgresInstanceSkuResponsePtrOutput {
-	return o.ToPostgresInstanceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PostgresInstanceSkuResponseOutput) ToPostgresInstanceSkuResponsePtrOutputWithContext(ctx context.Context) PostgresInstanceSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PostgresInstanceSkuResponse) *PostgresInstanceSkuResponse {
-		return &v
-	}).(PostgresInstanceSkuResponsePtrOutput)
 }
 
 func (o PostgresInstanceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
@@ -2522,6 +1565,19 @@ type SqlManagedInstanceProperties struct {
 }
 
 
+func (val *SqlManagedInstanceProperties) Defaults() *SqlManagedInstanceProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LicenseType) {
+		licenseType_ := LicenseType("BasePrice")
+		tmp.LicenseType = &licenseType_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2555,47 +1611,6 @@ func (i SqlManagedInstancePropertiesArgs) ToSqlManagedInstancePropertiesOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstancePropertiesOutput)
 }
 
-func (i SqlManagedInstancePropertiesArgs) ToSqlManagedInstancePropertiesPtrOutput() SqlManagedInstancePropertiesPtrOutput {
-	return i.ToSqlManagedInstancePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SqlManagedInstancePropertiesArgs) ToSqlManagedInstancePropertiesPtrOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstancePropertiesOutput).ToSqlManagedInstancePropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SqlManagedInstancePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSqlManagedInstancePropertiesPtrOutput() SqlManagedInstancePropertiesPtrOutput
-	ToSqlManagedInstancePropertiesPtrOutputWithContext(context.Context) SqlManagedInstancePropertiesPtrOutput
-}
-
-type sqlManagedInstancePropertiesPtrType SqlManagedInstancePropertiesArgs
-
-func SqlManagedInstancePropertiesPtr(v *SqlManagedInstancePropertiesArgs) SqlManagedInstancePropertiesPtrInput {
-	return (*sqlManagedInstancePropertiesPtrType)(v)
-}
-
-func (*sqlManagedInstancePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlManagedInstanceProperties)(nil)).Elem()
-}
-
-func (i *sqlManagedInstancePropertiesPtrType) ToSqlManagedInstancePropertiesPtrOutput() SqlManagedInstancePropertiesPtrOutput {
-	return i.ToSqlManagedInstancePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *sqlManagedInstancePropertiesPtrType) ToSqlManagedInstancePropertiesPtrOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstancePropertiesPtrOutput)
-}
-
 type SqlManagedInstancePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SqlManagedInstancePropertiesOutput) ElementType() reflect.Type {
@@ -2608,16 +1623,6 @@ func (o SqlManagedInstancePropertiesOutput) ToSqlManagedInstancePropertiesOutput
 
 func (o SqlManagedInstancePropertiesOutput) ToSqlManagedInstancePropertiesOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesOutput {
 	return o
-}
-
-func (o SqlManagedInstancePropertiesOutput) ToSqlManagedInstancePropertiesPtrOutput() SqlManagedInstancePropertiesPtrOutput {
-	return o.ToSqlManagedInstancePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SqlManagedInstancePropertiesOutput) ToSqlManagedInstancePropertiesPtrOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlManagedInstanceProperties) *SqlManagedInstanceProperties {
-		return &v
-	}).(SqlManagedInstancePropertiesPtrOutput)
 }
 
 func (o SqlManagedInstancePropertiesOutput) Admin() pulumi.StringPtrOutput {
@@ -2652,102 +1657,6 @@ func (o SqlManagedInstancePropertiesOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlManagedInstanceProperties) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-type SqlManagedInstancePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SqlManagedInstancePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlManagedInstanceProperties)(nil)).Elem()
-}
-
-func (o SqlManagedInstancePropertiesPtrOutput) ToSqlManagedInstancePropertiesPtrOutput() SqlManagedInstancePropertiesPtrOutput {
-	return o
-}
-
-func (o SqlManagedInstancePropertiesPtrOutput) ToSqlManagedInstancePropertiesPtrOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesPtrOutput {
-	return o
-}
-
-func (o SqlManagedInstancePropertiesPtrOutput) Elem() SqlManagedInstancePropertiesOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceProperties) SqlManagedInstanceProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SqlManagedInstanceProperties
-		return ret
-	}).(SqlManagedInstancePropertiesOutput)
-}
-
-func (o SqlManagedInstancePropertiesPtrOutput) Admin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Admin
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesPtrOutput) BasicLoginInformation() BasicLoginInformationPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceProperties) *BasicLoginInformation {
-		if v == nil {
-			return nil
-		}
-		return v.BasicLoginInformation
-	}).(BasicLoginInformationPtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesPtrOutput) DataControllerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DataControllerId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesPtrOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesPtrOutput) K8sRaw() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceProperties) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.K8sRaw
-	}).(pulumi.AnyOutput)
-}
-
-func (o SqlManagedInstancePropertiesPtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastUploadedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesPtrOutput) LicenseType() LicenseTypePtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceProperties) *LicenseType {
-		if v == nil {
-			return nil
-		}
-		return v.LicenseType
-	}).(LicenseTypePtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesPtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstanceProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartTime
-	}).(pulumi.StringPtrOutput)
-}
-
 type SqlManagedInstancePropertiesResponse struct {
 	Admin                 *string                        `pulumi:"admin"`
 	BasicLoginInformation *BasicLoginInformationResponse `pulumi:"basicLoginInformation"`
@@ -2761,79 +1670,16 @@ type SqlManagedInstancePropertiesResponse struct {
 }
 
 
-
-
-
-type SqlManagedInstancePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSqlManagedInstancePropertiesResponseOutput() SqlManagedInstancePropertiesResponseOutput
-	ToSqlManagedInstancePropertiesResponseOutputWithContext(context.Context) SqlManagedInstancePropertiesResponseOutput
-}
-
-type SqlManagedInstancePropertiesResponseArgs struct {
-	Admin                 pulumi.StringPtrInput                 `pulumi:"admin"`
-	BasicLoginInformation BasicLoginInformationResponsePtrInput `pulumi:"basicLoginInformation"`
-	DataControllerId      pulumi.StringPtrInput                 `pulumi:"dataControllerId"`
-	EndTime               pulumi.StringPtrInput                 `pulumi:"endTime"`
-	K8sRaw                pulumi.Input                          `pulumi:"k8sRaw"`
-	LastUploadedDate      pulumi.StringPtrInput                 `pulumi:"lastUploadedDate"`
-	LicenseType           pulumi.StringPtrInput                 `pulumi:"licenseType"`
-	ProvisioningState     pulumi.StringInput                    `pulumi:"provisioningState"`
-	StartTime             pulumi.StringPtrInput                 `pulumi:"startTime"`
-}
-
-func (SqlManagedInstancePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlManagedInstancePropertiesResponse)(nil)).Elem()
-}
-
-func (i SqlManagedInstancePropertiesResponseArgs) ToSqlManagedInstancePropertiesResponseOutput() SqlManagedInstancePropertiesResponseOutput {
-	return i.ToSqlManagedInstancePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SqlManagedInstancePropertiesResponseArgs) ToSqlManagedInstancePropertiesResponseOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstancePropertiesResponseOutput)
-}
-
-func (i SqlManagedInstancePropertiesResponseArgs) ToSqlManagedInstancePropertiesResponsePtrOutput() SqlManagedInstancePropertiesResponsePtrOutput {
-	return i.ToSqlManagedInstancePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SqlManagedInstancePropertiesResponseArgs) ToSqlManagedInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstancePropertiesResponseOutput).ToSqlManagedInstancePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SqlManagedInstancePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSqlManagedInstancePropertiesResponsePtrOutput() SqlManagedInstancePropertiesResponsePtrOutput
-	ToSqlManagedInstancePropertiesResponsePtrOutputWithContext(context.Context) SqlManagedInstancePropertiesResponsePtrOutput
-}
-
-type sqlManagedInstancePropertiesResponsePtrType SqlManagedInstancePropertiesResponseArgs
-
-func SqlManagedInstancePropertiesResponsePtr(v *SqlManagedInstancePropertiesResponseArgs) SqlManagedInstancePropertiesResponsePtrInput {
-	return (*sqlManagedInstancePropertiesResponsePtrType)(v)
-}
-
-func (*sqlManagedInstancePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlManagedInstancePropertiesResponse)(nil)).Elem()
-}
-
-func (i *sqlManagedInstancePropertiesResponsePtrType) ToSqlManagedInstancePropertiesResponsePtrOutput() SqlManagedInstancePropertiesResponsePtrOutput {
-	return i.ToSqlManagedInstancePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sqlManagedInstancePropertiesResponsePtrType) ToSqlManagedInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstancePropertiesResponsePtrOutput)
+func (val *SqlManagedInstancePropertiesResponse) Defaults() *SqlManagedInstancePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LicenseType) {
+		licenseType_ := "BasePrice"
+		tmp.LicenseType = &licenseType_
+	}
+	return &tmp
 }
 
 type SqlManagedInstancePropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -2848,16 +1694,6 @@ func (o SqlManagedInstancePropertiesResponseOutput) ToSqlManagedInstanceProperti
 
 func (o SqlManagedInstancePropertiesResponseOutput) ToSqlManagedInstancePropertiesResponseOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesResponseOutput {
 	return o
-}
-
-func (o SqlManagedInstancePropertiesResponseOutput) ToSqlManagedInstancePropertiesResponsePtrOutput() SqlManagedInstancePropertiesResponsePtrOutput {
-	return o.ToSqlManagedInstancePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SqlManagedInstancePropertiesResponseOutput) ToSqlManagedInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlManagedInstancePropertiesResponse) *SqlManagedInstancePropertiesResponse {
-		return &v
-	}).(SqlManagedInstancePropertiesResponsePtrOutput)
 }
 
 func (o SqlManagedInstancePropertiesResponseOutput) Admin() pulumi.StringPtrOutput {
@@ -2898,111 +1734,6 @@ func (o SqlManagedInstancePropertiesResponseOutput) StartTime() pulumi.StringPtr
 	return o.ApplyT(func(v SqlManagedInstancePropertiesResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-type SqlManagedInstancePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SqlManagedInstancePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlManagedInstancePropertiesResponse)(nil)).Elem()
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) ToSqlManagedInstancePropertiesResponsePtrOutput() SqlManagedInstancePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) ToSqlManagedInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) SqlManagedInstancePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) Elem() SqlManagedInstancePropertiesResponseOutput {
-	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) SqlManagedInstancePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SqlManagedInstancePropertiesResponse
-		return ret
-	}).(SqlManagedInstancePropertiesResponseOutput)
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) Admin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Admin
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) BasicLoginInformation() BasicLoginInformationResponsePtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *BasicLoginInformationResponse {
-		if v == nil {
-			return nil
-		}
-		return v.BasicLoginInformation
-	}).(BasicLoginInformationResponsePtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) DataControllerId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DataControllerId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) K8sRaw() pulumi.AnyOutput {
-	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.K8sRaw
-	}).(pulumi.AnyOutput)
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) LastUploadedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastUploadedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LicenseType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlManagedInstancePropertiesResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlManagedInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartTime
-	}).(pulumi.StringPtrOutput)
-}
-
 type SqlManagedInstanceSku struct {
 	Capacity *int                       `pulumi:"capacity"`
 	Dev      *bool                      `pulumi:"dev"`
@@ -3010,6 +1741,23 @@ type SqlManagedInstanceSku struct {
 	Name     string                     `pulumi:"name"`
 	Size     *string                    `pulumi:"size"`
 	Tier     *SqlManagedInstanceSkuTier `pulumi:"tier"`
+}
+
+
+func (val *SqlManagedInstanceSku) Defaults() *SqlManagedInstanceSku {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := SqlManagedInstanceSkuTier("GeneralPurpose")
+		tmp.Tier = &tier_
+	}
+	return &tmp
 }
 
 
@@ -3221,76 +1969,20 @@ type SqlManagedInstanceSkuResponse struct {
 }
 
 
-
-
-
-type SqlManagedInstanceSkuResponseInput interface {
-	pulumi.Input
-
-	ToSqlManagedInstanceSkuResponseOutput() SqlManagedInstanceSkuResponseOutput
-	ToSqlManagedInstanceSkuResponseOutputWithContext(context.Context) SqlManagedInstanceSkuResponseOutput
-}
-
-type SqlManagedInstanceSkuResponseArgs struct {
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Dev      pulumi.BoolPtrInput   `pulumi:"dev"`
-	Family   pulumi.StringPtrInput `pulumi:"family"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Size     pulumi.StringPtrInput `pulumi:"size"`
-	Tier     pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (SqlManagedInstanceSkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlManagedInstanceSkuResponse)(nil)).Elem()
-}
-
-func (i SqlManagedInstanceSkuResponseArgs) ToSqlManagedInstanceSkuResponseOutput() SqlManagedInstanceSkuResponseOutput {
-	return i.ToSqlManagedInstanceSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SqlManagedInstanceSkuResponseArgs) ToSqlManagedInstanceSkuResponseOutputWithContext(ctx context.Context) SqlManagedInstanceSkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceSkuResponseOutput)
-}
-
-func (i SqlManagedInstanceSkuResponseArgs) ToSqlManagedInstanceSkuResponsePtrOutput() SqlManagedInstanceSkuResponsePtrOutput {
-	return i.ToSqlManagedInstanceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SqlManagedInstanceSkuResponseArgs) ToSqlManagedInstanceSkuResponsePtrOutputWithContext(ctx context.Context) SqlManagedInstanceSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceSkuResponseOutput).ToSqlManagedInstanceSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SqlManagedInstanceSkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSqlManagedInstanceSkuResponsePtrOutput() SqlManagedInstanceSkuResponsePtrOutput
-	ToSqlManagedInstanceSkuResponsePtrOutputWithContext(context.Context) SqlManagedInstanceSkuResponsePtrOutput
-}
-
-type sqlManagedInstanceSkuResponsePtrType SqlManagedInstanceSkuResponseArgs
-
-func SqlManagedInstanceSkuResponsePtr(v *SqlManagedInstanceSkuResponseArgs) SqlManagedInstanceSkuResponsePtrInput {
-	return (*sqlManagedInstanceSkuResponsePtrType)(v)
-}
-
-func (*sqlManagedInstanceSkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlManagedInstanceSkuResponse)(nil)).Elem()
-}
-
-func (i *sqlManagedInstanceSkuResponsePtrType) ToSqlManagedInstanceSkuResponsePtrOutput() SqlManagedInstanceSkuResponsePtrOutput {
-	return i.ToSqlManagedInstanceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sqlManagedInstanceSkuResponsePtrType) ToSqlManagedInstanceSkuResponsePtrOutputWithContext(ctx context.Context) SqlManagedInstanceSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlManagedInstanceSkuResponsePtrOutput)
+func (val *SqlManagedInstanceSkuResponse) Defaults() *SqlManagedInstanceSkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := "GeneralPurpose"
+		tmp.Tier = &tier_
+	}
+	return &tmp
 }
 
 type SqlManagedInstanceSkuResponseOutput struct{ *pulumi.OutputState }
@@ -3305,16 +1997,6 @@ func (o SqlManagedInstanceSkuResponseOutput) ToSqlManagedInstanceSkuResponseOutp
 
 func (o SqlManagedInstanceSkuResponseOutput) ToSqlManagedInstanceSkuResponseOutputWithContext(ctx context.Context) SqlManagedInstanceSkuResponseOutput {
 	return o
-}
-
-func (o SqlManagedInstanceSkuResponseOutput) ToSqlManagedInstanceSkuResponsePtrOutput() SqlManagedInstanceSkuResponsePtrOutput {
-	return o.ToSqlManagedInstanceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SqlManagedInstanceSkuResponseOutput) ToSqlManagedInstanceSkuResponsePtrOutputWithContext(ctx context.Context) SqlManagedInstanceSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlManagedInstanceSkuResponse) *SqlManagedInstanceSkuResponse {
-		return &v
-	}).(SqlManagedInstanceSkuResponsePtrOutput)
 }
 
 func (o SqlManagedInstanceSkuResponseOutput) Capacity() pulumi.IntPtrOutput {
@@ -3782,90 +2464,6 @@ type SqlServerInstancePropertiesResponse struct {
 	Version                        *string `pulumi:"version"`
 }
 
-
-
-
-
-type SqlServerInstancePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSqlServerInstancePropertiesResponseOutput() SqlServerInstancePropertiesResponseOutput
-	ToSqlServerInstancePropertiesResponseOutputWithContext(context.Context) SqlServerInstancePropertiesResponseOutput
-}
-
-type SqlServerInstancePropertiesResponseArgs struct {
-	AzureDefenderStatus            pulumi.StringPtrInput `pulumi:"azureDefenderStatus"`
-	AzureDefenderStatusLastUpdated pulumi.StringPtrInput `pulumi:"azureDefenderStatusLastUpdated"`
-	Collation                      pulumi.StringPtrInput `pulumi:"collation"`
-	ContainerResourceId            pulumi.StringInput    `pulumi:"containerResourceId"`
-	CreateTime                     pulumi.StringInput    `pulumi:"createTime"`
-	CurrentVersion                 pulumi.StringPtrInput `pulumi:"currentVersion"`
-	Edition                        pulumi.StringPtrInput `pulumi:"edition"`
-	InstanceName                   pulumi.StringPtrInput `pulumi:"instanceName"`
-	LicenseType                    pulumi.StringPtrInput `pulumi:"licenseType"`
-	PatchLevel                     pulumi.StringPtrInput `pulumi:"patchLevel"`
-	ProductId                      pulumi.StringPtrInput `pulumi:"productId"`
-	ProvisioningState              pulumi.StringInput    `pulumi:"provisioningState"`
-	Status                         pulumi.StringInput    `pulumi:"status"`
-	TcpDynamicPorts                pulumi.StringPtrInput `pulumi:"tcpDynamicPorts"`
-	TcpStaticPorts                 pulumi.StringPtrInput `pulumi:"tcpStaticPorts"`
-	VCore                          pulumi.StringPtrInput `pulumi:"vCore"`
-	Version                        pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (SqlServerInstancePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerInstancePropertiesResponse)(nil)).Elem()
-}
-
-func (i SqlServerInstancePropertiesResponseArgs) ToSqlServerInstancePropertiesResponseOutput() SqlServerInstancePropertiesResponseOutput {
-	return i.ToSqlServerInstancePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SqlServerInstancePropertiesResponseArgs) ToSqlServerInstancePropertiesResponseOutputWithContext(ctx context.Context) SqlServerInstancePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlServerInstancePropertiesResponseOutput)
-}
-
-func (i SqlServerInstancePropertiesResponseArgs) ToSqlServerInstancePropertiesResponsePtrOutput() SqlServerInstancePropertiesResponsePtrOutput {
-	return i.ToSqlServerInstancePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SqlServerInstancePropertiesResponseArgs) ToSqlServerInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) SqlServerInstancePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlServerInstancePropertiesResponseOutput).ToSqlServerInstancePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SqlServerInstancePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSqlServerInstancePropertiesResponsePtrOutput() SqlServerInstancePropertiesResponsePtrOutput
-	ToSqlServerInstancePropertiesResponsePtrOutputWithContext(context.Context) SqlServerInstancePropertiesResponsePtrOutput
-}
-
-type sqlServerInstancePropertiesResponsePtrType SqlServerInstancePropertiesResponseArgs
-
-func SqlServerInstancePropertiesResponsePtr(v *SqlServerInstancePropertiesResponseArgs) SqlServerInstancePropertiesResponsePtrInput {
-	return (*sqlServerInstancePropertiesResponsePtrType)(v)
-}
-
-func (*sqlServerInstancePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlServerInstancePropertiesResponse)(nil)).Elem()
-}
-
-func (i *sqlServerInstancePropertiesResponsePtrType) ToSqlServerInstancePropertiesResponsePtrOutput() SqlServerInstancePropertiesResponsePtrOutput {
-	return i.ToSqlServerInstancePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sqlServerInstancePropertiesResponsePtrType) ToSqlServerInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) SqlServerInstancePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlServerInstancePropertiesResponsePtrOutput)
-}
-
 type SqlServerInstancePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlServerInstancePropertiesResponseOutput) ElementType() reflect.Type {
@@ -3878,16 +2476,6 @@ func (o SqlServerInstancePropertiesResponseOutput) ToSqlServerInstanceProperties
 
 func (o SqlServerInstancePropertiesResponseOutput) ToSqlServerInstancePropertiesResponseOutputWithContext(ctx context.Context) SqlServerInstancePropertiesResponseOutput {
 	return o
-}
-
-func (o SqlServerInstancePropertiesResponseOutput) ToSqlServerInstancePropertiesResponsePtrOutput() SqlServerInstancePropertiesResponsePtrOutput {
-	return o.ToSqlServerInstancePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SqlServerInstancePropertiesResponseOutput) ToSqlServerInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) SqlServerInstancePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlServerInstancePropertiesResponse) *SqlServerInstancePropertiesResponse {
-		return &v
-	}).(SqlServerInstancePropertiesResponsePtrOutput)
 }
 
 func (o SqlServerInstancePropertiesResponseOutput) AzureDefenderStatus() pulumi.StringPtrOutput {
@@ -3958,183 +2546,6 @@ func (o SqlServerInstancePropertiesResponseOutput) Version() pulumi.StringPtrOut
 	return o.ApplyT(func(v SqlServerInstancePropertiesResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
 
-type SqlServerInstancePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SqlServerInstancePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlServerInstancePropertiesResponse)(nil)).Elem()
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) ToSqlServerInstancePropertiesResponsePtrOutput() SqlServerInstancePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) ToSqlServerInstancePropertiesResponsePtrOutputWithContext(ctx context.Context) SqlServerInstancePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) Elem() SqlServerInstancePropertiesResponseOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) SqlServerInstancePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SqlServerInstancePropertiesResponse
-		return ret
-	}).(SqlServerInstancePropertiesResponseOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) AzureDefenderStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureDefenderStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) AzureDefenderStatusLastUpdated() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureDefenderStatusLastUpdated
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) Collation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Collation
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) ContainerResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ContainerResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) CreateTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreateTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) CurrentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CurrentVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) Edition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Edition
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) InstanceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) LicenseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LicenseType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) PatchLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PatchLevel
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) ProductId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProductId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) TcpDynamicPorts() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TcpDynamicPorts
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) TcpStaticPorts() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TcpStaticPorts
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) VCore() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VCore
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SqlServerInstancePropertiesResponsePtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlServerInstancePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
 type SystemDataResponse struct {
 	CreatedAt          *string `pulumi:"createdAt"`
 	CreatedBy          *string `pulumi:"createdBy"`
@@ -4142,79 +2553,6 @@ type SystemDataResponse struct {
 	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
 	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-}
-
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
 }
 
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
@@ -4229,16 +2567,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -4263,84 +2591,6 @@ func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
-}
-
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
 }
 
 type UploadServicePrincipal struct {
@@ -4527,76 +2777,6 @@ type UploadServicePrincipalResponse struct {
 	TenantId  *string `pulumi:"tenantId"`
 }
 
-
-
-
-
-type UploadServicePrincipalResponseInput interface {
-	pulumi.Input
-
-	ToUploadServicePrincipalResponseOutput() UploadServicePrincipalResponseOutput
-	ToUploadServicePrincipalResponseOutputWithContext(context.Context) UploadServicePrincipalResponseOutput
-}
-
-type UploadServicePrincipalResponseArgs struct {
-	Authority pulumi.StringPtrInput `pulumi:"authority"`
-	ClientId  pulumi.StringPtrInput `pulumi:"clientId"`
-	TenantId  pulumi.StringPtrInput `pulumi:"tenantId"`
-}
-
-func (UploadServicePrincipalResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UploadServicePrincipalResponse)(nil)).Elem()
-}
-
-func (i UploadServicePrincipalResponseArgs) ToUploadServicePrincipalResponseOutput() UploadServicePrincipalResponseOutput {
-	return i.ToUploadServicePrincipalResponseOutputWithContext(context.Background())
-}
-
-func (i UploadServicePrincipalResponseArgs) ToUploadServicePrincipalResponseOutputWithContext(ctx context.Context) UploadServicePrincipalResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UploadServicePrincipalResponseOutput)
-}
-
-func (i UploadServicePrincipalResponseArgs) ToUploadServicePrincipalResponsePtrOutput() UploadServicePrincipalResponsePtrOutput {
-	return i.ToUploadServicePrincipalResponsePtrOutputWithContext(context.Background())
-}
-
-func (i UploadServicePrincipalResponseArgs) ToUploadServicePrincipalResponsePtrOutputWithContext(ctx context.Context) UploadServicePrincipalResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UploadServicePrincipalResponseOutput).ToUploadServicePrincipalResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type UploadServicePrincipalResponsePtrInput interface {
-	pulumi.Input
-
-	ToUploadServicePrincipalResponsePtrOutput() UploadServicePrincipalResponsePtrOutput
-	ToUploadServicePrincipalResponsePtrOutputWithContext(context.Context) UploadServicePrincipalResponsePtrOutput
-}
-
-type uploadServicePrincipalResponsePtrType UploadServicePrincipalResponseArgs
-
-func UploadServicePrincipalResponsePtr(v *UploadServicePrincipalResponseArgs) UploadServicePrincipalResponsePtrInput {
-	return (*uploadServicePrincipalResponsePtrType)(v)
-}
-
-func (*uploadServicePrincipalResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UploadServicePrincipalResponse)(nil)).Elem()
-}
-
-func (i *uploadServicePrincipalResponsePtrType) ToUploadServicePrincipalResponsePtrOutput() UploadServicePrincipalResponsePtrOutput {
-	return i.ToUploadServicePrincipalResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *uploadServicePrincipalResponsePtrType) ToUploadServicePrincipalResponsePtrOutputWithContext(ctx context.Context) UploadServicePrincipalResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UploadServicePrincipalResponsePtrOutput)
-}
-
 type UploadServicePrincipalResponseOutput struct{ *pulumi.OutputState }
 
 func (UploadServicePrincipalResponseOutput) ElementType() reflect.Type {
@@ -4609,16 +2789,6 @@ func (o UploadServicePrincipalResponseOutput) ToUploadServicePrincipalResponseOu
 
 func (o UploadServicePrincipalResponseOutput) ToUploadServicePrincipalResponseOutputWithContext(ctx context.Context) UploadServicePrincipalResponseOutput {
 	return o
-}
-
-func (o UploadServicePrincipalResponseOutput) ToUploadServicePrincipalResponsePtrOutput() UploadServicePrincipalResponsePtrOutput {
-	return o.ToUploadServicePrincipalResponsePtrOutputWithContext(context.Background())
-}
-
-func (o UploadServicePrincipalResponseOutput) ToUploadServicePrincipalResponsePtrOutputWithContext(ctx context.Context) UploadServicePrincipalResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UploadServicePrincipalResponse) *UploadServicePrincipalResponse {
-		return &v
-	}).(UploadServicePrincipalResponsePtrOutput)
 }
 
 func (o UploadServicePrincipalResponseOutput) Authority() pulumi.StringPtrOutput {
@@ -4853,76 +3023,6 @@ type UploadWatermarkResponse struct {
 	Usages  *string `pulumi:"usages"`
 }
 
-
-
-
-
-type UploadWatermarkResponseInput interface {
-	pulumi.Input
-
-	ToUploadWatermarkResponseOutput() UploadWatermarkResponseOutput
-	ToUploadWatermarkResponseOutputWithContext(context.Context) UploadWatermarkResponseOutput
-}
-
-type UploadWatermarkResponseArgs struct {
-	Logs    pulumi.StringPtrInput `pulumi:"logs"`
-	Metrics pulumi.StringPtrInput `pulumi:"metrics"`
-	Usages  pulumi.StringPtrInput `pulumi:"usages"`
-}
-
-func (UploadWatermarkResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UploadWatermarkResponse)(nil)).Elem()
-}
-
-func (i UploadWatermarkResponseArgs) ToUploadWatermarkResponseOutput() UploadWatermarkResponseOutput {
-	return i.ToUploadWatermarkResponseOutputWithContext(context.Background())
-}
-
-func (i UploadWatermarkResponseArgs) ToUploadWatermarkResponseOutputWithContext(ctx context.Context) UploadWatermarkResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UploadWatermarkResponseOutput)
-}
-
-func (i UploadWatermarkResponseArgs) ToUploadWatermarkResponsePtrOutput() UploadWatermarkResponsePtrOutput {
-	return i.ToUploadWatermarkResponsePtrOutputWithContext(context.Background())
-}
-
-func (i UploadWatermarkResponseArgs) ToUploadWatermarkResponsePtrOutputWithContext(ctx context.Context) UploadWatermarkResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UploadWatermarkResponseOutput).ToUploadWatermarkResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type UploadWatermarkResponsePtrInput interface {
-	pulumi.Input
-
-	ToUploadWatermarkResponsePtrOutput() UploadWatermarkResponsePtrOutput
-	ToUploadWatermarkResponsePtrOutputWithContext(context.Context) UploadWatermarkResponsePtrOutput
-}
-
-type uploadWatermarkResponsePtrType UploadWatermarkResponseArgs
-
-func UploadWatermarkResponsePtr(v *UploadWatermarkResponseArgs) UploadWatermarkResponsePtrInput {
-	return (*uploadWatermarkResponsePtrType)(v)
-}
-
-func (*uploadWatermarkResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UploadWatermarkResponse)(nil)).Elem()
-}
-
-func (i *uploadWatermarkResponsePtrType) ToUploadWatermarkResponsePtrOutput() UploadWatermarkResponsePtrOutput {
-	return i.ToUploadWatermarkResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *uploadWatermarkResponsePtrType) ToUploadWatermarkResponsePtrOutputWithContext(ctx context.Context) UploadWatermarkResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UploadWatermarkResponsePtrOutput)
-}
-
 type UploadWatermarkResponseOutput struct{ *pulumi.OutputState }
 
 func (UploadWatermarkResponseOutput) ElementType() reflect.Type {
@@ -4935,16 +3035,6 @@ func (o UploadWatermarkResponseOutput) ToUploadWatermarkResponseOutput() UploadW
 
 func (o UploadWatermarkResponseOutput) ToUploadWatermarkResponseOutputWithContext(ctx context.Context) UploadWatermarkResponseOutput {
 	return o
-}
-
-func (o UploadWatermarkResponseOutput) ToUploadWatermarkResponsePtrOutput() UploadWatermarkResponsePtrOutput {
-	return o.ToUploadWatermarkResponsePtrOutputWithContext(context.Background())
-}
-
-func (o UploadWatermarkResponseOutput) ToUploadWatermarkResponsePtrOutputWithContext(ctx context.Context) UploadWatermarkResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UploadWatermarkResponse) *UploadWatermarkResponse {
-		return &v
-	}).(UploadWatermarkResponsePtrOutput)
 }
 
 func (o UploadWatermarkResponseOutput) Logs() pulumi.StringPtrOutput {
@@ -5016,9 +3106,7 @@ func init() {
 	pulumi.RegisterOutputType(BasicLoginInformationResponseOutput{})
 	pulumi.RegisterOutputType(BasicLoginInformationResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataControllerPropertiesOutput{})
-	pulumi.RegisterOutputType(DataControllerPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataControllerPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(DataControllerPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})
@@ -5032,17 +3120,13 @@ func init() {
 	pulumi.RegisterOutputType(OnPremisePropertyResponseOutput{})
 	pulumi.RegisterOutputType(OnPremisePropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(PostgresInstancePropertiesOutput{})
-	pulumi.RegisterOutputType(PostgresInstancePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PostgresInstancePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(PostgresInstancePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PostgresInstanceSkuOutput{})
 	pulumi.RegisterOutputType(PostgresInstanceSkuPtrOutput{})
 	pulumi.RegisterOutputType(PostgresInstanceSkuResponseOutput{})
 	pulumi.RegisterOutputType(PostgresInstanceSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlManagedInstancePropertiesOutput{})
-	pulumi.RegisterOutputType(SqlManagedInstancePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SqlManagedInstancePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SqlManagedInstancePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SqlManagedInstanceSkuOutput{})
 	pulumi.RegisterOutputType(SqlManagedInstanceSkuPtrOutput{})
 	pulumi.RegisterOutputType(SqlManagedInstanceSkuResponseOutput{})
@@ -5050,9 +3134,7 @@ func init() {
 	pulumi.RegisterOutputType(SqlServerInstancePropertiesOutput{})
 	pulumi.RegisterOutputType(SqlServerInstancePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SqlServerInstancePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SqlServerInstancePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UploadServicePrincipalOutput{})
 	pulumi.RegisterOutputType(UploadServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(UploadServicePrincipalResponseOutput{})

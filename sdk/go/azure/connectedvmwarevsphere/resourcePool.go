@@ -121,7 +121,7 @@ type ResourcePoolInput interface {
 }
 
 func (*ResourcePool) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourcePool)(nil))
+	return reflect.TypeOf((**ResourcePool)(nil)).Elem()
 }
 
 func (i *ResourcePool) ToResourcePoolOutput() ResourcePoolOutput {
@@ -135,7 +135,7 @@ func (i *ResourcePool) ToResourcePoolOutputWithContext(ctx context.Context) Reso
 type ResourcePoolOutput struct{ *pulumi.OutputState }
 
 func (ResourcePoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourcePool)(nil))
+	return reflect.TypeOf((**ResourcePool)(nil)).Elem()
 }
 
 func (o ResourcePoolOutput) ToResourcePoolOutput() ResourcePoolOutput {

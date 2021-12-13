@@ -243,7 +243,7 @@ type LoadBalancerInput interface {
 }
 
 func (*LoadBalancer) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancer)(nil))
+	return reflect.TypeOf((**LoadBalancer)(nil)).Elem()
 }
 
 func (i *LoadBalancer) ToLoadBalancerOutput() LoadBalancerOutput {
@@ -257,7 +257,7 @@ func (i *LoadBalancer) ToLoadBalancerOutputWithContext(ctx context.Context) Load
 type LoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancer)(nil))
+	return reflect.TypeOf((**LoadBalancer)(nil)).Elem()
 }
 
 func (o LoadBalancerOutput) ToLoadBalancerOutput() LoadBalancerOutput {

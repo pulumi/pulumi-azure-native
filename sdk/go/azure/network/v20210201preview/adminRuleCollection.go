@@ -110,7 +110,7 @@ type AdminRuleCollectionInput interface {
 }
 
 func (*AdminRuleCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminRuleCollection)(nil))
+	return reflect.TypeOf((**AdminRuleCollection)(nil)).Elem()
 }
 
 func (i *AdminRuleCollection) ToAdminRuleCollectionOutput() AdminRuleCollectionOutput {
@@ -124,7 +124,7 @@ func (i *AdminRuleCollection) ToAdminRuleCollectionOutputWithContext(ctx context
 type AdminRuleCollectionOutput struct{ *pulumi.OutputState }
 
 func (AdminRuleCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdminRuleCollection)(nil))
+	return reflect.TypeOf((**AdminRuleCollection)(nil)).Elem()
 }
 
 func (o AdminRuleCollectionOutput) ToAdminRuleCollectionOutput() AdminRuleCollectionOutput {

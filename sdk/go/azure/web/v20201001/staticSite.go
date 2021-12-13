@@ -136,7 +136,7 @@ type StaticSiteInput interface {
 }
 
 func (*StaticSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSite)(nil))
+	return reflect.TypeOf((**StaticSite)(nil)).Elem()
 }
 
 func (i *StaticSite) ToStaticSiteOutput() StaticSiteOutput {
@@ -150,7 +150,7 @@ func (i *StaticSite) ToStaticSiteOutputWithContext(ctx context.Context) StaticSi
 type StaticSiteOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSite)(nil))
+	return reflect.TypeOf((**StaticSite)(nil)).Elem()
 }
 
 func (o StaticSiteOutput) ToStaticSiteOutput() StaticSiteOutput {

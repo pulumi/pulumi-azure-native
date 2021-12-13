@@ -113,7 +113,7 @@ type EnterprisePolicyInput interface {
 }
 
 func (*EnterprisePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicy)(nil))
+	return reflect.TypeOf((**EnterprisePolicy)(nil)).Elem()
 }
 
 func (i *EnterprisePolicy) ToEnterprisePolicyOutput() EnterprisePolicyOutput {
@@ -127,7 +127,7 @@ func (i *EnterprisePolicy) ToEnterprisePolicyOutputWithContext(ctx context.Conte
 type EnterprisePolicyOutput struct{ *pulumi.OutputState }
 
 func (EnterprisePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicy)(nil))
+	return reflect.TypeOf((**EnterprisePolicy)(nil)).Elem()
 }
 
 func (o EnterprisePolicyOutput) ToEnterprisePolicyOutput() EnterprisePolicyOutput {

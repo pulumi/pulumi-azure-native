@@ -40,7 +40,7 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Enabled == nil {
+	if isZero(args.Enabled) {
 		args.Enabled = pulumi.BoolPtr(true)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -127,7 +127,7 @@ type AutoscaleSettingInput interface {
 }
 
 func (*AutoscaleSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleSetting)(nil))
+	return reflect.TypeOf((**AutoscaleSetting)(nil)).Elem()
 }
 
 func (i *AutoscaleSetting) ToAutoscaleSettingOutput() AutoscaleSettingOutput {
@@ -141,7 +141,7 @@ func (i *AutoscaleSetting) ToAutoscaleSettingOutputWithContext(ctx context.Conte
 type AutoscaleSettingOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoscaleSetting)(nil))
+	return reflect.TypeOf((**AutoscaleSetting)(nil)).Elem()
 }
 
 func (o AutoscaleSettingOutput) ToAutoscaleSettingOutput() AutoscaleSettingOutput {

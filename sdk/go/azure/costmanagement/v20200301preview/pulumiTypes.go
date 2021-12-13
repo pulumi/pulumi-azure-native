@@ -115,59 +115,6 @@ type CostAllocationProportionResponse struct {
 	Percentage float64 `pulumi:"percentage"`
 }
 
-
-
-
-
-type CostAllocationProportionResponseInput interface {
-	pulumi.Input
-
-	ToCostAllocationProportionResponseOutput() CostAllocationProportionResponseOutput
-	ToCostAllocationProportionResponseOutputWithContext(context.Context) CostAllocationProportionResponseOutput
-}
-
-type CostAllocationProportionResponseArgs struct {
-	Name       pulumi.StringInput  `pulumi:"name"`
-	Percentage pulumi.Float64Input `pulumi:"percentage"`
-}
-
-func (CostAllocationProportionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CostAllocationProportionResponse)(nil)).Elem()
-}
-
-func (i CostAllocationProportionResponseArgs) ToCostAllocationProportionResponseOutput() CostAllocationProportionResponseOutput {
-	return i.ToCostAllocationProportionResponseOutputWithContext(context.Background())
-}
-
-func (i CostAllocationProportionResponseArgs) ToCostAllocationProportionResponseOutputWithContext(ctx context.Context) CostAllocationProportionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationProportionResponseOutput)
-}
-
-
-
-
-
-type CostAllocationProportionResponseArrayInput interface {
-	pulumi.Input
-
-	ToCostAllocationProportionResponseArrayOutput() CostAllocationProportionResponseArrayOutput
-	ToCostAllocationProportionResponseArrayOutputWithContext(context.Context) CostAllocationProportionResponseArrayOutput
-}
-
-type CostAllocationProportionResponseArray []CostAllocationProportionResponseInput
-
-func (CostAllocationProportionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CostAllocationProportionResponse)(nil)).Elem()
-}
-
-func (i CostAllocationProportionResponseArray) ToCostAllocationProportionResponseArrayOutput() CostAllocationProportionResponseArrayOutput {
-	return i.ToCostAllocationProportionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CostAllocationProportionResponseArray) ToCostAllocationProportionResponseArrayOutputWithContext(ctx context.Context) CostAllocationProportionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationProportionResponseArrayOutput)
-}
-
 type CostAllocationProportionResponseOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationProportionResponseOutput) ElementType() reflect.Type {
@@ -363,75 +310,6 @@ type CostAllocationRuleDetailsResponse struct {
 	TargetResources []TargetCostAllocationResourceResponse `pulumi:"targetResources"`
 }
 
-
-
-
-
-type CostAllocationRuleDetailsResponseInput interface {
-	pulumi.Input
-
-	ToCostAllocationRuleDetailsResponseOutput() CostAllocationRuleDetailsResponseOutput
-	ToCostAllocationRuleDetailsResponseOutputWithContext(context.Context) CostAllocationRuleDetailsResponseOutput
-}
-
-type CostAllocationRuleDetailsResponseArgs struct {
-	SourceResources SourceCostAllocationResourceResponseArrayInput `pulumi:"sourceResources"`
-	TargetResources TargetCostAllocationResourceResponseArrayInput `pulumi:"targetResources"`
-}
-
-func (CostAllocationRuleDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CostAllocationRuleDetailsResponse)(nil)).Elem()
-}
-
-func (i CostAllocationRuleDetailsResponseArgs) ToCostAllocationRuleDetailsResponseOutput() CostAllocationRuleDetailsResponseOutput {
-	return i.ToCostAllocationRuleDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i CostAllocationRuleDetailsResponseArgs) ToCostAllocationRuleDetailsResponseOutputWithContext(ctx context.Context) CostAllocationRuleDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRuleDetailsResponseOutput)
-}
-
-func (i CostAllocationRuleDetailsResponseArgs) ToCostAllocationRuleDetailsResponsePtrOutput() CostAllocationRuleDetailsResponsePtrOutput {
-	return i.ToCostAllocationRuleDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CostAllocationRuleDetailsResponseArgs) ToCostAllocationRuleDetailsResponsePtrOutputWithContext(ctx context.Context) CostAllocationRuleDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRuleDetailsResponseOutput).ToCostAllocationRuleDetailsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CostAllocationRuleDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToCostAllocationRuleDetailsResponsePtrOutput() CostAllocationRuleDetailsResponsePtrOutput
-	ToCostAllocationRuleDetailsResponsePtrOutputWithContext(context.Context) CostAllocationRuleDetailsResponsePtrOutput
-}
-
-type costAllocationRuleDetailsResponsePtrType CostAllocationRuleDetailsResponseArgs
-
-func CostAllocationRuleDetailsResponsePtr(v *CostAllocationRuleDetailsResponseArgs) CostAllocationRuleDetailsResponsePtrInput {
-	return (*costAllocationRuleDetailsResponsePtrType)(v)
-}
-
-func (*costAllocationRuleDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CostAllocationRuleDetailsResponse)(nil)).Elem()
-}
-
-func (i *costAllocationRuleDetailsResponsePtrType) ToCostAllocationRuleDetailsResponsePtrOutput() CostAllocationRuleDetailsResponsePtrOutput {
-	return i.ToCostAllocationRuleDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *costAllocationRuleDetailsResponsePtrType) ToCostAllocationRuleDetailsResponsePtrOutputWithContext(ctx context.Context) CostAllocationRuleDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRuleDetailsResponsePtrOutput)
-}
-
 type CostAllocationRuleDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationRuleDetailsResponseOutput) ElementType() reflect.Type {
@@ -446,16 +324,6 @@ func (o CostAllocationRuleDetailsResponseOutput) ToCostAllocationRuleDetailsResp
 	return o
 }
 
-func (o CostAllocationRuleDetailsResponseOutput) ToCostAllocationRuleDetailsResponsePtrOutput() CostAllocationRuleDetailsResponsePtrOutput {
-	return o.ToCostAllocationRuleDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CostAllocationRuleDetailsResponseOutput) ToCostAllocationRuleDetailsResponsePtrOutputWithContext(ctx context.Context) CostAllocationRuleDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostAllocationRuleDetailsResponse) *CostAllocationRuleDetailsResponse {
-		return &v
-	}).(CostAllocationRuleDetailsResponsePtrOutput)
-}
-
 func (o CostAllocationRuleDetailsResponseOutput) SourceResources() SourceCostAllocationResourceResponseArrayOutput {
 	return o.ApplyT(func(v CostAllocationRuleDetailsResponse) []SourceCostAllocationResourceResponse {
 		return v.SourceResources
@@ -464,48 +332,6 @@ func (o CostAllocationRuleDetailsResponseOutput) SourceResources() SourceCostAll
 
 func (o CostAllocationRuleDetailsResponseOutput) TargetResources() TargetCostAllocationResourceResponseArrayOutput {
 	return o.ApplyT(func(v CostAllocationRuleDetailsResponse) []TargetCostAllocationResourceResponse {
-		return v.TargetResources
-	}).(TargetCostAllocationResourceResponseArrayOutput)
-}
-
-type CostAllocationRuleDetailsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CostAllocationRuleDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CostAllocationRuleDetailsResponse)(nil)).Elem()
-}
-
-func (o CostAllocationRuleDetailsResponsePtrOutput) ToCostAllocationRuleDetailsResponsePtrOutput() CostAllocationRuleDetailsResponsePtrOutput {
-	return o
-}
-
-func (o CostAllocationRuleDetailsResponsePtrOutput) ToCostAllocationRuleDetailsResponsePtrOutputWithContext(ctx context.Context) CostAllocationRuleDetailsResponsePtrOutput {
-	return o
-}
-
-func (o CostAllocationRuleDetailsResponsePtrOutput) Elem() CostAllocationRuleDetailsResponseOutput {
-	return o.ApplyT(func(v *CostAllocationRuleDetailsResponse) CostAllocationRuleDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CostAllocationRuleDetailsResponse
-		return ret
-	}).(CostAllocationRuleDetailsResponseOutput)
-}
-
-func (o CostAllocationRuleDetailsResponsePtrOutput) SourceResources() SourceCostAllocationResourceResponseArrayOutput {
-	return o.ApplyT(func(v *CostAllocationRuleDetailsResponse) []SourceCostAllocationResourceResponse {
-		if v == nil {
-			return nil
-		}
-		return v.SourceResources
-	}).(SourceCostAllocationResourceResponseArrayOutput)
-}
-
-func (o CostAllocationRuleDetailsResponsePtrOutput) TargetResources() TargetCostAllocationResourceResponseArrayOutput {
-	return o.ApplyT(func(v *CostAllocationRuleDetailsResponse) []TargetCostAllocationResourceResponse {
-		if v == nil {
-			return nil
-		}
 		return v.TargetResources
 	}).(TargetCostAllocationResourceResponseArrayOutput)
 }
@@ -681,78 +507,6 @@ type CostAllocationRulePropertiesResponse struct {
 	UpdatedDate string                            `pulumi:"updatedDate"`
 }
 
-
-
-
-
-type CostAllocationRulePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToCostAllocationRulePropertiesResponseOutput() CostAllocationRulePropertiesResponseOutput
-	ToCostAllocationRulePropertiesResponseOutputWithContext(context.Context) CostAllocationRulePropertiesResponseOutput
-}
-
-type CostAllocationRulePropertiesResponseArgs struct {
-	CreatedDate pulumi.StringInput                     `pulumi:"createdDate"`
-	Description pulumi.StringPtrInput                  `pulumi:"description"`
-	Details     CostAllocationRuleDetailsResponseInput `pulumi:"details"`
-	Status      pulumi.StringInput                     `pulumi:"status"`
-	UpdatedDate pulumi.StringInput                     `pulumi:"updatedDate"`
-}
-
-func (CostAllocationRulePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CostAllocationRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i CostAllocationRulePropertiesResponseArgs) ToCostAllocationRulePropertiesResponseOutput() CostAllocationRulePropertiesResponseOutput {
-	return i.ToCostAllocationRulePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i CostAllocationRulePropertiesResponseArgs) ToCostAllocationRulePropertiesResponseOutputWithContext(ctx context.Context) CostAllocationRulePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRulePropertiesResponseOutput)
-}
-
-func (i CostAllocationRulePropertiesResponseArgs) ToCostAllocationRulePropertiesResponsePtrOutput() CostAllocationRulePropertiesResponsePtrOutput {
-	return i.ToCostAllocationRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CostAllocationRulePropertiesResponseArgs) ToCostAllocationRulePropertiesResponsePtrOutputWithContext(ctx context.Context) CostAllocationRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRulePropertiesResponseOutput).ToCostAllocationRulePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CostAllocationRulePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToCostAllocationRulePropertiesResponsePtrOutput() CostAllocationRulePropertiesResponsePtrOutput
-	ToCostAllocationRulePropertiesResponsePtrOutputWithContext(context.Context) CostAllocationRulePropertiesResponsePtrOutput
-}
-
-type costAllocationRulePropertiesResponsePtrType CostAllocationRulePropertiesResponseArgs
-
-func CostAllocationRulePropertiesResponsePtr(v *CostAllocationRulePropertiesResponseArgs) CostAllocationRulePropertiesResponsePtrInput {
-	return (*costAllocationRulePropertiesResponsePtrType)(v)
-}
-
-func (*costAllocationRulePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CostAllocationRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i *costAllocationRulePropertiesResponsePtrType) ToCostAllocationRulePropertiesResponsePtrOutput() CostAllocationRulePropertiesResponsePtrOutput {
-	return i.ToCostAllocationRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *costAllocationRulePropertiesResponsePtrType) ToCostAllocationRulePropertiesResponsePtrOutputWithContext(ctx context.Context) CostAllocationRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationRulePropertiesResponsePtrOutput)
-}
-
 type CostAllocationRulePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationRulePropertiesResponseOutput) ElementType() reflect.Type {
@@ -765,16 +519,6 @@ func (o CostAllocationRulePropertiesResponseOutput) ToCostAllocationRuleProperti
 
 func (o CostAllocationRulePropertiesResponseOutput) ToCostAllocationRulePropertiesResponseOutputWithContext(ctx context.Context) CostAllocationRulePropertiesResponseOutput {
 	return o
-}
-
-func (o CostAllocationRulePropertiesResponseOutput) ToCostAllocationRulePropertiesResponsePtrOutput() CostAllocationRulePropertiesResponsePtrOutput {
-	return o.ToCostAllocationRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CostAllocationRulePropertiesResponseOutput) ToCostAllocationRulePropertiesResponsePtrOutputWithContext(ctx context.Context) CostAllocationRulePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CostAllocationRulePropertiesResponse) *CostAllocationRulePropertiesResponse {
-		return &v
-	}).(CostAllocationRulePropertiesResponsePtrOutput)
 }
 
 func (o CostAllocationRulePropertiesResponseOutput) CreatedDate() pulumi.StringOutput {
@@ -795,75 +539,6 @@ func (o CostAllocationRulePropertiesResponseOutput) Status() pulumi.StringOutput
 
 func (o CostAllocationRulePropertiesResponseOutput) UpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v CostAllocationRulePropertiesResponse) string { return v.UpdatedDate }).(pulumi.StringOutput)
-}
-
-type CostAllocationRulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CostAllocationRulePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CostAllocationRulePropertiesResponse)(nil)).Elem()
-}
-
-func (o CostAllocationRulePropertiesResponsePtrOutput) ToCostAllocationRulePropertiesResponsePtrOutput() CostAllocationRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o CostAllocationRulePropertiesResponsePtrOutput) ToCostAllocationRulePropertiesResponsePtrOutputWithContext(ctx context.Context) CostAllocationRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o CostAllocationRulePropertiesResponsePtrOutput) Elem() CostAllocationRulePropertiesResponseOutput {
-	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) CostAllocationRulePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CostAllocationRulePropertiesResponse
-		return ret
-	}).(CostAllocationRulePropertiesResponseOutput)
-}
-
-func (o CostAllocationRulePropertiesResponsePtrOutput) CreatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedDate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CostAllocationRulePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CostAllocationRulePropertiesResponsePtrOutput) Details() CostAllocationRuleDetailsResponsePtrOutput {
-	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) *CostAllocationRuleDetailsResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Details
-	}).(CostAllocationRuleDetailsResponsePtrOutput)
-}
-
-func (o CostAllocationRulePropertiesResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CostAllocationRulePropertiesResponsePtrOutput) UpdatedDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CostAllocationRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UpdatedDate
-	}).(pulumi.StringPtrOutput)
 }
 
 type SourceCostAllocationResource struct {
@@ -976,60 +651,6 @@ type SourceCostAllocationResourceResponse struct {
 	Name         string   `pulumi:"name"`
 	ResourceType string   `pulumi:"resourceType"`
 	Values       []string `pulumi:"values"`
-}
-
-
-
-
-
-type SourceCostAllocationResourceResponseInput interface {
-	pulumi.Input
-
-	ToSourceCostAllocationResourceResponseOutput() SourceCostAllocationResourceResponseOutput
-	ToSourceCostAllocationResourceResponseOutputWithContext(context.Context) SourceCostAllocationResourceResponseOutput
-}
-
-type SourceCostAllocationResourceResponseArgs struct {
-	Name         pulumi.StringInput      `pulumi:"name"`
-	ResourceType pulumi.StringInput      `pulumi:"resourceType"`
-	Values       pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (SourceCostAllocationResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SourceCostAllocationResourceResponse)(nil)).Elem()
-}
-
-func (i SourceCostAllocationResourceResponseArgs) ToSourceCostAllocationResourceResponseOutput() SourceCostAllocationResourceResponseOutput {
-	return i.ToSourceCostAllocationResourceResponseOutputWithContext(context.Background())
-}
-
-func (i SourceCostAllocationResourceResponseArgs) ToSourceCostAllocationResourceResponseOutputWithContext(ctx context.Context) SourceCostAllocationResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceCostAllocationResourceResponseOutput)
-}
-
-
-
-
-
-type SourceCostAllocationResourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToSourceCostAllocationResourceResponseArrayOutput() SourceCostAllocationResourceResponseArrayOutput
-	ToSourceCostAllocationResourceResponseArrayOutputWithContext(context.Context) SourceCostAllocationResourceResponseArrayOutput
-}
-
-type SourceCostAllocationResourceResponseArray []SourceCostAllocationResourceResponseInput
-
-func (SourceCostAllocationResourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SourceCostAllocationResourceResponse)(nil)).Elem()
-}
-
-func (i SourceCostAllocationResourceResponseArray) ToSourceCostAllocationResourceResponseArrayOutput() SourceCostAllocationResourceResponseArrayOutput {
-	return i.ToSourceCostAllocationResourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SourceCostAllocationResourceResponseArray) ToSourceCostAllocationResourceResponseArrayOutputWithContext(ctx context.Context) SourceCostAllocationResourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SourceCostAllocationResourceResponseArrayOutput)
 }
 
 type SourceCostAllocationResourceResponseOutput struct{ *pulumi.OutputState }
@@ -1197,61 +818,6 @@ type TargetCostAllocationResourceResponse struct {
 	Values       []CostAllocationProportionResponse `pulumi:"values"`
 }
 
-
-
-
-
-type TargetCostAllocationResourceResponseInput interface {
-	pulumi.Input
-
-	ToTargetCostAllocationResourceResponseOutput() TargetCostAllocationResourceResponseOutput
-	ToTargetCostAllocationResourceResponseOutputWithContext(context.Context) TargetCostAllocationResourceResponseOutput
-}
-
-type TargetCostAllocationResourceResponseArgs struct {
-	Name         pulumi.StringInput                         `pulumi:"name"`
-	PolicyType   pulumi.StringInput                         `pulumi:"policyType"`
-	ResourceType pulumi.StringInput                         `pulumi:"resourceType"`
-	Values       CostAllocationProportionResponseArrayInput `pulumi:"values"`
-}
-
-func (TargetCostAllocationResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetCostAllocationResourceResponse)(nil)).Elem()
-}
-
-func (i TargetCostAllocationResourceResponseArgs) ToTargetCostAllocationResourceResponseOutput() TargetCostAllocationResourceResponseOutput {
-	return i.ToTargetCostAllocationResourceResponseOutputWithContext(context.Background())
-}
-
-func (i TargetCostAllocationResourceResponseArgs) ToTargetCostAllocationResourceResponseOutputWithContext(ctx context.Context) TargetCostAllocationResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetCostAllocationResourceResponseOutput)
-}
-
-
-
-
-
-type TargetCostAllocationResourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToTargetCostAllocationResourceResponseArrayOutput() TargetCostAllocationResourceResponseArrayOutput
-	ToTargetCostAllocationResourceResponseArrayOutputWithContext(context.Context) TargetCostAllocationResourceResponseArrayOutput
-}
-
-type TargetCostAllocationResourceResponseArray []TargetCostAllocationResourceResponseInput
-
-func (TargetCostAllocationResourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TargetCostAllocationResourceResponse)(nil)).Elem()
-}
-
-func (i TargetCostAllocationResourceResponseArray) ToTargetCostAllocationResourceResponseArrayOutput() TargetCostAllocationResourceResponseArrayOutput {
-	return i.ToTargetCostAllocationResourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TargetCostAllocationResourceResponseArray) ToTargetCostAllocationResourceResponseArrayOutputWithContext(ctx context.Context) TargetCostAllocationResourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetCostAllocationResourceResponseArrayOutput)
-}
-
 type TargetCostAllocationResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetCostAllocationResourceResponseOutput) ElementType() reflect.Type {
@@ -1310,11 +876,9 @@ func init() {
 	pulumi.RegisterOutputType(CostAllocationRuleDetailsOutput{})
 	pulumi.RegisterOutputType(CostAllocationRuleDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CostAllocationRuleDetailsResponseOutput{})
-	pulumi.RegisterOutputType(CostAllocationRuleDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(CostAllocationRulePropertiesOutput{})
 	pulumi.RegisterOutputType(CostAllocationRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CostAllocationRulePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(CostAllocationRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SourceCostAllocationResourceOutput{})
 	pulumi.RegisterOutputType(SourceCostAllocationResourceArrayOutput{})
 	pulumi.RegisterOutputType(SourceCostAllocationResourceResponseOutput{})

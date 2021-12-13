@@ -59,7 +59,7 @@ func NewPrivateCloud(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	if args.Internet == nil {
+	if isZero(args.Internet) {
 		args.Internet = pulumi.StringPtr("Disabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -158,7 +158,7 @@ type PrivateCloudInput interface {
 }
 
 func (*PrivateCloud) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateCloud)(nil))
+	return reflect.TypeOf((**PrivateCloud)(nil)).Elem()
 }
 
 func (i *PrivateCloud) ToPrivateCloudOutput() PrivateCloudOutput {
@@ -172,7 +172,7 @@ func (i *PrivateCloud) ToPrivateCloudOutputWithContext(ctx context.Context) Priv
 type PrivateCloudOutput struct{ *pulumi.OutputState }
 
 func (PrivateCloudOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateCloud)(nil))
+	return reflect.TypeOf((**PrivateCloud)(nil)).Elem()
 }
 
 func (o PrivateCloudOutput) ToPrivateCloudOutput() PrivateCloudOutput {

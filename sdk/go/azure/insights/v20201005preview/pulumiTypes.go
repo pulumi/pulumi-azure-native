@@ -115,59 +115,6 @@ type HeaderFieldResponse struct {
 	HeaderFieldValue *string `pulumi:"headerFieldValue"`
 }
 
-
-
-
-
-type HeaderFieldResponseInput interface {
-	pulumi.Input
-
-	ToHeaderFieldResponseOutput() HeaderFieldResponseOutput
-	ToHeaderFieldResponseOutputWithContext(context.Context) HeaderFieldResponseOutput
-}
-
-type HeaderFieldResponseArgs struct {
-	HeaderFieldName  pulumi.StringPtrInput `pulumi:"headerFieldName"`
-	HeaderFieldValue pulumi.StringPtrInput `pulumi:"headerFieldValue"`
-}
-
-func (HeaderFieldResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HeaderFieldResponse)(nil)).Elem()
-}
-
-func (i HeaderFieldResponseArgs) ToHeaderFieldResponseOutput() HeaderFieldResponseOutput {
-	return i.ToHeaderFieldResponseOutputWithContext(context.Background())
-}
-
-func (i HeaderFieldResponseArgs) ToHeaderFieldResponseOutputWithContext(ctx context.Context) HeaderFieldResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HeaderFieldResponseOutput)
-}
-
-
-
-
-
-type HeaderFieldResponseArrayInput interface {
-	pulumi.Input
-
-	ToHeaderFieldResponseArrayOutput() HeaderFieldResponseArrayOutput
-	ToHeaderFieldResponseArrayOutputWithContext(context.Context) HeaderFieldResponseArrayOutput
-}
-
-type HeaderFieldResponseArray []HeaderFieldResponseInput
-
-func (HeaderFieldResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HeaderFieldResponse)(nil)).Elem()
-}
-
-func (i HeaderFieldResponseArray) ToHeaderFieldResponseArrayOutput() HeaderFieldResponseArrayOutput {
-	return i.ToHeaderFieldResponseArrayOutputWithContext(context.Background())
-}
-
-func (i HeaderFieldResponseArray) ToHeaderFieldResponseArrayOutputWithContext(ctx context.Context) HeaderFieldResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HeaderFieldResponseArrayOutput)
-}
-
 type HeaderFieldResponseOutput struct{ *pulumi.OutputState }
 
 func (HeaderFieldResponseOutput) ElementType() reflect.Type {
@@ -306,58 +253,6 @@ func (o WebTestGeolocationArrayOutput) Index(i pulumi.IntInput) WebTestGeolocati
 
 type WebTestGeolocationResponse struct {
 	Location *string `pulumi:"location"`
-}
-
-
-
-
-
-type WebTestGeolocationResponseInput interface {
-	pulumi.Input
-
-	ToWebTestGeolocationResponseOutput() WebTestGeolocationResponseOutput
-	ToWebTestGeolocationResponseOutputWithContext(context.Context) WebTestGeolocationResponseOutput
-}
-
-type WebTestGeolocationResponseArgs struct {
-	Location pulumi.StringPtrInput `pulumi:"location"`
-}
-
-func (WebTestGeolocationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestGeolocationResponse)(nil)).Elem()
-}
-
-func (i WebTestGeolocationResponseArgs) ToWebTestGeolocationResponseOutput() WebTestGeolocationResponseOutput {
-	return i.ToWebTestGeolocationResponseOutputWithContext(context.Background())
-}
-
-func (i WebTestGeolocationResponseArgs) ToWebTestGeolocationResponseOutputWithContext(ctx context.Context) WebTestGeolocationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationResponseOutput)
-}
-
-
-
-
-
-type WebTestGeolocationResponseArrayInput interface {
-	pulumi.Input
-
-	ToWebTestGeolocationResponseArrayOutput() WebTestGeolocationResponseArrayOutput
-	ToWebTestGeolocationResponseArrayOutputWithContext(context.Context) WebTestGeolocationResponseArrayOutput
-}
-
-type WebTestGeolocationResponseArray []WebTestGeolocationResponseInput
-
-func (WebTestGeolocationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebTestGeolocationResponse)(nil)).Elem()
-}
-
-func (i WebTestGeolocationResponseArray) ToWebTestGeolocationResponseArrayOutput() WebTestGeolocationResponseArrayOutput {
-	return i.ToWebTestGeolocationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WebTestGeolocationResponseArray) ToWebTestGeolocationResponseArrayOutputWithContext(ctx context.Context) WebTestGeolocationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestGeolocationResponseArrayOutput)
 }
 
 type WebTestGeolocationResponseOutput struct{ *pulumi.OutputState }
@@ -906,74 +801,6 @@ type WebTestPropertiesResponseConfiguration struct {
 	WebTest *string `pulumi:"webTest"`
 }
 
-
-
-
-
-type WebTestPropertiesResponseConfigurationInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseConfigurationOutput() WebTestPropertiesResponseConfigurationOutput
-	ToWebTestPropertiesResponseConfigurationOutputWithContext(context.Context) WebTestPropertiesResponseConfigurationOutput
-}
-
-type WebTestPropertiesResponseConfigurationArgs struct {
-	WebTest pulumi.StringPtrInput `pulumi:"webTest"`
-}
-
-func (WebTestPropertiesResponseConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestPropertiesResponseConfiguration)(nil)).Elem()
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationOutput() WebTestPropertiesResponseConfigurationOutput {
-	return i.ToWebTestPropertiesResponseConfigurationOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationOutput)
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
-	return i.ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseConfigurationArgs) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationOutput).ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WebTestPropertiesResponseConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput
-	ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Context) WebTestPropertiesResponseConfigurationPtrOutput
-}
-
-type webTestPropertiesResponseConfigurationPtrType WebTestPropertiesResponseConfigurationArgs
-
-func WebTestPropertiesResponseConfigurationPtr(v *WebTestPropertiesResponseConfigurationArgs) WebTestPropertiesResponseConfigurationPtrInput {
-	return (*webTestPropertiesResponseConfigurationPtrType)(v)
-}
-
-func (*webTestPropertiesResponseConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTestPropertiesResponseConfiguration)(nil)).Elem()
-}
-
-func (i *webTestPropertiesResponseConfigurationPtrType) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
-	return i.ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *webTestPropertiesResponseConfigurationPtrType) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseConfigurationPtrOutput)
-}
-
 type WebTestPropertiesResponseConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesResponseConfigurationOutput) ElementType() reflect.Type {
@@ -986,16 +813,6 @@ func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesRespons
 
 func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationOutput {
 	return o
-}
-
-func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationPtrOutput() WebTestPropertiesResponseConfigurationPtrOutput {
-	return o.ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o WebTestPropertiesResponseConfigurationOutput) ToWebTestPropertiesResponseConfigurationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseConfiguration) *WebTestPropertiesResponseConfiguration {
-		return &v
-	}).(WebTestPropertiesResponseConfigurationPtrOutput)
 }
 
 func (o WebTestPropertiesResponseConfigurationOutput) WebTest() pulumi.StringPtrOutput {
@@ -1041,76 +858,6 @@ type WebTestPropertiesResponseContentValidation struct {
 	PassIfTextFound *bool   `pulumi:"passIfTextFound"`
 }
 
-
-
-
-
-type WebTestPropertiesResponseContentValidationInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseContentValidationOutput() WebTestPropertiesResponseContentValidationOutput
-	ToWebTestPropertiesResponseContentValidationOutputWithContext(context.Context) WebTestPropertiesResponseContentValidationOutput
-}
-
-type WebTestPropertiesResponseContentValidationArgs struct {
-	ContentMatch    pulumi.StringPtrInput `pulumi:"contentMatch"`
-	IgnoreCase      pulumi.BoolPtrInput   `pulumi:"ignoreCase"`
-	PassIfTextFound pulumi.BoolPtrInput   `pulumi:"passIfTextFound"`
-}
-
-func (WebTestPropertiesResponseContentValidationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestPropertiesResponseContentValidation)(nil)).Elem()
-}
-
-func (i WebTestPropertiesResponseContentValidationArgs) ToWebTestPropertiesResponseContentValidationOutput() WebTestPropertiesResponseContentValidationOutput {
-	return i.ToWebTestPropertiesResponseContentValidationOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseContentValidationArgs) ToWebTestPropertiesResponseContentValidationOutputWithContext(ctx context.Context) WebTestPropertiesResponseContentValidationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseContentValidationOutput)
-}
-
-func (i WebTestPropertiesResponseContentValidationArgs) ToWebTestPropertiesResponseContentValidationPtrOutput() WebTestPropertiesResponseContentValidationPtrOutput {
-	return i.ToWebTestPropertiesResponseContentValidationPtrOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseContentValidationArgs) ToWebTestPropertiesResponseContentValidationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseContentValidationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseContentValidationOutput).ToWebTestPropertiesResponseContentValidationPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WebTestPropertiesResponseContentValidationPtrInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseContentValidationPtrOutput() WebTestPropertiesResponseContentValidationPtrOutput
-	ToWebTestPropertiesResponseContentValidationPtrOutputWithContext(context.Context) WebTestPropertiesResponseContentValidationPtrOutput
-}
-
-type webTestPropertiesResponseContentValidationPtrType WebTestPropertiesResponseContentValidationArgs
-
-func WebTestPropertiesResponseContentValidationPtr(v *WebTestPropertiesResponseContentValidationArgs) WebTestPropertiesResponseContentValidationPtrInput {
-	return (*webTestPropertiesResponseContentValidationPtrType)(v)
-}
-
-func (*webTestPropertiesResponseContentValidationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTestPropertiesResponseContentValidation)(nil)).Elem()
-}
-
-func (i *webTestPropertiesResponseContentValidationPtrType) ToWebTestPropertiesResponseContentValidationPtrOutput() WebTestPropertiesResponseContentValidationPtrOutput {
-	return i.ToWebTestPropertiesResponseContentValidationPtrOutputWithContext(context.Background())
-}
-
-func (i *webTestPropertiesResponseContentValidationPtrType) ToWebTestPropertiesResponseContentValidationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseContentValidationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseContentValidationPtrOutput)
-}
-
 type WebTestPropertiesResponseContentValidationOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesResponseContentValidationOutput) ElementType() reflect.Type {
@@ -1123,16 +870,6 @@ func (o WebTestPropertiesResponseContentValidationOutput) ToWebTestPropertiesRes
 
 func (o WebTestPropertiesResponseContentValidationOutput) ToWebTestPropertiesResponseContentValidationOutputWithContext(ctx context.Context) WebTestPropertiesResponseContentValidationOutput {
 	return o
-}
-
-func (o WebTestPropertiesResponseContentValidationOutput) ToWebTestPropertiesResponseContentValidationPtrOutput() WebTestPropertiesResponseContentValidationPtrOutput {
-	return o.ToWebTestPropertiesResponseContentValidationPtrOutputWithContext(context.Background())
-}
-
-func (o WebTestPropertiesResponseContentValidationOutput) ToWebTestPropertiesResponseContentValidationPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseContentValidationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseContentValidation) *WebTestPropertiesResponseContentValidation {
-		return &v
-	}).(WebTestPropertiesResponseContentValidationPtrOutput)
 }
 
 func (o WebTestPropertiesResponseContentValidationOutput) ContentMatch() pulumi.StringPtrOutput {
@@ -1207,79 +944,6 @@ type WebTestPropertiesResponseRequest struct {
 	RequestUrl             *string               `pulumi:"requestUrl"`
 }
 
-
-
-
-
-type WebTestPropertiesResponseRequestInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseRequestOutput() WebTestPropertiesResponseRequestOutput
-	ToWebTestPropertiesResponseRequestOutputWithContext(context.Context) WebTestPropertiesResponseRequestOutput
-}
-
-type WebTestPropertiesResponseRequestArgs struct {
-	FollowRedirects        pulumi.BoolPtrInput           `pulumi:"followRedirects"`
-	Headers                HeaderFieldResponseArrayInput `pulumi:"headers"`
-	HttpVerb               pulumi.StringPtrInput         `pulumi:"httpVerb"`
-	ParseDependentRequests pulumi.BoolPtrInput           `pulumi:"parseDependentRequests"`
-	RequestBody            pulumi.StringPtrInput         `pulumi:"requestBody"`
-	RequestUrl             pulumi.StringPtrInput         `pulumi:"requestUrl"`
-}
-
-func (WebTestPropertiesResponseRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestPropertiesResponseRequest)(nil)).Elem()
-}
-
-func (i WebTestPropertiesResponseRequestArgs) ToWebTestPropertiesResponseRequestOutput() WebTestPropertiesResponseRequestOutput {
-	return i.ToWebTestPropertiesResponseRequestOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseRequestArgs) ToWebTestPropertiesResponseRequestOutputWithContext(ctx context.Context) WebTestPropertiesResponseRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseRequestOutput)
-}
-
-func (i WebTestPropertiesResponseRequestArgs) ToWebTestPropertiesResponseRequestPtrOutput() WebTestPropertiesResponseRequestPtrOutput {
-	return i.ToWebTestPropertiesResponseRequestPtrOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseRequestArgs) ToWebTestPropertiesResponseRequestPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseRequestOutput).ToWebTestPropertiesResponseRequestPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WebTestPropertiesResponseRequestPtrInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseRequestPtrOutput() WebTestPropertiesResponseRequestPtrOutput
-	ToWebTestPropertiesResponseRequestPtrOutputWithContext(context.Context) WebTestPropertiesResponseRequestPtrOutput
-}
-
-type webTestPropertiesResponseRequestPtrType WebTestPropertiesResponseRequestArgs
-
-func WebTestPropertiesResponseRequestPtr(v *WebTestPropertiesResponseRequestArgs) WebTestPropertiesResponseRequestPtrInput {
-	return (*webTestPropertiesResponseRequestPtrType)(v)
-}
-
-func (*webTestPropertiesResponseRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTestPropertiesResponseRequest)(nil)).Elem()
-}
-
-func (i *webTestPropertiesResponseRequestPtrType) ToWebTestPropertiesResponseRequestPtrOutput() WebTestPropertiesResponseRequestPtrOutput {
-	return i.ToWebTestPropertiesResponseRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *webTestPropertiesResponseRequestPtrType) ToWebTestPropertiesResponseRequestPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseRequestPtrOutput)
-}
-
 type WebTestPropertiesResponseRequestOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesResponseRequestOutput) ElementType() reflect.Type {
@@ -1292,16 +956,6 @@ func (o WebTestPropertiesResponseRequestOutput) ToWebTestPropertiesResponseReque
 
 func (o WebTestPropertiesResponseRequestOutput) ToWebTestPropertiesResponseRequestOutputWithContext(ctx context.Context) WebTestPropertiesResponseRequestOutput {
 	return o
-}
-
-func (o WebTestPropertiesResponseRequestOutput) ToWebTestPropertiesResponseRequestPtrOutput() WebTestPropertiesResponseRequestPtrOutput {
-	return o.ToWebTestPropertiesResponseRequestPtrOutputWithContext(context.Background())
-}
-
-func (o WebTestPropertiesResponseRequestOutput) ToWebTestPropertiesResponseRequestPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseRequest) *WebTestPropertiesResponseRequest {
-		return &v
-	}).(WebTestPropertiesResponseRequestPtrOutput)
 }
 
 func (o WebTestPropertiesResponseRequestOutput) FollowRedirects() pulumi.BoolPtrOutput {
@@ -1414,78 +1068,6 @@ type WebTestPropertiesResponseValidationRules struct {
 	SSLCheck                      *bool                                       `pulumi:"sSLCheck"`
 }
 
-
-
-
-
-type WebTestPropertiesResponseValidationRulesInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseValidationRulesOutput() WebTestPropertiesResponseValidationRulesOutput
-	ToWebTestPropertiesResponseValidationRulesOutputWithContext(context.Context) WebTestPropertiesResponseValidationRulesOutput
-}
-
-type WebTestPropertiesResponseValidationRulesArgs struct {
-	ContentValidation             WebTestPropertiesResponseContentValidationPtrInput `pulumi:"contentValidation"`
-	ExpectedHttpStatusCode        pulumi.IntPtrInput                                 `pulumi:"expectedHttpStatusCode"`
-	IgnoreHttpsStatusCode         pulumi.BoolPtrInput                                `pulumi:"ignoreHttpsStatusCode"`
-	SSLCertRemainingLifetimeCheck pulumi.IntPtrInput                                 `pulumi:"sSLCertRemainingLifetimeCheck"`
-	SSLCheck                      pulumi.BoolPtrInput                                `pulumi:"sSLCheck"`
-}
-
-func (WebTestPropertiesResponseValidationRulesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebTestPropertiesResponseValidationRules)(nil)).Elem()
-}
-
-func (i WebTestPropertiesResponseValidationRulesArgs) ToWebTestPropertiesResponseValidationRulesOutput() WebTestPropertiesResponseValidationRulesOutput {
-	return i.ToWebTestPropertiesResponseValidationRulesOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseValidationRulesArgs) ToWebTestPropertiesResponseValidationRulesOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseValidationRulesOutput)
-}
-
-func (i WebTestPropertiesResponseValidationRulesArgs) ToWebTestPropertiesResponseValidationRulesPtrOutput() WebTestPropertiesResponseValidationRulesPtrOutput {
-	return i.ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(context.Background())
-}
-
-func (i WebTestPropertiesResponseValidationRulesArgs) ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseValidationRulesOutput).ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WebTestPropertiesResponseValidationRulesPtrInput interface {
-	pulumi.Input
-
-	ToWebTestPropertiesResponseValidationRulesPtrOutput() WebTestPropertiesResponseValidationRulesPtrOutput
-	ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(context.Context) WebTestPropertiesResponseValidationRulesPtrOutput
-}
-
-type webTestPropertiesResponseValidationRulesPtrType WebTestPropertiesResponseValidationRulesArgs
-
-func WebTestPropertiesResponseValidationRulesPtr(v *WebTestPropertiesResponseValidationRulesArgs) WebTestPropertiesResponseValidationRulesPtrInput {
-	return (*webTestPropertiesResponseValidationRulesPtrType)(v)
-}
-
-func (*webTestPropertiesResponseValidationRulesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebTestPropertiesResponseValidationRules)(nil)).Elem()
-}
-
-func (i *webTestPropertiesResponseValidationRulesPtrType) ToWebTestPropertiesResponseValidationRulesPtrOutput() WebTestPropertiesResponseValidationRulesPtrOutput {
-	return i.ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(context.Background())
-}
-
-func (i *webTestPropertiesResponseValidationRulesPtrType) ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebTestPropertiesResponseValidationRulesPtrOutput)
-}
-
 type WebTestPropertiesResponseValidationRulesOutput struct{ *pulumi.OutputState }
 
 func (WebTestPropertiesResponseValidationRulesOutput) ElementType() reflect.Type {
@@ -1498,16 +1080,6 @@ func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesRespo
 
 func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesResponseValidationRulesOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesOutput {
 	return o
-}
-
-func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesResponseValidationRulesPtrOutput() WebTestPropertiesResponseValidationRulesPtrOutput {
-	return o.ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(context.Background())
-}
-
-func (o WebTestPropertiesResponseValidationRulesOutput) ToWebTestPropertiesResponseValidationRulesPtrOutputWithContext(ctx context.Context) WebTestPropertiesResponseValidationRulesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebTestPropertiesResponseValidationRules) *WebTestPropertiesResponseValidationRules {
-		return &v
-	}).(WebTestPropertiesResponseValidationRulesPtrOutput)
 }
 
 func (o WebTestPropertiesResponseValidationRulesOutput) ContentValidation() WebTestPropertiesResponseContentValidationPtrOutput {

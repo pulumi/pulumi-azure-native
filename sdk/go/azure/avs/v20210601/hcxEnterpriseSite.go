@@ -107,7 +107,7 @@ type HcxEnterpriseSiteInput interface {
 }
 
 func (*HcxEnterpriseSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*HcxEnterpriseSite)(nil))
+	return reflect.TypeOf((**HcxEnterpriseSite)(nil)).Elem()
 }
 
 func (i *HcxEnterpriseSite) ToHcxEnterpriseSiteOutput() HcxEnterpriseSiteOutput {
@@ -121,7 +121,7 @@ func (i *HcxEnterpriseSite) ToHcxEnterpriseSiteOutputWithContext(ctx context.Con
 type HcxEnterpriseSiteOutput struct{ *pulumi.OutputState }
 
 func (HcxEnterpriseSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HcxEnterpriseSite)(nil))
+	return reflect.TypeOf((**HcxEnterpriseSite)(nil)).Elem()
 }
 
 func (o HcxEnterpriseSiteOutput) ToHcxEnterpriseSiteOutput() HcxEnterpriseSiteOutput {

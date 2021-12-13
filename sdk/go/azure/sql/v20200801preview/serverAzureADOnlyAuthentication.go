@@ -111,7 +111,7 @@ type ServerAzureADOnlyAuthenticationInput interface {
 }
 
 func (*ServerAzureADOnlyAuthentication) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAzureADOnlyAuthentication)(nil))
+	return reflect.TypeOf((**ServerAzureADOnlyAuthentication)(nil)).Elem()
 }
 
 func (i *ServerAzureADOnlyAuthentication) ToServerAzureADOnlyAuthenticationOutput() ServerAzureADOnlyAuthenticationOutput {
@@ -125,7 +125,7 @@ func (i *ServerAzureADOnlyAuthentication) ToServerAzureADOnlyAuthenticationOutpu
 type ServerAzureADOnlyAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (ServerAzureADOnlyAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAzureADOnlyAuthentication)(nil))
+	return reflect.TypeOf((**ServerAzureADOnlyAuthentication)(nil)).Elem()
 }
 
 func (o ServerAzureADOnlyAuthenticationOutput) ToServerAzureADOnlyAuthenticationOutput() ServerAzureADOnlyAuthenticationOutput {

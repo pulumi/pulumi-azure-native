@@ -127,7 +127,7 @@ type WebAppSwiftVirtualNetworkConnectionInput interface {
 }
 
 func (*WebAppSwiftVirtualNetworkConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnection)(nil))
+	return reflect.TypeOf((**WebAppSwiftVirtualNetworkConnection)(nil)).Elem()
 }
 
 func (i *WebAppSwiftVirtualNetworkConnection) ToWebAppSwiftVirtualNetworkConnectionOutput() WebAppSwiftVirtualNetworkConnectionOutput {
@@ -141,7 +141,7 @@ func (i *WebAppSwiftVirtualNetworkConnection) ToWebAppSwiftVirtualNetworkConnect
 type WebAppSwiftVirtualNetworkConnectionOutput struct{ *pulumi.OutputState }
 
 func (WebAppSwiftVirtualNetworkConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnection)(nil))
+	return reflect.TypeOf((**WebAppSwiftVirtualNetworkConnection)(nil)).Elem()
 }
 
 func (o WebAppSwiftVirtualNetworkConnectionOutput) ToWebAppSwiftVirtualNetworkConnectionOutput() WebAppSwiftVirtualNetworkConnectionOutput {

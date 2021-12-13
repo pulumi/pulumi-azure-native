@@ -105,7 +105,7 @@ type ServiceRunnerInput interface {
 }
 
 func (*ServiceRunner) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceRunner)(nil))
+	return reflect.TypeOf((**ServiceRunner)(nil)).Elem()
 }
 
 func (i *ServiceRunner) ToServiceRunnerOutput() ServiceRunnerOutput {
@@ -119,7 +119,7 @@ func (i *ServiceRunner) ToServiceRunnerOutputWithContext(ctx context.Context) Se
 type ServiceRunnerOutput struct{ *pulumi.OutputState }
 
 func (ServiceRunnerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceRunner)(nil))
+	return reflect.TypeOf((**ServiceRunner)(nil)).Elem()
 }
 
 func (o ServiceRunnerOutput) ToServiceRunnerOutput() ServiceRunnerOutput {

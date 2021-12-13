@@ -16,6 +16,17 @@ type ApplicationDeltaHealthPolicy struct {
 }
 
 
+func (val *ApplicationDeltaHealthPolicy) Defaults() *ApplicationDeltaHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DefaultServiceTypeDeltaHealthPolicy = tmp.DefaultServiceTypeDeltaHealthPolicy.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -120,56 +131,14 @@ type ApplicationDeltaHealthPolicyResponse struct {
 }
 
 
+func (val *ApplicationDeltaHealthPolicyResponse) Defaults() *ApplicationDeltaHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DefaultServiceTypeDeltaHealthPolicy = tmp.DefaultServiceTypeDeltaHealthPolicy.Defaults()
 
-
-
-type ApplicationDeltaHealthPolicyResponseInput interface {
-	pulumi.Input
-
-	ToApplicationDeltaHealthPolicyResponseOutput() ApplicationDeltaHealthPolicyResponseOutput
-	ToApplicationDeltaHealthPolicyResponseOutputWithContext(context.Context) ApplicationDeltaHealthPolicyResponseOutput
-}
-
-type ApplicationDeltaHealthPolicyResponseArgs struct {
-	DefaultServiceTypeDeltaHealthPolicy ServiceTypeDeltaHealthPolicyResponsePtrInput `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
-	ServiceTypeDeltaHealthPolicies      ServiceTypeDeltaHealthPolicyResponseMapInput `pulumi:"serviceTypeDeltaHealthPolicies"`
-}
-
-func (ApplicationDeltaHealthPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i ApplicationDeltaHealthPolicyResponseArgs) ToApplicationDeltaHealthPolicyResponseOutput() ApplicationDeltaHealthPolicyResponseOutput {
-	return i.ToApplicationDeltaHealthPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationDeltaHealthPolicyResponseArgs) ToApplicationDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyResponseOutput)
-}
-
-
-
-
-
-type ApplicationDeltaHealthPolicyResponseMapInput interface {
-	pulumi.Input
-
-	ToApplicationDeltaHealthPolicyResponseMapOutput() ApplicationDeltaHealthPolicyResponseMapOutput
-	ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(context.Context) ApplicationDeltaHealthPolicyResponseMapOutput
-}
-
-type ApplicationDeltaHealthPolicyResponseMap map[string]ApplicationDeltaHealthPolicyResponseInput
-
-func (ApplicationDeltaHealthPolicyResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i ApplicationDeltaHealthPolicyResponseMap) ToApplicationDeltaHealthPolicyResponseMapOutput() ApplicationDeltaHealthPolicyResponseMapOutput {
-	return i.ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(context.Background())
-}
-
-func (i ApplicationDeltaHealthPolicyResponseMap) ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyResponseMapOutput)
+	return &tmp
 }
 
 type ApplicationDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
@@ -221,6 +190,17 @@ func (o ApplicationDeltaHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringI
 type ApplicationHealthPolicy struct {
 	DefaultServiceTypeHealthPolicy *ServiceTypeHealthPolicy           `pulumi:"defaultServiceTypeHealthPolicy"`
 	ServiceTypeHealthPolicies      map[string]ServiceTypeHealthPolicy `pulumi:"serviceTypeHealthPolicies"`
+}
+
+
+func (val *ApplicationHealthPolicy) Defaults() *ApplicationHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DefaultServiceTypeHealthPolicy = tmp.DefaultServiceTypeHealthPolicy.Defaults()
+
+	return &tmp
 }
 
 
@@ -324,56 +304,14 @@ type ApplicationHealthPolicyResponse struct {
 }
 
 
+func (val *ApplicationHealthPolicyResponse) Defaults() *ApplicationHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DefaultServiceTypeHealthPolicy = tmp.DefaultServiceTypeHealthPolicy.Defaults()
 
-
-
-type ApplicationHealthPolicyResponseInput interface {
-	pulumi.Input
-
-	ToApplicationHealthPolicyResponseOutput() ApplicationHealthPolicyResponseOutput
-	ToApplicationHealthPolicyResponseOutputWithContext(context.Context) ApplicationHealthPolicyResponseOutput
-}
-
-type ApplicationHealthPolicyResponseArgs struct {
-	DefaultServiceTypeHealthPolicy ServiceTypeHealthPolicyResponsePtrInput `pulumi:"defaultServiceTypeHealthPolicy"`
-	ServiceTypeHealthPolicies      ServiceTypeHealthPolicyResponseMapInput `pulumi:"serviceTypeHealthPolicies"`
-}
-
-func (ApplicationHealthPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i ApplicationHealthPolicyResponseArgs) ToApplicationHealthPolicyResponseOutput() ApplicationHealthPolicyResponseOutput {
-	return i.ToApplicationHealthPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationHealthPolicyResponseArgs) ToApplicationHealthPolicyResponseOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyResponseOutput)
-}
-
-
-
-
-
-type ApplicationHealthPolicyResponseMapInput interface {
-	pulumi.Input
-
-	ToApplicationHealthPolicyResponseMapOutput() ApplicationHealthPolicyResponseMapOutput
-	ToApplicationHealthPolicyResponseMapOutputWithContext(context.Context) ApplicationHealthPolicyResponseMapOutput
-}
-
-type ApplicationHealthPolicyResponseMap map[string]ApplicationHealthPolicyResponseInput
-
-func (ApplicationHealthPolicyResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApplicationHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i ApplicationHealthPolicyResponseMap) ToApplicationHealthPolicyResponseMapOutput() ApplicationHealthPolicyResponseMapOutput {
-	return i.ToApplicationHealthPolicyResponseMapOutputWithContext(context.Background())
-}
-
-func (i ApplicationHealthPolicyResponseMap) ToApplicationHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyResponseMapOutput)
+	return &tmp
 }
 
 type ApplicationHealthPolicyResponseOutput struct{ *pulumi.OutputState }
@@ -591,76 +529,6 @@ type AzureActiveDirectoryResponse struct {
 	TenantId           *string `pulumi:"tenantId"`
 }
 
-
-
-
-
-type AzureActiveDirectoryResponseInput interface {
-	pulumi.Input
-
-	ToAzureActiveDirectoryResponseOutput() AzureActiveDirectoryResponseOutput
-	ToAzureActiveDirectoryResponseOutputWithContext(context.Context) AzureActiveDirectoryResponseOutput
-}
-
-type AzureActiveDirectoryResponseArgs struct {
-	ClientApplication  pulumi.StringPtrInput `pulumi:"clientApplication"`
-	ClusterApplication pulumi.StringPtrInput `pulumi:"clusterApplication"`
-	TenantId           pulumi.StringPtrInput `pulumi:"tenantId"`
-}
-
-func (AzureActiveDirectoryResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureActiveDirectoryResponse)(nil)).Elem()
-}
-
-func (i AzureActiveDirectoryResponseArgs) ToAzureActiveDirectoryResponseOutput() AzureActiveDirectoryResponseOutput {
-	return i.ToAzureActiveDirectoryResponseOutputWithContext(context.Background())
-}
-
-func (i AzureActiveDirectoryResponseArgs) ToAzureActiveDirectoryResponseOutputWithContext(ctx context.Context) AzureActiveDirectoryResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryResponseOutput)
-}
-
-func (i AzureActiveDirectoryResponseArgs) ToAzureActiveDirectoryResponsePtrOutput() AzureActiveDirectoryResponsePtrOutput {
-	return i.ToAzureActiveDirectoryResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AzureActiveDirectoryResponseArgs) ToAzureActiveDirectoryResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryResponseOutput).ToAzureActiveDirectoryResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AzureActiveDirectoryResponsePtrInput interface {
-	pulumi.Input
-
-	ToAzureActiveDirectoryResponsePtrOutput() AzureActiveDirectoryResponsePtrOutput
-	ToAzureActiveDirectoryResponsePtrOutputWithContext(context.Context) AzureActiveDirectoryResponsePtrOutput
-}
-
-type azureActiveDirectoryResponsePtrType AzureActiveDirectoryResponseArgs
-
-func AzureActiveDirectoryResponsePtr(v *AzureActiveDirectoryResponseArgs) AzureActiveDirectoryResponsePtrInput {
-	return (*azureActiveDirectoryResponsePtrType)(v)
-}
-
-func (*azureActiveDirectoryResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureActiveDirectoryResponse)(nil)).Elem()
-}
-
-func (i *azureActiveDirectoryResponsePtrType) ToAzureActiveDirectoryResponsePtrOutput() AzureActiveDirectoryResponsePtrOutput {
-	return i.ToAzureActiveDirectoryResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *azureActiveDirectoryResponsePtrType) ToAzureActiveDirectoryResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureActiveDirectoryResponsePtrOutput)
-}
-
 type AzureActiveDirectoryResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureActiveDirectoryResponseOutput) ElementType() reflect.Type {
@@ -673,16 +541,6 @@ func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponseOutput
 
 func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponseOutputWithContext(ctx context.Context) AzureActiveDirectoryResponseOutput {
 	return o
-}
-
-func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponsePtrOutput() AzureActiveDirectoryResponsePtrOutput {
-	return o.ToAzureActiveDirectoryResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AzureActiveDirectoryResponseOutput) ToAzureActiveDirectoryResponsePtrOutputWithContext(ctx context.Context) AzureActiveDirectoryResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureActiveDirectoryResponse) *AzureActiveDirectoryResponse {
-		return &v
-	}).(AzureActiveDirectoryResponsePtrOutput)
 }
 
 func (o AzureActiveDirectoryResponseOutput) ClientApplication() pulumi.StringPtrOutput {
@@ -917,76 +775,6 @@ type CertificateDescriptionResponse struct {
 	X509StoreName       *string `pulumi:"x509StoreName"`
 }
 
-
-
-
-
-type CertificateDescriptionResponseInput interface {
-	pulumi.Input
-
-	ToCertificateDescriptionResponseOutput() CertificateDescriptionResponseOutput
-	ToCertificateDescriptionResponseOutputWithContext(context.Context) CertificateDescriptionResponseOutput
-}
-
-type CertificateDescriptionResponseArgs struct {
-	Thumbprint          pulumi.StringInput    `pulumi:"thumbprint"`
-	ThumbprintSecondary pulumi.StringPtrInput `pulumi:"thumbprintSecondary"`
-	X509StoreName       pulumi.StringPtrInput `pulumi:"x509StoreName"`
-}
-
-func (CertificateDescriptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateDescriptionResponse)(nil)).Elem()
-}
-
-func (i CertificateDescriptionResponseArgs) ToCertificateDescriptionResponseOutput() CertificateDescriptionResponseOutput {
-	return i.ToCertificateDescriptionResponseOutputWithContext(context.Background())
-}
-
-func (i CertificateDescriptionResponseArgs) ToCertificateDescriptionResponseOutputWithContext(ctx context.Context) CertificateDescriptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDescriptionResponseOutput)
-}
-
-func (i CertificateDescriptionResponseArgs) ToCertificateDescriptionResponsePtrOutput() CertificateDescriptionResponsePtrOutput {
-	return i.ToCertificateDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CertificateDescriptionResponseArgs) ToCertificateDescriptionResponsePtrOutputWithContext(ctx context.Context) CertificateDescriptionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDescriptionResponseOutput).ToCertificateDescriptionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CertificateDescriptionResponsePtrInput interface {
-	pulumi.Input
-
-	ToCertificateDescriptionResponsePtrOutput() CertificateDescriptionResponsePtrOutput
-	ToCertificateDescriptionResponsePtrOutputWithContext(context.Context) CertificateDescriptionResponsePtrOutput
-}
-
-type certificateDescriptionResponsePtrType CertificateDescriptionResponseArgs
-
-func CertificateDescriptionResponsePtr(v *CertificateDescriptionResponseArgs) CertificateDescriptionResponsePtrInput {
-	return (*certificateDescriptionResponsePtrType)(v)
-}
-
-func (*certificateDescriptionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateDescriptionResponse)(nil)).Elem()
-}
-
-func (i *certificateDescriptionResponsePtrType) ToCertificateDescriptionResponsePtrOutput() CertificateDescriptionResponsePtrOutput {
-	return i.ToCertificateDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *certificateDescriptionResponsePtrType) ToCertificateDescriptionResponsePtrOutputWithContext(ctx context.Context) CertificateDescriptionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDescriptionResponsePtrOutput)
-}
-
 type CertificateDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (CertificateDescriptionResponseOutput) ElementType() reflect.Type {
@@ -999,16 +787,6 @@ func (o CertificateDescriptionResponseOutput) ToCertificateDescriptionResponseOu
 
 func (o CertificateDescriptionResponseOutput) ToCertificateDescriptionResponseOutputWithContext(ctx context.Context) CertificateDescriptionResponseOutput {
 	return o
-}
-
-func (o CertificateDescriptionResponseOutput) ToCertificateDescriptionResponsePtrOutput() CertificateDescriptionResponsePtrOutput {
-	return o.ToCertificateDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CertificateDescriptionResponseOutput) ToCertificateDescriptionResponsePtrOutputWithContext(ctx context.Context) CertificateDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateDescriptionResponse) *CertificateDescriptionResponse {
-		return &v
-	}).(CertificateDescriptionResponsePtrOutput)
 }
 
 func (o CertificateDescriptionResponseOutput) Thumbprint() pulumi.StringOutput {
@@ -1186,60 +964,6 @@ type ClientCertificateCommonNameResponse struct {
 	IsAdmin                     bool   `pulumi:"isAdmin"`
 }
 
-
-
-
-
-type ClientCertificateCommonNameResponseInput interface {
-	pulumi.Input
-
-	ToClientCertificateCommonNameResponseOutput() ClientCertificateCommonNameResponseOutput
-	ToClientCertificateCommonNameResponseOutputWithContext(context.Context) ClientCertificateCommonNameResponseOutput
-}
-
-type ClientCertificateCommonNameResponseArgs struct {
-	CertificateCommonName       pulumi.StringInput `pulumi:"certificateCommonName"`
-	CertificateIssuerThumbprint pulumi.StringInput `pulumi:"certificateIssuerThumbprint"`
-	IsAdmin                     pulumi.BoolInput   `pulumi:"isAdmin"`
-}
-
-func (ClientCertificateCommonNameResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientCertificateCommonNameResponse)(nil)).Elem()
-}
-
-func (i ClientCertificateCommonNameResponseArgs) ToClientCertificateCommonNameResponseOutput() ClientCertificateCommonNameResponseOutput {
-	return i.ToClientCertificateCommonNameResponseOutputWithContext(context.Background())
-}
-
-func (i ClientCertificateCommonNameResponseArgs) ToClientCertificateCommonNameResponseOutputWithContext(ctx context.Context) ClientCertificateCommonNameResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateCommonNameResponseOutput)
-}
-
-
-
-
-
-type ClientCertificateCommonNameResponseArrayInput interface {
-	pulumi.Input
-
-	ToClientCertificateCommonNameResponseArrayOutput() ClientCertificateCommonNameResponseArrayOutput
-	ToClientCertificateCommonNameResponseArrayOutputWithContext(context.Context) ClientCertificateCommonNameResponseArrayOutput
-}
-
-type ClientCertificateCommonNameResponseArray []ClientCertificateCommonNameResponseInput
-
-func (ClientCertificateCommonNameResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClientCertificateCommonNameResponse)(nil)).Elem()
-}
-
-func (i ClientCertificateCommonNameResponseArray) ToClientCertificateCommonNameResponseArrayOutput() ClientCertificateCommonNameResponseArrayOutput {
-	return i.ToClientCertificateCommonNameResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ClientCertificateCommonNameResponseArray) ToClientCertificateCommonNameResponseArrayOutputWithContext(ctx context.Context) ClientCertificateCommonNameResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateCommonNameResponseArrayOutput)
-}
-
 type ClientCertificateCommonNameResponseOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateCommonNameResponseOutput) ElementType() reflect.Type {
@@ -1391,59 +1115,6 @@ type ClientCertificateThumbprintResponse struct {
 	IsAdmin               bool   `pulumi:"isAdmin"`
 }
 
-
-
-
-
-type ClientCertificateThumbprintResponseInput interface {
-	pulumi.Input
-
-	ToClientCertificateThumbprintResponseOutput() ClientCertificateThumbprintResponseOutput
-	ToClientCertificateThumbprintResponseOutputWithContext(context.Context) ClientCertificateThumbprintResponseOutput
-}
-
-type ClientCertificateThumbprintResponseArgs struct {
-	CertificateThumbprint pulumi.StringInput `pulumi:"certificateThumbprint"`
-	IsAdmin               pulumi.BoolInput   `pulumi:"isAdmin"`
-}
-
-func (ClientCertificateThumbprintResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClientCertificateThumbprintResponse)(nil)).Elem()
-}
-
-func (i ClientCertificateThumbprintResponseArgs) ToClientCertificateThumbprintResponseOutput() ClientCertificateThumbprintResponseOutput {
-	return i.ToClientCertificateThumbprintResponseOutputWithContext(context.Background())
-}
-
-func (i ClientCertificateThumbprintResponseArgs) ToClientCertificateThumbprintResponseOutputWithContext(ctx context.Context) ClientCertificateThumbprintResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateThumbprintResponseOutput)
-}
-
-
-
-
-
-type ClientCertificateThumbprintResponseArrayInput interface {
-	pulumi.Input
-
-	ToClientCertificateThumbprintResponseArrayOutput() ClientCertificateThumbprintResponseArrayOutput
-	ToClientCertificateThumbprintResponseArrayOutputWithContext(context.Context) ClientCertificateThumbprintResponseArrayOutput
-}
-
-type ClientCertificateThumbprintResponseArray []ClientCertificateThumbprintResponseInput
-
-func (ClientCertificateThumbprintResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClientCertificateThumbprintResponse)(nil)).Elem()
-}
-
-func (i ClientCertificateThumbprintResponseArray) ToClientCertificateThumbprintResponseArrayOutput() ClientCertificateThumbprintResponseArrayOutput {
-	return i.ToClientCertificateThumbprintResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ClientCertificateThumbprintResponseArray) ToClientCertificateThumbprintResponseArrayOutputWithContext(ctx context.Context) ClientCertificateThumbprintResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateThumbprintResponseArrayOutput)
-}
-
 type ClientCertificateThumbprintResponseOutput struct{ *pulumi.OutputState }
 
 func (ClientCertificateThumbprintResponseOutput) ElementType() reflect.Type {
@@ -1490,6 +1161,23 @@ type ClusterHealthPolicy struct {
 	ApplicationHealthPolicies       map[string]ApplicationHealthPolicy `pulumi:"applicationHealthPolicies"`
 	MaxPercentUnhealthyApplications *int                               `pulumi:"maxPercentUnhealthyApplications"`
 	MaxPercentUnhealthyNodes        *int                               `pulumi:"maxPercentUnhealthyNodes"`
+}
+
+
+func (val *ClusterHealthPolicy) Defaults() *ClusterHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyApplications) {
+		maxPercentUnhealthyApplications_ := 0
+		tmp.MaxPercentUnhealthyApplications = &maxPercentUnhealthyApplications_
+	}
+	if isZero(tmp.MaxPercentUnhealthyNodes) {
+		maxPercentUnhealthyNodes_ := 0
+		tmp.MaxPercentUnhealthyNodes = &maxPercentUnhealthyNodes_
+	}
+	return &tmp
 }
 
 
@@ -1656,73 +1344,20 @@ type ClusterHealthPolicyResponse struct {
 }
 
 
-
-
-
-type ClusterHealthPolicyResponseInput interface {
-	pulumi.Input
-
-	ToClusterHealthPolicyResponseOutput() ClusterHealthPolicyResponseOutput
-	ToClusterHealthPolicyResponseOutputWithContext(context.Context) ClusterHealthPolicyResponseOutput
-}
-
-type ClusterHealthPolicyResponseArgs struct {
-	ApplicationHealthPolicies       ApplicationHealthPolicyResponseMapInput `pulumi:"applicationHealthPolicies"`
-	MaxPercentUnhealthyApplications pulumi.IntPtrInput                      `pulumi:"maxPercentUnhealthyApplications"`
-	MaxPercentUnhealthyNodes        pulumi.IntPtrInput                      `pulumi:"maxPercentUnhealthyNodes"`
-}
-
-func (ClusterHealthPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i ClusterHealthPolicyResponseArgs) ToClusterHealthPolicyResponseOutput() ClusterHealthPolicyResponseOutput {
-	return i.ToClusterHealthPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ClusterHealthPolicyResponseArgs) ToClusterHealthPolicyResponseOutputWithContext(ctx context.Context) ClusterHealthPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterHealthPolicyResponseOutput)
-}
-
-func (i ClusterHealthPolicyResponseArgs) ToClusterHealthPolicyResponsePtrOutput() ClusterHealthPolicyResponsePtrOutput {
-	return i.ToClusterHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ClusterHealthPolicyResponseArgs) ToClusterHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ClusterHealthPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterHealthPolicyResponseOutput).ToClusterHealthPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ClusterHealthPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToClusterHealthPolicyResponsePtrOutput() ClusterHealthPolicyResponsePtrOutput
-	ToClusterHealthPolicyResponsePtrOutputWithContext(context.Context) ClusterHealthPolicyResponsePtrOutput
-}
-
-type clusterHealthPolicyResponsePtrType ClusterHealthPolicyResponseArgs
-
-func ClusterHealthPolicyResponsePtr(v *ClusterHealthPolicyResponseArgs) ClusterHealthPolicyResponsePtrInput {
-	return (*clusterHealthPolicyResponsePtrType)(v)
-}
-
-func (*clusterHealthPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i *clusterHealthPolicyResponsePtrType) ToClusterHealthPolicyResponsePtrOutput() ClusterHealthPolicyResponsePtrOutput {
-	return i.ToClusterHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *clusterHealthPolicyResponsePtrType) ToClusterHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ClusterHealthPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterHealthPolicyResponsePtrOutput)
+func (val *ClusterHealthPolicyResponse) Defaults() *ClusterHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyApplications) {
+		maxPercentUnhealthyApplications_ := 0
+		tmp.MaxPercentUnhealthyApplications = &maxPercentUnhealthyApplications_
+	}
+	if isZero(tmp.MaxPercentUnhealthyNodes) {
+		maxPercentUnhealthyNodes_ := 0
+		tmp.MaxPercentUnhealthyNodes = &maxPercentUnhealthyNodes_
+	}
+	return &tmp
 }
 
 type ClusterHealthPolicyResponseOutput struct{ *pulumi.OutputState }
@@ -1737,16 +1372,6 @@ func (o ClusterHealthPolicyResponseOutput) ToClusterHealthPolicyResponseOutput()
 
 func (o ClusterHealthPolicyResponseOutput) ToClusterHealthPolicyResponseOutputWithContext(ctx context.Context) ClusterHealthPolicyResponseOutput {
 	return o
-}
-
-func (o ClusterHealthPolicyResponseOutput) ToClusterHealthPolicyResponsePtrOutput() ClusterHealthPolicyResponsePtrOutput {
-	return o.ToClusterHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ClusterHealthPolicyResponseOutput) ToClusterHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ClusterHealthPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterHealthPolicyResponse) *ClusterHealthPolicyResponse {
-		return &v
-	}).(ClusterHealthPolicyResponsePtrOutput)
 }
 
 func (o ClusterHealthPolicyResponseOutput) ApplicationHealthPolicies() ApplicationHealthPolicyResponseMapOutput {
@@ -2001,77 +1626,6 @@ type ClusterUpgradeDeltaHealthPolicyResponse struct {
 	MaxPercentUpgradeDomainDeltaUnhealthyNodes int                                             `pulumi:"maxPercentUpgradeDomainDeltaUnhealthyNodes"`
 }
 
-
-
-
-
-type ClusterUpgradeDeltaHealthPolicyResponseInput interface {
-	pulumi.Input
-
-	ToClusterUpgradeDeltaHealthPolicyResponseOutput() ClusterUpgradeDeltaHealthPolicyResponseOutput
-	ToClusterUpgradeDeltaHealthPolicyResponseOutputWithContext(context.Context) ClusterUpgradeDeltaHealthPolicyResponseOutput
-}
-
-type ClusterUpgradeDeltaHealthPolicyResponseArgs struct {
-	ApplicationDeltaHealthPolicies             ApplicationDeltaHealthPolicyResponseMapInput `pulumi:"applicationDeltaHealthPolicies"`
-	MaxPercentDeltaUnhealthyApplications       pulumi.IntInput                              `pulumi:"maxPercentDeltaUnhealthyApplications"`
-	MaxPercentDeltaUnhealthyNodes              pulumi.IntInput                              `pulumi:"maxPercentDeltaUnhealthyNodes"`
-	MaxPercentUpgradeDomainDeltaUnhealthyNodes pulumi.IntInput                              `pulumi:"maxPercentUpgradeDomainDeltaUnhealthyNodes"`
-}
-
-func (ClusterUpgradeDeltaHealthPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterUpgradeDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i ClusterUpgradeDeltaHealthPolicyResponseArgs) ToClusterUpgradeDeltaHealthPolicyResponseOutput() ClusterUpgradeDeltaHealthPolicyResponseOutput {
-	return i.ToClusterUpgradeDeltaHealthPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ClusterUpgradeDeltaHealthPolicyResponseArgs) ToClusterUpgradeDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeDeltaHealthPolicyResponseOutput)
-}
-
-func (i ClusterUpgradeDeltaHealthPolicyResponseArgs) ToClusterUpgradeDeltaHealthPolicyResponsePtrOutput() ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
-	return i.ToClusterUpgradeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ClusterUpgradeDeltaHealthPolicyResponseArgs) ToClusterUpgradeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeDeltaHealthPolicyResponseOutput).ToClusterUpgradeDeltaHealthPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ClusterUpgradeDeltaHealthPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToClusterUpgradeDeltaHealthPolicyResponsePtrOutput() ClusterUpgradeDeltaHealthPolicyResponsePtrOutput
-	ToClusterUpgradeDeltaHealthPolicyResponsePtrOutputWithContext(context.Context) ClusterUpgradeDeltaHealthPolicyResponsePtrOutput
-}
-
-type clusterUpgradeDeltaHealthPolicyResponsePtrType ClusterUpgradeDeltaHealthPolicyResponseArgs
-
-func ClusterUpgradeDeltaHealthPolicyResponsePtr(v *ClusterUpgradeDeltaHealthPolicyResponseArgs) ClusterUpgradeDeltaHealthPolicyResponsePtrInput {
-	return (*clusterUpgradeDeltaHealthPolicyResponsePtrType)(v)
-}
-
-func (*clusterUpgradeDeltaHealthPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterUpgradeDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i *clusterUpgradeDeltaHealthPolicyResponsePtrType) ToClusterUpgradeDeltaHealthPolicyResponsePtrOutput() ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
-	return i.ToClusterUpgradeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *clusterUpgradeDeltaHealthPolicyResponsePtrType) ToClusterUpgradeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradeDeltaHealthPolicyResponsePtrOutput)
-}
-
 type ClusterUpgradeDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ClusterUpgradeDeltaHealthPolicyResponseOutput) ElementType() reflect.Type {
@@ -2084,16 +1638,6 @@ func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ToClusterUpgradeDeltaHeal
 
 func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ToClusterUpgradeDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyResponseOutput {
 	return o
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ToClusterUpgradeDeltaHealthPolicyResponsePtrOutput() ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
-	return o.ToClusterUpgradeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ToClusterUpgradeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradeDeltaHealthPolicyResponse) *ClusterUpgradeDeltaHealthPolicyResponse {
-		return &v
-	}).(ClusterUpgradeDeltaHealthPolicyResponsePtrOutput)
 }
 
 func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyResponseMapOutput {
@@ -2186,6 +1730,17 @@ type ClusterUpgradePolicy struct {
 	UpgradeDomainTimeout          string                           `pulumi:"upgradeDomainTimeout"`
 	UpgradeReplicaSetCheckTimeout string                           `pulumi:"upgradeReplicaSetCheckTimeout"`
 	UpgradeTimeout                string                           `pulumi:"upgradeTimeout"`
+}
+
+
+func (val *ClusterUpgradePolicy) Defaults() *ClusterUpgradePolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.HealthPolicy = *tmp.HealthPolicy.Defaults()
+
+	return &tmp
 }
 
 
@@ -2442,79 +1997,14 @@ type ClusterUpgradePolicyResponse struct {
 }
 
 
+func (val *ClusterUpgradePolicyResponse) Defaults() *ClusterUpgradePolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.HealthPolicy = *tmp.HealthPolicy.Defaults()
 
-
-
-type ClusterUpgradePolicyResponseInput interface {
-	pulumi.Input
-
-	ToClusterUpgradePolicyResponseOutput() ClusterUpgradePolicyResponseOutput
-	ToClusterUpgradePolicyResponseOutputWithContext(context.Context) ClusterUpgradePolicyResponseOutput
-}
-
-type ClusterUpgradePolicyResponseArgs struct {
-	DeltaHealthPolicy             ClusterUpgradeDeltaHealthPolicyResponsePtrInput `pulumi:"deltaHealthPolicy"`
-	ForceRestart                  pulumi.BoolPtrInput                             `pulumi:"forceRestart"`
-	HealthCheckRetryTimeout       pulumi.StringInput                              `pulumi:"healthCheckRetryTimeout"`
-	HealthCheckStableDuration     pulumi.StringInput                              `pulumi:"healthCheckStableDuration"`
-	HealthCheckWaitDuration       pulumi.StringInput                              `pulumi:"healthCheckWaitDuration"`
-	HealthPolicy                  ClusterHealthPolicyResponseInput                `pulumi:"healthPolicy"`
-	UpgradeDomainTimeout          pulumi.StringInput                              `pulumi:"upgradeDomainTimeout"`
-	UpgradeReplicaSetCheckTimeout pulumi.StringInput                              `pulumi:"upgradeReplicaSetCheckTimeout"`
-	UpgradeTimeout                pulumi.StringInput                              `pulumi:"upgradeTimeout"`
-}
-
-func (ClusterUpgradePolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterUpgradePolicyResponse)(nil)).Elem()
-}
-
-func (i ClusterUpgradePolicyResponseArgs) ToClusterUpgradePolicyResponseOutput() ClusterUpgradePolicyResponseOutput {
-	return i.ToClusterUpgradePolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ClusterUpgradePolicyResponseArgs) ToClusterUpgradePolicyResponseOutputWithContext(ctx context.Context) ClusterUpgradePolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyResponseOutput)
-}
-
-func (i ClusterUpgradePolicyResponseArgs) ToClusterUpgradePolicyResponsePtrOutput() ClusterUpgradePolicyResponsePtrOutput {
-	return i.ToClusterUpgradePolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ClusterUpgradePolicyResponseArgs) ToClusterUpgradePolicyResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyResponseOutput).ToClusterUpgradePolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ClusterUpgradePolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToClusterUpgradePolicyResponsePtrOutput() ClusterUpgradePolicyResponsePtrOutput
-	ToClusterUpgradePolicyResponsePtrOutputWithContext(context.Context) ClusterUpgradePolicyResponsePtrOutput
-}
-
-type clusterUpgradePolicyResponsePtrType ClusterUpgradePolicyResponseArgs
-
-func ClusterUpgradePolicyResponsePtr(v *ClusterUpgradePolicyResponseArgs) ClusterUpgradePolicyResponsePtrInput {
-	return (*clusterUpgradePolicyResponsePtrType)(v)
-}
-
-func (*clusterUpgradePolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterUpgradePolicyResponse)(nil)).Elem()
-}
-
-func (i *clusterUpgradePolicyResponsePtrType) ToClusterUpgradePolicyResponsePtrOutput() ClusterUpgradePolicyResponsePtrOutput {
-	return i.ToClusterUpgradePolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *clusterUpgradePolicyResponsePtrType) ToClusterUpgradePolicyResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterUpgradePolicyResponsePtrOutput)
+	return &tmp
 }
 
 type ClusterUpgradePolicyResponseOutput struct{ *pulumi.OutputState }
@@ -2529,16 +2019,6 @@ func (o ClusterUpgradePolicyResponseOutput) ToClusterUpgradePolicyResponseOutput
 
 func (o ClusterUpgradePolicyResponseOutput) ToClusterUpgradePolicyResponseOutputWithContext(ctx context.Context) ClusterUpgradePolicyResponseOutput {
 	return o
-}
-
-func (o ClusterUpgradePolicyResponseOutput) ToClusterUpgradePolicyResponsePtrOutput() ClusterUpgradePolicyResponsePtrOutput {
-	return o.ToClusterUpgradePolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ClusterUpgradePolicyResponseOutput) ToClusterUpgradePolicyResponsePtrOutputWithContext(ctx context.Context) ClusterUpgradePolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterUpgradePolicyResponse) *ClusterUpgradePolicyResponse {
-		return &v
-	}).(ClusterUpgradePolicyResponsePtrOutput)
 }
 
 func (o ClusterUpgradePolicyResponseOutput) DeltaHealthPolicy() ClusterUpgradeDeltaHealthPolicyResponsePtrOutput {
@@ -2688,60 +2168,6 @@ type ClusterVersionDetailsResponse struct {
 	CodeVersion      *string `pulumi:"codeVersion"`
 	Environment      *string `pulumi:"environment"`
 	SupportExpiryUtc *string `pulumi:"supportExpiryUtc"`
-}
-
-
-
-
-
-type ClusterVersionDetailsResponseInput interface {
-	pulumi.Input
-
-	ToClusterVersionDetailsResponseOutput() ClusterVersionDetailsResponseOutput
-	ToClusterVersionDetailsResponseOutputWithContext(context.Context) ClusterVersionDetailsResponseOutput
-}
-
-type ClusterVersionDetailsResponseArgs struct {
-	CodeVersion      pulumi.StringPtrInput `pulumi:"codeVersion"`
-	Environment      pulumi.StringPtrInput `pulumi:"environment"`
-	SupportExpiryUtc pulumi.StringPtrInput `pulumi:"supportExpiryUtc"`
-}
-
-func (ClusterVersionDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterVersionDetailsResponse)(nil)).Elem()
-}
-
-func (i ClusterVersionDetailsResponseArgs) ToClusterVersionDetailsResponseOutput() ClusterVersionDetailsResponseOutput {
-	return i.ToClusterVersionDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i ClusterVersionDetailsResponseArgs) ToClusterVersionDetailsResponseOutputWithContext(ctx context.Context) ClusterVersionDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterVersionDetailsResponseOutput)
-}
-
-
-
-
-
-type ClusterVersionDetailsResponseArrayInput interface {
-	pulumi.Input
-
-	ToClusterVersionDetailsResponseArrayOutput() ClusterVersionDetailsResponseArrayOutput
-	ToClusterVersionDetailsResponseArrayOutputWithContext(context.Context) ClusterVersionDetailsResponseArrayOutput
-}
-
-type ClusterVersionDetailsResponseArray []ClusterVersionDetailsResponseInput
-
-func (ClusterVersionDetailsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterVersionDetailsResponse)(nil)).Elem()
-}
-
-func (i ClusterVersionDetailsResponseArray) ToClusterVersionDetailsResponseArrayOutput() ClusterVersionDetailsResponseArrayOutput {
-	return i.ToClusterVersionDetailsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterVersionDetailsResponseArray) ToClusterVersionDetailsResponseArrayOutputWithContext(ctx context.Context) ClusterVersionDetailsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterVersionDetailsResponseArrayOutput)
 }
 
 type ClusterVersionDetailsResponseOutput struct{ *pulumi.OutputState }
@@ -2991,78 +2417,6 @@ type DiagnosticsStorageAccountConfigResponse struct {
 	TableEndpoint           string `pulumi:"tableEndpoint"`
 }
 
-
-
-
-
-type DiagnosticsStorageAccountConfigResponseInput interface {
-	pulumi.Input
-
-	ToDiagnosticsStorageAccountConfigResponseOutput() DiagnosticsStorageAccountConfigResponseOutput
-	ToDiagnosticsStorageAccountConfigResponseOutputWithContext(context.Context) DiagnosticsStorageAccountConfigResponseOutput
-}
-
-type DiagnosticsStorageAccountConfigResponseArgs struct {
-	BlobEndpoint            pulumi.StringInput `pulumi:"blobEndpoint"`
-	ProtectedAccountKeyName pulumi.StringInput `pulumi:"protectedAccountKeyName"`
-	QueueEndpoint           pulumi.StringInput `pulumi:"queueEndpoint"`
-	StorageAccountName      pulumi.StringInput `pulumi:"storageAccountName"`
-	TableEndpoint           pulumi.StringInput `pulumi:"tableEndpoint"`
-}
-
-func (DiagnosticsStorageAccountConfigResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticsStorageAccountConfigResponse)(nil)).Elem()
-}
-
-func (i DiagnosticsStorageAccountConfigResponseArgs) ToDiagnosticsStorageAccountConfigResponseOutput() DiagnosticsStorageAccountConfigResponseOutput {
-	return i.ToDiagnosticsStorageAccountConfigResponseOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsStorageAccountConfigResponseArgs) ToDiagnosticsStorageAccountConfigResponseOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsStorageAccountConfigResponseOutput)
-}
-
-func (i DiagnosticsStorageAccountConfigResponseArgs) ToDiagnosticsStorageAccountConfigResponsePtrOutput() DiagnosticsStorageAccountConfigResponsePtrOutput {
-	return i.ToDiagnosticsStorageAccountConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsStorageAccountConfigResponseArgs) ToDiagnosticsStorageAccountConfigResponsePtrOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsStorageAccountConfigResponseOutput).ToDiagnosticsStorageAccountConfigResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DiagnosticsStorageAccountConfigResponsePtrInput interface {
-	pulumi.Input
-
-	ToDiagnosticsStorageAccountConfigResponsePtrOutput() DiagnosticsStorageAccountConfigResponsePtrOutput
-	ToDiagnosticsStorageAccountConfigResponsePtrOutputWithContext(context.Context) DiagnosticsStorageAccountConfigResponsePtrOutput
-}
-
-type diagnosticsStorageAccountConfigResponsePtrType DiagnosticsStorageAccountConfigResponseArgs
-
-func DiagnosticsStorageAccountConfigResponsePtr(v *DiagnosticsStorageAccountConfigResponseArgs) DiagnosticsStorageAccountConfigResponsePtrInput {
-	return (*diagnosticsStorageAccountConfigResponsePtrType)(v)
-}
-
-func (*diagnosticsStorageAccountConfigResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiagnosticsStorageAccountConfigResponse)(nil)).Elem()
-}
-
-func (i *diagnosticsStorageAccountConfigResponsePtrType) ToDiagnosticsStorageAccountConfigResponsePtrOutput() DiagnosticsStorageAccountConfigResponsePtrOutput {
-	return i.ToDiagnosticsStorageAccountConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *diagnosticsStorageAccountConfigResponsePtrType) ToDiagnosticsStorageAccountConfigResponsePtrOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsStorageAccountConfigResponsePtrOutput)
-}
-
 type DiagnosticsStorageAccountConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticsStorageAccountConfigResponseOutput) ElementType() reflect.Type {
@@ -3075,16 +2429,6 @@ func (o DiagnosticsStorageAccountConfigResponseOutput) ToDiagnosticsStorageAccou
 
 func (o DiagnosticsStorageAccountConfigResponseOutput) ToDiagnosticsStorageAccountConfigResponseOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigResponseOutput {
 	return o
-}
-
-func (o DiagnosticsStorageAccountConfigResponseOutput) ToDiagnosticsStorageAccountConfigResponsePtrOutput() DiagnosticsStorageAccountConfigResponsePtrOutput {
-	return o.ToDiagnosticsStorageAccountConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DiagnosticsStorageAccountConfigResponseOutput) ToDiagnosticsStorageAccountConfigResponsePtrOutputWithContext(ctx context.Context) DiagnosticsStorageAccountConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DiagnosticsStorageAccountConfigResponse) *DiagnosticsStorageAccountConfigResponse {
-		return &v
-	}).(DiagnosticsStorageAccountConfigResponsePtrOutput)
 }
 
 func (o DiagnosticsStorageAccountConfigResponseOutput) BlobEndpoint() pulumi.StringOutput {
@@ -3329,75 +2673,6 @@ type EndpointRangeDescriptionResponse struct {
 	StartPort int `pulumi:"startPort"`
 }
 
-
-
-
-
-type EndpointRangeDescriptionResponseInput interface {
-	pulumi.Input
-
-	ToEndpointRangeDescriptionResponseOutput() EndpointRangeDescriptionResponseOutput
-	ToEndpointRangeDescriptionResponseOutputWithContext(context.Context) EndpointRangeDescriptionResponseOutput
-}
-
-type EndpointRangeDescriptionResponseArgs struct {
-	EndPort   pulumi.IntInput `pulumi:"endPort"`
-	StartPort pulumi.IntInput `pulumi:"startPort"`
-}
-
-func (EndpointRangeDescriptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointRangeDescriptionResponse)(nil)).Elem()
-}
-
-func (i EndpointRangeDescriptionResponseArgs) ToEndpointRangeDescriptionResponseOutput() EndpointRangeDescriptionResponseOutput {
-	return i.ToEndpointRangeDescriptionResponseOutputWithContext(context.Background())
-}
-
-func (i EndpointRangeDescriptionResponseArgs) ToEndpointRangeDescriptionResponseOutputWithContext(ctx context.Context) EndpointRangeDescriptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointRangeDescriptionResponseOutput)
-}
-
-func (i EndpointRangeDescriptionResponseArgs) ToEndpointRangeDescriptionResponsePtrOutput() EndpointRangeDescriptionResponsePtrOutput {
-	return i.ToEndpointRangeDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EndpointRangeDescriptionResponseArgs) ToEndpointRangeDescriptionResponsePtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointRangeDescriptionResponseOutput).ToEndpointRangeDescriptionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EndpointRangeDescriptionResponsePtrInput interface {
-	pulumi.Input
-
-	ToEndpointRangeDescriptionResponsePtrOutput() EndpointRangeDescriptionResponsePtrOutput
-	ToEndpointRangeDescriptionResponsePtrOutputWithContext(context.Context) EndpointRangeDescriptionResponsePtrOutput
-}
-
-type endpointRangeDescriptionResponsePtrType EndpointRangeDescriptionResponseArgs
-
-func EndpointRangeDescriptionResponsePtr(v *EndpointRangeDescriptionResponseArgs) EndpointRangeDescriptionResponsePtrInput {
-	return (*endpointRangeDescriptionResponsePtrType)(v)
-}
-
-func (*endpointRangeDescriptionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointRangeDescriptionResponse)(nil)).Elem()
-}
-
-func (i *endpointRangeDescriptionResponsePtrType) ToEndpointRangeDescriptionResponsePtrOutput() EndpointRangeDescriptionResponsePtrOutput {
-	return i.ToEndpointRangeDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *endpointRangeDescriptionResponsePtrType) ToEndpointRangeDescriptionResponsePtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointRangeDescriptionResponsePtrOutput)
-}
-
 type EndpointRangeDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointRangeDescriptionResponseOutput) ElementType() reflect.Type {
@@ -3410,16 +2685,6 @@ func (o EndpointRangeDescriptionResponseOutput) ToEndpointRangeDescriptionRespon
 
 func (o EndpointRangeDescriptionResponseOutput) ToEndpointRangeDescriptionResponseOutputWithContext(ctx context.Context) EndpointRangeDescriptionResponseOutput {
 	return o
-}
-
-func (o EndpointRangeDescriptionResponseOutput) ToEndpointRangeDescriptionResponsePtrOutput() EndpointRangeDescriptionResponsePtrOutput {
-	return o.ToEndpointRangeDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EndpointRangeDescriptionResponseOutput) ToEndpointRangeDescriptionResponsePtrOutputWithContext(ctx context.Context) EndpointRangeDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRangeDescriptionResponse) *EndpointRangeDescriptionResponse {
-		return &v
-	}).(EndpointRangeDescriptionResponsePtrOutput)
 }
 
 func (o EndpointRangeDescriptionResponseOutput) EndPort() pulumi.IntOutput {
@@ -3640,68 +2905,6 @@ type NodeTypeDescriptionResponse struct {
 	VmInstanceCount              int                               `pulumi:"vmInstanceCount"`
 }
 
-
-
-
-
-type NodeTypeDescriptionResponseInput interface {
-	pulumi.Input
-
-	ToNodeTypeDescriptionResponseOutput() NodeTypeDescriptionResponseOutput
-	ToNodeTypeDescriptionResponseOutputWithContext(context.Context) NodeTypeDescriptionResponseOutput
-}
-
-type NodeTypeDescriptionResponseArgs struct {
-	ApplicationPorts             EndpointRangeDescriptionResponsePtrInput `pulumi:"applicationPorts"`
-	Capacities                   pulumi.StringMapInput                    `pulumi:"capacities"`
-	ClientConnectionEndpointPort pulumi.IntInput                          `pulumi:"clientConnectionEndpointPort"`
-	DurabilityLevel              pulumi.StringPtrInput                    `pulumi:"durabilityLevel"`
-	EphemeralPorts               EndpointRangeDescriptionResponsePtrInput `pulumi:"ephemeralPorts"`
-	HttpGatewayEndpointPort      pulumi.IntInput                          `pulumi:"httpGatewayEndpointPort"`
-	IsPrimary                    pulumi.BoolInput                         `pulumi:"isPrimary"`
-	Name                         pulumi.StringInput                       `pulumi:"name"`
-	PlacementProperties          pulumi.StringMapInput                    `pulumi:"placementProperties"`
-	ReverseProxyEndpointPort     pulumi.IntPtrInput                       `pulumi:"reverseProxyEndpointPort"`
-	VmInstanceCount              pulumi.IntInput                          `pulumi:"vmInstanceCount"`
-}
-
-func (NodeTypeDescriptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeTypeDescriptionResponse)(nil)).Elem()
-}
-
-func (i NodeTypeDescriptionResponseArgs) ToNodeTypeDescriptionResponseOutput() NodeTypeDescriptionResponseOutput {
-	return i.ToNodeTypeDescriptionResponseOutputWithContext(context.Background())
-}
-
-func (i NodeTypeDescriptionResponseArgs) ToNodeTypeDescriptionResponseOutputWithContext(ctx context.Context) NodeTypeDescriptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeDescriptionResponseOutput)
-}
-
-
-
-
-
-type NodeTypeDescriptionResponseArrayInput interface {
-	pulumi.Input
-
-	ToNodeTypeDescriptionResponseArrayOutput() NodeTypeDescriptionResponseArrayOutput
-	ToNodeTypeDescriptionResponseArrayOutputWithContext(context.Context) NodeTypeDescriptionResponseArrayOutput
-}
-
-type NodeTypeDescriptionResponseArray []NodeTypeDescriptionResponseInput
-
-func (NodeTypeDescriptionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NodeTypeDescriptionResponse)(nil)).Elem()
-}
-
-func (i NodeTypeDescriptionResponseArray) ToNodeTypeDescriptionResponseArrayOutput() NodeTypeDescriptionResponseArrayOutput {
-	return i.ToNodeTypeDescriptionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i NodeTypeDescriptionResponseArray) ToNodeTypeDescriptionResponseArrayOutputWithContext(ctx context.Context) NodeTypeDescriptionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeTypeDescriptionResponseArrayOutput)
-}
-
 type NodeTypeDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (NodeTypeDescriptionResponseOutput) ElementType() reflect.Type {
@@ -3883,59 +3086,6 @@ func (o ServerCertificateCommonNameArrayOutput) Index(i pulumi.IntInput) ServerC
 type ServerCertificateCommonNameResponse struct {
 	CertificateCommonName       string `pulumi:"certificateCommonName"`
 	CertificateIssuerThumbprint string `pulumi:"certificateIssuerThumbprint"`
-}
-
-
-
-
-
-type ServerCertificateCommonNameResponseInput interface {
-	pulumi.Input
-
-	ToServerCertificateCommonNameResponseOutput() ServerCertificateCommonNameResponseOutput
-	ToServerCertificateCommonNameResponseOutputWithContext(context.Context) ServerCertificateCommonNameResponseOutput
-}
-
-type ServerCertificateCommonNameResponseArgs struct {
-	CertificateCommonName       pulumi.StringInput `pulumi:"certificateCommonName"`
-	CertificateIssuerThumbprint pulumi.StringInput `pulumi:"certificateIssuerThumbprint"`
-}
-
-func (ServerCertificateCommonNameResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCertificateCommonNameResponse)(nil)).Elem()
-}
-
-func (i ServerCertificateCommonNameResponseArgs) ToServerCertificateCommonNameResponseOutput() ServerCertificateCommonNameResponseOutput {
-	return i.ToServerCertificateCommonNameResponseOutputWithContext(context.Background())
-}
-
-func (i ServerCertificateCommonNameResponseArgs) ToServerCertificateCommonNameResponseOutputWithContext(ctx context.Context) ServerCertificateCommonNameResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNameResponseOutput)
-}
-
-
-
-
-
-type ServerCertificateCommonNameResponseArrayInput interface {
-	pulumi.Input
-
-	ToServerCertificateCommonNameResponseArrayOutput() ServerCertificateCommonNameResponseArrayOutput
-	ToServerCertificateCommonNameResponseArrayOutputWithContext(context.Context) ServerCertificateCommonNameResponseArrayOutput
-}
-
-type ServerCertificateCommonNameResponseArray []ServerCertificateCommonNameResponseInput
-
-func (ServerCertificateCommonNameResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServerCertificateCommonNameResponse)(nil)).Elem()
-}
-
-func (i ServerCertificateCommonNameResponseArray) ToServerCertificateCommonNameResponseArrayOutput() ServerCertificateCommonNameResponseArrayOutput {
-	return i.ToServerCertificateCommonNameResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ServerCertificateCommonNameResponseArray) ToServerCertificateCommonNameResponseArrayOutputWithContext(ctx context.Context) ServerCertificateCommonNameResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNameResponseArrayOutput)
 }
 
 type ServerCertificateCommonNameResponseOutput struct{ *pulumi.OutputState }
@@ -4133,75 +3283,6 @@ type ServerCertificateCommonNamesResponse struct {
 	X509StoreName *string                               `pulumi:"x509StoreName"`
 }
 
-
-
-
-
-type ServerCertificateCommonNamesResponseInput interface {
-	pulumi.Input
-
-	ToServerCertificateCommonNamesResponseOutput() ServerCertificateCommonNamesResponseOutput
-	ToServerCertificateCommonNamesResponseOutputWithContext(context.Context) ServerCertificateCommonNamesResponseOutput
-}
-
-type ServerCertificateCommonNamesResponseArgs struct {
-	CommonNames   ServerCertificateCommonNameResponseArrayInput `pulumi:"commonNames"`
-	X509StoreName pulumi.StringPtrInput                         `pulumi:"x509StoreName"`
-}
-
-func (ServerCertificateCommonNamesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerCertificateCommonNamesResponse)(nil)).Elem()
-}
-
-func (i ServerCertificateCommonNamesResponseArgs) ToServerCertificateCommonNamesResponseOutput() ServerCertificateCommonNamesResponseOutput {
-	return i.ToServerCertificateCommonNamesResponseOutputWithContext(context.Background())
-}
-
-func (i ServerCertificateCommonNamesResponseArgs) ToServerCertificateCommonNamesResponseOutputWithContext(ctx context.Context) ServerCertificateCommonNamesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNamesResponseOutput)
-}
-
-func (i ServerCertificateCommonNamesResponseArgs) ToServerCertificateCommonNamesResponsePtrOutput() ServerCertificateCommonNamesResponsePtrOutput {
-	return i.ToServerCertificateCommonNamesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServerCertificateCommonNamesResponseArgs) ToServerCertificateCommonNamesResponsePtrOutputWithContext(ctx context.Context) ServerCertificateCommonNamesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNamesResponseOutput).ToServerCertificateCommonNamesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ServerCertificateCommonNamesResponsePtrInput interface {
-	pulumi.Input
-
-	ToServerCertificateCommonNamesResponsePtrOutput() ServerCertificateCommonNamesResponsePtrOutput
-	ToServerCertificateCommonNamesResponsePtrOutputWithContext(context.Context) ServerCertificateCommonNamesResponsePtrOutput
-}
-
-type serverCertificateCommonNamesResponsePtrType ServerCertificateCommonNamesResponseArgs
-
-func ServerCertificateCommonNamesResponsePtr(v *ServerCertificateCommonNamesResponseArgs) ServerCertificateCommonNamesResponsePtrInput {
-	return (*serverCertificateCommonNamesResponsePtrType)(v)
-}
-
-func (*serverCertificateCommonNamesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerCertificateCommonNamesResponse)(nil)).Elem()
-}
-
-func (i *serverCertificateCommonNamesResponsePtrType) ToServerCertificateCommonNamesResponsePtrOutput() ServerCertificateCommonNamesResponsePtrOutput {
-	return i.ToServerCertificateCommonNamesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serverCertificateCommonNamesResponsePtrType) ToServerCertificateCommonNamesResponsePtrOutputWithContext(ctx context.Context) ServerCertificateCommonNamesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerCertificateCommonNamesResponsePtrOutput)
-}
-
 type ServerCertificateCommonNamesResponseOutput struct{ *pulumi.OutputState }
 
 func (ServerCertificateCommonNamesResponseOutput) ElementType() reflect.Type {
@@ -4214,16 +3295,6 @@ func (o ServerCertificateCommonNamesResponseOutput) ToServerCertificateCommonNam
 
 func (o ServerCertificateCommonNamesResponseOutput) ToServerCertificateCommonNamesResponseOutputWithContext(ctx context.Context) ServerCertificateCommonNamesResponseOutput {
 	return o
-}
-
-func (o ServerCertificateCommonNamesResponseOutput) ToServerCertificateCommonNamesResponsePtrOutput() ServerCertificateCommonNamesResponsePtrOutput {
-	return o.ToServerCertificateCommonNamesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServerCertificateCommonNamesResponseOutput) ToServerCertificateCommonNamesResponsePtrOutputWithContext(ctx context.Context) ServerCertificateCommonNamesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerCertificateCommonNamesResponse) *ServerCertificateCommonNamesResponse {
-		return &v
-	}).(ServerCertificateCommonNamesResponsePtrOutput)
 }
 
 func (o ServerCertificateCommonNamesResponseOutput) CommonNames() ServerCertificateCommonNameResponseArrayOutput {
@@ -4280,6 +3351,19 @@ func (o ServerCertificateCommonNamesResponsePtrOutput) X509StoreName() pulumi.St
 
 type ServiceTypeDeltaHealthPolicy struct {
 	MaxPercentDeltaUnhealthyServices *int `pulumi:"maxPercentDeltaUnhealthyServices"`
+}
+
+
+func (val *ServiceTypeDeltaHealthPolicy) Defaults() *ServiceTypeDeltaHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentDeltaUnhealthyServices) {
+		maxPercentDeltaUnhealthyServices_ := 0
+		tmp.MaxPercentDeltaUnhealthyServices = &maxPercentDeltaUnhealthyServices_
+	}
+	return &tmp
 }
 
 
@@ -4461,96 +3545,16 @@ type ServiceTypeDeltaHealthPolicyResponse struct {
 }
 
 
-
-
-
-type ServiceTypeDeltaHealthPolicyResponseInput interface {
-	pulumi.Input
-
-	ToServiceTypeDeltaHealthPolicyResponseOutput() ServiceTypeDeltaHealthPolicyResponseOutput
-	ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyResponseOutput
-}
-
-type ServiceTypeDeltaHealthPolicyResponseArgs struct {
-	MaxPercentDeltaUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentDeltaUnhealthyServices"`
-}
-
-func (ServiceTypeDeltaHealthPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponseOutput() ServiceTypeDeltaHealthPolicyResponseOutput {
-	return i.ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponseOutput)
-}
-
-func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
-	return i.ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponseOutput).ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ServiceTypeDeltaHealthPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput
-	ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput
-}
-
-type serviceTypeDeltaHealthPolicyResponsePtrType ServiceTypeDeltaHealthPolicyResponseArgs
-
-func ServiceTypeDeltaHealthPolicyResponsePtr(v *ServiceTypeDeltaHealthPolicyResponseArgs) ServiceTypeDeltaHealthPolicyResponsePtrInput {
-	return (*serviceTypeDeltaHealthPolicyResponsePtrType)(v)
-}
-
-func (*serviceTypeDeltaHealthPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i *serviceTypeDeltaHealthPolicyResponsePtrType) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
-	return i.ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceTypeDeltaHealthPolicyResponsePtrType) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponsePtrOutput)
-}
-
-
-
-
-
-type ServiceTypeDeltaHealthPolicyResponseMapInput interface {
-	pulumi.Input
-
-	ToServiceTypeDeltaHealthPolicyResponseMapOutput() ServiceTypeDeltaHealthPolicyResponseMapOutput
-	ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyResponseMapOutput
-}
-
-type ServiceTypeDeltaHealthPolicyResponseMap map[string]ServiceTypeDeltaHealthPolicyResponseInput
-
-func (ServiceTypeDeltaHealthPolicyResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i ServiceTypeDeltaHealthPolicyResponseMap) ToServiceTypeDeltaHealthPolicyResponseMapOutput() ServiceTypeDeltaHealthPolicyResponseMapOutput {
-	return i.ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(context.Background())
-}
-
-func (i ServiceTypeDeltaHealthPolicyResponseMap) ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponseMapOutput)
+func (val *ServiceTypeDeltaHealthPolicyResponse) Defaults() *ServiceTypeDeltaHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentDeltaUnhealthyServices) {
+		maxPercentDeltaUnhealthyServices_ := 0
+		tmp.MaxPercentDeltaUnhealthyServices = &maxPercentDeltaUnhealthyServices_
+	}
+	return &tmp
 }
 
 type ServiceTypeDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
@@ -4565,16 +3569,6 @@ func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPoli
 
 func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseOutput {
 	return o
-}
-
-func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
-	return o.ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceTypeDeltaHealthPolicyResponse) *ServiceTypeDeltaHealthPolicyResponse {
-		return &v
-	}).(ServiceTypeDeltaHealthPolicyResponsePtrOutput)
 }
 
 func (o ServiceTypeDeltaHealthPolicyResponseOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
@@ -4636,6 +3630,19 @@ func (o ServiceTypeDeltaHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringI
 
 type ServiceTypeHealthPolicy struct {
 	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
+}
+
+
+func (val *ServiceTypeHealthPolicy) Defaults() *ServiceTypeHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyServices) {
+		maxPercentUnhealthyServices_ := 0
+		tmp.MaxPercentUnhealthyServices = &maxPercentUnhealthyServices_
+	}
+	return &tmp
 }
 
 
@@ -4817,96 +3824,16 @@ type ServiceTypeHealthPolicyResponse struct {
 }
 
 
-
-
-
-type ServiceTypeHealthPolicyResponseInput interface {
-	pulumi.Input
-
-	ToServiceTypeHealthPolicyResponseOutput() ServiceTypeHealthPolicyResponseOutput
-	ToServiceTypeHealthPolicyResponseOutputWithContext(context.Context) ServiceTypeHealthPolicyResponseOutput
-}
-
-type ServiceTypeHealthPolicyResponseArgs struct {
-	MaxPercentUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyServices"`
-}
-
-func (ServiceTypeHealthPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTypeHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponseOutput() ServiceTypeHealthPolicyResponseOutput {
-	return i.ToServiceTypeHealthPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponseOutput)
-}
-
-func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput {
-	return i.ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponseOutput).ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ServiceTypeHealthPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput
-	ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Context) ServiceTypeHealthPolicyResponsePtrOutput
-}
-
-type serviceTypeHealthPolicyResponsePtrType ServiceTypeHealthPolicyResponseArgs
-
-func ServiceTypeHealthPolicyResponsePtr(v *ServiceTypeHealthPolicyResponseArgs) ServiceTypeHealthPolicyResponsePtrInput {
-	return (*serviceTypeHealthPolicyResponsePtrType)(v)
-}
-
-func (*serviceTypeHealthPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceTypeHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i *serviceTypeHealthPolicyResponsePtrType) ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput {
-	return i.ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceTypeHealthPolicyResponsePtrType) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponsePtrOutput)
-}
-
-
-
-
-
-type ServiceTypeHealthPolicyResponseMapInput interface {
-	pulumi.Input
-
-	ToServiceTypeHealthPolicyResponseMapOutput() ServiceTypeHealthPolicyResponseMapOutput
-	ToServiceTypeHealthPolicyResponseMapOutputWithContext(context.Context) ServiceTypeHealthPolicyResponseMapOutput
-}
-
-type ServiceTypeHealthPolicyResponseMap map[string]ServiceTypeHealthPolicyResponseInput
-
-func (ServiceTypeHealthPolicyResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceTypeHealthPolicyResponse)(nil)).Elem()
-}
-
-func (i ServiceTypeHealthPolicyResponseMap) ToServiceTypeHealthPolicyResponseMapOutput() ServiceTypeHealthPolicyResponseMapOutput {
-	return i.ToServiceTypeHealthPolicyResponseMapOutputWithContext(context.Background())
-}
-
-func (i ServiceTypeHealthPolicyResponseMap) ToServiceTypeHealthPolicyResponseMapOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponseMapOutput)
+func (val *ServiceTypeHealthPolicyResponse) Defaults() *ServiceTypeHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyServices) {
+		maxPercentUnhealthyServices_ := 0
+		tmp.MaxPercentUnhealthyServices = &maxPercentUnhealthyServices_
+	}
+	return &tmp
 }
 
 type ServiceTypeHealthPolicyResponseOutput struct{ *pulumi.OutputState }
@@ -4921,16 +3848,6 @@ func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponse
 
 func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponseOutput {
 	return o
-}
-
-func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput {
-	return o.ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceTypeHealthPolicyResponse) *ServiceTypeHealthPolicyResponse {
-		return &v
-	}).(ServiceTypeHealthPolicyResponsePtrOutput)
 }
 
 func (o ServiceTypeHealthPolicyResponseOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
@@ -5095,59 +4012,6 @@ type SettingsParameterDescriptionResponse struct {
 	Value string `pulumi:"value"`
 }
 
-
-
-
-
-type SettingsParameterDescriptionResponseInput interface {
-	pulumi.Input
-
-	ToSettingsParameterDescriptionResponseOutput() SettingsParameterDescriptionResponseOutput
-	ToSettingsParameterDescriptionResponseOutputWithContext(context.Context) SettingsParameterDescriptionResponseOutput
-}
-
-type SettingsParameterDescriptionResponseArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SettingsParameterDescriptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SettingsParameterDescriptionResponse)(nil)).Elem()
-}
-
-func (i SettingsParameterDescriptionResponseArgs) ToSettingsParameterDescriptionResponseOutput() SettingsParameterDescriptionResponseOutput {
-	return i.ToSettingsParameterDescriptionResponseOutputWithContext(context.Background())
-}
-
-func (i SettingsParameterDescriptionResponseArgs) ToSettingsParameterDescriptionResponseOutputWithContext(ctx context.Context) SettingsParameterDescriptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SettingsParameterDescriptionResponseOutput)
-}
-
-
-
-
-
-type SettingsParameterDescriptionResponseArrayInput interface {
-	pulumi.Input
-
-	ToSettingsParameterDescriptionResponseArrayOutput() SettingsParameterDescriptionResponseArrayOutput
-	ToSettingsParameterDescriptionResponseArrayOutputWithContext(context.Context) SettingsParameterDescriptionResponseArrayOutput
-}
-
-type SettingsParameterDescriptionResponseArray []SettingsParameterDescriptionResponseInput
-
-func (SettingsParameterDescriptionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SettingsParameterDescriptionResponse)(nil)).Elem()
-}
-
-func (i SettingsParameterDescriptionResponseArray) ToSettingsParameterDescriptionResponseArrayOutput() SettingsParameterDescriptionResponseArrayOutput {
-	return i.ToSettingsParameterDescriptionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SettingsParameterDescriptionResponseArray) ToSettingsParameterDescriptionResponseArrayOutputWithContext(ctx context.Context) SettingsParameterDescriptionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SettingsParameterDescriptionResponseArrayOutput)
-}
-
 type SettingsParameterDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (SettingsParameterDescriptionResponseOutput) ElementType() reflect.Type {
@@ -5293,59 +4157,6 @@ func (o SettingsSectionDescriptionArrayOutput) Index(i pulumi.IntInput) Settings
 type SettingsSectionDescriptionResponse struct {
 	Name       string                                 `pulumi:"name"`
 	Parameters []SettingsParameterDescriptionResponse `pulumi:"parameters"`
-}
-
-
-
-
-
-type SettingsSectionDescriptionResponseInput interface {
-	pulumi.Input
-
-	ToSettingsSectionDescriptionResponseOutput() SettingsSectionDescriptionResponseOutput
-	ToSettingsSectionDescriptionResponseOutputWithContext(context.Context) SettingsSectionDescriptionResponseOutput
-}
-
-type SettingsSectionDescriptionResponseArgs struct {
-	Name       pulumi.StringInput                             `pulumi:"name"`
-	Parameters SettingsParameterDescriptionResponseArrayInput `pulumi:"parameters"`
-}
-
-func (SettingsSectionDescriptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SettingsSectionDescriptionResponse)(nil)).Elem()
-}
-
-func (i SettingsSectionDescriptionResponseArgs) ToSettingsSectionDescriptionResponseOutput() SettingsSectionDescriptionResponseOutput {
-	return i.ToSettingsSectionDescriptionResponseOutputWithContext(context.Background())
-}
-
-func (i SettingsSectionDescriptionResponseArgs) ToSettingsSectionDescriptionResponseOutputWithContext(ctx context.Context) SettingsSectionDescriptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SettingsSectionDescriptionResponseOutput)
-}
-
-
-
-
-
-type SettingsSectionDescriptionResponseArrayInput interface {
-	pulumi.Input
-
-	ToSettingsSectionDescriptionResponseArrayOutput() SettingsSectionDescriptionResponseArrayOutput
-	ToSettingsSectionDescriptionResponseArrayOutputWithContext(context.Context) SettingsSectionDescriptionResponseArrayOutput
-}
-
-type SettingsSectionDescriptionResponseArray []SettingsSectionDescriptionResponseInput
-
-func (SettingsSectionDescriptionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SettingsSectionDescriptionResponse)(nil)).Elem()
-}
-
-func (i SettingsSectionDescriptionResponseArray) ToSettingsSectionDescriptionResponseArrayOutput() SettingsSectionDescriptionResponseArrayOutput {
-	return i.ToSettingsSectionDescriptionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SettingsSectionDescriptionResponseArray) ToSettingsSectionDescriptionResponseArrayOutputWithContext(ctx context.Context) SettingsSectionDescriptionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SettingsSectionDescriptionResponseArrayOutput)
 }
 
 type SettingsSectionDescriptionResponseOutput struct{ *pulumi.OutputState }

@@ -119,7 +119,7 @@ type CassandraResourceCassandraViewInput interface {
 }
 
 func (*CassandraResourceCassandraView) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraResourceCassandraView)(nil))
+	return reflect.TypeOf((**CassandraResourceCassandraView)(nil)).Elem()
 }
 
 func (i *CassandraResourceCassandraView) ToCassandraResourceCassandraViewOutput() CassandraResourceCassandraViewOutput {
@@ -133,7 +133,7 @@ func (i *CassandraResourceCassandraView) ToCassandraResourceCassandraViewOutputW
 type CassandraResourceCassandraViewOutput struct{ *pulumi.OutputState }
 
 func (CassandraResourceCassandraViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraResourceCassandraView)(nil))
+	return reflect.TypeOf((**CassandraResourceCassandraView)(nil)).Elem()
 }
 
 func (o CassandraResourceCassandraViewOutput) ToCassandraResourceCassandraViewOutput() CassandraResourceCassandraViewOutput {

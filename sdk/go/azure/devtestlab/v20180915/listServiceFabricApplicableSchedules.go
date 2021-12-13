@@ -13,7 +13,7 @@ func ListServiceFabricApplicableSchedules(ctx *pulumi.Context, args *ListService
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type ListServiceFabricApplicableSchedulesArgs struct {
@@ -32,4 +32,17 @@ type ListServiceFabricApplicableSchedulesResult struct {
 	Name           string            `pulumi:"name"`
 	Tags           map[string]string `pulumi:"tags"`
 	Type           string            `pulumi:"type"`
+}
+
+
+func (val *ListServiceFabricApplicableSchedulesResult) Defaults() *ListServiceFabricApplicableSchedulesResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.LabVmsShutdown = tmp.LabVmsShutdown.Defaults()
+
+	tmp.LabVmsStartup = tmp.LabVmsStartup.Defaults()
+
+	return &tmp
 }

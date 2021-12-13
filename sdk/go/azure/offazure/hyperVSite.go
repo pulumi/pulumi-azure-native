@@ -105,7 +105,7 @@ type HyperVSiteInput interface {
 }
 
 func (*HyperVSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVSite)(nil))
+	return reflect.TypeOf((**HyperVSite)(nil)).Elem()
 }
 
 func (i *HyperVSite) ToHyperVSiteOutput() HyperVSiteOutput {
@@ -119,7 +119,7 @@ func (i *HyperVSite) ToHyperVSiteOutputWithContext(ctx context.Context) HyperVSi
 type HyperVSiteOutput struct{ *pulumi.OutputState }
 
 func (HyperVSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HyperVSite)(nil))
+	return reflect.TypeOf((**HyperVSite)(nil)).Elem()
 }
 
 func (o HyperVSiteOutput) ToHyperVSiteOutput() HyperVSiteOutput {

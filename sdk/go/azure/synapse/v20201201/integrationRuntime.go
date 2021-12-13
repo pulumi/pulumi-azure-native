@@ -118,7 +118,7 @@ type IntegrationRuntimeInput interface {
 }
 
 func (*IntegrationRuntime) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntime)(nil))
+	return reflect.TypeOf((**IntegrationRuntime)(nil)).Elem()
 }
 
 func (i *IntegrationRuntime) ToIntegrationRuntimeOutput() IntegrationRuntimeOutput {
@@ -132,7 +132,7 @@ func (i *IntegrationRuntime) ToIntegrationRuntimeOutputWithContext(ctx context.C
 type IntegrationRuntimeOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationRuntime)(nil))
+	return reflect.TypeOf((**IntegrationRuntime)(nil)).Elem()
 }
 
 func (o IntegrationRuntimeOutput) ToIntegrationRuntimeOutput() IntegrationRuntimeOutput {

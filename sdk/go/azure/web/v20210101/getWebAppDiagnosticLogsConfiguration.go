@@ -13,7 +13,7 @@ func LookupWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context, args *LookupWe
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupWebAppDiagnosticLogsConfigurationArgs struct {
@@ -31,4 +31,15 @@ type LookupWebAppDiagnosticLogsConfigurationResult struct {
 	Kind                  *string                        `pulumi:"kind"`
 	Name                  string                         `pulumi:"name"`
 	Type                  string                         `pulumi:"type"`
+}
+
+
+func (val *LookupWebAppDiagnosticLogsConfigurationResult) Defaults() *LookupWebAppDiagnosticLogsConfigurationResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ApplicationLogs = tmp.ApplicationLogs.Defaults()
+
+	return &tmp
 }

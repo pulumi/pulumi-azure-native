@@ -120,7 +120,7 @@ type RedisEnterpriseInput interface {
 }
 
 func (*RedisEnterprise) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisEnterprise)(nil))
+	return reflect.TypeOf((**RedisEnterprise)(nil)).Elem()
 }
 
 func (i *RedisEnterprise) ToRedisEnterpriseOutput() RedisEnterpriseOutput {
@@ -134,7 +134,7 @@ func (i *RedisEnterprise) ToRedisEnterpriseOutputWithContext(ctx context.Context
 type RedisEnterpriseOutput struct{ *pulumi.OutputState }
 
 func (RedisEnterpriseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RedisEnterprise)(nil))
+	return reflect.TypeOf((**RedisEnterprise)(nil)).Elem()
 }
 
 func (o RedisEnterpriseOutput) ToRedisEnterpriseOutput() RedisEnterpriseOutput {

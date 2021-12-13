@@ -142,7 +142,7 @@ type SqlPoolWorkloadClassifierInput interface {
 }
 
 func (*SqlPoolWorkloadClassifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadClassifier)(nil))
+	return reflect.TypeOf((**SqlPoolWorkloadClassifier)(nil)).Elem()
 }
 
 func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutput() SqlPoolWorkloadClassifierOutput {
@@ -156,7 +156,7 @@ func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutputWithContext
 type SqlPoolWorkloadClassifierOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadClassifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolWorkloadClassifier)(nil))
+	return reflect.TypeOf((**SqlPoolWorkloadClassifier)(nil)).Elem()
 }
 
 func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierOutput() SqlPoolWorkloadClassifierOutput {

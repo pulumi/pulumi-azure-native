@@ -13,7 +13,7 @@ func LookupInboundNatRule(ctx *pulumi.Context, args *LookupInboundNatRuleArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupInboundNatRuleArgs struct {
@@ -41,4 +41,15 @@ type LookupInboundNatRuleResult struct {
 	Protocol                *string                                 `pulumi:"protocol"`
 	ProvisioningState       string                                  `pulumi:"provisioningState"`
 	Type                    string                                  `pulumi:"type"`
+}
+
+
+func (val *LookupInboundNatRuleResult) Defaults() *LookupInboundNatRuleResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.BackendIPConfiguration = *tmp.BackendIPConfiguration.Defaults()
+
+	return &tmp
 }

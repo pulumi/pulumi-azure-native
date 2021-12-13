@@ -147,74 +147,6 @@ type AgentPoolUpgradeSettingsResponse struct {
 	MaxSurge *string `pulumi:"maxSurge"`
 }
 
-
-
-
-
-type AgentPoolUpgradeSettingsResponseInput interface {
-	pulumi.Input
-
-	ToAgentPoolUpgradeSettingsResponseOutput() AgentPoolUpgradeSettingsResponseOutput
-	ToAgentPoolUpgradeSettingsResponseOutputWithContext(context.Context) AgentPoolUpgradeSettingsResponseOutput
-}
-
-type AgentPoolUpgradeSettingsResponseArgs struct {
-	MaxSurge pulumi.StringPtrInput `pulumi:"maxSurge"`
-}
-
-func (AgentPoolUpgradeSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPoolUpgradeSettingsResponse)(nil)).Elem()
-}
-
-func (i AgentPoolUpgradeSettingsResponseArgs) ToAgentPoolUpgradeSettingsResponseOutput() AgentPoolUpgradeSettingsResponseOutput {
-	return i.ToAgentPoolUpgradeSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i AgentPoolUpgradeSettingsResponseArgs) ToAgentPoolUpgradeSettingsResponseOutputWithContext(ctx context.Context) AgentPoolUpgradeSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolUpgradeSettingsResponseOutput)
-}
-
-func (i AgentPoolUpgradeSettingsResponseArgs) ToAgentPoolUpgradeSettingsResponsePtrOutput() AgentPoolUpgradeSettingsResponsePtrOutput {
-	return i.ToAgentPoolUpgradeSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AgentPoolUpgradeSettingsResponseArgs) ToAgentPoolUpgradeSettingsResponsePtrOutputWithContext(ctx context.Context) AgentPoolUpgradeSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolUpgradeSettingsResponseOutput).ToAgentPoolUpgradeSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AgentPoolUpgradeSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToAgentPoolUpgradeSettingsResponsePtrOutput() AgentPoolUpgradeSettingsResponsePtrOutput
-	ToAgentPoolUpgradeSettingsResponsePtrOutputWithContext(context.Context) AgentPoolUpgradeSettingsResponsePtrOutput
-}
-
-type agentPoolUpgradeSettingsResponsePtrType AgentPoolUpgradeSettingsResponseArgs
-
-func AgentPoolUpgradeSettingsResponsePtr(v *AgentPoolUpgradeSettingsResponseArgs) AgentPoolUpgradeSettingsResponsePtrInput {
-	return (*agentPoolUpgradeSettingsResponsePtrType)(v)
-}
-
-func (*agentPoolUpgradeSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentPoolUpgradeSettingsResponse)(nil)).Elem()
-}
-
-func (i *agentPoolUpgradeSettingsResponsePtrType) ToAgentPoolUpgradeSettingsResponsePtrOutput() AgentPoolUpgradeSettingsResponsePtrOutput {
-	return i.ToAgentPoolUpgradeSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *agentPoolUpgradeSettingsResponsePtrType) ToAgentPoolUpgradeSettingsResponsePtrOutputWithContext(ctx context.Context) AgentPoolUpgradeSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolUpgradeSettingsResponsePtrOutput)
-}
-
 type AgentPoolUpgradeSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (AgentPoolUpgradeSettingsResponseOutput) ElementType() reflect.Type {
@@ -227,16 +159,6 @@ func (o AgentPoolUpgradeSettingsResponseOutput) ToAgentPoolUpgradeSettingsRespon
 
 func (o AgentPoolUpgradeSettingsResponseOutput) ToAgentPoolUpgradeSettingsResponseOutputWithContext(ctx context.Context) AgentPoolUpgradeSettingsResponseOutput {
 	return o
-}
-
-func (o AgentPoolUpgradeSettingsResponseOutput) ToAgentPoolUpgradeSettingsResponsePtrOutput() AgentPoolUpgradeSettingsResponsePtrOutput {
-	return o.ToAgentPoolUpgradeSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AgentPoolUpgradeSettingsResponseOutput) ToAgentPoolUpgradeSettingsResponsePtrOutputWithContext(ctx context.Context) AgentPoolUpgradeSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentPoolUpgradeSettingsResponse) *AgentPoolUpgradeSettingsResponse {
-		return &v
-	}).(AgentPoolUpgradeSettingsResponsePtrOutput)
 }
 
 func (o AgentPoolUpgradeSettingsResponseOutput) MaxSurge() pulumi.StringPtrOutput {
@@ -429,75 +351,6 @@ type ContainerServiceLinuxProfileResponse struct {
 	Ssh           ContainerServiceSshConfigurationResponse `pulumi:"ssh"`
 }
 
-
-
-
-
-type ContainerServiceLinuxProfileResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceLinuxProfileResponseOutput() ContainerServiceLinuxProfileResponseOutput
-	ToContainerServiceLinuxProfileResponseOutputWithContext(context.Context) ContainerServiceLinuxProfileResponseOutput
-}
-
-type ContainerServiceLinuxProfileResponseArgs struct {
-	AdminUsername pulumi.StringInput                            `pulumi:"adminUsername"`
-	Ssh           ContainerServiceSshConfigurationResponseInput `pulumi:"ssh"`
-}
-
-func (ContainerServiceLinuxProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceLinuxProfileResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceLinuxProfileResponseArgs) ToContainerServiceLinuxProfileResponseOutput() ContainerServiceLinuxProfileResponseOutput {
-	return i.ToContainerServiceLinuxProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceLinuxProfileResponseArgs) ToContainerServiceLinuxProfileResponseOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileResponseOutput)
-}
-
-func (i ContainerServiceLinuxProfileResponseArgs) ToContainerServiceLinuxProfileResponsePtrOutput() ContainerServiceLinuxProfileResponsePtrOutput {
-	return i.ToContainerServiceLinuxProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceLinuxProfileResponseArgs) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileResponseOutput).ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceLinuxProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceLinuxProfileResponsePtrOutput() ContainerServiceLinuxProfileResponsePtrOutput
-	ToContainerServiceLinuxProfileResponsePtrOutputWithContext(context.Context) ContainerServiceLinuxProfileResponsePtrOutput
-}
-
-type containerServiceLinuxProfileResponsePtrType ContainerServiceLinuxProfileResponseArgs
-
-func ContainerServiceLinuxProfileResponsePtr(v *ContainerServiceLinuxProfileResponseArgs) ContainerServiceLinuxProfileResponsePtrInput {
-	return (*containerServiceLinuxProfileResponsePtrType)(v)
-}
-
-func (*containerServiceLinuxProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceLinuxProfileResponse)(nil)).Elem()
-}
-
-func (i *containerServiceLinuxProfileResponsePtrType) ToContainerServiceLinuxProfileResponsePtrOutput() ContainerServiceLinuxProfileResponsePtrOutput {
-	return i.ToContainerServiceLinuxProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceLinuxProfileResponsePtrType) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileResponsePtrOutput)
-}
-
 type ContainerServiceLinuxProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceLinuxProfileResponseOutput) ElementType() reflect.Type {
@@ -510,16 +363,6 @@ func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfi
 
 func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponseOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponseOutput {
 	return o
-}
-
-func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponsePtrOutput() ContainerServiceLinuxProfileResponsePtrOutput {
-	return o.ToContainerServiceLinuxProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
-		return &v
-	}).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
 
 func (o ContainerServiceLinuxProfileResponseOutput) AdminUsername() pulumi.StringOutput {
@@ -583,6 +426,41 @@ type ContainerServiceNetworkProfile struct {
 	OutboundType        *string                            `pulumi:"outboundType"`
 	PodCidr             *string                            `pulumi:"podCidr"`
 	ServiceCidr         *string                            `pulumi:"serviceCidr"`
+}
+
+
+func (val *ContainerServiceNetworkProfile) Defaults() *ContainerServiceNetworkProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DnsServiceIP) {
+		dnsServiceIP_ := "10.0.0.10"
+		tmp.DnsServiceIP = &dnsServiceIP_
+	}
+	if isZero(tmp.DockerBridgeCidr) {
+		dockerBridgeCidr_ := "172.17.0.1/16"
+		tmp.DockerBridgeCidr = &dockerBridgeCidr_
+	}
+	tmp.LoadBalancerProfile = tmp.LoadBalancerProfile.Defaults()
+
+	if isZero(tmp.NetworkPlugin) {
+		networkPlugin_ := "kubenet"
+		tmp.NetworkPlugin = &networkPlugin_
+	}
+	if isZero(tmp.OutboundType) {
+		outboundType_ := "loadBalancer"
+		tmp.OutboundType = &outboundType_
+	}
+	if isZero(tmp.PodCidr) {
+		podCidr_ := "10.244.0.0/16"
+		tmp.PodCidr = &podCidr_
+	}
+	if isZero(tmp.ServiceCidr) {
+		serviceCidr_ := "10.0.0.0/16"
+		tmp.ServiceCidr = &serviceCidr_
+	}
+	return &tmp
 }
 
 
@@ -856,80 +734,38 @@ type ContainerServiceNetworkProfileResponse struct {
 }
 
 
+func (val *ContainerServiceNetworkProfileResponse) Defaults() *ContainerServiceNetworkProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DnsServiceIP) {
+		dnsServiceIP_ := "10.0.0.10"
+		tmp.DnsServiceIP = &dnsServiceIP_
+	}
+	if isZero(tmp.DockerBridgeCidr) {
+		dockerBridgeCidr_ := "172.17.0.1/16"
+		tmp.DockerBridgeCidr = &dockerBridgeCidr_
+	}
+	tmp.LoadBalancerProfile = tmp.LoadBalancerProfile.Defaults()
 
-
-
-type ContainerServiceNetworkProfileResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceNetworkProfileResponseOutput() ContainerServiceNetworkProfileResponseOutput
-	ToContainerServiceNetworkProfileResponseOutputWithContext(context.Context) ContainerServiceNetworkProfileResponseOutput
-}
-
-type ContainerServiceNetworkProfileResponseArgs struct {
-	DnsServiceIP        pulumi.StringPtrInput                             `pulumi:"dnsServiceIP"`
-	DockerBridgeCidr    pulumi.StringPtrInput                             `pulumi:"dockerBridgeCidr"`
-	LoadBalancerProfile ManagedClusterLoadBalancerProfileResponsePtrInput `pulumi:"loadBalancerProfile"`
-	LoadBalancerSku     pulumi.StringPtrInput                             `pulumi:"loadBalancerSku"`
-	NetworkMode         pulumi.StringPtrInput                             `pulumi:"networkMode"`
-	NetworkPlugin       pulumi.StringPtrInput                             `pulumi:"networkPlugin"`
-	NetworkPolicy       pulumi.StringPtrInput                             `pulumi:"networkPolicy"`
-	OutboundType        pulumi.StringPtrInput                             `pulumi:"outboundType"`
-	PodCidr             pulumi.StringPtrInput                             `pulumi:"podCidr"`
-	ServiceCidr         pulumi.StringPtrInput                             `pulumi:"serviceCidr"`
-}
-
-func (ContainerServiceNetworkProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceNetworkProfileResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceNetworkProfileResponseArgs) ToContainerServiceNetworkProfileResponseOutput() ContainerServiceNetworkProfileResponseOutput {
-	return i.ToContainerServiceNetworkProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceNetworkProfileResponseArgs) ToContainerServiceNetworkProfileResponseOutputWithContext(ctx context.Context) ContainerServiceNetworkProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceNetworkProfileResponseOutput)
-}
-
-func (i ContainerServiceNetworkProfileResponseArgs) ToContainerServiceNetworkProfileResponsePtrOutput() ContainerServiceNetworkProfileResponsePtrOutput {
-	return i.ToContainerServiceNetworkProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceNetworkProfileResponseArgs) ToContainerServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceNetworkProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceNetworkProfileResponseOutput).ToContainerServiceNetworkProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceNetworkProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceNetworkProfileResponsePtrOutput() ContainerServiceNetworkProfileResponsePtrOutput
-	ToContainerServiceNetworkProfileResponsePtrOutputWithContext(context.Context) ContainerServiceNetworkProfileResponsePtrOutput
-}
-
-type containerServiceNetworkProfileResponsePtrType ContainerServiceNetworkProfileResponseArgs
-
-func ContainerServiceNetworkProfileResponsePtr(v *ContainerServiceNetworkProfileResponseArgs) ContainerServiceNetworkProfileResponsePtrInput {
-	return (*containerServiceNetworkProfileResponsePtrType)(v)
-}
-
-func (*containerServiceNetworkProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceNetworkProfileResponse)(nil)).Elem()
-}
-
-func (i *containerServiceNetworkProfileResponsePtrType) ToContainerServiceNetworkProfileResponsePtrOutput() ContainerServiceNetworkProfileResponsePtrOutput {
-	return i.ToContainerServiceNetworkProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceNetworkProfileResponsePtrType) ToContainerServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceNetworkProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceNetworkProfileResponsePtrOutput)
+	if isZero(tmp.NetworkPlugin) {
+		networkPlugin_ := "kubenet"
+		tmp.NetworkPlugin = &networkPlugin_
+	}
+	if isZero(tmp.OutboundType) {
+		outboundType_ := "loadBalancer"
+		tmp.OutboundType = &outboundType_
+	}
+	if isZero(tmp.PodCidr) {
+		podCidr_ := "10.244.0.0/16"
+		tmp.PodCidr = &podCidr_
+	}
+	if isZero(tmp.ServiceCidr) {
+		serviceCidr_ := "10.0.0.0/16"
+		tmp.ServiceCidr = &serviceCidr_
+	}
+	return &tmp
 }
 
 type ContainerServiceNetworkProfileResponseOutput struct{ *pulumi.OutputState }
@@ -944,16 +780,6 @@ func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkP
 
 func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkProfileResponseOutputWithContext(ctx context.Context) ContainerServiceNetworkProfileResponseOutput {
 	return o
-}
-
-func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkProfileResponsePtrOutput() ContainerServiceNetworkProfileResponsePtrOutput {
-	return o.ToContainerServiceNetworkProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceNetworkProfileResponseOutput) ToContainerServiceNetworkProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceNetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceNetworkProfileResponse) *ContainerServiceNetworkProfileResponse {
-		return &v
-	}).(ContainerServiceNetworkProfileResponsePtrOutput)
 }
 
 func (o ContainerServiceNetworkProfileResponseOutput) DnsServiceIP() pulumi.StringPtrOutput {
@@ -1249,74 +1075,6 @@ type ContainerServiceSshConfigurationResponse struct {
 	PublicKeys []ContainerServiceSshPublicKeyResponse `pulumi:"publicKeys"`
 }
 
-
-
-
-
-type ContainerServiceSshConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceSshConfigurationResponseOutput() ContainerServiceSshConfigurationResponseOutput
-	ToContainerServiceSshConfigurationResponseOutputWithContext(context.Context) ContainerServiceSshConfigurationResponseOutput
-}
-
-type ContainerServiceSshConfigurationResponseArgs struct {
-	PublicKeys ContainerServiceSshPublicKeyResponseArrayInput `pulumi:"publicKeys"`
-}
-
-func (ContainerServiceSshConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceSshConfigurationResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceSshConfigurationResponseArgs) ToContainerServiceSshConfigurationResponseOutput() ContainerServiceSshConfigurationResponseOutput {
-	return i.ToContainerServiceSshConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceSshConfigurationResponseArgs) ToContainerServiceSshConfigurationResponseOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationResponseOutput)
-}
-
-func (i ContainerServiceSshConfigurationResponseArgs) ToContainerServiceSshConfigurationResponsePtrOutput() ContainerServiceSshConfigurationResponsePtrOutput {
-	return i.ToContainerServiceSshConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceSshConfigurationResponseArgs) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationResponseOutput).ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceSshConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceSshConfigurationResponsePtrOutput() ContainerServiceSshConfigurationResponsePtrOutput
-	ToContainerServiceSshConfigurationResponsePtrOutputWithContext(context.Context) ContainerServiceSshConfigurationResponsePtrOutput
-}
-
-type containerServiceSshConfigurationResponsePtrType ContainerServiceSshConfigurationResponseArgs
-
-func ContainerServiceSshConfigurationResponsePtr(v *ContainerServiceSshConfigurationResponseArgs) ContainerServiceSshConfigurationResponsePtrInput {
-	return (*containerServiceSshConfigurationResponsePtrType)(v)
-}
-
-func (*containerServiceSshConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceSshConfigurationResponse)(nil)).Elem()
-}
-
-func (i *containerServiceSshConfigurationResponsePtrType) ToContainerServiceSshConfigurationResponsePtrOutput() ContainerServiceSshConfigurationResponsePtrOutput {
-	return i.ToContainerServiceSshConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceSshConfigurationResponsePtrType) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationResponsePtrOutput)
-}
-
 type ContainerServiceSshConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1329,16 +1087,6 @@ func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshCon
 
 func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponseOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponseOutput {
 	return o
-}
-
-func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponsePtrOutput() ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ToContainerServiceSshConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
-		return &v
-	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
 func (o ContainerServiceSshConfigurationResponseOutput) PublicKeys() ContainerServiceSshPublicKeyResponseArrayOutput {
@@ -1478,58 +1226,6 @@ type ContainerServiceSshPublicKeyResponse struct {
 	KeyData string `pulumi:"keyData"`
 }
 
-
-
-
-
-type ContainerServiceSshPublicKeyResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceSshPublicKeyResponseOutput() ContainerServiceSshPublicKeyResponseOutput
-	ToContainerServiceSshPublicKeyResponseOutputWithContext(context.Context) ContainerServiceSshPublicKeyResponseOutput
-}
-
-type ContainerServiceSshPublicKeyResponseArgs struct {
-	KeyData pulumi.StringInput `pulumi:"keyData"`
-}
-
-func (ContainerServiceSshPublicKeyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceSshPublicKeyResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceSshPublicKeyResponseArgs) ToContainerServiceSshPublicKeyResponseOutput() ContainerServiceSshPublicKeyResponseOutput {
-	return i.ToContainerServiceSshPublicKeyResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceSshPublicKeyResponseArgs) ToContainerServiceSshPublicKeyResponseOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyResponseOutput)
-}
-
-
-
-
-
-type ContainerServiceSshPublicKeyResponseArrayInput interface {
-	pulumi.Input
-
-	ToContainerServiceSshPublicKeyResponseArrayOutput() ContainerServiceSshPublicKeyResponseArrayOutput
-	ToContainerServiceSshPublicKeyResponseArrayOutputWithContext(context.Context) ContainerServiceSshPublicKeyResponseArrayOutput
-}
-
-type ContainerServiceSshPublicKeyResponseArray []ContainerServiceSshPublicKeyResponseInput
-
-func (ContainerServiceSshPublicKeyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ContainerServiceSshPublicKeyResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceSshPublicKeyResponseArray) ToContainerServiceSshPublicKeyResponseArrayOutput() ContainerServiceSshPublicKeyResponseArrayOutput {
-	return i.ToContainerServiceSshPublicKeyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceSshPublicKeyResponseArray) ToContainerServiceSshPublicKeyResponseArrayOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyResponseArrayOutput)
-}
-
 type ContainerServiceSshPublicKeyResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshPublicKeyResponseOutput) ElementType() reflect.Type {
@@ -1571,101 +1267,6 @@ func (o ContainerServiceSshPublicKeyResponseArrayOutput) Index(i pulumi.IntInput
 type CredentialResultResponse struct {
 	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
-}
-
-
-
-
-
-type CredentialResultResponseInput interface {
-	pulumi.Input
-
-	ToCredentialResultResponseOutput() CredentialResultResponseOutput
-	ToCredentialResultResponseOutputWithContext(context.Context) CredentialResultResponseOutput
-}
-
-type CredentialResultResponseArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (CredentialResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CredentialResultResponse)(nil)).Elem()
-}
-
-func (i CredentialResultResponseArgs) ToCredentialResultResponseOutput() CredentialResultResponseOutput {
-	return i.ToCredentialResultResponseOutputWithContext(context.Background())
-}
-
-func (i CredentialResultResponseArgs) ToCredentialResultResponseOutputWithContext(ctx context.Context) CredentialResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseOutput)
-}
-
-
-
-
-
-type CredentialResultResponseArrayInput interface {
-	pulumi.Input
-
-	ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput
-	ToCredentialResultResponseArrayOutputWithContext(context.Context) CredentialResultResponseArrayOutput
-}
-
-type CredentialResultResponseArray []CredentialResultResponseInput
-
-func (CredentialResultResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CredentialResultResponse)(nil)).Elem()
-}
-
-func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput {
-	return i.ToCredentialResultResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CredentialResultResponseArray) ToCredentialResultResponseArrayOutputWithContext(ctx context.Context) CredentialResultResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CredentialResultResponseArrayOutput)
-}
-
-type CredentialResultResponseOutput struct{ *pulumi.OutputState }
-
-func (CredentialResultResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CredentialResultResponse)(nil)).Elem()
-}
-
-func (o CredentialResultResponseOutput) ToCredentialResultResponseOutput() CredentialResultResponseOutput {
-	return o
-}
-
-func (o CredentialResultResponseOutput) ToCredentialResultResponseOutputWithContext(ctx context.Context) CredentialResultResponseOutput {
-	return o
-}
-
-func (o CredentialResultResponseOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CredentialResultResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o CredentialResultResponseOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v CredentialResultResponse) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type CredentialResultResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (CredentialResultResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CredentialResultResponse)(nil)).Elem()
-}
-
-func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutput() CredentialResultResponseArrayOutput {
-	return o
-}
-
-func (o CredentialResultResponseArrayOutput) ToCredentialResultResponseArrayOutputWithContext(ctx context.Context) CredentialResultResponseArrayOutput {
-	return o
-}
-
-func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) CredentialResultResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CredentialResultResponse {
-		return vs[0].([]CredentialResultResponse)[vs[1].(int)]
-	}).(CredentialResultResponseOutput)
 }
 
 type ManagedClusterAADProfile struct {
@@ -1901,80 +1502,6 @@ type ManagedClusterAADProfileResponse struct {
 	TenantID            *string  `pulumi:"tenantID"`
 }
 
-
-
-
-
-type ManagedClusterAADProfileResponseInput interface {
-	pulumi.Input
-
-	ToManagedClusterAADProfileResponseOutput() ManagedClusterAADProfileResponseOutput
-	ToManagedClusterAADProfileResponseOutputWithContext(context.Context) ManagedClusterAADProfileResponseOutput
-}
-
-type ManagedClusterAADProfileResponseArgs struct {
-	AdminGroupObjectIDs pulumi.StringArrayInput `pulumi:"adminGroupObjectIDs"`
-	ClientAppID         pulumi.StringPtrInput   `pulumi:"clientAppID"`
-	EnableAzureRBAC     pulumi.BoolPtrInput     `pulumi:"enableAzureRBAC"`
-	Managed             pulumi.BoolPtrInput     `pulumi:"managed"`
-	ServerAppID         pulumi.StringPtrInput   `pulumi:"serverAppID"`
-	ServerAppSecret     pulumi.StringPtrInput   `pulumi:"serverAppSecret"`
-	TenantID            pulumi.StringPtrInput   `pulumi:"tenantID"`
-}
-
-func (ManagedClusterAADProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterAADProfileResponse)(nil)).Elem()
-}
-
-func (i ManagedClusterAADProfileResponseArgs) ToManagedClusterAADProfileResponseOutput() ManagedClusterAADProfileResponseOutput {
-	return i.ToManagedClusterAADProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterAADProfileResponseArgs) ToManagedClusterAADProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAADProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAADProfileResponseOutput)
-}
-
-func (i ManagedClusterAADProfileResponseArgs) ToManagedClusterAADProfileResponsePtrOutput() ManagedClusterAADProfileResponsePtrOutput {
-	return i.ToManagedClusterAADProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterAADProfileResponseArgs) ToManagedClusterAADProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAADProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAADProfileResponseOutput).ToManagedClusterAADProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedClusterAADProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterAADProfileResponsePtrOutput() ManagedClusterAADProfileResponsePtrOutput
-	ToManagedClusterAADProfileResponsePtrOutputWithContext(context.Context) ManagedClusterAADProfileResponsePtrOutput
-}
-
-type managedClusterAADProfileResponsePtrType ManagedClusterAADProfileResponseArgs
-
-func ManagedClusterAADProfileResponsePtr(v *ManagedClusterAADProfileResponseArgs) ManagedClusterAADProfileResponsePtrInput {
-	return (*managedClusterAADProfileResponsePtrType)(v)
-}
-
-func (*managedClusterAADProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterAADProfileResponse)(nil)).Elem()
-}
-
-func (i *managedClusterAADProfileResponsePtrType) ToManagedClusterAADProfileResponsePtrOutput() ManagedClusterAADProfileResponsePtrOutput {
-	return i.ToManagedClusterAADProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterAADProfileResponsePtrType) ToManagedClusterAADProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAADProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAADProfileResponsePtrOutput)
-}
-
 type ManagedClusterAADProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAADProfileResponseOutput) ElementType() reflect.Type {
@@ -1987,16 +1514,6 @@ func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileRespon
 
 func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAADProfileResponseOutput {
 	return o
-}
-
-func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileResponsePtrOutput() ManagedClusterAADProfileResponsePtrOutput {
-	return o.ToManagedClusterAADProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterAADProfileResponseOutput) ToManagedClusterAADProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAADProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAADProfileResponse) *ManagedClusterAADProfileResponse {
-		return &v
-	}).(ManagedClusterAADProfileResponsePtrOutput)
 }
 
 func (o ManagedClusterAADProfileResponseOutput) AdminGroupObjectIDs() pulumi.StringArrayOutput {
@@ -2267,75 +1784,6 @@ type ManagedClusterAPIServerAccessProfileResponse struct {
 	EnablePrivateCluster *bool    `pulumi:"enablePrivateCluster"`
 }
 
-
-
-
-
-type ManagedClusterAPIServerAccessProfileResponseInput interface {
-	pulumi.Input
-
-	ToManagedClusterAPIServerAccessProfileResponseOutput() ManagedClusterAPIServerAccessProfileResponseOutput
-	ToManagedClusterAPIServerAccessProfileResponseOutputWithContext(context.Context) ManagedClusterAPIServerAccessProfileResponseOutput
-}
-
-type ManagedClusterAPIServerAccessProfileResponseArgs struct {
-	AuthorizedIPRanges   pulumi.StringArrayInput `pulumi:"authorizedIPRanges"`
-	EnablePrivateCluster pulumi.BoolPtrInput     `pulumi:"enablePrivateCluster"`
-}
-
-func (ManagedClusterAPIServerAccessProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterAPIServerAccessProfileResponse)(nil)).Elem()
-}
-
-func (i ManagedClusterAPIServerAccessProfileResponseArgs) ToManagedClusterAPIServerAccessProfileResponseOutput() ManagedClusterAPIServerAccessProfileResponseOutput {
-	return i.ToManagedClusterAPIServerAccessProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterAPIServerAccessProfileResponseArgs) ToManagedClusterAPIServerAccessProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAPIServerAccessProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAPIServerAccessProfileResponseOutput)
-}
-
-func (i ManagedClusterAPIServerAccessProfileResponseArgs) ToManagedClusterAPIServerAccessProfileResponsePtrOutput() ManagedClusterAPIServerAccessProfileResponsePtrOutput {
-	return i.ToManagedClusterAPIServerAccessProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterAPIServerAccessProfileResponseArgs) ToManagedClusterAPIServerAccessProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAPIServerAccessProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAPIServerAccessProfileResponseOutput).ToManagedClusterAPIServerAccessProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedClusterAPIServerAccessProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterAPIServerAccessProfileResponsePtrOutput() ManagedClusterAPIServerAccessProfileResponsePtrOutput
-	ToManagedClusterAPIServerAccessProfileResponsePtrOutputWithContext(context.Context) ManagedClusterAPIServerAccessProfileResponsePtrOutput
-}
-
-type managedClusterAPIServerAccessProfileResponsePtrType ManagedClusterAPIServerAccessProfileResponseArgs
-
-func ManagedClusterAPIServerAccessProfileResponsePtr(v *ManagedClusterAPIServerAccessProfileResponseArgs) ManagedClusterAPIServerAccessProfileResponsePtrInput {
-	return (*managedClusterAPIServerAccessProfileResponsePtrType)(v)
-}
-
-func (*managedClusterAPIServerAccessProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterAPIServerAccessProfileResponse)(nil)).Elem()
-}
-
-func (i *managedClusterAPIServerAccessProfileResponsePtrType) ToManagedClusterAPIServerAccessProfileResponsePtrOutput() ManagedClusterAPIServerAccessProfileResponsePtrOutput {
-	return i.ToManagedClusterAPIServerAccessProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterAPIServerAccessProfileResponsePtrType) ToManagedClusterAPIServerAccessProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAPIServerAccessProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAPIServerAccessProfileResponsePtrOutput)
-}
-
 type ManagedClusterAPIServerAccessProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAPIServerAccessProfileResponseOutput) ElementType() reflect.Type {
@@ -2348,16 +1796,6 @@ func (o ManagedClusterAPIServerAccessProfileResponseOutput) ToManagedClusterAPIS
 
 func (o ManagedClusterAPIServerAccessProfileResponseOutput) ToManagedClusterAPIServerAccessProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAPIServerAccessProfileResponseOutput {
 	return o
-}
-
-func (o ManagedClusterAPIServerAccessProfileResponseOutput) ToManagedClusterAPIServerAccessProfileResponsePtrOutput() ManagedClusterAPIServerAccessProfileResponsePtrOutput {
-	return o.ToManagedClusterAPIServerAccessProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterAPIServerAccessProfileResponseOutput) ToManagedClusterAPIServerAccessProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterAPIServerAccessProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterAPIServerAccessProfileResponse) *ManagedClusterAPIServerAccessProfileResponse {
-		return &v
-	}).(ManagedClusterAPIServerAccessProfileResponsePtrOutput)
 }
 
 func (o ManagedClusterAPIServerAccessProfileResponseOutput) AuthorizedIPRanges() pulumi.StringArrayOutput {
@@ -2516,60 +1954,6 @@ type ManagedClusterAddonProfileResponse struct {
 	Identity ManagedClusterAddonProfileResponseIdentity `pulumi:"identity"`
 }
 
-
-
-
-
-type ManagedClusterAddonProfileResponseInput interface {
-	pulumi.Input
-
-	ToManagedClusterAddonProfileResponseOutput() ManagedClusterAddonProfileResponseOutput
-	ToManagedClusterAddonProfileResponseOutputWithContext(context.Context) ManagedClusterAddonProfileResponseOutput
-}
-
-type ManagedClusterAddonProfileResponseArgs struct {
-	Config   pulumi.StringMapInput                           `pulumi:"config"`
-	Enabled  pulumi.BoolInput                                `pulumi:"enabled"`
-	Identity ManagedClusterAddonProfileResponseIdentityInput `pulumi:"identity"`
-}
-
-func (ManagedClusterAddonProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterAddonProfileResponse)(nil)).Elem()
-}
-
-func (i ManagedClusterAddonProfileResponseArgs) ToManagedClusterAddonProfileResponseOutput() ManagedClusterAddonProfileResponseOutput {
-	return i.ToManagedClusterAddonProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterAddonProfileResponseArgs) ToManagedClusterAddonProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseOutput)
-}
-
-
-
-
-
-type ManagedClusterAddonProfileResponseMapInput interface {
-	pulumi.Input
-
-	ToManagedClusterAddonProfileResponseMapOutput() ManagedClusterAddonProfileResponseMapOutput
-	ToManagedClusterAddonProfileResponseMapOutputWithContext(context.Context) ManagedClusterAddonProfileResponseMapOutput
-}
-
-type ManagedClusterAddonProfileResponseMap map[string]ManagedClusterAddonProfileResponseInput
-
-func (ManagedClusterAddonProfileResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedClusterAddonProfileResponse)(nil)).Elem()
-}
-
-func (i ManagedClusterAddonProfileResponseMap) ToManagedClusterAddonProfileResponseMapOutput() ManagedClusterAddonProfileResponseMapOutput {
-	return i.ToManagedClusterAddonProfileResponseMapOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterAddonProfileResponseMap) ToManagedClusterAddonProfileResponseMapOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseMapOutput)
-}
-
 type ManagedClusterAddonProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterAddonProfileResponseOutput) ElementType() reflect.Type {
@@ -2622,35 +2006,6 @@ type ManagedClusterAddonProfileResponseIdentity struct {
 	ClientId   *string `pulumi:"clientId"`
 	ObjectId   *string `pulumi:"objectId"`
 	ResourceId *string `pulumi:"resourceId"`
-}
-
-
-
-
-
-type ManagedClusterAddonProfileResponseIdentityInput interface {
-	pulumi.Input
-
-	ToManagedClusterAddonProfileResponseIdentityOutput() ManagedClusterAddonProfileResponseIdentityOutput
-	ToManagedClusterAddonProfileResponseIdentityOutputWithContext(context.Context) ManagedClusterAddonProfileResponseIdentityOutput
-}
-
-type ManagedClusterAddonProfileResponseIdentityArgs struct {
-	ClientId   pulumi.StringPtrInput `pulumi:"clientId"`
-	ObjectId   pulumi.StringPtrInput `pulumi:"objectId"`
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (ManagedClusterAddonProfileResponseIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterAddonProfileResponseIdentity)(nil)).Elem()
-}
-
-func (i ManagedClusterAddonProfileResponseIdentityArgs) ToManagedClusterAddonProfileResponseIdentityOutput() ManagedClusterAddonProfileResponseIdentityOutput {
-	return i.ToManagedClusterAddonProfileResponseIdentityOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterAddonProfileResponseIdentityArgs) ToManagedClusterAddonProfileResponseIdentityOutputWithContext(ctx context.Context) ManagedClusterAddonProfileResponseIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAddonProfileResponseIdentityOutput)
 }
 
 type ManagedClusterAddonProfileResponseIdentityOutput struct{ *pulumi.OutputState }
@@ -2937,82 +2292,6 @@ type ManagedClusterAgentPoolProfileResponse struct {
 	UpgradeSettings           *AgentPoolUpgradeSettingsResponse `pulumi:"upgradeSettings"`
 	VmSize                    *string                           `pulumi:"vmSize"`
 	VnetSubnetID              *string                           `pulumi:"vnetSubnetID"`
-}
-
-
-
-
-
-type ManagedClusterAgentPoolProfileResponseInput interface {
-	pulumi.Input
-
-	ToManagedClusterAgentPoolProfileResponseOutput() ManagedClusterAgentPoolProfileResponseOutput
-	ToManagedClusterAgentPoolProfileResponseOutputWithContext(context.Context) ManagedClusterAgentPoolProfileResponseOutput
-}
-
-type ManagedClusterAgentPoolProfileResponseArgs struct {
-	AvailabilityZones         pulumi.StringArrayInput                  `pulumi:"availabilityZones"`
-	Count                     pulumi.IntPtrInput                       `pulumi:"count"`
-	EnableAutoScaling         pulumi.BoolPtrInput                      `pulumi:"enableAutoScaling"`
-	EnableNodePublicIP        pulumi.BoolPtrInput                      `pulumi:"enableNodePublicIP"`
-	MaxCount                  pulumi.IntPtrInput                       `pulumi:"maxCount"`
-	MaxPods                   pulumi.IntPtrInput                       `pulumi:"maxPods"`
-	MinCount                  pulumi.IntPtrInput                       `pulumi:"minCount"`
-	Mode                      pulumi.StringPtrInput                    `pulumi:"mode"`
-	Name                      pulumi.StringInput                       `pulumi:"name"`
-	NodeImageVersion          pulumi.StringPtrInput                    `pulumi:"nodeImageVersion"`
-	NodeLabels                pulumi.StringMapInput                    `pulumi:"nodeLabels"`
-	NodeTaints                pulumi.StringArrayInput                  `pulumi:"nodeTaints"`
-	OrchestratorVersion       pulumi.StringPtrInput                    `pulumi:"orchestratorVersion"`
-	OsDiskSizeGB              pulumi.IntPtrInput                       `pulumi:"osDiskSizeGB"`
-	OsType                    pulumi.StringPtrInput                    `pulumi:"osType"`
-	ProvisioningState         pulumi.StringInput                       `pulumi:"provisioningState"`
-	ProximityPlacementGroupID pulumi.StringPtrInput                    `pulumi:"proximityPlacementGroupID"`
-	ScaleSetEvictionPolicy    pulumi.StringPtrInput                    `pulumi:"scaleSetEvictionPolicy"`
-	ScaleSetPriority          pulumi.StringPtrInput                    `pulumi:"scaleSetPriority"`
-	SpotMaxPrice              pulumi.Float64PtrInput                   `pulumi:"spotMaxPrice"`
-	Tags                      pulumi.StringMapInput                    `pulumi:"tags"`
-	Type                      pulumi.StringPtrInput                    `pulumi:"type"`
-	UpgradeSettings           AgentPoolUpgradeSettingsResponsePtrInput `pulumi:"upgradeSettings"`
-	VmSize                    pulumi.StringPtrInput                    `pulumi:"vmSize"`
-	VnetSubnetID              pulumi.StringPtrInput                    `pulumi:"vnetSubnetID"`
-}
-
-func (ManagedClusterAgentPoolProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterAgentPoolProfileResponse)(nil)).Elem()
-}
-
-func (i ManagedClusterAgentPoolProfileResponseArgs) ToManagedClusterAgentPoolProfileResponseOutput() ManagedClusterAgentPoolProfileResponseOutput {
-	return i.ToManagedClusterAgentPoolProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterAgentPoolProfileResponseArgs) ToManagedClusterAgentPoolProfileResponseOutputWithContext(ctx context.Context) ManagedClusterAgentPoolProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAgentPoolProfileResponseOutput)
-}
-
-
-
-
-
-type ManagedClusterAgentPoolProfileResponseArrayInput interface {
-	pulumi.Input
-
-	ToManagedClusterAgentPoolProfileResponseArrayOutput() ManagedClusterAgentPoolProfileResponseArrayOutput
-	ToManagedClusterAgentPoolProfileResponseArrayOutputWithContext(context.Context) ManagedClusterAgentPoolProfileResponseArrayOutput
-}
-
-type ManagedClusterAgentPoolProfileResponseArray []ManagedClusterAgentPoolProfileResponseInput
-
-func (ManagedClusterAgentPoolProfileResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedClusterAgentPoolProfileResponse)(nil)).Elem()
-}
-
-func (i ManagedClusterAgentPoolProfileResponseArray) ToManagedClusterAgentPoolProfileResponseArrayOutput() ManagedClusterAgentPoolProfileResponseArrayOutput {
-	return i.ToManagedClusterAgentPoolProfileResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterAgentPoolProfileResponseArray) ToManagedClusterAgentPoolProfileResponseArrayOutputWithContext(ctx context.Context) ManagedClusterAgentPoolProfileResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterAgentPoolProfileResponseArrayOutput)
 }
 
 type ManagedClusterAgentPoolProfileResponseOutput struct{ *pulumi.OutputState }
@@ -3306,77 +2585,6 @@ type ManagedClusterIdentityResponse struct {
 	UserAssignedIdentities map[string]ManagedClusterIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
-
-
-
-
-type ManagedClusterIdentityResponseInput interface {
-	pulumi.Input
-
-	ToManagedClusterIdentityResponseOutput() ManagedClusterIdentityResponseOutput
-	ToManagedClusterIdentityResponseOutputWithContext(context.Context) ManagedClusterIdentityResponseOutput
-}
-
-type ManagedClusterIdentityResponseArgs struct {
-	PrincipalId            pulumi.StringInput                                           `pulumi:"principalId"`
-	TenantId               pulumi.StringInput                                           `pulumi:"tenantId"`
-	Type                   pulumi.StringPtrInput                                        `pulumi:"type"`
-	UserAssignedIdentities ManagedClusterIdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
-}
-
-func (ManagedClusterIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterIdentityResponse)(nil)).Elem()
-}
-
-func (i ManagedClusterIdentityResponseArgs) ToManagedClusterIdentityResponseOutput() ManagedClusterIdentityResponseOutput {
-	return i.ToManagedClusterIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterIdentityResponseArgs) ToManagedClusterIdentityResponseOutputWithContext(ctx context.Context) ManagedClusterIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityResponseOutput)
-}
-
-func (i ManagedClusterIdentityResponseArgs) ToManagedClusterIdentityResponsePtrOutput() ManagedClusterIdentityResponsePtrOutput {
-	return i.ToManagedClusterIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterIdentityResponseArgs) ToManagedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedClusterIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityResponseOutput).ToManagedClusterIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedClusterIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterIdentityResponsePtrOutput() ManagedClusterIdentityResponsePtrOutput
-	ToManagedClusterIdentityResponsePtrOutputWithContext(context.Context) ManagedClusterIdentityResponsePtrOutput
-}
-
-type managedClusterIdentityResponsePtrType ManagedClusterIdentityResponseArgs
-
-func ManagedClusterIdentityResponsePtr(v *ManagedClusterIdentityResponseArgs) ManagedClusterIdentityResponsePtrInput {
-	return (*managedClusterIdentityResponsePtrType)(v)
-}
-
-func (*managedClusterIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterIdentityResponse)(nil)).Elem()
-}
-
-func (i *managedClusterIdentityResponsePtrType) ToManagedClusterIdentityResponsePtrOutput() ManagedClusterIdentityResponsePtrOutput {
-	return i.ToManagedClusterIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterIdentityResponsePtrType) ToManagedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedClusterIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityResponsePtrOutput)
-}
-
 type ManagedClusterIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterIdentityResponseOutput) ElementType() reflect.Type {
@@ -3389,16 +2597,6 @@ func (o ManagedClusterIdentityResponseOutput) ToManagedClusterIdentityResponseOu
 
 func (o ManagedClusterIdentityResponseOutput) ToManagedClusterIdentityResponseOutputWithContext(ctx context.Context) ManagedClusterIdentityResponseOutput {
 	return o
-}
-
-func (o ManagedClusterIdentityResponseOutput) ToManagedClusterIdentityResponsePtrOutput() ManagedClusterIdentityResponsePtrOutput {
-	return o.ToManagedClusterIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterIdentityResponseOutput) ToManagedClusterIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedClusterIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterIdentityResponse) *ManagedClusterIdentityResponse {
-		return &v
-	}).(ManagedClusterIdentityResponsePtrOutput)
 }
 
 func (o ManagedClusterIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
@@ -3484,59 +2682,6 @@ type ManagedClusterIdentityResponseUserAssignedIdentities struct {
 	PrincipalId string `pulumi:"principalId"`
 }
 
-
-
-
-
-type ManagedClusterIdentityResponseUserAssignedIdentitiesInput interface {
-	pulumi.Input
-
-	ToManagedClusterIdentityResponseUserAssignedIdentitiesOutput() ManagedClusterIdentityResponseUserAssignedIdentitiesOutput
-	ToManagedClusterIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Context) ManagedClusterIdentityResponseUserAssignedIdentitiesOutput
-}
-
-type ManagedClusterIdentityResponseUserAssignedIdentitiesArgs struct {
-	ClientId    pulumi.StringInput `pulumi:"clientId"`
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-}
-
-func (ManagedClusterIdentityResponseUserAssignedIdentitiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterIdentityResponseUserAssignedIdentities)(nil)).Elem()
-}
-
-func (i ManagedClusterIdentityResponseUserAssignedIdentitiesArgs) ToManagedClusterIdentityResponseUserAssignedIdentitiesOutput() ManagedClusterIdentityResponseUserAssignedIdentitiesOutput {
-	return i.ToManagedClusterIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterIdentityResponseUserAssignedIdentitiesArgs) ToManagedClusterIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) ManagedClusterIdentityResponseUserAssignedIdentitiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityResponseUserAssignedIdentitiesOutput)
-}
-
-
-
-
-
-type ManagedClusterIdentityResponseUserAssignedIdentitiesMapInput interface {
-	pulumi.Input
-
-	ToManagedClusterIdentityResponseUserAssignedIdentitiesMapOutput() ManagedClusterIdentityResponseUserAssignedIdentitiesMapOutput
-	ToManagedClusterIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Context) ManagedClusterIdentityResponseUserAssignedIdentitiesMapOutput
-}
-
-type ManagedClusterIdentityResponseUserAssignedIdentitiesMap map[string]ManagedClusterIdentityResponseUserAssignedIdentitiesInput
-
-func (ManagedClusterIdentityResponseUserAssignedIdentitiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedClusterIdentityResponseUserAssignedIdentities)(nil)).Elem()
-}
-
-func (i ManagedClusterIdentityResponseUserAssignedIdentitiesMap) ToManagedClusterIdentityResponseUserAssignedIdentitiesMapOutput() ManagedClusterIdentityResponseUserAssignedIdentitiesMapOutput {
-	return i.ToManagedClusterIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterIdentityResponseUserAssignedIdentitiesMap) ToManagedClusterIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ManagedClusterIdentityResponseUserAssignedIdentitiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterIdentityResponseUserAssignedIdentitiesMapOutput)
-}
-
 type ManagedClusterIdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterIdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
@@ -3586,6 +2731,25 @@ type ManagedClusterLoadBalancerProfile struct {
 	ManagedOutboundIPs     *ManagedClusterLoadBalancerProfileManagedOutboundIPs `pulumi:"managedOutboundIPs"`
 	OutboundIPPrefixes     *ManagedClusterLoadBalancerProfileOutboundIPPrefixes `pulumi:"outboundIPPrefixes"`
 	OutboundIPs            *ManagedClusterLoadBalancerProfileOutboundIPs        `pulumi:"outboundIPs"`
+}
+
+
+func (val *ManagedClusterLoadBalancerProfile) Defaults() *ManagedClusterLoadBalancerProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllocatedOutboundPorts) {
+		allocatedOutboundPorts_ := 0
+		tmp.AllocatedOutboundPorts = &allocatedOutboundPorts_
+	}
+	if isZero(tmp.IdleTimeoutInMinutes) {
+		idleTimeoutInMinutes_ := 30
+		tmp.IdleTimeoutInMinutes = &idleTimeoutInMinutes_
+	}
+	tmp.ManagedOutboundIPs = tmp.ManagedOutboundIPs.Defaults()
+
+	return &tmp
 }
 
 
@@ -3795,6 +2959,19 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPs() ManagedCluster
 
 type ManagedClusterLoadBalancerProfileManagedOutboundIPs struct {
 	Count *int `pulumi:"count"`
+}
+
+
+func (val *ManagedClusterLoadBalancerProfileManagedOutboundIPs) Defaults() *ManagedClusterLoadBalancerProfileManagedOutboundIPs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		count_ := 1
+		tmp.Count = &count_
+	}
+	return &tmp
 }
 
 
@@ -4204,76 +3381,22 @@ type ManagedClusterLoadBalancerProfileResponse struct {
 }
 
 
+func (val *ManagedClusterLoadBalancerProfileResponse) Defaults() *ManagedClusterLoadBalancerProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllocatedOutboundPorts) {
+		allocatedOutboundPorts_ := 0
+		tmp.AllocatedOutboundPorts = &allocatedOutboundPorts_
+	}
+	if isZero(tmp.IdleTimeoutInMinutes) {
+		idleTimeoutInMinutes_ := 30
+		tmp.IdleTimeoutInMinutes = &idleTimeoutInMinutes_
+	}
+	tmp.ManagedOutboundIPs = tmp.ManagedOutboundIPs.Defaults()
 
-
-
-type ManagedClusterLoadBalancerProfileResponseInput interface {
-	pulumi.Input
-
-	ToManagedClusterLoadBalancerProfileResponseOutput() ManagedClusterLoadBalancerProfileResponseOutput
-	ToManagedClusterLoadBalancerProfileResponseOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutput
-}
-
-type ManagedClusterLoadBalancerProfileResponseArgs struct {
-	AllocatedOutboundPorts pulumi.IntPtrInput                                                  `pulumi:"allocatedOutboundPorts"`
-	EffectiveOutboundIPs   ResourceReferenceResponseArrayInput                                 `pulumi:"effectiveOutboundIPs"`
-	IdleTimeoutInMinutes   pulumi.IntPtrInput                                                  `pulumi:"idleTimeoutInMinutes"`
-	ManagedOutboundIPs     ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrInput `pulumi:"managedOutboundIPs"`
-	OutboundIPPrefixes     ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrInput `pulumi:"outboundIPPrefixes"`
-	OutboundIPs            ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrInput        `pulumi:"outboundIPs"`
-}
-
-func (ManagedClusterLoadBalancerProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponse)(nil)).Elem()
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseArgs) ToManagedClusterLoadBalancerProfileResponseOutput() ManagedClusterLoadBalancerProfileResponseOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseArgs) ToManagedClusterLoadBalancerProfileResponseOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutput)
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseArgs) ToManagedClusterLoadBalancerProfileResponsePtrOutput() ManagedClusterLoadBalancerProfileResponsePtrOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseArgs) ToManagedClusterLoadBalancerProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutput).ToManagedClusterLoadBalancerProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedClusterLoadBalancerProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterLoadBalancerProfileResponsePtrOutput() ManagedClusterLoadBalancerProfileResponsePtrOutput
-	ToManagedClusterLoadBalancerProfileResponsePtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponsePtrOutput
-}
-
-type managedClusterLoadBalancerProfileResponsePtrType ManagedClusterLoadBalancerProfileResponseArgs
-
-func ManagedClusterLoadBalancerProfileResponsePtr(v *ManagedClusterLoadBalancerProfileResponseArgs) ManagedClusterLoadBalancerProfileResponsePtrInput {
-	return (*managedClusterLoadBalancerProfileResponsePtrType)(v)
-}
-
-func (*managedClusterLoadBalancerProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponse)(nil)).Elem()
-}
-
-func (i *managedClusterLoadBalancerProfileResponsePtrType) ToManagedClusterLoadBalancerProfileResponsePtrOutput() ManagedClusterLoadBalancerProfileResponsePtrOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterLoadBalancerProfileResponsePtrType) ToManagedClusterLoadBalancerProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponsePtrOutput)
+	return &tmp
 }
 
 type ManagedClusterLoadBalancerProfileResponseOutput struct{ *pulumi.OutputState }
@@ -4288,16 +3411,6 @@ func (o ManagedClusterLoadBalancerProfileResponseOutput) ToManagedClusterLoadBal
 
 func (o ManagedClusterLoadBalancerProfileResponseOutput) ToManagedClusterLoadBalancerProfileResponseOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutput {
 	return o
-}
-
-func (o ManagedClusterLoadBalancerProfileResponseOutput) ToManagedClusterLoadBalancerProfileResponsePtrOutput() ManagedClusterLoadBalancerProfileResponsePtrOutput {
-	return o.ToManagedClusterLoadBalancerProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterLoadBalancerProfileResponseOutput) ToManagedClusterLoadBalancerProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponse {
-		return &v
-	}).(ManagedClusterLoadBalancerProfileResponsePtrOutput)
 }
 
 func (o ManagedClusterLoadBalancerProfileResponseOutput) AllocatedOutboundPorts() pulumi.IntPtrOutput {
@@ -4415,71 +3528,16 @@ type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs struct {
 }
 
 
-
-
-
-type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsInput interface {
-	pulumi.Input
-
-	ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput
-	ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput
-}
-
-type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs struct {
-	Count pulumi.IntPtrInput `pulumi:"count"`
-}
-
-func (ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs)(nil)).Elem()
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput)
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput).ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput
-	ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput
-}
-
-type managedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrType ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs
-
-func ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtr(v *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrInput {
-	return (*managedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrType)(v)
-}
-
-func (*managedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs)(nil)).Elem()
-}
-
-func (i *managedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput)
+func (val *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) Defaults() *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		count_ := 1
+		tmp.Count = &count_
+	}
+	return &tmp
 }
 
 type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput struct{ *pulumi.OutputState }
@@ -4494,16 +3552,6 @@ func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ToMan
 
 func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput {
 	return o
-}
-
-func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
-	return o.ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
-		return &v
-	}).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput)
 }
 
 func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) Count() pulumi.IntPtrOutput {
@@ -4547,74 +3595,6 @@ type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes struct {
 	PublicIPPrefixes []ResourceReferenceResponse `pulumi:"publicIPPrefixes"`
 }
 
-
-
-
-
-type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesInput interface {
-	pulumi.Input
-
-	ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput
-	ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput
-}
-
-type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs struct {
-	PublicIPPrefixes ResourceReferenceResponseArrayInput `pulumi:"publicIPPrefixes"`
-}
-
-func (ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes)(nil)).Elem()
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput)
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput).ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput
-	ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput
-}
-
-type managedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrType ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs
-
-func ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtr(v *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrInput {
-	return (*managedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrType)(v)
-}
-
-func (*managedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes)(nil)).Elem()
-}
-
-func (i *managedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrType) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrType) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput)
-}
-
 type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ElementType() reflect.Type {
@@ -4627,16 +3607,6 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ToMan
 
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput {
 	return o
-}
-
-func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
-	return o.ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes) *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes {
-		return &v
-	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput)
 }
 
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) PublicIPPrefixes() ResourceReferenceResponseArrayOutput {
@@ -4682,74 +3652,6 @@ type ManagedClusterLoadBalancerProfileResponseOutboundIPs struct {
 	PublicIPs []ResourceReferenceResponse `pulumi:"publicIPs"`
 }
 
-
-
-
-
-type ManagedClusterLoadBalancerProfileResponseOutboundIPsInput interface {
-	pulumi.Input
-
-	ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput
-	ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput
-}
-
-type ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs struct {
-	PublicIPs ResourceReferenceResponseArrayInput `pulumi:"publicIPs"`
-}
-
-func (ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponseOutboundIPs)(nil)).Elem()
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput)
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput).ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput
-	ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput
-}
-
-type managedClusterLoadBalancerProfileResponseOutboundIPsPtrType ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs
-
-func ManagedClusterLoadBalancerProfileResponseOutboundIPsPtr(v *ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrInput {
-	return (*managedClusterLoadBalancerProfileResponseOutboundIPsPtrType)(v)
-}
-
-func (*managedClusterLoadBalancerProfileResponseOutboundIPsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponseOutboundIPs)(nil)).Elem()
-}
-
-func (i *managedClusterLoadBalancerProfileResponseOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterLoadBalancerProfileResponseOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput)
-}
-
 type ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ElementType() reflect.Type {
@@ -4762,16 +3664,6 @@ func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ToManagedClu
 
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput {
 	return o
-}
-
-func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
-	return o.ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterLoadBalancerProfileResponseOutboundIPs) *ManagedClusterLoadBalancerProfileResponseOutboundIPs {
-		return &v
-	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput)
 }
 
 func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) PublicIPs() ResourceReferenceResponseArrayOutput {
@@ -5184,82 +4076,6 @@ type ManagedClusterPropertiesResponseAutoScalerProfile struct {
 	ScanInterval                  *string `pulumi:"scanInterval"`
 }
 
-
-
-
-
-type ManagedClusterPropertiesResponseAutoScalerProfileInput interface {
-	pulumi.Input
-
-	ToManagedClusterPropertiesResponseAutoScalerProfileOutput() ManagedClusterPropertiesResponseAutoScalerProfileOutput
-	ToManagedClusterPropertiesResponseAutoScalerProfileOutputWithContext(context.Context) ManagedClusterPropertiesResponseAutoScalerProfileOutput
-}
-
-type ManagedClusterPropertiesResponseAutoScalerProfileArgs struct {
-	BalanceSimilarNodeGroups      pulumi.StringPtrInput `pulumi:"balanceSimilarNodeGroups"`
-	MaxGracefulTerminationSec     pulumi.StringPtrInput `pulumi:"maxGracefulTerminationSec"`
-	ScaleDownDelayAfterAdd        pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterAdd"`
-	ScaleDownDelayAfterDelete     pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterDelete"`
-	ScaleDownDelayAfterFailure    pulumi.StringPtrInput `pulumi:"scaleDownDelayAfterFailure"`
-	ScaleDownUnneededTime         pulumi.StringPtrInput `pulumi:"scaleDownUnneededTime"`
-	ScaleDownUnreadyTime          pulumi.StringPtrInput `pulumi:"scaleDownUnreadyTime"`
-	ScaleDownUtilizationThreshold pulumi.StringPtrInput `pulumi:"scaleDownUtilizationThreshold"`
-	ScanInterval                  pulumi.StringPtrInput `pulumi:"scanInterval"`
-}
-
-func (ManagedClusterPropertiesResponseAutoScalerProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterPropertiesResponseAutoScalerProfile)(nil)).Elem()
-}
-
-func (i ManagedClusterPropertiesResponseAutoScalerProfileArgs) ToManagedClusterPropertiesResponseAutoScalerProfileOutput() ManagedClusterPropertiesResponseAutoScalerProfileOutput {
-	return i.ToManagedClusterPropertiesResponseAutoScalerProfileOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterPropertiesResponseAutoScalerProfileArgs) ToManagedClusterPropertiesResponseAutoScalerProfileOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesResponseAutoScalerProfileOutput)
-}
-
-func (i ManagedClusterPropertiesResponseAutoScalerProfileArgs) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutput() ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
-	return i.ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterPropertiesResponseAutoScalerProfileArgs) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesResponseAutoScalerProfileOutput).ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedClusterPropertiesResponseAutoScalerProfilePtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutput() ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput
-	ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(context.Context) ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput
-}
-
-type managedClusterPropertiesResponseAutoScalerProfilePtrType ManagedClusterPropertiesResponseAutoScalerProfileArgs
-
-func ManagedClusterPropertiesResponseAutoScalerProfilePtr(v *ManagedClusterPropertiesResponseAutoScalerProfileArgs) ManagedClusterPropertiesResponseAutoScalerProfilePtrInput {
-	return (*managedClusterPropertiesResponseAutoScalerProfilePtrType)(v)
-}
-
-func (*managedClusterPropertiesResponseAutoScalerProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterPropertiesResponseAutoScalerProfile)(nil)).Elem()
-}
-
-func (i *managedClusterPropertiesResponseAutoScalerProfilePtrType) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutput() ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
-	return i.ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterPropertiesResponseAutoScalerProfilePtrType) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput)
-}
-
 type ManagedClusterPropertiesResponseAutoScalerProfileOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterPropertiesResponseAutoScalerProfileOutput) ElementType() reflect.Type {
@@ -5272,16 +4088,6 @@ func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ToManagedCluste
 
 func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ToManagedClusterPropertiesResponseAutoScalerProfileOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfileOutput {
 	return o
-}
-
-func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutput() ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
-	return o.ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) ToManagedClusterPropertiesResponseAutoScalerProfilePtrOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterPropertiesResponseAutoScalerProfile) *ManagedClusterPropertiesResponseAutoScalerProfile {
-		return &v
-	}).(ManagedClusterPropertiesResponseAutoScalerProfilePtrOutput)
 }
 
 func (o ManagedClusterPropertiesResponseAutoScalerProfileOutput) BalanceSimilarNodeGroups() pulumi.StringPtrOutput {
@@ -5431,60 +4237,6 @@ type ManagedClusterPropertiesResponseIdentityProfile struct {
 	ClientId   *string `pulumi:"clientId"`
 	ObjectId   *string `pulumi:"objectId"`
 	ResourceId *string `pulumi:"resourceId"`
-}
-
-
-
-
-
-type ManagedClusterPropertiesResponseIdentityProfileInput interface {
-	pulumi.Input
-
-	ToManagedClusterPropertiesResponseIdentityProfileOutput() ManagedClusterPropertiesResponseIdentityProfileOutput
-	ToManagedClusterPropertiesResponseIdentityProfileOutputWithContext(context.Context) ManagedClusterPropertiesResponseIdentityProfileOutput
-}
-
-type ManagedClusterPropertiesResponseIdentityProfileArgs struct {
-	ClientId   pulumi.StringPtrInput `pulumi:"clientId"`
-	ObjectId   pulumi.StringPtrInput `pulumi:"objectId"`
-	ResourceId pulumi.StringPtrInput `pulumi:"resourceId"`
-}
-
-func (ManagedClusterPropertiesResponseIdentityProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterPropertiesResponseIdentityProfile)(nil)).Elem()
-}
-
-func (i ManagedClusterPropertiesResponseIdentityProfileArgs) ToManagedClusterPropertiesResponseIdentityProfileOutput() ManagedClusterPropertiesResponseIdentityProfileOutput {
-	return i.ToManagedClusterPropertiesResponseIdentityProfileOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterPropertiesResponseIdentityProfileArgs) ToManagedClusterPropertiesResponseIdentityProfileOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseIdentityProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesResponseIdentityProfileOutput)
-}
-
-
-
-
-
-type ManagedClusterPropertiesResponseIdentityProfileMapInput interface {
-	pulumi.Input
-
-	ToManagedClusterPropertiesResponseIdentityProfileMapOutput() ManagedClusterPropertiesResponseIdentityProfileMapOutput
-	ToManagedClusterPropertiesResponseIdentityProfileMapOutputWithContext(context.Context) ManagedClusterPropertiesResponseIdentityProfileMapOutput
-}
-
-type ManagedClusterPropertiesResponseIdentityProfileMap map[string]ManagedClusterPropertiesResponseIdentityProfileInput
-
-func (ManagedClusterPropertiesResponseIdentityProfileMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ManagedClusterPropertiesResponseIdentityProfile)(nil)).Elem()
-}
-
-func (i ManagedClusterPropertiesResponseIdentityProfileMap) ToManagedClusterPropertiesResponseIdentityProfileMapOutput() ManagedClusterPropertiesResponseIdentityProfileMapOutput {
-	return i.ToManagedClusterPropertiesResponseIdentityProfileMapOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterPropertiesResponseIdentityProfileMap) ToManagedClusterPropertiesResponseIdentityProfileMapOutputWithContext(ctx context.Context) ManagedClusterPropertiesResponseIdentityProfileMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterPropertiesResponseIdentityProfileMapOutput)
 }
 
 type ManagedClusterPropertiesResponseIdentityProfileOutput struct{ *pulumi.OutputState }
@@ -5686,75 +4438,6 @@ type ManagedClusterSKUResponse struct {
 	Tier *string `pulumi:"tier"`
 }
 
-
-
-
-
-type ManagedClusterSKUResponseInput interface {
-	pulumi.Input
-
-	ToManagedClusterSKUResponseOutput() ManagedClusterSKUResponseOutput
-	ToManagedClusterSKUResponseOutputWithContext(context.Context) ManagedClusterSKUResponseOutput
-}
-
-type ManagedClusterSKUResponseArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (ManagedClusterSKUResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterSKUResponse)(nil)).Elem()
-}
-
-func (i ManagedClusterSKUResponseArgs) ToManagedClusterSKUResponseOutput() ManagedClusterSKUResponseOutput {
-	return i.ToManagedClusterSKUResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterSKUResponseArgs) ToManagedClusterSKUResponseOutputWithContext(ctx context.Context) ManagedClusterSKUResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterSKUResponseOutput)
-}
-
-func (i ManagedClusterSKUResponseArgs) ToManagedClusterSKUResponsePtrOutput() ManagedClusterSKUResponsePtrOutput {
-	return i.ToManagedClusterSKUResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterSKUResponseArgs) ToManagedClusterSKUResponsePtrOutputWithContext(ctx context.Context) ManagedClusterSKUResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterSKUResponseOutput).ToManagedClusterSKUResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedClusterSKUResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterSKUResponsePtrOutput() ManagedClusterSKUResponsePtrOutput
-	ToManagedClusterSKUResponsePtrOutputWithContext(context.Context) ManagedClusterSKUResponsePtrOutput
-}
-
-type managedClusterSKUResponsePtrType ManagedClusterSKUResponseArgs
-
-func ManagedClusterSKUResponsePtr(v *ManagedClusterSKUResponseArgs) ManagedClusterSKUResponsePtrInput {
-	return (*managedClusterSKUResponsePtrType)(v)
-}
-
-func (*managedClusterSKUResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterSKUResponse)(nil)).Elem()
-}
-
-func (i *managedClusterSKUResponsePtrType) ToManagedClusterSKUResponsePtrOutput() ManagedClusterSKUResponsePtrOutput {
-	return i.ToManagedClusterSKUResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterSKUResponsePtrType) ToManagedClusterSKUResponsePtrOutputWithContext(ctx context.Context) ManagedClusterSKUResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterSKUResponsePtrOutput)
-}
-
 type ManagedClusterSKUResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterSKUResponseOutput) ElementType() reflect.Type {
@@ -5767,16 +4450,6 @@ func (o ManagedClusterSKUResponseOutput) ToManagedClusterSKUResponseOutput() Man
 
 func (o ManagedClusterSKUResponseOutput) ToManagedClusterSKUResponseOutputWithContext(ctx context.Context) ManagedClusterSKUResponseOutput {
 	return o
-}
-
-func (o ManagedClusterSKUResponseOutput) ToManagedClusterSKUResponsePtrOutput() ManagedClusterSKUResponsePtrOutput {
-	return o.ToManagedClusterSKUResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterSKUResponseOutput) ToManagedClusterSKUResponsePtrOutputWithContext(ctx context.Context) ManagedClusterSKUResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterSKUResponse) *ManagedClusterSKUResponse {
-		return &v
-	}).(ManagedClusterSKUResponsePtrOutput)
 }
 
 func (o ManagedClusterSKUResponseOutput) Name() pulumi.StringPtrOutput {
@@ -5982,75 +4655,6 @@ type ManagedClusterServicePrincipalProfileResponse struct {
 	Secret   *string `pulumi:"secret"`
 }
 
-
-
-
-
-type ManagedClusterServicePrincipalProfileResponseInput interface {
-	pulumi.Input
-
-	ToManagedClusterServicePrincipalProfileResponseOutput() ManagedClusterServicePrincipalProfileResponseOutput
-	ToManagedClusterServicePrincipalProfileResponseOutputWithContext(context.Context) ManagedClusterServicePrincipalProfileResponseOutput
-}
-
-type ManagedClusterServicePrincipalProfileResponseArgs struct {
-	ClientId pulumi.StringInput    `pulumi:"clientId"`
-	Secret   pulumi.StringPtrInput `pulumi:"secret"`
-}
-
-func (ManagedClusterServicePrincipalProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterServicePrincipalProfileResponse)(nil)).Elem()
-}
-
-func (i ManagedClusterServicePrincipalProfileResponseArgs) ToManagedClusterServicePrincipalProfileResponseOutput() ManagedClusterServicePrincipalProfileResponseOutput {
-	return i.ToManagedClusterServicePrincipalProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterServicePrincipalProfileResponseArgs) ToManagedClusterServicePrincipalProfileResponseOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterServicePrincipalProfileResponseOutput)
-}
-
-func (i ManagedClusterServicePrincipalProfileResponseArgs) ToManagedClusterServicePrincipalProfileResponsePtrOutput() ManagedClusterServicePrincipalProfileResponsePtrOutput {
-	return i.ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterServicePrincipalProfileResponseArgs) ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterServicePrincipalProfileResponseOutput).ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedClusterServicePrincipalProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterServicePrincipalProfileResponsePtrOutput() ManagedClusterServicePrincipalProfileResponsePtrOutput
-	ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(context.Context) ManagedClusterServicePrincipalProfileResponsePtrOutput
-}
-
-type managedClusterServicePrincipalProfileResponsePtrType ManagedClusterServicePrincipalProfileResponseArgs
-
-func ManagedClusterServicePrincipalProfileResponsePtr(v *ManagedClusterServicePrincipalProfileResponseArgs) ManagedClusterServicePrincipalProfileResponsePtrInput {
-	return (*managedClusterServicePrincipalProfileResponsePtrType)(v)
-}
-
-func (*managedClusterServicePrincipalProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterServicePrincipalProfileResponse)(nil)).Elem()
-}
-
-func (i *managedClusterServicePrincipalProfileResponsePtrType) ToManagedClusterServicePrincipalProfileResponsePtrOutput() ManagedClusterServicePrincipalProfileResponsePtrOutput {
-	return i.ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterServicePrincipalProfileResponsePtrType) ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterServicePrincipalProfileResponsePtrOutput)
-}
-
 type ManagedClusterServicePrincipalProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterServicePrincipalProfileResponseOutput) ElementType() reflect.Type {
@@ -6063,16 +4667,6 @@ func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterSer
 
 func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterServicePrincipalProfileResponseOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfileResponseOutput {
 	return o
-}
-
-func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterServicePrincipalProfileResponsePtrOutput() ManagedClusterServicePrincipalProfileResponsePtrOutput {
-	return o.ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterServicePrincipalProfileResponseOutput) ToManagedClusterServicePrincipalProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterServicePrincipalProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterServicePrincipalProfileResponse) *ManagedClusterServicePrincipalProfileResponse {
-		return &v
-	}).(ManagedClusterServicePrincipalProfileResponsePtrOutput)
 }
 
 func (o ManagedClusterServicePrincipalProfileResponseOutput) ClientId() pulumi.StringOutput {
@@ -6278,75 +4872,6 @@ type ManagedClusterWindowsProfileResponse struct {
 	AdminUsername string  `pulumi:"adminUsername"`
 }
 
-
-
-
-
-type ManagedClusterWindowsProfileResponseInput interface {
-	pulumi.Input
-
-	ToManagedClusterWindowsProfileResponseOutput() ManagedClusterWindowsProfileResponseOutput
-	ToManagedClusterWindowsProfileResponseOutputWithContext(context.Context) ManagedClusterWindowsProfileResponseOutput
-}
-
-type ManagedClusterWindowsProfileResponseArgs struct {
-	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
-	AdminUsername pulumi.StringInput    `pulumi:"adminUsername"`
-}
-
-func (ManagedClusterWindowsProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterWindowsProfileResponse)(nil)).Elem()
-}
-
-func (i ManagedClusterWindowsProfileResponseArgs) ToManagedClusterWindowsProfileResponseOutput() ManagedClusterWindowsProfileResponseOutput {
-	return i.ToManagedClusterWindowsProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterWindowsProfileResponseArgs) ToManagedClusterWindowsProfileResponseOutputWithContext(ctx context.Context) ManagedClusterWindowsProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterWindowsProfileResponseOutput)
-}
-
-func (i ManagedClusterWindowsProfileResponseArgs) ToManagedClusterWindowsProfileResponsePtrOutput() ManagedClusterWindowsProfileResponsePtrOutput {
-	return i.ToManagedClusterWindowsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterWindowsProfileResponseArgs) ToManagedClusterWindowsProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterWindowsProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterWindowsProfileResponseOutput).ToManagedClusterWindowsProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedClusterWindowsProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedClusterWindowsProfileResponsePtrOutput() ManagedClusterWindowsProfileResponsePtrOutput
-	ToManagedClusterWindowsProfileResponsePtrOutputWithContext(context.Context) ManagedClusterWindowsProfileResponsePtrOutput
-}
-
-type managedClusterWindowsProfileResponsePtrType ManagedClusterWindowsProfileResponseArgs
-
-func ManagedClusterWindowsProfileResponsePtr(v *ManagedClusterWindowsProfileResponseArgs) ManagedClusterWindowsProfileResponsePtrInput {
-	return (*managedClusterWindowsProfileResponsePtrType)(v)
-}
-
-func (*managedClusterWindowsProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterWindowsProfileResponse)(nil)).Elem()
-}
-
-func (i *managedClusterWindowsProfileResponsePtrType) ToManagedClusterWindowsProfileResponsePtrOutput() ManagedClusterWindowsProfileResponsePtrOutput {
-	return i.ToManagedClusterWindowsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedClusterWindowsProfileResponsePtrType) ToManagedClusterWindowsProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterWindowsProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterWindowsProfileResponsePtrOutput)
-}
-
 type ManagedClusterWindowsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterWindowsProfileResponseOutput) ElementType() reflect.Type {
@@ -6359,16 +4884,6 @@ func (o ManagedClusterWindowsProfileResponseOutput) ToManagedClusterWindowsProfi
 
 func (o ManagedClusterWindowsProfileResponseOutput) ToManagedClusterWindowsProfileResponseOutputWithContext(ctx context.Context) ManagedClusterWindowsProfileResponseOutput {
 	return o
-}
-
-func (o ManagedClusterWindowsProfileResponseOutput) ToManagedClusterWindowsProfileResponsePtrOutput() ManagedClusterWindowsProfileResponsePtrOutput {
-	return o.ToManagedClusterWindowsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedClusterWindowsProfileResponseOutput) ToManagedClusterWindowsProfileResponsePtrOutputWithContext(ctx context.Context) ManagedClusterWindowsProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedClusterWindowsProfileResponse) *ManagedClusterWindowsProfileResponse {
-		return &v
-	}).(ManagedClusterWindowsProfileResponsePtrOutput)
 }
 
 func (o ManagedClusterWindowsProfileResponseOutput) AdminPassword() pulumi.StringPtrOutput {
@@ -6558,74 +5073,6 @@ type PrivateEndpointResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type PrivateEndpointResponseInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput
-	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
-}
-
-type PrivateEndpointResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (PrivateEndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointResponse)(nil)).Elem()
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput {
-	return i.ToPrivateEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponseOutputWithContext(ctx context.Context) PrivateEndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponseOutput)
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
-	return i.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponseOutput).ToPrivateEndpointResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrivateEndpointResponsePtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput
-	ToPrivateEndpointResponsePtrOutputWithContext(context.Context) PrivateEndpointResponsePtrOutput
-}
-
-type privateEndpointResponsePtrType PrivateEndpointResponseArgs
-
-func PrivateEndpointResponsePtr(v *PrivateEndpointResponseArgs) PrivateEndpointResponsePtrInput {
-	return (*privateEndpointResponsePtrType)(v)
-}
-
-func (*privateEndpointResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointResponse)(nil)).Elem()
-}
-
-func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
-	return i.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
-}
-
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -6638,16 +5085,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutput() Private
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutputWithContext(ctx context.Context) PrivateEndpointResponseOutput {
 	return o
-}
-
-func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
-	return o.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
-		return &v
-	}).(PrivateEndpointResponsePtrOutput)
 }
 
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringPtrOutput {
@@ -6720,47 +5157,6 @@ func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionSta
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput)
 }
 
-func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput).ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrivateLinkServiceConnectionStatePtrInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput
-	ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePtrOutput
-}
-
-type privateLinkServiceConnectionStatePtrType PrivateLinkServiceConnectionStateArgs
-
-func PrivateLinkServiceConnectionStatePtr(v *PrivateLinkServiceConnectionStateArgs) PrivateLinkServiceConnectionStatePtrInput {
-	return (*privateLinkServiceConnectionStatePtrType)(v)
-}
-
-func (*privateLinkServiceConnectionStatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
-}
-
-func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
-}
-
-func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -6775,16 +5171,6 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	return o
 }
 
-func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
-		return &v
-	}).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
 func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -6793,120 +5179,9 @@ func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-type PrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkServiceConnectionStatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionState
-		return ret
-	}).(PrivateLinkServiceConnectionStateOutput)
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
 type PrivateLinkServiceConnectionStateResponse struct {
 	Description *string `pulumi:"description"`
 	Status      *string `pulumi:"status"`
-}
-
-
-
-
-
-type PrivateLinkServiceConnectionStateResponseInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput
-	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
-}
-
-type PrivateLinkServiceConnectionStateResponseArgs struct {
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Status      pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput {
-	return i.ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput)
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput).ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrivateLinkServiceConnectionStateResponsePtrInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput
-	ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput
-}
-
-type privateLinkServiceConnectionStateResponsePtrType PrivateLinkServiceConnectionStateResponseArgs
-
-func PrivateLinkServiceConnectionStateResponsePtr(v *PrivateLinkServiceConnectionStateResponseArgs) PrivateLinkServiceConnectionStateResponsePtrInput {
-	return (*privateLinkServiceConnectionStateResponsePtrType)(v)
-}
-
-func (*privateLinkServiceConnectionStateResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
-}
-
-func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
@@ -6923,64 +5198,12 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	return o
 }
 
-func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
-		return &v
-	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
-}
-
 func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type PrivateLinkServiceConnectionStateResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkServiceConnectionStateResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
-}
-
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateResponse
-		return ret
-	}).(PrivateLinkServiceConnectionStateResponseOutput)
-}
-
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
 }
 
 type ResourceReference struct {
@@ -7081,58 +5304,6 @@ type ResourceReferenceResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type ResourceReferenceResponseInput interface {
-	pulumi.Input
-
-	ToResourceReferenceResponseOutput() ResourceReferenceResponseOutput
-	ToResourceReferenceResponseOutputWithContext(context.Context) ResourceReferenceResponseOutput
-}
-
-type ResourceReferenceResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (ResourceReferenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceReferenceResponse)(nil)).Elem()
-}
-
-func (i ResourceReferenceResponseArgs) ToResourceReferenceResponseOutput() ResourceReferenceResponseOutput {
-	return i.ToResourceReferenceResponseOutputWithContext(context.Background())
-}
-
-func (i ResourceReferenceResponseArgs) ToResourceReferenceResponseOutputWithContext(ctx context.Context) ResourceReferenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceResponseOutput)
-}
-
-
-
-
-
-type ResourceReferenceResponseArrayInput interface {
-	pulumi.Input
-
-	ToResourceReferenceResponseArrayOutput() ResourceReferenceResponseArrayOutput
-	ToResourceReferenceResponseArrayOutputWithContext(context.Context) ResourceReferenceResponseArrayOutput
-}
-
-type ResourceReferenceResponseArray []ResourceReferenceResponseInput
-
-func (ResourceReferenceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceReferenceResponse)(nil)).Elem()
-}
-
-func (i ResourceReferenceResponseArray) ToResourceReferenceResponseArrayOutput() ResourceReferenceResponseArrayOutput {
-	return i.ToResourceReferenceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ResourceReferenceResponseArray) ToResourceReferenceResponseArrayOutputWithContext(ctx context.Context) ResourceReferenceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceReferenceResponseArrayOutput)
-}
-
 type ResourceReferenceResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceReferenceResponseOutput) ElementType() reflect.Type {
@@ -7192,8 +5363,6 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseArrayOutput{})
-	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
-	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileResponseOutput{})
@@ -7258,9 +5427,7 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
-	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
-	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceArrayOutput{})
 	pulumi.RegisterOutputType(ResourceReferenceResponseOutput{})

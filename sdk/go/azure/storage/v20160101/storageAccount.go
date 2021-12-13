@@ -175,7 +175,7 @@ type StorageAccountInput interface {
 }
 
 func (*StorageAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccount)(nil))
+	return reflect.TypeOf((**StorageAccount)(nil)).Elem()
 }
 
 func (i *StorageAccount) ToStorageAccountOutput() StorageAccountOutput {
@@ -189,7 +189,7 @@ func (i *StorageAccount) ToStorageAccountOutputWithContext(ctx context.Context) 
 type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccount)(nil))
+	return reflect.TypeOf((**StorageAccount)(nil)).Elem()
 }
 
 func (o StorageAccountOutput) ToStorageAccountOutput() StorageAccountOutput {

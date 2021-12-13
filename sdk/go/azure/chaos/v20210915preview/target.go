@@ -113,7 +113,7 @@ type TargetInput interface {
 }
 
 func (*Target) ElementType() reflect.Type {
-	return reflect.TypeOf((*Target)(nil))
+	return reflect.TypeOf((**Target)(nil)).Elem()
 }
 
 func (i *Target) ToTargetOutput() TargetOutput {
@@ -127,7 +127,7 @@ func (i *Target) ToTargetOutputWithContext(ctx context.Context) TargetOutput {
 type TargetOutput struct{ *pulumi.OutputState }
 
 func (TargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Target)(nil))
+	return reflect.TypeOf((**Target)(nil)).Elem()
 }
 
 func (o TargetOutput) ToTargetOutput() TargetOutput {

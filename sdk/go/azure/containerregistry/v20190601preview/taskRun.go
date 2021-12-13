@@ -108,7 +108,7 @@ type TaskRunInput interface {
 }
 
 func (*TaskRun) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskRun)(nil))
+	return reflect.TypeOf((**TaskRun)(nil)).Elem()
 }
 
 func (i *TaskRun) ToTaskRunOutput() TaskRunOutput {
@@ -122,7 +122,7 @@ func (i *TaskRun) ToTaskRunOutputWithContext(ctx context.Context) TaskRunOutput 
 type TaskRunOutput struct{ *pulumi.OutputState }
 
 func (TaskRunOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskRun)(nil))
+	return reflect.TypeOf((**TaskRun)(nil)).Elem()
 }
 
 func (o TaskRunOutput) ToTaskRunOutput() TaskRunOutput {

@@ -165,7 +165,7 @@ type SqlResourceSqlUserDefinedFunctionInput interface {
 }
 
 func (*SqlResourceSqlUserDefinedFunction) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunction)(nil))
+	return reflect.TypeOf((**SqlResourceSqlUserDefinedFunction)(nil)).Elem()
 }
 
 func (i *SqlResourceSqlUserDefinedFunction) ToSqlResourceSqlUserDefinedFunctionOutput() SqlResourceSqlUserDefinedFunctionOutput {
@@ -179,7 +179,7 @@ func (i *SqlResourceSqlUserDefinedFunction) ToSqlResourceSqlUserDefinedFunctionO
 type SqlResourceSqlUserDefinedFunctionOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlUserDefinedFunctionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunction)(nil))
+	return reflect.TypeOf((**SqlResourceSqlUserDefinedFunction)(nil)).Elem()
 }
 
 func (o SqlResourceSqlUserDefinedFunctionOutput) ToSqlResourceSqlUserDefinedFunctionOutput() SqlResourceSqlUserDefinedFunctionOutput {

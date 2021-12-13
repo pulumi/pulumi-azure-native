@@ -142,7 +142,7 @@ type DatabaseSecurityAlertPolicyInput interface {
 }
 
 func (*DatabaseSecurityAlertPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((**DatabaseSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (i *DatabaseSecurityAlertPolicy) ToDatabaseSecurityAlertPolicyOutput() DatabaseSecurityAlertPolicyOutput {
@@ -156,7 +156,7 @@ func (i *DatabaseSecurityAlertPolicy) ToDatabaseSecurityAlertPolicyOutputWithCon
 type DatabaseSecurityAlertPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseSecurityAlertPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseSecurityAlertPolicy)(nil))
+	return reflect.TypeOf((**DatabaseSecurityAlertPolicy)(nil)).Elem()
 }
 
 func (o DatabaseSecurityAlertPolicyOutput) ToDatabaseSecurityAlertPolicyOutput() DatabaseSecurityAlertPolicyOutput {

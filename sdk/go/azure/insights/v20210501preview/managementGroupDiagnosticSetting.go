@@ -113,7 +113,7 @@ type ManagementGroupDiagnosticSettingInput interface {
 }
 
 func (*ManagementGroupDiagnosticSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupDiagnosticSetting)(nil))
+	return reflect.TypeOf((**ManagementGroupDiagnosticSetting)(nil)).Elem()
 }
 
 func (i *ManagementGroupDiagnosticSetting) ToManagementGroupDiagnosticSettingOutput() ManagementGroupDiagnosticSettingOutput {
@@ -127,7 +127,7 @@ func (i *ManagementGroupDiagnosticSetting) ToManagementGroupDiagnosticSettingOut
 type ManagementGroupDiagnosticSettingOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupDiagnosticSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupDiagnosticSetting)(nil))
+	return reflect.TypeOf((**ManagementGroupDiagnosticSetting)(nil)).Elem()
 }
 
 func (o ManagementGroupDiagnosticSettingOutput) ToManagementGroupDiagnosticSettingOutput() ManagementGroupDiagnosticSettingOutput {

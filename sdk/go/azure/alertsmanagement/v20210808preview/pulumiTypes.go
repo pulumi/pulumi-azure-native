@@ -15,109 +15,9 @@ type AddActionGroups struct {
 	ActionType     string   `pulumi:"actionType"`
 }
 
-
-
-
-
-type AddActionGroupsInput interface {
-	pulumi.Input
-
-	ToAddActionGroupsOutput() AddActionGroupsOutput
-	ToAddActionGroupsOutputWithContext(context.Context) AddActionGroupsOutput
-}
-
-type AddActionGroupsArgs struct {
-	ActionGroupIds pulumi.StringArrayInput `pulumi:"actionGroupIds"`
-	ActionType     pulumi.StringInput      `pulumi:"actionType"`
-}
-
-func (AddActionGroupsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddActionGroups)(nil)).Elem()
-}
-
-func (i AddActionGroupsArgs) ToAddActionGroupsOutput() AddActionGroupsOutput {
-	return i.ToAddActionGroupsOutputWithContext(context.Background())
-}
-
-func (i AddActionGroupsArgs) ToAddActionGroupsOutputWithContext(ctx context.Context) AddActionGroupsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddActionGroupsOutput)
-}
-
-type AddActionGroupsOutput struct{ *pulumi.OutputState }
-
-func (AddActionGroupsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddActionGroups)(nil)).Elem()
-}
-
-func (o AddActionGroupsOutput) ToAddActionGroupsOutput() AddActionGroupsOutput {
-	return o
-}
-
-func (o AddActionGroupsOutput) ToAddActionGroupsOutputWithContext(ctx context.Context) AddActionGroupsOutput {
-	return o
-}
-
-func (o AddActionGroupsOutput) ActionGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AddActionGroups) []string { return v.ActionGroupIds }).(pulumi.StringArrayOutput)
-}
-
-func (o AddActionGroupsOutput) ActionType() pulumi.StringOutput {
-	return o.ApplyT(func(v AddActionGroups) string { return v.ActionType }).(pulumi.StringOutput)
-}
-
 type AddActionGroupsResponse struct {
 	ActionGroupIds []string `pulumi:"actionGroupIds"`
 	ActionType     string   `pulumi:"actionType"`
-}
-
-
-
-
-
-type AddActionGroupsResponseInput interface {
-	pulumi.Input
-
-	ToAddActionGroupsResponseOutput() AddActionGroupsResponseOutput
-	ToAddActionGroupsResponseOutputWithContext(context.Context) AddActionGroupsResponseOutput
-}
-
-type AddActionGroupsResponseArgs struct {
-	ActionGroupIds pulumi.StringArrayInput `pulumi:"actionGroupIds"`
-	ActionType     pulumi.StringInput      `pulumi:"actionType"`
-}
-
-func (AddActionGroupsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddActionGroupsResponse)(nil)).Elem()
-}
-
-func (i AddActionGroupsResponseArgs) ToAddActionGroupsResponseOutput() AddActionGroupsResponseOutput {
-	return i.ToAddActionGroupsResponseOutputWithContext(context.Background())
-}
-
-func (i AddActionGroupsResponseArgs) ToAddActionGroupsResponseOutputWithContext(ctx context.Context) AddActionGroupsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddActionGroupsResponseOutput)
-}
-
-type AddActionGroupsResponseOutput struct{ *pulumi.OutputState }
-
-func (AddActionGroupsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddActionGroupsResponse)(nil)).Elem()
-}
-
-func (o AddActionGroupsResponseOutput) ToAddActionGroupsResponseOutput() AddActionGroupsResponseOutput {
-	return o
-}
-
-func (o AddActionGroupsResponseOutput) ToAddActionGroupsResponseOutputWithContext(ctx context.Context) AddActionGroupsResponseOutput {
-	return o
-}
-
-func (o AddActionGroupsResponseOutput) ActionGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AddActionGroupsResponse) []string { return v.ActionGroupIds }).(pulumi.StringArrayOutput)
-}
-
-func (o AddActionGroupsResponseOutput) ActionType() pulumi.StringOutput {
-	return o.ApplyT(func(v AddActionGroupsResponse) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
 type AlertProcessingRuleProperties struct {
@@ -127,6 +27,19 @@ type AlertProcessingRuleProperties struct {
 	Enabled     *bool         `pulumi:"enabled"`
 	Schedule    *Schedule     `pulumi:"schedule"`
 	Scopes      []string      `pulumi:"scopes"`
+}
+
+
+func (val *AlertProcessingRuleProperties) Defaults() *AlertProcessingRuleProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		enabled_ := true
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
 }
 
 
@@ -338,76 +251,16 @@ type AlertProcessingRulePropertiesResponse struct {
 }
 
 
-
-
-
-type AlertProcessingRulePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAlertProcessingRulePropertiesResponseOutput() AlertProcessingRulePropertiesResponseOutput
-	ToAlertProcessingRulePropertiesResponseOutputWithContext(context.Context) AlertProcessingRulePropertiesResponseOutput
-}
-
-type AlertProcessingRulePropertiesResponseArgs struct {
-	Actions     pulumi.ArrayInput           `pulumi:"actions"`
-	Conditions  ConditionResponseArrayInput `pulumi:"conditions"`
-	Description pulumi.StringPtrInput       `pulumi:"description"`
-	Enabled     pulumi.BoolPtrInput         `pulumi:"enabled"`
-	Schedule    ScheduleResponsePtrInput    `pulumi:"schedule"`
-	Scopes      pulumi.StringArrayInput     `pulumi:"scopes"`
-}
-
-func (AlertProcessingRulePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertProcessingRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i AlertProcessingRulePropertiesResponseArgs) ToAlertProcessingRulePropertiesResponseOutput() AlertProcessingRulePropertiesResponseOutput {
-	return i.ToAlertProcessingRulePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AlertProcessingRulePropertiesResponseArgs) ToAlertProcessingRulePropertiesResponseOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRulePropertiesResponseOutput)
-}
-
-func (i AlertProcessingRulePropertiesResponseArgs) ToAlertProcessingRulePropertiesResponsePtrOutput() AlertProcessingRulePropertiesResponsePtrOutput {
-	return i.ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AlertProcessingRulePropertiesResponseArgs) ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRulePropertiesResponseOutput).ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AlertProcessingRulePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToAlertProcessingRulePropertiesResponsePtrOutput() AlertProcessingRulePropertiesResponsePtrOutput
-	ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(context.Context) AlertProcessingRulePropertiesResponsePtrOutput
-}
-
-type alertProcessingRulePropertiesResponsePtrType AlertProcessingRulePropertiesResponseArgs
-
-func AlertProcessingRulePropertiesResponsePtr(v *AlertProcessingRulePropertiesResponseArgs) AlertProcessingRulePropertiesResponsePtrInput {
-	return (*alertProcessingRulePropertiesResponsePtrType)(v)
-}
-
-func (*alertProcessingRulePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertProcessingRulePropertiesResponse)(nil)).Elem()
-}
-
-func (i *alertProcessingRulePropertiesResponsePtrType) ToAlertProcessingRulePropertiesResponsePtrOutput() AlertProcessingRulePropertiesResponsePtrOutput {
-	return i.ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *alertProcessingRulePropertiesResponsePtrType) ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRulePropertiesResponsePtrOutput)
+func (val *AlertProcessingRulePropertiesResponse) Defaults() *AlertProcessingRulePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		enabled_ := true
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
 }
 
 type AlertProcessingRulePropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -422,16 +275,6 @@ func (o AlertProcessingRulePropertiesResponseOutput) ToAlertProcessingRuleProper
 
 func (o AlertProcessingRulePropertiesResponseOutput) ToAlertProcessingRulePropertiesResponseOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponseOutput {
 	return o
-}
-
-func (o AlertProcessingRulePropertiesResponseOutput) ToAlertProcessingRulePropertiesResponsePtrOutput() AlertProcessingRulePropertiesResponsePtrOutput {
-	return o.ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AlertProcessingRulePropertiesResponseOutput) ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRulePropertiesResponse) *AlertProcessingRulePropertiesResponse {
-		return &v
-	}).(AlertProcessingRulePropertiesResponsePtrOutput)
 }
 
 func (o AlertProcessingRulePropertiesResponseOutput) Actions() pulumi.ArrayOutput {
@@ -456,84 +299,6 @@ func (o AlertProcessingRulePropertiesResponseOutput) Schedule() ScheduleResponse
 
 func (o AlertProcessingRulePropertiesResponseOutput) Scopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertProcessingRulePropertiesResponse) []string { return v.Scopes }).(pulumi.StringArrayOutput)
-}
-
-type AlertProcessingRulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AlertProcessingRulePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertProcessingRulePropertiesResponse)(nil)).Elem()
-}
-
-func (o AlertProcessingRulePropertiesResponsePtrOutput) ToAlertProcessingRulePropertiesResponsePtrOutput() AlertProcessingRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o AlertProcessingRulePropertiesResponsePtrOutput) ToAlertProcessingRulePropertiesResponsePtrOutputWithContext(ctx context.Context) AlertProcessingRulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o AlertProcessingRulePropertiesResponsePtrOutput) Elem() AlertProcessingRulePropertiesResponseOutput {
-	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) AlertProcessingRulePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AlertProcessingRulePropertiesResponse
-		return ret
-	}).(AlertProcessingRulePropertiesResponseOutput)
-}
-
-func (o AlertProcessingRulePropertiesResponsePtrOutput) Actions() pulumi.ArrayOutput {
-	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) []interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Actions
-	}).(pulumi.ArrayOutput)
-}
-
-func (o AlertProcessingRulePropertiesResponsePtrOutput) Conditions() ConditionResponseArrayOutput {
-	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) []ConditionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Conditions
-	}).(ConditionResponseArrayOutput)
-}
-
-func (o AlertProcessingRulePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AlertProcessingRulePropertiesResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o AlertProcessingRulePropertiesResponsePtrOutput) Schedule() ScheduleResponsePtrOutput {
-	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) *ScheduleResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Schedule
-	}).(ScheduleResponsePtrOutput)
-}
-
-func (o AlertProcessingRulePropertiesResponsePtrOutput) Scopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AlertProcessingRulePropertiesResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Scopes
-	}).(pulumi.StringArrayOutput)
 }
 
 type Condition struct {
@@ -648,60 +413,6 @@ type ConditionResponse struct {
 	Values   []string `pulumi:"values"`
 }
 
-
-
-
-
-type ConditionResponseInput interface {
-	pulumi.Input
-
-	ToConditionResponseOutput() ConditionResponseOutput
-	ToConditionResponseOutputWithContext(context.Context) ConditionResponseOutput
-}
-
-type ConditionResponseArgs struct {
-	Field    pulumi.StringPtrInput   `pulumi:"field"`
-	Operator pulumi.StringPtrInput   `pulumi:"operator"`
-	Values   pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (ConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConditionResponse)(nil)).Elem()
-}
-
-func (i ConditionResponseArgs) ToConditionResponseOutput() ConditionResponseOutput {
-	return i.ToConditionResponseOutputWithContext(context.Background())
-}
-
-func (i ConditionResponseArgs) ToConditionResponseOutputWithContext(ctx context.Context) ConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseOutput)
-}
-
-
-
-
-
-type ConditionResponseArrayInput interface {
-	pulumi.Input
-
-	ToConditionResponseArrayOutput() ConditionResponseArrayOutput
-	ToConditionResponseArrayOutputWithContext(context.Context) ConditionResponseArrayOutput
-}
-
-type ConditionResponseArray []ConditionResponseInput
-
-func (ConditionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConditionResponse)(nil)).Elem()
-}
-
-func (i ConditionResponseArray) ToConditionResponseArrayOutput() ConditionResponseArrayOutput {
-	return i.ToConditionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ConditionResponseArray) ToConditionResponseArrayOutputWithContext(ctx context.Context) ConditionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseArrayOutput)
-}
-
 type ConditionResponseOutput struct{ *pulumi.OutputState }
 
 func (ConditionResponseOutput) ElementType() reflect.Type {
@@ -754,120 +465,10 @@ type DailyRecurrence struct {
 	StartTime      string `pulumi:"startTime"`
 }
 
-
-
-
-
-type DailyRecurrenceInput interface {
-	pulumi.Input
-
-	ToDailyRecurrenceOutput() DailyRecurrenceOutput
-	ToDailyRecurrenceOutputWithContext(context.Context) DailyRecurrenceOutput
-}
-
-type DailyRecurrenceArgs struct {
-	EndTime        pulumi.StringInput `pulumi:"endTime"`
-	RecurrenceType pulumi.StringInput `pulumi:"recurrenceType"`
-	StartTime      pulumi.StringInput `pulumi:"startTime"`
-}
-
-func (DailyRecurrenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DailyRecurrence)(nil)).Elem()
-}
-
-func (i DailyRecurrenceArgs) ToDailyRecurrenceOutput() DailyRecurrenceOutput {
-	return i.ToDailyRecurrenceOutputWithContext(context.Background())
-}
-
-func (i DailyRecurrenceArgs) ToDailyRecurrenceOutputWithContext(ctx context.Context) DailyRecurrenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DailyRecurrenceOutput)
-}
-
-type DailyRecurrenceOutput struct{ *pulumi.OutputState }
-
-func (DailyRecurrenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DailyRecurrence)(nil)).Elem()
-}
-
-func (o DailyRecurrenceOutput) ToDailyRecurrenceOutput() DailyRecurrenceOutput {
-	return o
-}
-
-func (o DailyRecurrenceOutput) ToDailyRecurrenceOutputWithContext(ctx context.Context) DailyRecurrenceOutput {
-	return o
-}
-
-func (o DailyRecurrenceOutput) EndTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DailyRecurrence) string { return v.EndTime }).(pulumi.StringOutput)
-}
-
-func (o DailyRecurrenceOutput) RecurrenceType() pulumi.StringOutput {
-	return o.ApplyT(func(v DailyRecurrence) string { return v.RecurrenceType }).(pulumi.StringOutput)
-}
-
-func (o DailyRecurrenceOutput) StartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DailyRecurrence) string { return v.StartTime }).(pulumi.StringOutput)
-}
-
 type DailyRecurrenceResponse struct {
 	EndTime        string `pulumi:"endTime"`
 	RecurrenceType string `pulumi:"recurrenceType"`
 	StartTime      string `pulumi:"startTime"`
-}
-
-
-
-
-
-type DailyRecurrenceResponseInput interface {
-	pulumi.Input
-
-	ToDailyRecurrenceResponseOutput() DailyRecurrenceResponseOutput
-	ToDailyRecurrenceResponseOutputWithContext(context.Context) DailyRecurrenceResponseOutput
-}
-
-type DailyRecurrenceResponseArgs struct {
-	EndTime        pulumi.StringInput `pulumi:"endTime"`
-	RecurrenceType pulumi.StringInput `pulumi:"recurrenceType"`
-	StartTime      pulumi.StringInput `pulumi:"startTime"`
-}
-
-func (DailyRecurrenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DailyRecurrenceResponse)(nil)).Elem()
-}
-
-func (i DailyRecurrenceResponseArgs) ToDailyRecurrenceResponseOutput() DailyRecurrenceResponseOutput {
-	return i.ToDailyRecurrenceResponseOutputWithContext(context.Background())
-}
-
-func (i DailyRecurrenceResponseArgs) ToDailyRecurrenceResponseOutputWithContext(ctx context.Context) DailyRecurrenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DailyRecurrenceResponseOutput)
-}
-
-type DailyRecurrenceResponseOutput struct{ *pulumi.OutputState }
-
-func (DailyRecurrenceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DailyRecurrenceResponse)(nil)).Elem()
-}
-
-func (o DailyRecurrenceResponseOutput) ToDailyRecurrenceResponseOutput() DailyRecurrenceResponseOutput {
-	return o
-}
-
-func (o DailyRecurrenceResponseOutput) ToDailyRecurrenceResponseOutputWithContext(ctx context.Context) DailyRecurrenceResponseOutput {
-	return o
-}
-
-func (o DailyRecurrenceResponseOutput) EndTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DailyRecurrenceResponse) string { return v.EndTime }).(pulumi.StringOutput)
-}
-
-func (o DailyRecurrenceResponseOutput) RecurrenceType() pulumi.StringOutput {
-	return o.ApplyT(func(v DailyRecurrenceResponse) string { return v.RecurrenceType }).(pulumi.StringOutput)
-}
-
-func (o DailyRecurrenceResponseOutput) StartTime() pulumi.StringOutput {
-	return o.ApplyT(func(v DailyRecurrenceResponse) string { return v.StartTime }).(pulumi.StringOutput)
 }
 
 type MonthlyRecurrence struct {
@@ -877,66 +478,6 @@ type MonthlyRecurrence struct {
 	StartTime      *string `pulumi:"startTime"`
 }
 
-
-
-
-
-type MonthlyRecurrenceInput interface {
-	pulumi.Input
-
-	ToMonthlyRecurrenceOutput() MonthlyRecurrenceOutput
-	ToMonthlyRecurrenceOutputWithContext(context.Context) MonthlyRecurrenceOutput
-}
-
-type MonthlyRecurrenceArgs struct {
-	DaysOfMonth    pulumi.IntArrayInput  `pulumi:"daysOfMonth"`
-	EndTime        pulumi.StringPtrInput `pulumi:"endTime"`
-	RecurrenceType pulumi.StringInput    `pulumi:"recurrenceType"`
-	StartTime      pulumi.StringPtrInput `pulumi:"startTime"`
-}
-
-func (MonthlyRecurrenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonthlyRecurrence)(nil)).Elem()
-}
-
-func (i MonthlyRecurrenceArgs) ToMonthlyRecurrenceOutput() MonthlyRecurrenceOutput {
-	return i.ToMonthlyRecurrenceOutputWithContext(context.Background())
-}
-
-func (i MonthlyRecurrenceArgs) ToMonthlyRecurrenceOutputWithContext(ctx context.Context) MonthlyRecurrenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonthlyRecurrenceOutput)
-}
-
-type MonthlyRecurrenceOutput struct{ *pulumi.OutputState }
-
-func (MonthlyRecurrenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonthlyRecurrence)(nil)).Elem()
-}
-
-func (o MonthlyRecurrenceOutput) ToMonthlyRecurrenceOutput() MonthlyRecurrenceOutput {
-	return o
-}
-
-func (o MonthlyRecurrenceOutput) ToMonthlyRecurrenceOutputWithContext(ctx context.Context) MonthlyRecurrenceOutput {
-	return o
-}
-
-func (o MonthlyRecurrenceOutput) DaysOfMonth() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v MonthlyRecurrence) []int { return v.DaysOfMonth }).(pulumi.IntArrayOutput)
-}
-
-func (o MonthlyRecurrenceOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonthlyRecurrence) *string { return v.EndTime }).(pulumi.StringPtrOutput)
-}
-
-func (o MonthlyRecurrenceOutput) RecurrenceType() pulumi.StringOutput {
-	return o.ApplyT(func(v MonthlyRecurrence) string { return v.RecurrenceType }).(pulumi.StringOutput)
-}
-
-func (o MonthlyRecurrenceOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonthlyRecurrence) *string { return v.StartTime }).(pulumi.StringPtrOutput)
-}
-
 type MonthlyRecurrenceResponse struct {
 	DaysOfMonth    []int   `pulumi:"daysOfMonth"`
 	EndTime        *string `pulumi:"endTime"`
@@ -944,162 +485,12 @@ type MonthlyRecurrenceResponse struct {
 	StartTime      *string `pulumi:"startTime"`
 }
 
-
-
-
-
-type MonthlyRecurrenceResponseInput interface {
-	pulumi.Input
-
-	ToMonthlyRecurrenceResponseOutput() MonthlyRecurrenceResponseOutput
-	ToMonthlyRecurrenceResponseOutputWithContext(context.Context) MonthlyRecurrenceResponseOutput
-}
-
-type MonthlyRecurrenceResponseArgs struct {
-	DaysOfMonth    pulumi.IntArrayInput  `pulumi:"daysOfMonth"`
-	EndTime        pulumi.StringPtrInput `pulumi:"endTime"`
-	RecurrenceType pulumi.StringInput    `pulumi:"recurrenceType"`
-	StartTime      pulumi.StringPtrInput `pulumi:"startTime"`
-}
-
-func (MonthlyRecurrenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonthlyRecurrenceResponse)(nil)).Elem()
-}
-
-func (i MonthlyRecurrenceResponseArgs) ToMonthlyRecurrenceResponseOutput() MonthlyRecurrenceResponseOutput {
-	return i.ToMonthlyRecurrenceResponseOutputWithContext(context.Background())
-}
-
-func (i MonthlyRecurrenceResponseArgs) ToMonthlyRecurrenceResponseOutputWithContext(ctx context.Context) MonthlyRecurrenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonthlyRecurrenceResponseOutput)
-}
-
-type MonthlyRecurrenceResponseOutput struct{ *pulumi.OutputState }
-
-func (MonthlyRecurrenceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonthlyRecurrenceResponse)(nil)).Elem()
-}
-
-func (o MonthlyRecurrenceResponseOutput) ToMonthlyRecurrenceResponseOutput() MonthlyRecurrenceResponseOutput {
-	return o
-}
-
-func (o MonthlyRecurrenceResponseOutput) ToMonthlyRecurrenceResponseOutputWithContext(ctx context.Context) MonthlyRecurrenceResponseOutput {
-	return o
-}
-
-func (o MonthlyRecurrenceResponseOutput) DaysOfMonth() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v MonthlyRecurrenceResponse) []int { return v.DaysOfMonth }).(pulumi.IntArrayOutput)
-}
-
-func (o MonthlyRecurrenceResponseOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonthlyRecurrenceResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
-}
-
-func (o MonthlyRecurrenceResponseOutput) RecurrenceType() pulumi.StringOutput {
-	return o.ApplyT(func(v MonthlyRecurrenceResponse) string { return v.RecurrenceType }).(pulumi.StringOutput)
-}
-
-func (o MonthlyRecurrenceResponseOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonthlyRecurrenceResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
-}
-
 type RemoveAllActionGroups struct {
 	ActionType string `pulumi:"actionType"`
 }
 
-
-
-
-
-type RemoveAllActionGroupsInput interface {
-	pulumi.Input
-
-	ToRemoveAllActionGroupsOutput() RemoveAllActionGroupsOutput
-	ToRemoveAllActionGroupsOutputWithContext(context.Context) RemoveAllActionGroupsOutput
-}
-
-type RemoveAllActionGroupsArgs struct {
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-}
-
-func (RemoveAllActionGroupsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoveAllActionGroups)(nil)).Elem()
-}
-
-func (i RemoveAllActionGroupsArgs) ToRemoveAllActionGroupsOutput() RemoveAllActionGroupsOutput {
-	return i.ToRemoveAllActionGroupsOutputWithContext(context.Background())
-}
-
-func (i RemoveAllActionGroupsArgs) ToRemoveAllActionGroupsOutputWithContext(ctx context.Context) RemoveAllActionGroupsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoveAllActionGroupsOutput)
-}
-
-type RemoveAllActionGroupsOutput struct{ *pulumi.OutputState }
-
-func (RemoveAllActionGroupsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoveAllActionGroups)(nil)).Elem()
-}
-
-func (o RemoveAllActionGroupsOutput) ToRemoveAllActionGroupsOutput() RemoveAllActionGroupsOutput {
-	return o
-}
-
-func (o RemoveAllActionGroupsOutput) ToRemoveAllActionGroupsOutputWithContext(ctx context.Context) RemoveAllActionGroupsOutput {
-	return o
-}
-
-func (o RemoveAllActionGroupsOutput) ActionType() pulumi.StringOutput {
-	return o.ApplyT(func(v RemoveAllActionGroups) string { return v.ActionType }).(pulumi.StringOutput)
-}
-
 type RemoveAllActionGroupsResponse struct {
 	ActionType string `pulumi:"actionType"`
-}
-
-
-
-
-
-type RemoveAllActionGroupsResponseInput interface {
-	pulumi.Input
-
-	ToRemoveAllActionGroupsResponseOutput() RemoveAllActionGroupsResponseOutput
-	ToRemoveAllActionGroupsResponseOutputWithContext(context.Context) RemoveAllActionGroupsResponseOutput
-}
-
-type RemoveAllActionGroupsResponseArgs struct {
-	ActionType pulumi.StringInput `pulumi:"actionType"`
-}
-
-func (RemoveAllActionGroupsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoveAllActionGroupsResponse)(nil)).Elem()
-}
-
-func (i RemoveAllActionGroupsResponseArgs) ToRemoveAllActionGroupsResponseOutput() RemoveAllActionGroupsResponseOutput {
-	return i.ToRemoveAllActionGroupsResponseOutputWithContext(context.Background())
-}
-
-func (i RemoveAllActionGroupsResponseArgs) ToRemoveAllActionGroupsResponseOutputWithContext(ctx context.Context) RemoveAllActionGroupsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemoveAllActionGroupsResponseOutput)
-}
-
-type RemoveAllActionGroupsResponseOutput struct{ *pulumi.OutputState }
-
-func (RemoveAllActionGroupsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemoveAllActionGroupsResponse)(nil)).Elem()
-}
-
-func (o RemoveAllActionGroupsResponseOutput) ToRemoveAllActionGroupsResponseOutput() RemoveAllActionGroupsResponseOutput {
-	return o
-}
-
-func (o RemoveAllActionGroupsResponseOutput) ToRemoveAllActionGroupsResponseOutputWithContext(ctx context.Context) RemoveAllActionGroupsResponseOutput {
-	return o
-}
-
-func (o RemoveAllActionGroupsResponseOutput) ActionType() pulumi.StringOutput {
-	return o.ApplyT(func(v RemoveAllActionGroupsResponse) string { return v.ActionType }).(pulumi.StringOutput)
 }
 
 type Schedule struct {
@@ -1287,77 +678,6 @@ type ScheduleResponse struct {
 	TimeZone       *string       `pulumi:"timeZone"`
 }
 
-
-
-
-
-type ScheduleResponseInput interface {
-	pulumi.Input
-
-	ToScheduleResponseOutput() ScheduleResponseOutput
-	ToScheduleResponseOutputWithContext(context.Context) ScheduleResponseOutput
-}
-
-type ScheduleResponseArgs struct {
-	EffectiveFrom  pulumi.StringPtrInput `pulumi:"effectiveFrom"`
-	EffectiveUntil pulumi.StringPtrInput `pulumi:"effectiveUntil"`
-	Recurrences    pulumi.ArrayInput     `pulumi:"recurrences"`
-	TimeZone       pulumi.StringPtrInput `pulumi:"timeZone"`
-}
-
-func (ScheduleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleResponse)(nil)).Elem()
-}
-
-func (i ScheduleResponseArgs) ToScheduleResponseOutput() ScheduleResponseOutput {
-	return i.ToScheduleResponseOutputWithContext(context.Background())
-}
-
-func (i ScheduleResponseArgs) ToScheduleResponseOutputWithContext(ctx context.Context) ScheduleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponseOutput)
-}
-
-func (i ScheduleResponseArgs) ToScheduleResponsePtrOutput() ScheduleResponsePtrOutput {
-	return i.ToScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ScheduleResponseArgs) ToScheduleResponsePtrOutputWithContext(ctx context.Context) ScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponseOutput).ToScheduleResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ScheduleResponsePtrInput interface {
-	pulumi.Input
-
-	ToScheduleResponsePtrOutput() ScheduleResponsePtrOutput
-	ToScheduleResponsePtrOutputWithContext(context.Context) ScheduleResponsePtrOutput
-}
-
-type scheduleResponsePtrType ScheduleResponseArgs
-
-func ScheduleResponsePtr(v *ScheduleResponseArgs) ScheduleResponsePtrInput {
-	return (*scheduleResponsePtrType)(v)
-}
-
-func (*scheduleResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduleResponse)(nil)).Elem()
-}
-
-func (i *scheduleResponsePtrType) ToScheduleResponsePtrOutput() ScheduleResponsePtrOutput {
-	return i.ToScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *scheduleResponsePtrType) ToScheduleResponsePtrOutputWithContext(ctx context.Context) ScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponsePtrOutput)
-}
-
 type ScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ScheduleResponseOutput) ElementType() reflect.Type {
@@ -1370,16 +690,6 @@ func (o ScheduleResponseOutput) ToScheduleResponseOutput() ScheduleResponseOutpu
 
 func (o ScheduleResponseOutput) ToScheduleResponseOutputWithContext(ctx context.Context) ScheduleResponseOutput {
 	return o
-}
-
-func (o ScheduleResponseOutput) ToScheduleResponsePtrOutput() ScheduleResponsePtrOutput {
-	return o.ToScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ScheduleResponseOutput) ToScheduleResponsePtrOutputWithContext(ctx context.Context) ScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleResponse) *ScheduleResponse {
-		return &v
-	}).(ScheduleResponsePtrOutput)
 }
 
 func (o ScheduleResponseOutput) EffectiveFrom() pulumi.StringPtrOutput {
@@ -1467,79 +777,6 @@ type SystemDataResponse struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1552,16 +789,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -1588,149 +815,11 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 type WeeklyRecurrence struct {
 	DaysOfWeek     []string `pulumi:"daysOfWeek"`
 	EndTime        *string  `pulumi:"endTime"`
 	RecurrenceType string   `pulumi:"recurrenceType"`
 	StartTime      *string  `pulumi:"startTime"`
-}
-
-
-
-
-
-type WeeklyRecurrenceInput interface {
-	pulumi.Input
-
-	ToWeeklyRecurrenceOutput() WeeklyRecurrenceOutput
-	ToWeeklyRecurrenceOutputWithContext(context.Context) WeeklyRecurrenceOutput
-}
-
-type WeeklyRecurrenceArgs struct {
-	DaysOfWeek     pulumi.StringArrayInput `pulumi:"daysOfWeek"`
-	EndTime        pulumi.StringPtrInput   `pulumi:"endTime"`
-	RecurrenceType pulumi.StringInput      `pulumi:"recurrenceType"`
-	StartTime      pulumi.StringPtrInput   `pulumi:"startTime"`
-}
-
-func (WeeklyRecurrenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WeeklyRecurrence)(nil)).Elem()
-}
-
-func (i WeeklyRecurrenceArgs) ToWeeklyRecurrenceOutput() WeeklyRecurrenceOutput {
-	return i.ToWeeklyRecurrenceOutputWithContext(context.Background())
-}
-
-func (i WeeklyRecurrenceArgs) ToWeeklyRecurrenceOutputWithContext(ctx context.Context) WeeklyRecurrenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRecurrenceOutput)
-}
-
-type WeeklyRecurrenceOutput struct{ *pulumi.OutputState }
-
-func (WeeklyRecurrenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WeeklyRecurrence)(nil)).Elem()
-}
-
-func (o WeeklyRecurrenceOutput) ToWeeklyRecurrenceOutput() WeeklyRecurrenceOutput {
-	return o
-}
-
-func (o WeeklyRecurrenceOutput) ToWeeklyRecurrenceOutputWithContext(ctx context.Context) WeeklyRecurrenceOutput {
-	return o
-}
-
-func (o WeeklyRecurrenceOutput) DaysOfWeek() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WeeklyRecurrence) []string { return v.DaysOfWeek }).(pulumi.StringArrayOutput)
-}
-
-func (o WeeklyRecurrenceOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WeeklyRecurrence) *string { return v.EndTime }).(pulumi.StringPtrOutput)
-}
-
-func (o WeeklyRecurrenceOutput) RecurrenceType() pulumi.StringOutput {
-	return o.ApplyT(func(v WeeklyRecurrence) string { return v.RecurrenceType }).(pulumi.StringOutput)
-}
-
-func (o WeeklyRecurrenceOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WeeklyRecurrence) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
 type WeeklyRecurrenceResponse struct {
@@ -1740,89 +829,17 @@ type WeeklyRecurrenceResponse struct {
 	StartTime      *string  `pulumi:"startTime"`
 }
 
-
-
-
-
-type WeeklyRecurrenceResponseInput interface {
-	pulumi.Input
-
-	ToWeeklyRecurrenceResponseOutput() WeeklyRecurrenceResponseOutput
-	ToWeeklyRecurrenceResponseOutputWithContext(context.Context) WeeklyRecurrenceResponseOutput
-}
-
-type WeeklyRecurrenceResponseArgs struct {
-	DaysOfWeek     pulumi.StringArrayInput `pulumi:"daysOfWeek"`
-	EndTime        pulumi.StringPtrInput   `pulumi:"endTime"`
-	RecurrenceType pulumi.StringInput      `pulumi:"recurrenceType"`
-	StartTime      pulumi.StringPtrInput   `pulumi:"startTime"`
-}
-
-func (WeeklyRecurrenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WeeklyRecurrenceResponse)(nil)).Elem()
-}
-
-func (i WeeklyRecurrenceResponseArgs) ToWeeklyRecurrenceResponseOutput() WeeklyRecurrenceResponseOutput {
-	return i.ToWeeklyRecurrenceResponseOutputWithContext(context.Background())
-}
-
-func (i WeeklyRecurrenceResponseArgs) ToWeeklyRecurrenceResponseOutputWithContext(ctx context.Context) WeeklyRecurrenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WeeklyRecurrenceResponseOutput)
-}
-
-type WeeklyRecurrenceResponseOutput struct{ *pulumi.OutputState }
-
-func (WeeklyRecurrenceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WeeklyRecurrenceResponse)(nil)).Elem()
-}
-
-func (o WeeklyRecurrenceResponseOutput) ToWeeklyRecurrenceResponseOutput() WeeklyRecurrenceResponseOutput {
-	return o
-}
-
-func (o WeeklyRecurrenceResponseOutput) ToWeeklyRecurrenceResponseOutputWithContext(ctx context.Context) WeeklyRecurrenceResponseOutput {
-	return o
-}
-
-func (o WeeklyRecurrenceResponseOutput) DaysOfWeek() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WeeklyRecurrenceResponse) []string { return v.DaysOfWeek }).(pulumi.StringArrayOutput)
-}
-
-func (o WeeklyRecurrenceResponseOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WeeklyRecurrenceResponse) *string { return v.EndTime }).(pulumi.StringPtrOutput)
-}
-
-func (o WeeklyRecurrenceResponseOutput) RecurrenceType() pulumi.StringOutput {
-	return o.ApplyT(func(v WeeklyRecurrenceResponse) string { return v.RecurrenceType }).(pulumi.StringOutput)
-}
-
-func (o WeeklyRecurrenceResponseOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WeeklyRecurrenceResponse) *string { return v.StartTime }).(pulumi.StringPtrOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(AddActionGroupsOutput{})
-	pulumi.RegisterOutputType(AddActionGroupsResponseOutput{})
 	pulumi.RegisterOutputType(AlertProcessingRulePropertiesOutput{})
 	pulumi.RegisterOutputType(AlertProcessingRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AlertProcessingRulePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(AlertProcessingRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConditionOutput{})
 	pulumi.RegisterOutputType(ConditionArrayOutput{})
 	pulumi.RegisterOutputType(ConditionResponseOutput{})
 	pulumi.RegisterOutputType(ConditionResponseArrayOutput{})
-	pulumi.RegisterOutputType(DailyRecurrenceOutput{})
-	pulumi.RegisterOutputType(DailyRecurrenceResponseOutput{})
-	pulumi.RegisterOutputType(MonthlyRecurrenceOutput{})
-	pulumi.RegisterOutputType(MonthlyRecurrenceResponseOutput{})
-	pulumi.RegisterOutputType(RemoveAllActionGroupsOutput{})
-	pulumi.RegisterOutputType(RemoveAllActionGroupsResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleOutput{})
 	pulumi.RegisterOutputType(SchedulePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleResponseOutput{})
 	pulumi.RegisterOutputType(ScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
-	pulumi.RegisterOutputType(WeeklyRecurrenceOutput{})
-	pulumi.RegisterOutputType(WeeklyRecurrenceResponseOutput{})
 }

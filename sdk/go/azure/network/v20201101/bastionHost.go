@@ -152,7 +152,7 @@ type BastionHostInput interface {
 }
 
 func (*BastionHost) ElementType() reflect.Type {
-	return reflect.TypeOf((*BastionHost)(nil))
+	return reflect.TypeOf((**BastionHost)(nil)).Elem()
 }
 
 func (i *BastionHost) ToBastionHostOutput() BastionHostOutput {
@@ -166,7 +166,7 @@ func (i *BastionHost) ToBastionHostOutputWithContext(ctx context.Context) Bastio
 type BastionHostOutput struct{ *pulumi.OutputState }
 
 func (BastionHostOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BastionHost)(nil))
+	return reflect.TypeOf((**BastionHost)(nil)).Elem()
 }
 
 func (o BastionHostOutput) ToBastionHostOutput() BastionHostOutput {

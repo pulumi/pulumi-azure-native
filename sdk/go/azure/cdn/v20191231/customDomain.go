@@ -143,7 +143,7 @@ type CustomDomainInput interface {
 }
 
 func (*CustomDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomain)(nil))
+	return reflect.TypeOf((**CustomDomain)(nil)).Elem()
 }
 
 func (i *CustomDomain) ToCustomDomainOutput() CustomDomainOutput {
@@ -157,7 +157,7 @@ func (i *CustomDomain) ToCustomDomainOutputWithContext(ctx context.Context) Cust
 type CustomDomainOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomain)(nil))
+	return reflect.TypeOf((**CustomDomain)(nil)).Elem()
 }
 
 func (o CustomDomainOutput) ToCustomDomainOutput() CustomDomainOutput {

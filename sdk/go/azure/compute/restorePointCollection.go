@@ -106,7 +106,7 @@ type RestorePointCollectionInput interface {
 }
 
 func (*RestorePointCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestorePointCollection)(nil))
+	return reflect.TypeOf((**RestorePointCollection)(nil)).Elem()
 }
 
 func (i *RestorePointCollection) ToRestorePointCollectionOutput() RestorePointCollectionOutput {
@@ -120,7 +120,7 @@ func (i *RestorePointCollection) ToRestorePointCollectionOutputWithContext(ctx c
 type RestorePointCollectionOutput struct{ *pulumi.OutputState }
 
 func (RestorePointCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RestorePointCollection)(nil))
+	return reflect.TypeOf((**RestorePointCollection)(nil)).Elem()
 }
 
 func (o RestorePointCollectionOutput) ToRestorePointCollectionOutput() RestorePointCollectionOutput {

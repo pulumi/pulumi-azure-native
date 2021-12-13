@@ -111,7 +111,7 @@ type AnomaliesInput interface {
 }
 
 func (*Anomalies) ElementType() reflect.Type {
-	return reflect.TypeOf((*Anomalies)(nil))
+	return reflect.TypeOf((**Anomalies)(nil)).Elem()
 }
 
 func (i *Anomalies) ToAnomaliesOutput() AnomaliesOutput {
@@ -125,7 +125,7 @@ func (i *Anomalies) ToAnomaliesOutputWithContext(ctx context.Context) AnomaliesO
 type AnomaliesOutput struct{ *pulumi.OutputState }
 
 func (AnomaliesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Anomalies)(nil))
+	return reflect.TypeOf((**Anomalies)(nil)).Elem()
 }
 
 func (o AnomaliesOutput) ToAnomaliesOutput() AnomaliesOutput {

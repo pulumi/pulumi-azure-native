@@ -116,7 +116,7 @@ type DataCollectionRuleInput interface {
 }
 
 func (*DataCollectionRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRule)(nil))
+	return reflect.TypeOf((**DataCollectionRule)(nil)).Elem()
 }
 
 func (i *DataCollectionRule) ToDataCollectionRuleOutput() DataCollectionRuleOutput {
@@ -130,7 +130,7 @@ func (i *DataCollectionRule) ToDataCollectionRuleOutputWithContext(ctx context.C
 type DataCollectionRuleOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRule)(nil))
+	return reflect.TypeOf((**DataCollectionRule)(nil)).Elem()
 }
 
 func (o DataCollectionRuleOutput) ToDataCollectionRuleOutput() DataCollectionRuleOutput {

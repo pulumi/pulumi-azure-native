@@ -32,6 +32,9 @@ func NewManagedHsm(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToManagedHsmPropertiesPtrOutput().ApplyT(func(v *ManagedHsmProperties) *ManagedHsmProperties { return v.Defaults() }).(ManagedHsmPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:keyvault:ManagedHsm"),
@@ -106,7 +109,7 @@ type ManagedHsmInput interface {
 }
 
 func (*ManagedHsm) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedHsm)(nil))
+	return reflect.TypeOf((**ManagedHsm)(nil)).Elem()
 }
 
 func (i *ManagedHsm) ToManagedHsmOutput() ManagedHsmOutput {
@@ -120,7 +123,7 @@ func (i *ManagedHsm) ToManagedHsmOutputWithContext(ctx context.Context) ManagedH
 type ManagedHsmOutput struct{ *pulumi.OutputState }
 
 func (ManagedHsmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedHsm)(nil))
+	return reflect.TypeOf((**ManagedHsm)(nil)).Elem()
 }
 
 func (o ManagedHsmOutput) ToManagedHsmOutput() ManagedHsmOutput {

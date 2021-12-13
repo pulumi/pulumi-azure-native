@@ -44,7 +44,7 @@ func NewActivityLogAlert(ctx *pulumi.Context,
 	if args.Scopes == nil {
 		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
-	if args.Enabled == nil {
+	if isZero(args.Enabled) {
 		args.Enabled = pulumi.BoolPtr(true)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -124,7 +124,7 @@ type ActivityLogAlertInput interface {
 }
 
 func (*ActivityLogAlert) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlert)(nil))
+	return reflect.TypeOf((**ActivityLogAlert)(nil)).Elem()
 }
 
 func (i *ActivityLogAlert) ToActivityLogAlertOutput() ActivityLogAlertOutput {
@@ -138,7 +138,7 @@ func (i *ActivityLogAlert) ToActivityLogAlertOutputWithContext(ctx context.Conte
 type ActivityLogAlertOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlert)(nil))
+	return reflect.TypeOf((**ActivityLogAlert)(nil)).Elem()
 }
 
 func (o ActivityLogAlertOutput) ToActivityLogAlertOutput() ActivityLogAlertOutput {

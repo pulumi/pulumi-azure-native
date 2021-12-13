@@ -112,7 +112,7 @@ type BatchEndpointInput interface {
 }
 
 func (*BatchEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchEndpoint)(nil))
+	return reflect.TypeOf((**BatchEndpoint)(nil)).Elem()
 }
 
 func (i *BatchEndpoint) ToBatchEndpointOutput() BatchEndpointOutput {
@@ -126,7 +126,7 @@ func (i *BatchEndpoint) ToBatchEndpointOutputWithContext(ctx context.Context) Ba
 type BatchEndpointOutput struct{ *pulumi.OutputState }
 
 func (BatchEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchEndpoint)(nil))
+	return reflect.TypeOf((**BatchEndpoint)(nil)).Elem()
 }
 
 func (o BatchEndpointOutput) ToBatchEndpointOutput() BatchEndpointOutput {

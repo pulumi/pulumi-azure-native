@@ -105,7 +105,7 @@ type ManagementLockAtSubscriptionLevelInput interface {
 }
 
 func (*ManagementLockAtSubscriptionLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockAtSubscriptionLevel)(nil))
+	return reflect.TypeOf((**ManagementLockAtSubscriptionLevel)(nil)).Elem()
 }
 
 func (i *ManagementLockAtSubscriptionLevel) ToManagementLockAtSubscriptionLevelOutput() ManagementLockAtSubscriptionLevelOutput {
@@ -119,7 +119,7 @@ func (i *ManagementLockAtSubscriptionLevel) ToManagementLockAtSubscriptionLevelO
 type ManagementLockAtSubscriptionLevelOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockAtSubscriptionLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockAtSubscriptionLevel)(nil))
+	return reflect.TypeOf((**ManagementLockAtSubscriptionLevel)(nil)).Elem()
 }
 
 func (o ManagementLockAtSubscriptionLevelOutput) ToManagementLockAtSubscriptionLevelOutput() ManagementLockAtSubscriptionLevelOutput {

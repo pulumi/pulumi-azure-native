@@ -113,7 +113,7 @@ type SecurityConnectorInput interface {
 }
 
 func (*SecurityConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityConnector)(nil))
+	return reflect.TypeOf((**SecurityConnector)(nil)).Elem()
 }
 
 func (i *SecurityConnector) ToSecurityConnectorOutput() SecurityConnectorOutput {
@@ -127,7 +127,7 @@ func (i *SecurityConnector) ToSecurityConnectorOutputWithContext(ctx context.Con
 type SecurityConnectorOutput struct{ *pulumi.OutputState }
 
 func (SecurityConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityConnector)(nil))
+	return reflect.TypeOf((**SecurityConnector)(nil)).Elem()
 }
 
 func (o SecurityConnectorOutput) ToSecurityConnectorOutput() SecurityConnectorOutput {

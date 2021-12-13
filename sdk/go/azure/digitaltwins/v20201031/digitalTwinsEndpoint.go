@@ -105,7 +105,7 @@ type DigitalTwinsEndpointInput interface {
 }
 
 func (*DigitalTwinsEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*DigitalTwinsEndpoint)(nil))
+	return reflect.TypeOf((**DigitalTwinsEndpoint)(nil)).Elem()
 }
 
 func (i *DigitalTwinsEndpoint) ToDigitalTwinsEndpointOutput() DigitalTwinsEndpointOutput {
@@ -119,7 +119,7 @@ func (i *DigitalTwinsEndpoint) ToDigitalTwinsEndpointOutputWithContext(ctx conte
 type DigitalTwinsEndpointOutput struct{ *pulumi.OutputState }
 
 func (DigitalTwinsEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DigitalTwinsEndpoint)(nil))
+	return reflect.TypeOf((**DigitalTwinsEndpoint)(nil)).Elem()
 }
 
 func (o DigitalTwinsEndpointOutput) ToDigitalTwinsEndpointOutput() DigitalTwinsEndpointOutput {

@@ -183,35 +183,6 @@ type DataSourceConfigurationResponse struct {
 	Providers    []EtwProviderConfigurationResponse        `pulumi:"providers"`
 }
 
-
-
-
-
-type DataSourceConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToDataSourceConfigurationResponseOutput() DataSourceConfigurationResponseOutput
-	ToDataSourceConfigurationResponseOutputWithContext(context.Context) DataSourceConfigurationResponseOutput
-}
-
-type DataSourceConfigurationResponseArgs struct {
-	EventLogs    EventLogConfigurationResponseArrayInput           `pulumi:"eventLogs"`
-	PerfCounters PerformanceCounterConfigurationResponseArrayInput `pulumi:"perfCounters"`
-	Providers    EtwProviderConfigurationResponseArrayInput        `pulumi:"providers"`
-}
-
-func (DataSourceConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceConfigurationResponse)(nil)).Elem()
-}
-
-func (i DataSourceConfigurationResponseArgs) ToDataSourceConfigurationResponseOutput() DataSourceConfigurationResponseOutput {
-	return i.ToDataSourceConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i DataSourceConfigurationResponseArgs) ToDataSourceConfigurationResponseOutputWithContext(ctx context.Context) DataSourceConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationResponseOutput)
-}
-
 type DataSourceConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationResponseOutput) ElementType() reflect.Type {
@@ -244,60 +215,6 @@ type DataSourceResponse struct {
 	Configuration DataSourceConfigurationResponse `pulumi:"configuration"`
 	Kind          string                          `pulumi:"kind"`
 	Sinks         []SinkConfigurationResponse     `pulumi:"sinks"`
-}
-
-
-
-
-
-type DataSourceResponseInput interface {
-	pulumi.Input
-
-	ToDataSourceResponseOutput() DataSourceResponseOutput
-	ToDataSourceResponseOutputWithContext(context.Context) DataSourceResponseOutput
-}
-
-type DataSourceResponseArgs struct {
-	Configuration DataSourceConfigurationResponseInput `pulumi:"configuration"`
-	Kind          pulumi.StringInput                   `pulumi:"kind"`
-	Sinks         SinkConfigurationResponseArrayInput  `pulumi:"sinks"`
-}
-
-func (DataSourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSourceResponse)(nil)).Elem()
-}
-
-func (i DataSourceResponseArgs) ToDataSourceResponseOutput() DataSourceResponseOutput {
-	return i.ToDataSourceResponseOutputWithContext(context.Background())
-}
-
-func (i DataSourceResponseArgs) ToDataSourceResponseOutputWithContext(ctx context.Context) DataSourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceResponseOutput)
-}
-
-
-
-
-
-type DataSourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToDataSourceResponseArrayOutput() DataSourceResponseArrayOutput
-	ToDataSourceResponseArrayOutputWithContext(context.Context) DataSourceResponseArrayOutput
-}
-
-type DataSourceResponseArray []DataSourceResponseInput
-
-func (DataSourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataSourceResponse)(nil)).Elem()
-}
-
-func (i DataSourceResponseArray) ToDataSourceResponseArrayOutput() DataSourceResponseArrayOutput {
-	return i.ToDataSourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DataSourceResponseArray) ToDataSourceResponseArrayOutputWithContext(ctx context.Context) DataSourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceResponseArrayOutput)
 }
 
 type DataSourceResponseOutput struct{ *pulumi.OutputState }
@@ -458,60 +375,6 @@ type EtwEventConfigurationResponse struct {
 	Name   string  `pulumi:"name"`
 }
 
-
-
-
-
-type EtwEventConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToEtwEventConfigurationResponseOutput() EtwEventConfigurationResponseOutput
-	ToEtwEventConfigurationResponseOutputWithContext(context.Context) EtwEventConfigurationResponseOutput
-}
-
-type EtwEventConfigurationResponseArgs struct {
-	Filter pulumi.StringPtrInput `pulumi:"filter"`
-	Id     pulumi.IntInput       `pulumi:"id"`
-	Name   pulumi.StringInput    `pulumi:"name"`
-}
-
-func (EtwEventConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EtwEventConfigurationResponse)(nil)).Elem()
-}
-
-func (i EtwEventConfigurationResponseArgs) ToEtwEventConfigurationResponseOutput() EtwEventConfigurationResponseOutput {
-	return i.ToEtwEventConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i EtwEventConfigurationResponseArgs) ToEtwEventConfigurationResponseOutputWithContext(ctx context.Context) EtwEventConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EtwEventConfigurationResponseOutput)
-}
-
-
-
-
-
-type EtwEventConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToEtwEventConfigurationResponseArrayOutput() EtwEventConfigurationResponseArrayOutput
-	ToEtwEventConfigurationResponseArrayOutputWithContext(context.Context) EtwEventConfigurationResponseArrayOutput
-}
-
-type EtwEventConfigurationResponseArray []EtwEventConfigurationResponseInput
-
-func (EtwEventConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EtwEventConfigurationResponse)(nil)).Elem()
-}
-
-func (i EtwEventConfigurationResponseArray) ToEtwEventConfigurationResponseArrayOutput() EtwEventConfigurationResponseArrayOutput {
-	return i.ToEtwEventConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i EtwEventConfigurationResponseArray) ToEtwEventConfigurationResponseArrayOutputWithContext(ctx context.Context) EtwEventConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EtwEventConfigurationResponseArrayOutput)
-}
-
 type EtwEventConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (EtwEventConfigurationResponseOutput) ElementType() reflect.Type {
@@ -663,59 +526,6 @@ type EtwProviderConfigurationResponse struct {
 	Id     string                          `pulumi:"id"`
 }
 
-
-
-
-
-type EtwProviderConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToEtwProviderConfigurationResponseOutput() EtwProviderConfigurationResponseOutput
-	ToEtwProviderConfigurationResponseOutputWithContext(context.Context) EtwProviderConfigurationResponseOutput
-}
-
-type EtwProviderConfigurationResponseArgs struct {
-	Events EtwEventConfigurationResponseArrayInput `pulumi:"events"`
-	Id     pulumi.StringInput                      `pulumi:"id"`
-}
-
-func (EtwProviderConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EtwProviderConfigurationResponse)(nil)).Elem()
-}
-
-func (i EtwProviderConfigurationResponseArgs) ToEtwProviderConfigurationResponseOutput() EtwProviderConfigurationResponseOutput {
-	return i.ToEtwProviderConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i EtwProviderConfigurationResponseArgs) ToEtwProviderConfigurationResponseOutputWithContext(ctx context.Context) EtwProviderConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EtwProviderConfigurationResponseOutput)
-}
-
-
-
-
-
-type EtwProviderConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToEtwProviderConfigurationResponseArrayOutput() EtwProviderConfigurationResponseArrayOutput
-	ToEtwProviderConfigurationResponseArrayOutputWithContext(context.Context) EtwProviderConfigurationResponseArrayOutput
-}
-
-type EtwProviderConfigurationResponseArray []EtwProviderConfigurationResponseInput
-
-func (EtwProviderConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EtwProviderConfigurationResponse)(nil)).Elem()
-}
-
-func (i EtwProviderConfigurationResponseArray) ToEtwProviderConfigurationResponseArrayOutput() EtwProviderConfigurationResponseArrayOutput {
-	return i.ToEtwProviderConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i EtwProviderConfigurationResponseArray) ToEtwProviderConfigurationResponseArrayOutputWithContext(ctx context.Context) EtwProviderConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EtwProviderConfigurationResponseArrayOutput)
-}
-
 type EtwProviderConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (EtwProviderConfigurationResponseOutput) ElementType() reflect.Type {
@@ -861,59 +671,6 @@ func (o EventLogConfigurationArrayOutput) Index(i pulumi.IntInput) EventLogConfi
 type EventLogConfigurationResponse struct {
 	Filter  *string `pulumi:"filter"`
 	LogName string  `pulumi:"logName"`
-}
-
-
-
-
-
-type EventLogConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToEventLogConfigurationResponseOutput() EventLogConfigurationResponseOutput
-	ToEventLogConfigurationResponseOutputWithContext(context.Context) EventLogConfigurationResponseOutput
-}
-
-type EventLogConfigurationResponseArgs struct {
-	Filter  pulumi.StringPtrInput `pulumi:"filter"`
-	LogName pulumi.StringInput    `pulumi:"logName"`
-}
-
-func (EventLogConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventLogConfigurationResponse)(nil)).Elem()
-}
-
-func (i EventLogConfigurationResponseArgs) ToEventLogConfigurationResponseOutput() EventLogConfigurationResponseOutput {
-	return i.ToEventLogConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i EventLogConfigurationResponseArgs) ToEventLogConfigurationResponseOutputWithContext(ctx context.Context) EventLogConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventLogConfigurationResponseOutput)
-}
-
-
-
-
-
-type EventLogConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToEventLogConfigurationResponseArrayOutput() EventLogConfigurationResponseArrayOutput
-	ToEventLogConfigurationResponseArrayOutputWithContext(context.Context) EventLogConfigurationResponseArrayOutput
-}
-
-type EventLogConfigurationResponseArray []EventLogConfigurationResponseInput
-
-func (EventLogConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventLogConfigurationResponse)(nil)).Elem()
-}
-
-func (i EventLogConfigurationResponseArray) ToEventLogConfigurationResponseArrayOutput() EventLogConfigurationResponseArrayOutput {
-	return i.ToEventLogConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i EventLogConfigurationResponseArray) ToEventLogConfigurationResponseArrayOutputWithContext(ctx context.Context) EventLogConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventLogConfigurationResponseArrayOutput)
 }
 
 type EventLogConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -1070,60 +827,6 @@ type PerformanceCounterConfigurationResponse struct {
 	SamplingPeriod string  `pulumi:"samplingPeriod"`
 }
 
-
-
-
-
-type PerformanceCounterConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToPerformanceCounterConfigurationResponseOutput() PerformanceCounterConfigurationResponseOutput
-	ToPerformanceCounterConfigurationResponseOutputWithContext(context.Context) PerformanceCounterConfigurationResponseOutput
-}
-
-type PerformanceCounterConfigurationResponseArgs struct {
-	Instance       pulumi.StringPtrInput `pulumi:"instance"`
-	Name           pulumi.StringInput    `pulumi:"name"`
-	SamplingPeriod pulumi.StringInput    `pulumi:"samplingPeriod"`
-}
-
-func (PerformanceCounterConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PerformanceCounterConfigurationResponse)(nil)).Elem()
-}
-
-func (i PerformanceCounterConfigurationResponseArgs) ToPerformanceCounterConfigurationResponseOutput() PerformanceCounterConfigurationResponseOutput {
-	return i.ToPerformanceCounterConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i PerformanceCounterConfigurationResponseArgs) ToPerformanceCounterConfigurationResponseOutputWithContext(ctx context.Context) PerformanceCounterConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PerformanceCounterConfigurationResponseOutput)
-}
-
-
-
-
-
-type PerformanceCounterConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToPerformanceCounterConfigurationResponseArrayOutput() PerformanceCounterConfigurationResponseArrayOutput
-	ToPerformanceCounterConfigurationResponseArrayOutputWithContext(context.Context) PerformanceCounterConfigurationResponseArrayOutput
-}
-
-type PerformanceCounterConfigurationResponseArray []PerformanceCounterConfigurationResponseInput
-
-func (PerformanceCounterConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PerformanceCounterConfigurationResponse)(nil)).Elem()
-}
-
-func (i PerformanceCounterConfigurationResponseArray) ToPerformanceCounterConfigurationResponseArrayOutput() PerformanceCounterConfigurationResponseArrayOutput {
-	return i.ToPerformanceCounterConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PerformanceCounterConfigurationResponseArray) ToPerformanceCounterConfigurationResponseArrayOutputWithContext(ctx context.Context) PerformanceCounterConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PerformanceCounterConfigurationResponseArrayOutput)
-}
-
 type PerformanceCounterConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (PerformanceCounterConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1266,58 +969,6 @@ func (o SinkConfigurationArrayOutput) Index(i pulumi.IntInput) SinkConfiguration
 
 type SinkConfigurationResponse struct {
 	Kind string `pulumi:"kind"`
-}
-
-
-
-
-
-type SinkConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToSinkConfigurationResponseOutput() SinkConfigurationResponseOutput
-	ToSinkConfigurationResponseOutputWithContext(context.Context) SinkConfigurationResponseOutput
-}
-
-type SinkConfigurationResponseArgs struct {
-	Kind pulumi.StringInput `pulumi:"kind"`
-}
-
-func (SinkConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SinkConfigurationResponse)(nil)).Elem()
-}
-
-func (i SinkConfigurationResponseArgs) ToSinkConfigurationResponseOutput() SinkConfigurationResponseOutput {
-	return i.ToSinkConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i SinkConfigurationResponseArgs) ToSinkConfigurationResponseOutputWithContext(ctx context.Context) SinkConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SinkConfigurationResponseOutput)
-}
-
-
-
-
-
-type SinkConfigurationResponseArrayInput interface {
-	pulumi.Input
-
-	ToSinkConfigurationResponseArrayOutput() SinkConfigurationResponseArrayOutput
-	ToSinkConfigurationResponseArrayOutputWithContext(context.Context) SinkConfigurationResponseArrayOutput
-}
-
-type SinkConfigurationResponseArray []SinkConfigurationResponseInput
-
-func (SinkConfigurationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SinkConfigurationResponse)(nil)).Elem()
-}
-
-func (i SinkConfigurationResponseArray) ToSinkConfigurationResponseArrayOutput() SinkConfigurationResponseArrayOutput {
-	return i.ToSinkConfigurationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SinkConfigurationResponseArray) ToSinkConfigurationResponseArrayOutputWithContext(ctx context.Context) SinkConfigurationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SinkConfigurationResponseArrayOutput)
 }
 
 type SinkConfigurationResponseOutput struct{ *pulumi.OutputState }

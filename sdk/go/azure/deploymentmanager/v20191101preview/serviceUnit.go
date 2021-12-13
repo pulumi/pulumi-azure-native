@@ -122,7 +122,7 @@ type ServiceUnitInput interface {
 }
 
 func (*ServiceUnit) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceUnit)(nil))
+	return reflect.TypeOf((**ServiceUnit)(nil)).Elem()
 }
 
 func (i *ServiceUnit) ToServiceUnitOutput() ServiceUnitOutput {
@@ -136,7 +136,7 @@ func (i *ServiceUnit) ToServiceUnitOutputWithContext(ctx context.Context) Servic
 type ServiceUnitOutput struct{ *pulumi.OutputState }
 
 func (ServiceUnitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceUnit)(nil))
+	return reflect.TypeOf((**ServiceUnit)(nil)).Elem()
 }
 
 func (o ServiceUnitOutput) ToServiceUnitOutput() ServiceUnitOutput {

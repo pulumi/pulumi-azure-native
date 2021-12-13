@@ -193,75 +193,6 @@ type PutAliasResponsePropertiesResponse struct {
 	SubscriptionId    string  `pulumi:"subscriptionId"`
 }
 
-
-
-
-
-type PutAliasResponsePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToPutAliasResponsePropertiesResponseOutput() PutAliasResponsePropertiesResponseOutput
-	ToPutAliasResponsePropertiesResponseOutputWithContext(context.Context) PutAliasResponsePropertiesResponseOutput
-}
-
-type PutAliasResponsePropertiesResponseArgs struct {
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	SubscriptionId    pulumi.StringInput    `pulumi:"subscriptionId"`
-}
-
-func (PutAliasResponsePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PutAliasResponsePropertiesResponse)(nil)).Elem()
-}
-
-func (i PutAliasResponsePropertiesResponseArgs) ToPutAliasResponsePropertiesResponseOutput() PutAliasResponsePropertiesResponseOutput {
-	return i.ToPutAliasResponsePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i PutAliasResponsePropertiesResponseArgs) ToPutAliasResponsePropertiesResponseOutputWithContext(ctx context.Context) PutAliasResponsePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PutAliasResponsePropertiesResponseOutput)
-}
-
-func (i PutAliasResponsePropertiesResponseArgs) ToPutAliasResponsePropertiesResponsePtrOutput() PutAliasResponsePropertiesResponsePtrOutput {
-	return i.ToPutAliasResponsePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PutAliasResponsePropertiesResponseArgs) ToPutAliasResponsePropertiesResponsePtrOutputWithContext(ctx context.Context) PutAliasResponsePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PutAliasResponsePropertiesResponseOutput).ToPutAliasResponsePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PutAliasResponsePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToPutAliasResponsePropertiesResponsePtrOutput() PutAliasResponsePropertiesResponsePtrOutput
-	ToPutAliasResponsePropertiesResponsePtrOutputWithContext(context.Context) PutAliasResponsePropertiesResponsePtrOutput
-}
-
-type putAliasResponsePropertiesResponsePtrType PutAliasResponsePropertiesResponseArgs
-
-func PutAliasResponsePropertiesResponsePtr(v *PutAliasResponsePropertiesResponseArgs) PutAliasResponsePropertiesResponsePtrInput {
-	return (*putAliasResponsePropertiesResponsePtrType)(v)
-}
-
-func (*putAliasResponsePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PutAliasResponsePropertiesResponse)(nil)).Elem()
-}
-
-func (i *putAliasResponsePropertiesResponsePtrType) ToPutAliasResponsePropertiesResponsePtrOutput() PutAliasResponsePropertiesResponsePtrOutput {
-	return i.ToPutAliasResponsePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *putAliasResponsePropertiesResponsePtrType) ToPutAliasResponsePropertiesResponsePtrOutputWithContext(ctx context.Context) PutAliasResponsePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PutAliasResponsePropertiesResponsePtrOutput)
-}
-
 type PutAliasResponsePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (PutAliasResponsePropertiesResponseOutput) ElementType() reflect.Type {
@@ -276,16 +207,6 @@ func (o PutAliasResponsePropertiesResponseOutput) ToPutAliasResponsePropertiesRe
 	return o
 }
 
-func (o PutAliasResponsePropertiesResponseOutput) ToPutAliasResponsePropertiesResponsePtrOutput() PutAliasResponsePropertiesResponsePtrOutput {
-	return o.ToPutAliasResponsePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PutAliasResponsePropertiesResponseOutput) ToPutAliasResponsePropertiesResponsePtrOutputWithContext(ctx context.Context) PutAliasResponsePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PutAliasResponsePropertiesResponse) *PutAliasResponsePropertiesResponse {
-		return &v
-	}).(PutAliasResponsePropertiesResponsePtrOutput)
-}
-
 func (o PutAliasResponsePropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PutAliasResponsePropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -294,51 +215,8 @@ func (o PutAliasResponsePropertiesResponseOutput) SubscriptionId() pulumi.String
 	return o.ApplyT(func(v PutAliasResponsePropertiesResponse) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
-type PutAliasResponsePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PutAliasResponsePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PutAliasResponsePropertiesResponse)(nil)).Elem()
-}
-
-func (o PutAliasResponsePropertiesResponsePtrOutput) ToPutAliasResponsePropertiesResponsePtrOutput() PutAliasResponsePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o PutAliasResponsePropertiesResponsePtrOutput) ToPutAliasResponsePropertiesResponsePtrOutputWithContext(ctx context.Context) PutAliasResponsePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o PutAliasResponsePropertiesResponsePtrOutput) Elem() PutAliasResponsePropertiesResponseOutput {
-	return o.ApplyT(func(v *PutAliasResponsePropertiesResponse) PutAliasResponsePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PutAliasResponsePropertiesResponse
-		return ret
-	}).(PutAliasResponsePropertiesResponseOutput)
-}
-
-func (o PutAliasResponsePropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PutAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PutAliasResponsePropertiesResponsePtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PutAliasResponsePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(PutAliasRequestPropertiesOutput{})
 	pulumi.RegisterOutputType(PutAliasRequestPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PutAliasResponsePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(PutAliasResponsePropertiesResponsePtrOutput{})
 }

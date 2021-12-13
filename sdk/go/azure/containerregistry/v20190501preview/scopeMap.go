@@ -114,7 +114,7 @@ type ScopeMapInput interface {
 }
 
 func (*ScopeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScopeMap)(nil))
+	return reflect.TypeOf((**ScopeMap)(nil)).Elem()
 }
 
 func (i *ScopeMap) ToScopeMapOutput() ScopeMapOutput {
@@ -128,7 +128,7 @@ func (i *ScopeMap) ToScopeMapOutputWithContext(ctx context.Context) ScopeMapOutp
 type ScopeMapOutput struct{ *pulumi.OutputState }
 
 func (ScopeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScopeMap)(nil))
+	return reflect.TypeOf((**ScopeMap)(nil)).Elem()
 }
 
 func (o ScopeMapOutput) ToScopeMapOutput() ScopeMapOutput {

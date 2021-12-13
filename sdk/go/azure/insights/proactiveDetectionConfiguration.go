@@ -112,7 +112,7 @@ type ProactiveDetectionConfigurationInput interface {
 }
 
 func (*ProactiveDetectionConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProactiveDetectionConfiguration)(nil))
+	return reflect.TypeOf((**ProactiveDetectionConfiguration)(nil)).Elem()
 }
 
 func (i *ProactiveDetectionConfiguration) ToProactiveDetectionConfigurationOutput() ProactiveDetectionConfigurationOutput {
@@ -126,7 +126,7 @@ func (i *ProactiveDetectionConfiguration) ToProactiveDetectionConfigurationOutpu
 type ProactiveDetectionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ProactiveDetectionConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProactiveDetectionConfiguration)(nil))
+	return reflect.TypeOf((**ProactiveDetectionConfiguration)(nil)).Elem()
 }
 
 func (o ProactiveDetectionConfigurationOutput) ToProactiveDetectionConfigurationOutput() ProactiveDetectionConfigurationOutput {

@@ -113,7 +113,7 @@ type GatewayCertificateAuthorityInput interface {
 }
 
 func (*GatewayCertificateAuthority) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayCertificateAuthority)(nil))
+	return reflect.TypeOf((**GatewayCertificateAuthority)(nil)).Elem()
 }
 
 func (i *GatewayCertificateAuthority) ToGatewayCertificateAuthorityOutput() GatewayCertificateAuthorityOutput {
@@ -127,7 +127,7 @@ func (i *GatewayCertificateAuthority) ToGatewayCertificateAuthorityOutputWithCon
 type GatewayCertificateAuthorityOutput struct{ *pulumi.OutputState }
 
 func (GatewayCertificateAuthorityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayCertificateAuthority)(nil))
+	return reflect.TypeOf((**GatewayCertificateAuthority)(nil)).Elem()
 }
 
 func (o GatewayCertificateAuthorityOutput) ToGatewayCertificateAuthorityOutput() GatewayCertificateAuthorityOutput {

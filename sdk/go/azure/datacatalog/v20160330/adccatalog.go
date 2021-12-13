@@ -115,7 +115,7 @@ type ADCCatalogInput interface {
 }
 
 func (*ADCCatalog) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADCCatalog)(nil))
+	return reflect.TypeOf((**ADCCatalog)(nil)).Elem()
 }
 
 func (i *ADCCatalog) ToADCCatalogOutput() ADCCatalogOutput {
@@ -129,7 +129,7 @@ func (i *ADCCatalog) ToADCCatalogOutputWithContext(ctx context.Context) ADCCatal
 type ADCCatalogOutput struct{ *pulumi.OutputState }
 
 func (ADCCatalogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADCCatalog)(nil))
+	return reflect.TypeOf((**ADCCatalog)(nil)).Elem()
 }
 
 func (o ADCCatalogOutput) ToADCCatalogOutput() ADCCatalogOutput {

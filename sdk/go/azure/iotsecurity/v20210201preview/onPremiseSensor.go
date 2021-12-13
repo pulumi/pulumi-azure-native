@@ -83,7 +83,7 @@ type OnPremiseSensorInput interface {
 }
 
 func (*OnPremiseSensor) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnPremiseSensor)(nil))
+	return reflect.TypeOf((**OnPremiseSensor)(nil)).Elem()
 }
 
 func (i *OnPremiseSensor) ToOnPremiseSensorOutput() OnPremiseSensorOutput {
@@ -97,7 +97,7 @@ func (i *OnPremiseSensor) ToOnPremiseSensorOutputWithContext(ctx context.Context
 type OnPremiseSensorOutput struct{ *pulumi.OutputState }
 
 func (OnPremiseSensorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OnPremiseSensor)(nil))
+	return reflect.TypeOf((**OnPremiseSensor)(nil)).Elem()
 }
 
 func (o OnPremiseSensorOutput) ToOnPremiseSensorOutput() OnPremiseSensorOutput {

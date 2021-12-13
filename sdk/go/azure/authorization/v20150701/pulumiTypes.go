@@ -115,59 +115,6 @@ type PermissionResponse struct {
 	NotActions []string `pulumi:"notActions"`
 }
 
-
-
-
-
-type PermissionResponseInput interface {
-	pulumi.Input
-
-	ToPermissionResponseOutput() PermissionResponseOutput
-	ToPermissionResponseOutputWithContext(context.Context) PermissionResponseOutput
-}
-
-type PermissionResponseArgs struct {
-	Actions    pulumi.StringArrayInput `pulumi:"actions"`
-	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
-}
-
-func (PermissionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PermissionResponse)(nil)).Elem()
-}
-
-func (i PermissionResponseArgs) ToPermissionResponseOutput() PermissionResponseOutput {
-	return i.ToPermissionResponseOutputWithContext(context.Background())
-}
-
-func (i PermissionResponseArgs) ToPermissionResponseOutputWithContext(ctx context.Context) PermissionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionResponseOutput)
-}
-
-
-
-
-
-type PermissionResponseArrayInput interface {
-	pulumi.Input
-
-	ToPermissionResponseArrayOutput() PermissionResponseArrayOutput
-	ToPermissionResponseArrayOutputWithContext(context.Context) PermissionResponseArrayOutput
-}
-
-type PermissionResponseArray []PermissionResponseInput
-
-func (PermissionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PermissionResponse)(nil)).Elem()
-}
-
-func (i PermissionResponseArray) ToPermissionResponseArrayOutput() PermissionResponseArrayOutput {
-	return i.ToPermissionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PermissionResponseArray) ToPermissionResponseArrayOutputWithContext(ctx context.Context) PermissionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionResponseArrayOutput)
-}
-
 type PermissionResponseOutput struct{ *pulumi.OutputState }
 
 func (PermissionResponseOutput) ElementType() reflect.Type {
@@ -243,47 +190,6 @@ func (i RoleAssignmentPropertiesArgs) ToRoleAssignmentPropertiesOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesOutput)
 }
 
-func (i RoleAssignmentPropertiesArgs) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
-	return i.ToRoleAssignmentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i RoleAssignmentPropertiesArgs) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesOutput).ToRoleAssignmentPropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RoleAssignmentPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput
-	ToRoleAssignmentPropertiesPtrOutputWithContext(context.Context) RoleAssignmentPropertiesPtrOutput
-}
-
-type roleAssignmentPropertiesPtrType RoleAssignmentPropertiesArgs
-
-func RoleAssignmentPropertiesPtr(v *RoleAssignmentPropertiesArgs) RoleAssignmentPropertiesPtrInput {
-	return (*roleAssignmentPropertiesPtrType)(v)
-}
-
-func (*roleAssignmentPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAssignmentProperties)(nil)).Elem()
-}
-
-func (i *roleAssignmentPropertiesPtrType) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
-	return i.ToRoleAssignmentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *roleAssignmentPropertiesPtrType) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesPtrOutput)
-}
-
 type RoleAssignmentPropertiesOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentPropertiesOutput) ElementType() reflect.Type {
@@ -298,16 +204,6 @@ func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesOutputWithCont
 	return o
 }
 
-func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
-	return o.ToRoleAssignmentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o RoleAssignmentPropertiesOutput) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleAssignmentProperties) *RoleAssignmentProperties {
-		return &v
-	}).(RoleAssignmentPropertiesPtrOutput)
-}
-
 func (o RoleAssignmentPropertiesOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleAssignmentProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -316,122 +212,10 @@ func (o RoleAssignmentPropertiesOutput) RoleDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v RoleAssignmentProperties) string { return v.RoleDefinitionId }).(pulumi.StringOutput)
 }
 
-type RoleAssignmentPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (RoleAssignmentPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAssignmentProperties)(nil)).Elem()
-}
-
-func (o RoleAssignmentPropertiesPtrOutput) ToRoleAssignmentPropertiesPtrOutput() RoleAssignmentPropertiesPtrOutput {
-	return o
-}
-
-func (o RoleAssignmentPropertiesPtrOutput) ToRoleAssignmentPropertiesPtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesPtrOutput {
-	return o
-}
-
-func (o RoleAssignmentPropertiesPtrOutput) Elem() RoleAssignmentPropertiesOutput {
-	return o.ApplyT(func(v *RoleAssignmentProperties) RoleAssignmentProperties {
-		if v != nil {
-			return *v
-		}
-		var ret RoleAssignmentProperties
-		return ret
-	}).(RoleAssignmentPropertiesOutput)
-}
-
-func (o RoleAssignmentPropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleAssignmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RoleAssignmentPropertiesPtrOutput) RoleDefinitionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleAssignmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleDefinitionId
-	}).(pulumi.StringPtrOutput)
-}
-
 type RoleAssignmentPropertiesWithScopeResponse struct {
 	PrincipalId      *string `pulumi:"principalId"`
 	RoleDefinitionId *string `pulumi:"roleDefinitionId"`
 	Scope            *string `pulumi:"scope"`
-}
-
-
-
-
-
-type RoleAssignmentPropertiesWithScopeResponseInput interface {
-	pulumi.Input
-
-	ToRoleAssignmentPropertiesWithScopeResponseOutput() RoleAssignmentPropertiesWithScopeResponseOutput
-	ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(context.Context) RoleAssignmentPropertiesWithScopeResponseOutput
-}
-
-type RoleAssignmentPropertiesWithScopeResponseArgs struct {
-	PrincipalId      pulumi.StringPtrInput `pulumi:"principalId"`
-	RoleDefinitionId pulumi.StringPtrInput `pulumi:"roleDefinitionId"`
-	Scope            pulumi.StringPtrInput `pulumi:"scope"`
-}
-
-func (RoleAssignmentPropertiesWithScopeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentPropertiesWithScopeResponse)(nil)).Elem()
-}
-
-func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponseOutput() RoleAssignmentPropertiesWithScopeResponseOutput {
-	return i.ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(context.Background())
-}
-
-func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponseOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesWithScopeResponseOutput)
-}
-
-func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return i.ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RoleAssignmentPropertiesWithScopeResponseArgs) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesWithScopeResponseOutput).ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RoleAssignmentPropertiesWithScopeResponsePtrInput interface {
-	pulumi.Input
-
-	ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput
-	ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput
-}
-
-type roleAssignmentPropertiesWithScopeResponsePtrType RoleAssignmentPropertiesWithScopeResponseArgs
-
-func RoleAssignmentPropertiesWithScopeResponsePtr(v *RoleAssignmentPropertiesWithScopeResponseArgs) RoleAssignmentPropertiesWithScopeResponsePtrInput {
-	return (*roleAssignmentPropertiesWithScopeResponsePtrType)(v)
-}
-
-func (*roleAssignmentPropertiesWithScopeResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAssignmentPropertiesWithScopeResponse)(nil)).Elem()
-}
-
-func (i *roleAssignmentPropertiesWithScopeResponsePtrType) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return i.ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *roleAssignmentPropertiesWithScopeResponsePtrType) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentPropertiesWithScopeResponsePtrOutput)
 }
 
 type RoleAssignmentPropertiesWithScopeResponseOutput struct{ *pulumi.OutputState }
@@ -448,16 +232,6 @@ func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropert
 	return o
 }
 
-func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return o.ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponseOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleAssignmentPropertiesWithScopeResponse) *RoleAssignmentPropertiesWithScopeResponse {
-		return &v
-	}).(RoleAssignmentPropertiesWithScopeResponsePtrOutput)
-}
-
 func (o RoleAssignmentPropertiesWithScopeResponseOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
 }
@@ -470,64 +244,11 @@ func (o RoleAssignmentPropertiesWithScopeResponseOutput) Scope() pulumi.StringPt
 	return o.ApplyT(func(v RoleAssignmentPropertiesWithScopeResponse) *string { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
-type RoleAssignmentPropertiesWithScopeResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RoleAssignmentPropertiesWithScopeResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAssignmentPropertiesWithScopeResponse)(nil)).Elem()
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutput() RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return o
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) ToRoleAssignmentPropertiesWithScopeResponsePtrOutputWithContext(ctx context.Context) RoleAssignmentPropertiesWithScopeResponsePtrOutput {
-	return o
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) Elem() RoleAssignmentPropertiesWithScopeResponseOutput {
-	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) RoleAssignmentPropertiesWithScopeResponse {
-		if v != nil {
-			return *v
-		}
-		var ret RoleAssignmentPropertiesWithScopeResponse
-		return ret
-	}).(RoleAssignmentPropertiesWithScopeResponseOutput)
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) RoleDefinitionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RoleDefinitionId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RoleAssignmentPropertiesWithScopeResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Scope
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(PermissionOutput{})
 	pulumi.RegisterOutputType(PermissionArrayOutput{})
 	pulumi.RegisterOutputType(PermissionResponseOutput{})
 	pulumi.RegisterOutputType(PermissionResponseArrayOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesOutput{})
-	pulumi.RegisterOutputType(RoleAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponseOutput{})
-	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponsePtrOutput{})
 }

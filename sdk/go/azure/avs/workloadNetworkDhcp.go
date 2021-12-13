@@ -116,7 +116,7 @@ type WorkloadNetworkDhcpInput interface {
 }
 
 func (*WorkloadNetworkDhcp) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcp)(nil))
+	return reflect.TypeOf((**WorkloadNetworkDhcp)(nil)).Elem()
 }
 
 func (i *WorkloadNetworkDhcp) ToWorkloadNetworkDhcpOutput() WorkloadNetworkDhcpOutput {
@@ -130,7 +130,7 @@ func (i *WorkloadNetworkDhcp) ToWorkloadNetworkDhcpOutputWithContext(ctx context
 type WorkloadNetworkDhcpOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkDhcpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDhcp)(nil))
+	return reflect.TypeOf((**WorkloadNetworkDhcp)(nil)).Elem()
 }
 
 func (o WorkloadNetworkDhcpOutput) ToWorkloadNetworkDhcpOutput() WorkloadNetworkDhcpOutput {

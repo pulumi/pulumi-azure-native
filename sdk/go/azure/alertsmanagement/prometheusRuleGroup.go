@@ -113,7 +113,7 @@ type PrometheusRuleGroupInput interface {
 }
 
 func (*PrometheusRuleGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrometheusRuleGroup)(nil))
+	return reflect.TypeOf((**PrometheusRuleGroup)(nil)).Elem()
 }
 
 func (i *PrometheusRuleGroup) ToPrometheusRuleGroupOutput() PrometheusRuleGroupOutput {
@@ -127,7 +127,7 @@ func (i *PrometheusRuleGroup) ToPrometheusRuleGroupOutputWithContext(ctx context
 type PrometheusRuleGroupOutput struct{ *pulumi.OutputState }
 
 func (PrometheusRuleGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrometheusRuleGroup)(nil))
+	return reflect.TypeOf((**PrometheusRuleGroup)(nil)).Elem()
 }
 
 func (o PrometheusRuleGroupOutput) ToPrometheusRuleGroupOutput() PrometheusRuleGroupOutput {

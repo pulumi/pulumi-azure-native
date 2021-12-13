@@ -13,7 +13,7 @@ func LookupServiceFabricSchedule(ctx *pulumi.Context, args *LookupServiceFabricS
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupServiceFabricScheduleArgs struct {
@@ -43,4 +43,19 @@ type LookupServiceFabricScheduleResult struct {
 	Type                 string                        `pulumi:"type"`
 	UniqueIdentifier     string                        `pulumi:"uniqueIdentifier"`
 	WeeklyRecurrence     *WeekDetailsResponse          `pulumi:"weeklyRecurrence"`
+}
+
+
+func (val *LookupServiceFabricScheduleResult) Defaults() *LookupServiceFabricScheduleResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.NotificationSettings = tmp.NotificationSettings.Defaults()
+
+	if isZero(tmp.Status) {
+		status_ := "Disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }

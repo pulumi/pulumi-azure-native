@@ -46,6 +46,12 @@ func NewDomainService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.DomainSecuritySettings != nil {
+		args.DomainSecuritySettings = args.DomainSecuritySettings.ToDomainSecuritySettingsPtrOutput().ApplyT(func(v *DomainSecuritySettings) *DomainSecuritySettings { return v.Defaults() }).(DomainSecuritySettingsPtrOutput)
+	}
+	if args.LdapsSettings != nil {
+		args.LdapsSettings = args.LdapsSettings.ToLdapsSettingsPtrOutput().ApplyT(func(v *LdapsSettings) *LdapsSettings { return v.Defaults() }).(LdapsSettingsPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:aad:DomainService"),
@@ -142,7 +148,7 @@ type DomainServiceInput interface {
 }
 
 func (*DomainService) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainService)(nil))
+	return reflect.TypeOf((**DomainService)(nil)).Elem()
 }
 
 func (i *DomainService) ToDomainServiceOutput() DomainServiceOutput {
@@ -156,7 +162,7 @@ func (i *DomainService) ToDomainServiceOutputWithContext(ctx context.Context) Do
 type DomainServiceOutput struct{ *pulumi.OutputState }
 
 func (DomainServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainService)(nil))
+	return reflect.TypeOf((**DomainService)(nil)).Elem()
 }
 
 func (o DomainServiceOutput) ToDomainServiceOutput() DomainServiceOutput {

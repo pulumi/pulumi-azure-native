@@ -18,78 +18,6 @@ type AuthorizationProfileResponse struct {
 	RequesterObjectId string `pulumi:"requesterObjectId"`
 }
 
-
-
-
-
-type AuthorizationProfileResponseInput interface {
-	pulumi.Input
-
-	ToAuthorizationProfileResponseOutput() AuthorizationProfileResponseOutput
-	ToAuthorizationProfileResponseOutputWithContext(context.Context) AuthorizationProfileResponseOutput
-}
-
-type AuthorizationProfileResponseArgs struct {
-	ApprovedTime      pulumi.StringInput `pulumi:"approvedTime"`
-	Approver          pulumi.StringInput `pulumi:"approver"`
-	RequestedTime     pulumi.StringInput `pulumi:"requestedTime"`
-	Requester         pulumi.StringInput `pulumi:"requester"`
-	RequesterObjectId pulumi.StringInput `pulumi:"requesterObjectId"`
-}
-
-func (AuthorizationProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizationProfileResponse)(nil)).Elem()
-}
-
-func (i AuthorizationProfileResponseArgs) ToAuthorizationProfileResponseOutput() AuthorizationProfileResponseOutput {
-	return i.ToAuthorizationProfileResponseOutputWithContext(context.Background())
-}
-
-func (i AuthorizationProfileResponseArgs) ToAuthorizationProfileResponseOutputWithContext(ctx context.Context) AuthorizationProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationProfileResponseOutput)
-}
-
-func (i AuthorizationProfileResponseArgs) ToAuthorizationProfileResponsePtrOutput() AuthorizationProfileResponsePtrOutput {
-	return i.ToAuthorizationProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AuthorizationProfileResponseArgs) ToAuthorizationProfileResponsePtrOutputWithContext(ctx context.Context) AuthorizationProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationProfileResponseOutput).ToAuthorizationProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AuthorizationProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToAuthorizationProfileResponsePtrOutput() AuthorizationProfileResponsePtrOutput
-	ToAuthorizationProfileResponsePtrOutputWithContext(context.Context) AuthorizationProfileResponsePtrOutput
-}
-
-type authorizationProfileResponsePtrType AuthorizationProfileResponseArgs
-
-func AuthorizationProfileResponsePtr(v *AuthorizationProfileResponseArgs) AuthorizationProfileResponsePtrInput {
-	return (*authorizationProfileResponsePtrType)(v)
-}
-
-func (*authorizationProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthorizationProfileResponse)(nil)).Elem()
-}
-
-func (i *authorizationProfileResponsePtrType) ToAuthorizationProfileResponsePtrOutput() AuthorizationProfileResponsePtrOutput {
-	return i.ToAuthorizationProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *authorizationProfileResponsePtrType) ToAuthorizationProfileResponsePtrOutputWithContext(ctx context.Context) AuthorizationProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationProfileResponsePtrOutput)
-}
-
 type AuthorizationProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationProfileResponseOutput) ElementType() reflect.Type {
@@ -102,16 +30,6 @@ func (o AuthorizationProfileResponseOutput) ToAuthorizationProfileResponseOutput
 
 func (o AuthorizationProfileResponseOutput) ToAuthorizationProfileResponseOutputWithContext(ctx context.Context) AuthorizationProfileResponseOutput {
 	return o
-}
-
-func (o AuthorizationProfileResponseOutput) ToAuthorizationProfileResponsePtrOutput() AuthorizationProfileResponsePtrOutput {
-	return o.ToAuthorizationProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AuthorizationProfileResponseOutput) ToAuthorizationProfileResponsePtrOutputWithContext(ctx context.Context) AuthorizationProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AuthorizationProfileResponse) *AuthorizationProfileResponse {
-		return &v
-	}).(AuthorizationProfileResponsePtrOutput)
 }
 
 func (o AuthorizationProfileResponseOutput) ApprovedTime() pulumi.StringOutput {
@@ -208,6 +126,19 @@ type SubscriptionFeatureRegistrationProperties struct {
 	Metadata                     map[string]string `pulumi:"metadata"`
 	ShouldFeatureDisplayInPortal *bool             `pulumi:"shouldFeatureDisplayInPortal"`
 	State                        *string           `pulumi:"state"`
+}
+
+
+func (val *SubscriptionFeatureRegistrationProperties) Defaults() *SubscriptionFeatureRegistrationProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ShouldFeatureDisplayInPortal) {
+		shouldFeatureDisplayInPortal_ := false
+		tmp.ShouldFeatureDisplayInPortal = &shouldFeatureDisplayInPortal_
+	}
+	return &tmp
 }
 
 
@@ -399,84 +330,16 @@ type SubscriptionFeatureRegistrationResponseProperties struct {
 }
 
 
-
-
-
-type SubscriptionFeatureRegistrationResponsePropertiesInput interface {
-	pulumi.Input
-
-	ToSubscriptionFeatureRegistrationResponsePropertiesOutput() SubscriptionFeatureRegistrationResponsePropertiesOutput
-	ToSubscriptionFeatureRegistrationResponsePropertiesOutputWithContext(context.Context) SubscriptionFeatureRegistrationResponsePropertiesOutput
-}
-
-type SubscriptionFeatureRegistrationResponsePropertiesArgs struct {
-	ApprovalType                 pulumi.StringInput                   `pulumi:"approvalType"`
-	AuthorizationProfile         AuthorizationProfileResponsePtrInput `pulumi:"authorizationProfile"`
-	Description                  pulumi.StringPtrInput                `pulumi:"description"`
-	DisplayName                  pulumi.StringInput                   `pulumi:"displayName"`
-	DocumentationLink            pulumi.StringInput                   `pulumi:"documentationLink"`
-	FeatureName                  pulumi.StringInput                   `pulumi:"featureName"`
-	Metadata                     pulumi.StringMapInput                `pulumi:"metadata"`
-	ProviderNamespace            pulumi.StringInput                   `pulumi:"providerNamespace"`
-	RegistrationDate             pulumi.StringInput                   `pulumi:"registrationDate"`
-	ReleaseDate                  pulumi.StringInput                   `pulumi:"releaseDate"`
-	ShouldFeatureDisplayInPortal pulumi.BoolPtrInput                  `pulumi:"shouldFeatureDisplayInPortal"`
-	State                        pulumi.StringPtrInput                `pulumi:"state"`
-	SubscriptionId               pulumi.StringInput                   `pulumi:"subscriptionId"`
-	TenantId                     pulumi.StringInput                   `pulumi:"tenantId"`
-}
-
-func (SubscriptionFeatureRegistrationResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionFeatureRegistrationResponseProperties)(nil)).Elem()
-}
-
-func (i SubscriptionFeatureRegistrationResponsePropertiesArgs) ToSubscriptionFeatureRegistrationResponsePropertiesOutput() SubscriptionFeatureRegistrationResponsePropertiesOutput {
-	return i.ToSubscriptionFeatureRegistrationResponsePropertiesOutputWithContext(context.Background())
-}
-
-func (i SubscriptionFeatureRegistrationResponsePropertiesArgs) ToSubscriptionFeatureRegistrationResponsePropertiesOutputWithContext(ctx context.Context) SubscriptionFeatureRegistrationResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionFeatureRegistrationResponsePropertiesOutput)
-}
-
-func (i SubscriptionFeatureRegistrationResponsePropertiesArgs) ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutput() SubscriptionFeatureRegistrationResponsePropertiesPtrOutput {
-	return i.ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SubscriptionFeatureRegistrationResponsePropertiesArgs) ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutputWithContext(ctx context.Context) SubscriptionFeatureRegistrationResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionFeatureRegistrationResponsePropertiesOutput).ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SubscriptionFeatureRegistrationResponsePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutput() SubscriptionFeatureRegistrationResponsePropertiesPtrOutput
-	ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutputWithContext(context.Context) SubscriptionFeatureRegistrationResponsePropertiesPtrOutput
-}
-
-type subscriptionFeatureRegistrationResponsePropertiesPtrType SubscriptionFeatureRegistrationResponsePropertiesArgs
-
-func SubscriptionFeatureRegistrationResponsePropertiesPtr(v *SubscriptionFeatureRegistrationResponsePropertiesArgs) SubscriptionFeatureRegistrationResponsePropertiesPtrInput {
-	return (*subscriptionFeatureRegistrationResponsePropertiesPtrType)(v)
-}
-
-func (*subscriptionFeatureRegistrationResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionFeatureRegistrationResponseProperties)(nil)).Elem()
-}
-
-func (i *subscriptionFeatureRegistrationResponsePropertiesPtrType) ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutput() SubscriptionFeatureRegistrationResponsePropertiesPtrOutput {
-	return i.ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *subscriptionFeatureRegistrationResponsePropertiesPtrType) ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutputWithContext(ctx context.Context) SubscriptionFeatureRegistrationResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionFeatureRegistrationResponsePropertiesPtrOutput)
+func (val *SubscriptionFeatureRegistrationResponseProperties) Defaults() *SubscriptionFeatureRegistrationResponseProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ShouldFeatureDisplayInPortal) {
+		shouldFeatureDisplayInPortal_ := false
+		tmp.ShouldFeatureDisplayInPortal = &shouldFeatureDisplayInPortal_
+	}
+	return &tmp
 }
 
 type SubscriptionFeatureRegistrationResponsePropertiesOutput struct{ *pulumi.OutputState }
@@ -491,16 +354,6 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ToSubscriptionF
 
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ToSubscriptionFeatureRegistrationResponsePropertiesOutputWithContext(ctx context.Context) SubscriptionFeatureRegistrationResponsePropertiesOutput {
 	return o
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutput() SubscriptionFeatureRegistrationResponsePropertiesPtrOutput {
-	return o.ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutputWithContext(ctx context.Context) SubscriptionFeatureRegistrationResponsePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionFeatureRegistrationResponseProperties) *SubscriptionFeatureRegistrationResponseProperties {
-		return &v
-	}).(SubscriptionFeatureRegistrationResponsePropertiesPtrOutput)
 }
 
 func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) ApprovalType() pulumi.StringOutput {
@@ -561,161 +414,10 @@ func (o SubscriptionFeatureRegistrationResponsePropertiesOutput) TenantId() pulu
 	return o.ApplyT(func(v SubscriptionFeatureRegistrationResponseProperties) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-type SubscriptionFeatureRegistrationResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriptionFeatureRegistrationResponseProperties)(nil)).Elem()
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutput() SubscriptionFeatureRegistrationResponsePropertiesPtrOutput {
-	return o
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ToSubscriptionFeatureRegistrationResponsePropertiesPtrOutputWithContext(ctx context.Context) SubscriptionFeatureRegistrationResponsePropertiesPtrOutput {
-	return o
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Elem() SubscriptionFeatureRegistrationResponsePropertiesOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) SubscriptionFeatureRegistrationResponseProperties {
-		if v != nil {
-			return *v
-		}
-		var ret SubscriptionFeatureRegistrationResponseProperties
-		return ret
-	}).(SubscriptionFeatureRegistrationResponsePropertiesOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ApprovalType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ApprovalType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) AuthorizationProfile() AuthorizationProfileResponsePtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *AuthorizationProfileResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorizationProfile
-	}).(AuthorizationProfileResponsePtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DisplayName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) DocumentationLink() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DocumentationLink
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) FeatureName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FeatureName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(pulumi.StringMapOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ProviderNamespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ProviderNamespace
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) RegistrationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RegistrationDate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ReleaseDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ReleaseDate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) ShouldFeatureDisplayInPortal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ShouldFeatureDisplayInPortal
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.State
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SubscriptionFeatureRegistrationResponsePropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SubscriptionFeatureRegistrationResponseProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AuthorizationProfileResponseOutput{})
 	pulumi.RegisterOutputType(AuthorizationProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionFeatureRegistrationPropertiesOutput{})
 	pulumi.RegisterOutputType(SubscriptionFeatureRegistrationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionFeatureRegistrationResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(SubscriptionFeatureRegistrationResponsePropertiesPtrOutput{})
 }

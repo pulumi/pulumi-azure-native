@@ -131,7 +131,7 @@ type HubRouteTableInput interface {
 }
 
 func (*HubRouteTable) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubRouteTable)(nil))
+	return reflect.TypeOf((**HubRouteTable)(nil)).Elem()
 }
 
 func (i *HubRouteTable) ToHubRouteTableOutput() HubRouteTableOutput {
@@ -145,7 +145,7 @@ func (i *HubRouteTable) ToHubRouteTableOutputWithContext(ctx context.Context) Hu
 type HubRouteTableOutput struct{ *pulumi.OutputState }
 
 func (HubRouteTableOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubRouteTable)(nil))
+	return reflect.TypeOf((**HubRouteTable)(nil)).Elem()
 }
 
 func (o HubRouteTableOutput) ToHubRouteTableOutput() HubRouteTableOutput {

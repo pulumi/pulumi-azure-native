@@ -16,76 +16,6 @@ type ConnectorCollectionErrorInfoResponse struct {
 	ErrorStartTime string `pulumi:"errorStartTime"`
 }
 
-
-
-
-
-type ConnectorCollectionErrorInfoResponseInput interface {
-	pulumi.Input
-
-	ToConnectorCollectionErrorInfoResponseOutput() ConnectorCollectionErrorInfoResponseOutput
-	ToConnectorCollectionErrorInfoResponseOutputWithContext(context.Context) ConnectorCollectionErrorInfoResponseOutput
-}
-
-type ConnectorCollectionErrorInfoResponseArgs struct {
-	ErrorCode      pulumi.StringInput `pulumi:"errorCode"`
-	ErrorMessage   pulumi.StringInput `pulumi:"errorMessage"`
-	ErrorStartTime pulumi.StringInput `pulumi:"errorStartTime"`
-}
-
-func (ConnectorCollectionErrorInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorCollectionErrorInfoResponse)(nil)).Elem()
-}
-
-func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponseOutput() ConnectorCollectionErrorInfoResponseOutput {
-	return i.ToConnectorCollectionErrorInfoResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoResponseOutput)
-}
-
-func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput {
-	return i.ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorCollectionErrorInfoResponseArgs) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoResponseOutput).ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorCollectionErrorInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput
-	ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Context) ConnectorCollectionErrorInfoResponsePtrOutput
-}
-
-type connectorCollectionErrorInfoResponsePtrType ConnectorCollectionErrorInfoResponseArgs
-
-func ConnectorCollectionErrorInfoResponsePtr(v *ConnectorCollectionErrorInfoResponseArgs) ConnectorCollectionErrorInfoResponsePtrInput {
-	return (*connectorCollectionErrorInfoResponsePtrType)(v)
-}
-
-func (*connectorCollectionErrorInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorCollectionErrorInfoResponse)(nil)).Elem()
-}
-
-func (i *connectorCollectionErrorInfoResponsePtrType) ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput {
-	return i.ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectorCollectionErrorInfoResponsePtrType) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionErrorInfoResponsePtrOutput)
-}
-
 type ConnectorCollectionErrorInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorCollectionErrorInfoResponseOutput) ElementType() reflect.Type {
@@ -98,16 +28,6 @@ func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorIn
 
 func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponseOutput {
 	return o
-}
-
-func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponsePtrOutput() ConnectorCollectionErrorInfoResponsePtrOutput {
-	return o.ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorCollectionErrorInfoResponseOutput) ToConnectorCollectionErrorInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionErrorInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorCollectionErrorInfoResponse) *ConnectorCollectionErrorInfoResponse {
-		return &v
-	}).(ConnectorCollectionErrorInfoResponsePtrOutput)
 }
 
 func (o ConnectorCollectionErrorInfoResponseOutput) ErrorCode() pulumi.StringOutput {
@@ -180,77 +100,6 @@ type ConnectorCollectionInfoResponse struct {
 	SourceLastUpdated string                                `pulumi:"sourceLastUpdated"`
 }
 
-
-
-
-
-type ConnectorCollectionInfoResponseInput interface {
-	pulumi.Input
-
-	ToConnectorCollectionInfoResponseOutput() ConnectorCollectionInfoResponseOutput
-	ToConnectorCollectionInfoResponseOutputWithContext(context.Context) ConnectorCollectionInfoResponseOutput
-}
-
-type ConnectorCollectionInfoResponseArgs struct {
-	Error             ConnectorCollectionErrorInfoResponsePtrInput `pulumi:"error"`
-	LastRun           pulumi.StringInput                           `pulumi:"lastRun"`
-	LastUpdated       pulumi.StringInput                           `pulumi:"lastUpdated"`
-	SourceLastUpdated pulumi.StringInput                           `pulumi:"sourceLastUpdated"`
-}
-
-func (ConnectorCollectionInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorCollectionInfoResponse)(nil)).Elem()
-}
-
-func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponseOutput() ConnectorCollectionInfoResponseOutput {
-	return i.ToConnectorCollectionInfoResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionInfoResponseOutput)
-}
-
-func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
-	return i.ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectorCollectionInfoResponseArgs) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionInfoResponseOutput).ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectorCollectionInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput
-	ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Context) ConnectorCollectionInfoResponsePtrOutput
-}
-
-type connectorCollectionInfoResponsePtrType ConnectorCollectionInfoResponseArgs
-
-func ConnectorCollectionInfoResponsePtr(v *ConnectorCollectionInfoResponseArgs) ConnectorCollectionInfoResponsePtrInput {
-	return (*connectorCollectionInfoResponsePtrType)(v)
-}
-
-func (*connectorCollectionInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorCollectionInfoResponse)(nil)).Elem()
-}
-
-func (i *connectorCollectionInfoResponsePtrType) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
-	return i.ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectorCollectionInfoResponsePtrType) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCollectionInfoResponsePtrOutput)
-}
-
 type ConnectorCollectionInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectorCollectionInfoResponseOutput) ElementType() reflect.Type {
@@ -263,16 +112,6 @@ func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponse
 
 func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponseOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponseOutput {
 	return o
-}
-
-func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
-	return o.ToConnectorCollectionInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectorCollectionInfoResponseOutput) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorCollectionInfoResponse) *ConnectorCollectionInfoResponse {
-		return &v
-	}).(ConnectorCollectionInfoResponsePtrOutput)
 }
 
 func (o ConnectorCollectionInfoResponseOutput) Error() ConnectorCollectionErrorInfoResponsePtrOutput {
@@ -289,66 +128,6 @@ func (o ConnectorCollectionInfoResponseOutput) LastUpdated() pulumi.StringOutput
 
 func (o ConnectorCollectionInfoResponseOutput) SourceLastUpdated() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectorCollectionInfoResponse) string { return v.SourceLastUpdated }).(pulumi.StringOutput)
-}
-
-type ConnectorCollectionInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectorCollectionInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectorCollectionInfoResponse)(nil)).Elem()
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) ToConnectorCollectionInfoResponsePtrOutput() ConnectorCollectionInfoResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) ToConnectorCollectionInfoResponsePtrOutputWithContext(ctx context.Context) ConnectorCollectionInfoResponsePtrOutput {
-	return o
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) Elem() ConnectorCollectionInfoResponseOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) ConnectorCollectionInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectorCollectionInfoResponse
-		return ret
-	}).(ConnectorCollectionInfoResponseOutput)
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) Error() ConnectorCollectionErrorInfoResponsePtrOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *ConnectorCollectionErrorInfoResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Error
-	}).(ConnectorCollectionErrorInfoResponsePtrOutput)
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) LastRun() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastRun
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) LastUpdated() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastUpdated
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ConnectorCollectionInfoResponsePtrOutput) SourceLastUpdated() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectorCollectionInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceLastUpdated
-	}).(pulumi.StringPtrOutput)
 }
 
 type ReportAggregation struct {
@@ -454,59 +233,6 @@ func (o ReportAggregationMapOutput) MapIndex(k pulumi.StringInput) ReportAggrega
 type ReportAggregationResponse struct {
 	Function string `pulumi:"function"`
 	Name     string `pulumi:"name"`
-}
-
-
-
-
-
-type ReportAggregationResponseInput interface {
-	pulumi.Input
-
-	ToReportAggregationResponseOutput() ReportAggregationResponseOutput
-	ToReportAggregationResponseOutputWithContext(context.Context) ReportAggregationResponseOutput
-}
-
-type ReportAggregationResponseArgs struct {
-	Function pulumi.StringInput `pulumi:"function"`
-	Name     pulumi.StringInput `pulumi:"name"`
-}
-
-func (ReportAggregationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportAggregationResponse)(nil)).Elem()
-}
-
-func (i ReportAggregationResponseArgs) ToReportAggregationResponseOutput() ReportAggregationResponseOutput {
-	return i.ToReportAggregationResponseOutputWithContext(context.Background())
-}
-
-func (i ReportAggregationResponseArgs) ToReportAggregationResponseOutputWithContext(ctx context.Context) ReportAggregationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportAggregationResponseOutput)
-}
-
-
-
-
-
-type ReportAggregationResponseMapInput interface {
-	pulumi.Input
-
-	ToReportAggregationResponseMapOutput() ReportAggregationResponseMapOutput
-	ToReportAggregationResponseMapOutputWithContext(context.Context) ReportAggregationResponseMapOutput
-}
-
-type ReportAggregationResponseMap map[string]ReportAggregationResponseInput
-
-func (ReportAggregationResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReportAggregationResponse)(nil)).Elem()
-}
-
-func (i ReportAggregationResponseMap) ToReportAggregationResponseMapOutput() ReportAggregationResponseMapOutput {
-	return i.ToReportAggregationResponseMapOutputWithContext(context.Background())
-}
-
-func (i ReportAggregationResponseMap) ToReportAggregationResponseMapOutputWithContext(ctx context.Context) ReportAggregationResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportAggregationResponseMapOutput)
 }
 
 type ReportAggregationResponseOutput struct{ *pulumi.OutputState }
@@ -720,76 +446,6 @@ type ReportComparisonExpressionResponse struct {
 	Values   []string `pulumi:"values"`
 }
 
-
-
-
-
-type ReportComparisonExpressionResponseInput interface {
-	pulumi.Input
-
-	ToReportComparisonExpressionResponseOutput() ReportComparisonExpressionResponseOutput
-	ToReportComparisonExpressionResponseOutputWithContext(context.Context) ReportComparisonExpressionResponseOutput
-}
-
-type ReportComparisonExpressionResponseArgs struct {
-	Name     pulumi.StringInput      `pulumi:"name"`
-	Operator pulumi.StringInput      `pulumi:"operator"`
-	Values   pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (ReportComparisonExpressionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportComparisonExpressionResponse)(nil)).Elem()
-}
-
-func (i ReportComparisonExpressionResponseArgs) ToReportComparisonExpressionResponseOutput() ReportComparisonExpressionResponseOutput {
-	return i.ToReportComparisonExpressionResponseOutputWithContext(context.Background())
-}
-
-func (i ReportComparisonExpressionResponseArgs) ToReportComparisonExpressionResponseOutputWithContext(ctx context.Context) ReportComparisonExpressionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportComparisonExpressionResponseOutput)
-}
-
-func (i ReportComparisonExpressionResponseArgs) ToReportComparisonExpressionResponsePtrOutput() ReportComparisonExpressionResponsePtrOutput {
-	return i.ToReportComparisonExpressionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReportComparisonExpressionResponseArgs) ToReportComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) ReportComparisonExpressionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportComparisonExpressionResponseOutput).ToReportComparisonExpressionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportComparisonExpressionResponsePtrInput interface {
-	pulumi.Input
-
-	ToReportComparisonExpressionResponsePtrOutput() ReportComparisonExpressionResponsePtrOutput
-	ToReportComparisonExpressionResponsePtrOutputWithContext(context.Context) ReportComparisonExpressionResponsePtrOutput
-}
-
-type reportComparisonExpressionResponsePtrType ReportComparisonExpressionResponseArgs
-
-func ReportComparisonExpressionResponsePtr(v *ReportComparisonExpressionResponseArgs) ReportComparisonExpressionResponsePtrInput {
-	return (*reportComparisonExpressionResponsePtrType)(v)
-}
-
-func (*reportComparisonExpressionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportComparisonExpressionResponse)(nil)).Elem()
-}
-
-func (i *reportComparisonExpressionResponsePtrType) ToReportComparisonExpressionResponsePtrOutput() ReportComparisonExpressionResponsePtrOutput {
-	return i.ToReportComparisonExpressionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *reportComparisonExpressionResponsePtrType) ToReportComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) ReportComparisonExpressionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportComparisonExpressionResponsePtrOutput)
-}
-
 type ReportComparisonExpressionResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportComparisonExpressionResponseOutput) ElementType() reflect.Type {
@@ -802,16 +458,6 @@ func (o ReportComparisonExpressionResponseOutput) ToReportComparisonExpressionRe
 
 func (o ReportComparisonExpressionResponseOutput) ToReportComparisonExpressionResponseOutputWithContext(ctx context.Context) ReportComparisonExpressionResponseOutput {
 	return o
-}
-
-func (o ReportComparisonExpressionResponseOutput) ToReportComparisonExpressionResponsePtrOutput() ReportComparisonExpressionResponsePtrOutput {
-	return o.ToReportComparisonExpressionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReportComparisonExpressionResponseOutput) ToReportComparisonExpressionResponsePtrOutputWithContext(ctx context.Context) ReportComparisonExpressionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportComparisonExpressionResponse) *ReportComparisonExpressionResponse {
-		return &v
-	}).(ReportComparisonExpressionResponsePtrOutput)
 }
 
 func (o ReportComparisonExpressionResponseOutput) Name() pulumi.StringOutput {
@@ -1207,74 +853,6 @@ type ReportDatasetConfigurationResponse struct {
 	Columns []string `pulumi:"columns"`
 }
 
-
-
-
-
-type ReportDatasetConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToReportDatasetConfigurationResponseOutput() ReportDatasetConfigurationResponseOutput
-	ToReportDatasetConfigurationResponseOutputWithContext(context.Context) ReportDatasetConfigurationResponseOutput
-}
-
-type ReportDatasetConfigurationResponseArgs struct {
-	Columns pulumi.StringArrayInput `pulumi:"columns"`
-}
-
-func (ReportDatasetConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportDatasetConfigurationResponse)(nil)).Elem()
-}
-
-func (i ReportDatasetConfigurationResponseArgs) ToReportDatasetConfigurationResponseOutput() ReportDatasetConfigurationResponseOutput {
-	return i.ToReportDatasetConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i ReportDatasetConfigurationResponseArgs) ToReportDatasetConfigurationResponseOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetConfigurationResponseOutput)
-}
-
-func (i ReportDatasetConfigurationResponseArgs) ToReportDatasetConfigurationResponsePtrOutput() ReportDatasetConfigurationResponsePtrOutput {
-	return i.ToReportDatasetConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReportDatasetConfigurationResponseArgs) ToReportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetConfigurationResponseOutput).ToReportDatasetConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportDatasetConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToReportDatasetConfigurationResponsePtrOutput() ReportDatasetConfigurationResponsePtrOutput
-	ToReportDatasetConfigurationResponsePtrOutputWithContext(context.Context) ReportDatasetConfigurationResponsePtrOutput
-}
-
-type reportDatasetConfigurationResponsePtrType ReportDatasetConfigurationResponseArgs
-
-func ReportDatasetConfigurationResponsePtr(v *ReportDatasetConfigurationResponseArgs) ReportDatasetConfigurationResponsePtrInput {
-	return (*reportDatasetConfigurationResponsePtrType)(v)
-}
-
-func (*reportDatasetConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDatasetConfigurationResponse)(nil)).Elem()
-}
-
-func (i *reportDatasetConfigurationResponsePtrType) ToReportDatasetConfigurationResponsePtrOutput() ReportDatasetConfigurationResponsePtrOutput {
-	return i.ToReportDatasetConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *reportDatasetConfigurationResponsePtrType) ToReportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetConfigurationResponsePtrOutput)
-}
-
 type ReportDatasetConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportDatasetConfigurationResponseOutput) ElementType() reflect.Type {
@@ -1287,16 +865,6 @@ func (o ReportDatasetConfigurationResponseOutput) ToReportDatasetConfigurationRe
 
 func (o ReportDatasetConfigurationResponseOutput) ToReportDatasetConfigurationResponseOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponseOutput {
 	return o
-}
-
-func (o ReportDatasetConfigurationResponseOutput) ToReportDatasetConfigurationResponsePtrOutput() ReportDatasetConfigurationResponsePtrOutput {
-	return o.ToReportDatasetConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReportDatasetConfigurationResponseOutput) ToReportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ReportDatasetConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDatasetConfigurationResponse) *ReportDatasetConfigurationResponse {
-		return &v
-	}).(ReportDatasetConfigurationResponsePtrOutput)
 }
 
 func (o ReportDatasetConfigurationResponseOutput) Columns() pulumi.StringArrayOutput {
@@ -1344,78 +912,6 @@ type ReportDatasetResponse struct {
 	Grouping      []ReportGroupingResponse             `pulumi:"grouping"`
 }
 
-
-
-
-
-type ReportDatasetResponseInput interface {
-	pulumi.Input
-
-	ToReportDatasetResponseOutput() ReportDatasetResponseOutput
-	ToReportDatasetResponseOutputWithContext(context.Context) ReportDatasetResponseOutput
-}
-
-type ReportDatasetResponseArgs struct {
-	Aggregation   ReportAggregationResponseMapInput          `pulumi:"aggregation"`
-	Configuration ReportDatasetConfigurationResponsePtrInput `pulumi:"configuration"`
-	Filter        ReportFilterResponsePtrInput               `pulumi:"filter"`
-	Granularity   pulumi.StringPtrInput                      `pulumi:"granularity"`
-	Grouping      ReportGroupingResponseArrayInput           `pulumi:"grouping"`
-}
-
-func (ReportDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportDatasetResponse)(nil)).Elem()
-}
-
-func (i ReportDatasetResponseArgs) ToReportDatasetResponseOutput() ReportDatasetResponseOutput {
-	return i.ToReportDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i ReportDatasetResponseArgs) ToReportDatasetResponseOutputWithContext(ctx context.Context) ReportDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetResponseOutput)
-}
-
-func (i ReportDatasetResponseArgs) ToReportDatasetResponsePtrOutput() ReportDatasetResponsePtrOutput {
-	return i.ToReportDatasetResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReportDatasetResponseArgs) ToReportDatasetResponsePtrOutputWithContext(ctx context.Context) ReportDatasetResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetResponseOutput).ToReportDatasetResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportDatasetResponsePtrInput interface {
-	pulumi.Input
-
-	ToReportDatasetResponsePtrOutput() ReportDatasetResponsePtrOutput
-	ToReportDatasetResponsePtrOutputWithContext(context.Context) ReportDatasetResponsePtrOutput
-}
-
-type reportDatasetResponsePtrType ReportDatasetResponseArgs
-
-func ReportDatasetResponsePtr(v *ReportDatasetResponseArgs) ReportDatasetResponsePtrInput {
-	return (*reportDatasetResponsePtrType)(v)
-}
-
-func (*reportDatasetResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDatasetResponse)(nil)).Elem()
-}
-
-func (i *reportDatasetResponsePtrType) ToReportDatasetResponsePtrOutput() ReportDatasetResponsePtrOutput {
-	return i.ToReportDatasetResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *reportDatasetResponsePtrType) ToReportDatasetResponsePtrOutputWithContext(ctx context.Context) ReportDatasetResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDatasetResponsePtrOutput)
-}
-
 type ReportDatasetResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportDatasetResponseOutput) ElementType() reflect.Type {
@@ -1428,16 +924,6 @@ func (o ReportDatasetResponseOutput) ToReportDatasetResponseOutput() ReportDatas
 
 func (o ReportDatasetResponseOutput) ToReportDatasetResponseOutputWithContext(ctx context.Context) ReportDatasetResponseOutput {
 	return o
-}
-
-func (o ReportDatasetResponseOutput) ToReportDatasetResponsePtrOutput() ReportDatasetResponsePtrOutput {
-	return o.ToReportDatasetResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReportDatasetResponseOutput) ToReportDatasetResponsePtrOutputWithContext(ctx context.Context) ReportDatasetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDatasetResponse) *ReportDatasetResponse {
-		return &v
-	}).(ReportDatasetResponsePtrOutput)
 }
 
 func (o ReportDatasetResponseOutput) Aggregation() ReportAggregationResponseMapOutput {
@@ -1566,47 +1052,6 @@ func (i ReportDefinitionArgs) ToReportDefinitionOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionOutput)
 }
 
-func (i ReportDefinitionArgs) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
-	return i.ToReportDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i ReportDefinitionArgs) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionOutput).ToReportDefinitionPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput
-	ToReportDefinitionPtrOutputWithContext(context.Context) ReportDefinitionPtrOutput
-}
-
-type reportDefinitionPtrType ReportDefinitionArgs
-
-func ReportDefinitionPtr(v *ReportDefinitionArgs) ReportDefinitionPtrInput {
-	return (*reportDefinitionPtrType)(v)
-}
-
-func (*reportDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDefinition)(nil)).Elem()
-}
-
-func (i *reportDefinitionPtrType) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
-	return i.ToReportDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *reportDefinitionPtrType) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionPtrOutput)
-}
-
 type ReportDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionOutput) ElementType() reflect.Type {
@@ -1619,16 +1064,6 @@ func (o ReportDefinitionOutput) ToReportDefinitionOutput() ReportDefinitionOutpu
 
 func (o ReportDefinitionOutput) ToReportDefinitionOutputWithContext(ctx context.Context) ReportDefinitionOutput {
 	return o
-}
-
-func (o ReportDefinitionOutput) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
-	return o.ToReportDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o ReportDefinitionOutput) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDefinition) *ReportDefinition {
-		return &v
-	}).(ReportDefinitionPtrOutput)
 }
 
 func (o ReportDefinitionOutput) Dataset() ReportDatasetPtrOutput {
@@ -1647,142 +1082,11 @@ func (o ReportDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ReportDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (ReportDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDefinition)(nil)).Elem()
-}
-
-func (o ReportDefinitionPtrOutput) ToReportDefinitionPtrOutput() ReportDefinitionPtrOutput {
-	return o
-}
-
-func (o ReportDefinitionPtrOutput) ToReportDefinitionPtrOutputWithContext(ctx context.Context) ReportDefinitionPtrOutput {
-	return o
-}
-
-func (o ReportDefinitionPtrOutput) Elem() ReportDefinitionOutput {
-	return o.ApplyT(func(v *ReportDefinition) ReportDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret ReportDefinition
-		return ret
-	}).(ReportDefinitionOutput)
-}
-
-func (o ReportDefinitionPtrOutput) Dataset() ReportDatasetPtrOutput {
-	return o.ApplyT(func(v *ReportDefinition) *ReportDataset {
-		if v == nil {
-			return nil
-		}
-		return v.Dataset
-	}).(ReportDatasetPtrOutput)
-}
-
-func (o ReportDefinitionPtrOutput) TimePeriod() ReportTimePeriodPtrOutput {
-	return o.ApplyT(func(v *ReportDefinition) *ReportTimePeriod {
-		if v == nil {
-			return nil
-		}
-		return v.TimePeriod
-	}).(ReportTimePeriodPtrOutput)
-}
-
-func (o ReportDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Timeframe
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReportDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 type ReportDefinitionResponse struct {
 	Dataset    *ReportDatasetResponse    `pulumi:"dataset"`
 	TimePeriod *ReportTimePeriodResponse `pulumi:"timePeriod"`
 	Timeframe  string                    `pulumi:"timeframe"`
 	Type       string                    `pulumi:"type"`
-}
-
-
-
-
-
-type ReportDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToReportDefinitionResponseOutput() ReportDefinitionResponseOutput
-	ToReportDefinitionResponseOutputWithContext(context.Context) ReportDefinitionResponseOutput
-}
-
-type ReportDefinitionResponseArgs struct {
-	Dataset    ReportDatasetResponsePtrInput    `pulumi:"dataset"`
-	TimePeriod ReportTimePeriodResponsePtrInput `pulumi:"timePeriod"`
-	Timeframe  pulumi.StringInput               `pulumi:"timeframe"`
-	Type       pulumi.StringInput               `pulumi:"type"`
-}
-
-func (ReportDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportDefinitionResponse)(nil)).Elem()
-}
-
-func (i ReportDefinitionResponseArgs) ToReportDefinitionResponseOutput() ReportDefinitionResponseOutput {
-	return i.ToReportDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i ReportDefinitionResponseArgs) ToReportDefinitionResponseOutputWithContext(ctx context.Context) ReportDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionResponseOutput)
-}
-
-func (i ReportDefinitionResponseArgs) ToReportDefinitionResponsePtrOutput() ReportDefinitionResponsePtrOutput {
-	return i.ToReportDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReportDefinitionResponseArgs) ToReportDefinitionResponsePtrOutputWithContext(ctx context.Context) ReportDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionResponseOutput).ToReportDefinitionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportDefinitionResponsePtrInput interface {
-	pulumi.Input
-
-	ToReportDefinitionResponsePtrOutput() ReportDefinitionResponsePtrOutput
-	ToReportDefinitionResponsePtrOutputWithContext(context.Context) ReportDefinitionResponsePtrOutput
-}
-
-type reportDefinitionResponsePtrType ReportDefinitionResponseArgs
-
-func ReportDefinitionResponsePtr(v *ReportDefinitionResponseArgs) ReportDefinitionResponsePtrInput {
-	return (*reportDefinitionResponsePtrType)(v)
-}
-
-func (*reportDefinitionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDefinitionResponse)(nil)).Elem()
-}
-
-func (i *reportDefinitionResponsePtrType) ToReportDefinitionResponsePtrOutput() ReportDefinitionResponsePtrOutput {
-	return i.ToReportDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *reportDefinitionResponsePtrType) ToReportDefinitionResponsePtrOutputWithContext(ctx context.Context) ReportDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionResponsePtrOutput)
 }
 
 type ReportDefinitionResponseOutput struct{ *pulumi.OutputState }
@@ -1799,16 +1103,6 @@ func (o ReportDefinitionResponseOutput) ToReportDefinitionResponseOutputWithCont
 	return o
 }
 
-func (o ReportDefinitionResponseOutput) ToReportDefinitionResponsePtrOutput() ReportDefinitionResponsePtrOutput {
-	return o.ToReportDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReportDefinitionResponseOutput) ToReportDefinitionResponsePtrOutputWithContext(ctx context.Context) ReportDefinitionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDefinitionResponse) *ReportDefinitionResponse {
-		return &v
-	}).(ReportDefinitionResponsePtrOutput)
-}
-
 func (o ReportDefinitionResponseOutput) Dataset() ReportDatasetResponsePtrOutput {
 	return o.ApplyT(func(v ReportDefinitionResponse) *ReportDatasetResponse { return v.Dataset }).(ReportDatasetResponsePtrOutput)
 }
@@ -1823,66 +1117,6 @@ func (o ReportDefinitionResponseOutput) Timeframe() pulumi.StringOutput {
 
 func (o ReportDefinitionResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDefinitionResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ReportDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ReportDefinitionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDefinitionResponse)(nil)).Elem()
-}
-
-func (o ReportDefinitionResponsePtrOutput) ToReportDefinitionResponsePtrOutput() ReportDefinitionResponsePtrOutput {
-	return o
-}
-
-func (o ReportDefinitionResponsePtrOutput) ToReportDefinitionResponsePtrOutputWithContext(ctx context.Context) ReportDefinitionResponsePtrOutput {
-	return o
-}
-
-func (o ReportDefinitionResponsePtrOutput) Elem() ReportDefinitionResponseOutput {
-	return o.ApplyT(func(v *ReportDefinitionResponse) ReportDefinitionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReportDefinitionResponse
-		return ret
-	}).(ReportDefinitionResponseOutput)
-}
-
-func (o ReportDefinitionResponsePtrOutput) Dataset() ReportDatasetResponsePtrOutput {
-	return o.ApplyT(func(v *ReportDefinitionResponse) *ReportDatasetResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Dataset
-	}).(ReportDatasetResponsePtrOutput)
-}
-
-func (o ReportDefinitionResponsePtrOutput) TimePeriod() ReportTimePeriodResponsePtrOutput {
-	return o.ApplyT(func(v *ReportDefinitionResponse) *ReportTimePeriodResponse {
-		if v == nil {
-			return nil
-		}
-		return v.TimePeriod
-	}).(ReportTimePeriodResponsePtrOutput)
-}
-
-func (o ReportDefinitionResponsePtrOutput) Timeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDefinitionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Timeframe
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReportDefinitionResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDefinitionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type ReportDeliveryDestination struct {
@@ -1920,47 +1154,6 @@ func (i ReportDeliveryDestinationArgs) ToReportDeliveryDestinationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationOutput)
 }
 
-func (i ReportDeliveryDestinationArgs) ToReportDeliveryDestinationPtrOutput() ReportDeliveryDestinationPtrOutput {
-	return i.ToReportDeliveryDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i ReportDeliveryDestinationArgs) ToReportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationOutput).ToReportDeliveryDestinationPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportDeliveryDestinationPtrInput interface {
-	pulumi.Input
-
-	ToReportDeliveryDestinationPtrOutput() ReportDeliveryDestinationPtrOutput
-	ToReportDeliveryDestinationPtrOutputWithContext(context.Context) ReportDeliveryDestinationPtrOutput
-}
-
-type reportDeliveryDestinationPtrType ReportDeliveryDestinationArgs
-
-func ReportDeliveryDestinationPtr(v *ReportDeliveryDestinationArgs) ReportDeliveryDestinationPtrInput {
-	return (*reportDeliveryDestinationPtrType)(v)
-}
-
-func (*reportDeliveryDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDeliveryDestination)(nil)).Elem()
-}
-
-func (i *reportDeliveryDestinationPtrType) ToReportDeliveryDestinationPtrOutput() ReportDeliveryDestinationPtrOutput {
-	return i.ToReportDeliveryDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *reportDeliveryDestinationPtrType) ToReportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationPtrOutput)
-}
-
 type ReportDeliveryDestinationOutput struct{ *pulumi.OutputState }
 
 func (ReportDeliveryDestinationOutput) ElementType() reflect.Type {
@@ -1975,16 +1168,6 @@ func (o ReportDeliveryDestinationOutput) ToReportDeliveryDestinationOutputWithCo
 	return o
 }
 
-func (o ReportDeliveryDestinationOutput) ToReportDeliveryDestinationPtrOutput() ReportDeliveryDestinationPtrOutput {
-	return o.ToReportDeliveryDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o ReportDeliveryDestinationOutput) ToReportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDeliveryDestination) *ReportDeliveryDestination {
-		return &v
-	}).(ReportDeliveryDestinationPtrOutput)
-}
-
 func (o ReportDeliveryDestinationOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDeliveryDestination) string { return v.Container }).(pulumi.StringOutput)
 }
@@ -1997,131 +1180,10 @@ func (o ReportDeliveryDestinationOutput) RootFolderPath() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ReportDeliveryDestination) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
 }
 
-type ReportDeliveryDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (ReportDeliveryDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDeliveryDestination)(nil)).Elem()
-}
-
-func (o ReportDeliveryDestinationPtrOutput) ToReportDeliveryDestinationPtrOutput() ReportDeliveryDestinationPtrOutput {
-	return o
-}
-
-func (o ReportDeliveryDestinationPtrOutput) ToReportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationPtrOutput {
-	return o
-}
-
-func (o ReportDeliveryDestinationPtrOutput) Elem() ReportDeliveryDestinationOutput {
-	return o.ApplyT(func(v *ReportDeliveryDestination) ReportDeliveryDestination {
-		if v != nil {
-			return *v
-		}
-		var ret ReportDeliveryDestination
-		return ret
-	}).(ReportDeliveryDestinationOutput)
-}
-
-func (o ReportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDeliveryDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Container
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDeliveryDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDeliveryDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RootFolderPath
-	}).(pulumi.StringPtrOutput)
-}
-
 type ReportDeliveryDestinationResponse struct {
 	Container      string  `pulumi:"container"`
 	ResourceId     string  `pulumi:"resourceId"`
 	RootFolderPath *string `pulumi:"rootFolderPath"`
-}
-
-
-
-
-
-type ReportDeliveryDestinationResponseInput interface {
-	pulumi.Input
-
-	ToReportDeliveryDestinationResponseOutput() ReportDeliveryDestinationResponseOutput
-	ToReportDeliveryDestinationResponseOutputWithContext(context.Context) ReportDeliveryDestinationResponseOutput
-}
-
-type ReportDeliveryDestinationResponseArgs struct {
-	Container      pulumi.StringInput    `pulumi:"container"`
-	ResourceId     pulumi.StringInput    `pulumi:"resourceId"`
-	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
-}
-
-func (ReportDeliveryDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportDeliveryDestinationResponse)(nil)).Elem()
-}
-
-func (i ReportDeliveryDestinationResponseArgs) ToReportDeliveryDestinationResponseOutput() ReportDeliveryDestinationResponseOutput {
-	return i.ToReportDeliveryDestinationResponseOutputWithContext(context.Background())
-}
-
-func (i ReportDeliveryDestinationResponseArgs) ToReportDeliveryDestinationResponseOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationResponseOutput)
-}
-
-func (i ReportDeliveryDestinationResponseArgs) ToReportDeliveryDestinationResponsePtrOutput() ReportDeliveryDestinationResponsePtrOutput {
-	return i.ToReportDeliveryDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReportDeliveryDestinationResponseArgs) ToReportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationResponseOutput).ToReportDeliveryDestinationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportDeliveryDestinationResponsePtrInput interface {
-	pulumi.Input
-
-	ToReportDeliveryDestinationResponsePtrOutput() ReportDeliveryDestinationResponsePtrOutput
-	ToReportDeliveryDestinationResponsePtrOutputWithContext(context.Context) ReportDeliveryDestinationResponsePtrOutput
-}
-
-type reportDeliveryDestinationResponsePtrType ReportDeliveryDestinationResponseArgs
-
-func ReportDeliveryDestinationResponsePtr(v *ReportDeliveryDestinationResponseArgs) ReportDeliveryDestinationResponsePtrInput {
-	return (*reportDeliveryDestinationResponsePtrType)(v)
-}
-
-func (*reportDeliveryDestinationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDeliveryDestinationResponse)(nil)).Elem()
-}
-
-func (i *reportDeliveryDestinationResponsePtrType) ToReportDeliveryDestinationResponsePtrOutput() ReportDeliveryDestinationResponsePtrOutput {
-	return i.ToReportDeliveryDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *reportDeliveryDestinationResponsePtrType) ToReportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryDestinationResponsePtrOutput)
 }
 
 type ReportDeliveryDestinationResponseOutput struct{ *pulumi.OutputState }
@@ -2138,16 +1200,6 @@ func (o ReportDeliveryDestinationResponseOutput) ToReportDeliveryDestinationResp
 	return o
 }
 
-func (o ReportDeliveryDestinationResponseOutput) ToReportDeliveryDestinationResponsePtrOutput() ReportDeliveryDestinationResponsePtrOutput {
-	return o.ToReportDeliveryDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReportDeliveryDestinationResponseOutput) ToReportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDeliveryDestinationResponse) *ReportDeliveryDestinationResponse {
-		return &v
-	}).(ReportDeliveryDestinationResponsePtrOutput)
-}
-
 func (o ReportDeliveryDestinationResponseOutput) Container() pulumi.StringOutput {
 	return o.ApplyT(func(v ReportDeliveryDestinationResponse) string { return v.Container }).(pulumi.StringOutput)
 }
@@ -2158,57 +1210,6 @@ func (o ReportDeliveryDestinationResponseOutput) ResourceId() pulumi.StringOutpu
 
 func (o ReportDeliveryDestinationResponseOutput) RootFolderPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReportDeliveryDestinationResponse) *string { return v.RootFolderPath }).(pulumi.StringPtrOutput)
-}
-
-type ReportDeliveryDestinationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ReportDeliveryDestinationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDeliveryDestinationResponse)(nil)).Elem()
-}
-
-func (o ReportDeliveryDestinationResponsePtrOutput) ToReportDeliveryDestinationResponsePtrOutput() ReportDeliveryDestinationResponsePtrOutput {
-	return o
-}
-
-func (o ReportDeliveryDestinationResponsePtrOutput) ToReportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryDestinationResponsePtrOutput {
-	return o
-}
-
-func (o ReportDeliveryDestinationResponsePtrOutput) Elem() ReportDeliveryDestinationResponseOutput {
-	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) ReportDeliveryDestinationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReportDeliveryDestinationResponse
-		return ret
-	}).(ReportDeliveryDestinationResponseOutput)
-}
-
-func (o ReportDeliveryDestinationResponsePtrOutput) Container() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Container
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReportDeliveryDestinationResponsePtrOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ReportDeliveryDestinationResponsePtrOutput) RootFolderPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportDeliveryDestinationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RootFolderPath
-	}).(pulumi.StringPtrOutput)
 }
 
 type ReportDeliveryInfo struct {
@@ -2242,47 +1243,6 @@ func (i ReportDeliveryInfoArgs) ToReportDeliveryInfoOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoOutput)
 }
 
-func (i ReportDeliveryInfoArgs) ToReportDeliveryInfoPtrOutput() ReportDeliveryInfoPtrOutput {
-	return i.ToReportDeliveryInfoPtrOutputWithContext(context.Background())
-}
-
-func (i ReportDeliveryInfoArgs) ToReportDeliveryInfoPtrOutputWithContext(ctx context.Context) ReportDeliveryInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoOutput).ToReportDeliveryInfoPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportDeliveryInfoPtrInput interface {
-	pulumi.Input
-
-	ToReportDeliveryInfoPtrOutput() ReportDeliveryInfoPtrOutput
-	ToReportDeliveryInfoPtrOutputWithContext(context.Context) ReportDeliveryInfoPtrOutput
-}
-
-type reportDeliveryInfoPtrType ReportDeliveryInfoArgs
-
-func ReportDeliveryInfoPtr(v *ReportDeliveryInfoArgs) ReportDeliveryInfoPtrInput {
-	return (*reportDeliveryInfoPtrType)(v)
-}
-
-func (*reportDeliveryInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDeliveryInfo)(nil)).Elem()
-}
-
-func (i *reportDeliveryInfoPtrType) ToReportDeliveryInfoPtrOutput() ReportDeliveryInfoPtrOutput {
-	return i.ToReportDeliveryInfoPtrOutputWithContext(context.Background())
-}
-
-func (i *reportDeliveryInfoPtrType) ToReportDeliveryInfoPtrOutputWithContext(ctx context.Context) ReportDeliveryInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoPtrOutput)
-}
-
 type ReportDeliveryInfoOutput struct{ *pulumi.OutputState }
 
 func (ReportDeliveryInfoOutput) ElementType() reflect.Type {
@@ -2297,123 +1257,12 @@ func (o ReportDeliveryInfoOutput) ToReportDeliveryInfoOutputWithContext(ctx cont
 	return o
 }
 
-func (o ReportDeliveryInfoOutput) ToReportDeliveryInfoPtrOutput() ReportDeliveryInfoPtrOutput {
-	return o.ToReportDeliveryInfoPtrOutputWithContext(context.Background())
-}
-
-func (o ReportDeliveryInfoOutput) ToReportDeliveryInfoPtrOutputWithContext(ctx context.Context) ReportDeliveryInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDeliveryInfo) *ReportDeliveryInfo {
-		return &v
-	}).(ReportDeliveryInfoPtrOutput)
-}
-
 func (o ReportDeliveryInfoOutput) Destination() ReportDeliveryDestinationOutput {
 	return o.ApplyT(func(v ReportDeliveryInfo) ReportDeliveryDestination { return v.Destination }).(ReportDeliveryDestinationOutput)
 }
 
-type ReportDeliveryInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (ReportDeliveryInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDeliveryInfo)(nil)).Elem()
-}
-
-func (o ReportDeliveryInfoPtrOutput) ToReportDeliveryInfoPtrOutput() ReportDeliveryInfoPtrOutput {
-	return o
-}
-
-func (o ReportDeliveryInfoPtrOutput) ToReportDeliveryInfoPtrOutputWithContext(ctx context.Context) ReportDeliveryInfoPtrOutput {
-	return o
-}
-
-func (o ReportDeliveryInfoPtrOutput) Elem() ReportDeliveryInfoOutput {
-	return o.ApplyT(func(v *ReportDeliveryInfo) ReportDeliveryInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ReportDeliveryInfo
-		return ret
-	}).(ReportDeliveryInfoOutput)
-}
-
-func (o ReportDeliveryInfoPtrOutput) Destination() ReportDeliveryDestinationPtrOutput {
-	return o.ApplyT(func(v *ReportDeliveryInfo) *ReportDeliveryDestination {
-		if v == nil {
-			return nil
-		}
-		return &v.Destination
-	}).(ReportDeliveryDestinationPtrOutput)
-}
-
 type ReportDeliveryInfoResponse struct {
 	Destination ReportDeliveryDestinationResponse `pulumi:"destination"`
-}
-
-
-
-
-
-type ReportDeliveryInfoResponseInput interface {
-	pulumi.Input
-
-	ToReportDeliveryInfoResponseOutput() ReportDeliveryInfoResponseOutput
-	ToReportDeliveryInfoResponseOutputWithContext(context.Context) ReportDeliveryInfoResponseOutput
-}
-
-type ReportDeliveryInfoResponseArgs struct {
-	Destination ReportDeliveryDestinationResponseInput `pulumi:"destination"`
-}
-
-func (ReportDeliveryInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportDeliveryInfoResponse)(nil)).Elem()
-}
-
-func (i ReportDeliveryInfoResponseArgs) ToReportDeliveryInfoResponseOutput() ReportDeliveryInfoResponseOutput {
-	return i.ToReportDeliveryInfoResponseOutputWithContext(context.Background())
-}
-
-func (i ReportDeliveryInfoResponseArgs) ToReportDeliveryInfoResponseOutputWithContext(ctx context.Context) ReportDeliveryInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoResponseOutput)
-}
-
-func (i ReportDeliveryInfoResponseArgs) ToReportDeliveryInfoResponsePtrOutput() ReportDeliveryInfoResponsePtrOutput {
-	return i.ToReportDeliveryInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReportDeliveryInfoResponseArgs) ToReportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoResponseOutput).ToReportDeliveryInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportDeliveryInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToReportDeliveryInfoResponsePtrOutput() ReportDeliveryInfoResponsePtrOutput
-	ToReportDeliveryInfoResponsePtrOutputWithContext(context.Context) ReportDeliveryInfoResponsePtrOutput
-}
-
-type reportDeliveryInfoResponsePtrType ReportDeliveryInfoResponseArgs
-
-func ReportDeliveryInfoResponsePtr(v *ReportDeliveryInfoResponseArgs) ReportDeliveryInfoResponsePtrInput {
-	return (*reportDeliveryInfoResponsePtrType)(v)
-}
-
-func (*reportDeliveryInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDeliveryInfoResponse)(nil)).Elem()
-}
-
-func (i *reportDeliveryInfoResponsePtrType) ToReportDeliveryInfoResponsePtrOutput() ReportDeliveryInfoResponsePtrOutput {
-	return i.ToReportDeliveryInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *reportDeliveryInfoResponsePtrType) ToReportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportDeliveryInfoResponsePtrOutput)
 }
 
 type ReportDeliveryInfoResponseOutput struct{ *pulumi.OutputState }
@@ -2430,51 +1279,8 @@ func (o ReportDeliveryInfoResponseOutput) ToReportDeliveryInfoResponseOutputWith
 	return o
 }
 
-func (o ReportDeliveryInfoResponseOutput) ToReportDeliveryInfoResponsePtrOutput() ReportDeliveryInfoResponsePtrOutput {
-	return o.ToReportDeliveryInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReportDeliveryInfoResponseOutput) ToReportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportDeliveryInfoResponse) *ReportDeliveryInfoResponse {
-		return &v
-	}).(ReportDeliveryInfoResponsePtrOutput)
-}
-
 func (o ReportDeliveryInfoResponseOutput) Destination() ReportDeliveryDestinationResponseOutput {
 	return o.ApplyT(func(v ReportDeliveryInfoResponse) ReportDeliveryDestinationResponse { return v.Destination }).(ReportDeliveryDestinationResponseOutput)
-}
-
-type ReportDeliveryInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ReportDeliveryInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportDeliveryInfoResponse)(nil)).Elem()
-}
-
-func (o ReportDeliveryInfoResponsePtrOutput) ToReportDeliveryInfoResponsePtrOutput() ReportDeliveryInfoResponsePtrOutput {
-	return o
-}
-
-func (o ReportDeliveryInfoResponsePtrOutput) ToReportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ReportDeliveryInfoResponsePtrOutput {
-	return o
-}
-
-func (o ReportDeliveryInfoResponsePtrOutput) Elem() ReportDeliveryInfoResponseOutput {
-	return o.ApplyT(func(v *ReportDeliveryInfoResponse) ReportDeliveryInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ReportDeliveryInfoResponse
-		return ret
-	}).(ReportDeliveryInfoResponseOutput)
-}
-
-func (o ReportDeliveryInfoResponsePtrOutput) Destination() ReportDeliveryDestinationResponsePtrOutput {
-	return o.ApplyT(func(v *ReportDeliveryInfoResponse) *ReportDeliveryDestinationResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Destination
-	}).(ReportDeliveryDestinationResponsePtrOutput)
 }
 
 type ReportFilter struct {
@@ -2723,103 +1529,6 @@ type ReportFilterResponse struct {
 	Tag       *ReportComparisonExpressionResponse `pulumi:"tag"`
 }
 
-
-
-
-
-type ReportFilterResponseInput interface {
-	pulumi.Input
-
-	ToReportFilterResponseOutput() ReportFilterResponseOutput
-	ToReportFilterResponseOutputWithContext(context.Context) ReportFilterResponseOutput
-}
-
-type ReportFilterResponseArgs struct {
-	And       ReportFilterResponseArrayInput             `pulumi:"and"`
-	Dimension ReportComparisonExpressionResponsePtrInput `pulumi:"dimension"`
-	Not       ReportFilterResponsePtrInput               `pulumi:"not"`
-	Or        ReportFilterResponseArrayInput             `pulumi:"or"`
-	Tag       ReportComparisonExpressionResponsePtrInput `pulumi:"tag"`
-}
-
-func (ReportFilterResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportFilterResponse)(nil)).Elem()
-}
-
-func (i ReportFilterResponseArgs) ToReportFilterResponseOutput() ReportFilterResponseOutput {
-	return i.ToReportFilterResponseOutputWithContext(context.Background())
-}
-
-func (i ReportFilterResponseArgs) ToReportFilterResponseOutputWithContext(ctx context.Context) ReportFilterResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterResponseOutput)
-}
-
-func (i ReportFilterResponseArgs) ToReportFilterResponsePtrOutput() ReportFilterResponsePtrOutput {
-	return i.ToReportFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReportFilterResponseArgs) ToReportFilterResponsePtrOutputWithContext(ctx context.Context) ReportFilterResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterResponseOutput).ToReportFilterResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportFilterResponsePtrInput interface {
-	pulumi.Input
-
-	ToReportFilterResponsePtrOutput() ReportFilterResponsePtrOutput
-	ToReportFilterResponsePtrOutputWithContext(context.Context) ReportFilterResponsePtrOutput
-}
-
-type reportFilterResponsePtrType ReportFilterResponseArgs
-
-func ReportFilterResponsePtr(v *ReportFilterResponseArgs) ReportFilterResponsePtrInput {
-	return (*reportFilterResponsePtrType)(v)
-}
-
-func (*reportFilterResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportFilterResponse)(nil)).Elem()
-}
-
-func (i *reportFilterResponsePtrType) ToReportFilterResponsePtrOutput() ReportFilterResponsePtrOutput {
-	return i.ToReportFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *reportFilterResponsePtrType) ToReportFilterResponsePtrOutputWithContext(ctx context.Context) ReportFilterResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterResponsePtrOutput)
-}
-
-
-
-
-
-type ReportFilterResponseArrayInput interface {
-	pulumi.Input
-
-	ToReportFilterResponseArrayOutput() ReportFilterResponseArrayOutput
-	ToReportFilterResponseArrayOutputWithContext(context.Context) ReportFilterResponseArrayOutput
-}
-
-type ReportFilterResponseArray []ReportFilterResponseInput
-
-func (ReportFilterResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReportFilterResponse)(nil)).Elem()
-}
-
-func (i ReportFilterResponseArray) ToReportFilterResponseArrayOutput() ReportFilterResponseArrayOutput {
-	return i.ToReportFilterResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ReportFilterResponseArray) ToReportFilterResponseArrayOutputWithContext(ctx context.Context) ReportFilterResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportFilterResponseArrayOutput)
-}
-
 type ReportFilterResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportFilterResponseOutput) ElementType() reflect.Type {
@@ -2832,16 +1541,6 @@ func (o ReportFilterResponseOutput) ToReportFilterResponseOutput() ReportFilterR
 
 func (o ReportFilterResponseOutput) ToReportFilterResponseOutputWithContext(ctx context.Context) ReportFilterResponseOutput {
 	return o
-}
-
-func (o ReportFilterResponseOutput) ToReportFilterResponsePtrOutput() ReportFilterResponsePtrOutput {
-	return o.ToReportFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReportFilterResponseOutput) ToReportFilterResponsePtrOutputWithContext(ctx context.Context) ReportFilterResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportFilterResponse) *ReportFilterResponse {
-		return &v
-	}).(ReportFilterResponsePtrOutput)
 }
 
 func (o ReportFilterResponseOutput) And() ReportFilterResponseArrayOutput {
@@ -3058,59 +1757,6 @@ type ReportGroupingResponse struct {
 	Type string `pulumi:"type"`
 }
 
-
-
-
-
-type ReportGroupingResponseInput interface {
-	pulumi.Input
-
-	ToReportGroupingResponseOutput() ReportGroupingResponseOutput
-	ToReportGroupingResponseOutputWithContext(context.Context) ReportGroupingResponseOutput
-}
-
-type ReportGroupingResponseArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ReportGroupingResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportGroupingResponse)(nil)).Elem()
-}
-
-func (i ReportGroupingResponseArgs) ToReportGroupingResponseOutput() ReportGroupingResponseOutput {
-	return i.ToReportGroupingResponseOutputWithContext(context.Background())
-}
-
-func (i ReportGroupingResponseArgs) ToReportGroupingResponseOutputWithContext(ctx context.Context) ReportGroupingResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupingResponseOutput)
-}
-
-
-
-
-
-type ReportGroupingResponseArrayInput interface {
-	pulumi.Input
-
-	ToReportGroupingResponseArrayOutput() ReportGroupingResponseArrayOutput
-	ToReportGroupingResponseArrayOutputWithContext(context.Context) ReportGroupingResponseArrayOutput
-}
-
-type ReportGroupingResponseArray []ReportGroupingResponseInput
-
-func (ReportGroupingResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReportGroupingResponse)(nil)).Elem()
-}
-
-func (i ReportGroupingResponseArray) ToReportGroupingResponseArrayOutput() ReportGroupingResponseArrayOutput {
-	return i.ToReportGroupingResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ReportGroupingResponseArray) ToReportGroupingResponseArrayOutputWithContext(ctx context.Context) ReportGroupingResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupingResponseArrayOutput)
-}
-
 type ReportGroupingResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupingResponseOutput) ElementType() reflect.Type {
@@ -3306,75 +1952,6 @@ type ReportRecurrencePeriodResponse struct {
 	To   *string `pulumi:"to"`
 }
 
-
-
-
-
-type ReportRecurrencePeriodResponseInput interface {
-	pulumi.Input
-
-	ToReportRecurrencePeriodResponseOutput() ReportRecurrencePeriodResponseOutput
-	ToReportRecurrencePeriodResponseOutputWithContext(context.Context) ReportRecurrencePeriodResponseOutput
-}
-
-type ReportRecurrencePeriodResponseArgs struct {
-	From pulumi.StringInput    `pulumi:"from"`
-	To   pulumi.StringPtrInput `pulumi:"to"`
-}
-
-func (ReportRecurrencePeriodResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportRecurrencePeriodResponse)(nil)).Elem()
-}
-
-func (i ReportRecurrencePeriodResponseArgs) ToReportRecurrencePeriodResponseOutput() ReportRecurrencePeriodResponseOutput {
-	return i.ToReportRecurrencePeriodResponseOutputWithContext(context.Background())
-}
-
-func (i ReportRecurrencePeriodResponseArgs) ToReportRecurrencePeriodResponseOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportRecurrencePeriodResponseOutput)
-}
-
-func (i ReportRecurrencePeriodResponseArgs) ToReportRecurrencePeriodResponsePtrOutput() ReportRecurrencePeriodResponsePtrOutput {
-	return i.ToReportRecurrencePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReportRecurrencePeriodResponseArgs) ToReportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportRecurrencePeriodResponseOutput).ToReportRecurrencePeriodResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportRecurrencePeriodResponsePtrInput interface {
-	pulumi.Input
-
-	ToReportRecurrencePeriodResponsePtrOutput() ReportRecurrencePeriodResponsePtrOutput
-	ToReportRecurrencePeriodResponsePtrOutputWithContext(context.Context) ReportRecurrencePeriodResponsePtrOutput
-}
-
-type reportRecurrencePeriodResponsePtrType ReportRecurrencePeriodResponseArgs
-
-func ReportRecurrencePeriodResponsePtr(v *ReportRecurrencePeriodResponseArgs) ReportRecurrencePeriodResponsePtrInput {
-	return (*reportRecurrencePeriodResponsePtrType)(v)
-}
-
-func (*reportRecurrencePeriodResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportRecurrencePeriodResponse)(nil)).Elem()
-}
-
-func (i *reportRecurrencePeriodResponsePtrType) ToReportRecurrencePeriodResponsePtrOutput() ReportRecurrencePeriodResponsePtrOutput {
-	return i.ToReportRecurrencePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *reportRecurrencePeriodResponsePtrType) ToReportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportRecurrencePeriodResponsePtrOutput)
-}
-
 type ReportRecurrencePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportRecurrencePeriodResponseOutput) ElementType() reflect.Type {
@@ -3387,16 +1964,6 @@ func (o ReportRecurrencePeriodResponseOutput) ToReportRecurrencePeriodResponseOu
 
 func (o ReportRecurrencePeriodResponseOutput) ToReportRecurrencePeriodResponseOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponseOutput {
 	return o
-}
-
-func (o ReportRecurrencePeriodResponseOutput) ToReportRecurrencePeriodResponsePtrOutput() ReportRecurrencePeriodResponsePtrOutput {
-	return o.ToReportRecurrencePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReportRecurrencePeriodResponseOutput) ToReportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ReportRecurrencePeriodResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportRecurrencePeriodResponse) *ReportRecurrencePeriodResponse {
-		return &v
-	}).(ReportRecurrencePeriodResponsePtrOutput)
 }
 
 func (o ReportRecurrencePeriodResponseOutput) From() pulumi.StringOutput {
@@ -3618,76 +2185,6 @@ type ReportScheduleResponse struct {
 	Status           *string                         `pulumi:"status"`
 }
 
-
-
-
-
-type ReportScheduleResponseInput interface {
-	pulumi.Input
-
-	ToReportScheduleResponseOutput() ReportScheduleResponseOutput
-	ToReportScheduleResponseOutputWithContext(context.Context) ReportScheduleResponseOutput
-}
-
-type ReportScheduleResponseArgs struct {
-	Recurrence       pulumi.StringInput                     `pulumi:"recurrence"`
-	RecurrencePeriod ReportRecurrencePeriodResponsePtrInput `pulumi:"recurrencePeriod"`
-	Status           pulumi.StringPtrInput                  `pulumi:"status"`
-}
-
-func (ReportScheduleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportScheduleResponse)(nil)).Elem()
-}
-
-func (i ReportScheduleResponseArgs) ToReportScheduleResponseOutput() ReportScheduleResponseOutput {
-	return i.ToReportScheduleResponseOutputWithContext(context.Background())
-}
-
-func (i ReportScheduleResponseArgs) ToReportScheduleResponseOutputWithContext(ctx context.Context) ReportScheduleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportScheduleResponseOutput)
-}
-
-func (i ReportScheduleResponseArgs) ToReportScheduleResponsePtrOutput() ReportScheduleResponsePtrOutput {
-	return i.ToReportScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReportScheduleResponseArgs) ToReportScheduleResponsePtrOutputWithContext(ctx context.Context) ReportScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportScheduleResponseOutput).ToReportScheduleResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportScheduleResponsePtrInput interface {
-	pulumi.Input
-
-	ToReportScheduleResponsePtrOutput() ReportScheduleResponsePtrOutput
-	ToReportScheduleResponsePtrOutputWithContext(context.Context) ReportScheduleResponsePtrOutput
-}
-
-type reportScheduleResponsePtrType ReportScheduleResponseArgs
-
-func ReportScheduleResponsePtr(v *ReportScheduleResponseArgs) ReportScheduleResponsePtrInput {
-	return (*reportScheduleResponsePtrType)(v)
-}
-
-func (*reportScheduleResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportScheduleResponse)(nil)).Elem()
-}
-
-func (i *reportScheduleResponsePtrType) ToReportScheduleResponsePtrOutput() ReportScheduleResponsePtrOutput {
-	return i.ToReportScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *reportScheduleResponsePtrType) ToReportScheduleResponsePtrOutputWithContext(ctx context.Context) ReportScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportScheduleResponsePtrOutput)
-}
-
 type ReportScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportScheduleResponseOutput) ElementType() reflect.Type {
@@ -3700,16 +2197,6 @@ func (o ReportScheduleResponseOutput) ToReportScheduleResponseOutput() ReportSch
 
 func (o ReportScheduleResponseOutput) ToReportScheduleResponseOutputWithContext(ctx context.Context) ReportScheduleResponseOutput {
 	return o
-}
-
-func (o ReportScheduleResponseOutput) ToReportScheduleResponsePtrOutput() ReportScheduleResponsePtrOutput {
-	return o.ToReportScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReportScheduleResponseOutput) ToReportScheduleResponsePtrOutputWithContext(ctx context.Context) ReportScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportScheduleResponse) *ReportScheduleResponse {
-		return &v
-	}).(ReportScheduleResponsePtrOutput)
 }
 
 func (o ReportScheduleResponseOutput) Recurrence() pulumi.StringOutput {
@@ -3928,75 +2415,6 @@ type ReportTimePeriodResponse struct {
 	To   string `pulumi:"to"`
 }
 
-
-
-
-
-type ReportTimePeriodResponseInput interface {
-	pulumi.Input
-
-	ToReportTimePeriodResponseOutput() ReportTimePeriodResponseOutput
-	ToReportTimePeriodResponseOutputWithContext(context.Context) ReportTimePeriodResponseOutput
-}
-
-type ReportTimePeriodResponseArgs struct {
-	From pulumi.StringInput `pulumi:"from"`
-	To   pulumi.StringInput `pulumi:"to"`
-}
-
-func (ReportTimePeriodResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportTimePeriodResponse)(nil)).Elem()
-}
-
-func (i ReportTimePeriodResponseArgs) ToReportTimePeriodResponseOutput() ReportTimePeriodResponseOutput {
-	return i.ToReportTimePeriodResponseOutputWithContext(context.Background())
-}
-
-func (i ReportTimePeriodResponseArgs) ToReportTimePeriodResponseOutputWithContext(ctx context.Context) ReportTimePeriodResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportTimePeriodResponseOutput)
-}
-
-func (i ReportTimePeriodResponseArgs) ToReportTimePeriodResponsePtrOutput() ReportTimePeriodResponsePtrOutput {
-	return i.ToReportTimePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ReportTimePeriodResponseArgs) ToReportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ReportTimePeriodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportTimePeriodResponseOutput).ToReportTimePeriodResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ReportTimePeriodResponsePtrInput interface {
-	pulumi.Input
-
-	ToReportTimePeriodResponsePtrOutput() ReportTimePeriodResponsePtrOutput
-	ToReportTimePeriodResponsePtrOutputWithContext(context.Context) ReportTimePeriodResponsePtrOutput
-}
-
-type reportTimePeriodResponsePtrType ReportTimePeriodResponseArgs
-
-func ReportTimePeriodResponsePtr(v *ReportTimePeriodResponseArgs) ReportTimePeriodResponsePtrInput {
-	return (*reportTimePeriodResponsePtrType)(v)
-}
-
-func (*reportTimePeriodResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportTimePeriodResponse)(nil)).Elem()
-}
-
-func (i *reportTimePeriodResponsePtrType) ToReportTimePeriodResponsePtrOutput() ReportTimePeriodResponsePtrOutput {
-	return i.ToReportTimePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *reportTimePeriodResponsePtrType) ToReportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ReportTimePeriodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportTimePeriodResponsePtrOutput)
-}
-
 type ReportTimePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ReportTimePeriodResponseOutput) ElementType() reflect.Type {
@@ -4009,16 +2427,6 @@ func (o ReportTimePeriodResponseOutput) ToReportTimePeriodResponseOutput() Repor
 
 func (o ReportTimePeriodResponseOutput) ToReportTimePeriodResponseOutputWithContext(ctx context.Context) ReportTimePeriodResponseOutput {
 	return o
-}
-
-func (o ReportTimePeriodResponseOutput) ToReportTimePeriodResponsePtrOutput() ReportTimePeriodResponsePtrOutput {
-	return o.ToReportTimePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ReportTimePeriodResponseOutput) ToReportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ReportTimePeriodResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportTimePeriodResponse) *ReportTimePeriodResponse {
-		return &v
-	}).(ReportTimePeriodResponsePtrOutput)
 }
 
 func (o ReportTimePeriodResponseOutput) From() pulumi.StringOutput {
@@ -4075,7 +2483,6 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnectorCollectionErrorInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConnectorCollectionInfoResponseOutput{})
-	pulumi.RegisterOutputType(ConnectorCollectionInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReportAggregationOutput{})
 	pulumi.RegisterOutputType(ReportAggregationMapOutput{})
 	pulumi.RegisterOutputType(ReportAggregationResponseOutput{})
@@ -4093,17 +2500,11 @@ func init() {
 	pulumi.RegisterOutputType(ReportDatasetResponseOutput{})
 	pulumi.RegisterOutputType(ReportDatasetResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReportDefinitionOutput{})
-	pulumi.RegisterOutputType(ReportDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ReportDefinitionResponseOutput{})
-	pulumi.RegisterOutputType(ReportDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryDestinationOutput{})
-	pulumi.RegisterOutputType(ReportDeliveryDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryDestinationResponseOutput{})
-	pulumi.RegisterOutputType(ReportDeliveryDestinationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryInfoOutput{})
-	pulumi.RegisterOutputType(ReportDeliveryInfoPtrOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryInfoResponseOutput{})
-	pulumi.RegisterOutputType(ReportDeliveryInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReportFilterOutput{})
 	pulumi.RegisterOutputType(ReportFilterPtrOutput{})
 	pulumi.RegisterOutputType(ReportFilterArrayOutput{})

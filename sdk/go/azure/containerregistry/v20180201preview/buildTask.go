@@ -49,7 +49,8 @@ func NewBuildTask(ctx *pulumi.Context,
 	if args.SourceRepository == nil {
 		return nil, errors.New("invalid value for required argument 'SourceRepository'")
 	}
-	if args.Timeout == nil {
+	args.SourceRepository = args.SourceRepository.ToSourceRepositoryPropertiesOutput().ApplyT(func(v SourceRepositoryProperties) SourceRepositoryProperties { return *v.Defaults() }).(SourceRepositoryPropertiesOutput)
+	if isZero(args.Timeout) {
 		args.Timeout = pulumi.IntPtr(3600)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -137,7 +138,7 @@ type BuildTaskInput interface {
 }
 
 func (*BuildTask) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildTask)(nil))
+	return reflect.TypeOf((**BuildTask)(nil)).Elem()
 }
 
 func (i *BuildTask) ToBuildTaskOutput() BuildTaskOutput {
@@ -151,7 +152,7 @@ func (i *BuildTask) ToBuildTaskOutputWithContext(ctx context.Context) BuildTaskO
 type BuildTaskOutput struct{ *pulumi.OutputState }
 
 func (BuildTaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildTask)(nil))
+	return reflect.TypeOf((**BuildTask)(nil)).Elem()
 }
 
 func (o BuildTaskOutput) ToBuildTaskOutput() BuildTaskOutput {

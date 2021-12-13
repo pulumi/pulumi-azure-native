@@ -103,7 +103,7 @@ type LoadTestInput interface {
 }
 
 func (*LoadTest) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadTest)(nil))
+	return reflect.TypeOf((**LoadTest)(nil)).Elem()
 }
 
 func (i *LoadTest) ToLoadTestOutput() LoadTestOutput {
@@ -117,7 +117,7 @@ func (i *LoadTest) ToLoadTestOutputWithContext(ctx context.Context) LoadTestOutp
 type LoadTestOutput struct{ *pulumi.OutputState }
 
 func (LoadTestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadTest)(nil))
+	return reflect.TypeOf((**LoadTest)(nil)).Elem()
 }
 
 func (o LoadTestOutput) ToLoadTestOutput() LoadTestOutput {

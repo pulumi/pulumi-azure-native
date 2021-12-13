@@ -122,7 +122,7 @@ type CustomLocationInput interface {
 }
 
 func (*CustomLocation) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomLocation)(nil))
+	return reflect.TypeOf((**CustomLocation)(nil)).Elem()
 }
 
 func (i *CustomLocation) ToCustomLocationOutput() CustomLocationOutput {
@@ -136,7 +136,7 @@ func (i *CustomLocation) ToCustomLocationOutputWithContext(ctx context.Context) 
 type CustomLocationOutput struct{ *pulumi.OutputState }
 
 func (CustomLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomLocation)(nil))
+	return reflect.TypeOf((**CustomLocation)(nil)).Elem()
 }
 
 func (o CustomLocationOutput) ToCustomLocationOutput() CustomLocationOutput {

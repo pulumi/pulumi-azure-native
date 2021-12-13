@@ -13,7 +13,7 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupApplicationArgs struct {
@@ -39,4 +39,19 @@ type LookupApplicationResult struct {
 	TypeName                  *string                                `pulumi:"typeName"`
 	TypeVersion               *string                                `pulumi:"typeVersion"`
 	UpgradePolicy             *ApplicationUpgradePolicyResponse      `pulumi:"upgradePolicy"`
+}
+
+
+func (val *LookupApplicationResult) Defaults() *LookupApplicationResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaximumNodes) {
+		maximumNodes_ := 0.0
+		tmp.MaximumNodes = &maximumNodes_
+	}
+	tmp.UpgradePolicy = tmp.UpgradePolicy.Defaults()
+
+	return &tmp
 }

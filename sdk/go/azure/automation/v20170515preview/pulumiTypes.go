@@ -278,59 +278,6 @@ type AdvancedScheduleMonthlyOccurrenceResponse struct {
 	Occurrence *int    `pulumi:"occurrence"`
 }
 
-
-
-
-
-type AdvancedScheduleMonthlyOccurrenceResponseInput interface {
-	pulumi.Input
-
-	ToAdvancedScheduleMonthlyOccurrenceResponseOutput() AdvancedScheduleMonthlyOccurrenceResponseOutput
-	ToAdvancedScheduleMonthlyOccurrenceResponseOutputWithContext(context.Context) AdvancedScheduleMonthlyOccurrenceResponseOutput
-}
-
-type AdvancedScheduleMonthlyOccurrenceResponseArgs struct {
-	Day        pulumi.StringPtrInput `pulumi:"day"`
-	Occurrence pulumi.IntPtrInput    `pulumi:"occurrence"`
-}
-
-func (AdvancedScheduleMonthlyOccurrenceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdvancedScheduleMonthlyOccurrenceResponse)(nil)).Elem()
-}
-
-func (i AdvancedScheduleMonthlyOccurrenceResponseArgs) ToAdvancedScheduleMonthlyOccurrenceResponseOutput() AdvancedScheduleMonthlyOccurrenceResponseOutput {
-	return i.ToAdvancedScheduleMonthlyOccurrenceResponseOutputWithContext(context.Background())
-}
-
-func (i AdvancedScheduleMonthlyOccurrenceResponseArgs) ToAdvancedScheduleMonthlyOccurrenceResponseOutputWithContext(ctx context.Context) AdvancedScheduleMonthlyOccurrenceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleMonthlyOccurrenceResponseOutput)
-}
-
-
-
-
-
-type AdvancedScheduleMonthlyOccurrenceResponseArrayInput interface {
-	pulumi.Input
-
-	ToAdvancedScheduleMonthlyOccurrenceResponseArrayOutput() AdvancedScheduleMonthlyOccurrenceResponseArrayOutput
-	ToAdvancedScheduleMonthlyOccurrenceResponseArrayOutputWithContext(context.Context) AdvancedScheduleMonthlyOccurrenceResponseArrayOutput
-}
-
-type AdvancedScheduleMonthlyOccurrenceResponseArray []AdvancedScheduleMonthlyOccurrenceResponseInput
-
-func (AdvancedScheduleMonthlyOccurrenceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AdvancedScheduleMonthlyOccurrenceResponse)(nil)).Elem()
-}
-
-func (i AdvancedScheduleMonthlyOccurrenceResponseArray) ToAdvancedScheduleMonthlyOccurrenceResponseArrayOutput() AdvancedScheduleMonthlyOccurrenceResponseArrayOutput {
-	return i.ToAdvancedScheduleMonthlyOccurrenceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AdvancedScheduleMonthlyOccurrenceResponseArray) ToAdvancedScheduleMonthlyOccurrenceResponseArrayOutputWithContext(ctx context.Context) AdvancedScheduleMonthlyOccurrenceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleMonthlyOccurrenceResponseArrayOutput)
-}
-
 type AdvancedScheduleMonthlyOccurrenceResponseOutput struct{ *pulumi.OutputState }
 
 func (AdvancedScheduleMonthlyOccurrenceResponseOutput) ElementType() reflect.Type {
@@ -379,76 +326,6 @@ type AdvancedScheduleResponse struct {
 	WeekDays           []string                                    `pulumi:"weekDays"`
 }
 
-
-
-
-
-type AdvancedScheduleResponseInput interface {
-	pulumi.Input
-
-	ToAdvancedScheduleResponseOutput() AdvancedScheduleResponseOutput
-	ToAdvancedScheduleResponseOutputWithContext(context.Context) AdvancedScheduleResponseOutput
-}
-
-type AdvancedScheduleResponseArgs struct {
-	MonthDays          pulumi.IntArrayInput                                `pulumi:"monthDays"`
-	MonthlyOccurrences AdvancedScheduleMonthlyOccurrenceResponseArrayInput `pulumi:"monthlyOccurrences"`
-	WeekDays           pulumi.StringArrayInput                             `pulumi:"weekDays"`
-}
-
-func (AdvancedScheduleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdvancedScheduleResponse)(nil)).Elem()
-}
-
-func (i AdvancedScheduleResponseArgs) ToAdvancedScheduleResponseOutput() AdvancedScheduleResponseOutput {
-	return i.ToAdvancedScheduleResponseOutputWithContext(context.Background())
-}
-
-func (i AdvancedScheduleResponseArgs) ToAdvancedScheduleResponseOutputWithContext(ctx context.Context) AdvancedScheduleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleResponseOutput)
-}
-
-func (i AdvancedScheduleResponseArgs) ToAdvancedScheduleResponsePtrOutput() AdvancedScheduleResponsePtrOutput {
-	return i.ToAdvancedScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AdvancedScheduleResponseArgs) ToAdvancedScheduleResponsePtrOutputWithContext(ctx context.Context) AdvancedScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleResponseOutput).ToAdvancedScheduleResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AdvancedScheduleResponsePtrInput interface {
-	pulumi.Input
-
-	ToAdvancedScheduleResponsePtrOutput() AdvancedScheduleResponsePtrOutput
-	ToAdvancedScheduleResponsePtrOutputWithContext(context.Context) AdvancedScheduleResponsePtrOutput
-}
-
-type advancedScheduleResponsePtrType AdvancedScheduleResponseArgs
-
-func AdvancedScheduleResponsePtr(v *AdvancedScheduleResponseArgs) AdvancedScheduleResponsePtrInput {
-	return (*advancedScheduleResponsePtrType)(v)
-}
-
-func (*advancedScheduleResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AdvancedScheduleResponse)(nil)).Elem()
-}
-
-func (i *advancedScheduleResponsePtrType) ToAdvancedScheduleResponsePtrOutput() AdvancedScheduleResponsePtrOutput {
-	return i.ToAdvancedScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *advancedScheduleResponsePtrType) ToAdvancedScheduleResponsePtrOutputWithContext(ctx context.Context) AdvancedScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AdvancedScheduleResponsePtrOutput)
-}
-
 type AdvancedScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (AdvancedScheduleResponseOutput) ElementType() reflect.Type {
@@ -461,16 +338,6 @@ func (o AdvancedScheduleResponseOutput) ToAdvancedScheduleResponseOutput() Advan
 
 func (o AdvancedScheduleResponseOutput) ToAdvancedScheduleResponseOutputWithContext(ctx context.Context) AdvancedScheduleResponseOutput {
 	return o
-}
-
-func (o AdvancedScheduleResponseOutput) ToAdvancedScheduleResponsePtrOutput() AdvancedScheduleResponsePtrOutput {
-	return o.ToAdvancedScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AdvancedScheduleResponseOutput) ToAdvancedScheduleResponsePtrOutputWithContext(ctx context.Context) AdvancedScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AdvancedScheduleResponse) *AdvancedScheduleResponse {
-		return &v
-	}).(AdvancedScheduleResponsePtrOutput)
 }
 
 func (o AdvancedScheduleResponseOutput) MonthDays() pulumi.IntArrayOutput {
@@ -648,60 +515,6 @@ type AzureQueryPropertiesResponse struct {
 	Locations   []string                       `pulumi:"locations"`
 	Scope       []string                       `pulumi:"scope"`
 	TagSettings *TagSettingsPropertiesResponse `pulumi:"tagSettings"`
-}
-
-
-
-
-
-type AzureQueryPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAzureQueryPropertiesResponseOutput() AzureQueryPropertiesResponseOutput
-	ToAzureQueryPropertiesResponseOutputWithContext(context.Context) AzureQueryPropertiesResponseOutput
-}
-
-type AzureQueryPropertiesResponseArgs struct {
-	Locations   pulumi.StringArrayInput               `pulumi:"locations"`
-	Scope       pulumi.StringArrayInput               `pulumi:"scope"`
-	TagSettings TagSettingsPropertiesResponsePtrInput `pulumi:"tagSettings"`
-}
-
-func (AzureQueryPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureQueryPropertiesResponse)(nil)).Elem()
-}
-
-func (i AzureQueryPropertiesResponseArgs) ToAzureQueryPropertiesResponseOutput() AzureQueryPropertiesResponseOutput {
-	return i.ToAzureQueryPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AzureQueryPropertiesResponseArgs) ToAzureQueryPropertiesResponseOutputWithContext(ctx context.Context) AzureQueryPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureQueryPropertiesResponseOutput)
-}
-
-
-
-
-
-type AzureQueryPropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToAzureQueryPropertiesResponseArrayOutput() AzureQueryPropertiesResponseArrayOutput
-	ToAzureQueryPropertiesResponseArrayOutputWithContext(context.Context) AzureQueryPropertiesResponseArrayOutput
-}
-
-type AzureQueryPropertiesResponseArray []AzureQueryPropertiesResponseInput
-
-func (AzureQueryPropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzureQueryPropertiesResponse)(nil)).Elem()
-}
-
-func (i AzureQueryPropertiesResponseArray) ToAzureQueryPropertiesResponseArrayOutput() AzureQueryPropertiesResponseArrayOutput {
-	return i.ToAzureQueryPropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AzureQueryPropertiesResponseArray) ToAzureQueryPropertiesResponseArrayOutputWithContext(ctx context.Context) AzureQueryPropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureQueryPropertiesResponseArrayOutput)
 }
 
 type AzureQueryPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -903,75 +716,6 @@ type ErrorResponseResponse struct {
 	Message *string `pulumi:"message"`
 }
 
-
-
-
-
-type ErrorResponseResponseInput interface {
-	pulumi.Input
-
-	ToErrorResponseResponseOutput() ErrorResponseResponseOutput
-	ToErrorResponseResponseOutputWithContext(context.Context) ErrorResponseResponseOutput
-}
-
-type ErrorResponseResponseArgs struct {
-	Code    pulumi.StringPtrInput `pulumi:"code"`
-	Message pulumi.StringPtrInput `pulumi:"message"`
-}
-
-func (ErrorResponseResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorResponseResponse)(nil)).Elem()
-}
-
-func (i ErrorResponseResponseArgs) ToErrorResponseResponseOutput() ErrorResponseResponseOutput {
-	return i.ToErrorResponseResponseOutputWithContext(context.Background())
-}
-
-func (i ErrorResponseResponseArgs) ToErrorResponseResponseOutputWithContext(ctx context.Context) ErrorResponseResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponseResponseOutput)
-}
-
-func (i ErrorResponseResponseArgs) ToErrorResponseResponsePtrOutput() ErrorResponseResponsePtrOutput {
-	return i.ToErrorResponseResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ErrorResponseResponseArgs) ToErrorResponseResponsePtrOutputWithContext(ctx context.Context) ErrorResponseResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponseResponseOutput).ToErrorResponseResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ErrorResponseResponsePtrInput interface {
-	pulumi.Input
-
-	ToErrorResponseResponsePtrOutput() ErrorResponseResponsePtrOutput
-	ToErrorResponseResponsePtrOutputWithContext(context.Context) ErrorResponseResponsePtrOutput
-}
-
-type errorResponseResponsePtrType ErrorResponseResponseArgs
-
-func ErrorResponseResponsePtr(v *ErrorResponseResponseArgs) ErrorResponseResponsePtrInput {
-	return (*errorResponseResponsePtrType)(v)
-}
-
-func (*errorResponseResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ErrorResponseResponse)(nil)).Elem()
-}
-
-func (i *errorResponseResponsePtrType) ToErrorResponseResponsePtrOutput() ErrorResponseResponsePtrOutput {
-	return i.ToErrorResponseResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *errorResponseResponsePtrType) ToErrorResponseResponsePtrOutputWithContext(ctx context.Context) ErrorResponseResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorResponseResponsePtrOutput)
-}
-
 type ErrorResponseResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorResponseResponseOutput) ElementType() reflect.Type {
@@ -984,16 +728,6 @@ func (o ErrorResponseResponseOutput) ToErrorResponseResponseOutput() ErrorRespon
 
 func (o ErrorResponseResponseOutput) ToErrorResponseResponseOutputWithContext(ctx context.Context) ErrorResponseResponseOutput {
 	return o
-}
-
-func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutput() ErrorResponseResponsePtrOutput {
-	return o.ToErrorResponseResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ErrorResponseResponseOutput) ToErrorResponseResponsePtrOutputWithContext(ctx context.Context) ErrorResponseResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorResponseResponse) *ErrorResponseResponse {
-		return &v
-	}).(ErrorResponseResponsePtrOutput)
 }
 
 func (o ErrorResponseResponseOutput) Code() pulumi.StringPtrOutput {
@@ -1231,77 +965,6 @@ type LinuxPropertiesResponse struct {
 	RebootSetting                  *string  `pulumi:"rebootSetting"`
 }
 
-
-
-
-
-type LinuxPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToLinuxPropertiesResponseOutput() LinuxPropertiesResponseOutput
-	ToLinuxPropertiesResponseOutputWithContext(context.Context) LinuxPropertiesResponseOutput
-}
-
-type LinuxPropertiesResponseArgs struct {
-	ExcludedPackageNameMasks       pulumi.StringArrayInput `pulumi:"excludedPackageNameMasks"`
-	IncludedPackageClassifications pulumi.StringPtrInput   `pulumi:"includedPackageClassifications"`
-	IncludedPackageNameMasks       pulumi.StringArrayInput `pulumi:"includedPackageNameMasks"`
-	RebootSetting                  pulumi.StringPtrInput   `pulumi:"rebootSetting"`
-}
-
-func (LinuxPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinuxPropertiesResponse)(nil)).Elem()
-}
-
-func (i LinuxPropertiesResponseArgs) ToLinuxPropertiesResponseOutput() LinuxPropertiesResponseOutput {
-	return i.ToLinuxPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i LinuxPropertiesResponseArgs) ToLinuxPropertiesResponseOutputWithContext(ctx context.Context) LinuxPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxPropertiesResponseOutput)
-}
-
-func (i LinuxPropertiesResponseArgs) ToLinuxPropertiesResponsePtrOutput() LinuxPropertiesResponsePtrOutput {
-	return i.ToLinuxPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LinuxPropertiesResponseArgs) ToLinuxPropertiesResponsePtrOutputWithContext(ctx context.Context) LinuxPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxPropertiesResponseOutput).ToLinuxPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LinuxPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToLinuxPropertiesResponsePtrOutput() LinuxPropertiesResponsePtrOutput
-	ToLinuxPropertiesResponsePtrOutputWithContext(context.Context) LinuxPropertiesResponsePtrOutput
-}
-
-type linuxPropertiesResponsePtrType LinuxPropertiesResponseArgs
-
-func LinuxPropertiesResponsePtr(v *LinuxPropertiesResponseArgs) LinuxPropertiesResponsePtrInput {
-	return (*linuxPropertiesResponsePtrType)(v)
-}
-
-func (*linuxPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinuxPropertiesResponse)(nil)).Elem()
-}
-
-func (i *linuxPropertiesResponsePtrType) ToLinuxPropertiesResponsePtrOutput() LinuxPropertiesResponsePtrOutput {
-	return i.ToLinuxPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *linuxPropertiesResponsePtrType) ToLinuxPropertiesResponsePtrOutputWithContext(ctx context.Context) LinuxPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinuxPropertiesResponsePtrOutput)
-}
-
 type LinuxPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (LinuxPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1314,16 +977,6 @@ func (o LinuxPropertiesResponseOutput) ToLinuxPropertiesResponseOutput() LinuxPr
 
 func (o LinuxPropertiesResponseOutput) ToLinuxPropertiesResponseOutputWithContext(ctx context.Context) LinuxPropertiesResponseOutput {
 	return o
-}
-
-func (o LinuxPropertiesResponseOutput) ToLinuxPropertiesResponsePtrOutput() LinuxPropertiesResponsePtrOutput {
-	return o.ToLinuxPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LinuxPropertiesResponseOutput) ToLinuxPropertiesResponsePtrOutputWithContext(ctx context.Context) LinuxPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxPropertiesResponse) *LinuxPropertiesResponse {
-		return &v
-	}).(LinuxPropertiesResponsePtrOutput)
 }
 
 func (o LinuxPropertiesResponseOutput) ExcludedPackageNameMasks() pulumi.StringArrayOutput {
@@ -1507,59 +1160,6 @@ type NonAzureQueryPropertiesResponse struct {
 	WorkspaceId   *string `pulumi:"workspaceId"`
 }
 
-
-
-
-
-type NonAzureQueryPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToNonAzureQueryPropertiesResponseOutput() NonAzureQueryPropertiesResponseOutput
-	ToNonAzureQueryPropertiesResponseOutputWithContext(context.Context) NonAzureQueryPropertiesResponseOutput
-}
-
-type NonAzureQueryPropertiesResponseArgs struct {
-	FunctionAlias pulumi.StringPtrInput `pulumi:"functionAlias"`
-	WorkspaceId   pulumi.StringPtrInput `pulumi:"workspaceId"`
-}
-
-func (NonAzureQueryPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NonAzureQueryPropertiesResponse)(nil)).Elem()
-}
-
-func (i NonAzureQueryPropertiesResponseArgs) ToNonAzureQueryPropertiesResponseOutput() NonAzureQueryPropertiesResponseOutput {
-	return i.ToNonAzureQueryPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i NonAzureQueryPropertiesResponseArgs) ToNonAzureQueryPropertiesResponseOutputWithContext(ctx context.Context) NonAzureQueryPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NonAzureQueryPropertiesResponseOutput)
-}
-
-
-
-
-
-type NonAzureQueryPropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToNonAzureQueryPropertiesResponseArrayOutput() NonAzureQueryPropertiesResponseArrayOutput
-	ToNonAzureQueryPropertiesResponseArrayOutputWithContext(context.Context) NonAzureQueryPropertiesResponseArrayOutput
-}
-
-type NonAzureQueryPropertiesResponseArray []NonAzureQueryPropertiesResponseInput
-
-func (NonAzureQueryPropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NonAzureQueryPropertiesResponse)(nil)).Elem()
-}
-
-func (i NonAzureQueryPropertiesResponseArray) ToNonAzureQueryPropertiesResponseArrayOutput() NonAzureQueryPropertiesResponseArrayOutput {
-	return i.ToNonAzureQueryPropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i NonAzureQueryPropertiesResponseArray) ToNonAzureQueryPropertiesResponseArrayOutputWithContext(ctx context.Context) NonAzureQueryPropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NonAzureQueryPropertiesResponseArrayOutput)
-}
-
 type NonAzureQueryPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (NonAzureQueryPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1619,6 +1219,19 @@ type ScheduleProperties struct {
 }
 
 
+func (val *ScheduleProperties) Defaults() *ScheduleProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEnabled) {
+		isEnabled_ := false
+		tmp.IsEnabled = &isEnabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1657,47 +1270,6 @@ func (i SchedulePropertiesArgs) ToSchedulePropertiesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SchedulePropertiesOutput)
 }
 
-func (i SchedulePropertiesArgs) ToSchedulePropertiesPtrOutput() SchedulePropertiesPtrOutput {
-	return i.ToSchedulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SchedulePropertiesArgs) ToSchedulePropertiesPtrOutputWithContext(ctx context.Context) SchedulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulePropertiesOutput).ToSchedulePropertiesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SchedulePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSchedulePropertiesPtrOutput() SchedulePropertiesPtrOutput
-	ToSchedulePropertiesPtrOutputWithContext(context.Context) SchedulePropertiesPtrOutput
-}
-
-type schedulePropertiesPtrType SchedulePropertiesArgs
-
-func SchedulePropertiesPtr(v *SchedulePropertiesArgs) SchedulePropertiesPtrInput {
-	return (*schedulePropertiesPtrType)(v)
-}
-
-func (*schedulePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduleProperties)(nil)).Elem()
-}
-
-func (i *schedulePropertiesPtrType) ToSchedulePropertiesPtrOutput() SchedulePropertiesPtrOutput {
-	return i.ToSchedulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *schedulePropertiesPtrType) ToSchedulePropertiesPtrOutputWithContext(ctx context.Context) SchedulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulePropertiesPtrOutput)
-}
-
 type SchedulePropertiesOutput struct{ *pulumi.OutputState }
 
 func (SchedulePropertiesOutput) ElementType() reflect.Type {
@@ -1710,16 +1282,6 @@ func (o SchedulePropertiesOutput) ToSchedulePropertiesOutput() SchedulePropertie
 
 func (o SchedulePropertiesOutput) ToSchedulePropertiesOutputWithContext(ctx context.Context) SchedulePropertiesOutput {
 	return o
-}
-
-func (o SchedulePropertiesOutput) ToSchedulePropertiesPtrOutput() SchedulePropertiesPtrOutput {
-	return o.ToSchedulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SchedulePropertiesOutput) ToSchedulePropertiesPtrOutputWithContext(ctx context.Context) SchedulePropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduleProperties) *ScheduleProperties {
-		return &v
-	}).(SchedulePropertiesPtrOutput)
 }
 
 func (o SchedulePropertiesOutput) AdvancedSchedule() AdvancedSchedulePtrOutput {
@@ -1774,147 +1336,6 @@ func (o SchedulePropertiesOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScheduleProperties) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
 
-type SchedulePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SchedulePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduleProperties)(nil)).Elem()
-}
-
-func (o SchedulePropertiesPtrOutput) ToSchedulePropertiesPtrOutput() SchedulePropertiesPtrOutput {
-	return o
-}
-
-func (o SchedulePropertiesPtrOutput) ToSchedulePropertiesPtrOutputWithContext(ctx context.Context) SchedulePropertiesPtrOutput {
-	return o
-}
-
-func (o SchedulePropertiesPtrOutput) Elem() SchedulePropertiesOutput {
-	return o.ApplyT(func(v *ScheduleProperties) ScheduleProperties {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduleProperties
-		return ret
-	}).(SchedulePropertiesOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) AdvancedSchedule() AdvancedSchedulePtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *AdvancedSchedule {
-		if v == nil {
-			return nil
-		}
-		return v.AdvancedSchedule
-	}).(AdvancedSchedulePtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) CreationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreationTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) ExpiryTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExpiryTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.ExpiryTimeOffsetMinutes
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Frequency
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Interval
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) IsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) NextRun() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NextRun
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.NextRunOffsetMinutes
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesPtrOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScheduleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeZone
-	}).(pulumi.StringPtrOutput)
-}
-
 type SchedulePropertiesResponse struct {
 	AdvancedSchedule        *AdvancedScheduleResponse `pulumi:"advancedSchedule"`
 	CreationTime            *string                   `pulumi:"creationTime"`
@@ -1933,84 +1354,16 @@ type SchedulePropertiesResponse struct {
 }
 
 
-
-
-
-type SchedulePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSchedulePropertiesResponseOutput() SchedulePropertiesResponseOutput
-	ToSchedulePropertiesResponseOutputWithContext(context.Context) SchedulePropertiesResponseOutput
-}
-
-type SchedulePropertiesResponseArgs struct {
-	AdvancedSchedule        AdvancedScheduleResponsePtrInput `pulumi:"advancedSchedule"`
-	CreationTime            pulumi.StringPtrInput            `pulumi:"creationTime"`
-	Description             pulumi.StringPtrInput            `pulumi:"description"`
-	ExpiryTime              pulumi.StringPtrInput            `pulumi:"expiryTime"`
-	ExpiryTimeOffsetMinutes pulumi.Float64PtrInput           `pulumi:"expiryTimeOffsetMinutes"`
-	Frequency               pulumi.StringPtrInput            `pulumi:"frequency"`
-	Interval                pulumi.IntPtrInput               `pulumi:"interval"`
-	IsEnabled               pulumi.BoolPtrInput              `pulumi:"isEnabled"`
-	LastModifiedTime        pulumi.StringPtrInput            `pulumi:"lastModifiedTime"`
-	NextRun                 pulumi.StringPtrInput            `pulumi:"nextRun"`
-	NextRunOffsetMinutes    pulumi.Float64PtrInput           `pulumi:"nextRunOffsetMinutes"`
-	StartTime               pulumi.StringPtrInput            `pulumi:"startTime"`
-	StartTimeOffsetMinutes  pulumi.Float64Input              `pulumi:"startTimeOffsetMinutes"`
-	TimeZone                pulumi.StringPtrInput            `pulumi:"timeZone"`
-}
-
-func (SchedulePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchedulePropertiesResponse)(nil)).Elem()
-}
-
-func (i SchedulePropertiesResponseArgs) ToSchedulePropertiesResponseOutput() SchedulePropertiesResponseOutput {
-	return i.ToSchedulePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SchedulePropertiesResponseArgs) ToSchedulePropertiesResponseOutputWithContext(ctx context.Context) SchedulePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulePropertiesResponseOutput)
-}
-
-func (i SchedulePropertiesResponseArgs) ToSchedulePropertiesResponsePtrOutput() SchedulePropertiesResponsePtrOutput {
-	return i.ToSchedulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SchedulePropertiesResponseArgs) ToSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) SchedulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulePropertiesResponseOutput).ToSchedulePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SchedulePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSchedulePropertiesResponsePtrOutput() SchedulePropertiesResponsePtrOutput
-	ToSchedulePropertiesResponsePtrOutputWithContext(context.Context) SchedulePropertiesResponsePtrOutput
-}
-
-type schedulePropertiesResponsePtrType SchedulePropertiesResponseArgs
-
-func SchedulePropertiesResponsePtr(v *SchedulePropertiesResponseArgs) SchedulePropertiesResponsePtrInput {
-	return (*schedulePropertiesResponsePtrType)(v)
-}
-
-func (*schedulePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchedulePropertiesResponse)(nil)).Elem()
-}
-
-func (i *schedulePropertiesResponsePtrType) ToSchedulePropertiesResponsePtrOutput() SchedulePropertiesResponsePtrOutput {
-	return i.ToSchedulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *schedulePropertiesResponsePtrType) ToSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) SchedulePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulePropertiesResponsePtrOutput)
+func (val *SchedulePropertiesResponse) Defaults() *SchedulePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEnabled) {
+		isEnabled_ := false
+		tmp.IsEnabled = &isEnabled_
+	}
+	return &tmp
 }
 
 type SchedulePropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -2025,16 +1378,6 @@ func (o SchedulePropertiesResponseOutput) ToSchedulePropertiesResponseOutput() S
 
 func (o SchedulePropertiesResponseOutput) ToSchedulePropertiesResponseOutputWithContext(ctx context.Context) SchedulePropertiesResponseOutput {
 	return o
-}
-
-func (o SchedulePropertiesResponseOutput) ToSchedulePropertiesResponsePtrOutput() SchedulePropertiesResponsePtrOutput {
-	return o.ToSchedulePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SchedulePropertiesResponseOutput) ToSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) SchedulePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchedulePropertiesResponse) *SchedulePropertiesResponse {
-		return &v
-	}).(SchedulePropertiesResponsePtrOutput)
 }
 
 func (o SchedulePropertiesResponseOutput) AdvancedSchedule() AdvancedScheduleResponsePtrOutput {
@@ -2091,156 +1434,6 @@ func (o SchedulePropertiesResponseOutput) StartTimeOffsetMinutes() pulumi.Float6
 
 func (o SchedulePropertiesResponseOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SchedulePropertiesResponse) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
-}
-
-type SchedulePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SchedulePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SchedulePropertiesResponse)(nil)).Elem()
-}
-
-func (o SchedulePropertiesResponsePtrOutput) ToSchedulePropertiesResponsePtrOutput() SchedulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SchedulePropertiesResponsePtrOutput) ToSchedulePropertiesResponsePtrOutputWithContext(ctx context.Context) SchedulePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SchedulePropertiesResponsePtrOutput) Elem() SchedulePropertiesResponseOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) SchedulePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SchedulePropertiesResponse
-		return ret
-	}).(SchedulePropertiesResponseOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) AdvancedSchedule() AdvancedScheduleResponsePtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *AdvancedScheduleResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AdvancedSchedule
-	}).(AdvancedScheduleResponsePtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) CreationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreationTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) ExpiryTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExpiryTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) ExpiryTimeOffsetMinutes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.ExpiryTimeOffsetMinutes
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Frequency
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Interval
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) IsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) NextRun() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NextRun
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) NextRunOffsetMinutes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.NextRunOffsetMinutes
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) StartTimeOffsetMinutes() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.StartTimeOffsetMinutes
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o SchedulePropertiesResponsePtrOutput) TimeZone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SchedulePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeZone
-	}).(pulumi.StringPtrOutput)
 }
 
 type SoftwareUpdateConfigurationTasks struct {
@@ -2396,75 +1589,6 @@ type SoftwareUpdateConfigurationTasksResponse struct {
 	PreTask  *TaskPropertiesResponse `pulumi:"preTask"`
 }
 
-
-
-
-
-type SoftwareUpdateConfigurationTasksResponseInput interface {
-	pulumi.Input
-
-	ToSoftwareUpdateConfigurationTasksResponseOutput() SoftwareUpdateConfigurationTasksResponseOutput
-	ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(context.Context) SoftwareUpdateConfigurationTasksResponseOutput
-}
-
-type SoftwareUpdateConfigurationTasksResponseArgs struct {
-	PostTask TaskPropertiesResponsePtrInput `pulumi:"postTask"`
-	PreTask  TaskPropertiesResponsePtrInput `pulumi:"preTask"`
-}
-
-func (SoftwareUpdateConfigurationTasksResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwareUpdateConfigurationTasksResponse)(nil)).Elem()
-}
-
-func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponseOutput() SoftwareUpdateConfigurationTasksResponseOutput {
-	return i.ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(context.Background())
-}
-
-func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksResponseOutput)
-}
-
-func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return i.ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SoftwareUpdateConfigurationTasksResponseArgs) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksResponseOutput).ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SoftwareUpdateConfigurationTasksResponsePtrInput interface {
-	pulumi.Input
-
-	ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput
-	ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput
-}
-
-type softwareUpdateConfigurationTasksResponsePtrType SoftwareUpdateConfigurationTasksResponseArgs
-
-func SoftwareUpdateConfigurationTasksResponsePtr(v *SoftwareUpdateConfigurationTasksResponseArgs) SoftwareUpdateConfigurationTasksResponsePtrInput {
-	return (*softwareUpdateConfigurationTasksResponsePtrType)(v)
-}
-
-func (*softwareUpdateConfigurationTasksResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SoftwareUpdateConfigurationTasksResponse)(nil)).Elem()
-}
-
-func (i *softwareUpdateConfigurationTasksResponsePtrType) ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return i.ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *softwareUpdateConfigurationTasksResponsePtrType) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationTasksResponsePtrOutput)
-}
-
 type SoftwareUpdateConfigurationTasksResponseOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationTasksResponseOutput) ElementType() reflect.Type {
@@ -2477,16 +1601,6 @@ func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigur
 
 func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponseOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponseOutput {
 	return o
-}
-
-func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponsePtrOutput() SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return o.ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SoftwareUpdateConfigurationTasksResponseOutput) ToSoftwareUpdateConfigurationTasksResponsePtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationTasksResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwareUpdateConfigurationTasksResponse) *SoftwareUpdateConfigurationTasksResponse {
-		return &v
-	}).(SoftwareUpdateConfigurationTasksResponsePtrOutput)
 }
 
 func (o SoftwareUpdateConfigurationTasksResponseOutput) PostTask() TaskPropertiesResponsePtrOutput {
@@ -2855,75 +1969,6 @@ type TagSettingsPropertiesResponse struct {
 	Tags           map[string][]string `pulumi:"tags"`
 }
 
-
-
-
-
-type TagSettingsPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToTagSettingsPropertiesResponseOutput() TagSettingsPropertiesResponseOutput
-	ToTagSettingsPropertiesResponseOutputWithContext(context.Context) TagSettingsPropertiesResponseOutput
-}
-
-type TagSettingsPropertiesResponseArgs struct {
-	FilterOperator pulumi.StringPtrInput      `pulumi:"filterOperator"`
-	Tags           pulumi.StringArrayMapInput `pulumi:"tags"`
-}
-
-func (TagSettingsPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagSettingsPropertiesResponse)(nil)).Elem()
-}
-
-func (i TagSettingsPropertiesResponseArgs) ToTagSettingsPropertiesResponseOutput() TagSettingsPropertiesResponseOutput {
-	return i.ToTagSettingsPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i TagSettingsPropertiesResponseArgs) ToTagSettingsPropertiesResponseOutputWithContext(ctx context.Context) TagSettingsPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagSettingsPropertiesResponseOutput)
-}
-
-func (i TagSettingsPropertiesResponseArgs) ToTagSettingsPropertiesResponsePtrOutput() TagSettingsPropertiesResponsePtrOutput {
-	return i.ToTagSettingsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TagSettingsPropertiesResponseArgs) ToTagSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) TagSettingsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagSettingsPropertiesResponseOutput).ToTagSettingsPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type TagSettingsPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToTagSettingsPropertiesResponsePtrOutput() TagSettingsPropertiesResponsePtrOutput
-	ToTagSettingsPropertiesResponsePtrOutputWithContext(context.Context) TagSettingsPropertiesResponsePtrOutput
-}
-
-type tagSettingsPropertiesResponsePtrType TagSettingsPropertiesResponseArgs
-
-func TagSettingsPropertiesResponsePtr(v *TagSettingsPropertiesResponseArgs) TagSettingsPropertiesResponsePtrInput {
-	return (*tagSettingsPropertiesResponsePtrType)(v)
-}
-
-func (*tagSettingsPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagSettingsPropertiesResponse)(nil)).Elem()
-}
-
-func (i *tagSettingsPropertiesResponsePtrType) ToTagSettingsPropertiesResponsePtrOutput() TagSettingsPropertiesResponsePtrOutput {
-	return i.ToTagSettingsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *tagSettingsPropertiesResponsePtrType) ToTagSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) TagSettingsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagSettingsPropertiesResponsePtrOutput)
-}
-
 type TagSettingsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TagSettingsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2936,16 +1981,6 @@ func (o TagSettingsPropertiesResponseOutput) ToTagSettingsPropertiesResponseOutp
 
 func (o TagSettingsPropertiesResponseOutput) ToTagSettingsPropertiesResponseOutputWithContext(ctx context.Context) TagSettingsPropertiesResponseOutput {
 	return o
-}
-
-func (o TagSettingsPropertiesResponseOutput) ToTagSettingsPropertiesResponsePtrOutput() TagSettingsPropertiesResponsePtrOutput {
-	return o.ToTagSettingsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TagSettingsPropertiesResponseOutput) ToTagSettingsPropertiesResponsePtrOutputWithContext(ctx context.Context) TagSettingsPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagSettingsPropertiesResponse) *TagSettingsPropertiesResponse {
-		return &v
-	}).(TagSettingsPropertiesResponsePtrOutput)
 }
 
 func (o TagSettingsPropertiesResponseOutput) FilterOperator() pulumi.StringPtrOutput {
@@ -3151,75 +2186,6 @@ type TargetPropertiesResponse struct {
 	NonAzureQueries []NonAzureQueryPropertiesResponse `pulumi:"nonAzureQueries"`
 }
 
-
-
-
-
-type TargetPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToTargetPropertiesResponseOutput() TargetPropertiesResponseOutput
-	ToTargetPropertiesResponseOutputWithContext(context.Context) TargetPropertiesResponseOutput
-}
-
-type TargetPropertiesResponseArgs struct {
-	AzureQueries    AzureQueryPropertiesResponseArrayInput    `pulumi:"azureQueries"`
-	NonAzureQueries NonAzureQueryPropertiesResponseArrayInput `pulumi:"nonAzureQueries"`
-}
-
-func (TargetPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TargetPropertiesResponse)(nil)).Elem()
-}
-
-func (i TargetPropertiesResponseArgs) ToTargetPropertiesResponseOutput() TargetPropertiesResponseOutput {
-	return i.ToTargetPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i TargetPropertiesResponseArgs) ToTargetPropertiesResponseOutputWithContext(ctx context.Context) TargetPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetPropertiesResponseOutput)
-}
-
-func (i TargetPropertiesResponseArgs) ToTargetPropertiesResponsePtrOutput() TargetPropertiesResponsePtrOutput {
-	return i.ToTargetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TargetPropertiesResponseArgs) ToTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) TargetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetPropertiesResponseOutput).ToTargetPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type TargetPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToTargetPropertiesResponsePtrOutput() TargetPropertiesResponsePtrOutput
-	ToTargetPropertiesResponsePtrOutputWithContext(context.Context) TargetPropertiesResponsePtrOutput
-}
-
-type targetPropertiesResponsePtrType TargetPropertiesResponseArgs
-
-func TargetPropertiesResponsePtr(v *TargetPropertiesResponseArgs) TargetPropertiesResponsePtrInput {
-	return (*targetPropertiesResponsePtrType)(v)
-}
-
-func (*targetPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TargetPropertiesResponse)(nil)).Elem()
-}
-
-func (i *targetPropertiesResponsePtrType) ToTargetPropertiesResponsePtrOutput() TargetPropertiesResponsePtrOutput {
-	return i.ToTargetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *targetPropertiesResponsePtrType) ToTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) TargetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TargetPropertiesResponsePtrOutput)
-}
-
 type TargetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TargetPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3232,16 +2198,6 @@ func (o TargetPropertiesResponseOutput) ToTargetPropertiesResponseOutput() Targe
 
 func (o TargetPropertiesResponseOutput) ToTargetPropertiesResponseOutputWithContext(ctx context.Context) TargetPropertiesResponseOutput {
 	return o
-}
-
-func (o TargetPropertiesResponseOutput) ToTargetPropertiesResponsePtrOutput() TargetPropertiesResponsePtrOutput {
-	return o.ToTargetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TargetPropertiesResponseOutput) ToTargetPropertiesResponsePtrOutputWithContext(ctx context.Context) TargetPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetPropertiesResponse) *TargetPropertiesResponse {
-		return &v
-	}).(TargetPropertiesResponsePtrOutput)
 }
 
 func (o TargetPropertiesResponseOutput) AzureQueries() AzureQueryPropertiesResponseArrayOutput {
@@ -3447,75 +2403,6 @@ type TaskPropertiesResponse struct {
 	Source     *string           `pulumi:"source"`
 }
 
-
-
-
-
-type TaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToTaskPropertiesResponseOutput() TaskPropertiesResponseOutput
-	ToTaskPropertiesResponseOutputWithContext(context.Context) TaskPropertiesResponseOutput
-}
-
-type TaskPropertiesResponseArgs struct {
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	Source     pulumi.StringPtrInput `pulumi:"source"`
-}
-
-func (TaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i TaskPropertiesResponseArgs) ToTaskPropertiesResponseOutput() TaskPropertiesResponseOutput {
-	return i.ToTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i TaskPropertiesResponseArgs) ToTaskPropertiesResponseOutputWithContext(ctx context.Context) TaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskPropertiesResponseOutput)
-}
-
-func (i TaskPropertiesResponseArgs) ToTaskPropertiesResponsePtrOutput() TaskPropertiesResponsePtrOutput {
-	return i.ToTaskPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TaskPropertiesResponseArgs) ToTaskPropertiesResponsePtrOutputWithContext(ctx context.Context) TaskPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskPropertiesResponseOutput).ToTaskPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type TaskPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToTaskPropertiesResponsePtrOutput() TaskPropertiesResponsePtrOutput
-	ToTaskPropertiesResponsePtrOutputWithContext(context.Context) TaskPropertiesResponsePtrOutput
-}
-
-type taskPropertiesResponsePtrType TaskPropertiesResponseArgs
-
-func TaskPropertiesResponsePtr(v *TaskPropertiesResponseArgs) TaskPropertiesResponsePtrInput {
-	return (*taskPropertiesResponsePtrType)(v)
-}
-
-func (*taskPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i *taskPropertiesResponsePtrType) ToTaskPropertiesResponsePtrOutput() TaskPropertiesResponsePtrOutput {
-	return i.ToTaskPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *taskPropertiesResponsePtrType) ToTaskPropertiesResponsePtrOutputWithContext(ctx context.Context) TaskPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskPropertiesResponsePtrOutput)
-}
-
 type TaskPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (TaskPropertiesResponseOutput) ElementType() reflect.Type {
@@ -3528,16 +2415,6 @@ func (o TaskPropertiesResponseOutput) ToTaskPropertiesResponseOutput() TaskPrope
 
 func (o TaskPropertiesResponseOutput) ToTaskPropertiesResponseOutputWithContext(ctx context.Context) TaskPropertiesResponseOutput {
 	return o
-}
-
-func (o TaskPropertiesResponseOutput) ToTaskPropertiesResponsePtrOutput() TaskPropertiesResponsePtrOutput {
-	return o.ToTaskPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TaskPropertiesResponseOutput) ToTaskPropertiesResponsePtrOutputWithContext(ctx context.Context) TaskPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskPropertiesResponse) *TaskPropertiesResponse {
-		return &v
-	}).(TaskPropertiesResponsePtrOutput)
 }
 
 func (o TaskPropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
@@ -3633,47 +2510,6 @@ func (i UpdateConfigurationArgs) ToUpdateConfigurationOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(UpdateConfigurationOutput)
 }
 
-func (i UpdateConfigurationArgs) ToUpdateConfigurationPtrOutput() UpdateConfigurationPtrOutput {
-	return i.ToUpdateConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i UpdateConfigurationArgs) ToUpdateConfigurationPtrOutputWithContext(ctx context.Context) UpdateConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UpdateConfigurationOutput).ToUpdateConfigurationPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type UpdateConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToUpdateConfigurationPtrOutput() UpdateConfigurationPtrOutput
-	ToUpdateConfigurationPtrOutputWithContext(context.Context) UpdateConfigurationPtrOutput
-}
-
-type updateConfigurationPtrType UpdateConfigurationArgs
-
-func UpdateConfigurationPtr(v *UpdateConfigurationArgs) UpdateConfigurationPtrInput {
-	return (*updateConfigurationPtrType)(v)
-}
-
-func (*updateConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UpdateConfiguration)(nil)).Elem()
-}
-
-func (i *updateConfigurationPtrType) ToUpdateConfigurationPtrOutput() UpdateConfigurationPtrOutput {
-	return i.ToUpdateConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *updateConfigurationPtrType) ToUpdateConfigurationPtrOutputWithContext(ctx context.Context) UpdateConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UpdateConfigurationPtrOutput)
-}
-
 type UpdateConfigurationOutput struct{ *pulumi.OutputState }
 
 func (UpdateConfigurationOutput) ElementType() reflect.Type {
@@ -3686,16 +2522,6 @@ func (o UpdateConfigurationOutput) ToUpdateConfigurationOutput() UpdateConfigura
 
 func (o UpdateConfigurationOutput) ToUpdateConfigurationOutputWithContext(ctx context.Context) UpdateConfigurationOutput {
 	return o
-}
-
-func (o UpdateConfigurationOutput) ToUpdateConfigurationPtrOutput() UpdateConfigurationPtrOutput {
-	return o.ToUpdateConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o UpdateConfigurationOutput) ToUpdateConfigurationPtrOutputWithContext(ctx context.Context) UpdateConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpdateConfiguration) *UpdateConfiguration {
-		return &v
-	}).(UpdateConfigurationPtrOutput)
 }
 
 func (o UpdateConfigurationOutput) AzureVirtualMachines() pulumi.StringArrayOutput {
@@ -3726,93 +2552,6 @@ func (o UpdateConfigurationOutput) Windows() WindowsPropertiesPtrOutput {
 	return o.ApplyT(func(v UpdateConfiguration) *WindowsProperties { return v.Windows }).(WindowsPropertiesPtrOutput)
 }
 
-type UpdateConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (UpdateConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UpdateConfiguration)(nil)).Elem()
-}
-
-func (o UpdateConfigurationPtrOutput) ToUpdateConfigurationPtrOutput() UpdateConfigurationPtrOutput {
-	return o
-}
-
-func (o UpdateConfigurationPtrOutput) ToUpdateConfigurationPtrOutputWithContext(ctx context.Context) UpdateConfigurationPtrOutput {
-	return o
-}
-
-func (o UpdateConfigurationPtrOutput) Elem() UpdateConfigurationOutput {
-	return o.ApplyT(func(v *UpdateConfiguration) UpdateConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret UpdateConfiguration
-		return ret
-	}).(UpdateConfigurationOutput)
-}
-
-func (o UpdateConfigurationPtrOutput) AzureVirtualMachines() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UpdateConfiguration) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureVirtualMachines
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o UpdateConfigurationPtrOutput) Duration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UpdateConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Duration
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o UpdateConfigurationPtrOutput) Linux() LinuxPropertiesPtrOutput {
-	return o.ApplyT(func(v *UpdateConfiguration) *LinuxProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Linux
-	}).(LinuxPropertiesPtrOutput)
-}
-
-func (o UpdateConfigurationPtrOutput) NonAzureComputerNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UpdateConfiguration) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NonAzureComputerNames
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o UpdateConfigurationPtrOutput) OperatingSystem() OperatingSystemTypePtrOutput {
-	return o.ApplyT(func(v *UpdateConfiguration) *OperatingSystemType {
-		if v == nil {
-			return nil
-		}
-		return &v.OperatingSystem
-	}).(OperatingSystemTypePtrOutput)
-}
-
-func (o UpdateConfigurationPtrOutput) Targets() TargetPropertiesPtrOutput {
-	return o.ApplyT(func(v *UpdateConfiguration) *TargetProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Targets
-	}).(TargetPropertiesPtrOutput)
-}
-
-func (o UpdateConfigurationPtrOutput) Windows() WindowsPropertiesPtrOutput {
-	return o.ApplyT(func(v *UpdateConfiguration) *WindowsProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Windows
-	}).(WindowsPropertiesPtrOutput)
-}
-
 type UpdateConfigurationResponse struct {
 	AzureVirtualMachines  []string                   `pulumi:"azureVirtualMachines"`
 	Duration              *string                    `pulumi:"duration"`
@@ -3821,80 +2560,6 @@ type UpdateConfigurationResponse struct {
 	OperatingSystem       string                     `pulumi:"operatingSystem"`
 	Targets               *TargetPropertiesResponse  `pulumi:"targets"`
 	Windows               *WindowsPropertiesResponse `pulumi:"windows"`
-}
-
-
-
-
-
-type UpdateConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToUpdateConfigurationResponseOutput() UpdateConfigurationResponseOutput
-	ToUpdateConfigurationResponseOutputWithContext(context.Context) UpdateConfigurationResponseOutput
-}
-
-type UpdateConfigurationResponseArgs struct {
-	AzureVirtualMachines  pulumi.StringArrayInput           `pulumi:"azureVirtualMachines"`
-	Duration              pulumi.StringPtrInput             `pulumi:"duration"`
-	Linux                 LinuxPropertiesResponsePtrInput   `pulumi:"linux"`
-	NonAzureComputerNames pulumi.StringArrayInput           `pulumi:"nonAzureComputerNames"`
-	OperatingSystem       pulumi.StringInput                `pulumi:"operatingSystem"`
-	Targets               TargetPropertiesResponsePtrInput  `pulumi:"targets"`
-	Windows               WindowsPropertiesResponsePtrInput `pulumi:"windows"`
-}
-
-func (UpdateConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UpdateConfigurationResponse)(nil)).Elem()
-}
-
-func (i UpdateConfigurationResponseArgs) ToUpdateConfigurationResponseOutput() UpdateConfigurationResponseOutput {
-	return i.ToUpdateConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i UpdateConfigurationResponseArgs) ToUpdateConfigurationResponseOutputWithContext(ctx context.Context) UpdateConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UpdateConfigurationResponseOutput)
-}
-
-func (i UpdateConfigurationResponseArgs) ToUpdateConfigurationResponsePtrOutput() UpdateConfigurationResponsePtrOutput {
-	return i.ToUpdateConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i UpdateConfigurationResponseArgs) ToUpdateConfigurationResponsePtrOutputWithContext(ctx context.Context) UpdateConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UpdateConfigurationResponseOutput).ToUpdateConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type UpdateConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToUpdateConfigurationResponsePtrOutput() UpdateConfigurationResponsePtrOutput
-	ToUpdateConfigurationResponsePtrOutputWithContext(context.Context) UpdateConfigurationResponsePtrOutput
-}
-
-type updateConfigurationResponsePtrType UpdateConfigurationResponseArgs
-
-func UpdateConfigurationResponsePtr(v *UpdateConfigurationResponseArgs) UpdateConfigurationResponsePtrInput {
-	return (*updateConfigurationResponsePtrType)(v)
-}
-
-func (*updateConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UpdateConfigurationResponse)(nil)).Elem()
-}
-
-func (i *updateConfigurationResponsePtrType) ToUpdateConfigurationResponsePtrOutput() UpdateConfigurationResponsePtrOutput {
-	return i.ToUpdateConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *updateConfigurationResponsePtrType) ToUpdateConfigurationResponsePtrOutputWithContext(ctx context.Context) UpdateConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UpdateConfigurationResponsePtrOutput)
 }
 
 type UpdateConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -3909,16 +2574,6 @@ func (o UpdateConfigurationResponseOutput) ToUpdateConfigurationResponseOutput()
 
 func (o UpdateConfigurationResponseOutput) ToUpdateConfigurationResponseOutputWithContext(ctx context.Context) UpdateConfigurationResponseOutput {
 	return o
-}
-
-func (o UpdateConfigurationResponseOutput) ToUpdateConfigurationResponsePtrOutput() UpdateConfigurationResponsePtrOutput {
-	return o.ToUpdateConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o UpdateConfigurationResponseOutput) ToUpdateConfigurationResponsePtrOutputWithContext(ctx context.Context) UpdateConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UpdateConfigurationResponse) *UpdateConfigurationResponse {
-		return &v
-	}).(UpdateConfigurationResponsePtrOutput)
 }
 
 func (o UpdateConfigurationResponseOutput) AzureVirtualMachines() pulumi.StringArrayOutput {
@@ -3947,93 +2602,6 @@ func (o UpdateConfigurationResponseOutput) Targets() TargetPropertiesResponsePtr
 
 func (o UpdateConfigurationResponseOutput) Windows() WindowsPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v UpdateConfigurationResponse) *WindowsPropertiesResponse { return v.Windows }).(WindowsPropertiesResponsePtrOutput)
-}
-
-type UpdateConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (UpdateConfigurationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UpdateConfigurationResponse)(nil)).Elem()
-}
-
-func (o UpdateConfigurationResponsePtrOutput) ToUpdateConfigurationResponsePtrOutput() UpdateConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o UpdateConfigurationResponsePtrOutput) ToUpdateConfigurationResponsePtrOutputWithContext(ctx context.Context) UpdateConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o UpdateConfigurationResponsePtrOutput) Elem() UpdateConfigurationResponseOutput {
-	return o.ApplyT(func(v *UpdateConfigurationResponse) UpdateConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret UpdateConfigurationResponse
-		return ret
-	}).(UpdateConfigurationResponseOutput)
-}
-
-func (o UpdateConfigurationResponsePtrOutput) AzureVirtualMachines() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UpdateConfigurationResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureVirtualMachines
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o UpdateConfigurationResponsePtrOutput) Duration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UpdateConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Duration
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o UpdateConfigurationResponsePtrOutput) Linux() LinuxPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *UpdateConfigurationResponse) *LinuxPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Linux
-	}).(LinuxPropertiesResponsePtrOutput)
-}
-
-func (o UpdateConfigurationResponsePtrOutput) NonAzureComputerNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *UpdateConfigurationResponse) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NonAzureComputerNames
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o UpdateConfigurationResponsePtrOutput) OperatingSystem() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *UpdateConfigurationResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OperatingSystem
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o UpdateConfigurationResponsePtrOutput) Targets() TargetPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *UpdateConfigurationResponse) *TargetPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Targets
-	}).(TargetPropertiesResponsePtrOutput)
-}
-
-func (o UpdateConfigurationResponsePtrOutput) Windows() WindowsPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *UpdateConfigurationResponse) *WindowsPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Windows
-	}).(WindowsPropertiesResponsePtrOutput)
 }
 
 type WindowsProperties struct {
@@ -4221,77 +2789,6 @@ type WindowsPropertiesResponse struct {
 	RebootSetting                 *string  `pulumi:"rebootSetting"`
 }
 
-
-
-
-
-type WindowsPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToWindowsPropertiesResponseOutput() WindowsPropertiesResponseOutput
-	ToWindowsPropertiesResponseOutputWithContext(context.Context) WindowsPropertiesResponseOutput
-}
-
-type WindowsPropertiesResponseArgs struct {
-	ExcludedKbNumbers             pulumi.StringArrayInput `pulumi:"excludedKbNumbers"`
-	IncludedKbNumbers             pulumi.StringArrayInput `pulumi:"includedKbNumbers"`
-	IncludedUpdateClassifications pulumi.StringPtrInput   `pulumi:"includedUpdateClassifications"`
-	RebootSetting                 pulumi.StringPtrInput   `pulumi:"rebootSetting"`
-}
-
-func (WindowsPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsPropertiesResponse)(nil)).Elem()
-}
-
-func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponseOutput() WindowsPropertiesResponseOutput {
-	return i.ToWindowsPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponseOutputWithContext(ctx context.Context) WindowsPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesResponseOutput)
-}
-
-func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput {
-	return i.ToWindowsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WindowsPropertiesResponseArgs) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesResponseOutput).ToWindowsPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WindowsPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput
-	ToWindowsPropertiesResponsePtrOutputWithContext(context.Context) WindowsPropertiesResponsePtrOutput
-}
-
-type windowsPropertiesResponsePtrType WindowsPropertiesResponseArgs
-
-func WindowsPropertiesResponsePtr(v *WindowsPropertiesResponseArgs) WindowsPropertiesResponsePtrInput {
-	return (*windowsPropertiesResponsePtrType)(v)
-}
-
-func (*windowsPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WindowsPropertiesResponse)(nil)).Elem()
-}
-
-func (i *windowsPropertiesResponsePtrType) ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput {
-	return i.ToWindowsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *windowsPropertiesResponsePtrType) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsPropertiesResponsePtrOutput)
-}
-
 type WindowsPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (WindowsPropertiesResponseOutput) ElementType() reflect.Type {
@@ -4304,16 +2801,6 @@ func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponseOutput() Win
 
 func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponseOutputWithContext(ctx context.Context) WindowsPropertiesResponseOutput {
 	return o
-}
-
-func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponsePtrOutput() WindowsPropertiesResponsePtrOutput {
-	return o.ToWindowsPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WindowsPropertiesResponseOutput) ToWindowsPropertiesResponsePtrOutputWithContext(ctx context.Context) WindowsPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsPropertiesResponse) *WindowsPropertiesResponse {
-		return &v
-	}).(WindowsPropertiesResponsePtrOutput)
 }
 
 func (o WindowsPropertiesResponseOutput) ExcludedKbNumbers() pulumi.StringArrayOutput {
@@ -4418,9 +2905,7 @@ func init() {
 	pulumi.RegisterOutputType(NonAzureQueryPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(NonAzureQueryPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(SchedulePropertiesOutput{})
-	pulumi.RegisterOutputType(SchedulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SchedulePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SchedulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksPtrOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTasksResponseOutput{})
@@ -4440,9 +2925,7 @@ func init() {
 	pulumi.RegisterOutputType(TaskPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(UpdateConfigurationOutput{})
-	pulumi.RegisterOutputType(UpdateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UpdateConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(UpdateConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(WindowsPropertiesOutput{})
 	pulumi.RegisterOutputType(WindowsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WindowsPropertiesResponseOutput{})

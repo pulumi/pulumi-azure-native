@@ -46,6 +46,9 @@ func NewBackend(ctx *pulumi.Context,
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
+	if args.Tls != nil {
+		args.Tls = args.Tls.ToBackendTlsPropertiesPtrOutput().ApplyT(func(v *BackendTlsProperties) *BackendTlsProperties { return v.Defaults() }).(BackendTlsPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:apimanagement/v20160707:Backend"),
@@ -162,7 +165,7 @@ type BackendInput interface {
 }
 
 func (*Backend) ElementType() reflect.Type {
-	return reflect.TypeOf((*Backend)(nil))
+	return reflect.TypeOf((**Backend)(nil)).Elem()
 }
 
 func (i *Backend) ToBackendOutput() BackendOutput {
@@ -176,7 +179,7 @@ func (i *Backend) ToBackendOutputWithContext(ctx context.Context) BackendOutput 
 type BackendOutput struct{ *pulumi.OutputState }
 
 func (BackendOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Backend)(nil))
+	return reflect.TypeOf((**Backend)(nil)).Elem()
 }
 
 func (o BackendOutput) ToBackendOutput() BackendOutput {

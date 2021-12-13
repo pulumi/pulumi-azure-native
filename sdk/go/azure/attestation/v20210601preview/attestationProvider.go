@@ -111,7 +111,7 @@ type AttestationProviderInput interface {
 }
 
 func (*AttestationProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttestationProvider)(nil))
+	return reflect.TypeOf((**AttestationProvider)(nil)).Elem()
 }
 
 func (i *AttestationProvider) ToAttestationProviderOutput() AttestationProviderOutput {
@@ -125,7 +125,7 @@ func (i *AttestationProvider) ToAttestationProviderOutputWithContext(ctx context
 type AttestationProviderOutput struct{ *pulumi.OutputState }
 
 func (AttestationProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttestationProvider)(nil))
+	return reflect.TypeOf((**AttestationProvider)(nil)).Elem()
 }
 
 func (o AttestationProviderOutput) ToAttestationProviderOutput() AttestationProviderOutput {

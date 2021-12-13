@@ -126,7 +126,7 @@ type VirtualMachineTemplateInput interface {
 }
 
 func (*VirtualMachineTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineTemplate)(nil))
+	return reflect.TypeOf((**VirtualMachineTemplate)(nil)).Elem()
 }
 
 func (i *VirtualMachineTemplate) ToVirtualMachineTemplateOutput() VirtualMachineTemplateOutput {
@@ -140,7 +140,7 @@ func (i *VirtualMachineTemplate) ToVirtualMachineTemplateOutputWithContext(ctx c
 type VirtualMachineTemplateOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineTemplate)(nil))
+	return reflect.TypeOf((**VirtualMachineTemplate)(nil)).Elem()
 }
 
 func (o VirtualMachineTemplateOutput) ToVirtualMachineTemplateOutput() VirtualMachineTemplateOutput {

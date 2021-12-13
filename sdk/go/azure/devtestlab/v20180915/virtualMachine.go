@@ -68,16 +68,16 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.AllowClaim == nil {
+	if isZero(args.AllowClaim) {
 		args.AllowClaim = pulumi.BoolPtr(false)
 	}
-	if args.DisallowPublicIpAddress == nil {
+	if isZero(args.DisallowPublicIpAddress) {
 		args.DisallowPublicIpAddress = pulumi.BoolPtr(false)
 	}
-	if args.OwnerObjectId == nil {
+	if isZero(args.OwnerObjectId) {
 		args.OwnerObjectId = pulumi.StringPtr("dynamicValue")
 	}
-	if args.StorageType == nil {
+	if isZero(args.StorageType) {
 		args.StorageType = pulumi.StringPtr("labStorageType")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -198,7 +198,7 @@ type VirtualMachineInput interface {
 }
 
 func (*VirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachine)(nil))
+	return reflect.TypeOf((**VirtualMachine)(nil)).Elem()
 }
 
 func (i *VirtualMachine) ToVirtualMachineOutput() VirtualMachineOutput {
@@ -212,7 +212,7 @@ func (i *VirtualMachine) ToVirtualMachineOutputWithContext(ctx context.Context) 
 type VirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachine)(nil))
+	return reflect.TypeOf((**VirtualMachine)(nil)).Elem()
 }
 
 func (o VirtualMachineOutput) ToVirtualMachineOutput() VirtualMachineOutput {

@@ -117,7 +117,7 @@ type WorkloadNetworkSegmentInput interface {
 }
 
 func (*WorkloadNetworkSegment) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkSegment)(nil))
+	return reflect.TypeOf((**WorkloadNetworkSegment)(nil)).Elem()
 }
 
 func (i *WorkloadNetworkSegment) ToWorkloadNetworkSegmentOutput() WorkloadNetworkSegmentOutput {
@@ -131,7 +131,7 @@ func (i *WorkloadNetworkSegment) ToWorkloadNetworkSegmentOutputWithContext(ctx c
 type WorkloadNetworkSegmentOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkSegmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkSegment)(nil))
+	return reflect.TypeOf((**WorkloadNetworkSegment)(nil)).Elem()
 }
 
 func (o WorkloadNetworkSegmentOutput) ToWorkloadNetworkSegmentOutput() WorkloadNetworkSegmentOutput {

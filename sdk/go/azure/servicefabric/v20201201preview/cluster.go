@@ -62,6 +62,9 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.UpgradeDescription != nil {
+		args.UpgradeDescription = args.UpgradeDescription.ToClusterUpgradePolicyPtrOutput().ApplyT(func(v *ClusterUpgradePolicy) *ClusterUpgradePolicy { return v.Defaults() }).(ClusterUpgradePolicyPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:servicefabric:Cluster"),
@@ -191,7 +194,7 @@ type ClusterInput interface {
 }
 
 func (*Cluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cluster)(nil))
+	return reflect.TypeOf((**Cluster)(nil)).Elem()
 }
 
 func (i *Cluster) ToClusterOutput() ClusterOutput {
@@ -205,7 +208,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cluster)(nil))
+	return reflect.TypeOf((**Cluster)(nil)).Elem()
 }
 
 func (o ClusterOutput) ToClusterOutput() ClusterOutput {

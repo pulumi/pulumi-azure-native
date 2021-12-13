@@ -115,59 +115,6 @@ type ActivityLogAlertActionGroupResponse struct {
 	WebhookProperties map[string]string `pulumi:"webhookProperties"`
 }
 
-
-
-
-
-type ActivityLogAlertActionGroupResponseInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertActionGroupResponseOutput() ActivityLogAlertActionGroupResponseOutput
-	ToActivityLogAlertActionGroupResponseOutputWithContext(context.Context) ActivityLogAlertActionGroupResponseOutput
-}
-
-type ActivityLogAlertActionGroupResponseArgs struct {
-	ActionGroupId     pulumi.StringInput    `pulumi:"actionGroupId"`
-	WebhookProperties pulumi.StringMapInput `pulumi:"webhookProperties"`
-}
-
-func (ActivityLogAlertActionGroupResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionGroupResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertActionGroupResponseArgs) ToActivityLogAlertActionGroupResponseOutput() ActivityLogAlertActionGroupResponseOutput {
-	return i.ToActivityLogAlertActionGroupResponseOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertActionGroupResponseArgs) ToActivityLogAlertActionGroupResponseOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionGroupResponseOutput)
-}
-
-
-
-
-
-type ActivityLogAlertActionGroupResponseArrayInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertActionGroupResponseArrayOutput() ActivityLogAlertActionGroupResponseArrayOutput
-	ToActivityLogAlertActionGroupResponseArrayOutputWithContext(context.Context) ActivityLogAlertActionGroupResponseArrayOutput
-}
-
-type ActivityLogAlertActionGroupResponseArray []ActivityLogAlertActionGroupResponseInput
-
-func (ActivityLogAlertActionGroupResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertActionGroupResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertActionGroupResponseArray) ToActivityLogAlertActionGroupResponseArrayOutput() ActivityLogAlertActionGroupResponseArrayOutput {
-	return i.ToActivityLogAlertActionGroupResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertActionGroupResponseArray) ToActivityLogAlertActionGroupResponseArrayOutputWithContext(ctx context.Context) ActivityLogAlertActionGroupResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionGroupResponseArrayOutput)
-}
-
 type ActivityLogAlertActionGroupResponseOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertActionGroupResponseOutput) ElementType() reflect.Type {
@@ -241,47 +188,6 @@ func (i ActivityLogAlertActionListArgs) ToActivityLogAlertActionListOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListOutput)
 }
 
-func (i ActivityLogAlertActionListArgs) ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput {
-	return i.ToActivityLogAlertActionListPtrOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertActionListArgs) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListOutput).ToActivityLogAlertActionListPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ActivityLogAlertActionListPtrInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput
-	ToActivityLogAlertActionListPtrOutputWithContext(context.Context) ActivityLogAlertActionListPtrOutput
-}
-
-type activityLogAlertActionListPtrType ActivityLogAlertActionListArgs
-
-func ActivityLogAlertActionListPtr(v *ActivityLogAlertActionListArgs) ActivityLogAlertActionListPtrInput {
-	return (*activityLogAlertActionListPtrType)(v)
-}
-
-func (*activityLogAlertActionListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertActionList)(nil)).Elem()
-}
-
-func (i *activityLogAlertActionListPtrType) ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput {
-	return i.ToActivityLogAlertActionListPtrOutputWithContext(context.Background())
-}
-
-func (i *activityLogAlertActionListPtrType) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListPtrOutput)
-}
-
 type ActivityLogAlertActionListOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertActionListOutput) ElementType() reflect.Type {
@@ -296,123 +202,12 @@ func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListOutputWith
 	return o
 }
 
-func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput {
-	return o.ToActivityLogAlertActionListPtrOutputWithContext(context.Background())
-}
-
-func (o ActivityLogAlertActionListOutput) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertActionList) *ActivityLogAlertActionList {
-		return &v
-	}).(ActivityLogAlertActionListPtrOutput)
-}
-
 func (o ActivityLogAlertActionListOutput) ActionGroups() ActivityLogAlertActionGroupArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertActionList) []ActivityLogAlertActionGroup { return v.ActionGroups }).(ActivityLogAlertActionGroupArrayOutput)
 }
 
-type ActivityLogAlertActionListPtrOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertActionListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertActionList)(nil)).Elem()
-}
-
-func (o ActivityLogAlertActionListPtrOutput) ToActivityLogAlertActionListPtrOutput() ActivityLogAlertActionListPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertActionListPtrOutput) ToActivityLogAlertActionListPtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertActionListPtrOutput) Elem() ActivityLogAlertActionListOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionList) ActivityLogAlertActionList {
-		if v != nil {
-			return *v
-		}
-		var ret ActivityLogAlertActionList
-		return ret
-	}).(ActivityLogAlertActionListOutput)
-}
-
-func (o ActivityLogAlertActionListPtrOutput) ActionGroups() ActivityLogAlertActionGroupArrayOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionList) []ActivityLogAlertActionGroup {
-		if v == nil {
-			return nil
-		}
-		return v.ActionGroups
-	}).(ActivityLogAlertActionGroupArrayOutput)
-}
-
 type ActivityLogAlertActionListResponse struct {
 	ActionGroups []ActivityLogAlertActionGroupResponse `pulumi:"actionGroups"`
-}
-
-
-
-
-
-type ActivityLogAlertActionListResponseInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertActionListResponseOutput() ActivityLogAlertActionListResponseOutput
-	ToActivityLogAlertActionListResponseOutputWithContext(context.Context) ActivityLogAlertActionListResponseOutput
-}
-
-type ActivityLogAlertActionListResponseArgs struct {
-	ActionGroups ActivityLogAlertActionGroupResponseArrayInput `pulumi:"actionGroups"`
-}
-
-func (ActivityLogAlertActionListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertActionListResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponseOutput() ActivityLogAlertActionListResponseOutput {
-	return i.ToActivityLogAlertActionListResponseOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponseOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListResponseOutput)
-}
-
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput {
-	return i.ToActivityLogAlertActionListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertActionListResponseArgs) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListResponseOutput).ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ActivityLogAlertActionListResponsePtrInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput
-	ToActivityLogAlertActionListResponsePtrOutputWithContext(context.Context) ActivityLogAlertActionListResponsePtrOutput
-}
-
-type activityLogAlertActionListResponsePtrType ActivityLogAlertActionListResponseArgs
-
-func ActivityLogAlertActionListResponsePtr(v *ActivityLogAlertActionListResponseArgs) ActivityLogAlertActionListResponsePtrInput {
-	return (*activityLogAlertActionListResponsePtrType)(v)
-}
-
-func (*activityLogAlertActionListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertActionListResponse)(nil)).Elem()
-}
-
-func (i *activityLogAlertActionListResponsePtrType) ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput {
-	return i.ToActivityLogAlertActionListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *activityLogAlertActionListResponsePtrType) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertActionListResponsePtrOutput)
 }
 
 type ActivityLogAlertActionListResponseOutput struct{ *pulumi.OutputState }
@@ -429,51 +224,8 @@ func (o ActivityLogAlertActionListResponseOutput) ToActivityLogAlertActionListRe
 	return o
 }
 
-func (o ActivityLogAlertActionListResponseOutput) ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput {
-	return o.ToActivityLogAlertActionListResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ActivityLogAlertActionListResponseOutput) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertActionListResponse) *ActivityLogAlertActionListResponse {
-		return &v
-	}).(ActivityLogAlertActionListResponsePtrOutput)
-}
-
 func (o ActivityLogAlertActionListResponseOutput) ActionGroups() ActivityLogAlertActionGroupResponseArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertActionListResponse) []ActivityLogAlertActionGroupResponse {
-		return v.ActionGroups
-	}).(ActivityLogAlertActionGroupResponseArrayOutput)
-}
-
-type ActivityLogAlertActionListResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertActionListResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertActionListResponse)(nil)).Elem()
-}
-
-func (o ActivityLogAlertActionListResponsePtrOutput) ToActivityLogAlertActionListResponsePtrOutput() ActivityLogAlertActionListResponsePtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertActionListResponsePtrOutput) ToActivityLogAlertActionListResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertActionListResponsePtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertActionListResponsePtrOutput) Elem() ActivityLogAlertActionListResponseOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionListResponse) ActivityLogAlertActionListResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActivityLogAlertActionListResponse
-		return ret
-	}).(ActivityLogAlertActionListResponseOutput)
-}
-
-func (o ActivityLogAlertActionListResponsePtrOutput) ActionGroups() ActivityLogAlertActionGroupResponseArrayOutput {
-	return o.ApplyT(func(v *ActivityLogAlertActionListResponse) []ActivityLogAlertActionGroupResponse {
-		if v == nil {
-			return nil
-		}
 		return v.ActionGroups
 	}).(ActivityLogAlertActionGroupResponseArrayOutput)
 }
@@ -509,47 +261,6 @@ func (i ActivityLogAlertAllOfConditionArgs) ToActivityLogAlertAllOfConditionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionOutput)
 }
 
-func (i ActivityLogAlertAllOfConditionArgs) ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput {
-	return i.ToActivityLogAlertAllOfConditionPtrOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertAllOfConditionArgs) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionOutput).ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ActivityLogAlertAllOfConditionPtrInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput
-	ToActivityLogAlertAllOfConditionPtrOutputWithContext(context.Context) ActivityLogAlertAllOfConditionPtrOutput
-}
-
-type activityLogAlertAllOfConditionPtrType ActivityLogAlertAllOfConditionArgs
-
-func ActivityLogAlertAllOfConditionPtr(v *ActivityLogAlertAllOfConditionArgs) ActivityLogAlertAllOfConditionPtrInput {
-	return (*activityLogAlertAllOfConditionPtrType)(v)
-}
-
-func (*activityLogAlertAllOfConditionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertAllOfCondition)(nil)).Elem()
-}
-
-func (i *activityLogAlertAllOfConditionPtrType) ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput {
-	return i.ToActivityLogAlertAllOfConditionPtrOutputWithContext(context.Background())
-}
-
-func (i *activityLogAlertAllOfConditionPtrType) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionPtrOutput)
-}
-
 type ActivityLogAlertAllOfConditionOutput struct{ *pulumi.OutputState }
 
 func (ActivityLogAlertAllOfConditionOutput) ElementType() reflect.Type {
@@ -564,123 +275,12 @@ func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionOu
 	return o
 }
 
-func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput {
-	return o.ToActivityLogAlertAllOfConditionPtrOutputWithContext(context.Background())
-}
-
-func (o ActivityLogAlertAllOfConditionOutput) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertAllOfCondition) *ActivityLogAlertAllOfCondition {
-		return &v
-	}).(ActivityLogAlertAllOfConditionPtrOutput)
-}
-
 func (o ActivityLogAlertAllOfConditionOutput) AllOf() ActivityLogAlertLeafConditionArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertAllOfCondition) []ActivityLogAlertLeafCondition { return v.AllOf }).(ActivityLogAlertLeafConditionArrayOutput)
 }
 
-type ActivityLogAlertAllOfConditionPtrOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertAllOfConditionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertAllOfCondition)(nil)).Elem()
-}
-
-func (o ActivityLogAlertAllOfConditionPtrOutput) ToActivityLogAlertAllOfConditionPtrOutput() ActivityLogAlertAllOfConditionPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertAllOfConditionPtrOutput) ToActivityLogAlertAllOfConditionPtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionPtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertAllOfConditionPtrOutput) Elem() ActivityLogAlertAllOfConditionOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfCondition) ActivityLogAlertAllOfCondition {
-		if v != nil {
-			return *v
-		}
-		var ret ActivityLogAlertAllOfCondition
-		return ret
-	}).(ActivityLogAlertAllOfConditionOutput)
-}
-
-func (o ActivityLogAlertAllOfConditionPtrOutput) AllOf() ActivityLogAlertLeafConditionArrayOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfCondition) []ActivityLogAlertLeafCondition {
-		if v == nil {
-			return nil
-		}
-		return v.AllOf
-	}).(ActivityLogAlertLeafConditionArrayOutput)
-}
-
 type ActivityLogAlertAllOfConditionResponse struct {
 	AllOf []ActivityLogAlertLeafConditionResponse `pulumi:"allOf"`
-}
-
-
-
-
-
-type ActivityLogAlertAllOfConditionResponseInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertAllOfConditionResponseOutput() ActivityLogAlertAllOfConditionResponseOutput
-	ToActivityLogAlertAllOfConditionResponseOutputWithContext(context.Context) ActivityLogAlertAllOfConditionResponseOutput
-}
-
-type ActivityLogAlertAllOfConditionResponseArgs struct {
-	AllOf ActivityLogAlertLeafConditionResponseArrayInput `pulumi:"allOf"`
-}
-
-func (ActivityLogAlertAllOfConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertAllOfConditionResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponseOutput() ActivityLogAlertAllOfConditionResponseOutput {
-	return i.ToActivityLogAlertAllOfConditionResponseOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponseOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionResponseOutput)
-}
-
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return i.ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertAllOfConditionResponseArgs) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionResponseOutput).ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ActivityLogAlertAllOfConditionResponsePtrInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput
-	ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput
-}
-
-type activityLogAlertAllOfConditionResponsePtrType ActivityLogAlertAllOfConditionResponseArgs
-
-func ActivityLogAlertAllOfConditionResponsePtr(v *ActivityLogAlertAllOfConditionResponseArgs) ActivityLogAlertAllOfConditionResponsePtrInput {
-	return (*activityLogAlertAllOfConditionResponsePtrType)(v)
-}
-
-func (*activityLogAlertAllOfConditionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertAllOfConditionResponse)(nil)).Elem()
-}
-
-func (i *activityLogAlertAllOfConditionResponsePtrType) ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return i.ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *activityLogAlertAllOfConditionResponsePtrType) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertAllOfConditionResponsePtrOutput)
 }
 
 type ActivityLogAlertAllOfConditionResponseOutput struct{ *pulumi.OutputState }
@@ -697,51 +297,8 @@ func (o ActivityLogAlertAllOfConditionResponseOutput) ToActivityLogAlertAllOfCon
 	return o
 }
 
-func (o ActivityLogAlertAllOfConditionResponseOutput) ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return o.ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ActivityLogAlertAllOfConditionResponseOutput) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ActivityLogAlertAllOfConditionResponse) *ActivityLogAlertAllOfConditionResponse {
-		return &v
-	}).(ActivityLogAlertAllOfConditionResponsePtrOutput)
-}
-
 func (o ActivityLogAlertAllOfConditionResponseOutput) AllOf() ActivityLogAlertLeafConditionResponseArrayOutput {
 	return o.ApplyT(func(v ActivityLogAlertAllOfConditionResponse) []ActivityLogAlertLeafConditionResponse { return v.AllOf }).(ActivityLogAlertLeafConditionResponseArrayOutput)
-}
-
-type ActivityLogAlertAllOfConditionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ActivityLogAlertAllOfConditionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ActivityLogAlertAllOfConditionResponse)(nil)).Elem()
-}
-
-func (o ActivityLogAlertAllOfConditionResponsePtrOutput) ToActivityLogAlertAllOfConditionResponsePtrOutput() ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertAllOfConditionResponsePtrOutput) ToActivityLogAlertAllOfConditionResponsePtrOutputWithContext(ctx context.Context) ActivityLogAlertAllOfConditionResponsePtrOutput {
-	return o
-}
-
-func (o ActivityLogAlertAllOfConditionResponsePtrOutput) Elem() ActivityLogAlertAllOfConditionResponseOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfConditionResponse) ActivityLogAlertAllOfConditionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ActivityLogAlertAllOfConditionResponse
-		return ret
-	}).(ActivityLogAlertAllOfConditionResponseOutput)
-}
-
-func (o ActivityLogAlertAllOfConditionResponsePtrOutput) AllOf() ActivityLogAlertLeafConditionResponseArrayOutput {
-	return o.ApplyT(func(v *ActivityLogAlertAllOfConditionResponse) []ActivityLogAlertLeafConditionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AllOf
-	}).(ActivityLogAlertLeafConditionResponseArrayOutput)
 }
 
 type ActivityLogAlertLeafCondition struct {
@@ -847,59 +404,6 @@ func (o ActivityLogAlertLeafConditionArrayOutput) Index(i pulumi.IntInput) Activ
 type ActivityLogAlertLeafConditionResponse struct {
 	Equals string `pulumi:"equals"`
 	Field  string `pulumi:"field"`
-}
-
-
-
-
-
-type ActivityLogAlertLeafConditionResponseInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertLeafConditionResponseOutput() ActivityLogAlertLeafConditionResponseOutput
-	ToActivityLogAlertLeafConditionResponseOutputWithContext(context.Context) ActivityLogAlertLeafConditionResponseOutput
-}
-
-type ActivityLogAlertLeafConditionResponseArgs struct {
-	Equals pulumi.StringInput `pulumi:"equals"`
-	Field  pulumi.StringInput `pulumi:"field"`
-}
-
-func (ActivityLogAlertLeafConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityLogAlertLeafConditionResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertLeafConditionResponseArgs) ToActivityLogAlertLeafConditionResponseOutput() ActivityLogAlertLeafConditionResponseOutput {
-	return i.ToActivityLogAlertLeafConditionResponseOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertLeafConditionResponseArgs) ToActivityLogAlertLeafConditionResponseOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertLeafConditionResponseOutput)
-}
-
-
-
-
-
-type ActivityLogAlertLeafConditionResponseArrayInput interface {
-	pulumi.Input
-
-	ToActivityLogAlertLeafConditionResponseArrayOutput() ActivityLogAlertLeafConditionResponseArrayOutput
-	ToActivityLogAlertLeafConditionResponseArrayOutputWithContext(context.Context) ActivityLogAlertLeafConditionResponseArrayOutput
-}
-
-type ActivityLogAlertLeafConditionResponseArray []ActivityLogAlertLeafConditionResponseInput
-
-func (ActivityLogAlertLeafConditionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActivityLogAlertLeafConditionResponse)(nil)).Elem()
-}
-
-func (i ActivityLogAlertLeafConditionResponseArray) ToActivityLogAlertLeafConditionResponseArrayOutput() ActivityLogAlertLeafConditionResponseArrayOutput {
-	return i.ToActivityLogAlertLeafConditionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ActivityLogAlertLeafConditionResponseArray) ToActivityLogAlertLeafConditionResponseArrayOutputWithContext(ctx context.Context) ActivityLogAlertLeafConditionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActivityLogAlertLeafConditionResponseArrayOutput)
 }
 
 type ActivityLogAlertLeafConditionResponseOutput struct{ *pulumi.OutputState }
@@ -1077,63 +581,6 @@ type AutomationRunbookReceiverResponse struct {
 	WebhookResourceId   string  `pulumi:"webhookResourceId"`
 }
 
-
-
-
-
-type AutomationRunbookReceiverResponseInput interface {
-	pulumi.Input
-
-	ToAutomationRunbookReceiverResponseOutput() AutomationRunbookReceiverResponseOutput
-	ToAutomationRunbookReceiverResponseOutputWithContext(context.Context) AutomationRunbookReceiverResponseOutput
-}
-
-type AutomationRunbookReceiverResponseArgs struct {
-	AutomationAccountId pulumi.StringInput    `pulumi:"automationAccountId"`
-	IsGlobalRunbook     pulumi.BoolInput      `pulumi:"isGlobalRunbook"`
-	Name                pulumi.StringPtrInput `pulumi:"name"`
-	RunbookName         pulumi.StringInput    `pulumi:"runbookName"`
-	ServiceUri          pulumi.StringPtrInput `pulumi:"serviceUri"`
-	WebhookResourceId   pulumi.StringInput    `pulumi:"webhookResourceId"`
-}
-
-func (AutomationRunbookReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRunbookReceiverResponse)(nil)).Elem()
-}
-
-func (i AutomationRunbookReceiverResponseArgs) ToAutomationRunbookReceiverResponseOutput() AutomationRunbookReceiverResponseOutput {
-	return i.ToAutomationRunbookReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i AutomationRunbookReceiverResponseArgs) ToAutomationRunbookReceiverResponseOutputWithContext(ctx context.Context) AutomationRunbookReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverResponseOutput)
-}
-
-
-
-
-
-type AutomationRunbookReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToAutomationRunbookReceiverResponseArrayOutput() AutomationRunbookReceiverResponseArrayOutput
-	ToAutomationRunbookReceiverResponseArrayOutputWithContext(context.Context) AutomationRunbookReceiverResponseArrayOutput
-}
-
-type AutomationRunbookReceiverResponseArray []AutomationRunbookReceiverResponseInput
-
-func (AutomationRunbookReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AutomationRunbookReceiverResponse)(nil)).Elem()
-}
-
-func (i AutomationRunbookReceiverResponseArray) ToAutomationRunbookReceiverResponseArrayOutput() AutomationRunbookReceiverResponseArrayOutput {
-	return i.ToAutomationRunbookReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AutomationRunbookReceiverResponseArray) ToAutomationRunbookReceiverResponseArrayOutputWithContext(ctx context.Context) AutomationRunbookReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AutomationRunbookReceiverResponseArrayOutput)
-}
-
 type AutomationRunbookReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (AutomationRunbookReceiverResponseOutput) ElementType() reflect.Type {
@@ -1297,59 +744,6 @@ type AzureAppPushReceiverResponse struct {
 	Name         string `pulumi:"name"`
 }
 
-
-
-
-
-type AzureAppPushReceiverResponseInput interface {
-	pulumi.Input
-
-	ToAzureAppPushReceiverResponseOutput() AzureAppPushReceiverResponseOutput
-	ToAzureAppPushReceiverResponseOutputWithContext(context.Context) AzureAppPushReceiverResponseOutput
-}
-
-type AzureAppPushReceiverResponseArgs struct {
-	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	Name         pulumi.StringInput `pulumi:"name"`
-}
-
-func (AzureAppPushReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureAppPushReceiverResponse)(nil)).Elem()
-}
-
-func (i AzureAppPushReceiverResponseArgs) ToAzureAppPushReceiverResponseOutput() AzureAppPushReceiverResponseOutput {
-	return i.ToAzureAppPushReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i AzureAppPushReceiverResponseArgs) ToAzureAppPushReceiverResponseOutputWithContext(ctx context.Context) AzureAppPushReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverResponseOutput)
-}
-
-
-
-
-
-type AzureAppPushReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToAzureAppPushReceiverResponseArrayOutput() AzureAppPushReceiverResponseArrayOutput
-	ToAzureAppPushReceiverResponseArrayOutputWithContext(context.Context) AzureAppPushReceiverResponseArrayOutput
-}
-
-type AzureAppPushReceiverResponseArray []AzureAppPushReceiverResponseInput
-
-func (AzureAppPushReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AzureAppPushReceiverResponse)(nil)).Elem()
-}
-
-func (i AzureAppPushReceiverResponseArray) ToAzureAppPushReceiverResponseArrayOutput() AzureAppPushReceiverResponseArrayOutput {
-	return i.ToAzureAppPushReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AzureAppPushReceiverResponseArray) ToAzureAppPushReceiverResponseArrayOutputWithContext(ctx context.Context) AzureAppPushReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureAppPushReceiverResponseArrayOutput)
-}
-
 type AzureAppPushReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureAppPushReceiverResponseOutput) ElementType() reflect.Type {
@@ -1496,60 +890,6 @@ type EmailReceiverResponse struct {
 	EmailAddress string `pulumi:"emailAddress"`
 	Name         string `pulumi:"name"`
 	Status       string `pulumi:"status"`
-}
-
-
-
-
-
-type EmailReceiverResponseInput interface {
-	pulumi.Input
-
-	ToEmailReceiverResponseOutput() EmailReceiverResponseOutput
-	ToEmailReceiverResponseOutputWithContext(context.Context) EmailReceiverResponseOutput
-}
-
-type EmailReceiverResponseArgs struct {
-	EmailAddress pulumi.StringInput `pulumi:"emailAddress"`
-	Name         pulumi.StringInput `pulumi:"name"`
-	Status       pulumi.StringInput `pulumi:"status"`
-}
-
-func (EmailReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailReceiverResponse)(nil)).Elem()
-}
-
-func (i EmailReceiverResponseArgs) ToEmailReceiverResponseOutput() EmailReceiverResponseOutput {
-	return i.ToEmailReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i EmailReceiverResponseArgs) ToEmailReceiverResponseOutputWithContext(ctx context.Context) EmailReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverResponseOutput)
-}
-
-
-
-
-
-type EmailReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToEmailReceiverResponseArrayOutput() EmailReceiverResponseArrayOutput
-	ToEmailReceiverResponseArrayOutputWithContext(context.Context) EmailReceiverResponseArrayOutput
-}
-
-type EmailReceiverResponseArray []EmailReceiverResponseInput
-
-func (EmailReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EmailReceiverResponse)(nil)).Elem()
-}
-
-func (i EmailReceiverResponseArray) ToEmailReceiverResponseArrayOutput() EmailReceiverResponseArrayOutput {
-	return i.ToEmailReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i EmailReceiverResponseArray) ToEmailReceiverResponseArrayOutputWithContext(ctx context.Context) EmailReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmailReceiverResponseArrayOutput)
 }
 
 type EmailReceiverResponseOutput struct{ *pulumi.OutputState }
@@ -1724,62 +1064,6 @@ type ItsmReceiverResponse struct {
 	WorkspaceId         string `pulumi:"workspaceId"`
 }
 
-
-
-
-
-type ItsmReceiverResponseInput interface {
-	pulumi.Input
-
-	ToItsmReceiverResponseOutput() ItsmReceiverResponseOutput
-	ToItsmReceiverResponseOutputWithContext(context.Context) ItsmReceiverResponseOutput
-}
-
-type ItsmReceiverResponseArgs struct {
-	ConnectionId        pulumi.StringInput `pulumi:"connectionId"`
-	Name                pulumi.StringInput `pulumi:"name"`
-	Region              pulumi.StringInput `pulumi:"region"`
-	TicketConfiguration pulumi.StringInput `pulumi:"ticketConfiguration"`
-	WorkspaceId         pulumi.StringInput `pulumi:"workspaceId"`
-}
-
-func (ItsmReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ItsmReceiverResponse)(nil)).Elem()
-}
-
-func (i ItsmReceiverResponseArgs) ToItsmReceiverResponseOutput() ItsmReceiverResponseOutput {
-	return i.ToItsmReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i ItsmReceiverResponseArgs) ToItsmReceiverResponseOutputWithContext(ctx context.Context) ItsmReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverResponseOutput)
-}
-
-
-
-
-
-type ItsmReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToItsmReceiverResponseArrayOutput() ItsmReceiverResponseArrayOutput
-	ToItsmReceiverResponseArrayOutputWithContext(context.Context) ItsmReceiverResponseArrayOutput
-}
-
-type ItsmReceiverResponseArray []ItsmReceiverResponseInput
-
-func (ItsmReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ItsmReceiverResponse)(nil)).Elem()
-}
-
-func (i ItsmReceiverResponseArray) ToItsmReceiverResponseArrayOutput() ItsmReceiverResponseArrayOutput {
-	return i.ToItsmReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ItsmReceiverResponseArray) ToItsmReceiverResponseArrayOutputWithContext(ctx context.Context) ItsmReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ItsmReceiverResponseArrayOutput)
-}
-
 type ItsmReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (ItsmReceiverResponseOutput) ElementType() reflect.Type {
@@ -1947,61 +1231,6 @@ type SmsReceiverResponse struct {
 	Status      string `pulumi:"status"`
 }
 
-
-
-
-
-type SmsReceiverResponseInput interface {
-	pulumi.Input
-
-	ToSmsReceiverResponseOutput() SmsReceiverResponseOutput
-	ToSmsReceiverResponseOutputWithContext(context.Context) SmsReceiverResponseOutput
-}
-
-type SmsReceiverResponseArgs struct {
-	CountryCode pulumi.StringInput `pulumi:"countryCode"`
-	Name        pulumi.StringInput `pulumi:"name"`
-	PhoneNumber pulumi.StringInput `pulumi:"phoneNumber"`
-	Status      pulumi.StringInput `pulumi:"status"`
-}
-
-func (SmsReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmsReceiverResponse)(nil)).Elem()
-}
-
-func (i SmsReceiverResponseArgs) ToSmsReceiverResponseOutput() SmsReceiverResponseOutput {
-	return i.ToSmsReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i SmsReceiverResponseArgs) ToSmsReceiverResponseOutputWithContext(ctx context.Context) SmsReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverResponseOutput)
-}
-
-
-
-
-
-type SmsReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToSmsReceiverResponseArrayOutput() SmsReceiverResponseArrayOutput
-	ToSmsReceiverResponseArrayOutputWithContext(context.Context) SmsReceiverResponseArrayOutput
-}
-
-type SmsReceiverResponseArray []SmsReceiverResponseInput
-
-func (SmsReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SmsReceiverResponse)(nil)).Elem()
-}
-
-func (i SmsReceiverResponseArray) ToSmsReceiverResponseArrayOutput() SmsReceiverResponseArrayOutput {
-	return i.ToSmsReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SmsReceiverResponseArray) ToSmsReceiverResponseArrayOutputWithContext(ctx context.Context) SmsReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SmsReceiverResponseArrayOutput)
-}
-
 type SmsReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (SmsReceiverResponseOutput) ElementType() reflect.Type {
@@ -2157,59 +1386,6 @@ type WebhookReceiverResponse struct {
 	ServiceUri string `pulumi:"serviceUri"`
 }
 
-
-
-
-
-type WebhookReceiverResponseInput interface {
-	pulumi.Input
-
-	ToWebhookReceiverResponseOutput() WebhookReceiverResponseOutput
-	ToWebhookReceiverResponseOutputWithContext(context.Context) WebhookReceiverResponseOutput
-}
-
-type WebhookReceiverResponseArgs struct {
-	Name       pulumi.StringInput `pulumi:"name"`
-	ServiceUri pulumi.StringInput `pulumi:"serviceUri"`
-}
-
-func (WebhookReceiverResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebhookReceiverResponse)(nil)).Elem()
-}
-
-func (i WebhookReceiverResponseArgs) ToWebhookReceiverResponseOutput() WebhookReceiverResponseOutput {
-	return i.ToWebhookReceiverResponseOutputWithContext(context.Background())
-}
-
-func (i WebhookReceiverResponseArgs) ToWebhookReceiverResponseOutputWithContext(ctx context.Context) WebhookReceiverResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverResponseOutput)
-}
-
-
-
-
-
-type WebhookReceiverResponseArrayInput interface {
-	pulumi.Input
-
-	ToWebhookReceiverResponseArrayOutput() WebhookReceiverResponseArrayOutput
-	ToWebhookReceiverResponseArrayOutputWithContext(context.Context) WebhookReceiverResponseArrayOutput
-}
-
-type WebhookReceiverResponseArray []WebhookReceiverResponseInput
-
-func (WebhookReceiverResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebhookReceiverResponse)(nil)).Elem()
-}
-
-func (i WebhookReceiverResponseArray) ToWebhookReceiverResponseArrayOutput() WebhookReceiverResponseArrayOutput {
-	return i.ToWebhookReceiverResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WebhookReceiverResponseArray) ToWebhookReceiverResponseArrayOutputWithContext(ctx context.Context) WebhookReceiverResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookReceiverResponseArrayOutput)
-}
-
 type WebhookReceiverResponseOutput struct{ *pulumi.OutputState }
 
 func (WebhookReceiverResponseOutput) ElementType() reflect.Type {
@@ -2258,13 +1434,9 @@ func init() {
 	pulumi.RegisterOutputType(ActivityLogAlertActionGroupResponseOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertActionGroupResponseArrayOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertActionListOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertActionListPtrOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertActionListResponseOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertActionListResponsePtrOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertAllOfConditionOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertAllOfConditionPtrOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertAllOfConditionResponseOutput{})
-	pulumi.RegisterOutputType(ActivityLogAlertAllOfConditionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertLeafConditionOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertLeafConditionArrayOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertLeafConditionResponseOutput{})

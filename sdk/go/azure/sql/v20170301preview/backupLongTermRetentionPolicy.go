@@ -125,7 +125,7 @@ type BackupLongTermRetentionPolicyInput interface {
 }
 
 func (*BackupLongTermRetentionPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupLongTermRetentionPolicy)(nil))
+	return reflect.TypeOf((**BackupLongTermRetentionPolicy)(nil)).Elem()
 }
 
 func (i *BackupLongTermRetentionPolicy) ToBackupLongTermRetentionPolicyOutput() BackupLongTermRetentionPolicyOutput {
@@ -139,7 +139,7 @@ func (i *BackupLongTermRetentionPolicy) ToBackupLongTermRetentionPolicyOutputWit
 type BackupLongTermRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (BackupLongTermRetentionPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupLongTermRetentionPolicy)(nil))
+	return reflect.TypeOf((**BackupLongTermRetentionPolicy)(nil)).Elem()
 }
 
 func (o BackupLongTermRetentionPolicyOutput) ToBackupLongTermRetentionPolicyOutput() BackupLongTermRetentionPolicyOutput {

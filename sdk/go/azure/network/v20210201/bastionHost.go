@@ -35,6 +35,9 @@ func NewBastionHost(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Sku != nil {
+		args.Sku = args.Sku.ToSkuPtrOutput().ApplyT(func(v *Sku) *Sku { return v.Defaults() }).(SkuPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:network:BastionHost"),
@@ -155,7 +158,7 @@ type BastionHostInput interface {
 }
 
 func (*BastionHost) ElementType() reflect.Type {
-	return reflect.TypeOf((*BastionHost)(nil))
+	return reflect.TypeOf((**BastionHost)(nil)).Elem()
 }
 
 func (i *BastionHost) ToBastionHostOutput() BastionHostOutput {
@@ -169,7 +172,7 @@ func (i *BastionHost) ToBastionHostOutputWithContext(ctx context.Context) Bastio
 type BastionHostOutput struct{ *pulumi.OutputState }
 
 func (BastionHostOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BastionHost)(nil))
+	return reflect.TypeOf((**BastionHost)(nil)).Elem()
 }
 
 func (o BastionHostOutput) ToBastionHostOutput() BastionHostOutput {

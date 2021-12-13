@@ -106,7 +106,7 @@ type DefenderSettingInput interface {
 }
 
 func (*DefenderSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefenderSetting)(nil))
+	return reflect.TypeOf((**DefenderSetting)(nil)).Elem()
 }
 
 func (i *DefenderSetting) ToDefenderSettingOutput() DefenderSettingOutput {
@@ -120,7 +120,7 @@ func (i *DefenderSetting) ToDefenderSettingOutputWithContext(ctx context.Context
 type DefenderSettingOutput struct{ *pulumi.OutputState }
 
 func (DefenderSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefenderSetting)(nil))
+	return reflect.TypeOf((**DefenderSetting)(nil)).Elem()
 }
 
 func (o DefenderSettingOutput) ToDefenderSettingOutput() DefenderSettingOutput {

@@ -153,7 +153,7 @@ type VirtualRouterInput interface {
 }
 
 func (*VirtualRouter) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouter)(nil))
+	return reflect.TypeOf((**VirtualRouter)(nil)).Elem()
 }
 
 func (i *VirtualRouter) ToVirtualRouterOutput() VirtualRouterOutput {
@@ -167,7 +167,7 @@ func (i *VirtualRouter) ToVirtualRouterOutputWithContext(ctx context.Context) Vi
 type VirtualRouterOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualRouter)(nil))
+	return reflect.TypeOf((**VirtualRouter)(nil)).Elem()
 }
 
 func (o VirtualRouterOutput) ToVirtualRouterOutput() VirtualRouterOutput {

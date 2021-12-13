@@ -150,7 +150,7 @@ type DiagnosticInput interface {
 }
 
 func (*Diagnostic) ElementType() reflect.Type {
-	return reflect.TypeOf((*Diagnostic)(nil))
+	return reflect.TypeOf((**Diagnostic)(nil)).Elem()
 }
 
 func (i *Diagnostic) ToDiagnosticOutput() DiagnosticOutput {
@@ -164,7 +164,7 @@ func (i *Diagnostic) ToDiagnosticOutputWithContext(ctx context.Context) Diagnost
 type DiagnosticOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Diagnostic)(nil))
+	return reflect.TypeOf((**Diagnostic)(nil)).Elem()
 }
 
 func (o DiagnosticOutput) ToDiagnosticOutput() DiagnosticOutput {

@@ -122,7 +122,7 @@ type EnvironmentInput interface {
 }
 
 func (*Environment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Environment)(nil))
+	return reflect.TypeOf((**Environment)(nil)).Elem()
 }
 
 func (i *Environment) ToEnvironmentOutput() EnvironmentOutput {
@@ -136,7 +136,7 @@ func (i *Environment) ToEnvironmentOutputWithContext(ctx context.Context) Enviro
 type EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Environment)(nil))
+	return reflect.TypeOf((**Environment)(nil)).Elem()
 }
 
 func (o EnvironmentOutput) ToEnvironmentOutput() EnvironmentOutput {

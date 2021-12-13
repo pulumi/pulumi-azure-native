@@ -13,7 +13,7 @@ func LookupAppServiceCertificateOrder(ctx *pulumi.Context, args *LookupAppServic
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAppServiceCertificateOrderArgs struct {
@@ -49,4 +49,25 @@ type LookupAppServiceCertificateOrderResult struct {
 	Tags                                     map[string]string                        `pulumi:"tags"`
 	Type                                     string                                   `pulumi:"type"`
 	ValidityInYears                          *int                                     `pulumi:"validityInYears"`
+}
+
+
+func (val *LookupAppServiceCertificateOrderResult) Defaults() *LookupAppServiceCertificateOrderResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AutoRenew) {
+		autoRenew_ := true
+		tmp.AutoRenew = &autoRenew_
+	}
+	if isZero(tmp.KeySize) {
+		keySize_ := 2048
+		tmp.KeySize = &keySize_
+	}
+	if isZero(tmp.ValidityInYears) {
+		validityInYears_ := 1
+		tmp.ValidityInYears = &validityInYears_
+	}
+	return &tmp
 }

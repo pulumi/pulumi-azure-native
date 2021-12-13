@@ -116,60 +116,6 @@ type AppServiceCertificateResponse struct {
 	ProvisioningState  string  `pulumi:"provisioningState"`
 }
 
-
-
-
-
-type AppServiceCertificateResponseInput interface {
-	pulumi.Input
-
-	ToAppServiceCertificateResponseOutput() AppServiceCertificateResponseOutput
-	ToAppServiceCertificateResponseOutputWithContext(context.Context) AppServiceCertificateResponseOutput
-}
-
-type AppServiceCertificateResponseArgs struct {
-	KeyVaultId         pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	KeyVaultSecretName pulumi.StringPtrInput `pulumi:"keyVaultSecretName"`
-	ProvisioningState  pulumi.StringInput    `pulumi:"provisioningState"`
-}
-
-func (AppServiceCertificateResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceCertificateResponse)(nil)).Elem()
-}
-
-func (i AppServiceCertificateResponseArgs) ToAppServiceCertificateResponseOutput() AppServiceCertificateResponseOutput {
-	return i.ToAppServiceCertificateResponseOutputWithContext(context.Background())
-}
-
-func (i AppServiceCertificateResponseArgs) ToAppServiceCertificateResponseOutputWithContext(ctx context.Context) AppServiceCertificateResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateResponseOutput)
-}
-
-
-
-
-
-type AppServiceCertificateResponseMapInput interface {
-	pulumi.Input
-
-	ToAppServiceCertificateResponseMapOutput() AppServiceCertificateResponseMapOutput
-	ToAppServiceCertificateResponseMapOutputWithContext(context.Context) AppServiceCertificateResponseMapOutput
-}
-
-type AppServiceCertificateResponseMap map[string]AppServiceCertificateResponseInput
-
-func (AppServiceCertificateResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AppServiceCertificateResponse)(nil)).Elem()
-}
-
-func (i AppServiceCertificateResponseMap) ToAppServiceCertificateResponseMapOutput() AppServiceCertificateResponseMapOutput {
-	return i.ToAppServiceCertificateResponseMapOutputWithContext(context.Background())
-}
-
-func (i AppServiceCertificateResponseMap) ToAppServiceCertificateResponseMapOutputWithContext(ctx context.Context) AppServiceCertificateResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppServiceCertificateResponseMapOutput)
-}
-
 type AppServiceCertificateResponseOutput struct{ *pulumi.OutputState }
 
 func (AppServiceCertificateResponseOutput) ElementType() reflect.Type {
@@ -228,82 +174,6 @@ type CertificateDetailsResponse struct {
 	Version            int    `pulumi:"version"`
 }
 
-
-
-
-
-type CertificateDetailsResponseInput interface {
-	pulumi.Input
-
-	ToCertificateDetailsResponseOutput() CertificateDetailsResponseOutput
-	ToCertificateDetailsResponseOutputWithContext(context.Context) CertificateDetailsResponseOutput
-}
-
-type CertificateDetailsResponseArgs struct {
-	Issuer             pulumi.StringInput `pulumi:"issuer"`
-	NotAfter           pulumi.StringInput `pulumi:"notAfter"`
-	NotBefore          pulumi.StringInput `pulumi:"notBefore"`
-	RawData            pulumi.StringInput `pulumi:"rawData"`
-	SerialNumber       pulumi.StringInput `pulumi:"serialNumber"`
-	SignatureAlgorithm pulumi.StringInput `pulumi:"signatureAlgorithm"`
-	Subject            pulumi.StringInput `pulumi:"subject"`
-	Thumbprint         pulumi.StringInput `pulumi:"thumbprint"`
-	Version            pulumi.IntInput    `pulumi:"version"`
-}
-
-func (CertificateDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateDetailsResponse)(nil)).Elem()
-}
-
-func (i CertificateDetailsResponseArgs) ToCertificateDetailsResponseOutput() CertificateDetailsResponseOutput {
-	return i.ToCertificateDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i CertificateDetailsResponseArgs) ToCertificateDetailsResponseOutputWithContext(ctx context.Context) CertificateDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsResponseOutput)
-}
-
-func (i CertificateDetailsResponseArgs) ToCertificateDetailsResponsePtrOutput() CertificateDetailsResponsePtrOutput {
-	return i.ToCertificateDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CertificateDetailsResponseArgs) ToCertificateDetailsResponsePtrOutputWithContext(ctx context.Context) CertificateDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsResponseOutput).ToCertificateDetailsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CertificateDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToCertificateDetailsResponsePtrOutput() CertificateDetailsResponsePtrOutput
-	ToCertificateDetailsResponsePtrOutputWithContext(context.Context) CertificateDetailsResponsePtrOutput
-}
-
-type certificateDetailsResponsePtrType CertificateDetailsResponseArgs
-
-func CertificateDetailsResponsePtr(v *CertificateDetailsResponseArgs) CertificateDetailsResponsePtrInput {
-	return (*certificateDetailsResponsePtrType)(v)
-}
-
-func (*certificateDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateDetailsResponse)(nil)).Elem()
-}
-
-func (i *certificateDetailsResponsePtrType) ToCertificateDetailsResponsePtrOutput() CertificateDetailsResponsePtrOutput {
-	return i.ToCertificateDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *certificateDetailsResponsePtrType) ToCertificateDetailsResponsePtrOutputWithContext(ctx context.Context) CertificateDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDetailsResponsePtrOutput)
-}
-
 type CertificateDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (CertificateDetailsResponseOutput) ElementType() reflect.Type {
@@ -316,16 +186,6 @@ func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponseOutput() C
 
 func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponseOutputWithContext(ctx context.Context) CertificateDetailsResponseOutput {
 	return o
-}
-
-func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponsePtrOutput() CertificateDetailsResponsePtrOutput {
-	return o.ToCertificateDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CertificateDetailsResponseOutput) ToCertificateDetailsResponsePtrOutputWithContext(ctx context.Context) CertificateDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateDetailsResponse) *CertificateDetailsResponse {
-		return &v
-	}).(CertificateDetailsResponsePtrOutput)
 }
 
 func (o CertificateDetailsResponseOutput) Issuer() pulumi.StringOutput {
@@ -364,116 +224,10 @@ func (o CertificateDetailsResponseOutput) Version() pulumi.IntOutput {
 	return o.ApplyT(func(v CertificateDetailsResponse) int { return v.Version }).(pulumi.IntOutput)
 }
 
-type CertificateDetailsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CertificateDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateDetailsResponse)(nil)).Elem()
-}
-
-func (o CertificateDetailsResponsePtrOutput) ToCertificateDetailsResponsePtrOutput() CertificateDetailsResponsePtrOutput {
-	return o
-}
-
-func (o CertificateDetailsResponsePtrOutput) ToCertificateDetailsResponsePtrOutputWithContext(ctx context.Context) CertificateDetailsResponsePtrOutput {
-	return o
-}
-
-func (o CertificateDetailsResponsePtrOutput) Elem() CertificateDetailsResponseOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) CertificateDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CertificateDetailsResponse
-		return ret
-	}).(CertificateDetailsResponseOutput)
-}
-
-func (o CertificateDetailsResponsePtrOutput) Issuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Issuer
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CertificateDetailsResponsePtrOutput) NotAfter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.NotAfter
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CertificateDetailsResponsePtrOutput) NotBefore() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.NotBefore
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CertificateDetailsResponsePtrOutput) RawData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RawData
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CertificateDetailsResponsePtrOutput) SerialNumber() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SerialNumber
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CertificateDetailsResponsePtrOutput) SignatureAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SignatureAlgorithm
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CertificateDetailsResponsePtrOutput) Subject() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Subject
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CertificateDetailsResponsePtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o CertificateDetailsResponsePtrOutput) Version() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CertificateDetailsResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Version
-	}).(pulumi.IntPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(AppServiceCertificateOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateMapOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateResponseOutput{})
 	pulumi.RegisterOutputType(AppServiceCertificateResponseMapOutput{})
 	pulumi.RegisterOutputType(CertificateDetailsResponseOutput{})
-	pulumi.RegisterOutputType(CertificateDetailsResponsePtrOutput{})
 }

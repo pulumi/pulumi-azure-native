@@ -13,7 +13,7 @@ func LookupRedis(ctx *pulumi.Context, args *LookupRedisArgs, opts ...pulumi.Invo
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupRedisArgs struct {
@@ -48,4 +48,21 @@ type LookupRedisResult struct {
 	TenantSettings             map[string]string                                `pulumi:"tenantSettings"`
 	Type                       string                                           `pulumi:"type"`
 	Zones                      []string                                         `pulumi:"zones"`
+}
+
+
+func (val *LookupRedisResult) Defaults() *LookupRedisResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableNonSslPort) {
+		enableNonSslPort_ := false
+		tmp.EnableNonSslPort = &enableNonSslPort_
+	}
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "Enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	return &tmp
 }

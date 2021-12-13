@@ -13,7 +13,7 @@ func ListVirtualMachineApplicableSchedules(ctx *pulumi.Context, args *ListVirtua
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type ListVirtualMachineApplicableSchedulesArgs struct {
@@ -31,4 +31,17 @@ type ListVirtualMachineApplicableSchedulesResult struct {
 	Name           string            `pulumi:"name"`
 	Tags           map[string]string `pulumi:"tags"`
 	Type           string            `pulumi:"type"`
+}
+
+
+func (val *ListVirtualMachineApplicableSchedulesResult) Defaults() *ListVirtualMachineApplicableSchedulesResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.LabVmsShutdown = tmp.LabVmsShutdown.Defaults()
+
+	tmp.LabVmsStartup = tmp.LabVmsStartup.Defaults()
+
+	return &tmp
 }

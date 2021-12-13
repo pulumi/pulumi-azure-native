@@ -131,7 +131,7 @@ type PolicySetDefinitionInput interface {
 }
 
 func (*PolicySetDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinition)(nil))
+	return reflect.TypeOf((**PolicySetDefinition)(nil)).Elem()
 }
 
 func (i *PolicySetDefinition) ToPolicySetDefinitionOutput() PolicySetDefinitionOutput {
@@ -145,7 +145,7 @@ func (i *PolicySetDefinition) ToPolicySetDefinitionOutputWithContext(ctx context
 type PolicySetDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PolicySetDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinition)(nil))
+	return reflect.TypeOf((**PolicySetDefinition)(nil)).Elem()
 }
 
 func (o PolicySetDefinitionOutput) ToPolicySetDefinitionOutput() PolicySetDefinitionOutput {

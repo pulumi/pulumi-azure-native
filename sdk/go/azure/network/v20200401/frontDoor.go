@@ -43,6 +43,9 @@ func NewFrontDoor(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.BackendPoolsSettings != nil {
+		args.BackendPoolsSettings = args.BackendPoolsSettings.ToBackendPoolsSettingsPtrOutput().ApplyT(func(v *BackendPoolsSettings) *BackendPoolsSettings { return v.Defaults() }).(BackendPoolsSettingsPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:network:FrontDoor"),
@@ -135,7 +138,7 @@ type FrontDoorInput interface {
 }
 
 func (*FrontDoor) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoor)(nil))
+	return reflect.TypeOf((**FrontDoor)(nil)).Elem()
 }
 
 func (i *FrontDoor) ToFrontDoorOutput() FrontDoorOutput {
@@ -149,7 +152,7 @@ func (i *FrontDoor) ToFrontDoorOutputWithContext(ctx context.Context) FrontDoorO
 type FrontDoorOutput struct{ *pulumi.OutputState }
 
 func (FrontDoorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FrontDoor)(nil))
+	return reflect.TypeOf((**FrontDoor)(nil)).Elem()
 }
 
 func (o FrontDoorOutput) ToFrontDoorOutput() FrontDoorOutput {

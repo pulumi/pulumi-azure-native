@@ -98,7 +98,7 @@ type ManagementGroupSubscriptionInput interface {
 }
 
 func (*ManagementGroupSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupSubscription)(nil))
+	return reflect.TypeOf((**ManagementGroupSubscription)(nil)).Elem()
 }
 
 func (i *ManagementGroupSubscription) ToManagementGroupSubscriptionOutput() ManagementGroupSubscriptionOutput {
@@ -112,7 +112,7 @@ func (i *ManagementGroupSubscription) ToManagementGroupSubscriptionOutputWithCon
 type ManagementGroupSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (ManagementGroupSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupSubscription)(nil))
+	return reflect.TypeOf((**ManagementGroupSubscription)(nil)).Elem()
 }
 
 func (o ManagementGroupSubscriptionOutput) ToManagementGroupSubscriptionOutput() ManagementGroupSubscriptionOutput {

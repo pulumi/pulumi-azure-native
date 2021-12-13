@@ -135,7 +135,7 @@ type ElasticPoolInput interface {
 }
 
 func (*ElasticPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticPool)(nil))
+	return reflect.TypeOf((**ElasticPool)(nil)).Elem()
 }
 
 func (i *ElasticPool) ToElasticPoolOutput() ElasticPoolOutput {
@@ -149,7 +149,7 @@ func (i *ElasticPool) ToElasticPoolOutputWithContext(ctx context.Context) Elasti
 type ElasticPoolOutput struct{ *pulumi.OutputState }
 
 func (ElasticPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ElasticPool)(nil))
+	return reflect.TypeOf((**ElasticPool)(nil)).Elem()
 }
 
 func (o ElasticPoolOutput) ToElasticPoolOutput() ElasticPoolOutput {

@@ -34,6 +34,9 @@ func NewApp(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToAppResourcePropertiesPtrOutput().ApplyT(func(v *AppResourceProperties) *AppResourceProperties { return v.Defaults() }).(AppResourcePropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:appplatform:App"),
@@ -114,7 +117,7 @@ type AppInput interface {
 }
 
 func (*App) ElementType() reflect.Type {
-	return reflect.TypeOf((*App)(nil))
+	return reflect.TypeOf((**App)(nil)).Elem()
 }
 
 func (i *App) ToAppOutput() AppOutput {
@@ -128,7 +131,7 @@ func (i *App) ToAppOutputWithContext(ctx context.Context) AppOutput {
 type AppOutput struct{ *pulumi.OutputState }
 
 func (AppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*App)(nil))
+	return reflect.TypeOf((**App)(nil)).Elem()
 }
 
 func (o AppOutput) ToAppOutput() AppOutput {

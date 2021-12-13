@@ -13,7 +13,7 @@ func LookupGuestConfigurationHCRPAssignment(ctx *pulumi.Context, args *LookupGue
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupGuestConfigurationHCRPAssignmentArgs struct {
@@ -30,4 +30,15 @@ type LookupGuestConfigurationHCRPAssignmentResult struct {
 	Properties GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
 	SystemData SystemDataResponse                             `pulumi:"systemData"`
 	Type       string                                         `pulumi:"type"`
+}
+
+
+func (val *LookupGuestConfigurationHCRPAssignmentResult) Defaults() *LookupGuestConfigurationHCRPAssignmentResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

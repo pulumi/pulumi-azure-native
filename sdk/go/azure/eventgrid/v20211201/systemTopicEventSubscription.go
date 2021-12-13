@@ -43,8 +43,14 @@ func NewSystemTopicEventSubscription(ctx *pulumi.Context,
 	if args.SystemTopicName == nil {
 		return nil, errors.New("invalid value for required argument 'SystemTopicName'")
 	}
-	if args.EventDeliverySchema == nil {
+	if isZero(args.EventDeliverySchema) {
 		args.EventDeliverySchema = pulumi.StringPtr("EventGridSchema")
+	}
+	if args.Filter != nil {
+		args.Filter = args.Filter.ToEventSubscriptionFilterPtrOutput().ApplyT(func(v *EventSubscriptionFilter) *EventSubscriptionFilter { return v.Defaults() }).(EventSubscriptionFilterPtrOutput)
+	}
+	if args.RetryPolicy != nil {
+		args.RetryPolicy = args.RetryPolicy.ToRetryPolicyPtrOutput().ApplyT(func(v *RetryPolicy) *RetryPolicy { return v.Defaults() }).(RetryPolicyPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -135,7 +141,7 @@ type SystemTopicEventSubscriptionInput interface {
 }
 
 func (*SystemTopicEventSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopicEventSubscription)(nil))
+	return reflect.TypeOf((**SystemTopicEventSubscription)(nil)).Elem()
 }
 
 func (i *SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutput() SystemTopicEventSubscriptionOutput {
@@ -149,7 +155,7 @@ func (i *SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutputWithC
 type SystemTopicEventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemTopicEventSubscription)(nil))
+	return reflect.TypeOf((**SystemTopicEventSubscription)(nil)).Elem()
 }
 
 func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionOutput() SystemTopicEventSubscriptionOutput {

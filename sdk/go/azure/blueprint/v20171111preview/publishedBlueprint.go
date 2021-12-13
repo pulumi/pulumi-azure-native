@@ -95,7 +95,7 @@ type PublishedBlueprintInput interface {
 }
 
 func (*PublishedBlueprint) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublishedBlueprint)(nil))
+	return reflect.TypeOf((**PublishedBlueprint)(nil)).Elem()
 }
 
 func (i *PublishedBlueprint) ToPublishedBlueprintOutput() PublishedBlueprintOutput {
@@ -109,7 +109,7 @@ func (i *PublishedBlueprint) ToPublishedBlueprintOutputWithContext(ctx context.C
 type PublishedBlueprintOutput struct{ *pulumi.OutputState }
 
 func (PublishedBlueprintOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublishedBlueprint)(nil))
+	return reflect.TypeOf((**PublishedBlueprint)(nil)).Elem()
 }
 
 func (o PublishedBlueprintOutput) ToPublishedBlueprintOutput() PublishedBlueprintOutput {

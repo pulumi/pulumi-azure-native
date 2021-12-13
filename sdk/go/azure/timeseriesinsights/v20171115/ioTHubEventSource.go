@@ -155,7 +155,7 @@ type IoTHubEventSourceInput interface {
 }
 
 func (*IoTHubEventSource) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTHubEventSource)(nil))
+	return reflect.TypeOf((**IoTHubEventSource)(nil)).Elem()
 }
 
 func (i *IoTHubEventSource) ToIoTHubEventSourceOutput() IoTHubEventSourceOutput {
@@ -169,7 +169,7 @@ func (i *IoTHubEventSource) ToIoTHubEventSourceOutputWithContext(ctx context.Con
 type IoTHubEventSourceOutput struct{ *pulumi.OutputState }
 
 func (IoTHubEventSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IoTHubEventSource)(nil))
+	return reflect.TypeOf((**IoTHubEventSource)(nil)).Elem()
 }
 
 func (o IoTHubEventSourceOutput) ToIoTHubEventSourceOutput() IoTHubEventSourceOutput {

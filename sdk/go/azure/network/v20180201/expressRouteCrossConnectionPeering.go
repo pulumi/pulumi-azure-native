@@ -209,7 +209,7 @@ type ExpressRouteCrossConnectionPeeringInput interface {
 }
 
 func (*ExpressRouteCrossConnectionPeering) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCrossConnectionPeering)(nil))
+	return reflect.TypeOf((**ExpressRouteCrossConnectionPeering)(nil)).Elem()
 }
 
 func (i *ExpressRouteCrossConnectionPeering) ToExpressRouteCrossConnectionPeeringOutput() ExpressRouteCrossConnectionPeeringOutput {
@@ -223,7 +223,7 @@ func (i *ExpressRouteCrossConnectionPeering) ToExpressRouteCrossConnectionPeerin
 type ExpressRouteCrossConnectionPeeringOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCrossConnectionPeeringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCrossConnectionPeering)(nil))
+	return reflect.TypeOf((**ExpressRouteCrossConnectionPeering)(nil)).Elem()
 }
 
 func (o ExpressRouteCrossConnectionPeeringOutput) ToExpressRouteCrossConnectionPeeringOutput() ExpressRouteCrossConnectionPeeringOutput {

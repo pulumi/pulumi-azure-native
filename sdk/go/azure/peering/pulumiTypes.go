@@ -277,84 +277,6 @@ type BgpSessionResponse struct {
 	SessionStateV6              string  `pulumi:"sessionStateV6"`
 }
 
-
-
-
-
-type BgpSessionResponseInput interface {
-	pulumi.Input
-
-	ToBgpSessionResponseOutput() BgpSessionResponseOutput
-	ToBgpSessionResponseOutputWithContext(context.Context) BgpSessionResponseOutput
-}
-
-type BgpSessionResponseArgs struct {
-	MaxPrefixesAdvertisedV4     pulumi.IntPtrInput    `pulumi:"maxPrefixesAdvertisedV4"`
-	MaxPrefixesAdvertisedV6     pulumi.IntPtrInput    `pulumi:"maxPrefixesAdvertisedV6"`
-	Md5AuthenticationKey        pulumi.StringPtrInput `pulumi:"md5AuthenticationKey"`
-	MicrosoftSessionIPv4Address pulumi.StringPtrInput `pulumi:"microsoftSessionIPv4Address"`
-	MicrosoftSessionIPv6Address pulumi.StringPtrInput `pulumi:"microsoftSessionIPv6Address"`
-	PeerSessionIPv4Address      pulumi.StringPtrInput `pulumi:"peerSessionIPv4Address"`
-	PeerSessionIPv6Address      pulumi.StringPtrInput `pulumi:"peerSessionIPv6Address"`
-	SessionPrefixV4             pulumi.StringPtrInput `pulumi:"sessionPrefixV4"`
-	SessionPrefixV6             pulumi.StringPtrInput `pulumi:"sessionPrefixV6"`
-	SessionStateV4              pulumi.StringInput    `pulumi:"sessionStateV4"`
-	SessionStateV6              pulumi.StringInput    `pulumi:"sessionStateV6"`
-}
-
-func (BgpSessionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BgpSessionResponse)(nil)).Elem()
-}
-
-func (i BgpSessionResponseArgs) ToBgpSessionResponseOutput() BgpSessionResponseOutput {
-	return i.ToBgpSessionResponseOutputWithContext(context.Background())
-}
-
-func (i BgpSessionResponseArgs) ToBgpSessionResponseOutputWithContext(ctx context.Context) BgpSessionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BgpSessionResponseOutput)
-}
-
-func (i BgpSessionResponseArgs) ToBgpSessionResponsePtrOutput() BgpSessionResponsePtrOutput {
-	return i.ToBgpSessionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BgpSessionResponseArgs) ToBgpSessionResponsePtrOutputWithContext(ctx context.Context) BgpSessionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BgpSessionResponseOutput).ToBgpSessionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type BgpSessionResponsePtrInput interface {
-	pulumi.Input
-
-	ToBgpSessionResponsePtrOutput() BgpSessionResponsePtrOutput
-	ToBgpSessionResponsePtrOutputWithContext(context.Context) BgpSessionResponsePtrOutput
-}
-
-type bgpSessionResponsePtrType BgpSessionResponseArgs
-
-func BgpSessionResponsePtr(v *BgpSessionResponseArgs) BgpSessionResponsePtrInput {
-	return (*bgpSessionResponsePtrType)(v)
-}
-
-func (*bgpSessionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BgpSessionResponse)(nil)).Elem()
-}
-
-func (i *bgpSessionResponsePtrType) ToBgpSessionResponsePtrOutput() BgpSessionResponsePtrOutput {
-	return i.ToBgpSessionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *bgpSessionResponsePtrType) ToBgpSessionResponsePtrOutputWithContext(ctx context.Context) BgpSessionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BgpSessionResponsePtrOutput)
-}
-
 type BgpSessionResponseOutput struct{ *pulumi.OutputState }
 
 func (BgpSessionResponseOutput) ElementType() reflect.Type {
@@ -367,16 +289,6 @@ func (o BgpSessionResponseOutput) ToBgpSessionResponseOutput() BgpSessionRespons
 
 func (o BgpSessionResponseOutput) ToBgpSessionResponseOutputWithContext(ctx context.Context) BgpSessionResponseOutput {
 	return o
-}
-
-func (o BgpSessionResponseOutput) ToBgpSessionResponsePtrOutput() BgpSessionResponsePtrOutput {
-	return o.ToBgpSessionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BgpSessionResponseOutput) ToBgpSessionResponsePtrOutputWithContext(ctx context.Context) BgpSessionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BgpSessionResponse) *BgpSessionResponse {
-		return &v
-	}).(BgpSessionResponsePtrOutput)
 }
 
 func (o BgpSessionResponseOutput) MaxPrefixesAdvertisedV4() pulumi.IntPtrOutput {
@@ -658,60 +570,6 @@ type ContactDetailResponse struct {
 	Role  *string `pulumi:"role"`
 }
 
-
-
-
-
-type ContactDetailResponseInput interface {
-	pulumi.Input
-
-	ToContactDetailResponseOutput() ContactDetailResponseOutput
-	ToContactDetailResponseOutputWithContext(context.Context) ContactDetailResponseOutput
-}
-
-type ContactDetailResponseArgs struct {
-	Email pulumi.StringPtrInput `pulumi:"email"`
-	Phone pulumi.StringPtrInput `pulumi:"phone"`
-	Role  pulumi.StringPtrInput `pulumi:"role"`
-}
-
-func (ContactDetailResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContactDetailResponse)(nil)).Elem()
-}
-
-func (i ContactDetailResponseArgs) ToContactDetailResponseOutput() ContactDetailResponseOutput {
-	return i.ToContactDetailResponseOutputWithContext(context.Background())
-}
-
-func (i ContactDetailResponseArgs) ToContactDetailResponseOutputWithContext(ctx context.Context) ContactDetailResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailResponseOutput)
-}
-
-
-
-
-
-type ContactDetailResponseArrayInput interface {
-	pulumi.Input
-
-	ToContactDetailResponseArrayOutput() ContactDetailResponseArrayOutput
-	ToContactDetailResponseArrayOutputWithContext(context.Context) ContactDetailResponseArrayOutput
-}
-
-type ContactDetailResponseArray []ContactDetailResponseInput
-
-func (ContactDetailResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ContactDetailResponse)(nil)).Elem()
-}
-
-func (i ContactDetailResponseArray) ToContactDetailResponseArrayOutput() ContactDetailResponseArrayOutput {
-	return i.ToContactDetailResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ContactDetailResponseArray) ToContactDetailResponseArrayOutputWithContext(ctx context.Context) ContactDetailResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContactDetailResponseArrayOutput)
-}
-
 type ContactDetailResponseOutput struct{ *pulumi.OutputState }
 
 func (ContactDetailResponseOutput) ElementType() reflect.Type {
@@ -893,67 +751,6 @@ type DirectConnectionResponse struct {
 	ProvisionedBandwidthInMbps int                 `pulumi:"provisionedBandwidthInMbps"`
 	SessionAddressProvider     *string             `pulumi:"sessionAddressProvider"`
 	UseForPeeringService       *bool               `pulumi:"useForPeeringService"`
-}
-
-
-
-
-
-type DirectConnectionResponseInput interface {
-	pulumi.Input
-
-	ToDirectConnectionResponseOutput() DirectConnectionResponseOutput
-	ToDirectConnectionResponseOutputWithContext(context.Context) DirectConnectionResponseOutput
-}
-
-type DirectConnectionResponseArgs struct {
-	BandwidthInMbps            pulumi.IntPtrInput         `pulumi:"bandwidthInMbps"`
-	BgpSession                 BgpSessionResponsePtrInput `pulumi:"bgpSession"`
-	ConnectionIdentifier       pulumi.StringPtrInput      `pulumi:"connectionIdentifier"`
-	ConnectionState            pulumi.StringInput         `pulumi:"connectionState"`
-	ErrorMessage               pulumi.StringInput         `pulumi:"errorMessage"`
-	MicrosoftTrackingId        pulumi.StringInput         `pulumi:"microsoftTrackingId"`
-	PeeringDBFacilityId        pulumi.IntPtrInput         `pulumi:"peeringDBFacilityId"`
-	ProvisionedBandwidthInMbps pulumi.IntInput            `pulumi:"provisionedBandwidthInMbps"`
-	SessionAddressProvider     pulumi.StringPtrInput      `pulumi:"sessionAddressProvider"`
-	UseForPeeringService       pulumi.BoolPtrInput        `pulumi:"useForPeeringService"`
-}
-
-func (DirectConnectionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DirectConnectionResponse)(nil)).Elem()
-}
-
-func (i DirectConnectionResponseArgs) ToDirectConnectionResponseOutput() DirectConnectionResponseOutput {
-	return i.ToDirectConnectionResponseOutputWithContext(context.Background())
-}
-
-func (i DirectConnectionResponseArgs) ToDirectConnectionResponseOutputWithContext(ctx context.Context) DirectConnectionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectionResponseOutput)
-}
-
-
-
-
-
-type DirectConnectionResponseArrayInput interface {
-	pulumi.Input
-
-	ToDirectConnectionResponseArrayOutput() DirectConnectionResponseArrayOutput
-	ToDirectConnectionResponseArrayOutputWithContext(context.Context) DirectConnectionResponseArrayOutput
-}
-
-type DirectConnectionResponseArray []DirectConnectionResponseInput
-
-func (DirectConnectionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DirectConnectionResponse)(nil)).Elem()
-}
-
-func (i DirectConnectionResponseArray) ToDirectConnectionResponseArrayOutput() DirectConnectionResponseArrayOutput {
-	return i.ToDirectConnectionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DirectConnectionResponseArray) ToDirectConnectionResponseArrayOutputWithContext(ctx context.Context) DirectConnectionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectionResponseArrayOutput)
 }
 
 type DirectConnectionResponseOutput struct{ *pulumi.OutputState }
@@ -1142,62 +939,6 @@ type ExchangeConnectionResponse struct {
 	ConnectionState      string              `pulumi:"connectionState"`
 	ErrorMessage         string              `pulumi:"errorMessage"`
 	PeeringDBFacilityId  *int                `pulumi:"peeringDBFacilityId"`
-}
-
-
-
-
-
-type ExchangeConnectionResponseInput interface {
-	pulumi.Input
-
-	ToExchangeConnectionResponseOutput() ExchangeConnectionResponseOutput
-	ToExchangeConnectionResponseOutputWithContext(context.Context) ExchangeConnectionResponseOutput
-}
-
-type ExchangeConnectionResponseArgs struct {
-	BgpSession           BgpSessionResponsePtrInput `pulumi:"bgpSession"`
-	ConnectionIdentifier pulumi.StringPtrInput      `pulumi:"connectionIdentifier"`
-	ConnectionState      pulumi.StringInput         `pulumi:"connectionState"`
-	ErrorMessage         pulumi.StringInput         `pulumi:"errorMessage"`
-	PeeringDBFacilityId  pulumi.IntPtrInput         `pulumi:"peeringDBFacilityId"`
-}
-
-func (ExchangeConnectionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExchangeConnectionResponse)(nil)).Elem()
-}
-
-func (i ExchangeConnectionResponseArgs) ToExchangeConnectionResponseOutput() ExchangeConnectionResponseOutput {
-	return i.ToExchangeConnectionResponseOutputWithContext(context.Background())
-}
-
-func (i ExchangeConnectionResponseArgs) ToExchangeConnectionResponseOutputWithContext(ctx context.Context) ExchangeConnectionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExchangeConnectionResponseOutput)
-}
-
-
-
-
-
-type ExchangeConnectionResponseArrayInput interface {
-	pulumi.Input
-
-	ToExchangeConnectionResponseArrayOutput() ExchangeConnectionResponseArrayOutput
-	ToExchangeConnectionResponseArrayOutputWithContext(context.Context) ExchangeConnectionResponseArrayOutput
-}
-
-type ExchangeConnectionResponseArray []ExchangeConnectionResponseInput
-
-func (ExchangeConnectionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExchangeConnectionResponse)(nil)).Elem()
-}
-
-func (i ExchangeConnectionResponseArray) ToExchangeConnectionResponseArrayOutput() ExchangeConnectionResponseArrayOutput {
-	return i.ToExchangeConnectionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ExchangeConnectionResponseArray) ToExchangeConnectionResponseArrayOutputWithContext(ctx context.Context) ExchangeConnectionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExchangeConnectionResponseArrayOutput)
 }
 
 type ExchangeConnectionResponseOutput struct{ *pulumi.OutputState }
@@ -1424,77 +1165,6 @@ type PeeringPropertiesDirectResponse struct {
 	UseForPeeringService bool                       `pulumi:"useForPeeringService"`
 }
 
-
-
-
-
-type PeeringPropertiesDirectResponseInput interface {
-	pulumi.Input
-
-	ToPeeringPropertiesDirectResponseOutput() PeeringPropertiesDirectResponseOutput
-	ToPeeringPropertiesDirectResponseOutputWithContext(context.Context) PeeringPropertiesDirectResponseOutput
-}
-
-type PeeringPropertiesDirectResponseArgs struct {
-	Connections          DirectConnectionResponseArrayInput `pulumi:"connections"`
-	DirectPeeringType    pulumi.StringPtrInput              `pulumi:"directPeeringType"`
-	PeerAsn              SubResourceResponsePtrInput        `pulumi:"peerAsn"`
-	UseForPeeringService pulumi.BoolInput                   `pulumi:"useForPeeringService"`
-}
-
-func (PeeringPropertiesDirectResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringPropertiesDirectResponse)(nil)).Elem()
-}
-
-func (i PeeringPropertiesDirectResponseArgs) ToPeeringPropertiesDirectResponseOutput() PeeringPropertiesDirectResponseOutput {
-	return i.ToPeeringPropertiesDirectResponseOutputWithContext(context.Background())
-}
-
-func (i PeeringPropertiesDirectResponseArgs) ToPeeringPropertiesDirectResponseOutputWithContext(ctx context.Context) PeeringPropertiesDirectResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesDirectResponseOutput)
-}
-
-func (i PeeringPropertiesDirectResponseArgs) ToPeeringPropertiesDirectResponsePtrOutput() PeeringPropertiesDirectResponsePtrOutput {
-	return i.ToPeeringPropertiesDirectResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PeeringPropertiesDirectResponseArgs) ToPeeringPropertiesDirectResponsePtrOutputWithContext(ctx context.Context) PeeringPropertiesDirectResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesDirectResponseOutput).ToPeeringPropertiesDirectResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PeeringPropertiesDirectResponsePtrInput interface {
-	pulumi.Input
-
-	ToPeeringPropertiesDirectResponsePtrOutput() PeeringPropertiesDirectResponsePtrOutput
-	ToPeeringPropertiesDirectResponsePtrOutputWithContext(context.Context) PeeringPropertiesDirectResponsePtrOutput
-}
-
-type peeringPropertiesDirectResponsePtrType PeeringPropertiesDirectResponseArgs
-
-func PeeringPropertiesDirectResponsePtr(v *PeeringPropertiesDirectResponseArgs) PeeringPropertiesDirectResponsePtrInput {
-	return (*peeringPropertiesDirectResponsePtrType)(v)
-}
-
-func (*peeringPropertiesDirectResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PeeringPropertiesDirectResponse)(nil)).Elem()
-}
-
-func (i *peeringPropertiesDirectResponsePtrType) ToPeeringPropertiesDirectResponsePtrOutput() PeeringPropertiesDirectResponsePtrOutput {
-	return i.ToPeeringPropertiesDirectResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *peeringPropertiesDirectResponsePtrType) ToPeeringPropertiesDirectResponsePtrOutputWithContext(ctx context.Context) PeeringPropertiesDirectResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesDirectResponsePtrOutput)
-}
-
 type PeeringPropertiesDirectResponseOutput struct{ *pulumi.OutputState }
 
 func (PeeringPropertiesDirectResponseOutput) ElementType() reflect.Type {
@@ -1507,16 +1177,6 @@ func (o PeeringPropertiesDirectResponseOutput) ToPeeringPropertiesDirectResponse
 
 func (o PeeringPropertiesDirectResponseOutput) ToPeeringPropertiesDirectResponseOutputWithContext(ctx context.Context) PeeringPropertiesDirectResponseOutput {
 	return o
-}
-
-func (o PeeringPropertiesDirectResponseOutput) ToPeeringPropertiesDirectResponsePtrOutput() PeeringPropertiesDirectResponsePtrOutput {
-	return o.ToPeeringPropertiesDirectResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PeeringPropertiesDirectResponseOutput) ToPeeringPropertiesDirectResponsePtrOutputWithContext(ctx context.Context) PeeringPropertiesDirectResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringPropertiesDirectResponse) *PeeringPropertiesDirectResponse {
-		return &v
-	}).(PeeringPropertiesDirectResponsePtrOutput)
 }
 
 func (o PeeringPropertiesDirectResponseOutput) Connections() DirectConnectionResponseArrayOutput {
@@ -1748,75 +1408,6 @@ type PeeringPropertiesExchangeResponse struct {
 	PeerAsn     *SubResourceResponse         `pulumi:"peerAsn"`
 }
 
-
-
-
-
-type PeeringPropertiesExchangeResponseInput interface {
-	pulumi.Input
-
-	ToPeeringPropertiesExchangeResponseOutput() PeeringPropertiesExchangeResponseOutput
-	ToPeeringPropertiesExchangeResponseOutputWithContext(context.Context) PeeringPropertiesExchangeResponseOutput
-}
-
-type PeeringPropertiesExchangeResponseArgs struct {
-	Connections ExchangeConnectionResponseArrayInput `pulumi:"connections"`
-	PeerAsn     SubResourceResponsePtrInput          `pulumi:"peerAsn"`
-}
-
-func (PeeringPropertiesExchangeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringPropertiesExchangeResponse)(nil)).Elem()
-}
-
-func (i PeeringPropertiesExchangeResponseArgs) ToPeeringPropertiesExchangeResponseOutput() PeeringPropertiesExchangeResponseOutput {
-	return i.ToPeeringPropertiesExchangeResponseOutputWithContext(context.Background())
-}
-
-func (i PeeringPropertiesExchangeResponseArgs) ToPeeringPropertiesExchangeResponseOutputWithContext(ctx context.Context) PeeringPropertiesExchangeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesExchangeResponseOutput)
-}
-
-func (i PeeringPropertiesExchangeResponseArgs) ToPeeringPropertiesExchangeResponsePtrOutput() PeeringPropertiesExchangeResponsePtrOutput {
-	return i.ToPeeringPropertiesExchangeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PeeringPropertiesExchangeResponseArgs) ToPeeringPropertiesExchangeResponsePtrOutputWithContext(ctx context.Context) PeeringPropertiesExchangeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesExchangeResponseOutput).ToPeeringPropertiesExchangeResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PeeringPropertiesExchangeResponsePtrInput interface {
-	pulumi.Input
-
-	ToPeeringPropertiesExchangeResponsePtrOutput() PeeringPropertiesExchangeResponsePtrOutput
-	ToPeeringPropertiesExchangeResponsePtrOutputWithContext(context.Context) PeeringPropertiesExchangeResponsePtrOutput
-}
-
-type peeringPropertiesExchangeResponsePtrType PeeringPropertiesExchangeResponseArgs
-
-func PeeringPropertiesExchangeResponsePtr(v *PeeringPropertiesExchangeResponseArgs) PeeringPropertiesExchangeResponsePtrInput {
-	return (*peeringPropertiesExchangeResponsePtrType)(v)
-}
-
-func (*peeringPropertiesExchangeResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PeeringPropertiesExchangeResponse)(nil)).Elem()
-}
-
-func (i *peeringPropertiesExchangeResponsePtrType) ToPeeringPropertiesExchangeResponsePtrOutput() PeeringPropertiesExchangeResponsePtrOutput {
-	return i.ToPeeringPropertiesExchangeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *peeringPropertiesExchangeResponsePtrType) ToPeeringPropertiesExchangeResponsePtrOutputWithContext(ctx context.Context) PeeringPropertiesExchangeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringPropertiesExchangeResponsePtrOutput)
-}
-
 type PeeringPropertiesExchangeResponseOutput struct{ *pulumi.OutputState }
 
 func (PeeringPropertiesExchangeResponseOutput) ElementType() reflect.Type {
@@ -1829,16 +1420,6 @@ func (o PeeringPropertiesExchangeResponseOutput) ToPeeringPropertiesExchangeResp
 
 func (o PeeringPropertiesExchangeResponseOutput) ToPeeringPropertiesExchangeResponseOutputWithContext(ctx context.Context) PeeringPropertiesExchangeResponseOutput {
 	return o
-}
-
-func (o PeeringPropertiesExchangeResponseOutput) ToPeeringPropertiesExchangeResponsePtrOutput() PeeringPropertiesExchangeResponsePtrOutput {
-	return o.ToPeeringPropertiesExchangeResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PeeringPropertiesExchangeResponseOutput) ToPeeringPropertiesExchangeResponsePtrOutputWithContext(ctx context.Context) PeeringPropertiesExchangeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringPropertiesExchangeResponse) *PeeringPropertiesExchangeResponse {
-		return &v
-	}).(PeeringPropertiesExchangeResponsePtrOutput)
 }
 
 func (o PeeringPropertiesExchangeResponseOutput) Connections() ExchangeConnectionResponseArrayOutput {
@@ -1897,62 +1478,6 @@ type PeeringServicePrefixEventResponse struct {
 	EventSummary     string `pulumi:"eventSummary"`
 	EventTimestamp   string `pulumi:"eventTimestamp"`
 	EventType        string `pulumi:"eventType"`
-}
-
-
-
-
-
-type PeeringServicePrefixEventResponseInput interface {
-	pulumi.Input
-
-	ToPeeringServicePrefixEventResponseOutput() PeeringServicePrefixEventResponseOutput
-	ToPeeringServicePrefixEventResponseOutputWithContext(context.Context) PeeringServicePrefixEventResponseOutput
-}
-
-type PeeringServicePrefixEventResponseArgs struct {
-	EventDescription pulumi.StringInput `pulumi:"eventDescription"`
-	EventLevel       pulumi.StringInput `pulumi:"eventLevel"`
-	EventSummary     pulumi.StringInput `pulumi:"eventSummary"`
-	EventTimestamp   pulumi.StringInput `pulumi:"eventTimestamp"`
-	EventType        pulumi.StringInput `pulumi:"eventType"`
-}
-
-func (PeeringServicePrefixEventResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringServicePrefixEventResponse)(nil)).Elem()
-}
-
-func (i PeeringServicePrefixEventResponseArgs) ToPeeringServicePrefixEventResponseOutput() PeeringServicePrefixEventResponseOutput {
-	return i.ToPeeringServicePrefixEventResponseOutputWithContext(context.Background())
-}
-
-func (i PeeringServicePrefixEventResponseArgs) ToPeeringServicePrefixEventResponseOutputWithContext(ctx context.Context) PeeringServicePrefixEventResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringServicePrefixEventResponseOutput)
-}
-
-
-
-
-
-type PeeringServicePrefixEventResponseArrayInput interface {
-	pulumi.Input
-
-	ToPeeringServicePrefixEventResponseArrayOutput() PeeringServicePrefixEventResponseArrayOutput
-	ToPeeringServicePrefixEventResponseArrayOutputWithContext(context.Context) PeeringServicePrefixEventResponseArrayOutput
-}
-
-type PeeringServicePrefixEventResponseArray []PeeringServicePrefixEventResponseInput
-
-func (PeeringServicePrefixEventResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PeeringServicePrefixEventResponse)(nil)).Elem()
-}
-
-func (i PeeringServicePrefixEventResponseArray) ToPeeringServicePrefixEventResponseArrayOutput() PeeringServicePrefixEventResponseArrayOutput {
-	return i.ToPeeringServicePrefixEventResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PeeringServicePrefixEventResponseArray) ToPeeringServicePrefixEventResponseArrayOutputWithContext(ctx context.Context) PeeringServicePrefixEventResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringServicePrefixEventResponseArrayOutput)
 }
 
 type PeeringServicePrefixEventResponseOutput struct{ *pulumi.OutputState }
@@ -2146,74 +1671,6 @@ type PeeringServiceSkuResponse struct {
 	Name *string `pulumi:"name"`
 }
 
-
-
-
-
-type PeeringServiceSkuResponseInput interface {
-	pulumi.Input
-
-	ToPeeringServiceSkuResponseOutput() PeeringServiceSkuResponseOutput
-	ToPeeringServiceSkuResponseOutputWithContext(context.Context) PeeringServiceSkuResponseOutput
-}
-
-type PeeringServiceSkuResponseArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (PeeringServiceSkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringServiceSkuResponse)(nil)).Elem()
-}
-
-func (i PeeringServiceSkuResponseArgs) ToPeeringServiceSkuResponseOutput() PeeringServiceSkuResponseOutput {
-	return i.ToPeeringServiceSkuResponseOutputWithContext(context.Background())
-}
-
-func (i PeeringServiceSkuResponseArgs) ToPeeringServiceSkuResponseOutputWithContext(ctx context.Context) PeeringServiceSkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringServiceSkuResponseOutput)
-}
-
-func (i PeeringServiceSkuResponseArgs) ToPeeringServiceSkuResponsePtrOutput() PeeringServiceSkuResponsePtrOutput {
-	return i.ToPeeringServiceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PeeringServiceSkuResponseArgs) ToPeeringServiceSkuResponsePtrOutputWithContext(ctx context.Context) PeeringServiceSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringServiceSkuResponseOutput).ToPeeringServiceSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PeeringServiceSkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToPeeringServiceSkuResponsePtrOutput() PeeringServiceSkuResponsePtrOutput
-	ToPeeringServiceSkuResponsePtrOutputWithContext(context.Context) PeeringServiceSkuResponsePtrOutput
-}
-
-type peeringServiceSkuResponsePtrType PeeringServiceSkuResponseArgs
-
-func PeeringServiceSkuResponsePtr(v *PeeringServiceSkuResponseArgs) PeeringServiceSkuResponsePtrInput {
-	return (*peeringServiceSkuResponsePtrType)(v)
-}
-
-func (*peeringServiceSkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PeeringServiceSkuResponse)(nil)).Elem()
-}
-
-func (i *peeringServiceSkuResponsePtrType) ToPeeringServiceSkuResponsePtrOutput() PeeringServiceSkuResponsePtrOutput {
-	return i.ToPeeringServiceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *peeringServiceSkuResponsePtrType) ToPeeringServiceSkuResponsePtrOutputWithContext(ctx context.Context) PeeringServiceSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringServiceSkuResponsePtrOutput)
-}
-
 type PeeringServiceSkuResponseOutput struct{ *pulumi.OutputState }
 
 func (PeeringServiceSkuResponseOutput) ElementType() reflect.Type {
@@ -2226,16 +1683,6 @@ func (o PeeringServiceSkuResponseOutput) ToPeeringServiceSkuResponseOutput() Pee
 
 func (o PeeringServiceSkuResponseOutput) ToPeeringServiceSkuResponseOutputWithContext(ctx context.Context) PeeringServiceSkuResponseOutput {
 	return o
-}
-
-func (o PeeringServiceSkuResponseOutput) ToPeeringServiceSkuResponsePtrOutput() PeeringServiceSkuResponsePtrOutput {
-	return o.ToPeeringServiceSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PeeringServiceSkuResponseOutput) ToPeeringServiceSkuResponsePtrOutputWithContext(ctx context.Context) PeeringServiceSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringServiceSkuResponse) *PeeringServiceSkuResponse {
-		return &v
-	}).(PeeringServiceSkuResponsePtrOutput)
 }
 
 func (o PeeringServiceSkuResponseOutput) Name() pulumi.StringPtrOutput {
@@ -2312,47 +1759,6 @@ func (i PeeringSkuArgs) ToPeeringSkuOutputWithContext(ctx context.Context) Peeri
 	return pulumi.ToOutputWithContext(ctx, i).(PeeringSkuOutput)
 }
 
-func (i PeeringSkuArgs) ToPeeringSkuPtrOutput() PeeringSkuPtrOutput {
-	return i.ToPeeringSkuPtrOutputWithContext(context.Background())
-}
-
-func (i PeeringSkuArgs) ToPeeringSkuPtrOutputWithContext(ctx context.Context) PeeringSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringSkuOutput).ToPeeringSkuPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PeeringSkuPtrInput interface {
-	pulumi.Input
-
-	ToPeeringSkuPtrOutput() PeeringSkuPtrOutput
-	ToPeeringSkuPtrOutputWithContext(context.Context) PeeringSkuPtrOutput
-}
-
-type peeringSkuPtrType PeeringSkuArgs
-
-func PeeringSkuPtr(v *PeeringSkuArgs) PeeringSkuPtrInput {
-	return (*peeringSkuPtrType)(v)
-}
-
-func (*peeringSkuPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PeeringSku)(nil)).Elem()
-}
-
-func (i *peeringSkuPtrType) ToPeeringSkuPtrOutput() PeeringSkuPtrOutput {
-	return i.ToPeeringSkuPtrOutputWithContext(context.Background())
-}
-
-func (i *peeringSkuPtrType) ToPeeringSkuPtrOutputWithContext(ctx context.Context) PeeringSkuPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringSkuPtrOutput)
-}
-
 type PeeringSkuOutput struct{ *pulumi.OutputState }
 
 func (PeeringSkuOutput) ElementType() reflect.Type {
@@ -2365,16 +1771,6 @@ func (o PeeringSkuOutput) ToPeeringSkuOutput() PeeringSkuOutput {
 
 func (o PeeringSkuOutput) ToPeeringSkuOutputWithContext(ctx context.Context) PeeringSkuOutput {
 	return o
-}
-
-func (o PeeringSkuOutput) ToPeeringSkuPtrOutput() PeeringSkuPtrOutput {
-	return o.ToPeeringSkuPtrOutputWithContext(context.Background())
-}
-
-func (o PeeringSkuOutput) ToPeeringSkuPtrOutputWithContext(ctx context.Context) PeeringSkuPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringSku) *PeeringSku {
-		return &v
-	}).(PeeringSkuPtrOutput)
 }
 
 func (o PeeringSkuOutput) Family() pulumi.StringPtrOutput {
@@ -2393,142 +1789,11 @@ func (o PeeringSkuOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSku) *string { return v.Tier }).(pulumi.StringPtrOutput)
 }
 
-type PeeringSkuPtrOutput struct{ *pulumi.OutputState }
-
-func (PeeringSkuPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PeeringSku)(nil)).Elem()
-}
-
-func (o PeeringSkuPtrOutput) ToPeeringSkuPtrOutput() PeeringSkuPtrOutput {
-	return o
-}
-
-func (o PeeringSkuPtrOutput) ToPeeringSkuPtrOutputWithContext(ctx context.Context) PeeringSkuPtrOutput {
-	return o
-}
-
-func (o PeeringSkuPtrOutput) Elem() PeeringSkuOutput {
-	return o.ApplyT(func(v *PeeringSku) PeeringSku {
-		if v != nil {
-			return *v
-		}
-		var ret PeeringSku
-		return ret
-	}).(PeeringSkuOutput)
-}
-
-func (o PeeringSkuPtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PeeringSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PeeringSkuPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PeeringSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PeeringSkuPtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PeeringSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PeeringSkuPtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PeeringSku) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
-}
-
 type PeeringSkuResponse struct {
 	Family *string `pulumi:"family"`
 	Name   *string `pulumi:"name"`
 	Size   *string `pulumi:"size"`
 	Tier   *string `pulumi:"tier"`
-}
-
-
-
-
-
-type PeeringSkuResponseInput interface {
-	pulumi.Input
-
-	ToPeeringSkuResponseOutput() PeeringSkuResponseOutput
-	ToPeeringSkuResponseOutputWithContext(context.Context) PeeringSkuResponseOutput
-}
-
-type PeeringSkuResponseArgs struct {
-	Family pulumi.StringPtrInput `pulumi:"family"`
-	Name   pulumi.StringPtrInput `pulumi:"name"`
-	Size   pulumi.StringPtrInput `pulumi:"size"`
-	Tier   pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (PeeringSkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringSkuResponse)(nil)).Elem()
-}
-
-func (i PeeringSkuResponseArgs) ToPeeringSkuResponseOutput() PeeringSkuResponseOutput {
-	return i.ToPeeringSkuResponseOutputWithContext(context.Background())
-}
-
-func (i PeeringSkuResponseArgs) ToPeeringSkuResponseOutputWithContext(ctx context.Context) PeeringSkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringSkuResponseOutput)
-}
-
-func (i PeeringSkuResponseArgs) ToPeeringSkuResponsePtrOutput() PeeringSkuResponsePtrOutput {
-	return i.ToPeeringSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PeeringSkuResponseArgs) ToPeeringSkuResponsePtrOutputWithContext(ctx context.Context) PeeringSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringSkuResponseOutput).ToPeeringSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PeeringSkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToPeeringSkuResponsePtrOutput() PeeringSkuResponsePtrOutput
-	ToPeeringSkuResponsePtrOutputWithContext(context.Context) PeeringSkuResponsePtrOutput
-}
-
-type peeringSkuResponsePtrType PeeringSkuResponseArgs
-
-func PeeringSkuResponsePtr(v *PeeringSkuResponseArgs) PeeringSkuResponsePtrInput {
-	return (*peeringSkuResponsePtrType)(v)
-}
-
-func (*peeringSkuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PeeringSkuResponse)(nil)).Elem()
-}
-
-func (i *peeringSkuResponsePtrType) ToPeeringSkuResponsePtrOutput() PeeringSkuResponsePtrOutput {
-	return i.ToPeeringSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *peeringSkuResponsePtrType) ToPeeringSkuResponsePtrOutputWithContext(ctx context.Context) PeeringSkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PeeringSkuResponsePtrOutput)
 }
 
 type PeeringSkuResponseOutput struct{ *pulumi.OutputState }
@@ -2545,16 +1810,6 @@ func (o PeeringSkuResponseOutput) ToPeeringSkuResponseOutputWithContext(ctx cont
 	return o
 }
 
-func (o PeeringSkuResponseOutput) ToPeeringSkuResponsePtrOutput() PeeringSkuResponsePtrOutput {
-	return o.ToPeeringSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PeeringSkuResponseOutput) ToPeeringSkuResponsePtrOutputWithContext(ctx context.Context) PeeringSkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PeeringSkuResponse) *PeeringSkuResponse {
-		return &v
-	}).(PeeringSkuResponsePtrOutput)
-}
-
 func (o PeeringSkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
@@ -2569,66 +1824,6 @@ func (o PeeringSkuResponseOutput) Size() pulumi.StringPtrOutput {
 
 func (o PeeringSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PeeringSkuResponse) *string { return v.Tier }).(pulumi.StringPtrOutput)
-}
-
-type PeeringSkuResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PeeringSkuResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PeeringSkuResponse)(nil)).Elem()
-}
-
-func (o PeeringSkuResponsePtrOutput) ToPeeringSkuResponsePtrOutput() PeeringSkuResponsePtrOutput {
-	return o
-}
-
-func (o PeeringSkuResponsePtrOutput) ToPeeringSkuResponsePtrOutputWithContext(ctx context.Context) PeeringSkuResponsePtrOutput {
-	return o
-}
-
-func (o PeeringSkuResponsePtrOutput) Elem() PeeringSkuResponseOutput {
-	return o.ApplyT(func(v *PeeringSkuResponse) PeeringSkuResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PeeringSkuResponse
-		return ret
-	}).(PeeringSkuResponseOutput)
-}
-
-func (o PeeringSkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PeeringSkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Family
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PeeringSkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PeeringSkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PeeringSkuResponsePtrOutput) Size() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PeeringSkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Size
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PeeringSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PeeringSkuResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Tier
-	}).(pulumi.StringPtrOutput)
 }
 
 type SubResource struct {
@@ -2768,74 +1963,6 @@ type SubResourceResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type SubResourceResponseInput interface {
-	pulumi.Input
-
-	ToSubResourceResponseOutput() SubResourceResponseOutput
-	ToSubResourceResponseOutputWithContext(context.Context) SubResourceResponseOutput
-}
-
-type SubResourceResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (SubResourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubResourceResponse)(nil)).Elem()
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponseOutput() SubResourceResponseOutput {
-	return i.ToSubResourceResponseOutputWithContext(context.Background())
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponseOutputWithContext(ctx context.Context) SubResourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseOutput)
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return i.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SubResourceResponseArgs) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponseOutput).ToSubResourceResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SubResourceResponsePtrInput interface {
-	pulumi.Input
-
-	ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput
-	ToSubResourceResponsePtrOutputWithContext(context.Context) SubResourceResponsePtrOutput
-}
-
-type subResourceResponsePtrType SubResourceResponseArgs
-
-func SubResourceResponsePtr(v *SubResourceResponseArgs) SubResourceResponsePtrInput {
-	return (*subResourceResponsePtrType)(v)
-}
-
-func (*subResourceResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubResourceResponse)(nil)).Elem()
-}
-
-func (i *subResourceResponsePtrType) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return i.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *subResourceResponsePtrType) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubResourceResponsePtrOutput)
-}
-
 type SubResourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SubResourceResponseOutput) ElementType() reflect.Type {
@@ -2848,16 +1975,6 @@ func (o SubResourceResponseOutput) ToSubResourceResponseOutput() SubResourceResp
 
 func (o SubResourceResponseOutput) ToSubResourceResponseOutputWithContext(ctx context.Context) SubResourceResponseOutput {
 	return o
-}
-
-func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutput() SubResourceResponsePtrOutput {
-	return o.ToSubResourceResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SubResourceResponseOutput) ToSubResourceResponsePtrOutputWithContext(ctx context.Context) SubResourceResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubResourceResponse) *SubResourceResponse {
-		return &v
-	}).(SubResourceResponsePtrOutput)
 }
 
 func (o SubResourceResponseOutput) Id() pulumi.StringPtrOutput {
@@ -2929,9 +2046,7 @@ func init() {
 	pulumi.RegisterOutputType(PeeringServiceSkuResponseOutput{})
 	pulumi.RegisterOutputType(PeeringServiceSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(PeeringSkuOutput{})
-	pulumi.RegisterOutputType(PeeringSkuPtrOutput{})
 	pulumi.RegisterOutputType(PeeringSkuResponseOutput{})
-	pulumi.RegisterOutputType(PeeringSkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SubResourceOutput{})
 	pulumi.RegisterOutputType(SubResourcePtrOutput{})
 	pulumi.RegisterOutputType(SubResourceResponseOutput{})

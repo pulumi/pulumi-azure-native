@@ -262,7 +262,7 @@ type VirtualNetworkGatewayInput interface {
 }
 
 func (*VirtualNetworkGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkGateway)(nil))
+	return reflect.TypeOf((**VirtualNetworkGateway)(nil)).Elem()
 }
 
 func (i *VirtualNetworkGateway) ToVirtualNetworkGatewayOutput() VirtualNetworkGatewayOutput {
@@ -276,7 +276,7 @@ func (i *VirtualNetworkGateway) ToVirtualNetworkGatewayOutputWithContext(ctx con
 type VirtualNetworkGatewayOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkGateway)(nil))
+	return reflect.TypeOf((**VirtualNetworkGateway)(nil)).Elem()
 }
 
 func (o VirtualNetworkGatewayOutput) ToVirtualNetworkGatewayOutput() VirtualNetworkGatewayOutput {

@@ -121,7 +121,7 @@ type MaintenanceConfigurationInput interface {
 }
 
 func (*MaintenanceConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceConfiguration)(nil))
+	return reflect.TypeOf((**MaintenanceConfiguration)(nil)).Elem()
 }
 
 func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutput() MaintenanceConfigurationOutput {
@@ -135,7 +135,7 @@ func (i *MaintenanceConfiguration) ToMaintenanceConfigurationOutputWithContext(c
 type MaintenanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceConfiguration)(nil))
+	return reflect.TypeOf((**MaintenanceConfiguration)(nil)).Elem()
 }
 
 func (o MaintenanceConfigurationOutput) ToMaintenanceConfigurationOutput() MaintenanceConfigurationOutput {

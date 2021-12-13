@@ -109,7 +109,7 @@ type AFDEndpointInput interface {
 }
 
 func (*AFDEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*AFDEndpoint)(nil))
+	return reflect.TypeOf((**AFDEndpoint)(nil)).Elem()
 }
 
 func (i *AFDEndpoint) ToAFDEndpointOutput() AFDEndpointOutput {
@@ -123,7 +123,7 @@ func (i *AFDEndpoint) ToAFDEndpointOutputWithContext(ctx context.Context) AFDEnd
 type AFDEndpointOutput struct{ *pulumi.OutputState }
 
 func (AFDEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AFDEndpoint)(nil))
+	return reflect.TypeOf((**AFDEndpoint)(nil)).Elem()
 }
 
 func (o AFDEndpointOutput) ToAFDEndpointOutput() AFDEndpointOutput {

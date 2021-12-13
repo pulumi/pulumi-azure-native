@@ -101,7 +101,7 @@ type HybridUseBenefitInput interface {
 }
 
 func (*HybridUseBenefit) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridUseBenefit)(nil))
+	return reflect.TypeOf((**HybridUseBenefit)(nil)).Elem()
 }
 
 func (i *HybridUseBenefit) ToHybridUseBenefitOutput() HybridUseBenefitOutput {
@@ -115,7 +115,7 @@ func (i *HybridUseBenefit) ToHybridUseBenefitOutputWithContext(ctx context.Conte
 type HybridUseBenefitOutput struct{ *pulumi.OutputState }
 
 func (HybridUseBenefitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridUseBenefit)(nil))
+	return reflect.TypeOf((**HybridUseBenefit)(nil)).Elem()
 }
 
 func (o HybridUseBenefitOutput) ToHybridUseBenefitOutput() HybridUseBenefitOutput {

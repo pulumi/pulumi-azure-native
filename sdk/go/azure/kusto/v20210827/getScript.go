@@ -13,7 +13,7 @@ func LookupScript(ctx *pulumi.Context, args *LookupScriptArgs, opts ...pulumi.In
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupScriptArgs struct {
@@ -33,4 +33,17 @@ type LookupScriptResult struct {
 	ScriptUrl         string             `pulumi:"scriptUrl"`
 	SystemData        SystemDataResponse `pulumi:"systemData"`
 	Type              string             `pulumi:"type"`
+}
+
+
+func (val *LookupScriptResult) Defaults() *LookupScriptResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ContinueOnErrors) {
+		continueOnErrors_ := false
+		tmp.ContinueOnErrors = &continueOnErrors_
+	}
+	return &tmp
 }

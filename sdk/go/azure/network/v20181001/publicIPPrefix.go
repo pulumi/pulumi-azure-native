@@ -193,7 +193,7 @@ type PublicIPPrefixInput interface {
 }
 
 func (*PublicIPPrefix) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicIPPrefix)(nil))
+	return reflect.TypeOf((**PublicIPPrefix)(nil)).Elem()
 }
 
 func (i *PublicIPPrefix) ToPublicIPPrefixOutput() PublicIPPrefixOutput {
@@ -207,7 +207,7 @@ func (i *PublicIPPrefix) ToPublicIPPrefixOutputWithContext(ctx context.Context) 
 type PublicIPPrefixOutput struct{ *pulumi.OutputState }
 
 func (PublicIPPrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicIPPrefix)(nil))
+	return reflect.TypeOf((**PublicIPPrefix)(nil)).Elem()
 }
 
 func (o PublicIPPrefixOutput) ToPublicIPPrefixOutput() PublicIPPrefixOutput {

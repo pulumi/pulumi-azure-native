@@ -121,7 +121,7 @@ type ManagerExtendedInfoInput interface {
 }
 
 func (*ManagerExtendedInfo) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerExtendedInfo)(nil))
+	return reflect.TypeOf((**ManagerExtendedInfo)(nil)).Elem()
 }
 
 func (i *ManagerExtendedInfo) ToManagerExtendedInfoOutput() ManagerExtendedInfoOutput {
@@ -135,7 +135,7 @@ func (i *ManagerExtendedInfo) ToManagerExtendedInfoOutputWithContext(ctx context
 type ManagerExtendedInfoOutput struct{ *pulumi.OutputState }
 
 func (ManagerExtendedInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagerExtendedInfo)(nil))
+	return reflect.TypeOf((**ManagerExtendedInfo)(nil)).Elem()
 }
 
 func (o ManagerExtendedInfoOutput) ToManagerExtendedInfoOutput() ManagerExtendedInfoOutput {

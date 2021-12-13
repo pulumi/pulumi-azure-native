@@ -32,6 +32,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args.SearchServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'SearchServiceName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToPrivateEndpointConnectionPropertiesPtrOutput().ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties { return v.Defaults() }).(PrivateEndpointConnectionPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:search:PrivateEndpointConnection"),
@@ -110,7 +113,7 @@ type PrivateEndpointConnectionInput interface {
 }
 
 func (*PrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnection)(nil)).Elem()
 }
 
 func (i *PrivateEndpointConnection) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {
@@ -124,7 +127,7 @@ func (i *PrivateEndpointConnection) ToPrivateEndpointConnectionOutputWithContext
 type PrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnection)(nil)).Elem()
 }
 
 func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutput() PrivateEndpointConnectionOutput {

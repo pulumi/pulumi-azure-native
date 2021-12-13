@@ -129,7 +129,7 @@ type IntegrationAccountMapInput interface {
 }
 
 func (*IntegrationAccountMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMap)(nil))
+	return reflect.TypeOf((**IntegrationAccountMap)(nil)).Elem()
 }
 
 func (i *IntegrationAccountMap) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {
@@ -143,7 +143,7 @@ func (i *IntegrationAccountMap) ToIntegrationAccountMapOutputWithContext(ctx con
 type IntegrationAccountMapOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountMap)(nil))
+	return reflect.TypeOf((**IntegrationAccountMap)(nil)).Elem()
 }
 
 func (o IntegrationAccountMapOutput) ToIntegrationAccountMapOutput() IntegrationAccountMapOutput {

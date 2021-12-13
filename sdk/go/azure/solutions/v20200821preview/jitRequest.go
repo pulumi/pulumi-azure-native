@@ -123,7 +123,7 @@ type JitRequestInput interface {
 }
 
 func (*JitRequest) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitRequest)(nil))
+	return reflect.TypeOf((**JitRequest)(nil)).Elem()
 }
 
 func (i *JitRequest) ToJitRequestOutput() JitRequestOutput {
@@ -137,7 +137,7 @@ func (i *JitRequest) ToJitRequestOutputWithContext(ctx context.Context) JitReque
 type JitRequestOutput struct{ *pulumi.OutputState }
 
 func (JitRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitRequest)(nil))
+	return reflect.TypeOf((**JitRequest)(nil)).Elem()
 }
 
 func (o JitRequestOutput) ToJitRequestOutput() JitRequestOutput {

@@ -13,7 +13,7 @@ func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOp
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupJobArgs struct {
@@ -41,4 +41,17 @@ type LookupJobResult struct {
 	Status                    string                   `pulumi:"status"`
 	Tags                      map[string]string        `pulumi:"tags"`
 	Type                      string                   `pulumi:"type"`
+}
+
+
+func (val *LookupJobResult) Defaults() *LookupJobResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DeliveryType) {
+		deliveryType_ := "NonScheduled"
+		tmp.DeliveryType = &deliveryType_
+	}
+	return &tmp
 }

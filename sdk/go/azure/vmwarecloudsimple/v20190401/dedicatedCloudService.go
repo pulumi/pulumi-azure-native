@@ -103,7 +103,7 @@ type DedicatedCloudServiceInput interface {
 }
 
 func (*DedicatedCloudService) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedCloudService)(nil))
+	return reflect.TypeOf((**DedicatedCloudService)(nil)).Elem()
 }
 
 func (i *DedicatedCloudService) ToDedicatedCloudServiceOutput() DedicatedCloudServiceOutput {
@@ -117,7 +117,7 @@ func (i *DedicatedCloudService) ToDedicatedCloudServiceOutputWithContext(ctx con
 type DedicatedCloudServiceOutput struct{ *pulumi.OutputState }
 
 func (DedicatedCloudServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedCloudService)(nil))
+	return reflect.TypeOf((**DedicatedCloudService)(nil)).Elem()
 }
 
 func (o DedicatedCloudServiceOutput) ToDedicatedCloudServiceOutput() DedicatedCloudServiceOutput {

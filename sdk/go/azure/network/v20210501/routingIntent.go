@@ -102,7 +102,7 @@ type RoutingIntentInput interface {
 }
 
 func (*RoutingIntent) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoutingIntent)(nil))
+	return reflect.TypeOf((**RoutingIntent)(nil)).Elem()
 }
 
 func (i *RoutingIntent) ToRoutingIntentOutput() RoutingIntentOutput {
@@ -116,7 +116,7 @@ func (i *RoutingIntent) ToRoutingIntentOutputWithContext(ctx context.Context) Ro
 type RoutingIntentOutput struct{ *pulumi.OutputState }
 
 func (RoutingIntentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoutingIntent)(nil))
+	return reflect.TypeOf((**RoutingIntent)(nil)).Elem()
 }
 
 func (o RoutingIntentOutput) ToRoutingIntentOutput() RoutingIntentOutput {

@@ -113,7 +113,7 @@ type ServiceFabricInput interface {
 }
 
 func (*ServiceFabric) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceFabric)(nil))
+	return reflect.TypeOf((**ServiceFabric)(nil)).Elem()
 }
 
 func (i *ServiceFabric) ToServiceFabricOutput() ServiceFabricOutput {
@@ -127,7 +127,7 @@ func (i *ServiceFabric) ToServiceFabricOutputWithContext(ctx context.Context) Se
 type ServiceFabricOutput struct{ *pulumi.OutputState }
 
 func (ServiceFabricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceFabric)(nil))
+	return reflect.TypeOf((**ServiceFabric)(nil)).Elem()
 }
 
 func (o ServiceFabricOutput) ToServiceFabricOutput() ServiceFabricOutput {

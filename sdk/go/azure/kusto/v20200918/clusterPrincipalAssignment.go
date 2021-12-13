@@ -132,7 +132,7 @@ type ClusterPrincipalAssignmentInput interface {
 }
 
 func (*ClusterPrincipalAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterPrincipalAssignment)(nil))
+	return reflect.TypeOf((**ClusterPrincipalAssignment)(nil)).Elem()
 }
 
 func (i *ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutput() ClusterPrincipalAssignmentOutput {
@@ -146,7 +146,7 @@ func (i *ClusterPrincipalAssignment) ToClusterPrincipalAssignmentOutputWithConte
 type ClusterPrincipalAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ClusterPrincipalAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterPrincipalAssignment)(nil))
+	return reflect.TypeOf((**ClusterPrincipalAssignment)(nil)).Elem()
 }
 
 func (o ClusterPrincipalAssignmentOutput) ToClusterPrincipalAssignmentOutput() ClusterPrincipalAssignmentOutput {

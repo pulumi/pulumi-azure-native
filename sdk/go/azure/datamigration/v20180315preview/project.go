@@ -46,6 +46,12 @@ func NewProject(ctx *pulumi.Context,
 	if args.TargetPlatform == nil {
 		return nil, errors.New("invalid value for required argument 'TargetPlatform'")
 	}
+	if args.SourceConnectionInfo != nil {
+		args.SourceConnectionInfo = args.SourceConnectionInfo.ToSqlConnectionInfoPtrOutput().ApplyT(func(v *SqlConnectionInfo) *SqlConnectionInfo { return v.Defaults() }).(SqlConnectionInfoPtrOutput)
+	}
+	if args.TargetConnectionInfo != nil {
+		args.TargetConnectionInfo = args.TargetConnectionInfo.ToSqlConnectionInfoPtrOutput().ApplyT(func(v *SqlConnectionInfo) *SqlConnectionInfo { return v.Defaults() }).(SqlConnectionInfoPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:datamigration:Project"),
@@ -137,7 +143,7 @@ type ProjectInput interface {
 }
 
 func (*Project) ElementType() reflect.Type {
-	return reflect.TypeOf((*Project)(nil))
+	return reflect.TypeOf((**Project)(nil)).Elem()
 }
 
 func (i *Project) ToProjectOutput() ProjectOutput {
@@ -151,7 +157,7 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 type ProjectOutput struct{ *pulumi.OutputState }
 
 func (ProjectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Project)(nil))
+	return reflect.TypeOf((**Project)(nil)).Elem()
 }
 
 func (o ProjectOutput) ToProjectOutput() ProjectOutput {

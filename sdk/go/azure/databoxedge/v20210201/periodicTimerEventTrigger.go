@@ -146,7 +146,7 @@ type PeriodicTimerEventTriggerInput interface {
 }
 
 func (*PeriodicTimerEventTrigger) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeriodicTimerEventTrigger)(nil))
+	return reflect.TypeOf((**PeriodicTimerEventTrigger)(nil)).Elem()
 }
 
 func (i *PeriodicTimerEventTrigger) ToPeriodicTimerEventTriggerOutput() PeriodicTimerEventTriggerOutput {
@@ -160,7 +160,7 @@ func (i *PeriodicTimerEventTrigger) ToPeriodicTimerEventTriggerOutputWithContext
 type PeriodicTimerEventTriggerOutput struct{ *pulumi.OutputState }
 
 func (PeriodicTimerEventTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeriodicTimerEventTrigger)(nil))
+	return reflect.TypeOf((**PeriodicTimerEventTrigger)(nil)).Elem()
 }
 
 func (o PeriodicTimerEventTriggerOutput) ToPeriodicTimerEventTriggerOutput() PeriodicTimerEventTriggerOutput {

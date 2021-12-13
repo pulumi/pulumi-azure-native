@@ -158,7 +158,7 @@ type KpiInput interface {
 }
 
 func (*Kpi) ElementType() reflect.Type {
-	return reflect.TypeOf((*Kpi)(nil))
+	return reflect.TypeOf((**Kpi)(nil)).Elem()
 }
 
 func (i *Kpi) ToKpiOutput() KpiOutput {
@@ -172,7 +172,7 @@ func (i *Kpi) ToKpiOutputWithContext(ctx context.Context) KpiOutput {
 type KpiOutput struct{ *pulumi.OutputState }
 
 func (KpiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Kpi)(nil))
+	return reflect.TypeOf((**Kpi)(nil)).Elem()
 }
 
 func (o KpiOutput) ToKpiOutput() KpiOutput {

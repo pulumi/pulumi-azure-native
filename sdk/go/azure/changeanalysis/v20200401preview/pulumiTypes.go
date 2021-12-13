@@ -179,76 +179,6 @@ type AzureMonitorWorkspacePropertiesResponse struct {
 	WorkspaceResourceId  *string `pulumi:"workspaceResourceId"`
 }
 
-
-
-
-
-type AzureMonitorWorkspacePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToAzureMonitorWorkspacePropertiesResponseOutput() AzureMonitorWorkspacePropertiesResponseOutput
-	ToAzureMonitorWorkspacePropertiesResponseOutputWithContext(context.Context) AzureMonitorWorkspacePropertiesResponseOutput
-}
-
-type AzureMonitorWorkspacePropertiesResponseArgs struct {
-	IncludeChangeDetails pulumi.StringPtrInput `pulumi:"includeChangeDetails"`
-	WorkspaceId          pulumi.StringPtrInput `pulumi:"workspaceId"`
-	WorkspaceResourceId  pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
-}
-
-func (AzureMonitorWorkspacePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureMonitorWorkspacePropertiesResponse)(nil)).Elem()
-}
-
-func (i AzureMonitorWorkspacePropertiesResponseArgs) ToAzureMonitorWorkspacePropertiesResponseOutput() AzureMonitorWorkspacePropertiesResponseOutput {
-	return i.ToAzureMonitorWorkspacePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i AzureMonitorWorkspacePropertiesResponseArgs) ToAzureMonitorWorkspacePropertiesResponseOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorWorkspacePropertiesResponseOutput)
-}
-
-func (i AzureMonitorWorkspacePropertiesResponseArgs) ToAzureMonitorWorkspacePropertiesResponsePtrOutput() AzureMonitorWorkspacePropertiesResponsePtrOutput {
-	return i.ToAzureMonitorWorkspacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AzureMonitorWorkspacePropertiesResponseArgs) ToAzureMonitorWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorWorkspacePropertiesResponseOutput).ToAzureMonitorWorkspacePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AzureMonitorWorkspacePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToAzureMonitorWorkspacePropertiesResponsePtrOutput() AzureMonitorWorkspacePropertiesResponsePtrOutput
-	ToAzureMonitorWorkspacePropertiesResponsePtrOutputWithContext(context.Context) AzureMonitorWorkspacePropertiesResponsePtrOutput
-}
-
-type azureMonitorWorkspacePropertiesResponsePtrType AzureMonitorWorkspacePropertiesResponseArgs
-
-func AzureMonitorWorkspacePropertiesResponsePtr(v *AzureMonitorWorkspacePropertiesResponseArgs) AzureMonitorWorkspacePropertiesResponsePtrInput {
-	return (*azureMonitorWorkspacePropertiesResponsePtrType)(v)
-}
-
-func (*azureMonitorWorkspacePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureMonitorWorkspacePropertiesResponse)(nil)).Elem()
-}
-
-func (i *azureMonitorWorkspacePropertiesResponsePtrType) ToAzureMonitorWorkspacePropertiesResponsePtrOutput() AzureMonitorWorkspacePropertiesResponsePtrOutput {
-	return i.ToAzureMonitorWorkspacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *azureMonitorWorkspacePropertiesResponsePtrType) ToAzureMonitorWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureMonitorWorkspacePropertiesResponsePtrOutput)
-}
-
 type AzureMonitorWorkspacePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AzureMonitorWorkspacePropertiesResponseOutput) ElementType() reflect.Type {
@@ -261,16 +191,6 @@ func (o AzureMonitorWorkspacePropertiesResponseOutput) ToAzureMonitorWorkspacePr
 
 func (o AzureMonitorWorkspacePropertiesResponseOutput) ToAzureMonitorWorkspacePropertiesResponseOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesResponseOutput {
 	return o
-}
-
-func (o AzureMonitorWorkspacePropertiesResponseOutput) ToAzureMonitorWorkspacePropertiesResponsePtrOutput() AzureMonitorWorkspacePropertiesResponsePtrOutput {
-	return o.ToAzureMonitorWorkspacePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AzureMonitorWorkspacePropertiesResponseOutput) ToAzureMonitorWorkspacePropertiesResponsePtrOutputWithContext(ctx context.Context) AzureMonitorWorkspacePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureMonitorWorkspacePropertiesResponse) *AzureMonitorWorkspacePropertiesResponse {
-		return &v
-	}).(AzureMonitorWorkspacePropertiesResponsePtrOutput)
 }
 
 func (o AzureMonitorWorkspacePropertiesResponseOutput) IncludeChangeDetails() pulumi.StringPtrOutput {
@@ -473,74 +393,6 @@ type ConfigurationProfileResourcePropertiesResponse struct {
 	Notifications *NotificationSettingsResponse `pulumi:"notifications"`
 }
 
-
-
-
-
-type ConfigurationProfileResourcePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToConfigurationProfileResourcePropertiesResponseOutput() ConfigurationProfileResourcePropertiesResponseOutput
-	ToConfigurationProfileResourcePropertiesResponseOutputWithContext(context.Context) ConfigurationProfileResourcePropertiesResponseOutput
-}
-
-type ConfigurationProfileResourcePropertiesResponseArgs struct {
-	Notifications NotificationSettingsResponsePtrInput `pulumi:"notifications"`
-}
-
-func (ConfigurationProfileResourcePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (i ConfigurationProfileResourcePropertiesResponseArgs) ToConfigurationProfileResourcePropertiesResponseOutput() ConfigurationProfileResourcePropertiesResponseOutput {
-	return i.ToConfigurationProfileResourcePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfileResourcePropertiesResponseArgs) ToConfigurationProfileResourcePropertiesResponseOutputWithContext(ctx context.Context) ConfigurationProfileResourcePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileResourcePropertiesResponseOutput)
-}
-
-func (i ConfigurationProfileResourcePropertiesResponseArgs) ToConfigurationProfileResourcePropertiesResponsePtrOutput() ConfigurationProfileResourcePropertiesResponsePtrOutput {
-	return i.ToConfigurationProfileResourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConfigurationProfileResourcePropertiesResponseArgs) ToConfigurationProfileResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileResourcePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileResourcePropertiesResponseOutput).ToConfigurationProfileResourcePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConfigurationProfileResourcePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToConfigurationProfileResourcePropertiesResponsePtrOutput() ConfigurationProfileResourcePropertiesResponsePtrOutput
-	ToConfigurationProfileResourcePropertiesResponsePtrOutputWithContext(context.Context) ConfigurationProfileResourcePropertiesResponsePtrOutput
-}
-
-type configurationProfileResourcePropertiesResponsePtrType ConfigurationProfileResourcePropertiesResponseArgs
-
-func ConfigurationProfileResourcePropertiesResponsePtr(v *ConfigurationProfileResourcePropertiesResponseArgs) ConfigurationProfileResourcePropertiesResponsePtrInput {
-	return (*configurationProfileResourcePropertiesResponsePtrType)(v)
-}
-
-func (*configurationProfileResourcePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfileResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (i *configurationProfileResourcePropertiesResponsePtrType) ToConfigurationProfileResourcePropertiesResponsePtrOutput() ConfigurationProfileResourcePropertiesResponsePtrOutput {
-	return i.ToConfigurationProfileResourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *configurationProfileResourcePropertiesResponsePtrType) ToConfigurationProfileResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileResourcePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfileResourcePropertiesResponsePtrOutput)
-}
-
 type ConfigurationProfileResourcePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileResourcePropertiesResponseOutput) ElementType() reflect.Type {
@@ -555,51 +407,8 @@ func (o ConfigurationProfileResourcePropertiesResponseOutput) ToConfigurationPro
 	return o
 }
 
-func (o ConfigurationProfileResourcePropertiesResponseOutput) ToConfigurationProfileResourcePropertiesResponsePtrOutput() ConfigurationProfileResourcePropertiesResponsePtrOutput {
-	return o.ToConfigurationProfileResourcePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConfigurationProfileResourcePropertiesResponseOutput) ToConfigurationProfileResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileResourcePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileResourcePropertiesResponse) *ConfigurationProfileResourcePropertiesResponse {
-		return &v
-	}).(ConfigurationProfileResourcePropertiesResponsePtrOutput)
-}
-
 func (o ConfigurationProfileResourcePropertiesResponseOutput) Notifications() NotificationSettingsResponsePtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileResourcePropertiesResponse) *NotificationSettingsResponse {
-		return v.Notifications
-	}).(NotificationSettingsResponsePtrOutput)
-}
-
-type ConfigurationProfileResourcePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationProfileResourcePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfileResourcePropertiesResponse)(nil)).Elem()
-}
-
-func (o ConfigurationProfileResourcePropertiesResponsePtrOutput) ToConfigurationProfileResourcePropertiesResponsePtrOutput() ConfigurationProfileResourcePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfileResourcePropertiesResponsePtrOutput) ToConfigurationProfileResourcePropertiesResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileResourcePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfileResourcePropertiesResponsePtrOutput) Elem() ConfigurationProfileResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v *ConfigurationProfileResourcePropertiesResponse) ConfigurationProfileResourcePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationProfileResourcePropertiesResponse
-		return ret
-	}).(ConfigurationProfileResourcePropertiesResponseOutput)
-}
-
-func (o ConfigurationProfileResourcePropertiesResponsePtrOutput) Notifications() NotificationSettingsResponsePtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileResourcePropertiesResponse) *NotificationSettingsResponse {
-		if v == nil {
-			return nil
-		}
 		return v.Notifications
 	}).(NotificationSettingsResponsePtrOutput)
 }
@@ -759,75 +568,6 @@ type NotificationSettingsResponse struct {
 	AzureMonitorWorkspaceProperties *AzureMonitorWorkspacePropertiesResponse `pulumi:"azureMonitorWorkspaceProperties"`
 }
 
-
-
-
-
-type NotificationSettingsResponseInput interface {
-	pulumi.Input
-
-	ToNotificationSettingsResponseOutput() NotificationSettingsResponseOutput
-	ToNotificationSettingsResponseOutputWithContext(context.Context) NotificationSettingsResponseOutput
-}
-
-type NotificationSettingsResponseArgs struct {
-	ActivationState                 pulumi.StringPtrInput                           `pulumi:"activationState"`
-	AzureMonitorWorkspaceProperties AzureMonitorWorkspacePropertiesResponsePtrInput `pulumi:"azureMonitorWorkspaceProperties"`
-}
-
-func (NotificationSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationSettingsResponse)(nil)).Elem()
-}
-
-func (i NotificationSettingsResponseArgs) ToNotificationSettingsResponseOutput() NotificationSettingsResponseOutput {
-	return i.ToNotificationSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i NotificationSettingsResponseArgs) ToNotificationSettingsResponseOutputWithContext(ctx context.Context) NotificationSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsResponseOutput)
-}
-
-func (i NotificationSettingsResponseArgs) ToNotificationSettingsResponsePtrOutput() NotificationSettingsResponsePtrOutput {
-	return i.ToNotificationSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NotificationSettingsResponseArgs) ToNotificationSettingsResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsResponseOutput).ToNotificationSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type NotificationSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToNotificationSettingsResponsePtrOutput() NotificationSettingsResponsePtrOutput
-	ToNotificationSettingsResponsePtrOutputWithContext(context.Context) NotificationSettingsResponsePtrOutput
-}
-
-type notificationSettingsResponsePtrType NotificationSettingsResponseArgs
-
-func NotificationSettingsResponsePtr(v *NotificationSettingsResponseArgs) NotificationSettingsResponsePtrInput {
-	return (*notificationSettingsResponsePtrType)(v)
-}
-
-func (*notificationSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationSettingsResponse)(nil)).Elem()
-}
-
-func (i *notificationSettingsResponsePtrType) ToNotificationSettingsResponsePtrOutput() NotificationSettingsResponsePtrOutput {
-	return i.ToNotificationSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *notificationSettingsResponsePtrType) ToNotificationSettingsResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationSettingsResponsePtrOutput)
-}
-
 type NotificationSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (NotificationSettingsResponseOutput) ElementType() reflect.Type {
@@ -840,16 +580,6 @@ func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponseOutput
 
 func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponseOutputWithContext(ctx context.Context) NotificationSettingsResponseOutput {
 	return o
-}
-
-func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOutput() NotificationSettingsResponsePtrOutput {
-	return o.ToNotificationSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NotificationSettingsResponseOutput) ToNotificationSettingsResponsePtrOutputWithContext(ctx context.Context) NotificationSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationSettingsResponse) *NotificationSettingsResponse {
-		return &v
-	}).(NotificationSettingsResponsePtrOutput)
 }
 
 func (o NotificationSettingsResponseOutput) ActivationState() pulumi.StringPtrOutput {
@@ -1043,76 +773,6 @@ type ResourceIdentityResponse struct {
 	Type        *string `pulumi:"type"`
 }
 
-
-
-
-
-type ResourceIdentityResponseInput interface {
-	pulumi.Input
-
-	ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput
-	ToResourceIdentityResponseOutputWithContext(context.Context) ResourceIdentityResponseOutput
-}
-
-type ResourceIdentityResponseArgs struct {
-	PrincipalId pulumi.StringInput    `pulumi:"principalId"`
-	TenantId    pulumi.StringInput    `pulumi:"tenantId"`
-	Type        pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (ResourceIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
-}
-
-func (i ResourceIdentityResponseArgs) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
-	return i.ToResourceIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i ResourceIdentityResponseArgs) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponseOutput)
-}
-
-func (i ResourceIdentityResponseArgs) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
-	return i.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ResourceIdentityResponseArgs) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponseOutput).ToResourceIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ResourceIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput
-	ToResourceIdentityResponsePtrOutputWithContext(context.Context) ResourceIdentityResponsePtrOutput
-}
-
-type resourceIdentityResponsePtrType ResourceIdentityResponseArgs
-
-func ResourceIdentityResponsePtr(v *ResourceIdentityResponseArgs) ResourceIdentityResponsePtrInput {
-	return (*resourceIdentityResponsePtrType)(v)
-}
-
-func (*resourceIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
-}
-
-func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
-	return i.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *resourceIdentityResponsePtrType) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityResponsePtrOutput)
-}
-
 type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
@@ -1125,16 +785,6 @@ func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutput() Resou
 
 func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
 	return o
-}
-
-func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
-	return o.ToResourceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ResourceIdentityResponseOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentityResponse) *ResourceIdentityResponse {
-		return &v
-	}).(ResourceIdentityResponsePtrOutput)
 }
 
 func (o ResourceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
@@ -1209,79 +859,6 @@ type SystemDataResponse struct {
 	LastModifiedByType string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1294,16 +871,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringOutput {
@@ -1416,7 +983,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationProfileResourcePropertiesOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileResourcePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ConfigurationProfileResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(NotificationSettingsResponseOutput{})

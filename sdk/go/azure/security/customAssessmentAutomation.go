@@ -108,7 +108,7 @@ type CustomAssessmentAutomationInput interface {
 }
 
 func (*CustomAssessmentAutomation) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomAssessmentAutomation)(nil))
+	return reflect.TypeOf((**CustomAssessmentAutomation)(nil)).Elem()
 }
 
 func (i *CustomAssessmentAutomation) ToCustomAssessmentAutomationOutput() CustomAssessmentAutomationOutput {
@@ -122,7 +122,7 @@ func (i *CustomAssessmentAutomation) ToCustomAssessmentAutomationOutputWithConte
 type CustomAssessmentAutomationOutput struct{ *pulumi.OutputState }
 
 func (CustomAssessmentAutomationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomAssessmentAutomation)(nil))
+	return reflect.TypeOf((**CustomAssessmentAutomation)(nil)).Elem()
 }
 
 func (o CustomAssessmentAutomationOutput) ToCustomAssessmentAutomationOutput() CustomAssessmentAutomationOutput {

@@ -130,7 +130,7 @@ type Dynamics365DataConnectorInput interface {
 }
 
 func (*Dynamics365DataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dynamics365DataConnector)(nil))
+	return reflect.TypeOf((**Dynamics365DataConnector)(nil)).Elem()
 }
 
 func (i *Dynamics365DataConnector) ToDynamics365DataConnectorOutput() Dynamics365DataConnectorOutput {
@@ -144,7 +144,7 @@ func (i *Dynamics365DataConnector) ToDynamics365DataConnectorOutputWithContext(c
 type Dynamics365DataConnectorOutput struct{ *pulumi.OutputState }
 
 func (Dynamics365DataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dynamics365DataConnector)(nil))
+	return reflect.TypeOf((**Dynamics365DataConnector)(nil)).Elem()
 }
 
 func (o Dynamics365DataConnectorOutput) ToDynamics365DataConnectorOutput() Dynamics365DataConnectorOutput {

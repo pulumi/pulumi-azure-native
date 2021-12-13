@@ -45,6 +45,7 @@ func NewGremlinResourceGremlinGraph(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	args.Resource = args.Resource.ToGremlinGraphResourceOutput().ApplyT(func(v GremlinGraphResource) GremlinGraphResource { return *v.Defaults() }).(GremlinGraphResourceOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:documentdb:GremlinResourceGremlinGraph"),
@@ -179,7 +180,7 @@ type GremlinResourceGremlinGraphInput interface {
 }
 
 func (*GremlinResourceGremlinGraph) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinResourceGremlinGraph)(nil))
+	return reflect.TypeOf((**GremlinResourceGremlinGraph)(nil)).Elem()
 }
 
 func (i *GremlinResourceGremlinGraph) ToGremlinResourceGremlinGraphOutput() GremlinResourceGremlinGraphOutput {
@@ -193,7 +194,7 @@ func (i *GremlinResourceGremlinGraph) ToGremlinResourceGremlinGraphOutputWithCon
 type GremlinResourceGremlinGraphOutput struct{ *pulumi.OutputState }
 
 func (GremlinResourceGremlinGraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinResourceGremlinGraph)(nil))
+	return reflect.TypeOf((**GremlinResourceGremlinGraph)(nil)).Elem()
 }
 
 func (o GremlinResourceGremlinGraphOutput) ToGremlinResourceGremlinGraphOutput() GremlinResourceGremlinGraphOutput {

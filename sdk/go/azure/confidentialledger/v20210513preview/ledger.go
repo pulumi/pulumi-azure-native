@@ -101,7 +101,7 @@ type LedgerInput interface {
 }
 
 func (*Ledger) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ledger)(nil))
+	return reflect.TypeOf((**Ledger)(nil)).Elem()
 }
 
 func (i *Ledger) ToLedgerOutput() LedgerOutput {
@@ -115,7 +115,7 @@ func (i *Ledger) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
 type LedgerOutput struct{ *pulumi.OutputState }
 
 func (LedgerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ledger)(nil))
+	return reflect.TypeOf((**Ledger)(nil)).Elem()
 }
 
 func (o LedgerOutput) ToLedgerOutput() LedgerOutput {

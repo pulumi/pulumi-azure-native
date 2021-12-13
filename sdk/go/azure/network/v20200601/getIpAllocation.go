@@ -13,7 +13,7 @@ func LookupIpAllocation(ctx *pulumi.Context, args *LookupIpAllocationArgs, opts 
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupIpAllocationArgs struct {
@@ -37,4 +37,17 @@ type LookupIpAllocationResult struct {
 	Tags             map[string]string   `pulumi:"tags"`
 	Type             string              `pulumi:"type"`
 	VirtualNetwork   SubResourceResponse `pulumi:"virtualNetwork"`
+}
+
+
+func (val *LookupIpAllocationResult) Defaults() *LookupIpAllocationResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PrefixLength) {
+		prefixLength_ := 0
+		tmp.PrefixLength = &prefixLength_
+	}
+	return &tmp
 }

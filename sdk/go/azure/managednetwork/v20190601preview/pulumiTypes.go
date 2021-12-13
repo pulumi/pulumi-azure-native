@@ -15,75 +15,6 @@ type ConnectivityCollectionResponse struct {
 	Peerings []ManagedNetworkPeeringPolicyResponse `pulumi:"peerings"`
 }
 
-
-
-
-
-type ConnectivityCollectionResponseInput interface {
-	pulumi.Input
-
-	ToConnectivityCollectionResponseOutput() ConnectivityCollectionResponseOutput
-	ToConnectivityCollectionResponseOutputWithContext(context.Context) ConnectivityCollectionResponseOutput
-}
-
-type ConnectivityCollectionResponseArgs struct {
-	Groups   ManagedNetworkGroupResponseArrayInput         `pulumi:"groups"`
-	Peerings ManagedNetworkPeeringPolicyResponseArrayInput `pulumi:"peerings"`
-}
-
-func (ConnectivityCollectionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectivityCollectionResponse)(nil)).Elem()
-}
-
-func (i ConnectivityCollectionResponseArgs) ToConnectivityCollectionResponseOutput() ConnectivityCollectionResponseOutput {
-	return i.ToConnectivityCollectionResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectivityCollectionResponseArgs) ToConnectivityCollectionResponseOutputWithContext(ctx context.Context) ConnectivityCollectionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectivityCollectionResponseOutput)
-}
-
-func (i ConnectivityCollectionResponseArgs) ToConnectivityCollectionResponsePtrOutput() ConnectivityCollectionResponsePtrOutput {
-	return i.ToConnectivityCollectionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectivityCollectionResponseArgs) ToConnectivityCollectionResponsePtrOutputWithContext(ctx context.Context) ConnectivityCollectionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectivityCollectionResponseOutput).ToConnectivityCollectionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectivityCollectionResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectivityCollectionResponsePtrOutput() ConnectivityCollectionResponsePtrOutput
-	ToConnectivityCollectionResponsePtrOutputWithContext(context.Context) ConnectivityCollectionResponsePtrOutput
-}
-
-type connectivityCollectionResponsePtrType ConnectivityCollectionResponseArgs
-
-func ConnectivityCollectionResponsePtr(v *ConnectivityCollectionResponseArgs) ConnectivityCollectionResponsePtrInput {
-	return (*connectivityCollectionResponsePtrType)(v)
-}
-
-func (*connectivityCollectionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectivityCollectionResponse)(nil)).Elem()
-}
-
-func (i *connectivityCollectionResponsePtrType) ToConnectivityCollectionResponsePtrOutput() ConnectivityCollectionResponsePtrOutput {
-	return i.ToConnectivityCollectionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectivityCollectionResponsePtrType) ToConnectivityCollectionResponsePtrOutputWithContext(ctx context.Context) ConnectivityCollectionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectivityCollectionResponsePtrOutput)
-}
-
 type ConnectivityCollectionResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectivityCollectionResponseOutput) ElementType() reflect.Type {
@@ -98,64 +29,12 @@ func (o ConnectivityCollectionResponseOutput) ToConnectivityCollectionResponseOu
 	return o
 }
 
-func (o ConnectivityCollectionResponseOutput) ToConnectivityCollectionResponsePtrOutput() ConnectivityCollectionResponsePtrOutput {
-	return o.ToConnectivityCollectionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectivityCollectionResponseOutput) ToConnectivityCollectionResponsePtrOutputWithContext(ctx context.Context) ConnectivityCollectionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectivityCollectionResponse) *ConnectivityCollectionResponse {
-		return &v
-	}).(ConnectivityCollectionResponsePtrOutput)
-}
-
 func (o ConnectivityCollectionResponseOutput) Groups() ManagedNetworkGroupResponseArrayOutput {
 	return o.ApplyT(func(v ConnectivityCollectionResponse) []ManagedNetworkGroupResponse { return v.Groups }).(ManagedNetworkGroupResponseArrayOutput)
 }
 
 func (o ConnectivityCollectionResponseOutput) Peerings() ManagedNetworkPeeringPolicyResponseArrayOutput {
 	return o.ApplyT(func(v ConnectivityCollectionResponse) []ManagedNetworkPeeringPolicyResponse { return v.Peerings }).(ManagedNetworkPeeringPolicyResponseArrayOutput)
-}
-
-type ConnectivityCollectionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectivityCollectionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectivityCollectionResponse)(nil)).Elem()
-}
-
-func (o ConnectivityCollectionResponsePtrOutput) ToConnectivityCollectionResponsePtrOutput() ConnectivityCollectionResponsePtrOutput {
-	return o
-}
-
-func (o ConnectivityCollectionResponsePtrOutput) ToConnectivityCollectionResponsePtrOutputWithContext(ctx context.Context) ConnectivityCollectionResponsePtrOutput {
-	return o
-}
-
-func (o ConnectivityCollectionResponsePtrOutput) Elem() ConnectivityCollectionResponseOutput {
-	return o.ApplyT(func(v *ConnectivityCollectionResponse) ConnectivityCollectionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConnectivityCollectionResponse
-		return ret
-	}).(ConnectivityCollectionResponseOutput)
-}
-
-func (o ConnectivityCollectionResponsePtrOutput) Groups() ManagedNetworkGroupResponseArrayOutput {
-	return o.ApplyT(func(v *ConnectivityCollectionResponse) []ManagedNetworkGroupResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Groups
-	}).(ManagedNetworkGroupResponseArrayOutput)
-}
-
-func (o ConnectivityCollectionResponsePtrOutput) Peerings() ManagedNetworkPeeringPolicyResponseArrayOutput {
-	return o.ApplyT(func(v *ConnectivityCollectionResponse) []ManagedNetworkPeeringPolicyResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Peerings
-	}).(ManagedNetworkPeeringPolicyResponseArrayOutput)
 }
 
 type ManagedNetworkGroupResponse struct {
@@ -170,68 +49,6 @@ type ManagedNetworkGroupResponse struct {
 	Subscriptions     []ResourceIdResponse `pulumi:"subscriptions"`
 	Type              string               `pulumi:"type"`
 	VirtualNetworks   []ResourceIdResponse `pulumi:"virtualNetworks"`
-}
-
-
-
-
-
-type ManagedNetworkGroupResponseInput interface {
-	pulumi.Input
-
-	ToManagedNetworkGroupResponseOutput() ManagedNetworkGroupResponseOutput
-	ToManagedNetworkGroupResponseOutputWithContext(context.Context) ManagedNetworkGroupResponseOutput
-}
-
-type ManagedNetworkGroupResponseArgs struct {
-	Etag              pulumi.StringInput           `pulumi:"etag"`
-	Id                pulumi.StringInput           `pulumi:"id"`
-	Kind              pulumi.StringPtrInput        `pulumi:"kind"`
-	Location          pulumi.StringPtrInput        `pulumi:"location"`
-	ManagementGroups  ResourceIdResponseArrayInput `pulumi:"managementGroups"`
-	Name              pulumi.StringInput           `pulumi:"name"`
-	ProvisioningState pulumi.StringInput           `pulumi:"provisioningState"`
-	Subnets           ResourceIdResponseArrayInput `pulumi:"subnets"`
-	Subscriptions     ResourceIdResponseArrayInput `pulumi:"subscriptions"`
-	Type              pulumi.StringInput           `pulumi:"type"`
-	VirtualNetworks   ResourceIdResponseArrayInput `pulumi:"virtualNetworks"`
-}
-
-func (ManagedNetworkGroupResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetworkGroupResponse)(nil)).Elem()
-}
-
-func (i ManagedNetworkGroupResponseArgs) ToManagedNetworkGroupResponseOutput() ManagedNetworkGroupResponseOutput {
-	return i.ToManagedNetworkGroupResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedNetworkGroupResponseArgs) ToManagedNetworkGroupResponseOutputWithContext(ctx context.Context) ManagedNetworkGroupResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkGroupResponseOutput)
-}
-
-
-
-
-
-type ManagedNetworkGroupResponseArrayInput interface {
-	pulumi.Input
-
-	ToManagedNetworkGroupResponseArrayOutput() ManagedNetworkGroupResponseArrayOutput
-	ToManagedNetworkGroupResponseArrayOutputWithContext(context.Context) ManagedNetworkGroupResponseArrayOutput
-}
-
-type ManagedNetworkGroupResponseArray []ManagedNetworkGroupResponseInput
-
-func (ManagedNetworkGroupResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedNetworkGroupResponse)(nil)).Elem()
-}
-
-func (i ManagedNetworkGroupResponseArray) ToManagedNetworkGroupResponseArrayOutput() ManagedNetworkGroupResponseArrayOutput {
-	return i.ToManagedNetworkGroupResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ManagedNetworkGroupResponseArray) ToManagedNetworkGroupResponseArrayOutputWithContext(ctx context.Context) ManagedNetworkGroupResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkGroupResponseArrayOutput)
 }
 
 type ManagedNetworkGroupResponseOutput struct{ *pulumi.OutputState }
@@ -499,79 +316,6 @@ type ManagedNetworkPeeringPolicyPropertiesResponse struct {
 	Type              string               `pulumi:"type"`
 }
 
-
-
-
-
-type ManagedNetworkPeeringPolicyPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToManagedNetworkPeeringPolicyPropertiesResponseOutput() ManagedNetworkPeeringPolicyPropertiesResponseOutput
-	ToManagedNetworkPeeringPolicyPropertiesResponseOutputWithContext(context.Context) ManagedNetworkPeeringPolicyPropertiesResponseOutput
-}
-
-type ManagedNetworkPeeringPolicyPropertiesResponseArgs struct {
-	Etag              pulumi.StringInput           `pulumi:"etag"`
-	Hub               ResourceIdResponsePtrInput   `pulumi:"hub"`
-	Mesh              ResourceIdResponseArrayInput `pulumi:"mesh"`
-	ProvisioningState pulumi.StringInput           `pulumi:"provisioningState"`
-	Spokes            ResourceIdResponseArrayInput `pulumi:"spokes"`
-	Type              pulumi.StringInput           `pulumi:"type"`
-}
-
-func (ManagedNetworkPeeringPolicyPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetworkPeeringPolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i ManagedNetworkPeeringPolicyPropertiesResponseArgs) ToManagedNetworkPeeringPolicyPropertiesResponseOutput() ManagedNetworkPeeringPolicyPropertiesResponseOutput {
-	return i.ToManagedNetworkPeeringPolicyPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedNetworkPeeringPolicyPropertiesResponseArgs) ToManagedNetworkPeeringPolicyPropertiesResponseOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyPropertiesResponseOutput)
-}
-
-func (i ManagedNetworkPeeringPolicyPropertiesResponseArgs) ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutput() ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput {
-	return i.ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedNetworkPeeringPolicyPropertiesResponseArgs) ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyPropertiesResponseOutput).ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedNetworkPeeringPolicyPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutput() ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput
-	ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutputWithContext(context.Context) ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput
-}
-
-type managedNetworkPeeringPolicyPropertiesResponsePtrType ManagedNetworkPeeringPolicyPropertiesResponseArgs
-
-func ManagedNetworkPeeringPolicyPropertiesResponsePtr(v *ManagedNetworkPeeringPolicyPropertiesResponseArgs) ManagedNetworkPeeringPolicyPropertiesResponsePtrInput {
-	return (*managedNetworkPeeringPolicyPropertiesResponsePtrType)(v)
-}
-
-func (*managedNetworkPeeringPolicyPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedNetworkPeeringPolicyPropertiesResponse)(nil)).Elem()
-}
-
-func (i *managedNetworkPeeringPolicyPropertiesResponsePtrType) ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutput() ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput {
-	return i.ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedNetworkPeeringPolicyPropertiesResponsePtrType) ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput)
-}
-
 type ManagedNetworkPeeringPolicyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkPeeringPolicyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -584,16 +328,6 @@ func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) ToManagedNetworkPee
 
 func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) ToManagedNetworkPeeringPolicyPropertiesResponseOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesResponseOutput {
 	return o
-}
-
-func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutput() ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput {
-	return o.ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) ToManagedNetworkPeeringPolicyPropertiesResponsePtrOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedNetworkPeeringPolicyPropertiesResponse) *ManagedNetworkPeeringPolicyPropertiesResponse {
-		return &v
-	}).(ManagedNetworkPeeringPolicyPropertiesResponsePtrOutput)
 }
 
 func (o ManagedNetworkPeeringPolicyPropertiesResponseOutput) Etag() pulumi.StringOutput {
@@ -704,62 +438,6 @@ type ManagedNetworkPeeringPolicyResponse struct {
 	Name       string                                         `pulumi:"name"`
 	Properties *ManagedNetworkPeeringPolicyPropertiesResponse `pulumi:"properties"`
 	Type       string                                         `pulumi:"type"`
-}
-
-
-
-
-
-type ManagedNetworkPeeringPolicyResponseInput interface {
-	pulumi.Input
-
-	ToManagedNetworkPeeringPolicyResponseOutput() ManagedNetworkPeeringPolicyResponseOutput
-	ToManagedNetworkPeeringPolicyResponseOutputWithContext(context.Context) ManagedNetworkPeeringPolicyResponseOutput
-}
-
-type ManagedNetworkPeeringPolicyResponseArgs struct {
-	Id         pulumi.StringInput                                    `pulumi:"id"`
-	Location   pulumi.StringPtrInput                                 `pulumi:"location"`
-	Name       pulumi.StringInput                                    `pulumi:"name"`
-	Properties ManagedNetworkPeeringPolicyPropertiesResponsePtrInput `pulumi:"properties"`
-	Type       pulumi.StringInput                                    `pulumi:"type"`
-}
-
-func (ManagedNetworkPeeringPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetworkPeeringPolicyResponse)(nil)).Elem()
-}
-
-func (i ManagedNetworkPeeringPolicyResponseArgs) ToManagedNetworkPeeringPolicyResponseOutput() ManagedNetworkPeeringPolicyResponseOutput {
-	return i.ToManagedNetworkPeeringPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedNetworkPeeringPolicyResponseArgs) ToManagedNetworkPeeringPolicyResponseOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyResponseOutput)
-}
-
-
-
-
-
-type ManagedNetworkPeeringPolicyResponseArrayInput interface {
-	pulumi.Input
-
-	ToManagedNetworkPeeringPolicyResponseArrayOutput() ManagedNetworkPeeringPolicyResponseArrayOutput
-	ToManagedNetworkPeeringPolicyResponseArrayOutputWithContext(context.Context) ManagedNetworkPeeringPolicyResponseArrayOutput
-}
-
-type ManagedNetworkPeeringPolicyResponseArray []ManagedNetworkPeeringPolicyResponseInput
-
-func (ManagedNetworkPeeringPolicyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ManagedNetworkPeeringPolicyResponse)(nil)).Elem()
-}
-
-func (i ManagedNetworkPeeringPolicyResponseArray) ToManagedNetworkPeeringPolicyResponseArrayOutput() ManagedNetworkPeeringPolicyResponseArrayOutput {
-	return i.ToManagedNetworkPeeringPolicyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ManagedNetworkPeeringPolicyResponseArray) ToManagedNetworkPeeringPolicyResponseArrayOutputWithContext(ctx context.Context) ManagedNetworkPeeringPolicyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedNetworkPeeringPolicyResponseArrayOutput)
 }
 
 type ManagedNetworkPeeringPolicyResponseOutput struct{ *pulumi.OutputState }
@@ -1000,99 +678,6 @@ type ResourceIdResponse struct {
 	Id *string `pulumi:"id"`
 }
 
-
-
-
-
-type ResourceIdResponseInput interface {
-	pulumi.Input
-
-	ToResourceIdResponseOutput() ResourceIdResponseOutput
-	ToResourceIdResponseOutputWithContext(context.Context) ResourceIdResponseOutput
-}
-
-type ResourceIdResponseArgs struct {
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (ResourceIdResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceIdResponse)(nil)).Elem()
-}
-
-func (i ResourceIdResponseArgs) ToResourceIdResponseOutput() ResourceIdResponseOutput {
-	return i.ToResourceIdResponseOutputWithContext(context.Background())
-}
-
-func (i ResourceIdResponseArgs) ToResourceIdResponseOutputWithContext(ctx context.Context) ResourceIdResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdResponseOutput)
-}
-
-func (i ResourceIdResponseArgs) ToResourceIdResponsePtrOutput() ResourceIdResponsePtrOutput {
-	return i.ToResourceIdResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ResourceIdResponseArgs) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdResponseOutput).ToResourceIdResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ResourceIdResponsePtrInput interface {
-	pulumi.Input
-
-	ToResourceIdResponsePtrOutput() ResourceIdResponsePtrOutput
-	ToResourceIdResponsePtrOutputWithContext(context.Context) ResourceIdResponsePtrOutput
-}
-
-type resourceIdResponsePtrType ResourceIdResponseArgs
-
-func ResourceIdResponsePtr(v *ResourceIdResponseArgs) ResourceIdResponsePtrInput {
-	return (*resourceIdResponsePtrType)(v)
-}
-
-func (*resourceIdResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceIdResponse)(nil)).Elem()
-}
-
-func (i *resourceIdResponsePtrType) ToResourceIdResponsePtrOutput() ResourceIdResponsePtrOutput {
-	return i.ToResourceIdResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *resourceIdResponsePtrType) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdResponsePtrOutput)
-}
-
-
-
-
-
-type ResourceIdResponseArrayInput interface {
-	pulumi.Input
-
-	ToResourceIdResponseArrayOutput() ResourceIdResponseArrayOutput
-	ToResourceIdResponseArrayOutputWithContext(context.Context) ResourceIdResponseArrayOutput
-}
-
-type ResourceIdResponseArray []ResourceIdResponseInput
-
-func (ResourceIdResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceIdResponse)(nil)).Elem()
-}
-
-func (i ResourceIdResponseArray) ToResourceIdResponseArrayOutput() ResourceIdResponseArrayOutput {
-	return i.ToResourceIdResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ResourceIdResponseArray) ToResourceIdResponseArrayOutputWithContext(ctx context.Context) ResourceIdResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdResponseArrayOutput)
-}
-
 type ResourceIdResponseOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdResponseOutput) ElementType() reflect.Type {
@@ -1105,16 +690,6 @@ func (o ResourceIdResponseOutput) ToResourceIdResponseOutput() ResourceIdRespons
 
 func (o ResourceIdResponseOutput) ToResourceIdResponseOutputWithContext(ctx context.Context) ResourceIdResponseOutput {
 	return o
-}
-
-func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutput() ResourceIdResponsePtrOutput {
-	return o.ToResourceIdResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ResourceIdResponseOutput) ToResourceIdResponsePtrOutputWithContext(ctx context.Context) ResourceIdResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdResponse) *ResourceIdResponse {
-		return &v
-	}).(ResourceIdResponsePtrOutput)
 }
 
 func (o ResourceIdResponseOutput) Id() pulumi.StringPtrOutput {
@@ -1359,77 +934,6 @@ type ScopeResponse struct {
 	VirtualNetworks  []ResourceIdResponse `pulumi:"virtualNetworks"`
 }
 
-
-
-
-
-type ScopeResponseInput interface {
-	pulumi.Input
-
-	ToScopeResponseOutput() ScopeResponseOutput
-	ToScopeResponseOutputWithContext(context.Context) ScopeResponseOutput
-}
-
-type ScopeResponseArgs struct {
-	ManagementGroups ResourceIdResponseArrayInput `pulumi:"managementGroups"`
-	Subnets          ResourceIdResponseArrayInput `pulumi:"subnets"`
-	Subscriptions    ResourceIdResponseArrayInput `pulumi:"subscriptions"`
-	VirtualNetworks  ResourceIdResponseArrayInput `pulumi:"virtualNetworks"`
-}
-
-func (ScopeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScopeResponse)(nil)).Elem()
-}
-
-func (i ScopeResponseArgs) ToScopeResponseOutput() ScopeResponseOutput {
-	return i.ToScopeResponseOutputWithContext(context.Background())
-}
-
-func (i ScopeResponseArgs) ToScopeResponseOutputWithContext(ctx context.Context) ScopeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScopeResponseOutput)
-}
-
-func (i ScopeResponseArgs) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
-	return i.ToScopeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ScopeResponseArgs) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScopeResponseOutput).ToScopeResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ScopeResponsePtrInput interface {
-	pulumi.Input
-
-	ToScopeResponsePtrOutput() ScopeResponsePtrOutput
-	ToScopeResponsePtrOutputWithContext(context.Context) ScopeResponsePtrOutput
-}
-
-type scopeResponsePtrType ScopeResponseArgs
-
-func ScopeResponsePtr(v *ScopeResponseArgs) ScopeResponsePtrInput {
-	return (*scopeResponsePtrType)(v)
-}
-
-func (*scopeResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScopeResponse)(nil)).Elem()
-}
-
-func (i *scopeResponsePtrType) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
-	return i.ToScopeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *scopeResponsePtrType) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScopeResponsePtrOutput)
-}
-
 type ScopeResponseOutput struct{ *pulumi.OutputState }
 
 func (ScopeResponseOutput) ElementType() reflect.Type {
@@ -1442,16 +946,6 @@ func (o ScopeResponseOutput) ToScopeResponseOutput() ScopeResponseOutput {
 
 func (o ScopeResponseOutput) ToScopeResponseOutputWithContext(ctx context.Context) ScopeResponseOutput {
 	return o
-}
-
-func (o ScopeResponseOutput) ToScopeResponsePtrOutput() ScopeResponsePtrOutput {
-	return o.ToScopeResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ScopeResponseOutput) ToScopeResponsePtrOutputWithContext(ctx context.Context) ScopeResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScopeResponse) *ScopeResponse {
-		return &v
-	}).(ScopeResponsePtrOutput)
 }
 
 func (o ScopeResponseOutput) ManagementGroups() ResourceIdResponseArrayOutput {
@@ -1532,7 +1026,6 @@ func (o ScopeResponsePtrOutput) VirtualNetworks() ResourceIdResponseArrayOutput 
 
 func init() {
 	pulumi.RegisterOutputType(ConnectivityCollectionResponseOutput{})
-	pulumi.RegisterOutputType(ConnectivityCollectionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedNetworkGroupResponseOutput{})
 	pulumi.RegisterOutputType(ManagedNetworkGroupResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedNetworkPeeringPolicyPropertiesOutput{})

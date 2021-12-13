@@ -305,7 +305,7 @@ type ApplicationGatewayInput interface {
 }
 
 func (*ApplicationGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGateway)(nil))
+	return reflect.TypeOf((**ApplicationGateway)(nil)).Elem()
 }
 
 func (i *ApplicationGateway) ToApplicationGatewayOutput() ApplicationGatewayOutput {
@@ -319,7 +319,7 @@ func (i *ApplicationGateway) ToApplicationGatewayOutputWithContext(ctx context.C
 type ApplicationGatewayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGateway)(nil))
+	return reflect.TypeOf((**ApplicationGateway)(nil)).Elem()
 }
 
 func (o ApplicationGatewayOutput) ToApplicationGatewayOutput() ApplicationGatewayOutput {

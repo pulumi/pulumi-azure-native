@@ -115,7 +115,7 @@ type PrivateStoreCollectionOfferInput interface {
 }
 
 func (*PrivateStoreCollectionOffer) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateStoreCollectionOffer)(nil))
+	return reflect.TypeOf((**PrivateStoreCollectionOffer)(nil)).Elem()
 }
 
 func (i *PrivateStoreCollectionOffer) ToPrivateStoreCollectionOfferOutput() PrivateStoreCollectionOfferOutput {
@@ -129,7 +129,7 @@ func (i *PrivateStoreCollectionOffer) ToPrivateStoreCollectionOfferOutputWithCon
 type PrivateStoreCollectionOfferOutput struct{ *pulumi.OutputState }
 
 func (PrivateStoreCollectionOfferOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateStoreCollectionOffer)(nil))
+	return reflect.TypeOf((**PrivateStoreCollectionOffer)(nil)).Elem()
 }
 
 func (o PrivateStoreCollectionOfferOutput) ToPrivateStoreCollectionOfferOutput() PrivateStoreCollectionOfferOutput {

@@ -106,7 +106,7 @@ type FactoryInput interface {
 }
 
 func (*Factory) ElementType() reflect.Type {
-	return reflect.TypeOf((*Factory)(nil))
+	return reflect.TypeOf((**Factory)(nil)).Elem()
 }
 
 func (i *Factory) ToFactoryOutput() FactoryOutput {
@@ -120,7 +120,7 @@ func (i *Factory) ToFactoryOutputWithContext(ctx context.Context) FactoryOutput 
 type FactoryOutput struct{ *pulumi.OutputState }
 
 func (FactoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Factory)(nil))
+	return reflect.TypeOf((**Factory)(nil)).Elem()
 }
 
 func (o FactoryOutput) ToFactoryOutput() FactoryOutput {

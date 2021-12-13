@@ -142,7 +142,7 @@ type ReadWriteDatabaseInput interface {
 }
 
 func (*ReadWriteDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadWriteDatabase)(nil))
+	return reflect.TypeOf((**ReadWriteDatabase)(nil)).Elem()
 }
 
 func (i *ReadWriteDatabase) ToReadWriteDatabaseOutput() ReadWriteDatabaseOutput {
@@ -156,7 +156,7 @@ func (i *ReadWriteDatabase) ToReadWriteDatabaseOutputWithContext(ctx context.Con
 type ReadWriteDatabaseOutput struct{ *pulumi.OutputState }
 
 func (ReadWriteDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReadWriteDatabase)(nil))
+	return reflect.TypeOf((**ReadWriteDatabase)(nil)).Elem()
 }
 
 func (o ReadWriteDatabaseOutput) ToReadWriteDatabaseOutput() ReadWriteDatabaseOutput {

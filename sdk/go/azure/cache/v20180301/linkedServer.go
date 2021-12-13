@@ -127,7 +127,7 @@ type LinkedServerInput interface {
 }
 
 func (*LinkedServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServer)(nil))
+	return reflect.TypeOf((**LinkedServer)(nil)).Elem()
 }
 
 func (i *LinkedServer) ToLinkedServerOutput() LinkedServerOutput {
@@ -141,7 +141,7 @@ func (i *LinkedServer) ToLinkedServerOutputWithContext(ctx context.Context) Link
 type LinkedServerOutput struct{ *pulumi.OutputState }
 
 func (LinkedServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServer)(nil))
+	return reflect.TypeOf((**LinkedServer)(nil)).Elem()
 }
 
 func (o LinkedServerOutput) ToLinkedServerOutput() LinkedServerOutput {

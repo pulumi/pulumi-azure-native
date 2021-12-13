@@ -122,7 +122,7 @@ type EncryptionScopeInput interface {
 }
 
 func (*EncryptionScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionScope)(nil))
+	return reflect.TypeOf((**EncryptionScope)(nil)).Elem()
 }
 
 func (i *EncryptionScope) ToEncryptionScopeOutput() EncryptionScopeOutput {
@@ -136,7 +136,7 @@ func (i *EncryptionScope) ToEncryptionScopeOutputWithContext(ctx context.Context
 type EncryptionScopeOutput struct{ *pulumi.OutputState }
 
 func (EncryptionScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionScope)(nil))
+	return reflect.TypeOf((**EncryptionScope)(nil)).Elem()
 }
 
 func (o EncryptionScopeOutput) ToEncryptionScopeOutput() EncryptionScopeOutput {

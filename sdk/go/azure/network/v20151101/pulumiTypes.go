@@ -179,76 +179,6 @@ type DnsConfigResponse struct {
 	Ttl          *float64 `pulumi:"ttl"`
 }
 
-
-
-
-
-type DnsConfigResponseInput interface {
-	pulumi.Input
-
-	ToDnsConfigResponseOutput() DnsConfigResponseOutput
-	ToDnsConfigResponseOutputWithContext(context.Context) DnsConfigResponseOutput
-}
-
-type DnsConfigResponseArgs struct {
-	Fqdn         pulumi.StringPtrInput  `pulumi:"fqdn"`
-	RelativeName pulumi.StringPtrInput  `pulumi:"relativeName"`
-	Ttl          pulumi.Float64PtrInput `pulumi:"ttl"`
-}
-
-func (DnsConfigResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DnsConfigResponse)(nil)).Elem()
-}
-
-func (i DnsConfigResponseArgs) ToDnsConfigResponseOutput() DnsConfigResponseOutput {
-	return i.ToDnsConfigResponseOutputWithContext(context.Background())
-}
-
-func (i DnsConfigResponseArgs) ToDnsConfigResponseOutputWithContext(ctx context.Context) DnsConfigResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DnsConfigResponseOutput)
-}
-
-func (i DnsConfigResponseArgs) ToDnsConfigResponsePtrOutput() DnsConfigResponsePtrOutput {
-	return i.ToDnsConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DnsConfigResponseArgs) ToDnsConfigResponsePtrOutputWithContext(ctx context.Context) DnsConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DnsConfigResponseOutput).ToDnsConfigResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DnsConfigResponsePtrInput interface {
-	pulumi.Input
-
-	ToDnsConfigResponsePtrOutput() DnsConfigResponsePtrOutput
-	ToDnsConfigResponsePtrOutputWithContext(context.Context) DnsConfigResponsePtrOutput
-}
-
-type dnsConfigResponsePtrType DnsConfigResponseArgs
-
-func DnsConfigResponsePtr(v *DnsConfigResponseArgs) DnsConfigResponsePtrInput {
-	return (*dnsConfigResponsePtrType)(v)
-}
-
-func (*dnsConfigResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DnsConfigResponse)(nil)).Elem()
-}
-
-func (i *dnsConfigResponsePtrType) ToDnsConfigResponsePtrOutput() DnsConfigResponsePtrOutput {
-	return i.ToDnsConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *dnsConfigResponsePtrType) ToDnsConfigResponsePtrOutputWithContext(ctx context.Context) DnsConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DnsConfigResponsePtrOutput)
-}
-
 type DnsConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (DnsConfigResponseOutput) ElementType() reflect.Type {
@@ -261,16 +191,6 @@ func (o DnsConfigResponseOutput) ToDnsConfigResponseOutput() DnsConfigResponseOu
 
 func (o DnsConfigResponseOutput) ToDnsConfigResponseOutputWithContext(ctx context.Context) DnsConfigResponseOutput {
 	return o
-}
-
-func (o DnsConfigResponseOutput) ToDnsConfigResponsePtrOutput() DnsConfigResponsePtrOutput {
-	return o.ToDnsConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DnsConfigResponseOutput) ToDnsConfigResponsePtrOutputWithContext(ctx context.Context) DnsConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DnsConfigResponse) *DnsConfigResponse {
-		return &v
-	}).(DnsConfigResponsePtrOutput)
 }
 
 func (o DnsConfigResponseOutput) Fqdn() pulumi.StringPtrOutput {
@@ -502,68 +422,6 @@ type EndpointResponse struct {
 	TargetResourceId      *string  `pulumi:"targetResourceId"`
 	Type                  *string  `pulumi:"type"`
 	Weight                *float64 `pulumi:"weight"`
-}
-
-
-
-
-
-type EndpointResponseInput interface {
-	pulumi.Input
-
-	ToEndpointResponseOutput() EndpointResponseOutput
-	ToEndpointResponseOutputWithContext(context.Context) EndpointResponseOutput
-}
-
-type EndpointResponseArgs struct {
-	EndpointLocation      pulumi.StringPtrInput  `pulumi:"endpointLocation"`
-	EndpointMonitorStatus pulumi.StringPtrInput  `pulumi:"endpointMonitorStatus"`
-	EndpointStatus        pulumi.StringPtrInput  `pulumi:"endpointStatus"`
-	Id                    pulumi.StringPtrInput  `pulumi:"id"`
-	MinChildEndpoints     pulumi.Float64PtrInput `pulumi:"minChildEndpoints"`
-	Name                  pulumi.StringPtrInput  `pulumi:"name"`
-	Priority              pulumi.Float64PtrInput `pulumi:"priority"`
-	Target                pulumi.StringPtrInput  `pulumi:"target"`
-	TargetResourceId      pulumi.StringPtrInput  `pulumi:"targetResourceId"`
-	Type                  pulumi.StringPtrInput  `pulumi:"type"`
-	Weight                pulumi.Float64PtrInput `pulumi:"weight"`
-}
-
-func (EndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointResponse)(nil)).Elem()
-}
-
-func (i EndpointResponseArgs) ToEndpointResponseOutput() EndpointResponseOutput {
-	return i.ToEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i EndpointResponseArgs) ToEndpointResponseOutputWithContext(ctx context.Context) EndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointResponseOutput)
-}
-
-
-
-
-
-type EndpointResponseArrayInput interface {
-	pulumi.Input
-
-	ToEndpointResponseArrayOutput() EndpointResponseArrayOutput
-	ToEndpointResponseArrayOutputWithContext(context.Context) EndpointResponseArrayOutput
-}
-
-type EndpointResponseArray []EndpointResponseInput
-
-func (EndpointResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EndpointResponse)(nil)).Elem()
-}
-
-func (i EndpointResponseArray) ToEndpointResponseArrayOutput() EndpointResponseArrayOutput {
-	return i.ToEndpointResponseArrayOutputWithContext(context.Background())
-}
-
-func (i EndpointResponseArray) ToEndpointResponseArrayOutputWithContext(ctx context.Context) EndpointResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointResponseArrayOutput)
 }
 
 type EndpointResponseOutput struct{ *pulumi.OutputState }
@@ -829,77 +687,6 @@ type MonitorConfigResponse struct {
 	Protocol             *string  `pulumi:"protocol"`
 }
 
-
-
-
-
-type MonitorConfigResponseInput interface {
-	pulumi.Input
-
-	ToMonitorConfigResponseOutput() MonitorConfigResponseOutput
-	ToMonitorConfigResponseOutputWithContext(context.Context) MonitorConfigResponseOutput
-}
-
-type MonitorConfigResponseArgs struct {
-	Path                 pulumi.StringPtrInput  `pulumi:"path"`
-	Port                 pulumi.Float64PtrInput `pulumi:"port"`
-	ProfileMonitorStatus pulumi.StringPtrInput  `pulumi:"profileMonitorStatus"`
-	Protocol             pulumi.StringPtrInput  `pulumi:"protocol"`
-}
-
-func (MonitorConfigResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorConfigResponse)(nil)).Elem()
-}
-
-func (i MonitorConfigResponseArgs) ToMonitorConfigResponseOutput() MonitorConfigResponseOutput {
-	return i.ToMonitorConfigResponseOutputWithContext(context.Background())
-}
-
-func (i MonitorConfigResponseArgs) ToMonitorConfigResponseOutputWithContext(ctx context.Context) MonitorConfigResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponseOutput)
-}
-
-func (i MonitorConfigResponseArgs) ToMonitorConfigResponsePtrOutput() MonitorConfigResponsePtrOutput {
-	return i.ToMonitorConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MonitorConfigResponseArgs) ToMonitorConfigResponsePtrOutputWithContext(ctx context.Context) MonitorConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponseOutput).ToMonitorConfigResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MonitorConfigResponsePtrInput interface {
-	pulumi.Input
-
-	ToMonitorConfigResponsePtrOutput() MonitorConfigResponsePtrOutput
-	ToMonitorConfigResponsePtrOutputWithContext(context.Context) MonitorConfigResponsePtrOutput
-}
-
-type monitorConfigResponsePtrType MonitorConfigResponseArgs
-
-func MonitorConfigResponsePtr(v *MonitorConfigResponseArgs) MonitorConfigResponsePtrInput {
-	return (*monitorConfigResponsePtrType)(v)
-}
-
-func (*monitorConfigResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitorConfigResponse)(nil)).Elem()
-}
-
-func (i *monitorConfigResponsePtrType) ToMonitorConfigResponsePtrOutput() MonitorConfigResponsePtrOutput {
-	return i.ToMonitorConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *monitorConfigResponsePtrType) ToMonitorConfigResponsePtrOutputWithContext(ctx context.Context) MonitorConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponsePtrOutput)
-}
-
 type MonitorConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitorConfigResponseOutput) ElementType() reflect.Type {
@@ -912,16 +699,6 @@ func (o MonitorConfigResponseOutput) ToMonitorConfigResponseOutput() MonitorConf
 
 func (o MonitorConfigResponseOutput) ToMonitorConfigResponseOutputWithContext(ctx context.Context) MonitorConfigResponseOutput {
 	return o
-}
-
-func (o MonitorConfigResponseOutput) ToMonitorConfigResponsePtrOutput() MonitorConfigResponsePtrOutput {
-	return o.ToMonitorConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MonitorConfigResponseOutput) ToMonitorConfigResponsePtrOutputWithContext(ctx context.Context) MonitorConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorConfigResponse) *MonitorConfigResponse {
-		return &v
-	}).(MonitorConfigResponsePtrOutput)
 }
 
 func (o MonitorConfigResponseOutput) Path() pulumi.StringPtrOutput {

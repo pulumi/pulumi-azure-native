@@ -105,7 +105,7 @@ type DataVersionInput interface {
 }
 
 func (*DataVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataVersion)(nil))
+	return reflect.TypeOf((**DataVersion)(nil)).Elem()
 }
 
 func (i *DataVersion) ToDataVersionOutput() DataVersionOutput {
@@ -119,7 +119,7 @@ func (i *DataVersion) ToDataVersionOutputWithContext(ctx context.Context) DataVe
 type DataVersionOutput struct{ *pulumi.OutputState }
 
 func (DataVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataVersion)(nil))
+	return reflect.TypeOf((**DataVersion)(nil)).Elem()
 }
 
 func (o DataVersionOutput) ToDataVersionOutput() DataVersionOutput {

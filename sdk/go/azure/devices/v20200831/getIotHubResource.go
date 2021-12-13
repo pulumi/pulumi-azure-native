@@ -13,7 +13,7 @@ func LookupIotHubResource(ctx *pulumi.Context, args *LookupIotHubResourceArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupIotHubResourceArgs struct {
@@ -31,4 +31,15 @@ type LookupIotHubResourceResult struct {
 	Sku        IotHubSkuInfoResponse    `pulumi:"sku"`
 	Tags       map[string]string        `pulumi:"tags"`
 	Type       string                   `pulumi:"type"`
+}
+
+
+func (val *LookupIotHubResourceResult) Defaults() *LookupIotHubResourceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

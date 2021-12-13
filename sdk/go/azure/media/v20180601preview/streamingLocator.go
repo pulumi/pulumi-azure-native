@@ -136,7 +136,7 @@ type StreamingLocatorInput interface {
 }
 
 func (*StreamingLocator) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingLocator)(nil))
+	return reflect.TypeOf((**StreamingLocator)(nil)).Elem()
 }
 
 func (i *StreamingLocator) ToStreamingLocatorOutput() StreamingLocatorOutput {
@@ -150,7 +150,7 @@ func (i *StreamingLocator) ToStreamingLocatorOutputWithContext(ctx context.Conte
 type StreamingLocatorOutput struct{ *pulumi.OutputState }
 
 func (StreamingLocatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingLocator)(nil))
+	return reflect.TypeOf((**StreamingLocator)(nil)).Elem()
 }
 
 func (o StreamingLocatorOutput) ToStreamingLocatorOutput() StreamingLocatorOutput {

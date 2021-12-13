@@ -15,75 +15,6 @@ type CustomDomainResponse struct {
 	UseSubDomainName *bool   `pulumi:"useSubDomainName"`
 }
 
-
-
-
-
-type CustomDomainResponseInput interface {
-	pulumi.Input
-
-	ToCustomDomainResponseOutput() CustomDomainResponseOutput
-	ToCustomDomainResponseOutputWithContext(context.Context) CustomDomainResponseOutput
-}
-
-type CustomDomainResponseArgs struct {
-	Name             pulumi.StringPtrInput `pulumi:"name"`
-	UseSubDomainName pulumi.BoolPtrInput   `pulumi:"useSubDomainName"`
-}
-
-func (CustomDomainResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainResponse)(nil)).Elem()
-}
-
-func (i CustomDomainResponseArgs) ToCustomDomainResponseOutput() CustomDomainResponseOutput {
-	return i.ToCustomDomainResponseOutputWithContext(context.Background())
-}
-
-func (i CustomDomainResponseArgs) ToCustomDomainResponseOutputWithContext(ctx context.Context) CustomDomainResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainResponseOutput)
-}
-
-func (i CustomDomainResponseArgs) ToCustomDomainResponsePtrOutput() CustomDomainResponsePtrOutput {
-	return i.ToCustomDomainResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CustomDomainResponseArgs) ToCustomDomainResponsePtrOutputWithContext(ctx context.Context) CustomDomainResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainResponseOutput).ToCustomDomainResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CustomDomainResponsePtrInput interface {
-	pulumi.Input
-
-	ToCustomDomainResponsePtrOutput() CustomDomainResponsePtrOutput
-	ToCustomDomainResponsePtrOutputWithContext(context.Context) CustomDomainResponsePtrOutput
-}
-
-type customDomainResponsePtrType CustomDomainResponseArgs
-
-func CustomDomainResponsePtr(v *CustomDomainResponseArgs) CustomDomainResponsePtrInput {
-	return (*customDomainResponsePtrType)(v)
-}
-
-func (*customDomainResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomDomainResponse)(nil)).Elem()
-}
-
-func (i *customDomainResponsePtrType) ToCustomDomainResponsePtrOutput() CustomDomainResponsePtrOutput {
-	return i.ToCustomDomainResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *customDomainResponsePtrType) ToCustomDomainResponsePtrOutputWithContext(ctx context.Context) CustomDomainResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainResponsePtrOutput)
-}
-
 type CustomDomainResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainResponseOutput) ElementType() reflect.Type {
@@ -96,16 +27,6 @@ func (o CustomDomainResponseOutput) ToCustomDomainResponseOutput() CustomDomainR
 
 func (o CustomDomainResponseOutput) ToCustomDomainResponseOutputWithContext(ctx context.Context) CustomDomainResponseOutput {
 	return o
-}
-
-func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutput() CustomDomainResponsePtrOutput {
-	return o.ToCustomDomainResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CustomDomainResponseOutput) ToCustomDomainResponsePtrOutputWithContext(ctx context.Context) CustomDomainResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDomainResponse) *CustomDomainResponse {
-		return &v
-	}).(CustomDomainResponsePtrOutput)
 }
 
 func (o CustomDomainResponseOutput) Name() pulumi.StringPtrOutput {
@@ -164,76 +85,6 @@ type EndpointsResponse struct {
 	Table *string `pulumi:"table"`
 }
 
-
-
-
-
-type EndpointsResponseInput interface {
-	pulumi.Input
-
-	ToEndpointsResponseOutput() EndpointsResponseOutput
-	ToEndpointsResponseOutputWithContext(context.Context) EndpointsResponseOutput
-}
-
-type EndpointsResponseArgs struct {
-	Blob  pulumi.StringPtrInput `pulumi:"blob"`
-	Queue pulumi.StringPtrInput `pulumi:"queue"`
-	Table pulumi.StringPtrInput `pulumi:"table"`
-}
-
-func (EndpointsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointsResponse)(nil)).Elem()
-}
-
-func (i EndpointsResponseArgs) ToEndpointsResponseOutput() EndpointsResponseOutput {
-	return i.ToEndpointsResponseOutputWithContext(context.Background())
-}
-
-func (i EndpointsResponseArgs) ToEndpointsResponseOutputWithContext(ctx context.Context) EndpointsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointsResponseOutput)
-}
-
-func (i EndpointsResponseArgs) ToEndpointsResponsePtrOutput() EndpointsResponsePtrOutput {
-	return i.ToEndpointsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EndpointsResponseArgs) ToEndpointsResponsePtrOutputWithContext(ctx context.Context) EndpointsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointsResponseOutput).ToEndpointsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EndpointsResponsePtrInput interface {
-	pulumi.Input
-
-	ToEndpointsResponsePtrOutput() EndpointsResponsePtrOutput
-	ToEndpointsResponsePtrOutputWithContext(context.Context) EndpointsResponsePtrOutput
-}
-
-type endpointsResponsePtrType EndpointsResponseArgs
-
-func EndpointsResponsePtr(v *EndpointsResponseArgs) EndpointsResponsePtrInput {
-	return (*endpointsResponsePtrType)(v)
-}
-
-func (*endpointsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointsResponse)(nil)).Elem()
-}
-
-func (i *endpointsResponsePtrType) ToEndpointsResponsePtrOutput() EndpointsResponsePtrOutput {
-	return i.ToEndpointsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *endpointsResponsePtrType) ToEndpointsResponsePtrOutputWithContext(ctx context.Context) EndpointsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointsResponsePtrOutput)
-}
-
 type EndpointsResponseOutput struct{ *pulumi.OutputState }
 
 func (EndpointsResponseOutput) ElementType() reflect.Type {
@@ -246,16 +97,6 @@ func (o EndpointsResponseOutput) ToEndpointsResponseOutput() EndpointsResponseOu
 
 func (o EndpointsResponseOutput) ToEndpointsResponseOutputWithContext(ctx context.Context) EndpointsResponseOutput {
 	return o
-}
-
-func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutput() EndpointsResponsePtrOutput {
-	return o.ToEndpointsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EndpointsResponseOutput) ToEndpointsResponsePtrOutputWithContext(ctx context.Context) EndpointsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointsResponse) *EndpointsResponse {
-		return &v
-	}).(EndpointsResponsePtrOutput)
 }
 
 func (o EndpointsResponseOutput) Blob() pulumi.StringPtrOutput {

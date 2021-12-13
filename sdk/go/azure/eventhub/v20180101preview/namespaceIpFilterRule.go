@@ -102,7 +102,7 @@ type NamespaceIpFilterRuleInput interface {
 }
 
 func (*NamespaceIpFilterRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceIpFilterRule)(nil))
+	return reflect.TypeOf((**NamespaceIpFilterRule)(nil)).Elem()
 }
 
 func (i *NamespaceIpFilterRule) ToNamespaceIpFilterRuleOutput() NamespaceIpFilterRuleOutput {
@@ -116,7 +116,7 @@ func (i *NamespaceIpFilterRule) ToNamespaceIpFilterRuleOutputWithContext(ctx con
 type NamespaceIpFilterRuleOutput struct{ *pulumi.OutputState }
 
 func (NamespaceIpFilterRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceIpFilterRule)(nil))
+	return reflect.TypeOf((**NamespaceIpFilterRule)(nil)).Elem()
 }
 
 func (o NamespaceIpFilterRuleOutput) ToNamespaceIpFilterRuleOutput() NamespaceIpFilterRuleOutput {

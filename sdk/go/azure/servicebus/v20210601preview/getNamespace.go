@@ -13,7 +13,7 @@ func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupNamespaceArgs struct {
@@ -41,4 +41,15 @@ type LookupNamespaceResult struct {
 	Type                       string                              `pulumi:"type"`
 	UpdatedAt                  string                              `pulumi:"updatedAt"`
 	ZoneRedundant              *bool                               `pulumi:"zoneRedundant"`
+}
+
+
+func (val *LookupNamespaceResult) Defaults() *LookupNamespaceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Encryption = tmp.Encryption.Defaults()
+
+	return &tmp
 }

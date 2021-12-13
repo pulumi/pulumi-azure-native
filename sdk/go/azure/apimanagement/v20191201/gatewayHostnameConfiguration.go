@@ -125,7 +125,7 @@ type GatewayHostnameConfigurationInput interface {
 }
 
 func (*GatewayHostnameConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayHostnameConfiguration)(nil))
+	return reflect.TypeOf((**GatewayHostnameConfiguration)(nil)).Elem()
 }
 
 func (i *GatewayHostnameConfiguration) ToGatewayHostnameConfigurationOutput() GatewayHostnameConfigurationOutput {
@@ -139,7 +139,7 @@ func (i *GatewayHostnameConfiguration) ToGatewayHostnameConfigurationOutputWithC
 type GatewayHostnameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GatewayHostnameConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayHostnameConfiguration)(nil))
+	return reflect.TypeOf((**GatewayHostnameConfiguration)(nil)).Elem()
 }
 
 func (o GatewayHostnameConfigurationOutput) ToGatewayHostnameConfigurationOutput() GatewayHostnameConfigurationOutput {

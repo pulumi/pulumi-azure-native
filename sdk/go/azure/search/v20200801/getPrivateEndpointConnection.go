@@ -13,7 +13,7 @@ func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEnd
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPrivateEndpointConnectionArgs struct {
@@ -28,4 +28,15 @@ type LookupPrivateEndpointConnectionResult struct {
 	Name       string                                      `pulumi:"name"`
 	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
 	Type       string                                      `pulumi:"type"`
+}
+
+
+func (val *LookupPrivateEndpointConnectionResult) Defaults() *LookupPrivateEndpointConnectionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

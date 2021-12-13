@@ -127,7 +127,7 @@ type ReplicationRecoveryPlanInput interface {
 }
 
 func (*ReplicationRecoveryPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationRecoveryPlan)(nil))
+	return reflect.TypeOf((**ReplicationRecoveryPlan)(nil)).Elem()
 }
 
 func (i *ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutput() ReplicationRecoveryPlanOutput {
@@ -141,7 +141,7 @@ func (i *ReplicationRecoveryPlan) ToReplicationRecoveryPlanOutputWithContext(ctx
 type ReplicationRecoveryPlanOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationRecoveryPlan)(nil))
+	return reflect.TypeOf((**ReplicationRecoveryPlan)(nil)).Elem()
 }
 
 func (o ReplicationRecoveryPlanOutput) ToReplicationRecoveryPlanOutput() ReplicationRecoveryPlanOutput {

@@ -122,60 +122,6 @@ type CustomRPActionRouteDefinitionResponse struct {
 	RoutingType *string `pulumi:"routingType"`
 }
 
-
-
-
-
-type CustomRPActionRouteDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToCustomRPActionRouteDefinitionResponseOutput() CustomRPActionRouteDefinitionResponseOutput
-	ToCustomRPActionRouteDefinitionResponseOutputWithContext(context.Context) CustomRPActionRouteDefinitionResponseOutput
-}
-
-type CustomRPActionRouteDefinitionResponseArgs struct {
-	Endpoint    pulumi.StringInput    `pulumi:"endpoint"`
-	Name        pulumi.StringInput    `pulumi:"name"`
-	RoutingType pulumi.StringPtrInput `pulumi:"routingType"`
-}
-
-func (CustomRPActionRouteDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRPActionRouteDefinitionResponse)(nil)).Elem()
-}
-
-func (i CustomRPActionRouteDefinitionResponseArgs) ToCustomRPActionRouteDefinitionResponseOutput() CustomRPActionRouteDefinitionResponseOutput {
-	return i.ToCustomRPActionRouteDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i CustomRPActionRouteDefinitionResponseArgs) ToCustomRPActionRouteDefinitionResponseOutputWithContext(ctx context.Context) CustomRPActionRouteDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPActionRouteDefinitionResponseOutput)
-}
-
-
-
-
-
-type CustomRPActionRouteDefinitionResponseArrayInput interface {
-	pulumi.Input
-
-	ToCustomRPActionRouteDefinitionResponseArrayOutput() CustomRPActionRouteDefinitionResponseArrayOutput
-	ToCustomRPActionRouteDefinitionResponseArrayOutputWithContext(context.Context) CustomRPActionRouteDefinitionResponseArrayOutput
-}
-
-type CustomRPActionRouteDefinitionResponseArray []CustomRPActionRouteDefinitionResponseInput
-
-func (CustomRPActionRouteDefinitionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomRPActionRouteDefinitionResponse)(nil)).Elem()
-}
-
-func (i CustomRPActionRouteDefinitionResponseArray) ToCustomRPActionRouteDefinitionResponseArrayOutput() CustomRPActionRouteDefinitionResponseArrayOutput {
-	return i.ToCustomRPActionRouteDefinitionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CustomRPActionRouteDefinitionResponseArray) ToCustomRPActionRouteDefinitionResponseArrayOutputWithContext(ctx context.Context) CustomRPActionRouteDefinitionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPActionRouteDefinitionResponseArrayOutput)
-}
-
 type CustomRPActionRouteDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomRPActionRouteDefinitionResponseOutput) ElementType() reflect.Type {
@@ -334,60 +280,6 @@ type CustomRPResourceTypeRouteDefinitionResponse struct {
 	RoutingType *string `pulumi:"routingType"`
 }
 
-
-
-
-
-type CustomRPResourceTypeRouteDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToCustomRPResourceTypeRouteDefinitionResponseOutput() CustomRPResourceTypeRouteDefinitionResponseOutput
-	ToCustomRPResourceTypeRouteDefinitionResponseOutputWithContext(context.Context) CustomRPResourceTypeRouteDefinitionResponseOutput
-}
-
-type CustomRPResourceTypeRouteDefinitionResponseArgs struct {
-	Endpoint    pulumi.StringInput    `pulumi:"endpoint"`
-	Name        pulumi.StringInput    `pulumi:"name"`
-	RoutingType pulumi.StringPtrInput `pulumi:"routingType"`
-}
-
-func (CustomRPResourceTypeRouteDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRPResourceTypeRouteDefinitionResponse)(nil)).Elem()
-}
-
-func (i CustomRPResourceTypeRouteDefinitionResponseArgs) ToCustomRPResourceTypeRouteDefinitionResponseOutput() CustomRPResourceTypeRouteDefinitionResponseOutput {
-	return i.ToCustomRPResourceTypeRouteDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i CustomRPResourceTypeRouteDefinitionResponseArgs) ToCustomRPResourceTypeRouteDefinitionResponseOutputWithContext(ctx context.Context) CustomRPResourceTypeRouteDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPResourceTypeRouteDefinitionResponseOutput)
-}
-
-
-
-
-
-type CustomRPResourceTypeRouteDefinitionResponseArrayInput interface {
-	pulumi.Input
-
-	ToCustomRPResourceTypeRouteDefinitionResponseArrayOutput() CustomRPResourceTypeRouteDefinitionResponseArrayOutput
-	ToCustomRPResourceTypeRouteDefinitionResponseArrayOutputWithContext(context.Context) CustomRPResourceTypeRouteDefinitionResponseArrayOutput
-}
-
-type CustomRPResourceTypeRouteDefinitionResponseArray []CustomRPResourceTypeRouteDefinitionResponseInput
-
-func (CustomRPResourceTypeRouteDefinitionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomRPResourceTypeRouteDefinitionResponse)(nil)).Elem()
-}
-
-func (i CustomRPResourceTypeRouteDefinitionResponseArray) ToCustomRPResourceTypeRouteDefinitionResponseArrayOutput() CustomRPResourceTypeRouteDefinitionResponseArrayOutput {
-	return i.ToCustomRPResourceTypeRouteDefinitionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CustomRPResourceTypeRouteDefinitionResponseArray) ToCustomRPResourceTypeRouteDefinitionResponseArrayOutputWithContext(ctx context.Context) CustomRPResourceTypeRouteDefinitionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPResourceTypeRouteDefinitionResponseArrayOutput)
-}
-
 type CustomRPResourceTypeRouteDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomRPResourceTypeRouteDefinitionResponseOutput) ElementType() reflect.Type {
@@ -537,59 +429,6 @@ func (o CustomRPValidationsArrayOutput) Index(i pulumi.IntInput) CustomRPValidat
 type CustomRPValidationsResponse struct {
 	Specification  string  `pulumi:"specification"`
 	ValidationType *string `pulumi:"validationType"`
-}
-
-
-
-
-
-type CustomRPValidationsResponseInput interface {
-	pulumi.Input
-
-	ToCustomRPValidationsResponseOutput() CustomRPValidationsResponseOutput
-	ToCustomRPValidationsResponseOutputWithContext(context.Context) CustomRPValidationsResponseOutput
-}
-
-type CustomRPValidationsResponseArgs struct {
-	Specification  pulumi.StringInput    `pulumi:"specification"`
-	ValidationType pulumi.StringPtrInput `pulumi:"validationType"`
-}
-
-func (CustomRPValidationsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomRPValidationsResponse)(nil)).Elem()
-}
-
-func (i CustomRPValidationsResponseArgs) ToCustomRPValidationsResponseOutput() CustomRPValidationsResponseOutput {
-	return i.ToCustomRPValidationsResponseOutputWithContext(context.Background())
-}
-
-func (i CustomRPValidationsResponseArgs) ToCustomRPValidationsResponseOutputWithContext(ctx context.Context) CustomRPValidationsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPValidationsResponseOutput)
-}
-
-
-
-
-
-type CustomRPValidationsResponseArrayInput interface {
-	pulumi.Input
-
-	ToCustomRPValidationsResponseArrayOutput() CustomRPValidationsResponseArrayOutput
-	ToCustomRPValidationsResponseArrayOutputWithContext(context.Context) CustomRPValidationsResponseArrayOutput
-}
-
-type CustomRPValidationsResponseArray []CustomRPValidationsResponseInput
-
-func (CustomRPValidationsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomRPValidationsResponse)(nil)).Elem()
-}
-
-func (i CustomRPValidationsResponseArray) ToCustomRPValidationsResponseArrayOutput() CustomRPValidationsResponseArrayOutput {
-	return i.ToCustomRPValidationsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CustomRPValidationsResponseArray) ToCustomRPValidationsResponseArrayOutputWithContext(ctx context.Context) CustomRPValidationsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomRPValidationsResponseArrayOutput)
 }
 
 type CustomRPValidationsResponseOutput struct{ *pulumi.OutputState }

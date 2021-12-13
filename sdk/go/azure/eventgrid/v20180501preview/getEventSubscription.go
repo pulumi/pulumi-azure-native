@@ -13,7 +13,7 @@ func LookupEventSubscription(ctx *pulumi.Context, args *LookupEventSubscriptionA
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupEventSubscriptionArgs struct {
@@ -34,4 +34,19 @@ type LookupEventSubscriptionResult struct {
 	RetryPolicy           *RetryPolicyResponse                      `pulumi:"retryPolicy"`
 	Topic                 string                                    `pulumi:"topic"`
 	Type                  string                                    `pulumi:"type"`
+}
+
+
+func (val *LookupEventSubscriptionResult) Defaults() *LookupEventSubscriptionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EventDeliverySchema) {
+		eventDeliverySchema_ := "InputEventSchema"
+		tmp.EventDeliverySchema = &eventDeliverySchema_
+	}
+	tmp.Filter = tmp.Filter.Defaults()
+
+	return &tmp
 }

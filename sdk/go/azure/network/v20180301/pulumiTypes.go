@@ -164,76 +164,6 @@ type DnsConfigResponse struct {
 	Ttl          *float64 `pulumi:"ttl"`
 }
 
-
-
-
-
-type DnsConfigResponseInput interface {
-	pulumi.Input
-
-	ToDnsConfigResponseOutput() DnsConfigResponseOutput
-	ToDnsConfigResponseOutputWithContext(context.Context) DnsConfigResponseOutput
-}
-
-type DnsConfigResponseArgs struct {
-	Fqdn         pulumi.StringInput     `pulumi:"fqdn"`
-	RelativeName pulumi.StringPtrInput  `pulumi:"relativeName"`
-	Ttl          pulumi.Float64PtrInput `pulumi:"ttl"`
-}
-
-func (DnsConfigResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DnsConfigResponse)(nil)).Elem()
-}
-
-func (i DnsConfigResponseArgs) ToDnsConfigResponseOutput() DnsConfigResponseOutput {
-	return i.ToDnsConfigResponseOutputWithContext(context.Background())
-}
-
-func (i DnsConfigResponseArgs) ToDnsConfigResponseOutputWithContext(ctx context.Context) DnsConfigResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DnsConfigResponseOutput)
-}
-
-func (i DnsConfigResponseArgs) ToDnsConfigResponsePtrOutput() DnsConfigResponsePtrOutput {
-	return i.ToDnsConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i DnsConfigResponseArgs) ToDnsConfigResponsePtrOutputWithContext(ctx context.Context) DnsConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DnsConfigResponseOutput).ToDnsConfigResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DnsConfigResponsePtrInput interface {
-	pulumi.Input
-
-	ToDnsConfigResponsePtrOutput() DnsConfigResponsePtrOutput
-	ToDnsConfigResponsePtrOutputWithContext(context.Context) DnsConfigResponsePtrOutput
-}
-
-type dnsConfigResponsePtrType DnsConfigResponseArgs
-
-func DnsConfigResponsePtr(v *DnsConfigResponseArgs) DnsConfigResponsePtrInput {
-	return (*dnsConfigResponsePtrType)(v)
-}
-
-func (*dnsConfigResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DnsConfigResponse)(nil)).Elem()
-}
-
-func (i *dnsConfigResponsePtrType) ToDnsConfigResponsePtrOutput() DnsConfigResponsePtrOutput {
-	return i.ToDnsConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *dnsConfigResponsePtrType) ToDnsConfigResponsePtrOutputWithContext(ctx context.Context) DnsConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DnsConfigResponsePtrOutput)
-}
-
 type DnsConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (DnsConfigResponseOutput) ElementType() reflect.Type {
@@ -246,16 +176,6 @@ func (o DnsConfigResponseOutput) ToDnsConfigResponseOutput() DnsConfigResponseOu
 
 func (o DnsConfigResponseOutput) ToDnsConfigResponseOutputWithContext(ctx context.Context) DnsConfigResponseOutput {
 	return o
-}
-
-func (o DnsConfigResponseOutput) ToDnsConfigResponsePtrOutput() DnsConfigResponsePtrOutput {
-	return o.ToDnsConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (o DnsConfigResponseOutput) ToDnsConfigResponsePtrOutputWithContext(ctx context.Context) DnsConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DnsConfigResponse) *DnsConfigResponse {
-		return &v
-	}).(DnsConfigResponsePtrOutput)
 }
 
 func (o DnsConfigResponseOutput) Fqdn() pulumi.StringOutput {
@@ -592,59 +512,6 @@ type EndpointPropertiesResponseCustomHeaders struct {
 	Value *string `pulumi:"value"`
 }
 
-
-
-
-
-type EndpointPropertiesResponseCustomHeadersInput interface {
-	pulumi.Input
-
-	ToEndpointPropertiesResponseCustomHeadersOutput() EndpointPropertiesResponseCustomHeadersOutput
-	ToEndpointPropertiesResponseCustomHeadersOutputWithContext(context.Context) EndpointPropertiesResponseCustomHeadersOutput
-}
-
-type EndpointPropertiesResponseCustomHeadersArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (EndpointPropertiesResponseCustomHeadersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointPropertiesResponseCustomHeaders)(nil)).Elem()
-}
-
-func (i EndpointPropertiesResponseCustomHeadersArgs) ToEndpointPropertiesResponseCustomHeadersOutput() EndpointPropertiesResponseCustomHeadersOutput {
-	return i.ToEndpointPropertiesResponseCustomHeadersOutputWithContext(context.Background())
-}
-
-func (i EndpointPropertiesResponseCustomHeadersArgs) ToEndpointPropertiesResponseCustomHeadersOutputWithContext(ctx context.Context) EndpointPropertiesResponseCustomHeadersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesResponseCustomHeadersOutput)
-}
-
-
-
-
-
-type EndpointPropertiesResponseCustomHeadersArrayInput interface {
-	pulumi.Input
-
-	ToEndpointPropertiesResponseCustomHeadersArrayOutput() EndpointPropertiesResponseCustomHeadersArrayOutput
-	ToEndpointPropertiesResponseCustomHeadersArrayOutputWithContext(context.Context) EndpointPropertiesResponseCustomHeadersArrayOutput
-}
-
-type EndpointPropertiesResponseCustomHeadersArray []EndpointPropertiesResponseCustomHeadersInput
-
-func (EndpointPropertiesResponseCustomHeadersArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EndpointPropertiesResponseCustomHeaders)(nil)).Elem()
-}
-
-func (i EndpointPropertiesResponseCustomHeadersArray) ToEndpointPropertiesResponseCustomHeadersArrayOutput() EndpointPropertiesResponseCustomHeadersArrayOutput {
-	return i.ToEndpointPropertiesResponseCustomHeadersArrayOutputWithContext(context.Background())
-}
-
-func (i EndpointPropertiesResponseCustomHeadersArray) ToEndpointPropertiesResponseCustomHeadersArrayOutputWithContext(ctx context.Context) EndpointPropertiesResponseCustomHeadersArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesResponseCustomHeadersArrayOutput)
-}
-
 type EndpointPropertiesResponseCustomHeadersOutput struct{ *pulumi.OutputState }
 
 func (EndpointPropertiesResponseCustomHeadersOutput) ElementType() reflect.Type {
@@ -701,70 +568,6 @@ type EndpointResponse struct {
 	TargetResourceId      *string                                   `pulumi:"targetResourceId"`
 	Type                  *string                                   `pulumi:"type"`
 	Weight                *float64                                  `pulumi:"weight"`
-}
-
-
-
-
-
-type EndpointResponseInput interface {
-	pulumi.Input
-
-	ToEndpointResponseOutput() EndpointResponseOutput
-	ToEndpointResponseOutputWithContext(context.Context) EndpointResponseOutput
-}
-
-type EndpointResponseArgs struct {
-	CustomHeaders         EndpointPropertiesResponseCustomHeadersArrayInput `pulumi:"customHeaders"`
-	EndpointLocation      pulumi.StringPtrInput                             `pulumi:"endpointLocation"`
-	EndpointMonitorStatus pulumi.StringPtrInput                             `pulumi:"endpointMonitorStatus"`
-	EndpointStatus        pulumi.StringPtrInput                             `pulumi:"endpointStatus"`
-	GeoMapping            pulumi.StringArrayInput                           `pulumi:"geoMapping"`
-	Id                    pulumi.StringPtrInput                             `pulumi:"id"`
-	MinChildEndpoints     pulumi.Float64PtrInput                            `pulumi:"minChildEndpoints"`
-	Name                  pulumi.StringPtrInput                             `pulumi:"name"`
-	Priority              pulumi.Float64PtrInput                            `pulumi:"priority"`
-	Target                pulumi.StringPtrInput                             `pulumi:"target"`
-	TargetResourceId      pulumi.StringPtrInput                             `pulumi:"targetResourceId"`
-	Type                  pulumi.StringPtrInput                             `pulumi:"type"`
-	Weight                pulumi.Float64PtrInput                            `pulumi:"weight"`
-}
-
-func (EndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointResponse)(nil)).Elem()
-}
-
-func (i EndpointResponseArgs) ToEndpointResponseOutput() EndpointResponseOutput {
-	return i.ToEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i EndpointResponseArgs) ToEndpointResponseOutputWithContext(ctx context.Context) EndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointResponseOutput)
-}
-
-
-
-
-
-type EndpointResponseArrayInput interface {
-	pulumi.Input
-
-	ToEndpointResponseArrayOutput() EndpointResponseArrayOutput
-	ToEndpointResponseArrayOutputWithContext(context.Context) EndpointResponseArrayOutput
-}
-
-type EndpointResponseArray []EndpointResponseInput
-
-func (EndpointResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EndpointResponse)(nil)).Elem()
-}
-
-func (i EndpointResponseArray) ToEndpointResponseArrayOutput() EndpointResponseArrayOutput {
-	return i.ToEndpointResponseArrayOutputWithContext(context.Background())
-}
-
-func (i EndpointResponseArray) ToEndpointResponseArrayOutputWithContext(ctx context.Context) EndpointResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointResponseArrayOutput)
 }
 
 type EndpointResponseOutput struct{ *pulumi.OutputState }
@@ -1318,82 +1121,6 @@ type MonitorConfigResponse struct {
 	ToleratedNumberOfFailures *float64                                        `pulumi:"toleratedNumberOfFailures"`
 }
 
-
-
-
-
-type MonitorConfigResponseInput interface {
-	pulumi.Input
-
-	ToMonitorConfigResponseOutput() MonitorConfigResponseOutput
-	ToMonitorConfigResponseOutputWithContext(context.Context) MonitorConfigResponseOutput
-}
-
-type MonitorConfigResponseArgs struct {
-	CustomHeaders             MonitorConfigResponseCustomHeadersArrayInput            `pulumi:"customHeaders"`
-	ExpectedStatusCodeRanges  MonitorConfigResponseExpectedStatusCodeRangesArrayInput `pulumi:"expectedStatusCodeRanges"`
-	IntervalInSeconds         pulumi.Float64PtrInput                                  `pulumi:"intervalInSeconds"`
-	Path                      pulumi.StringPtrInput                                   `pulumi:"path"`
-	Port                      pulumi.Float64PtrInput                                  `pulumi:"port"`
-	ProfileMonitorStatus      pulumi.StringPtrInput                                   `pulumi:"profileMonitorStatus"`
-	Protocol                  pulumi.StringPtrInput                                   `pulumi:"protocol"`
-	TimeoutInSeconds          pulumi.Float64PtrInput                                  `pulumi:"timeoutInSeconds"`
-	ToleratedNumberOfFailures pulumi.Float64PtrInput                                  `pulumi:"toleratedNumberOfFailures"`
-}
-
-func (MonitorConfigResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorConfigResponse)(nil)).Elem()
-}
-
-func (i MonitorConfigResponseArgs) ToMonitorConfigResponseOutput() MonitorConfigResponseOutput {
-	return i.ToMonitorConfigResponseOutputWithContext(context.Background())
-}
-
-func (i MonitorConfigResponseArgs) ToMonitorConfigResponseOutputWithContext(ctx context.Context) MonitorConfigResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponseOutput)
-}
-
-func (i MonitorConfigResponseArgs) ToMonitorConfigResponsePtrOutput() MonitorConfigResponsePtrOutput {
-	return i.ToMonitorConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MonitorConfigResponseArgs) ToMonitorConfigResponsePtrOutputWithContext(ctx context.Context) MonitorConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponseOutput).ToMonitorConfigResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MonitorConfigResponsePtrInput interface {
-	pulumi.Input
-
-	ToMonitorConfigResponsePtrOutput() MonitorConfigResponsePtrOutput
-	ToMonitorConfigResponsePtrOutputWithContext(context.Context) MonitorConfigResponsePtrOutput
-}
-
-type monitorConfigResponsePtrType MonitorConfigResponseArgs
-
-func MonitorConfigResponsePtr(v *MonitorConfigResponseArgs) MonitorConfigResponsePtrInput {
-	return (*monitorConfigResponsePtrType)(v)
-}
-
-func (*monitorConfigResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitorConfigResponse)(nil)).Elem()
-}
-
-func (i *monitorConfigResponsePtrType) ToMonitorConfigResponsePtrOutput() MonitorConfigResponsePtrOutput {
-	return i.ToMonitorConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *monitorConfigResponsePtrType) ToMonitorConfigResponsePtrOutputWithContext(ctx context.Context) MonitorConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponsePtrOutput)
-}
-
 type MonitorConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (MonitorConfigResponseOutput) ElementType() reflect.Type {
@@ -1406,16 +1133,6 @@ func (o MonitorConfigResponseOutput) ToMonitorConfigResponseOutput() MonitorConf
 
 func (o MonitorConfigResponseOutput) ToMonitorConfigResponseOutputWithContext(ctx context.Context) MonitorConfigResponseOutput {
 	return o
-}
-
-func (o MonitorConfigResponseOutput) ToMonitorConfigResponsePtrOutput() MonitorConfigResponsePtrOutput {
-	return o.ToMonitorConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MonitorConfigResponseOutput) ToMonitorConfigResponsePtrOutputWithContext(ctx context.Context) MonitorConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorConfigResponse) *MonitorConfigResponse {
-		return &v
-	}).(MonitorConfigResponsePtrOutput)
 }
 
 func (o MonitorConfigResponseOutput) CustomHeaders() MonitorConfigResponseCustomHeadersArrayOutput {
@@ -1566,59 +1283,6 @@ type MonitorConfigResponseCustomHeaders struct {
 	Value *string `pulumi:"value"`
 }
 
-
-
-
-
-type MonitorConfigResponseCustomHeadersInput interface {
-	pulumi.Input
-
-	ToMonitorConfigResponseCustomHeadersOutput() MonitorConfigResponseCustomHeadersOutput
-	ToMonitorConfigResponseCustomHeadersOutputWithContext(context.Context) MonitorConfigResponseCustomHeadersOutput
-}
-
-type MonitorConfigResponseCustomHeadersArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (MonitorConfigResponseCustomHeadersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorConfigResponseCustomHeaders)(nil)).Elem()
-}
-
-func (i MonitorConfigResponseCustomHeadersArgs) ToMonitorConfigResponseCustomHeadersOutput() MonitorConfigResponseCustomHeadersOutput {
-	return i.ToMonitorConfigResponseCustomHeadersOutputWithContext(context.Background())
-}
-
-func (i MonitorConfigResponseCustomHeadersArgs) ToMonitorConfigResponseCustomHeadersOutputWithContext(ctx context.Context) MonitorConfigResponseCustomHeadersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponseCustomHeadersOutput)
-}
-
-
-
-
-
-type MonitorConfigResponseCustomHeadersArrayInput interface {
-	pulumi.Input
-
-	ToMonitorConfigResponseCustomHeadersArrayOutput() MonitorConfigResponseCustomHeadersArrayOutput
-	ToMonitorConfigResponseCustomHeadersArrayOutputWithContext(context.Context) MonitorConfigResponseCustomHeadersArrayOutput
-}
-
-type MonitorConfigResponseCustomHeadersArray []MonitorConfigResponseCustomHeadersInput
-
-func (MonitorConfigResponseCustomHeadersArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MonitorConfigResponseCustomHeaders)(nil)).Elem()
-}
-
-func (i MonitorConfigResponseCustomHeadersArray) ToMonitorConfigResponseCustomHeadersArrayOutput() MonitorConfigResponseCustomHeadersArrayOutput {
-	return i.ToMonitorConfigResponseCustomHeadersArrayOutputWithContext(context.Background())
-}
-
-func (i MonitorConfigResponseCustomHeadersArray) ToMonitorConfigResponseCustomHeadersArrayOutputWithContext(ctx context.Context) MonitorConfigResponseCustomHeadersArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponseCustomHeadersArrayOutput)
-}
-
 type MonitorConfigResponseCustomHeadersOutput struct{ *pulumi.OutputState }
 
 func (MonitorConfigResponseCustomHeadersOutput) ElementType() reflect.Type {
@@ -1664,59 +1328,6 @@ func (o MonitorConfigResponseCustomHeadersArrayOutput) Index(i pulumi.IntInput) 
 type MonitorConfigResponseExpectedStatusCodeRanges struct {
 	Max *int `pulumi:"max"`
 	Min *int `pulumi:"min"`
-}
-
-
-
-
-
-type MonitorConfigResponseExpectedStatusCodeRangesInput interface {
-	pulumi.Input
-
-	ToMonitorConfigResponseExpectedStatusCodeRangesOutput() MonitorConfigResponseExpectedStatusCodeRangesOutput
-	ToMonitorConfigResponseExpectedStatusCodeRangesOutputWithContext(context.Context) MonitorConfigResponseExpectedStatusCodeRangesOutput
-}
-
-type MonitorConfigResponseExpectedStatusCodeRangesArgs struct {
-	Max pulumi.IntPtrInput `pulumi:"max"`
-	Min pulumi.IntPtrInput `pulumi:"min"`
-}
-
-func (MonitorConfigResponseExpectedStatusCodeRangesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitorConfigResponseExpectedStatusCodeRanges)(nil)).Elem()
-}
-
-func (i MonitorConfigResponseExpectedStatusCodeRangesArgs) ToMonitorConfigResponseExpectedStatusCodeRangesOutput() MonitorConfigResponseExpectedStatusCodeRangesOutput {
-	return i.ToMonitorConfigResponseExpectedStatusCodeRangesOutputWithContext(context.Background())
-}
-
-func (i MonitorConfigResponseExpectedStatusCodeRangesArgs) ToMonitorConfigResponseExpectedStatusCodeRangesOutputWithContext(ctx context.Context) MonitorConfigResponseExpectedStatusCodeRangesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponseExpectedStatusCodeRangesOutput)
-}
-
-
-
-
-
-type MonitorConfigResponseExpectedStatusCodeRangesArrayInput interface {
-	pulumi.Input
-
-	ToMonitorConfigResponseExpectedStatusCodeRangesArrayOutput() MonitorConfigResponseExpectedStatusCodeRangesArrayOutput
-	ToMonitorConfigResponseExpectedStatusCodeRangesArrayOutputWithContext(context.Context) MonitorConfigResponseExpectedStatusCodeRangesArrayOutput
-}
-
-type MonitorConfigResponseExpectedStatusCodeRangesArray []MonitorConfigResponseExpectedStatusCodeRangesInput
-
-func (MonitorConfigResponseExpectedStatusCodeRangesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MonitorConfigResponseExpectedStatusCodeRanges)(nil)).Elem()
-}
-
-func (i MonitorConfigResponseExpectedStatusCodeRangesArray) ToMonitorConfigResponseExpectedStatusCodeRangesArrayOutput() MonitorConfigResponseExpectedStatusCodeRangesArrayOutput {
-	return i.ToMonitorConfigResponseExpectedStatusCodeRangesArrayOutputWithContext(context.Background())
-}
-
-func (i MonitorConfigResponseExpectedStatusCodeRangesArray) ToMonitorConfigResponseExpectedStatusCodeRangesArrayOutputWithContext(ctx context.Context) MonitorConfigResponseExpectedStatusCodeRangesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitorConfigResponseExpectedStatusCodeRangesArrayOutput)
 }
 
 type MonitorConfigResponseExpectedStatusCodeRangesOutput struct{ *pulumi.OutputState }

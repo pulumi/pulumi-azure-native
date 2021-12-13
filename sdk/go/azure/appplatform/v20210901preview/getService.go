@@ -13,7 +13,7 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupServiceArgs struct {
@@ -30,4 +30,15 @@ type LookupServiceResult struct {
 	Sku        *SkuResponse                      `pulumi:"sku"`
 	Tags       map[string]string                 `pulumi:"tags"`
 	Type       string                            `pulumi:"type"`
+}
+
+
+func (val *LookupServiceResult) Defaults() *LookupServiceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Sku = tmp.Sku.Defaults()
+
+	return &tmp
 }

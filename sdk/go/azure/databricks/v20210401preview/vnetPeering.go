@@ -125,7 +125,7 @@ type VNetPeeringInput interface {
 }
 
 func (*VNetPeering) ElementType() reflect.Type {
-	return reflect.TypeOf((*VNetPeering)(nil))
+	return reflect.TypeOf((**VNetPeering)(nil)).Elem()
 }
 
 func (i *VNetPeering) ToVNetPeeringOutput() VNetPeeringOutput {
@@ -139,7 +139,7 @@ func (i *VNetPeering) ToVNetPeeringOutputWithContext(ctx context.Context) VNetPe
 type VNetPeeringOutput struct{ *pulumi.OutputState }
 
 func (VNetPeeringOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VNetPeering)(nil))
+	return reflect.TypeOf((**VNetPeering)(nil)).Elem()
 }
 
 func (o VNetPeeringOutput) ToVNetPeeringOutput() VNetPeeringOutput {

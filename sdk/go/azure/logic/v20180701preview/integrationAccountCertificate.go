@@ -119,7 +119,7 @@ type IntegrationAccountCertificateInput interface {
 }
 
 func (*IntegrationAccountCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountCertificate)(nil))
+	return reflect.TypeOf((**IntegrationAccountCertificate)(nil)).Elem()
 }
 
 func (i *IntegrationAccountCertificate) ToIntegrationAccountCertificateOutput() IntegrationAccountCertificateOutput {
@@ -133,7 +133,7 @@ func (i *IntegrationAccountCertificate) ToIntegrationAccountCertificateOutputWit
 type IntegrationAccountCertificateOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountCertificate)(nil))
+	return reflect.TypeOf((**IntegrationAccountCertificate)(nil)).Elem()
 }
 
 func (o IntegrationAccountCertificateOutput) ToIntegrationAccountCertificateOutput() IntegrationAccountCertificateOutput {

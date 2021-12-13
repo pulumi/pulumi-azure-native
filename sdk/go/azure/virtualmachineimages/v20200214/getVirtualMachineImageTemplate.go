@@ -13,7 +13,7 @@ func LookupVirtualMachineImageTemplate(ctx *pulumi.Context, args *LookupVirtualM
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupVirtualMachineImageTemplateArgs struct {
@@ -37,4 +37,19 @@ type LookupVirtualMachineImageTemplateResult struct {
 	Tags                  map[string]string                  `pulumi:"tags"`
 	Type                  string                             `pulumi:"type"`
 	VmProfile             *ImageTemplateVmProfileResponse    `pulumi:"vmProfile"`
+}
+
+
+func (val *LookupVirtualMachineImageTemplateResult) Defaults() *LookupVirtualMachineImageTemplateResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.BuildTimeoutInMinutes) {
+		buildTimeoutInMinutes_ := 0
+		tmp.BuildTimeoutInMinutes = &buildTimeoutInMinutes_
+	}
+	tmp.VmProfile = tmp.VmProfile.Defaults()
+
+	return &tmp
 }

@@ -128,7 +128,7 @@ type JobInput interface {
 }
 
 func (*Job) ElementType() reflect.Type {
-	return reflect.TypeOf((*Job)(nil))
+	return reflect.TypeOf((**Job)(nil)).Elem()
 }
 
 func (i *Job) ToJobOutput() JobOutput {
@@ -142,7 +142,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 type JobOutput struct{ *pulumi.OutputState }
 
 func (JobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Job)(nil))
+	return reflect.TypeOf((**Job)(nil)).Elem()
 }
 
 func (o JobOutput) ToJobOutput() JobOutput {

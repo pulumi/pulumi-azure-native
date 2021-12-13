@@ -130,7 +130,7 @@ type CustomIPPrefixInput interface {
 }
 
 func (*CustomIPPrefix) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomIPPrefix)(nil))
+	return reflect.TypeOf((**CustomIPPrefix)(nil)).Elem()
 }
 
 func (i *CustomIPPrefix) ToCustomIPPrefixOutput() CustomIPPrefixOutput {
@@ -144,7 +144,7 @@ func (i *CustomIPPrefix) ToCustomIPPrefixOutputWithContext(ctx context.Context) 
 type CustomIPPrefixOutput struct{ *pulumi.OutputState }
 
 func (CustomIPPrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomIPPrefix)(nil))
+	return reflect.TypeOf((**CustomIPPrefix)(nil)).Elem()
 }
 
 func (o CustomIPPrefixOutput) ToCustomIPPrefixOutput() CustomIPPrefixOutput {

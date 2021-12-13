@@ -129,7 +129,7 @@ type NamedValueInput interface {
 }
 
 func (*NamedValue) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedValue)(nil))
+	return reflect.TypeOf((**NamedValue)(nil)).Elem()
 }
 
 func (i *NamedValue) ToNamedValueOutput() NamedValueOutput {
@@ -143,7 +143,7 @@ func (i *NamedValue) ToNamedValueOutputWithContext(ctx context.Context) NamedVal
 type NamedValueOutput struct{ *pulumi.OutputState }
 
 func (NamedValueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamedValue)(nil))
+	return reflect.TypeOf((**NamedValue)(nil)).Elem()
 }
 
 func (o NamedValueOutput) ToNamedValueOutput() NamedValueOutput {

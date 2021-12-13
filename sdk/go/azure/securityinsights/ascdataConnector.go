@@ -118,7 +118,7 @@ type ASCDataConnectorInput interface {
 }
 
 func (*ASCDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*ASCDataConnector)(nil))
+	return reflect.TypeOf((**ASCDataConnector)(nil)).Elem()
 }
 
 func (i *ASCDataConnector) ToASCDataConnectorOutput() ASCDataConnectorOutput {
@@ -132,7 +132,7 @@ func (i *ASCDataConnector) ToASCDataConnectorOutputWithContext(ctx context.Conte
 type ASCDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (ASCDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ASCDataConnector)(nil))
+	return reflect.TypeOf((**ASCDataConnector)(nil)).Elem()
 }
 
 func (o ASCDataConnectorOutput) ToASCDataConnectorOutput() ASCDataConnectorOutput {

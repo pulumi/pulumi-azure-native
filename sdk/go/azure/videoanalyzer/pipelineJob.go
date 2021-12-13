@@ -109,7 +109,7 @@ type PipelineJobInput interface {
 }
 
 func (*PipelineJob) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineJob)(nil))
+	return reflect.TypeOf((**PipelineJob)(nil)).Elem()
 }
 
 func (i *PipelineJob) ToPipelineJobOutput() PipelineJobOutput {
@@ -123,7 +123,7 @@ func (i *PipelineJob) ToPipelineJobOutputWithContext(ctx context.Context) Pipeli
 type PipelineJobOutput struct{ *pulumi.OutputState }
 
 func (PipelineJobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineJob)(nil))
+	return reflect.TypeOf((**PipelineJob)(nil)).Elem()
 }
 
 func (o PipelineJobOutput) ToPipelineJobOutput() PipelineJobOutput {

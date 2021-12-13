@@ -141,7 +141,7 @@ type ActivityCustomEntityQueryInput interface {
 }
 
 func (*ActivityCustomEntityQuery) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityCustomEntityQuery)(nil))
+	return reflect.TypeOf((**ActivityCustomEntityQuery)(nil)).Elem()
 }
 
 func (i *ActivityCustomEntityQuery) ToActivityCustomEntityQueryOutput() ActivityCustomEntityQueryOutput {
@@ -155,7 +155,7 @@ func (i *ActivityCustomEntityQuery) ToActivityCustomEntityQueryOutputWithContext
 type ActivityCustomEntityQueryOutput struct{ *pulumi.OutputState }
 
 func (ActivityCustomEntityQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActivityCustomEntityQuery)(nil))
+	return reflect.TypeOf((**ActivityCustomEntityQuery)(nil)).Elem()
 }
 
 func (o ActivityCustomEntityQueryOutput) ToActivityCustomEntityQueryOutput() ActivityCustomEntityQueryOutput {

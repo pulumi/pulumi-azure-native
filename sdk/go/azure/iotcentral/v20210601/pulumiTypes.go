@@ -41,47 +41,6 @@ func (i AppSkuInfoArgs) ToAppSkuInfoOutputWithContext(ctx context.Context) AppSk
 	return pulumi.ToOutputWithContext(ctx, i).(AppSkuInfoOutput)
 }
 
-func (i AppSkuInfoArgs) ToAppSkuInfoPtrOutput() AppSkuInfoPtrOutput {
-	return i.ToAppSkuInfoPtrOutputWithContext(context.Background())
-}
-
-func (i AppSkuInfoArgs) ToAppSkuInfoPtrOutputWithContext(ctx context.Context) AppSkuInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSkuInfoOutput).ToAppSkuInfoPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AppSkuInfoPtrInput interface {
-	pulumi.Input
-
-	ToAppSkuInfoPtrOutput() AppSkuInfoPtrOutput
-	ToAppSkuInfoPtrOutputWithContext(context.Context) AppSkuInfoPtrOutput
-}
-
-type appSkuInfoPtrType AppSkuInfoArgs
-
-func AppSkuInfoPtr(v *AppSkuInfoArgs) AppSkuInfoPtrInput {
-	return (*appSkuInfoPtrType)(v)
-}
-
-func (*appSkuInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppSkuInfo)(nil)).Elem()
-}
-
-func (i *appSkuInfoPtrType) ToAppSkuInfoPtrOutput() AppSkuInfoPtrOutput {
-	return i.ToAppSkuInfoPtrOutputWithContext(context.Background())
-}
-
-func (i *appSkuInfoPtrType) ToAppSkuInfoPtrOutputWithContext(ctx context.Context) AppSkuInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSkuInfoPtrOutput)
-}
-
 type AppSkuInfoOutput struct{ *pulumi.OutputState }
 
 func (AppSkuInfoOutput) ElementType() reflect.Type {
@@ -96,123 +55,12 @@ func (o AppSkuInfoOutput) ToAppSkuInfoOutputWithContext(ctx context.Context) App
 	return o
 }
 
-func (o AppSkuInfoOutput) ToAppSkuInfoPtrOutput() AppSkuInfoPtrOutput {
-	return o.ToAppSkuInfoPtrOutputWithContext(context.Background())
-}
-
-func (o AppSkuInfoOutput) ToAppSkuInfoPtrOutputWithContext(ctx context.Context) AppSkuInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSkuInfo) *AppSkuInfo {
-		return &v
-	}).(AppSkuInfoPtrOutput)
-}
-
 func (o AppSkuInfoOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppSkuInfo) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type AppSkuInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (AppSkuInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppSkuInfo)(nil)).Elem()
-}
-
-func (o AppSkuInfoPtrOutput) ToAppSkuInfoPtrOutput() AppSkuInfoPtrOutput {
-	return o
-}
-
-func (o AppSkuInfoPtrOutput) ToAppSkuInfoPtrOutputWithContext(ctx context.Context) AppSkuInfoPtrOutput {
-	return o
-}
-
-func (o AppSkuInfoPtrOutput) Elem() AppSkuInfoOutput {
-	return o.ApplyT(func(v *AppSkuInfo) AppSkuInfo {
-		if v != nil {
-			return *v
-		}
-		var ret AppSkuInfo
-		return ret
-	}).(AppSkuInfoOutput)
-}
-
-func (o AppSkuInfoPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppSkuInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
 type AppSkuInfoResponse struct {
 	Name string `pulumi:"name"`
-}
-
-
-
-
-
-type AppSkuInfoResponseInput interface {
-	pulumi.Input
-
-	ToAppSkuInfoResponseOutput() AppSkuInfoResponseOutput
-	ToAppSkuInfoResponseOutputWithContext(context.Context) AppSkuInfoResponseOutput
-}
-
-type AppSkuInfoResponseArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (AppSkuInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppSkuInfoResponse)(nil)).Elem()
-}
-
-func (i AppSkuInfoResponseArgs) ToAppSkuInfoResponseOutput() AppSkuInfoResponseOutput {
-	return i.ToAppSkuInfoResponseOutputWithContext(context.Background())
-}
-
-func (i AppSkuInfoResponseArgs) ToAppSkuInfoResponseOutputWithContext(ctx context.Context) AppSkuInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSkuInfoResponseOutput)
-}
-
-func (i AppSkuInfoResponseArgs) ToAppSkuInfoResponsePtrOutput() AppSkuInfoResponsePtrOutput {
-	return i.ToAppSkuInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AppSkuInfoResponseArgs) ToAppSkuInfoResponsePtrOutputWithContext(ctx context.Context) AppSkuInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSkuInfoResponseOutput).ToAppSkuInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AppSkuInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToAppSkuInfoResponsePtrOutput() AppSkuInfoResponsePtrOutput
-	ToAppSkuInfoResponsePtrOutputWithContext(context.Context) AppSkuInfoResponsePtrOutput
-}
-
-type appSkuInfoResponsePtrType AppSkuInfoResponseArgs
-
-func AppSkuInfoResponsePtr(v *AppSkuInfoResponseArgs) AppSkuInfoResponsePtrInput {
-	return (*appSkuInfoResponsePtrType)(v)
-}
-
-func (*appSkuInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppSkuInfoResponse)(nil)).Elem()
-}
-
-func (i *appSkuInfoResponsePtrType) ToAppSkuInfoResponsePtrOutput() AppSkuInfoResponsePtrOutput {
-	return i.ToAppSkuInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *appSkuInfoResponsePtrType) ToAppSkuInfoResponsePtrOutputWithContext(ctx context.Context) AppSkuInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppSkuInfoResponsePtrOutput)
 }
 
 type AppSkuInfoResponseOutput struct{ *pulumi.OutputState }
@@ -229,51 +77,8 @@ func (o AppSkuInfoResponseOutput) ToAppSkuInfoResponseOutputWithContext(ctx cont
 	return o
 }
 
-func (o AppSkuInfoResponseOutput) ToAppSkuInfoResponsePtrOutput() AppSkuInfoResponsePtrOutput {
-	return o.ToAppSkuInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AppSkuInfoResponseOutput) ToAppSkuInfoResponsePtrOutputWithContext(ctx context.Context) AppSkuInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppSkuInfoResponse) *AppSkuInfoResponse {
-		return &v
-	}).(AppSkuInfoResponsePtrOutput)
-}
-
 func (o AppSkuInfoResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AppSkuInfoResponse) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type AppSkuInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (AppSkuInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AppSkuInfoResponse)(nil)).Elem()
-}
-
-func (o AppSkuInfoResponsePtrOutput) ToAppSkuInfoResponsePtrOutput() AppSkuInfoResponsePtrOutput {
-	return o
-}
-
-func (o AppSkuInfoResponsePtrOutput) ToAppSkuInfoResponsePtrOutputWithContext(ctx context.Context) AppSkuInfoResponsePtrOutput {
-	return o
-}
-
-func (o AppSkuInfoResponsePtrOutput) Elem() AppSkuInfoResponseOutput {
-	return o.ApplyT(func(v *AppSkuInfoResponse) AppSkuInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret AppSkuInfoResponse
-		return ret
-	}).(AppSkuInfoResponseOutput)
-}
-
-func (o AppSkuInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AppSkuInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type SystemAssignedServiceIdentity struct {
@@ -415,76 +220,6 @@ type SystemAssignedServiceIdentityResponse struct {
 	Type        string `pulumi:"type"`
 }
 
-
-
-
-
-type SystemAssignedServiceIdentityResponseInput interface {
-	pulumi.Input
-
-	ToSystemAssignedServiceIdentityResponseOutput() SystemAssignedServiceIdentityResponseOutput
-	ToSystemAssignedServiceIdentityResponseOutputWithContext(context.Context) SystemAssignedServiceIdentityResponseOutput
-}
-
-type SystemAssignedServiceIdentityResponseArgs struct {
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	TenantId    pulumi.StringInput `pulumi:"tenantId"`
-	Type        pulumi.StringInput `pulumi:"type"`
-}
-
-func (SystemAssignedServiceIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemAssignedServiceIdentityResponse)(nil)).Elem()
-}
-
-func (i SystemAssignedServiceIdentityResponseArgs) ToSystemAssignedServiceIdentityResponseOutput() SystemAssignedServiceIdentityResponseOutput {
-	return i.ToSystemAssignedServiceIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i SystemAssignedServiceIdentityResponseArgs) ToSystemAssignedServiceIdentityResponseOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemAssignedServiceIdentityResponseOutput)
-}
-
-func (i SystemAssignedServiceIdentityResponseArgs) ToSystemAssignedServiceIdentityResponsePtrOutput() SystemAssignedServiceIdentityResponsePtrOutput {
-	return i.ToSystemAssignedServiceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemAssignedServiceIdentityResponseArgs) ToSystemAssignedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemAssignedServiceIdentityResponseOutput).ToSystemAssignedServiceIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemAssignedServiceIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemAssignedServiceIdentityResponsePtrOutput() SystemAssignedServiceIdentityResponsePtrOutput
-	ToSystemAssignedServiceIdentityResponsePtrOutputWithContext(context.Context) SystemAssignedServiceIdentityResponsePtrOutput
-}
-
-type systemAssignedServiceIdentityResponsePtrType SystemAssignedServiceIdentityResponseArgs
-
-func SystemAssignedServiceIdentityResponsePtr(v *SystemAssignedServiceIdentityResponseArgs) SystemAssignedServiceIdentityResponsePtrInput {
-	return (*systemAssignedServiceIdentityResponsePtrType)(v)
-}
-
-func (*systemAssignedServiceIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemAssignedServiceIdentityResponse)(nil)).Elem()
-}
-
-func (i *systemAssignedServiceIdentityResponsePtrType) ToSystemAssignedServiceIdentityResponsePtrOutput() SystemAssignedServiceIdentityResponsePtrOutput {
-	return i.ToSystemAssignedServiceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemAssignedServiceIdentityResponsePtrType) ToSystemAssignedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemAssignedServiceIdentityResponsePtrOutput)
-}
-
 type SystemAssignedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemAssignedServiceIdentityResponseOutput) ElementType() reflect.Type {
@@ -497,16 +232,6 @@ func (o SystemAssignedServiceIdentityResponseOutput) ToSystemAssignedServiceIden
 
 func (o SystemAssignedServiceIdentityResponseOutput) ToSystemAssignedServiceIdentityResponseOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityResponseOutput {
 	return o
-}
-
-func (o SystemAssignedServiceIdentityResponseOutput) ToSystemAssignedServiceIdentityResponsePtrOutput() SystemAssignedServiceIdentityResponsePtrOutput {
-	return o.ToSystemAssignedServiceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemAssignedServiceIdentityResponseOutput) ToSystemAssignedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) SystemAssignedServiceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemAssignedServiceIdentityResponse) *SystemAssignedServiceIdentityResponse {
-		return &v
-	}).(SystemAssignedServiceIdentityResponsePtrOutput)
 }
 
 func (o SystemAssignedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
@@ -574,9 +299,7 @@ func (o SystemAssignedServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrO
 
 func init() {
 	pulumi.RegisterOutputType(AppSkuInfoOutput{})
-	pulumi.RegisterOutputType(AppSkuInfoPtrOutput{})
 	pulumi.RegisterOutputType(AppSkuInfoResponseOutput{})
-	pulumi.RegisterOutputType(AppSkuInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemAssignedServiceIdentityOutput{})
 	pulumi.RegisterOutputType(SystemAssignedServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(SystemAssignedServiceIdentityResponseOutput{})

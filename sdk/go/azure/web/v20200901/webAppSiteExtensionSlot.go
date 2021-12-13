@@ -150,7 +150,7 @@ type WebAppSiteExtensionSlotInput interface {
 }
 
 func (*WebAppSiteExtensionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSiteExtensionSlot)(nil))
+	return reflect.TypeOf((**WebAppSiteExtensionSlot)(nil)).Elem()
 }
 
 func (i *WebAppSiteExtensionSlot) ToWebAppSiteExtensionSlotOutput() WebAppSiteExtensionSlotOutput {
@@ -164,7 +164,7 @@ func (i *WebAppSiteExtensionSlot) ToWebAppSiteExtensionSlotOutputWithContext(ctx
 type WebAppSiteExtensionSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppSiteExtensionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSiteExtensionSlot)(nil))
+	return reflect.TypeOf((**WebAppSiteExtensionSlot)(nil)).Elem()
 }
 
 func (o WebAppSiteExtensionSlotOutput) ToWebAppSiteExtensionSlotOutput() WebAppSiteExtensionSlotOutput {

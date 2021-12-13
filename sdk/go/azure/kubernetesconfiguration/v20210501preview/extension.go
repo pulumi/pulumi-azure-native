@@ -51,10 +51,10 @@ func NewExtension(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.AutoUpgradeMinorVersion == nil {
+	if isZero(args.AutoUpgradeMinorVersion) {
 		args.AutoUpgradeMinorVersion = pulumi.BoolPtr(true)
 	}
-	if args.ReleaseTrain == nil {
+	if isZero(args.ReleaseTrain) {
 		args.ReleaseTrain = pulumi.StringPtr("Stable")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -153,7 +153,7 @@ type ExtensionInput interface {
 }
 
 func (*Extension) ElementType() reflect.Type {
-	return reflect.TypeOf((*Extension)(nil))
+	return reflect.TypeOf((**Extension)(nil)).Elem()
 }
 
 func (i *Extension) ToExtensionOutput() ExtensionOutput {
@@ -167,7 +167,7 @@ func (i *Extension) ToExtensionOutputWithContext(ctx context.Context) ExtensionO
 type ExtensionOutput struct{ *pulumi.OutputState }
 
 func (ExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Extension)(nil))
+	return reflect.TypeOf((**Extension)(nil)).Elem()
 }
 
 func (o ExtensionOutput) ToExtensionOutput() ExtensionOutput {

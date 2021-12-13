@@ -108,7 +108,7 @@ type FileInput interface {
 }
 
 func (*File) ElementType() reflect.Type {
-	return reflect.TypeOf((*File)(nil))
+	return reflect.TypeOf((**File)(nil)).Elem()
 }
 
 func (i *File) ToFileOutput() FileOutput {
@@ -122,7 +122,7 @@ func (i *File) ToFileOutputWithContext(ctx context.Context) FileOutput {
 type FileOutput struct{ *pulumi.OutputState }
 
 func (FileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*File)(nil))
+	return reflect.TypeOf((**File)(nil)).Elem()
 }
 
 func (o FileOutput) ToFileOutput() FileOutput {

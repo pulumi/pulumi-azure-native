@@ -140,7 +140,7 @@ type VirtualHubRouteTableV2Input interface {
 }
 
 func (*VirtualHubRouteTableV2) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubRouteTableV2)(nil))
+	return reflect.TypeOf((**VirtualHubRouteTableV2)(nil)).Elem()
 }
 
 func (i *VirtualHubRouteTableV2) ToVirtualHubRouteTableV2Output() VirtualHubRouteTableV2Output {
@@ -154,7 +154,7 @@ func (i *VirtualHubRouteTableV2) ToVirtualHubRouteTableV2OutputWithContext(ctx c
 type VirtualHubRouteTableV2Output struct{ *pulumi.OutputState }
 
 func (VirtualHubRouteTableV2Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubRouteTableV2)(nil))
+	return reflect.TypeOf((**VirtualHubRouteTableV2)(nil)).Elem()
 }
 
 func (o VirtualHubRouteTableV2Output) ToVirtualHubRouteTableV2Output() VirtualHubRouteTableV2Output {

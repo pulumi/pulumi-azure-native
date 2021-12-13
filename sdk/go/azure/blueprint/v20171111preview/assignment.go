@@ -114,7 +114,7 @@ type AssignmentInput interface {
 }
 
 func (*Assignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Assignment)(nil))
+	return reflect.TypeOf((**Assignment)(nil)).Elem()
 }
 
 func (i *Assignment) ToAssignmentOutput() AssignmentOutput {
@@ -128,7 +128,7 @@ func (i *Assignment) ToAssignmentOutputWithContext(ctx context.Context) Assignme
 type AssignmentOutput struct{ *pulumi.OutputState }
 
 func (AssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Assignment)(nil))
+	return reflect.TypeOf((**Assignment)(nil)).Elem()
 }
 
 func (o AssignmentOutput) ToAssignmentOutput() AssignmentOutput {

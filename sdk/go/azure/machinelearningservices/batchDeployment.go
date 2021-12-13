@@ -117,7 +117,7 @@ type BatchDeploymentInput interface {
 }
 
 func (*BatchDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchDeployment)(nil))
+	return reflect.TypeOf((**BatchDeployment)(nil)).Elem()
 }
 
 func (i *BatchDeployment) ToBatchDeploymentOutput() BatchDeploymentOutput {
@@ -131,7 +131,7 @@ func (i *BatchDeployment) ToBatchDeploymentOutputWithContext(ctx context.Context
 type BatchDeploymentOutput struct{ *pulumi.OutputState }
 
 func (BatchDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchDeployment)(nil))
+	return reflect.TypeOf((**BatchDeployment)(nil)).Elem()
 }
 
 func (o BatchDeploymentOutput) ToBatchDeploymentOutput() BatchDeploymentOutput {

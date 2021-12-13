@@ -120,7 +120,7 @@ type WebPubSubSharedPrivateLinkResourceInput interface {
 }
 
 func (*WebPubSubSharedPrivateLinkResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSubSharedPrivateLinkResource)(nil))
+	return reflect.TypeOf((**WebPubSubSharedPrivateLinkResource)(nil)).Elem()
 }
 
 func (i *WebPubSubSharedPrivateLinkResource) ToWebPubSubSharedPrivateLinkResourceOutput() WebPubSubSharedPrivateLinkResourceOutput {
@@ -134,7 +134,7 @@ func (i *WebPubSubSharedPrivateLinkResource) ToWebPubSubSharedPrivateLinkResourc
 type WebPubSubSharedPrivateLinkResourceOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubSharedPrivateLinkResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSubSharedPrivateLinkResource)(nil))
+	return reflect.TypeOf((**WebPubSubSharedPrivateLinkResource)(nil)).Elem()
 }
 
 func (o WebPubSubSharedPrivateLinkResourceOutput) ToWebPubSubSharedPrivateLinkResourceOutput() WebPubSubSharedPrivateLinkResourceOutput {

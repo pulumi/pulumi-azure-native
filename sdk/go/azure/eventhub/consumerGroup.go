@@ -121,7 +121,7 @@ type ConsumerGroupInput interface {
 }
 
 func (*ConsumerGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsumerGroup)(nil))
+	return reflect.TypeOf((**ConsumerGroup)(nil)).Elem()
 }
 
 func (i *ConsumerGroup) ToConsumerGroupOutput() ConsumerGroupOutput {
@@ -135,7 +135,7 @@ func (i *ConsumerGroup) ToConsumerGroupOutputWithContext(ctx context.Context) Co
 type ConsumerGroupOutput struct{ *pulumi.OutputState }
 
 func (ConsumerGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsumerGroup)(nil))
+	return reflect.TypeOf((**ConsumerGroup)(nil)).Elem()
 }
 
 func (o ConsumerGroupOutput) ToConsumerGroupOutput() ConsumerGroupOutput {

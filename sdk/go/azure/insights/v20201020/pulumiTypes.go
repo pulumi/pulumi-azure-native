@@ -148,75 +148,6 @@ type MyWorkbookManagedIdentityResponse struct {
 	UserAssignedIdentities *MyWorkbookUserAssignedIdentitiesResponse `pulumi:"userAssignedIdentities"`
 }
 
-
-
-
-
-type MyWorkbookManagedIdentityResponseInput interface {
-	pulumi.Input
-
-	ToMyWorkbookManagedIdentityResponseOutput() MyWorkbookManagedIdentityResponseOutput
-	ToMyWorkbookManagedIdentityResponseOutputWithContext(context.Context) MyWorkbookManagedIdentityResponseOutput
-}
-
-type MyWorkbookManagedIdentityResponseArgs struct {
-	Type                   pulumi.StringPtrInput                            `pulumi:"type"`
-	UserAssignedIdentities MyWorkbookUserAssignedIdentitiesResponsePtrInput `pulumi:"userAssignedIdentities"`
-}
-
-func (MyWorkbookManagedIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MyWorkbookManagedIdentityResponse)(nil)).Elem()
-}
-
-func (i MyWorkbookManagedIdentityResponseArgs) ToMyWorkbookManagedIdentityResponseOutput() MyWorkbookManagedIdentityResponseOutput {
-	return i.ToMyWorkbookManagedIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i MyWorkbookManagedIdentityResponseArgs) ToMyWorkbookManagedIdentityResponseOutputWithContext(ctx context.Context) MyWorkbookManagedIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MyWorkbookManagedIdentityResponseOutput)
-}
-
-func (i MyWorkbookManagedIdentityResponseArgs) ToMyWorkbookManagedIdentityResponsePtrOutput() MyWorkbookManagedIdentityResponsePtrOutput {
-	return i.ToMyWorkbookManagedIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MyWorkbookManagedIdentityResponseArgs) ToMyWorkbookManagedIdentityResponsePtrOutputWithContext(ctx context.Context) MyWorkbookManagedIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MyWorkbookManagedIdentityResponseOutput).ToMyWorkbookManagedIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MyWorkbookManagedIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToMyWorkbookManagedIdentityResponsePtrOutput() MyWorkbookManagedIdentityResponsePtrOutput
-	ToMyWorkbookManagedIdentityResponsePtrOutputWithContext(context.Context) MyWorkbookManagedIdentityResponsePtrOutput
-}
-
-type myWorkbookManagedIdentityResponsePtrType MyWorkbookManagedIdentityResponseArgs
-
-func MyWorkbookManagedIdentityResponsePtr(v *MyWorkbookManagedIdentityResponseArgs) MyWorkbookManagedIdentityResponsePtrInput {
-	return (*myWorkbookManagedIdentityResponsePtrType)(v)
-}
-
-func (*myWorkbookManagedIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MyWorkbookManagedIdentityResponse)(nil)).Elem()
-}
-
-func (i *myWorkbookManagedIdentityResponsePtrType) ToMyWorkbookManagedIdentityResponsePtrOutput() MyWorkbookManagedIdentityResponsePtrOutput {
-	return i.ToMyWorkbookManagedIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *myWorkbookManagedIdentityResponsePtrType) ToMyWorkbookManagedIdentityResponsePtrOutputWithContext(ctx context.Context) MyWorkbookManagedIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MyWorkbookManagedIdentityResponsePtrOutput)
-}
-
 type MyWorkbookManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (MyWorkbookManagedIdentityResponseOutput) ElementType() reflect.Type {
@@ -229,16 +160,6 @@ func (o MyWorkbookManagedIdentityResponseOutput) ToMyWorkbookManagedIdentityResp
 
 func (o MyWorkbookManagedIdentityResponseOutput) ToMyWorkbookManagedIdentityResponseOutputWithContext(ctx context.Context) MyWorkbookManagedIdentityResponseOutput {
 	return o
-}
-
-func (o MyWorkbookManagedIdentityResponseOutput) ToMyWorkbookManagedIdentityResponsePtrOutput() MyWorkbookManagedIdentityResponsePtrOutput {
-	return o.ToMyWorkbookManagedIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MyWorkbookManagedIdentityResponseOutput) ToMyWorkbookManagedIdentityResponsePtrOutputWithContext(ctx context.Context) MyWorkbookManagedIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MyWorkbookManagedIdentityResponse) *MyWorkbookManagedIdentityResponse {
-		return &v
-	}).(MyWorkbookManagedIdentityResponsePtrOutput)
 }
 
 func (o MyWorkbookManagedIdentityResponseOutput) Type() pulumi.StringPtrOutput {
@@ -298,75 +219,6 @@ type MyWorkbookUserAssignedIdentitiesResponse struct {
 	TenantId    string `pulumi:"tenantId"`
 }
 
-
-
-
-
-type MyWorkbookUserAssignedIdentitiesResponseInput interface {
-	pulumi.Input
-
-	ToMyWorkbookUserAssignedIdentitiesResponseOutput() MyWorkbookUserAssignedIdentitiesResponseOutput
-	ToMyWorkbookUserAssignedIdentitiesResponseOutputWithContext(context.Context) MyWorkbookUserAssignedIdentitiesResponseOutput
-}
-
-type MyWorkbookUserAssignedIdentitiesResponseArgs struct {
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	TenantId    pulumi.StringInput `pulumi:"tenantId"`
-}
-
-func (MyWorkbookUserAssignedIdentitiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MyWorkbookUserAssignedIdentitiesResponse)(nil)).Elem()
-}
-
-func (i MyWorkbookUserAssignedIdentitiesResponseArgs) ToMyWorkbookUserAssignedIdentitiesResponseOutput() MyWorkbookUserAssignedIdentitiesResponseOutput {
-	return i.ToMyWorkbookUserAssignedIdentitiesResponseOutputWithContext(context.Background())
-}
-
-func (i MyWorkbookUserAssignedIdentitiesResponseArgs) ToMyWorkbookUserAssignedIdentitiesResponseOutputWithContext(ctx context.Context) MyWorkbookUserAssignedIdentitiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MyWorkbookUserAssignedIdentitiesResponseOutput)
-}
-
-func (i MyWorkbookUserAssignedIdentitiesResponseArgs) ToMyWorkbookUserAssignedIdentitiesResponsePtrOutput() MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return i.ToMyWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i MyWorkbookUserAssignedIdentitiesResponseArgs) ToMyWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MyWorkbookUserAssignedIdentitiesResponseOutput).ToMyWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type MyWorkbookUserAssignedIdentitiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToMyWorkbookUserAssignedIdentitiesResponsePtrOutput() MyWorkbookUserAssignedIdentitiesResponsePtrOutput
-	ToMyWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(context.Context) MyWorkbookUserAssignedIdentitiesResponsePtrOutput
-}
-
-type myWorkbookUserAssignedIdentitiesResponsePtrType MyWorkbookUserAssignedIdentitiesResponseArgs
-
-func MyWorkbookUserAssignedIdentitiesResponsePtr(v *MyWorkbookUserAssignedIdentitiesResponseArgs) MyWorkbookUserAssignedIdentitiesResponsePtrInput {
-	return (*myWorkbookUserAssignedIdentitiesResponsePtrType)(v)
-}
-
-func (*myWorkbookUserAssignedIdentitiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MyWorkbookUserAssignedIdentitiesResponse)(nil)).Elem()
-}
-
-func (i *myWorkbookUserAssignedIdentitiesResponsePtrType) ToMyWorkbookUserAssignedIdentitiesResponsePtrOutput() MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return i.ToMyWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *myWorkbookUserAssignedIdentitiesResponsePtrType) ToMyWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MyWorkbookUserAssignedIdentitiesResponsePtrOutput)
-}
-
 type MyWorkbookUserAssignedIdentitiesResponseOutput struct{ *pulumi.OutputState }
 
 func (MyWorkbookUserAssignedIdentitiesResponseOutput) ElementType() reflect.Type {
@@ -379,16 +231,6 @@ func (o MyWorkbookUserAssignedIdentitiesResponseOutput) ToMyWorkbookUserAssigned
 
 func (o MyWorkbookUserAssignedIdentitiesResponseOutput) ToMyWorkbookUserAssignedIdentitiesResponseOutputWithContext(ctx context.Context) MyWorkbookUserAssignedIdentitiesResponseOutput {
 	return o
-}
-
-func (o MyWorkbookUserAssignedIdentitiesResponseOutput) ToMyWorkbookUserAssignedIdentitiesResponsePtrOutput() MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return o.ToMyWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o MyWorkbookUserAssignedIdentitiesResponseOutput) ToMyWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) MyWorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MyWorkbookUserAssignedIdentitiesResponse) *MyWorkbookUserAssignedIdentitiesResponse {
-		return &v
-	}).(MyWorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
 
 func (o MyWorkbookUserAssignedIdentitiesResponseOutput) PrincipalId() pulumi.StringOutput {
@@ -579,75 +421,6 @@ type WorkbookManagedIdentityResponse struct {
 	UserAssignedIdentities *WorkbookUserAssignedIdentitiesResponse `pulumi:"userAssignedIdentities"`
 }
 
-
-
-
-
-type WorkbookManagedIdentityResponseInput interface {
-	pulumi.Input
-
-	ToWorkbookManagedIdentityResponseOutput() WorkbookManagedIdentityResponseOutput
-	ToWorkbookManagedIdentityResponseOutputWithContext(context.Context) WorkbookManagedIdentityResponseOutput
-}
-
-type WorkbookManagedIdentityResponseArgs struct {
-	Type                   pulumi.StringPtrInput                          `pulumi:"type"`
-	UserAssignedIdentities WorkbookUserAssignedIdentitiesResponsePtrInput `pulumi:"userAssignedIdentities"`
-}
-
-func (WorkbookManagedIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookManagedIdentityResponse)(nil)).Elem()
-}
-
-func (i WorkbookManagedIdentityResponseArgs) ToWorkbookManagedIdentityResponseOutput() WorkbookManagedIdentityResponseOutput {
-	return i.ToWorkbookManagedIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i WorkbookManagedIdentityResponseArgs) ToWorkbookManagedIdentityResponseOutputWithContext(ctx context.Context) WorkbookManagedIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookManagedIdentityResponseOutput)
-}
-
-func (i WorkbookManagedIdentityResponseArgs) ToWorkbookManagedIdentityResponsePtrOutput() WorkbookManagedIdentityResponsePtrOutput {
-	return i.ToWorkbookManagedIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WorkbookManagedIdentityResponseArgs) ToWorkbookManagedIdentityResponsePtrOutputWithContext(ctx context.Context) WorkbookManagedIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookManagedIdentityResponseOutput).ToWorkbookManagedIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WorkbookManagedIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToWorkbookManagedIdentityResponsePtrOutput() WorkbookManagedIdentityResponsePtrOutput
-	ToWorkbookManagedIdentityResponsePtrOutputWithContext(context.Context) WorkbookManagedIdentityResponsePtrOutput
-}
-
-type workbookManagedIdentityResponsePtrType WorkbookManagedIdentityResponseArgs
-
-func WorkbookManagedIdentityResponsePtr(v *WorkbookManagedIdentityResponseArgs) WorkbookManagedIdentityResponsePtrInput {
-	return (*workbookManagedIdentityResponsePtrType)(v)
-}
-
-func (*workbookManagedIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkbookManagedIdentityResponse)(nil)).Elem()
-}
-
-func (i *workbookManagedIdentityResponsePtrType) ToWorkbookManagedIdentityResponsePtrOutput() WorkbookManagedIdentityResponsePtrOutput {
-	return i.ToWorkbookManagedIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *workbookManagedIdentityResponsePtrType) ToWorkbookManagedIdentityResponsePtrOutputWithContext(ctx context.Context) WorkbookManagedIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookManagedIdentityResponsePtrOutput)
-}
-
 type WorkbookManagedIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkbookManagedIdentityResponseOutput) ElementType() reflect.Type {
@@ -660,16 +433,6 @@ func (o WorkbookManagedIdentityResponseOutput) ToWorkbookManagedIdentityResponse
 
 func (o WorkbookManagedIdentityResponseOutput) ToWorkbookManagedIdentityResponseOutputWithContext(ctx context.Context) WorkbookManagedIdentityResponseOutput {
 	return o
-}
-
-func (o WorkbookManagedIdentityResponseOutput) ToWorkbookManagedIdentityResponsePtrOutput() WorkbookManagedIdentityResponsePtrOutput {
-	return o.ToWorkbookManagedIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WorkbookManagedIdentityResponseOutput) ToWorkbookManagedIdentityResponsePtrOutputWithContext(ctx context.Context) WorkbookManagedIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookManagedIdentityResponse) *WorkbookManagedIdentityResponse {
-		return &v
-	}).(WorkbookManagedIdentityResponsePtrOutput)
 }
 
 func (o WorkbookManagedIdentityResponseOutput) Type() pulumi.StringPtrOutput {
@@ -730,76 +493,6 @@ type WorkbookUserAssignedIdentitiesResponse struct {
 	TenantId    string `pulumi:"tenantId"`
 }
 
-
-
-
-
-type WorkbookUserAssignedIdentitiesResponseInput interface {
-	pulumi.Input
-
-	ToWorkbookUserAssignedIdentitiesResponseOutput() WorkbookUserAssignedIdentitiesResponseOutput
-	ToWorkbookUserAssignedIdentitiesResponseOutputWithContext(context.Context) WorkbookUserAssignedIdentitiesResponseOutput
-}
-
-type WorkbookUserAssignedIdentitiesResponseArgs struct {
-	ClientId    pulumi.StringInput `pulumi:"clientId"`
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	TenantId    pulumi.StringInput `pulumi:"tenantId"`
-}
-
-func (WorkbookUserAssignedIdentitiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkbookUserAssignedIdentitiesResponse)(nil)).Elem()
-}
-
-func (i WorkbookUserAssignedIdentitiesResponseArgs) ToWorkbookUserAssignedIdentitiesResponseOutput() WorkbookUserAssignedIdentitiesResponseOutput {
-	return i.ToWorkbookUserAssignedIdentitiesResponseOutputWithContext(context.Background())
-}
-
-func (i WorkbookUserAssignedIdentitiesResponseArgs) ToWorkbookUserAssignedIdentitiesResponseOutputWithContext(ctx context.Context) WorkbookUserAssignedIdentitiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookUserAssignedIdentitiesResponseOutput)
-}
-
-func (i WorkbookUserAssignedIdentitiesResponseArgs) ToWorkbookUserAssignedIdentitiesResponsePtrOutput() WorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return i.ToWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i WorkbookUserAssignedIdentitiesResponseArgs) ToWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) WorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookUserAssignedIdentitiesResponseOutput).ToWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type WorkbookUserAssignedIdentitiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToWorkbookUserAssignedIdentitiesResponsePtrOutput() WorkbookUserAssignedIdentitiesResponsePtrOutput
-	ToWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(context.Context) WorkbookUserAssignedIdentitiesResponsePtrOutput
-}
-
-type workbookUserAssignedIdentitiesResponsePtrType WorkbookUserAssignedIdentitiesResponseArgs
-
-func WorkbookUserAssignedIdentitiesResponsePtr(v *WorkbookUserAssignedIdentitiesResponseArgs) WorkbookUserAssignedIdentitiesResponsePtrInput {
-	return (*workbookUserAssignedIdentitiesResponsePtrType)(v)
-}
-
-func (*workbookUserAssignedIdentitiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkbookUserAssignedIdentitiesResponse)(nil)).Elem()
-}
-
-func (i *workbookUserAssignedIdentitiesResponsePtrType) ToWorkbookUserAssignedIdentitiesResponsePtrOutput() WorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return i.ToWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *workbookUserAssignedIdentitiesResponsePtrType) ToWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) WorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkbookUserAssignedIdentitiesResponsePtrOutput)
-}
-
 type WorkbookUserAssignedIdentitiesResponseOutput struct{ *pulumi.OutputState }
 
 func (WorkbookUserAssignedIdentitiesResponseOutput) ElementType() reflect.Type {
@@ -812,16 +505,6 @@ func (o WorkbookUserAssignedIdentitiesResponseOutput) ToWorkbookUserAssignedIden
 
 func (o WorkbookUserAssignedIdentitiesResponseOutput) ToWorkbookUserAssignedIdentitiesResponseOutputWithContext(ctx context.Context) WorkbookUserAssignedIdentitiesResponseOutput {
 	return o
-}
-
-func (o WorkbookUserAssignedIdentitiesResponseOutput) ToWorkbookUserAssignedIdentitiesResponsePtrOutput() WorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return o.ToWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o WorkbookUserAssignedIdentitiesResponseOutput) ToWorkbookUserAssignedIdentitiesResponsePtrOutputWithContext(ctx context.Context) WorkbookUserAssignedIdentitiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkbookUserAssignedIdentitiesResponse) *WorkbookUserAssignedIdentitiesResponse {
-		return &v
-	}).(WorkbookUserAssignedIdentitiesResponsePtrOutput)
 }
 
 func (o WorkbookUserAssignedIdentitiesResponseOutput) ClientId() pulumi.StringOutput {

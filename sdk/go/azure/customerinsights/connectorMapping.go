@@ -137,7 +137,7 @@ type ConnectorMappingInput interface {
 }
 
 func (*ConnectorMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMapping)(nil))
+	return reflect.TypeOf((**ConnectorMapping)(nil)).Elem()
 }
 
 func (i *ConnectorMapping) ToConnectorMappingOutput() ConnectorMappingOutput {
@@ -151,7 +151,7 @@ func (i *ConnectorMapping) ToConnectorMappingOutputWithContext(ctx context.Conte
 type ConnectorMappingOutput struct{ *pulumi.OutputState }
 
 func (ConnectorMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectorMapping)(nil))
+	return reflect.TypeOf((**ConnectorMapping)(nil)).Elem()
 }
 
 func (o ConnectorMappingOutput) ToConnectorMappingOutput() ConnectorMappingOutput {

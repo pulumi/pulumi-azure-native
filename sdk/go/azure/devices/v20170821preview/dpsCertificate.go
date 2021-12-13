@@ -115,7 +115,7 @@ type DpsCertificateInput interface {
 }
 
 func (*DpsCertificate) ElementType() reflect.Type {
-	return reflect.TypeOf((*DpsCertificate)(nil))
+	return reflect.TypeOf((**DpsCertificate)(nil)).Elem()
 }
 
 func (i *DpsCertificate) ToDpsCertificateOutput() DpsCertificateOutput {
@@ -129,7 +129,7 @@ func (i *DpsCertificate) ToDpsCertificateOutputWithContext(ctx context.Context) 
 type DpsCertificateOutput struct{ *pulumi.OutputState }
 
 func (DpsCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DpsCertificate)(nil))
+	return reflect.TypeOf((**DpsCertificate)(nil)).Elem()
 }
 
 func (o DpsCertificateOutput) ToDpsCertificateOutput() DpsCertificateOutput {

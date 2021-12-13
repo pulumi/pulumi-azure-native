@@ -87,7 +87,7 @@ type VendorInput interface {
 }
 
 func (*Vendor) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vendor)(nil))
+	return reflect.TypeOf((**Vendor)(nil)).Elem()
 }
 
 func (i *Vendor) ToVendorOutput() VendorOutput {
@@ -101,7 +101,7 @@ func (i *Vendor) ToVendorOutputWithContext(ctx context.Context) VendorOutput {
 type VendorOutput struct{ *pulumi.OutputState }
 
 func (VendorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vendor)(nil))
+	return reflect.TypeOf((**Vendor)(nil)).Elem()
 }
 
 func (o VendorOutput) ToVendorOutput() VendorOutput {

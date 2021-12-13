@@ -13,7 +13,7 @@ func LookupApiManagementService(ctx *pulumi.Context, args *LookupApiManagementSe
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupApiManagementServiceArgs struct {
@@ -61,4 +61,29 @@ type LookupApiManagementServiceResult struct {
 	VirtualNetworkConfiguration *VirtualNetworkConfigurationResponse             `pulumi:"virtualNetworkConfiguration"`
 	VirtualNetworkType          *string                                          `pulumi:"virtualNetworkType"`
 	Zones                       []string                                         `pulumi:"zones"`
+}
+
+
+func (val *LookupApiManagementServiceResult) Defaults() *LookupApiManagementServiceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DisableGateway) {
+		disableGateway_ := false
+		tmp.DisableGateway = &disableGateway_
+	}
+	if isZero(tmp.EnableClientCertificate) {
+		enableClientCertificate_ := false
+		tmp.EnableClientCertificate = &enableClientCertificate_
+	}
+	if isZero(tmp.Restore) {
+		restore_ := false
+		tmp.Restore = &restore_
+	}
+	if isZero(tmp.VirtualNetworkType) {
+		virtualNetworkType_ := "None"
+		tmp.VirtualNetworkType = &virtualNetworkType_
+	}
+	return &tmp
 }

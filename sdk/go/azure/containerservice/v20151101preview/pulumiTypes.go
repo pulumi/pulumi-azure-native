@@ -130,62 +130,6 @@ type ContainerServiceAgentPoolProfileResponse struct {
 	VmSize    *string `pulumi:"vmSize"`
 }
 
-
-
-
-
-type ContainerServiceAgentPoolProfileResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceAgentPoolProfileResponseOutput() ContainerServiceAgentPoolProfileResponseOutput
-	ToContainerServiceAgentPoolProfileResponseOutputWithContext(context.Context) ContainerServiceAgentPoolProfileResponseOutput
-}
-
-type ContainerServiceAgentPoolProfileResponseArgs struct {
-	Count     pulumi.IntPtrInput    `pulumi:"count"`
-	DnsPrefix pulumi.StringInput    `pulumi:"dnsPrefix"`
-	Fqdn      pulumi.StringInput    `pulumi:"fqdn"`
-	Name      pulumi.StringInput    `pulumi:"name"`
-	VmSize    pulumi.StringPtrInput `pulumi:"vmSize"`
-}
-
-func (ContainerServiceAgentPoolProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceAgentPoolProfileResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceAgentPoolProfileResponseArgs) ToContainerServiceAgentPoolProfileResponseOutput() ContainerServiceAgentPoolProfileResponseOutput {
-	return i.ToContainerServiceAgentPoolProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceAgentPoolProfileResponseArgs) ToContainerServiceAgentPoolProfileResponseOutputWithContext(ctx context.Context) ContainerServiceAgentPoolProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceAgentPoolProfileResponseOutput)
-}
-
-
-
-
-
-type ContainerServiceAgentPoolProfileResponseArrayInput interface {
-	pulumi.Input
-
-	ToContainerServiceAgentPoolProfileResponseArrayOutput() ContainerServiceAgentPoolProfileResponseArrayOutput
-	ToContainerServiceAgentPoolProfileResponseArrayOutputWithContext(context.Context) ContainerServiceAgentPoolProfileResponseArrayOutput
-}
-
-type ContainerServiceAgentPoolProfileResponseArray []ContainerServiceAgentPoolProfileResponseInput
-
-func (ContainerServiceAgentPoolProfileResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ContainerServiceAgentPoolProfileResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceAgentPoolProfileResponseArray) ToContainerServiceAgentPoolProfileResponseArrayOutput() ContainerServiceAgentPoolProfileResponseArrayOutput {
-	return i.ToContainerServiceAgentPoolProfileResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceAgentPoolProfileResponseArray) ToContainerServiceAgentPoolProfileResponseArrayOutputWithContext(ctx context.Context) ContainerServiceAgentPoolProfileResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceAgentPoolProfileResponseArrayOutput)
-}
-
 type ContainerServiceAgentPoolProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceAgentPoolProfileResponseOutput) ElementType() reflect.Type {
@@ -377,74 +321,6 @@ type ContainerServiceDiagnosticsProfileResponse struct {
 	VmDiagnostics *ContainerServiceVMDiagnosticsResponse `pulumi:"vmDiagnostics"`
 }
 
-
-
-
-
-type ContainerServiceDiagnosticsProfileResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceDiagnosticsProfileResponseOutput() ContainerServiceDiagnosticsProfileResponseOutput
-	ToContainerServiceDiagnosticsProfileResponseOutputWithContext(context.Context) ContainerServiceDiagnosticsProfileResponseOutput
-}
-
-type ContainerServiceDiagnosticsProfileResponseArgs struct {
-	VmDiagnostics ContainerServiceVMDiagnosticsResponsePtrInput `pulumi:"vmDiagnostics"`
-}
-
-func (ContainerServiceDiagnosticsProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceDiagnosticsProfileResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceDiagnosticsProfileResponseArgs) ToContainerServiceDiagnosticsProfileResponseOutput() ContainerServiceDiagnosticsProfileResponseOutput {
-	return i.ToContainerServiceDiagnosticsProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceDiagnosticsProfileResponseArgs) ToContainerServiceDiagnosticsProfileResponseOutputWithContext(ctx context.Context) ContainerServiceDiagnosticsProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDiagnosticsProfileResponseOutput)
-}
-
-func (i ContainerServiceDiagnosticsProfileResponseArgs) ToContainerServiceDiagnosticsProfileResponsePtrOutput() ContainerServiceDiagnosticsProfileResponsePtrOutput {
-	return i.ToContainerServiceDiagnosticsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceDiagnosticsProfileResponseArgs) ToContainerServiceDiagnosticsProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceDiagnosticsProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDiagnosticsProfileResponseOutput).ToContainerServiceDiagnosticsProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceDiagnosticsProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceDiagnosticsProfileResponsePtrOutput() ContainerServiceDiagnosticsProfileResponsePtrOutput
-	ToContainerServiceDiagnosticsProfileResponsePtrOutputWithContext(context.Context) ContainerServiceDiagnosticsProfileResponsePtrOutput
-}
-
-type containerServiceDiagnosticsProfileResponsePtrType ContainerServiceDiagnosticsProfileResponseArgs
-
-func ContainerServiceDiagnosticsProfileResponsePtr(v *ContainerServiceDiagnosticsProfileResponseArgs) ContainerServiceDiagnosticsProfileResponsePtrInput {
-	return (*containerServiceDiagnosticsProfileResponsePtrType)(v)
-}
-
-func (*containerServiceDiagnosticsProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceDiagnosticsProfileResponse)(nil)).Elem()
-}
-
-func (i *containerServiceDiagnosticsProfileResponsePtrType) ToContainerServiceDiagnosticsProfileResponsePtrOutput() ContainerServiceDiagnosticsProfileResponsePtrOutput {
-	return i.ToContainerServiceDiagnosticsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceDiagnosticsProfileResponsePtrType) ToContainerServiceDiagnosticsProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceDiagnosticsProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDiagnosticsProfileResponsePtrOutput)
-}
-
 type ContainerServiceDiagnosticsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceDiagnosticsProfileResponseOutput) ElementType() reflect.Type {
@@ -457,16 +333,6 @@ func (o ContainerServiceDiagnosticsProfileResponseOutput) ToContainerServiceDiag
 
 func (o ContainerServiceDiagnosticsProfileResponseOutput) ToContainerServiceDiagnosticsProfileResponseOutputWithContext(ctx context.Context) ContainerServiceDiagnosticsProfileResponseOutput {
 	return o
-}
-
-func (o ContainerServiceDiagnosticsProfileResponseOutput) ToContainerServiceDiagnosticsProfileResponsePtrOutput() ContainerServiceDiagnosticsProfileResponsePtrOutput {
-	return o.ToContainerServiceDiagnosticsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceDiagnosticsProfileResponseOutput) ToContainerServiceDiagnosticsProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceDiagnosticsProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceDiagnosticsProfileResponse) *ContainerServiceDiagnosticsProfileResponse {
-		return &v
-	}).(ContainerServiceDiagnosticsProfileResponsePtrOutput)
 }
 
 func (o ContainerServiceDiagnosticsProfileResponseOutput) VmDiagnostics() ContainerServiceVMDiagnosticsResponsePtrOutput {
@@ -541,47 +407,6 @@ func (i ContainerServiceLinuxProfileArgs) ToContainerServiceLinuxProfileOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileOutput)
 }
 
-func (i ContainerServiceLinuxProfileArgs) ToContainerServiceLinuxProfilePtrOutput() ContainerServiceLinuxProfilePtrOutput {
-	return i.ToContainerServiceLinuxProfilePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceLinuxProfileArgs) ToContainerServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileOutput).ToContainerServiceLinuxProfilePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceLinuxProfilePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceLinuxProfilePtrOutput() ContainerServiceLinuxProfilePtrOutput
-	ToContainerServiceLinuxProfilePtrOutputWithContext(context.Context) ContainerServiceLinuxProfilePtrOutput
-}
-
-type containerServiceLinuxProfilePtrType ContainerServiceLinuxProfileArgs
-
-func ContainerServiceLinuxProfilePtr(v *ContainerServiceLinuxProfileArgs) ContainerServiceLinuxProfilePtrInput {
-	return (*containerServiceLinuxProfilePtrType)(v)
-}
-
-func (*containerServiceLinuxProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceLinuxProfile)(nil)).Elem()
-}
-
-func (i *containerServiceLinuxProfilePtrType) ToContainerServiceLinuxProfilePtrOutput() ContainerServiceLinuxProfilePtrOutput {
-	return i.ToContainerServiceLinuxProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceLinuxProfilePtrType) ToContainerServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfilePtrOutput)
-}
-
 type ContainerServiceLinuxProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceLinuxProfileOutput) ElementType() reflect.Type {
@@ -596,16 +421,6 @@ func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfileOutput
 	return o
 }
 
-func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOutput() ContainerServiceLinuxProfilePtrOutput {
-	return o.ToContainerServiceLinuxProfilePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceLinuxProfileOutput) ToContainerServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfile) *ContainerServiceLinuxProfile {
-		return &v
-	}).(ContainerServiceLinuxProfilePtrOutput)
-}
-
 func (o ContainerServiceLinuxProfileOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
@@ -614,120 +429,9 @@ func (o ContainerServiceLinuxProfileOutput) Ssh() ContainerServiceSshConfigurati
 	return o.ApplyT(func(v ContainerServiceLinuxProfile) ContainerServiceSshConfiguration { return v.Ssh }).(ContainerServiceSshConfigurationOutput)
 }
 
-type ContainerServiceLinuxProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceLinuxProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceLinuxProfile)(nil)).Elem()
-}
-
-func (o ContainerServiceLinuxProfilePtrOutput) ToContainerServiceLinuxProfilePtrOutput() ContainerServiceLinuxProfilePtrOutput {
-	return o
-}
-
-func (o ContainerServiceLinuxProfilePtrOutput) ToContainerServiceLinuxProfilePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfilePtrOutput {
-	return o
-}
-
-func (o ContainerServiceLinuxProfilePtrOutput) Elem() ContainerServiceLinuxProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfile) ContainerServiceLinuxProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceLinuxProfile
-		return ret
-	}).(ContainerServiceLinuxProfileOutput)
-}
-
-func (o ContainerServiceLinuxProfilePtrOutput) AdminUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AdminUsername
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContainerServiceLinuxProfilePtrOutput) Ssh() ContainerServiceSshConfigurationPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfile) *ContainerServiceSshConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.Ssh
-	}).(ContainerServiceSshConfigurationPtrOutput)
-}
-
 type ContainerServiceLinuxProfileResponse struct {
 	AdminUsername string                                   `pulumi:"adminUsername"`
 	Ssh           ContainerServiceSshConfigurationResponse `pulumi:"ssh"`
-}
-
-
-
-
-
-type ContainerServiceLinuxProfileResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceLinuxProfileResponseOutput() ContainerServiceLinuxProfileResponseOutput
-	ToContainerServiceLinuxProfileResponseOutputWithContext(context.Context) ContainerServiceLinuxProfileResponseOutput
-}
-
-type ContainerServiceLinuxProfileResponseArgs struct {
-	AdminUsername pulumi.StringInput                            `pulumi:"adminUsername"`
-	Ssh           ContainerServiceSshConfigurationResponseInput `pulumi:"ssh"`
-}
-
-func (ContainerServiceLinuxProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceLinuxProfileResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceLinuxProfileResponseArgs) ToContainerServiceLinuxProfileResponseOutput() ContainerServiceLinuxProfileResponseOutput {
-	return i.ToContainerServiceLinuxProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceLinuxProfileResponseArgs) ToContainerServiceLinuxProfileResponseOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileResponseOutput)
-}
-
-func (i ContainerServiceLinuxProfileResponseArgs) ToContainerServiceLinuxProfileResponsePtrOutput() ContainerServiceLinuxProfileResponsePtrOutput {
-	return i.ToContainerServiceLinuxProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceLinuxProfileResponseArgs) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileResponseOutput).ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceLinuxProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceLinuxProfileResponsePtrOutput() ContainerServiceLinuxProfileResponsePtrOutput
-	ToContainerServiceLinuxProfileResponsePtrOutputWithContext(context.Context) ContainerServiceLinuxProfileResponsePtrOutput
-}
-
-type containerServiceLinuxProfileResponsePtrType ContainerServiceLinuxProfileResponseArgs
-
-func ContainerServiceLinuxProfileResponsePtr(v *ContainerServiceLinuxProfileResponseArgs) ContainerServiceLinuxProfileResponsePtrInput {
-	return (*containerServiceLinuxProfileResponsePtrType)(v)
-}
-
-func (*containerServiceLinuxProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceLinuxProfileResponse)(nil)).Elem()
-}
-
-func (i *containerServiceLinuxProfileResponsePtrType) ToContainerServiceLinuxProfileResponsePtrOutput() ContainerServiceLinuxProfileResponsePtrOutput {
-	return i.ToContainerServiceLinuxProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceLinuxProfileResponsePtrType) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceLinuxProfileResponsePtrOutput)
 }
 
 type ContainerServiceLinuxProfileResponseOutput struct{ *pulumi.OutputState }
@@ -744,64 +448,12 @@ func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfi
 	return o
 }
 
-func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponsePtrOutput() ContainerServiceLinuxProfileResponsePtrOutput {
-	return o.ToContainerServiceLinuxProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceLinuxProfileResponseOutput) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceLinuxProfileResponse) *ContainerServiceLinuxProfileResponse {
-		return &v
-	}).(ContainerServiceLinuxProfileResponsePtrOutput)
-}
-
 func (o ContainerServiceLinuxProfileResponseOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
 func (o ContainerServiceLinuxProfileResponseOutput) Ssh() ContainerServiceSshConfigurationResponseOutput {
 	return o.ApplyT(func(v ContainerServiceLinuxProfileResponse) ContainerServiceSshConfigurationResponse { return v.Ssh }).(ContainerServiceSshConfigurationResponseOutput)
-}
-
-type ContainerServiceLinuxProfileResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceLinuxProfileResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceLinuxProfileResponse)(nil)).Elem()
-}
-
-func (o ContainerServiceLinuxProfileResponsePtrOutput) ToContainerServiceLinuxProfileResponsePtrOutput() ContainerServiceLinuxProfileResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceLinuxProfileResponsePtrOutput) ToContainerServiceLinuxProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceLinuxProfileResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceLinuxProfileResponsePtrOutput) Elem() ContainerServiceLinuxProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) ContainerServiceLinuxProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceLinuxProfileResponse
-		return ret
-	}).(ContainerServiceLinuxProfileResponseOutput)
-}
-
-func (o ContainerServiceLinuxProfileResponsePtrOutput) AdminUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AdminUsername
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContainerServiceLinuxProfileResponsePtrOutput) Ssh() ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ApplyT(func(v *ContainerServiceLinuxProfileResponse) *ContainerServiceSshConfigurationResponse {
-		if v == nil {
-			return nil
-		}
-		return &v.Ssh
-	}).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
 type ContainerServiceMasterProfile struct {
@@ -837,47 +489,6 @@ func (i ContainerServiceMasterProfileArgs) ToContainerServiceMasterProfileOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceMasterProfileOutput)
 }
 
-func (i ContainerServiceMasterProfileArgs) ToContainerServiceMasterProfilePtrOutput() ContainerServiceMasterProfilePtrOutput {
-	return i.ToContainerServiceMasterProfilePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceMasterProfileArgs) ToContainerServiceMasterProfilePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceMasterProfileOutput).ToContainerServiceMasterProfilePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceMasterProfilePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceMasterProfilePtrOutput() ContainerServiceMasterProfilePtrOutput
-	ToContainerServiceMasterProfilePtrOutputWithContext(context.Context) ContainerServiceMasterProfilePtrOutput
-}
-
-type containerServiceMasterProfilePtrType ContainerServiceMasterProfileArgs
-
-func ContainerServiceMasterProfilePtr(v *ContainerServiceMasterProfileArgs) ContainerServiceMasterProfilePtrInput {
-	return (*containerServiceMasterProfilePtrType)(v)
-}
-
-func (*containerServiceMasterProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceMasterProfile)(nil)).Elem()
-}
-
-func (i *containerServiceMasterProfilePtrType) ToContainerServiceMasterProfilePtrOutput() ContainerServiceMasterProfilePtrOutput {
-	return i.ToContainerServiceMasterProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceMasterProfilePtrType) ToContainerServiceMasterProfilePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceMasterProfilePtrOutput)
-}
-
 type ContainerServiceMasterProfileOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceMasterProfileOutput) ElementType() reflect.Type {
@@ -892,16 +503,6 @@ func (o ContainerServiceMasterProfileOutput) ToContainerServiceMasterProfileOutp
 	return o
 }
 
-func (o ContainerServiceMasterProfileOutput) ToContainerServiceMasterProfilePtrOutput() ContainerServiceMasterProfilePtrOutput {
-	return o.ToContainerServiceMasterProfilePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceMasterProfileOutput) ToContainerServiceMasterProfilePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceMasterProfile) *ContainerServiceMasterProfile {
-		return &v
-	}).(ContainerServiceMasterProfilePtrOutput)
-}
-
 func (o ContainerServiceMasterProfileOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -910,122 +511,10 @@ func (o ContainerServiceMasterProfileOutput) DnsPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfile) string { return v.DnsPrefix }).(pulumi.StringOutput)
 }
 
-type ContainerServiceMasterProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceMasterProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceMasterProfile)(nil)).Elem()
-}
-
-func (o ContainerServiceMasterProfilePtrOutput) ToContainerServiceMasterProfilePtrOutput() ContainerServiceMasterProfilePtrOutput {
-	return o
-}
-
-func (o ContainerServiceMasterProfilePtrOutput) ToContainerServiceMasterProfilePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfilePtrOutput {
-	return o
-}
-
-func (o ContainerServiceMasterProfilePtrOutput) Elem() ContainerServiceMasterProfileOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfile) ContainerServiceMasterProfile {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceMasterProfile
-		return ret
-	}).(ContainerServiceMasterProfileOutput)
-}
-
-func (o ContainerServiceMasterProfilePtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfile) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Count
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o ContainerServiceMasterProfilePtrOutput) DnsPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DnsPrefix
-	}).(pulumi.StringPtrOutput)
-}
-
 type ContainerServiceMasterProfileResponse struct {
 	Count     *int   `pulumi:"count"`
 	DnsPrefix string `pulumi:"dnsPrefix"`
 	Fqdn      string `pulumi:"fqdn"`
-}
-
-
-
-
-
-type ContainerServiceMasterProfileResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceMasterProfileResponseOutput() ContainerServiceMasterProfileResponseOutput
-	ToContainerServiceMasterProfileResponseOutputWithContext(context.Context) ContainerServiceMasterProfileResponseOutput
-}
-
-type ContainerServiceMasterProfileResponseArgs struct {
-	Count     pulumi.IntPtrInput `pulumi:"count"`
-	DnsPrefix pulumi.StringInput `pulumi:"dnsPrefix"`
-	Fqdn      pulumi.StringInput `pulumi:"fqdn"`
-}
-
-func (ContainerServiceMasterProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceMasterProfileResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceMasterProfileResponseArgs) ToContainerServiceMasterProfileResponseOutput() ContainerServiceMasterProfileResponseOutput {
-	return i.ToContainerServiceMasterProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceMasterProfileResponseArgs) ToContainerServiceMasterProfileResponseOutputWithContext(ctx context.Context) ContainerServiceMasterProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceMasterProfileResponseOutput)
-}
-
-func (i ContainerServiceMasterProfileResponseArgs) ToContainerServiceMasterProfileResponsePtrOutput() ContainerServiceMasterProfileResponsePtrOutput {
-	return i.ToContainerServiceMasterProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceMasterProfileResponseArgs) ToContainerServiceMasterProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceMasterProfileResponseOutput).ToContainerServiceMasterProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceMasterProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceMasterProfileResponsePtrOutput() ContainerServiceMasterProfileResponsePtrOutput
-	ToContainerServiceMasterProfileResponsePtrOutputWithContext(context.Context) ContainerServiceMasterProfileResponsePtrOutput
-}
-
-type containerServiceMasterProfileResponsePtrType ContainerServiceMasterProfileResponseArgs
-
-func ContainerServiceMasterProfileResponsePtr(v *ContainerServiceMasterProfileResponseArgs) ContainerServiceMasterProfileResponsePtrInput {
-	return (*containerServiceMasterProfileResponsePtrType)(v)
-}
-
-func (*containerServiceMasterProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceMasterProfileResponse)(nil)).Elem()
-}
-
-func (i *containerServiceMasterProfileResponsePtrType) ToContainerServiceMasterProfileResponsePtrOutput() ContainerServiceMasterProfileResponsePtrOutput {
-	return i.ToContainerServiceMasterProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceMasterProfileResponsePtrType) ToContainerServiceMasterProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceMasterProfileResponsePtrOutput)
 }
 
 type ContainerServiceMasterProfileResponseOutput struct{ *pulumi.OutputState }
@@ -1042,16 +531,6 @@ func (o ContainerServiceMasterProfileResponseOutput) ToContainerServiceMasterPro
 	return o
 }
 
-func (o ContainerServiceMasterProfileResponseOutput) ToContainerServiceMasterProfileResponsePtrOutput() ContainerServiceMasterProfileResponsePtrOutput {
-	return o.ToContainerServiceMasterProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceMasterProfileResponseOutput) ToContainerServiceMasterProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceMasterProfileResponse) *ContainerServiceMasterProfileResponse {
-		return &v
-	}).(ContainerServiceMasterProfileResponsePtrOutput)
-}
-
 func (o ContainerServiceMasterProfileResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
@@ -1062,57 +541,6 @@ func (o ContainerServiceMasterProfileResponseOutput) DnsPrefix() pulumi.StringOu
 
 func (o ContainerServiceMasterProfileResponseOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerServiceMasterProfileResponse) string { return v.Fqdn }).(pulumi.StringOutput)
-}
-
-type ContainerServiceMasterProfileResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceMasterProfileResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceMasterProfileResponse)(nil)).Elem()
-}
-
-func (o ContainerServiceMasterProfileResponsePtrOutput) ToContainerServiceMasterProfileResponsePtrOutput() ContainerServiceMasterProfileResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceMasterProfileResponsePtrOutput) ToContainerServiceMasterProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceMasterProfileResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceMasterProfileResponsePtrOutput) Elem() ContainerServiceMasterProfileResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) ContainerServiceMasterProfileResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceMasterProfileResponse
-		return ret
-	}).(ContainerServiceMasterProfileResponseOutput)
-}
-
-func (o ContainerServiceMasterProfileResponsePtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Count
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o ContainerServiceMasterProfileResponsePtrOutput) DnsPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DnsPrefix
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ContainerServiceMasterProfileResponsePtrOutput) Fqdn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContainerServiceMasterProfileResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Fqdn
-	}).(pulumi.StringPtrOutput)
 }
 
 type ContainerServiceOrchestratorProfile struct {
@@ -1254,74 +682,6 @@ type ContainerServiceOrchestratorProfileResponse struct {
 	OrchestratorType *string `pulumi:"orchestratorType"`
 }
 
-
-
-
-
-type ContainerServiceOrchestratorProfileResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceOrchestratorProfileResponseOutput() ContainerServiceOrchestratorProfileResponseOutput
-	ToContainerServiceOrchestratorProfileResponseOutputWithContext(context.Context) ContainerServiceOrchestratorProfileResponseOutput
-}
-
-type ContainerServiceOrchestratorProfileResponseArgs struct {
-	OrchestratorType pulumi.StringPtrInput `pulumi:"orchestratorType"`
-}
-
-func (ContainerServiceOrchestratorProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceOrchestratorProfileResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceOrchestratorProfileResponseArgs) ToContainerServiceOrchestratorProfileResponseOutput() ContainerServiceOrchestratorProfileResponseOutput {
-	return i.ToContainerServiceOrchestratorProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceOrchestratorProfileResponseArgs) ToContainerServiceOrchestratorProfileResponseOutputWithContext(ctx context.Context) ContainerServiceOrchestratorProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOrchestratorProfileResponseOutput)
-}
-
-func (i ContainerServiceOrchestratorProfileResponseArgs) ToContainerServiceOrchestratorProfileResponsePtrOutput() ContainerServiceOrchestratorProfileResponsePtrOutput {
-	return i.ToContainerServiceOrchestratorProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceOrchestratorProfileResponseArgs) ToContainerServiceOrchestratorProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOrchestratorProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOrchestratorProfileResponseOutput).ToContainerServiceOrchestratorProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceOrchestratorProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceOrchestratorProfileResponsePtrOutput() ContainerServiceOrchestratorProfileResponsePtrOutput
-	ToContainerServiceOrchestratorProfileResponsePtrOutputWithContext(context.Context) ContainerServiceOrchestratorProfileResponsePtrOutput
-}
-
-type containerServiceOrchestratorProfileResponsePtrType ContainerServiceOrchestratorProfileResponseArgs
-
-func ContainerServiceOrchestratorProfileResponsePtr(v *ContainerServiceOrchestratorProfileResponseArgs) ContainerServiceOrchestratorProfileResponsePtrInput {
-	return (*containerServiceOrchestratorProfileResponsePtrType)(v)
-}
-
-func (*containerServiceOrchestratorProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceOrchestratorProfileResponse)(nil)).Elem()
-}
-
-func (i *containerServiceOrchestratorProfileResponsePtrType) ToContainerServiceOrchestratorProfileResponsePtrOutput() ContainerServiceOrchestratorProfileResponsePtrOutput {
-	return i.ToContainerServiceOrchestratorProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceOrchestratorProfileResponsePtrType) ToContainerServiceOrchestratorProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOrchestratorProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceOrchestratorProfileResponsePtrOutput)
-}
-
 type ContainerServiceOrchestratorProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceOrchestratorProfileResponseOutput) ElementType() reflect.Type {
@@ -1334,16 +694,6 @@ func (o ContainerServiceOrchestratorProfileResponseOutput) ToContainerServiceOrc
 
 func (o ContainerServiceOrchestratorProfileResponseOutput) ToContainerServiceOrchestratorProfileResponseOutputWithContext(ctx context.Context) ContainerServiceOrchestratorProfileResponseOutput {
 	return o
-}
-
-func (o ContainerServiceOrchestratorProfileResponseOutput) ToContainerServiceOrchestratorProfileResponsePtrOutput() ContainerServiceOrchestratorProfileResponsePtrOutput {
-	return o.ToContainerServiceOrchestratorProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceOrchestratorProfileResponseOutput) ToContainerServiceOrchestratorProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceOrchestratorProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceOrchestratorProfileResponse) *ContainerServiceOrchestratorProfileResponse {
-		return &v
-	}).(ContainerServiceOrchestratorProfileResponsePtrOutput)
 }
 
 func (o ContainerServiceOrchestratorProfileResponseOutput) OrchestratorType() pulumi.StringPtrOutput {
@@ -1414,47 +764,6 @@ func (i ContainerServiceSshConfigurationArgs) ToContainerServiceSshConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationOutput)
 }
 
-func (i ContainerServiceSshConfigurationArgs) ToContainerServiceSshConfigurationPtrOutput() ContainerServiceSshConfigurationPtrOutput {
-	return i.ToContainerServiceSshConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceSshConfigurationArgs) ToContainerServiceSshConfigurationPtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationOutput).ToContainerServiceSshConfigurationPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceSshConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceSshConfigurationPtrOutput() ContainerServiceSshConfigurationPtrOutput
-	ToContainerServiceSshConfigurationPtrOutputWithContext(context.Context) ContainerServiceSshConfigurationPtrOutput
-}
-
-type containerServiceSshConfigurationPtrType ContainerServiceSshConfigurationArgs
-
-func ContainerServiceSshConfigurationPtr(v *ContainerServiceSshConfigurationArgs) ContainerServiceSshConfigurationPtrInput {
-	return (*containerServiceSshConfigurationPtrType)(v)
-}
-
-func (*containerServiceSshConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceSshConfiguration)(nil)).Elem()
-}
-
-func (i *containerServiceSshConfigurationPtrType) ToContainerServiceSshConfigurationPtrOutput() ContainerServiceSshConfigurationPtrOutput {
-	return i.ToContainerServiceSshConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceSshConfigurationPtrType) ToContainerServiceSshConfigurationPtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationPtrOutput)
-}
-
 type ContainerServiceSshConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceSshConfigurationOutput) ElementType() reflect.Type {
@@ -1469,123 +778,12 @@ func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurati
 	return o
 }
 
-func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurationPtrOutput() ContainerServiceSshConfigurationPtrOutput {
-	return o.ToContainerServiceSshConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceSshConfigurationOutput) ToContainerServiceSshConfigurationPtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfiguration) *ContainerServiceSshConfiguration {
-		return &v
-	}).(ContainerServiceSshConfigurationPtrOutput)
-}
-
 func (o ContainerServiceSshConfigurationOutput) PublicKeys() ContainerServiceSshPublicKeyArrayOutput {
 	return o.ApplyT(func(v ContainerServiceSshConfiguration) []ContainerServiceSshPublicKey { return v.PublicKeys }).(ContainerServiceSshPublicKeyArrayOutput)
 }
 
-type ContainerServiceSshConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceSshConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceSshConfiguration)(nil)).Elem()
-}
-
-func (o ContainerServiceSshConfigurationPtrOutput) ToContainerServiceSshConfigurationPtrOutput() ContainerServiceSshConfigurationPtrOutput {
-	return o
-}
-
-func (o ContainerServiceSshConfigurationPtrOutput) ToContainerServiceSshConfigurationPtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationPtrOutput {
-	return o
-}
-
-func (o ContainerServiceSshConfigurationPtrOutput) Elem() ContainerServiceSshConfigurationOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfiguration) ContainerServiceSshConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceSshConfiguration
-		return ret
-	}).(ContainerServiceSshConfigurationOutput)
-}
-
-func (o ContainerServiceSshConfigurationPtrOutput) PublicKeys() ContainerServiceSshPublicKeyArrayOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfiguration) []ContainerServiceSshPublicKey {
-		if v == nil {
-			return nil
-		}
-		return v.PublicKeys
-	}).(ContainerServiceSshPublicKeyArrayOutput)
-}
-
 type ContainerServiceSshConfigurationResponse struct {
 	PublicKeys []ContainerServiceSshPublicKeyResponse `pulumi:"publicKeys"`
-}
-
-
-
-
-
-type ContainerServiceSshConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceSshConfigurationResponseOutput() ContainerServiceSshConfigurationResponseOutput
-	ToContainerServiceSshConfigurationResponseOutputWithContext(context.Context) ContainerServiceSshConfigurationResponseOutput
-}
-
-type ContainerServiceSshConfigurationResponseArgs struct {
-	PublicKeys ContainerServiceSshPublicKeyResponseArrayInput `pulumi:"publicKeys"`
-}
-
-func (ContainerServiceSshConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceSshConfigurationResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceSshConfigurationResponseArgs) ToContainerServiceSshConfigurationResponseOutput() ContainerServiceSshConfigurationResponseOutput {
-	return i.ToContainerServiceSshConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceSshConfigurationResponseArgs) ToContainerServiceSshConfigurationResponseOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationResponseOutput)
-}
-
-func (i ContainerServiceSshConfigurationResponseArgs) ToContainerServiceSshConfigurationResponsePtrOutput() ContainerServiceSshConfigurationResponsePtrOutput {
-	return i.ToContainerServiceSshConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceSshConfigurationResponseArgs) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationResponseOutput).ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceSshConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceSshConfigurationResponsePtrOutput() ContainerServiceSshConfigurationResponsePtrOutput
-	ToContainerServiceSshConfigurationResponsePtrOutputWithContext(context.Context) ContainerServiceSshConfigurationResponsePtrOutput
-}
-
-type containerServiceSshConfigurationResponsePtrType ContainerServiceSshConfigurationResponseArgs
-
-func ContainerServiceSshConfigurationResponsePtr(v *ContainerServiceSshConfigurationResponseArgs) ContainerServiceSshConfigurationResponsePtrInput {
-	return (*containerServiceSshConfigurationResponsePtrType)(v)
-}
-
-func (*containerServiceSshConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceSshConfigurationResponse)(nil)).Elem()
-}
-
-func (i *containerServiceSshConfigurationResponsePtrType) ToContainerServiceSshConfigurationResponsePtrOutput() ContainerServiceSshConfigurationResponsePtrOutput {
-	return i.ToContainerServiceSshConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceSshConfigurationResponsePtrType) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshConfigurationResponsePtrOutput)
 }
 
 type ContainerServiceSshConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -1602,51 +800,8 @@ func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshCon
 	return o
 }
 
-func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponsePtrOutput() ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ToContainerServiceSshConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceSshConfigurationResponseOutput) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceSshConfigurationResponse) *ContainerServiceSshConfigurationResponse {
-		return &v
-	}).(ContainerServiceSshConfigurationResponsePtrOutput)
-}
-
 func (o ContainerServiceSshConfigurationResponseOutput) PublicKeys() ContainerServiceSshPublicKeyResponseArrayOutput {
 	return o.ApplyT(func(v ContainerServiceSshConfigurationResponse) []ContainerServiceSshPublicKeyResponse {
-		return v.PublicKeys
-	}).(ContainerServiceSshPublicKeyResponseArrayOutput)
-}
-
-type ContainerServiceSshConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ContainerServiceSshConfigurationResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceSshConfigurationResponse)(nil)).Elem()
-}
-
-func (o ContainerServiceSshConfigurationResponsePtrOutput) ToContainerServiceSshConfigurationResponsePtrOutput() ContainerServiceSshConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceSshConfigurationResponsePtrOutput) ToContainerServiceSshConfigurationResponsePtrOutputWithContext(ctx context.Context) ContainerServiceSshConfigurationResponsePtrOutput {
-	return o
-}
-
-func (o ContainerServiceSshConfigurationResponsePtrOutput) Elem() ContainerServiceSshConfigurationResponseOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) ContainerServiceSshConfigurationResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ContainerServiceSshConfigurationResponse
-		return ret
-	}).(ContainerServiceSshConfigurationResponseOutput)
-}
-
-func (o ContainerServiceSshConfigurationResponsePtrOutput) PublicKeys() ContainerServiceSshPublicKeyResponseArrayOutput {
-	return o.ApplyT(func(v *ContainerServiceSshConfigurationResponse) []ContainerServiceSshPublicKeyResponse {
-		if v == nil {
-			return nil
-		}
 		return v.PublicKeys
 	}).(ContainerServiceSshPublicKeyResponseArrayOutput)
 }
@@ -1747,58 +902,6 @@ func (o ContainerServiceSshPublicKeyArrayOutput) Index(i pulumi.IntInput) Contai
 
 type ContainerServiceSshPublicKeyResponse struct {
 	KeyData string `pulumi:"keyData"`
-}
-
-
-
-
-
-type ContainerServiceSshPublicKeyResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceSshPublicKeyResponseOutput() ContainerServiceSshPublicKeyResponseOutput
-	ToContainerServiceSshPublicKeyResponseOutputWithContext(context.Context) ContainerServiceSshPublicKeyResponseOutput
-}
-
-type ContainerServiceSshPublicKeyResponseArgs struct {
-	KeyData pulumi.StringInput `pulumi:"keyData"`
-}
-
-func (ContainerServiceSshPublicKeyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceSshPublicKeyResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceSshPublicKeyResponseArgs) ToContainerServiceSshPublicKeyResponseOutput() ContainerServiceSshPublicKeyResponseOutput {
-	return i.ToContainerServiceSshPublicKeyResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceSshPublicKeyResponseArgs) ToContainerServiceSshPublicKeyResponseOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyResponseOutput)
-}
-
-
-
-
-
-type ContainerServiceSshPublicKeyResponseArrayInput interface {
-	pulumi.Input
-
-	ToContainerServiceSshPublicKeyResponseArrayOutput() ContainerServiceSshPublicKeyResponseArrayOutput
-	ToContainerServiceSshPublicKeyResponseArrayOutputWithContext(context.Context) ContainerServiceSshPublicKeyResponseArrayOutput
-}
-
-type ContainerServiceSshPublicKeyResponseArray []ContainerServiceSshPublicKeyResponseInput
-
-func (ContainerServiceSshPublicKeyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ContainerServiceSshPublicKeyResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceSshPublicKeyResponseArray) ToContainerServiceSshPublicKeyResponseArrayOutput() ContainerServiceSshPublicKeyResponseArrayOutput {
-	return i.ToContainerServiceSshPublicKeyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceSshPublicKeyResponseArray) ToContainerServiceSshPublicKeyResponseArrayOutputWithContext(ctx context.Context) ContainerServiceSshPublicKeyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceSshPublicKeyResponseArrayOutput)
 }
 
 type ContainerServiceSshPublicKeyResponseOutput struct{ *pulumi.OutputState }
@@ -1977,75 +1080,6 @@ type ContainerServiceVMDiagnosticsResponse struct {
 	StorageUri string `pulumi:"storageUri"`
 }
 
-
-
-
-
-type ContainerServiceVMDiagnosticsResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceVMDiagnosticsResponseOutput() ContainerServiceVMDiagnosticsResponseOutput
-	ToContainerServiceVMDiagnosticsResponseOutputWithContext(context.Context) ContainerServiceVMDiagnosticsResponseOutput
-}
-
-type ContainerServiceVMDiagnosticsResponseArgs struct {
-	Enabled    pulumi.BoolPtrInput `pulumi:"enabled"`
-	StorageUri pulumi.StringInput  `pulumi:"storageUri"`
-}
-
-func (ContainerServiceVMDiagnosticsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceVMDiagnosticsResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceVMDiagnosticsResponseArgs) ToContainerServiceVMDiagnosticsResponseOutput() ContainerServiceVMDiagnosticsResponseOutput {
-	return i.ToContainerServiceVMDiagnosticsResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceVMDiagnosticsResponseArgs) ToContainerServiceVMDiagnosticsResponseOutputWithContext(ctx context.Context) ContainerServiceVMDiagnosticsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceVMDiagnosticsResponseOutput)
-}
-
-func (i ContainerServiceVMDiagnosticsResponseArgs) ToContainerServiceVMDiagnosticsResponsePtrOutput() ContainerServiceVMDiagnosticsResponsePtrOutput {
-	return i.ToContainerServiceVMDiagnosticsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceVMDiagnosticsResponseArgs) ToContainerServiceVMDiagnosticsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceVMDiagnosticsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceVMDiagnosticsResponseOutput).ToContainerServiceVMDiagnosticsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceVMDiagnosticsResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceVMDiagnosticsResponsePtrOutput() ContainerServiceVMDiagnosticsResponsePtrOutput
-	ToContainerServiceVMDiagnosticsResponsePtrOutputWithContext(context.Context) ContainerServiceVMDiagnosticsResponsePtrOutput
-}
-
-type containerServiceVMDiagnosticsResponsePtrType ContainerServiceVMDiagnosticsResponseArgs
-
-func ContainerServiceVMDiagnosticsResponsePtr(v *ContainerServiceVMDiagnosticsResponseArgs) ContainerServiceVMDiagnosticsResponsePtrInput {
-	return (*containerServiceVMDiagnosticsResponsePtrType)(v)
-}
-
-func (*containerServiceVMDiagnosticsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceVMDiagnosticsResponse)(nil)).Elem()
-}
-
-func (i *containerServiceVMDiagnosticsResponsePtrType) ToContainerServiceVMDiagnosticsResponsePtrOutput() ContainerServiceVMDiagnosticsResponsePtrOutput {
-	return i.ToContainerServiceVMDiagnosticsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceVMDiagnosticsResponsePtrType) ToContainerServiceVMDiagnosticsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceVMDiagnosticsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceVMDiagnosticsResponsePtrOutput)
-}
-
 type ContainerServiceVMDiagnosticsResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceVMDiagnosticsResponseOutput) ElementType() reflect.Type {
@@ -2058,16 +1092,6 @@ func (o ContainerServiceVMDiagnosticsResponseOutput) ToContainerServiceVMDiagnos
 
 func (o ContainerServiceVMDiagnosticsResponseOutput) ToContainerServiceVMDiagnosticsResponseOutputWithContext(ctx context.Context) ContainerServiceVMDiagnosticsResponseOutput {
 	return o
-}
-
-func (o ContainerServiceVMDiagnosticsResponseOutput) ToContainerServiceVMDiagnosticsResponsePtrOutput() ContainerServiceVMDiagnosticsResponsePtrOutput {
-	return o.ToContainerServiceVMDiagnosticsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceVMDiagnosticsResponseOutput) ToContainerServiceVMDiagnosticsResponsePtrOutputWithContext(ctx context.Context) ContainerServiceVMDiagnosticsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceVMDiagnosticsResponse) *ContainerServiceVMDiagnosticsResponse {
-		return &v
-	}).(ContainerServiceVMDiagnosticsResponsePtrOutput)
 }
 
 func (o ContainerServiceVMDiagnosticsResponseOutput) Enabled() pulumi.BoolPtrOutput {
@@ -2273,75 +1297,6 @@ type ContainerServiceWindowsProfileResponse struct {
 	AdminUsername string `pulumi:"adminUsername"`
 }
 
-
-
-
-
-type ContainerServiceWindowsProfileResponseInput interface {
-	pulumi.Input
-
-	ToContainerServiceWindowsProfileResponseOutput() ContainerServiceWindowsProfileResponseOutput
-	ToContainerServiceWindowsProfileResponseOutputWithContext(context.Context) ContainerServiceWindowsProfileResponseOutput
-}
-
-type ContainerServiceWindowsProfileResponseArgs struct {
-	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
-	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
-}
-
-func (ContainerServiceWindowsProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerServiceWindowsProfileResponse)(nil)).Elem()
-}
-
-func (i ContainerServiceWindowsProfileResponseArgs) ToContainerServiceWindowsProfileResponseOutput() ContainerServiceWindowsProfileResponseOutput {
-	return i.ToContainerServiceWindowsProfileResponseOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceWindowsProfileResponseArgs) ToContainerServiceWindowsProfileResponseOutputWithContext(ctx context.Context) ContainerServiceWindowsProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceWindowsProfileResponseOutput)
-}
-
-func (i ContainerServiceWindowsProfileResponseArgs) ToContainerServiceWindowsProfileResponsePtrOutput() ContainerServiceWindowsProfileResponsePtrOutput {
-	return i.ToContainerServiceWindowsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ContainerServiceWindowsProfileResponseArgs) ToContainerServiceWindowsProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceWindowsProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceWindowsProfileResponseOutput).ToContainerServiceWindowsProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ContainerServiceWindowsProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToContainerServiceWindowsProfileResponsePtrOutput() ContainerServiceWindowsProfileResponsePtrOutput
-	ToContainerServiceWindowsProfileResponsePtrOutputWithContext(context.Context) ContainerServiceWindowsProfileResponsePtrOutput
-}
-
-type containerServiceWindowsProfileResponsePtrType ContainerServiceWindowsProfileResponseArgs
-
-func ContainerServiceWindowsProfileResponsePtr(v *ContainerServiceWindowsProfileResponseArgs) ContainerServiceWindowsProfileResponsePtrInput {
-	return (*containerServiceWindowsProfileResponsePtrType)(v)
-}
-
-func (*containerServiceWindowsProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ContainerServiceWindowsProfileResponse)(nil)).Elem()
-}
-
-func (i *containerServiceWindowsProfileResponsePtrType) ToContainerServiceWindowsProfileResponsePtrOutput() ContainerServiceWindowsProfileResponsePtrOutput {
-	return i.ToContainerServiceWindowsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *containerServiceWindowsProfileResponsePtrType) ToContainerServiceWindowsProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceWindowsProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceWindowsProfileResponsePtrOutput)
-}
-
 type ContainerServiceWindowsProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceWindowsProfileResponseOutput) ElementType() reflect.Type {
@@ -2354,16 +1309,6 @@ func (o ContainerServiceWindowsProfileResponseOutput) ToContainerServiceWindowsP
 
 func (o ContainerServiceWindowsProfileResponseOutput) ToContainerServiceWindowsProfileResponseOutputWithContext(ctx context.Context) ContainerServiceWindowsProfileResponseOutput {
 	return o
-}
-
-func (o ContainerServiceWindowsProfileResponseOutput) ToContainerServiceWindowsProfileResponsePtrOutput() ContainerServiceWindowsProfileResponsePtrOutput {
-	return o.ToContainerServiceWindowsProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ContainerServiceWindowsProfileResponseOutput) ToContainerServiceWindowsProfileResponsePtrOutputWithContext(ctx context.Context) ContainerServiceWindowsProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceWindowsProfileResponse) *ContainerServiceWindowsProfileResponse {
-		return &v
-	}).(ContainerServiceWindowsProfileResponsePtrOutput)
 }
 
 func (o ContainerServiceWindowsProfileResponseOutput) AdminPassword() pulumi.StringOutput {
@@ -2426,21 +1371,15 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceDiagnosticsProfileResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceDiagnosticsProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileOutput{})
-	pulumi.RegisterOutputType(ContainerServiceLinuxProfilePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileResponseOutput{})
-	pulumi.RegisterOutputType(ContainerServiceLinuxProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceMasterProfileOutput{})
-	pulumi.RegisterOutputType(ContainerServiceMasterProfilePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceMasterProfileResponseOutput{})
-	pulumi.RegisterOutputType(ContainerServiceMasterProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceOrchestratorProfileOutput{})
 	pulumi.RegisterOutputType(ContainerServiceOrchestratorProfilePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceOrchestratorProfileResponseOutput{})
 	pulumi.RegisterOutputType(ContainerServiceOrchestratorProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationOutput{})
-	pulumi.RegisterOutputType(ContainerServiceSshConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshConfigurationResponseOutput{})
-	pulumi.RegisterOutputType(ContainerServiceSshConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyArrayOutput{})
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseOutput{})

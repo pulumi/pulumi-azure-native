@@ -112,7 +112,7 @@ type WCFRelayInput interface {
 }
 
 func (*WCFRelay) ElementType() reflect.Type {
-	return reflect.TypeOf((*WCFRelay)(nil))
+	return reflect.TypeOf((**WCFRelay)(nil)).Elem()
 }
 
 func (i *WCFRelay) ToWCFRelayOutput() WCFRelayOutput {
@@ -126,7 +126,7 @@ func (i *WCFRelay) ToWCFRelayOutputWithContext(ctx context.Context) WCFRelayOutp
 type WCFRelayOutput struct{ *pulumi.OutputState }
 
 func (WCFRelayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WCFRelay)(nil))
+	return reflect.TypeOf((**WCFRelay)(nil)).Elem()
 }
 
 func (o WCFRelayOutput) ToWCFRelayOutput() WCFRelayOutput {

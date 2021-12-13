@@ -98,7 +98,7 @@ type ChapSettingInput interface {
 }
 
 func (*ChapSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChapSetting)(nil))
+	return reflect.TypeOf((**ChapSetting)(nil)).Elem()
 }
 
 func (i *ChapSetting) ToChapSettingOutput() ChapSettingOutput {
@@ -112,7 +112,7 @@ func (i *ChapSetting) ToChapSettingOutputWithContext(ctx context.Context) ChapSe
 type ChapSettingOutput struct{ *pulumi.OutputState }
 
 func (ChapSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ChapSetting)(nil))
+	return reflect.TypeOf((**ChapSetting)(nil)).Elem()
 }
 
 func (o ChapSettingOutput) ToChapSettingOutput() ChapSettingOutput {

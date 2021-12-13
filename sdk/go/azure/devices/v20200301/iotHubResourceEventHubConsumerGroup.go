@@ -169,7 +169,7 @@ type IotHubResourceEventHubConsumerGroupInput interface {
 }
 
 func (*IotHubResourceEventHubConsumerGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubResourceEventHubConsumerGroup)(nil))
+	return reflect.TypeOf((**IotHubResourceEventHubConsumerGroup)(nil)).Elem()
 }
 
 func (i *IotHubResourceEventHubConsumerGroup) ToIotHubResourceEventHubConsumerGroupOutput() IotHubResourceEventHubConsumerGroupOutput {
@@ -183,7 +183,7 @@ func (i *IotHubResourceEventHubConsumerGroup) ToIotHubResourceEventHubConsumerGr
 type IotHubResourceEventHubConsumerGroupOutput struct{ *pulumi.OutputState }
 
 func (IotHubResourceEventHubConsumerGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubResourceEventHubConsumerGroup)(nil))
+	return reflect.TypeOf((**IotHubResourceEventHubConsumerGroup)(nil)).Elem()
 }
 
 func (o IotHubResourceEventHubConsumerGroupOutput) ToIotHubResourceEventHubConsumerGroupOutput() IotHubResourceEventHubConsumerGroupOutput {

@@ -196,7 +196,7 @@ type WebAppAuthSettingsInput interface {
 }
 
 func (*WebAppAuthSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppAuthSettings)(nil))
+	return reflect.TypeOf((**WebAppAuthSettings)(nil)).Elem()
 }
 
 func (i *WebAppAuthSettings) ToWebAppAuthSettingsOutput() WebAppAuthSettingsOutput {
@@ -210,7 +210,7 @@ func (i *WebAppAuthSettings) ToWebAppAuthSettingsOutputWithContext(ctx context.C
 type WebAppAuthSettingsOutput struct{ *pulumi.OutputState }
 
 func (WebAppAuthSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppAuthSettings)(nil))
+	return reflect.TypeOf((**WebAppAuthSettings)(nil)).Elem()
 }
 
 func (o WebAppAuthSettingsOutput) ToWebAppAuthSettingsOutput() WebAppAuthSettingsOutput {

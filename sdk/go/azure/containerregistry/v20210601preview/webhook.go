@@ -141,7 +141,7 @@ type WebhookInput interface {
 }
 
 func (*Webhook) ElementType() reflect.Type {
-	return reflect.TypeOf((*Webhook)(nil))
+	return reflect.TypeOf((**Webhook)(nil)).Elem()
 }
 
 func (i *Webhook) ToWebhookOutput() WebhookOutput {
@@ -155,7 +155,7 @@ func (i *Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput 
 type WebhookOutput struct{ *pulumi.OutputState }
 
 func (WebhookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Webhook)(nil))
+	return reflect.TypeOf((**Webhook)(nil)).Elem()
 }
 
 func (o WebhookOutput) ToWebhookOutput() WebhookOutput {

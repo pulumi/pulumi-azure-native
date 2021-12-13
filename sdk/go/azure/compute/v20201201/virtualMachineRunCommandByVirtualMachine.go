@@ -44,7 +44,7 @@ func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 	if args.VmName == nil {
 		return nil, errors.New("invalid value for required argument 'VmName'")
 	}
-	if args.AsyncExecution == nil {
+	if isZero(args.AsyncExecution) {
 		args.AsyncExecution = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -143,7 +143,7 @@ type VirtualMachineRunCommandByVirtualMachineInput interface {
 }
 
 func (*VirtualMachineRunCommandByVirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineRunCommandByVirtualMachine)(nil))
+	return reflect.TypeOf((**VirtualMachineRunCommandByVirtualMachine)(nil)).Elem()
 }
 
 func (i *VirtualMachineRunCommandByVirtualMachine) ToVirtualMachineRunCommandByVirtualMachineOutput() VirtualMachineRunCommandByVirtualMachineOutput {
@@ -157,7 +157,7 @@ func (i *VirtualMachineRunCommandByVirtualMachine) ToVirtualMachineRunCommandByV
 type VirtualMachineRunCommandByVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineRunCommandByVirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineRunCommandByVirtualMachine)(nil))
+	return reflect.TypeOf((**VirtualMachineRunCommandByVirtualMachine)(nil)).Elem()
 }
 
 func (o VirtualMachineRunCommandByVirtualMachineOutput) ToVirtualMachineRunCommandByVirtualMachineOutput() VirtualMachineRunCommandByVirtualMachineOutput {

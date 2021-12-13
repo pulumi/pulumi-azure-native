@@ -13,7 +13,7 @@ func LookupWebService(ctx *pulumi.Context, args *LookupWebServiceArgs, opts ...p
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupWebServiceArgs struct {
@@ -30,4 +30,15 @@ type LookupWebServiceResult struct {
 	Properties WebServicePropertiesForGraphResponse `pulumi:"properties"`
 	Tags       map[string]string                    `pulumi:"tags"`
 	Type       string                               `pulumi:"type"`
+}
+
+
+func (val *LookupWebServiceResult) Defaults() *LookupWebServiceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

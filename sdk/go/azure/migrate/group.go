@@ -102,7 +102,7 @@ type GroupInput interface {
 }
 
 func (*Group) ElementType() reflect.Type {
-	return reflect.TypeOf((*Group)(nil))
+	return reflect.TypeOf((**Group)(nil)).Elem()
 }
 
 func (i *Group) ToGroupOutput() GroupOutput {
@@ -116,7 +116,7 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 type GroupOutput struct{ *pulumi.OutputState }
 
 func (GroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Group)(nil))
+	return reflect.TypeOf((**Group)(nil)).Elem()
 }
 
 func (o GroupOutput) ToGroupOutput() GroupOutput {

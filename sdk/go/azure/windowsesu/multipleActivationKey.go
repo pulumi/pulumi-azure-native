@@ -38,7 +38,7 @@ func NewMultipleActivationKey(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.SupportType == nil {
+	if isZero(args.SupportType) {
 		args.SupportType = pulumi.StringPtr("SupplementalServicing")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -115,7 +115,7 @@ type MultipleActivationKeyInput interface {
 }
 
 func (*MultipleActivationKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultipleActivationKey)(nil))
+	return reflect.TypeOf((**MultipleActivationKey)(nil)).Elem()
 }
 
 func (i *MultipleActivationKey) ToMultipleActivationKeyOutput() MultipleActivationKeyOutput {
@@ -129,7 +129,7 @@ func (i *MultipleActivationKey) ToMultipleActivationKeyOutputWithContext(ctx con
 type MultipleActivationKeyOutput struct{ *pulumi.OutputState }
 
 func (MultipleActivationKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MultipleActivationKey)(nil))
+	return reflect.TypeOf((**MultipleActivationKey)(nil)).Elem()
 }
 
 func (o MultipleActivationKeyOutput) ToMultipleActivationKeyOutput() MultipleActivationKeyOutput {

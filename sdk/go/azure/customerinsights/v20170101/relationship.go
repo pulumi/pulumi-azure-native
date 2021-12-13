@@ -130,7 +130,7 @@ type RelationshipInput interface {
 }
 
 func (*Relationship) ElementType() reflect.Type {
-	return reflect.TypeOf((*Relationship)(nil))
+	return reflect.TypeOf((**Relationship)(nil)).Elem()
 }
 
 func (i *Relationship) ToRelationshipOutput() RelationshipOutput {
@@ -144,7 +144,7 @@ func (i *Relationship) ToRelationshipOutputWithContext(ctx context.Context) Rela
 type RelationshipOutput struct{ *pulumi.OutputState }
 
 func (RelationshipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Relationship)(nil))
+	return reflect.TypeOf((**Relationship)(nil)).Elem()
 }
 
 func (o RelationshipOutput) ToRelationshipOutput() RelationshipOutput {

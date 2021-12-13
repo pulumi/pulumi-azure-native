@@ -149,76 +149,6 @@ type EnterprisePolicyIdentityResponse struct {
 	Type                              *string `pulumi:"type"`
 }
 
-
-
-
-
-type EnterprisePolicyIdentityResponseInput interface {
-	pulumi.Input
-
-	ToEnterprisePolicyIdentityResponseOutput() EnterprisePolicyIdentityResponseOutput
-	ToEnterprisePolicyIdentityResponseOutputWithContext(context.Context) EnterprisePolicyIdentityResponseOutput
-}
-
-type EnterprisePolicyIdentityResponseArgs struct {
-	SystemAssignedIdentityPrincipalId pulumi.StringInput    `pulumi:"systemAssignedIdentityPrincipalId"`
-	TenantId                          pulumi.StringInput    `pulumi:"tenantId"`
-	Type                              pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (EnterprisePolicyIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnterprisePolicyIdentityResponse)(nil)).Elem()
-}
-
-func (i EnterprisePolicyIdentityResponseArgs) ToEnterprisePolicyIdentityResponseOutput() EnterprisePolicyIdentityResponseOutput {
-	return i.ToEnterprisePolicyIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i EnterprisePolicyIdentityResponseArgs) ToEnterprisePolicyIdentityResponseOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponseOutput)
-}
-
-func (i EnterprisePolicyIdentityResponseArgs) ToEnterprisePolicyIdentityResponsePtrOutput() EnterprisePolicyIdentityResponsePtrOutput {
-	return i.ToEnterprisePolicyIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EnterprisePolicyIdentityResponseArgs) ToEnterprisePolicyIdentityResponsePtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponseOutput).ToEnterprisePolicyIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EnterprisePolicyIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToEnterprisePolicyIdentityResponsePtrOutput() EnterprisePolicyIdentityResponsePtrOutput
-	ToEnterprisePolicyIdentityResponsePtrOutputWithContext(context.Context) EnterprisePolicyIdentityResponsePtrOutput
-}
-
-type enterprisePolicyIdentityResponsePtrType EnterprisePolicyIdentityResponseArgs
-
-func EnterprisePolicyIdentityResponsePtr(v *EnterprisePolicyIdentityResponseArgs) EnterprisePolicyIdentityResponsePtrInput {
-	return (*enterprisePolicyIdentityResponsePtrType)(v)
-}
-
-func (*enterprisePolicyIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnterprisePolicyIdentityResponse)(nil)).Elem()
-}
-
-func (i *enterprisePolicyIdentityResponsePtrType) ToEnterprisePolicyIdentityResponsePtrOutput() EnterprisePolicyIdentityResponsePtrOutput {
-	return i.ToEnterprisePolicyIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *enterprisePolicyIdentityResponsePtrType) ToEnterprisePolicyIdentityResponsePtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnterprisePolicyIdentityResponsePtrOutput)
-}
-
 type EnterprisePolicyIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (EnterprisePolicyIdentityResponseOutput) ElementType() reflect.Type {
@@ -231,16 +161,6 @@ func (o EnterprisePolicyIdentityResponseOutput) ToEnterprisePolicyIdentityRespon
 
 func (o EnterprisePolicyIdentityResponseOutput) ToEnterprisePolicyIdentityResponseOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponseOutput {
 	return o
-}
-
-func (o EnterprisePolicyIdentityResponseOutput) ToEnterprisePolicyIdentityResponsePtrOutput() EnterprisePolicyIdentityResponsePtrOutput {
-	return o.ToEnterprisePolicyIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EnterprisePolicyIdentityResponseOutput) ToEnterprisePolicyIdentityResponsePtrOutputWithContext(ctx context.Context) EnterprisePolicyIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnterprisePolicyIdentityResponse) *EnterprisePolicyIdentityResponse {
-		return &v
-	}).(EnterprisePolicyIdentityResponsePtrOutput)
 }
 
 func (o EnterprisePolicyIdentityResponseOutput) SystemAssignedIdentityPrincipalId() pulumi.StringOutput {
@@ -459,75 +379,6 @@ type KeyPropertiesResponse struct {
 	Version *string `pulumi:"version"`
 }
 
-
-
-
-
-type KeyPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToKeyPropertiesResponseOutput() KeyPropertiesResponseOutput
-	ToKeyPropertiesResponseOutputWithContext(context.Context) KeyPropertiesResponseOutput
-}
-
-type KeyPropertiesResponseArgs struct {
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Version pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (KeyPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyPropertiesResponse)(nil)).Elem()
-}
-
-func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponseOutput() KeyPropertiesResponseOutput {
-	return i.ToKeyPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponseOutputWithContext(ctx context.Context) KeyPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesResponseOutput)
-}
-
-func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput {
-	return i.ToKeyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyPropertiesResponseArgs) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesResponseOutput).ToKeyPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type KeyPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput
-	ToKeyPropertiesResponsePtrOutputWithContext(context.Context) KeyPropertiesResponsePtrOutput
-}
-
-type keyPropertiesResponsePtrType KeyPropertiesResponseArgs
-
-func KeyPropertiesResponsePtr(v *KeyPropertiesResponseArgs) KeyPropertiesResponsePtrInput {
-	return (*keyPropertiesResponsePtrType)(v)
-}
-
-func (*keyPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyPropertiesResponse)(nil)).Elem()
-}
-
-func (i *keyPropertiesResponsePtrType) ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput {
-	return i.ToKeyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyPropertiesResponsePtrType) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyPropertiesResponsePtrOutput)
-}
-
 type KeyPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyPropertiesResponseOutput) ElementType() reflect.Type {
@@ -540,16 +391,6 @@ func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponseOutput() KeyProperti
 
 func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponseOutputWithContext(ctx context.Context) KeyPropertiesResponseOutput {
 	return o
-}
-
-func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponsePtrOutput() KeyPropertiesResponsePtrOutput {
-	return o.ToKeyPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyPropertiesResponseOutput) ToKeyPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyPropertiesResponse) *KeyPropertiesResponse {
-		return &v
-	}).(KeyPropertiesResponsePtrOutput)
 }
 
 func (o KeyPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
@@ -755,75 +596,6 @@ type KeyVaultPropertiesResponse struct {
 	Key *KeyPropertiesResponse `pulumi:"key"`
 }
 
-
-
-
-
-type KeyVaultPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput
-	ToKeyVaultPropertiesResponseOutputWithContext(context.Context) KeyVaultPropertiesResponseOutput
-}
-
-type KeyVaultPropertiesResponseArgs struct {
-	Id  pulumi.StringPtrInput         `pulumi:"id"`
-	Key KeyPropertiesResponsePtrInput `pulumi:"key"`
-}
-
-func (KeyVaultPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultPropertiesResponse)(nil)).Elem()
-}
-
-func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput {
-	return i.ToKeyVaultPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponseOutput)
-}
-
-func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
-	return i.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultPropertiesResponseArgs) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponseOutput).ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type KeyVaultPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput
-	ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Context) KeyVaultPropertiesResponsePtrOutput
-}
-
-type keyVaultPropertiesResponsePtrType KeyVaultPropertiesResponseArgs
-
-func KeyVaultPropertiesResponsePtr(v *KeyVaultPropertiesResponseArgs) KeyVaultPropertiesResponsePtrInput {
-	return (*keyVaultPropertiesResponsePtrType)(v)
-}
-
-func (*keyVaultPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultPropertiesResponse)(nil)).Elem()
-}
-
-func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
-	return i.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultPropertiesResponsePtrType) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesResponsePtrOutput)
-}
-
 type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
@@ -836,16 +608,6 @@ func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutput() K
 
 func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
 	return o
-}
-
-func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
-	return o.ToKeyVaultPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultPropertiesResponse) *KeyVaultPropertiesResponse {
-		return &v
-	}).(KeyVaultPropertiesResponsePtrOutput)
 }
 
 func (o KeyVaultPropertiesResponseOutput) Id() pulumi.StringPtrOutput {
@@ -902,74 +664,6 @@ type PrivateEndpointResponse struct {
 	Id string `pulumi:"id"`
 }
 
-
-
-
-
-type PrivateEndpointResponseInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput
-	ToPrivateEndpointResponseOutputWithContext(context.Context) PrivateEndpointResponseOutput
-}
-
-type PrivateEndpointResponseArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
-}
-
-func (PrivateEndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointResponse)(nil)).Elem()
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput {
-	return i.ToPrivateEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponseOutputWithContext(ctx context.Context) PrivateEndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponseOutput)
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
-	return i.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointResponseArgs) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponseOutput).ToPrivateEndpointResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrivateEndpointResponsePtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput
-	ToPrivateEndpointResponsePtrOutputWithContext(context.Context) PrivateEndpointResponsePtrOutput
-}
-
-type privateEndpointResponsePtrType PrivateEndpointResponseArgs
-
-func PrivateEndpointResponsePtr(v *PrivateEndpointResponseArgs) PrivateEndpointResponsePtrInput {
-	return (*privateEndpointResponsePtrType)(v)
-}
-
-func (*privateEndpointResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointResponse)(nil)).Elem()
-}
-
-func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
-	return i.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointResponsePtrType) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointResponsePtrOutput)
-}
-
 type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
@@ -982,16 +676,6 @@ func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutput() Private
 
 func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutputWithContext(ctx context.Context) PrivateEndpointResponseOutput {
 	return o
-}
-
-func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
-	return o.ToPrivateEndpointResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateEndpointResponse) *PrivateEndpointResponse {
-		return &v
-	}).(PrivateEndpointResponsePtrOutput)
 }
 
 func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
@@ -1066,47 +750,6 @@ func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionSta
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput)
 }
 
-func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput).ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrivateLinkServiceConnectionStatePtrInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput
-	ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePtrOutput
-}
-
-type privateLinkServiceConnectionStatePtrType PrivateLinkServiceConnectionStateArgs
-
-func PrivateLinkServiceConnectionStatePtr(v *PrivateLinkServiceConnectionStateArgs) PrivateLinkServiceConnectionStatePtrInput {
-	return (*privateLinkServiceConnectionStatePtrType)(v)
-}
-
-func (*privateLinkServiceConnectionStatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
-}
-
-func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
-}
-
-func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
@@ -1121,16 +764,6 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	return o
 }
 
-func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
-		return &v
-	}).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
@@ -1143,131 +776,10 @@ func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-type PrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkServiceConnectionStatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionState
-		return ret
-	}).(PrivateLinkServiceConnectionStateOutput)
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ActionsRequired
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
 type PrivateLinkServiceConnectionStateResponse struct {
 	ActionsRequired *string `pulumi:"actionsRequired"`
 	Description     *string `pulumi:"description"`
 	Status          *string `pulumi:"status"`
-}
-
-
-
-
-
-type PrivateLinkServiceConnectionStateResponseInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput
-	ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponseOutput
-}
-
-type PrivateLinkServiceConnectionStateResponseArgs struct {
-	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
-	Description     pulumi.StringPtrInput `pulumi:"description"`
-	Status          pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (PrivateLinkServiceConnectionStateResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput {
-	return i.ToPrivateLinkServiceConnectionStateResponseOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput)
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStateResponseArgs) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponseOutput).ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PrivateLinkServiceConnectionStateResponsePtrInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput
-	ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput
-}
-
-type privateLinkServiceConnectionStateResponsePtrType PrivateLinkServiceConnectionStateResponseArgs
-
-func PrivateLinkServiceConnectionStateResponsePtr(v *PrivateLinkServiceConnectionStateResponseArgs) PrivateLinkServiceConnectionStateResponsePtrInput {
-	return (*privateLinkServiceConnectionStateResponsePtrType)(v)
-}
-
-func (*privateLinkServiceConnectionStateResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
-}
-
-func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *privateLinkServiceConnectionStateResponsePtrType) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateResponsePtrOutput)
 }
 
 type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
@@ -1284,16 +796,6 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceCon
 	return o
 }
 
-func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateLinkServiceConnectionStateResponse) *PrivateLinkServiceConnectionStateResponse {
-		return &v
-	}).(PrivateLinkServiceConnectionStateResponsePtrOutput)
-}
-
 func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
 }
@@ -1304,57 +806,6 @@ func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.St
 
 func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type PrivateLinkServiceConnectionStateResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkServiceConnectionStateResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
-}
-
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutput() PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ToPrivateLinkServiceConnectionStateResponsePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponsePtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Elem() PrivateLinkServiceConnectionStateResponseOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) PrivateLinkServiceConnectionStateResponse {
-		if v != nil {
-			return *v
-		}
-		var ret PrivateLinkServiceConnectionStateResponse
-		return ret
-	}).(PrivateLinkServiceConnectionStateResponseOutput)
-}
-
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ActionsRequired
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PrivateLinkServiceConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionStateResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
 }
 
 type PropertiesEncryption struct {
@@ -1776,75 +1227,6 @@ type PropertiesResponseEncryption struct {
 	State    *string                     `pulumi:"state"`
 }
 
-
-
-
-
-type PropertiesResponseEncryptionInput interface {
-	pulumi.Input
-
-	ToPropertiesResponseEncryptionOutput() PropertiesResponseEncryptionOutput
-	ToPropertiesResponseEncryptionOutputWithContext(context.Context) PropertiesResponseEncryptionOutput
-}
-
-type PropertiesResponseEncryptionArgs struct {
-	KeyVault KeyVaultPropertiesResponsePtrInput `pulumi:"keyVault"`
-	State    pulumi.StringPtrInput              `pulumi:"state"`
-}
-
-func (PropertiesResponseEncryptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PropertiesResponseEncryption)(nil)).Elem()
-}
-
-func (i PropertiesResponseEncryptionArgs) ToPropertiesResponseEncryptionOutput() PropertiesResponseEncryptionOutput {
-	return i.ToPropertiesResponseEncryptionOutputWithContext(context.Background())
-}
-
-func (i PropertiesResponseEncryptionArgs) ToPropertiesResponseEncryptionOutputWithContext(ctx context.Context) PropertiesResponseEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseEncryptionOutput)
-}
-
-func (i PropertiesResponseEncryptionArgs) ToPropertiesResponseEncryptionPtrOutput() PropertiesResponseEncryptionPtrOutput {
-	return i.ToPropertiesResponseEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i PropertiesResponseEncryptionArgs) ToPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) PropertiesResponseEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseEncryptionOutput).ToPropertiesResponseEncryptionPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PropertiesResponseEncryptionPtrInput interface {
-	pulumi.Input
-
-	ToPropertiesResponseEncryptionPtrOutput() PropertiesResponseEncryptionPtrOutput
-	ToPropertiesResponseEncryptionPtrOutputWithContext(context.Context) PropertiesResponseEncryptionPtrOutput
-}
-
-type propertiesResponseEncryptionPtrType PropertiesResponseEncryptionArgs
-
-func PropertiesResponseEncryptionPtr(v *PropertiesResponseEncryptionArgs) PropertiesResponseEncryptionPtrInput {
-	return (*propertiesResponseEncryptionPtrType)(v)
-}
-
-func (*propertiesResponseEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PropertiesResponseEncryption)(nil)).Elem()
-}
-
-func (i *propertiesResponseEncryptionPtrType) ToPropertiesResponseEncryptionPtrOutput() PropertiesResponseEncryptionPtrOutput {
-	return i.ToPropertiesResponseEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i *propertiesResponseEncryptionPtrType) ToPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) PropertiesResponseEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseEncryptionPtrOutput)
-}
-
 type PropertiesResponseEncryptionOutput struct{ *pulumi.OutputState }
 
 func (PropertiesResponseEncryptionOutput) ElementType() reflect.Type {
@@ -1857,16 +1239,6 @@ func (o PropertiesResponseEncryptionOutput) ToPropertiesResponseEncryptionOutput
 
 func (o PropertiesResponseEncryptionOutput) ToPropertiesResponseEncryptionOutputWithContext(ctx context.Context) PropertiesResponseEncryptionOutput {
 	return o
-}
-
-func (o PropertiesResponseEncryptionOutput) ToPropertiesResponseEncryptionPtrOutput() PropertiesResponseEncryptionPtrOutput {
-	return o.ToPropertiesResponseEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (o PropertiesResponseEncryptionOutput) ToPropertiesResponseEncryptionPtrOutputWithContext(ctx context.Context) PropertiesResponseEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesResponseEncryption) *PropertiesResponseEncryption {
-		return &v
-	}).(PropertiesResponseEncryptionPtrOutput)
 }
 
 func (o PropertiesResponseEncryptionOutput) KeyVault() KeyVaultPropertiesResponsePtrOutput {
@@ -1923,74 +1295,6 @@ type PropertiesResponseLockbox struct {
 	State *string `pulumi:"state"`
 }
 
-
-
-
-
-type PropertiesResponseLockboxInput interface {
-	pulumi.Input
-
-	ToPropertiesResponseLockboxOutput() PropertiesResponseLockboxOutput
-	ToPropertiesResponseLockboxOutputWithContext(context.Context) PropertiesResponseLockboxOutput
-}
-
-type PropertiesResponseLockboxArgs struct {
-	State pulumi.StringPtrInput `pulumi:"state"`
-}
-
-func (PropertiesResponseLockboxArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PropertiesResponseLockbox)(nil)).Elem()
-}
-
-func (i PropertiesResponseLockboxArgs) ToPropertiesResponseLockboxOutput() PropertiesResponseLockboxOutput {
-	return i.ToPropertiesResponseLockboxOutputWithContext(context.Background())
-}
-
-func (i PropertiesResponseLockboxArgs) ToPropertiesResponseLockboxOutputWithContext(ctx context.Context) PropertiesResponseLockboxOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseLockboxOutput)
-}
-
-func (i PropertiesResponseLockboxArgs) ToPropertiesResponseLockboxPtrOutput() PropertiesResponseLockboxPtrOutput {
-	return i.ToPropertiesResponseLockboxPtrOutputWithContext(context.Background())
-}
-
-func (i PropertiesResponseLockboxArgs) ToPropertiesResponseLockboxPtrOutputWithContext(ctx context.Context) PropertiesResponseLockboxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseLockboxOutput).ToPropertiesResponseLockboxPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PropertiesResponseLockboxPtrInput interface {
-	pulumi.Input
-
-	ToPropertiesResponseLockboxPtrOutput() PropertiesResponseLockboxPtrOutput
-	ToPropertiesResponseLockboxPtrOutputWithContext(context.Context) PropertiesResponseLockboxPtrOutput
-}
-
-type propertiesResponseLockboxPtrType PropertiesResponseLockboxArgs
-
-func PropertiesResponseLockboxPtr(v *PropertiesResponseLockboxArgs) PropertiesResponseLockboxPtrInput {
-	return (*propertiesResponseLockboxPtrType)(v)
-}
-
-func (*propertiesResponseLockboxPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PropertiesResponseLockbox)(nil)).Elem()
-}
-
-func (i *propertiesResponseLockboxPtrType) ToPropertiesResponseLockboxPtrOutput() PropertiesResponseLockboxPtrOutput {
-	return i.ToPropertiesResponseLockboxPtrOutputWithContext(context.Background())
-}
-
-func (i *propertiesResponseLockboxPtrType) ToPropertiesResponseLockboxPtrOutputWithContext(ctx context.Context) PropertiesResponseLockboxPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseLockboxPtrOutput)
-}
-
 type PropertiesResponseLockboxOutput struct{ *pulumi.OutputState }
 
 func (PropertiesResponseLockboxOutput) ElementType() reflect.Type {
@@ -2003,16 +1307,6 @@ func (o PropertiesResponseLockboxOutput) ToPropertiesResponseLockboxOutput() Pro
 
 func (o PropertiesResponseLockboxOutput) ToPropertiesResponseLockboxOutputWithContext(ctx context.Context) PropertiesResponseLockboxOutput {
 	return o
-}
-
-func (o PropertiesResponseLockboxOutput) ToPropertiesResponseLockboxPtrOutput() PropertiesResponseLockboxPtrOutput {
-	return o.ToPropertiesResponseLockboxPtrOutputWithContext(context.Background())
-}
-
-func (o PropertiesResponseLockboxOutput) ToPropertiesResponseLockboxPtrOutputWithContext(ctx context.Context) PropertiesResponseLockboxPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesResponseLockbox) *PropertiesResponseLockbox {
-		return &v
-	}).(PropertiesResponseLockboxPtrOutput)
 }
 
 func (o PropertiesResponseLockboxOutput) State() pulumi.StringPtrOutput {
@@ -2056,74 +1350,6 @@ type PropertiesResponseNetworkInjection struct {
 	VirtualNetworks *VirtualNetworkPropertiesListResponse `pulumi:"virtualNetworks"`
 }
 
-
-
-
-
-type PropertiesResponseNetworkInjectionInput interface {
-	pulumi.Input
-
-	ToPropertiesResponseNetworkInjectionOutput() PropertiesResponseNetworkInjectionOutput
-	ToPropertiesResponseNetworkInjectionOutputWithContext(context.Context) PropertiesResponseNetworkInjectionOutput
-}
-
-type PropertiesResponseNetworkInjectionArgs struct {
-	VirtualNetworks VirtualNetworkPropertiesListResponsePtrInput `pulumi:"virtualNetworks"`
-}
-
-func (PropertiesResponseNetworkInjectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PropertiesResponseNetworkInjection)(nil)).Elem()
-}
-
-func (i PropertiesResponseNetworkInjectionArgs) ToPropertiesResponseNetworkInjectionOutput() PropertiesResponseNetworkInjectionOutput {
-	return i.ToPropertiesResponseNetworkInjectionOutputWithContext(context.Background())
-}
-
-func (i PropertiesResponseNetworkInjectionArgs) ToPropertiesResponseNetworkInjectionOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseNetworkInjectionOutput)
-}
-
-func (i PropertiesResponseNetworkInjectionArgs) ToPropertiesResponseNetworkInjectionPtrOutput() PropertiesResponseNetworkInjectionPtrOutput {
-	return i.ToPropertiesResponseNetworkInjectionPtrOutputWithContext(context.Background())
-}
-
-func (i PropertiesResponseNetworkInjectionArgs) ToPropertiesResponseNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseNetworkInjectionOutput).ToPropertiesResponseNetworkInjectionPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PropertiesResponseNetworkInjectionPtrInput interface {
-	pulumi.Input
-
-	ToPropertiesResponseNetworkInjectionPtrOutput() PropertiesResponseNetworkInjectionPtrOutput
-	ToPropertiesResponseNetworkInjectionPtrOutputWithContext(context.Context) PropertiesResponseNetworkInjectionPtrOutput
-}
-
-type propertiesResponseNetworkInjectionPtrType PropertiesResponseNetworkInjectionArgs
-
-func PropertiesResponseNetworkInjectionPtr(v *PropertiesResponseNetworkInjectionArgs) PropertiesResponseNetworkInjectionPtrInput {
-	return (*propertiesResponseNetworkInjectionPtrType)(v)
-}
-
-func (*propertiesResponseNetworkInjectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PropertiesResponseNetworkInjection)(nil)).Elem()
-}
-
-func (i *propertiesResponseNetworkInjectionPtrType) ToPropertiesResponseNetworkInjectionPtrOutput() PropertiesResponseNetworkInjectionPtrOutput {
-	return i.ToPropertiesResponseNetworkInjectionPtrOutputWithContext(context.Background())
-}
-
-func (i *propertiesResponseNetworkInjectionPtrType) ToPropertiesResponseNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PropertiesResponseNetworkInjectionPtrOutput)
-}
-
 type PropertiesResponseNetworkInjectionOutput struct{ *pulumi.OutputState }
 
 func (PropertiesResponseNetworkInjectionOutput) ElementType() reflect.Type {
@@ -2136,16 +1362,6 @@ func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInj
 
 func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInjectionOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionOutput {
 	return o
-}
-
-func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInjectionPtrOutput() PropertiesResponseNetworkInjectionPtrOutput {
-	return o.ToPropertiesResponseNetworkInjectionPtrOutputWithContext(context.Background())
-}
-
-func (o PropertiesResponseNetworkInjectionOutput) ToPropertiesResponseNetworkInjectionPtrOutputWithContext(ctx context.Context) PropertiesResponseNetworkInjectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PropertiesResponseNetworkInjection) *PropertiesResponseNetworkInjection {
-		return &v
-	}).(PropertiesResponseNetworkInjectionPtrOutput)
 }
 
 func (o PropertiesResponseNetworkInjectionOutput) VirtualNetworks() VirtualNetworkPropertiesListResponsePtrOutput {
@@ -2324,74 +1540,6 @@ type SubnetPropertiesResponse struct {
 	Name *string `pulumi:"name"`
 }
 
-
-
-
-
-type SubnetPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSubnetPropertiesResponseOutput() SubnetPropertiesResponseOutput
-	ToSubnetPropertiesResponseOutputWithContext(context.Context) SubnetPropertiesResponseOutput
-}
-
-type SubnetPropertiesResponseArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (SubnetPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubnetPropertiesResponse)(nil)).Elem()
-}
-
-func (i SubnetPropertiesResponseArgs) ToSubnetPropertiesResponseOutput() SubnetPropertiesResponseOutput {
-	return i.ToSubnetPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SubnetPropertiesResponseArgs) ToSubnetPropertiesResponseOutputWithContext(ctx context.Context) SubnetPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesResponseOutput)
-}
-
-func (i SubnetPropertiesResponseArgs) ToSubnetPropertiesResponsePtrOutput() SubnetPropertiesResponsePtrOutput {
-	return i.ToSubnetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SubnetPropertiesResponseArgs) ToSubnetPropertiesResponsePtrOutputWithContext(ctx context.Context) SubnetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesResponseOutput).ToSubnetPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SubnetPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSubnetPropertiesResponsePtrOutput() SubnetPropertiesResponsePtrOutput
-	ToSubnetPropertiesResponsePtrOutputWithContext(context.Context) SubnetPropertiesResponsePtrOutput
-}
-
-type subnetPropertiesResponsePtrType SubnetPropertiesResponseArgs
-
-func SubnetPropertiesResponsePtr(v *SubnetPropertiesResponseArgs) SubnetPropertiesResponsePtrInput {
-	return (*subnetPropertiesResponsePtrType)(v)
-}
-
-func (*subnetPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubnetPropertiesResponse)(nil)).Elem()
-}
-
-func (i *subnetPropertiesResponsePtrType) ToSubnetPropertiesResponsePtrOutput() SubnetPropertiesResponsePtrOutput {
-	return i.ToSubnetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *subnetPropertiesResponsePtrType) ToSubnetPropertiesResponsePtrOutputWithContext(ctx context.Context) SubnetPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubnetPropertiesResponsePtrOutput)
-}
-
 type SubnetPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SubnetPropertiesResponseOutput) ElementType() reflect.Type {
@@ -2404,16 +1552,6 @@ func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponseOutput() Subne
 
 func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponseOutputWithContext(ctx context.Context) SubnetPropertiesResponseOutput {
 	return o
-}
-
-func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponsePtrOutput() SubnetPropertiesResponsePtrOutput {
-	return o.ToSubnetPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SubnetPropertiesResponseOutput) ToSubnetPropertiesResponsePtrOutputWithContext(ctx context.Context) SubnetPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubnetPropertiesResponse) *SubnetPropertiesResponse {
-		return &v
-	}).(SubnetPropertiesResponsePtrOutput)
 }
 
 func (o SubnetPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
@@ -2462,79 +1600,6 @@ type SystemDataResponse struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -2547,16 +1612,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -2581,84 +1636,6 @@ func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
 
 func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
-}
-
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
 }
 
 type VirtualNetworkProperties struct {
@@ -2914,75 +1891,6 @@ type VirtualNetworkPropertiesListResponse struct {
 	Value    []VirtualNetworkPropertiesResponse `pulumi:"value"`
 }
 
-
-
-
-
-type VirtualNetworkPropertiesListResponseInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkPropertiesListResponseOutput() VirtualNetworkPropertiesListResponseOutput
-	ToVirtualNetworkPropertiesListResponseOutputWithContext(context.Context) VirtualNetworkPropertiesListResponseOutput
-}
-
-type VirtualNetworkPropertiesListResponseArgs struct {
-	NextLink pulumi.StringPtrInput                      `pulumi:"nextLink"`
-	Value    VirtualNetworkPropertiesResponseArrayInput `pulumi:"value"`
-}
-
-func (VirtualNetworkPropertiesListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPropertiesListResponse)(nil)).Elem()
-}
-
-func (i VirtualNetworkPropertiesListResponseArgs) ToVirtualNetworkPropertiesListResponseOutput() VirtualNetworkPropertiesListResponseOutput {
-	return i.ToVirtualNetworkPropertiesListResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkPropertiesListResponseArgs) ToVirtualNetworkPropertiesListResponseOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListResponseOutput)
-}
-
-func (i VirtualNetworkPropertiesListResponseArgs) ToVirtualNetworkPropertiesListResponsePtrOutput() VirtualNetworkPropertiesListResponsePtrOutput {
-	return i.ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkPropertiesListResponseArgs) ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListResponseOutput).ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type VirtualNetworkPropertiesListResponsePtrInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkPropertiesListResponsePtrOutput() VirtualNetworkPropertiesListResponsePtrOutput
-	ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(context.Context) VirtualNetworkPropertiesListResponsePtrOutput
-}
-
-type virtualNetworkPropertiesListResponsePtrType VirtualNetworkPropertiesListResponseArgs
-
-func VirtualNetworkPropertiesListResponsePtr(v *VirtualNetworkPropertiesListResponseArgs) VirtualNetworkPropertiesListResponsePtrInput {
-	return (*virtualNetworkPropertiesListResponsePtrType)(v)
-}
-
-func (*virtualNetworkPropertiesListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualNetworkPropertiesListResponse)(nil)).Elem()
-}
-
-func (i *virtualNetworkPropertiesListResponsePtrType) ToVirtualNetworkPropertiesListResponsePtrOutput() VirtualNetworkPropertiesListResponsePtrOutput {
-	return i.ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *virtualNetworkPropertiesListResponsePtrType) ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesListResponsePtrOutput)
-}
-
 type VirtualNetworkPropertiesListResponseOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPropertiesListResponseOutput) ElementType() reflect.Type {
@@ -2995,16 +1903,6 @@ func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesLi
 
 func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesListResponseOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponseOutput {
 	return o
-}
-
-func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesListResponsePtrOutput() VirtualNetworkPropertiesListResponsePtrOutput {
-	return o.ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(context.Background())
-}
-
-func (o VirtualNetworkPropertiesListResponseOutput) ToVirtualNetworkPropertiesListResponsePtrOutputWithContext(ctx context.Context) VirtualNetworkPropertiesListResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkPropertiesListResponse) *VirtualNetworkPropertiesListResponse {
-		return &v
-	}).(VirtualNetworkPropertiesListResponsePtrOutput)
 }
 
 func (o VirtualNetworkPropertiesListResponseOutput) NextLink() pulumi.StringPtrOutput {
@@ -3060,59 +1958,6 @@ func (o VirtualNetworkPropertiesListResponsePtrOutput) Value() VirtualNetworkPro
 type VirtualNetworkPropertiesResponse struct {
 	Id     *string                   `pulumi:"id"`
 	Subnet *SubnetPropertiesResponse `pulumi:"subnet"`
-}
-
-
-
-
-
-type VirtualNetworkPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkPropertiesResponseOutput() VirtualNetworkPropertiesResponseOutput
-	ToVirtualNetworkPropertiesResponseOutputWithContext(context.Context) VirtualNetworkPropertiesResponseOutput
-}
-
-type VirtualNetworkPropertiesResponseArgs struct {
-	Id     pulumi.StringPtrInput            `pulumi:"id"`
-	Subnet SubnetPropertiesResponsePtrInput `pulumi:"subnet"`
-}
-
-func (VirtualNetworkPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkPropertiesResponse)(nil)).Elem()
-}
-
-func (i VirtualNetworkPropertiesResponseArgs) ToVirtualNetworkPropertiesResponseOutput() VirtualNetworkPropertiesResponseOutput {
-	return i.ToVirtualNetworkPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkPropertiesResponseArgs) ToVirtualNetworkPropertiesResponseOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesResponseOutput)
-}
-
-
-
-
-
-type VirtualNetworkPropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkPropertiesResponseArrayOutput() VirtualNetworkPropertiesResponseArrayOutput
-	ToVirtualNetworkPropertiesResponseArrayOutputWithContext(context.Context) VirtualNetworkPropertiesResponseArrayOutput
-}
-
-type VirtualNetworkPropertiesResponseArray []VirtualNetworkPropertiesResponseInput
-
-func (VirtualNetworkPropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualNetworkPropertiesResponse)(nil)).Elem()
-}
-
-func (i VirtualNetworkPropertiesResponseArray) ToVirtualNetworkPropertiesResponseArrayOutput() VirtualNetworkPropertiesResponseArrayOutput {
-	return i.ToVirtualNetworkPropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkPropertiesResponseArray) ToVirtualNetworkPropertiesResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkPropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPropertiesResponseArrayOutput)
 }
 
 type VirtualNetworkPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -3173,9 +2018,7 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
-	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
-	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(PropertiesEncryptionOutput{})
 	pulumi.RegisterOutputType(PropertiesEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(PropertiesLockboxOutput{})
@@ -3193,7 +2036,6 @@ func init() {
 	pulumi.RegisterOutputType(SubnetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SubnetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPropertiesOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkPropertiesListOutput{})

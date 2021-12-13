@@ -13,7 +13,7 @@ func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOp
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAppArgs struct {
@@ -31,4 +31,15 @@ type LookupAppResult struct {
 	Name       string                             `pulumi:"name"`
 	Properties AppResourcePropertiesResponse      `pulumi:"properties"`
 	Type       string                             `pulumi:"type"`
+}
+
+
+func (val *LookupAppResult) Defaults() *LookupAppResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

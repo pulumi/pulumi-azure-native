@@ -149,74 +149,6 @@ type AkamaiAccessControlResponse struct {
 	AkamaiSignatureHeaderAuthenticationKeyList []AkamaiSignatureHeaderAuthenticationKeyResponse `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
 }
 
-
-
-
-
-type AkamaiAccessControlResponseInput interface {
-	pulumi.Input
-
-	ToAkamaiAccessControlResponseOutput() AkamaiAccessControlResponseOutput
-	ToAkamaiAccessControlResponseOutputWithContext(context.Context) AkamaiAccessControlResponseOutput
-}
-
-type AkamaiAccessControlResponseArgs struct {
-	AkamaiSignatureHeaderAuthenticationKeyList AkamaiSignatureHeaderAuthenticationKeyResponseArrayInput `pulumi:"akamaiSignatureHeaderAuthenticationKeyList"`
-}
-
-func (AkamaiAccessControlResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AkamaiAccessControlResponse)(nil)).Elem()
-}
-
-func (i AkamaiAccessControlResponseArgs) ToAkamaiAccessControlResponseOutput() AkamaiAccessControlResponseOutput {
-	return i.ToAkamaiAccessControlResponseOutputWithContext(context.Background())
-}
-
-func (i AkamaiAccessControlResponseArgs) ToAkamaiAccessControlResponseOutputWithContext(ctx context.Context) AkamaiAccessControlResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlResponseOutput)
-}
-
-func (i AkamaiAccessControlResponseArgs) ToAkamaiAccessControlResponsePtrOutput() AkamaiAccessControlResponsePtrOutput {
-	return i.ToAkamaiAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i AkamaiAccessControlResponseArgs) ToAkamaiAccessControlResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlResponseOutput).ToAkamaiAccessControlResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type AkamaiAccessControlResponsePtrInput interface {
-	pulumi.Input
-
-	ToAkamaiAccessControlResponsePtrOutput() AkamaiAccessControlResponsePtrOutput
-	ToAkamaiAccessControlResponsePtrOutputWithContext(context.Context) AkamaiAccessControlResponsePtrOutput
-}
-
-type akamaiAccessControlResponsePtrType AkamaiAccessControlResponseArgs
-
-func AkamaiAccessControlResponsePtr(v *AkamaiAccessControlResponseArgs) AkamaiAccessControlResponsePtrInput {
-	return (*akamaiAccessControlResponsePtrType)(v)
-}
-
-func (*akamaiAccessControlResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AkamaiAccessControlResponse)(nil)).Elem()
-}
-
-func (i *akamaiAccessControlResponsePtrType) ToAkamaiAccessControlResponsePtrOutput() AkamaiAccessControlResponsePtrOutput {
-	return i.ToAkamaiAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *akamaiAccessControlResponsePtrType) ToAkamaiAccessControlResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AkamaiAccessControlResponsePtrOutput)
-}
-
 type AkamaiAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (AkamaiAccessControlResponseOutput) ElementType() reflect.Type {
@@ -229,16 +161,6 @@ func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponseOutput()
 
 func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponseOutputWithContext(ctx context.Context) AkamaiAccessControlResponseOutput {
 	return o
-}
-
-func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponsePtrOutput() AkamaiAccessControlResponsePtrOutput {
-	return o.ToAkamaiAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (o AkamaiAccessControlResponseOutput) ToAkamaiAccessControlResponsePtrOutputWithContext(ctx context.Context) AkamaiAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AkamaiAccessControlResponse) *AkamaiAccessControlResponse {
-		return &v
-	}).(AkamaiAccessControlResponsePtrOutput)
 }
 
 func (o AkamaiAccessControlResponseOutput) AkamaiSignatureHeaderAuthenticationKeyList() AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput {
@@ -390,60 +312,6 @@ type AkamaiSignatureHeaderAuthenticationKeyResponse struct {
 	Base64Key  *string `pulumi:"base64Key"`
 	Expiration *string `pulumi:"expiration"`
 	Identifier *string `pulumi:"identifier"`
-}
-
-
-
-
-
-type AkamaiSignatureHeaderAuthenticationKeyResponseInput interface {
-	pulumi.Input
-
-	ToAkamaiSignatureHeaderAuthenticationKeyResponseOutput() AkamaiSignatureHeaderAuthenticationKeyResponseOutput
-	ToAkamaiSignatureHeaderAuthenticationKeyResponseOutputWithContext(context.Context) AkamaiSignatureHeaderAuthenticationKeyResponseOutput
-}
-
-type AkamaiSignatureHeaderAuthenticationKeyResponseArgs struct {
-	Base64Key  pulumi.StringPtrInput `pulumi:"base64Key"`
-	Expiration pulumi.StringPtrInput `pulumi:"expiration"`
-	Identifier pulumi.StringPtrInput `pulumi:"identifier"`
-}
-
-func (AkamaiSignatureHeaderAuthenticationKeyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AkamaiSignatureHeaderAuthenticationKeyResponse)(nil)).Elem()
-}
-
-func (i AkamaiSignatureHeaderAuthenticationKeyResponseArgs) ToAkamaiSignatureHeaderAuthenticationKeyResponseOutput() AkamaiSignatureHeaderAuthenticationKeyResponseOutput {
-	return i.ToAkamaiSignatureHeaderAuthenticationKeyResponseOutputWithContext(context.Background())
-}
-
-func (i AkamaiSignatureHeaderAuthenticationKeyResponseArgs) ToAkamaiSignatureHeaderAuthenticationKeyResponseOutputWithContext(ctx context.Context) AkamaiSignatureHeaderAuthenticationKeyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AkamaiSignatureHeaderAuthenticationKeyResponseOutput)
-}
-
-
-
-
-
-type AkamaiSignatureHeaderAuthenticationKeyResponseArrayInput interface {
-	pulumi.Input
-
-	ToAkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput() AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput
-	ToAkamaiSignatureHeaderAuthenticationKeyResponseArrayOutputWithContext(context.Context) AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput
-}
-
-type AkamaiSignatureHeaderAuthenticationKeyResponseArray []AkamaiSignatureHeaderAuthenticationKeyResponseInput
-
-func (AkamaiSignatureHeaderAuthenticationKeyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AkamaiSignatureHeaderAuthenticationKeyResponse)(nil)).Elem()
-}
-
-func (i AkamaiSignatureHeaderAuthenticationKeyResponseArray) ToAkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput() AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput {
-	return i.ToAkamaiSignatureHeaderAuthenticationKeyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i AkamaiSignatureHeaderAuthenticationKeyResponseArray) ToAkamaiSignatureHeaderAuthenticationKeyResponseArrayOutputWithContext(ctx context.Context) AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AkamaiSignatureHeaderAuthenticationKeyResponseArrayOutput)
 }
 
 type AkamaiSignatureHeaderAuthenticationKeyResponseOutput struct{ *pulumi.OutputState }
@@ -645,75 +513,6 @@ type CrossSiteAccessPoliciesResponse struct {
 	CrossDomainPolicy  *string `pulumi:"crossDomainPolicy"`
 }
 
-
-
-
-
-type CrossSiteAccessPoliciesResponseInput interface {
-	pulumi.Input
-
-	ToCrossSiteAccessPoliciesResponseOutput() CrossSiteAccessPoliciesResponseOutput
-	ToCrossSiteAccessPoliciesResponseOutputWithContext(context.Context) CrossSiteAccessPoliciesResponseOutput
-}
-
-type CrossSiteAccessPoliciesResponseArgs struct {
-	ClientAccessPolicy pulumi.StringPtrInput `pulumi:"clientAccessPolicy"`
-	CrossDomainPolicy  pulumi.StringPtrInput `pulumi:"crossDomainPolicy"`
-}
-
-func (CrossSiteAccessPoliciesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CrossSiteAccessPoliciesResponse)(nil)).Elem()
-}
-
-func (i CrossSiteAccessPoliciesResponseArgs) ToCrossSiteAccessPoliciesResponseOutput() CrossSiteAccessPoliciesResponseOutput {
-	return i.ToCrossSiteAccessPoliciesResponseOutputWithContext(context.Background())
-}
-
-func (i CrossSiteAccessPoliciesResponseArgs) ToCrossSiteAccessPoliciesResponseOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CrossSiteAccessPoliciesResponseOutput)
-}
-
-func (i CrossSiteAccessPoliciesResponseArgs) ToCrossSiteAccessPoliciesResponsePtrOutput() CrossSiteAccessPoliciesResponsePtrOutput {
-	return i.ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CrossSiteAccessPoliciesResponseArgs) ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CrossSiteAccessPoliciesResponseOutput).ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CrossSiteAccessPoliciesResponsePtrInput interface {
-	pulumi.Input
-
-	ToCrossSiteAccessPoliciesResponsePtrOutput() CrossSiteAccessPoliciesResponsePtrOutput
-	ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(context.Context) CrossSiteAccessPoliciesResponsePtrOutput
-}
-
-type crossSiteAccessPoliciesResponsePtrType CrossSiteAccessPoliciesResponseArgs
-
-func CrossSiteAccessPoliciesResponsePtr(v *CrossSiteAccessPoliciesResponseArgs) CrossSiteAccessPoliciesResponsePtrInput {
-	return (*crossSiteAccessPoliciesResponsePtrType)(v)
-}
-
-func (*crossSiteAccessPoliciesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CrossSiteAccessPoliciesResponse)(nil)).Elem()
-}
-
-func (i *crossSiteAccessPoliciesResponsePtrType) ToCrossSiteAccessPoliciesResponsePtrOutput() CrossSiteAccessPoliciesResponsePtrOutput {
-	return i.ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *crossSiteAccessPoliciesResponsePtrType) ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CrossSiteAccessPoliciesResponsePtrOutput)
-}
-
 type CrossSiteAccessPoliciesResponseOutput struct{ *pulumi.OutputState }
 
 func (CrossSiteAccessPoliciesResponseOutput) ElementType() reflect.Type {
@@ -726,16 +525,6 @@ func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponse
 
 func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponseOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesResponseOutput {
 	return o
-}
-
-func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponsePtrOutput() CrossSiteAccessPoliciesResponsePtrOutput {
-	return o.ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CrossSiteAccessPoliciesResponseOutput) ToCrossSiteAccessPoliciesResponsePtrOutputWithContext(ctx context.Context) CrossSiteAccessPoliciesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CrossSiteAccessPoliciesResponse) *CrossSiteAccessPoliciesResponse {
-		return &v
-	}).(CrossSiteAccessPoliciesResponsePtrOutput)
 }
 
 func (o CrossSiteAccessPoliciesResponseOutput) ClientAccessPolicy() pulumi.StringPtrOutput {
@@ -925,74 +714,6 @@ type HlsResponse struct {
 	FragmentsPerTsSegment *int `pulumi:"fragmentsPerTsSegment"`
 }
 
-
-
-
-
-type HlsResponseInput interface {
-	pulumi.Input
-
-	ToHlsResponseOutput() HlsResponseOutput
-	ToHlsResponseOutputWithContext(context.Context) HlsResponseOutput
-}
-
-type HlsResponseArgs struct {
-	FragmentsPerTsSegment pulumi.IntPtrInput `pulumi:"fragmentsPerTsSegment"`
-}
-
-func (HlsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HlsResponse)(nil)).Elem()
-}
-
-func (i HlsResponseArgs) ToHlsResponseOutput() HlsResponseOutput {
-	return i.ToHlsResponseOutputWithContext(context.Background())
-}
-
-func (i HlsResponseArgs) ToHlsResponseOutputWithContext(ctx context.Context) HlsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HlsResponseOutput)
-}
-
-func (i HlsResponseArgs) ToHlsResponsePtrOutput() HlsResponsePtrOutput {
-	return i.ToHlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i HlsResponseArgs) ToHlsResponsePtrOutputWithContext(ctx context.Context) HlsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HlsResponseOutput).ToHlsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type HlsResponsePtrInput interface {
-	pulumi.Input
-
-	ToHlsResponsePtrOutput() HlsResponsePtrOutput
-	ToHlsResponsePtrOutputWithContext(context.Context) HlsResponsePtrOutput
-}
-
-type hlsResponsePtrType HlsResponseArgs
-
-func HlsResponsePtr(v *HlsResponseArgs) HlsResponsePtrInput {
-	return (*hlsResponsePtrType)(v)
-}
-
-func (*hlsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HlsResponse)(nil)).Elem()
-}
-
-func (i *hlsResponsePtrType) ToHlsResponsePtrOutput() HlsResponsePtrOutput {
-	return i.ToHlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *hlsResponsePtrType) ToHlsResponsePtrOutputWithContext(ctx context.Context) HlsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HlsResponsePtrOutput)
-}
-
 type HlsResponseOutput struct{ *pulumi.OutputState }
 
 func (HlsResponseOutput) ElementType() reflect.Type {
@@ -1005,16 +726,6 @@ func (o HlsResponseOutput) ToHlsResponseOutput() HlsResponseOutput {
 
 func (o HlsResponseOutput) ToHlsResponseOutputWithContext(ctx context.Context) HlsResponseOutput {
 	return o
-}
-
-func (o HlsResponseOutput) ToHlsResponsePtrOutput() HlsResponsePtrOutput {
-	return o.ToHlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o HlsResponseOutput) ToHlsResponsePtrOutputWithContext(ctx context.Context) HlsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HlsResponse) *HlsResponse {
-		return &v
-	}).(HlsResponsePtrOutput)
 }
 
 func (o HlsResponseOutput) FragmentsPerTsSegment() pulumi.IntPtrOutput {
@@ -1191,74 +902,6 @@ type IPAccessControlResponse struct {
 	Allow []IPRangeResponse `pulumi:"allow"`
 }
 
-
-
-
-
-type IPAccessControlResponseInput interface {
-	pulumi.Input
-
-	ToIPAccessControlResponseOutput() IPAccessControlResponseOutput
-	ToIPAccessControlResponseOutputWithContext(context.Context) IPAccessControlResponseOutput
-}
-
-type IPAccessControlResponseArgs struct {
-	Allow IPRangeResponseArrayInput `pulumi:"allow"`
-}
-
-func (IPAccessControlResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPAccessControlResponse)(nil)).Elem()
-}
-
-func (i IPAccessControlResponseArgs) ToIPAccessControlResponseOutput() IPAccessControlResponseOutput {
-	return i.ToIPAccessControlResponseOutputWithContext(context.Background())
-}
-
-func (i IPAccessControlResponseArgs) ToIPAccessControlResponseOutputWithContext(ctx context.Context) IPAccessControlResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlResponseOutput)
-}
-
-func (i IPAccessControlResponseArgs) ToIPAccessControlResponsePtrOutput() IPAccessControlResponsePtrOutput {
-	return i.ToIPAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i IPAccessControlResponseArgs) ToIPAccessControlResponsePtrOutputWithContext(ctx context.Context) IPAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlResponseOutput).ToIPAccessControlResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type IPAccessControlResponsePtrInput interface {
-	pulumi.Input
-
-	ToIPAccessControlResponsePtrOutput() IPAccessControlResponsePtrOutput
-	ToIPAccessControlResponsePtrOutputWithContext(context.Context) IPAccessControlResponsePtrOutput
-}
-
-type ipaccessControlResponsePtrType IPAccessControlResponseArgs
-
-func IPAccessControlResponsePtr(v *IPAccessControlResponseArgs) IPAccessControlResponsePtrInput {
-	return (*ipaccessControlResponsePtrType)(v)
-}
-
-func (*ipaccessControlResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IPAccessControlResponse)(nil)).Elem()
-}
-
-func (i *ipaccessControlResponsePtrType) ToIPAccessControlResponsePtrOutput() IPAccessControlResponsePtrOutput {
-	return i.ToIPAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *ipaccessControlResponsePtrType) ToIPAccessControlResponsePtrOutputWithContext(ctx context.Context) IPAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPAccessControlResponsePtrOutput)
-}
-
 type IPAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (IPAccessControlResponseOutput) ElementType() reflect.Type {
@@ -1271,16 +914,6 @@ func (o IPAccessControlResponseOutput) ToIPAccessControlResponseOutput() IPAcces
 
 func (o IPAccessControlResponseOutput) ToIPAccessControlResponseOutputWithContext(ctx context.Context) IPAccessControlResponseOutput {
 	return o
-}
-
-func (o IPAccessControlResponseOutput) ToIPAccessControlResponsePtrOutput() IPAccessControlResponsePtrOutput {
-	return o.ToIPAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (o IPAccessControlResponseOutput) ToIPAccessControlResponsePtrOutputWithContext(ctx context.Context) IPAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IPAccessControlResponse) *IPAccessControlResponse {
-		return &v
-	}).(IPAccessControlResponsePtrOutput)
 }
 
 func (o IPAccessControlResponseOutput) Allow() IPRangeResponseArrayOutput {
@@ -1430,60 +1063,6 @@ type IPRangeResponse struct {
 	Address            *string `pulumi:"address"`
 	Name               *string `pulumi:"name"`
 	SubnetPrefixLength *int    `pulumi:"subnetPrefixLength"`
-}
-
-
-
-
-
-type IPRangeResponseInput interface {
-	pulumi.Input
-
-	ToIPRangeResponseOutput() IPRangeResponseOutput
-	ToIPRangeResponseOutputWithContext(context.Context) IPRangeResponseOutput
-}
-
-type IPRangeResponseArgs struct {
-	Address            pulumi.StringPtrInput `pulumi:"address"`
-	Name               pulumi.StringPtrInput `pulumi:"name"`
-	SubnetPrefixLength pulumi.IntPtrInput    `pulumi:"subnetPrefixLength"`
-}
-
-func (IPRangeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IPRangeResponse)(nil)).Elem()
-}
-
-func (i IPRangeResponseArgs) ToIPRangeResponseOutput() IPRangeResponseOutput {
-	return i.ToIPRangeResponseOutputWithContext(context.Background())
-}
-
-func (i IPRangeResponseArgs) ToIPRangeResponseOutputWithContext(ctx context.Context) IPRangeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPRangeResponseOutput)
-}
-
-
-
-
-
-type IPRangeResponseArrayInput interface {
-	pulumi.Input
-
-	ToIPRangeResponseArrayOutput() IPRangeResponseArrayOutput
-	ToIPRangeResponseArrayOutputWithContext(context.Context) IPRangeResponseArrayOutput
-}
-
-type IPRangeResponseArray []IPRangeResponseInput
-
-func (IPRangeResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IPRangeResponse)(nil)).Elem()
-}
-
-func (i IPRangeResponseArray) ToIPRangeResponseArrayOutput() IPRangeResponseArrayOutput {
-	return i.ToIPRangeResponseArrayOutputWithContext(context.Background())
-}
-
-func (i IPRangeResponseArray) ToIPRangeResponseArrayOutputWithContext(ctx context.Context) IPRangeResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IPRangeResponseArrayOutput)
 }
 
 type IPRangeResponseOutput struct{ *pulumi.OutputState }
@@ -1685,75 +1264,6 @@ type LiveEventEncodingResponse struct {
 	PresetName   *string `pulumi:"presetName"`
 }
 
-
-
-
-
-type LiveEventEncodingResponseInput interface {
-	pulumi.Input
-
-	ToLiveEventEncodingResponseOutput() LiveEventEncodingResponseOutput
-	ToLiveEventEncodingResponseOutputWithContext(context.Context) LiveEventEncodingResponseOutput
-}
-
-type LiveEventEncodingResponseArgs struct {
-	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
-	PresetName   pulumi.StringPtrInput `pulumi:"presetName"`
-}
-
-func (LiveEventEncodingResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventEncodingResponse)(nil)).Elem()
-}
-
-func (i LiveEventEncodingResponseArgs) ToLiveEventEncodingResponseOutput() LiveEventEncodingResponseOutput {
-	return i.ToLiveEventEncodingResponseOutputWithContext(context.Background())
-}
-
-func (i LiveEventEncodingResponseArgs) ToLiveEventEncodingResponseOutputWithContext(ctx context.Context) LiveEventEncodingResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingResponseOutput)
-}
-
-func (i LiveEventEncodingResponseArgs) ToLiveEventEncodingResponsePtrOutput() LiveEventEncodingResponsePtrOutput {
-	return i.ToLiveEventEncodingResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LiveEventEncodingResponseArgs) ToLiveEventEncodingResponsePtrOutputWithContext(ctx context.Context) LiveEventEncodingResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingResponseOutput).ToLiveEventEncodingResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LiveEventEncodingResponsePtrInput interface {
-	pulumi.Input
-
-	ToLiveEventEncodingResponsePtrOutput() LiveEventEncodingResponsePtrOutput
-	ToLiveEventEncodingResponsePtrOutputWithContext(context.Context) LiveEventEncodingResponsePtrOutput
-}
-
-type liveEventEncodingResponsePtrType LiveEventEncodingResponseArgs
-
-func LiveEventEncodingResponsePtr(v *LiveEventEncodingResponseArgs) LiveEventEncodingResponsePtrInput {
-	return (*liveEventEncodingResponsePtrType)(v)
-}
-
-func (*liveEventEncodingResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventEncodingResponse)(nil)).Elem()
-}
-
-func (i *liveEventEncodingResponsePtrType) ToLiveEventEncodingResponsePtrOutput() LiveEventEncodingResponsePtrOutput {
-	return i.ToLiveEventEncodingResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *liveEventEncodingResponsePtrType) ToLiveEventEncodingResponsePtrOutputWithContext(ctx context.Context) LiveEventEncodingResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEncodingResponsePtrOutput)
-}
-
 type LiveEventEncodingResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEncodingResponseOutput) ElementType() reflect.Type {
@@ -1766,16 +1276,6 @@ func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponseOutput() Liv
 
 func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponseOutputWithContext(ctx context.Context) LiveEventEncodingResponseOutput {
 	return o
-}
-
-func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutput() LiveEventEncodingResponsePtrOutput {
-	return o.ToLiveEventEncodingResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventEncodingResponseOutput) ToLiveEventEncodingResponsePtrOutputWithContext(ctx context.Context) LiveEventEncodingResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventEncodingResponse) *LiveEventEncodingResponse {
-		return &v
-	}).(LiveEventEncodingResponsePtrOutput)
 }
 
 func (o LiveEventEncodingResponseOutput) EncodingType() pulumi.StringPtrOutput {
@@ -1933,59 +1433,6 @@ type LiveEventEndpointResponse struct {
 	Url      *string `pulumi:"url"`
 }
 
-
-
-
-
-type LiveEventEndpointResponseInput interface {
-	pulumi.Input
-
-	ToLiveEventEndpointResponseOutput() LiveEventEndpointResponseOutput
-	ToLiveEventEndpointResponseOutputWithContext(context.Context) LiveEventEndpointResponseOutput
-}
-
-type LiveEventEndpointResponseArgs struct {
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	Url      pulumi.StringPtrInput `pulumi:"url"`
-}
-
-func (LiveEventEndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventEndpointResponse)(nil)).Elem()
-}
-
-func (i LiveEventEndpointResponseArgs) ToLiveEventEndpointResponseOutput() LiveEventEndpointResponseOutput {
-	return i.ToLiveEventEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i LiveEventEndpointResponseArgs) ToLiveEventEndpointResponseOutputWithContext(ctx context.Context) LiveEventEndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointResponseOutput)
-}
-
-
-
-
-
-type LiveEventEndpointResponseArrayInput interface {
-	pulumi.Input
-
-	ToLiveEventEndpointResponseArrayOutput() LiveEventEndpointResponseArrayOutput
-	ToLiveEventEndpointResponseArrayOutputWithContext(context.Context) LiveEventEndpointResponseArrayOutput
-}
-
-type LiveEventEndpointResponseArray []LiveEventEndpointResponseInput
-
-func (LiveEventEndpointResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LiveEventEndpointResponse)(nil)).Elem()
-}
-
-func (i LiveEventEndpointResponseArray) ToLiveEventEndpointResponseArrayOutput() LiveEventEndpointResponseArrayOutput {
-	return i.ToLiveEventEndpointResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LiveEventEndpointResponseArray) ToLiveEventEndpointResponseArrayOutputWithContext(ctx context.Context) LiveEventEndpointResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventEndpointResponseArrayOutput)
-}
-
 type LiveEventEndpointResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventEndpointResponseOutput) ElementType() reflect.Type {
@@ -2067,47 +1514,6 @@ func (i LiveEventInputTypeArgs) ToLiveEventInputTypeOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypeOutput)
 }
 
-func (i LiveEventInputTypeArgs) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
-	return i.ToLiveEventInputTypePtrOutputWithContext(context.Background())
-}
-
-func (i LiveEventInputTypeArgs) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypeOutput).ToLiveEventInputTypePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LiveEventInputTypePtrInput interface {
-	pulumi.Input
-
-	ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput
-	ToLiveEventInputTypePtrOutputWithContext(context.Context) LiveEventInputTypePtrOutput
-}
-
-type liveEventInputTypePtrType LiveEventInputTypeArgs
-
-func LiveEventInputTypePtr(v *LiveEventInputTypeArgs) LiveEventInputTypePtrInput {
-	return (*liveEventInputTypePtrType)(v)
-}
-
-func (*liveEventInputTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventInputType)(nil)).Elem()
-}
-
-func (i *liveEventInputTypePtrType) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
-	return i.ToLiveEventInputTypePtrOutputWithContext(context.Background())
-}
-
-func (i *liveEventInputTypePtrType) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTypePtrOutput)
-}
-
 type LiveEventInputTypeOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputTypeOutput) ElementType() reflect.Type {
@@ -2120,16 +1526,6 @@ func (o LiveEventInputTypeOutput) ToLiveEventInputTypeOutput() LiveEventInputTyp
 
 func (o LiveEventInputTypeOutput) ToLiveEventInputTypeOutputWithContext(ctx context.Context) LiveEventInputTypeOutput {
 	return o
-}
-
-func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
-	return o.ToLiveEventInputTypePtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventInputTypeOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputType) *LiveEventInputType {
-		return &v
-	}).(LiveEventInputTypePtrOutput)
 }
 
 func (o LiveEventInputTypeOutput) AccessControl() LiveEventInputAccessControlPtrOutput {
@@ -2150,75 +1546,6 @@ func (o LiveEventInputTypeOutput) KeyFrameIntervalDuration() pulumi.StringPtrOut
 
 func (o LiveEventInputTypeOutput) StreamingProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LiveEventInputType) string { return v.StreamingProtocol }).(pulumi.StringOutput)
-}
-
-type LiveEventInputTypePtrOutput struct{ *pulumi.OutputState }
-
-func (LiveEventInputTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventInputType)(nil)).Elem()
-}
-
-func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutput() LiveEventInputTypePtrOutput {
-	return o
-}
-
-func (o LiveEventInputTypePtrOutput) ToLiveEventInputTypePtrOutputWithContext(ctx context.Context) LiveEventInputTypePtrOutput {
-	return o
-}
-
-func (o LiveEventInputTypePtrOutput) Elem() LiveEventInputTypeOutput {
-	return o.ApplyT(func(v *LiveEventInputType) LiveEventInputType {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventInputType
-		return ret
-	}).(LiveEventInputTypeOutput)
-}
-
-func (o LiveEventInputTypePtrOutput) AccessControl() LiveEventInputAccessControlPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputType) *LiveEventInputAccessControl {
-		if v == nil {
-			return nil
-		}
-		return v.AccessControl
-	}).(LiveEventInputAccessControlPtrOutput)
-}
-
-func (o LiveEventInputTypePtrOutput) AccessToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputType) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccessToken
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LiveEventInputTypePtrOutput) Endpoints() LiveEventEndpointArrayOutput {
-	return o.ApplyT(func(v *LiveEventInputType) []LiveEventEndpoint {
-		if v == nil {
-			return nil
-		}
-		return v.Endpoints
-	}).(LiveEventEndpointArrayOutput)
-}
-
-func (o LiveEventInputTypePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputType) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyFrameIntervalDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LiveEventInputTypePtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputType) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StreamingProtocol
-	}).(pulumi.StringPtrOutput)
 }
 
 type LiveEventInputAccessControl struct {
@@ -2358,74 +1685,6 @@ type LiveEventInputAccessControlResponse struct {
 	Ip *IPAccessControlResponse `pulumi:"ip"`
 }
 
-
-
-
-
-type LiveEventInputAccessControlResponseInput interface {
-	pulumi.Input
-
-	ToLiveEventInputAccessControlResponseOutput() LiveEventInputAccessControlResponseOutput
-	ToLiveEventInputAccessControlResponseOutputWithContext(context.Context) LiveEventInputAccessControlResponseOutput
-}
-
-type LiveEventInputAccessControlResponseArgs struct {
-	Ip IPAccessControlResponsePtrInput `pulumi:"ip"`
-}
-
-func (LiveEventInputAccessControlResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventInputAccessControlResponse)(nil)).Elem()
-}
-
-func (i LiveEventInputAccessControlResponseArgs) ToLiveEventInputAccessControlResponseOutput() LiveEventInputAccessControlResponseOutput {
-	return i.ToLiveEventInputAccessControlResponseOutputWithContext(context.Background())
-}
-
-func (i LiveEventInputAccessControlResponseArgs) ToLiveEventInputAccessControlResponseOutputWithContext(ctx context.Context) LiveEventInputAccessControlResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlResponseOutput)
-}
-
-func (i LiveEventInputAccessControlResponseArgs) ToLiveEventInputAccessControlResponsePtrOutput() LiveEventInputAccessControlResponsePtrOutput {
-	return i.ToLiveEventInputAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LiveEventInputAccessControlResponseArgs) ToLiveEventInputAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlResponseOutput).ToLiveEventInputAccessControlResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LiveEventInputAccessControlResponsePtrInput interface {
-	pulumi.Input
-
-	ToLiveEventInputAccessControlResponsePtrOutput() LiveEventInputAccessControlResponsePtrOutput
-	ToLiveEventInputAccessControlResponsePtrOutputWithContext(context.Context) LiveEventInputAccessControlResponsePtrOutput
-}
-
-type liveEventInputAccessControlResponsePtrType LiveEventInputAccessControlResponseArgs
-
-func LiveEventInputAccessControlResponsePtr(v *LiveEventInputAccessControlResponseArgs) LiveEventInputAccessControlResponsePtrInput {
-	return (*liveEventInputAccessControlResponsePtrType)(v)
-}
-
-func (*liveEventInputAccessControlResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventInputAccessControlResponse)(nil)).Elem()
-}
-
-func (i *liveEventInputAccessControlResponsePtrType) ToLiveEventInputAccessControlResponsePtrOutput() LiveEventInputAccessControlResponsePtrOutput {
-	return i.ToLiveEventInputAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *liveEventInputAccessControlResponsePtrType) ToLiveEventInputAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputAccessControlResponsePtrOutput)
-}
-
 type LiveEventInputAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputAccessControlResponseOutput) ElementType() reflect.Type {
@@ -2438,16 +1697,6 @@ func (o LiveEventInputAccessControlResponseOutput) ToLiveEventInputAccessControl
 
 func (o LiveEventInputAccessControlResponseOutput) ToLiveEventInputAccessControlResponseOutputWithContext(ctx context.Context) LiveEventInputAccessControlResponseOutput {
 	return o
-}
-
-func (o LiveEventInputAccessControlResponseOutput) ToLiveEventInputAccessControlResponsePtrOutput() LiveEventInputAccessControlResponsePtrOutput {
-	return o.ToLiveEventInputAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventInputAccessControlResponseOutput) ToLiveEventInputAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventInputAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputAccessControlResponse) *LiveEventInputAccessControlResponse {
-		return &v
-	}).(LiveEventInputAccessControlResponsePtrOutput)
 }
 
 func (o LiveEventInputAccessControlResponseOutput) Ip() IPAccessControlResponsePtrOutput {
@@ -2495,78 +1744,6 @@ type LiveEventInputResponse struct {
 	StreamingProtocol        string                               `pulumi:"streamingProtocol"`
 }
 
-
-
-
-
-type LiveEventInputResponseInput interface {
-	pulumi.Input
-
-	ToLiveEventInputResponseOutput() LiveEventInputResponseOutput
-	ToLiveEventInputResponseOutputWithContext(context.Context) LiveEventInputResponseOutput
-}
-
-type LiveEventInputResponseArgs struct {
-	AccessControl            LiveEventInputAccessControlResponsePtrInput `pulumi:"accessControl"`
-	AccessToken              pulumi.StringPtrInput                       `pulumi:"accessToken"`
-	Endpoints                LiveEventEndpointResponseArrayInput         `pulumi:"endpoints"`
-	KeyFrameIntervalDuration pulumi.StringPtrInput                       `pulumi:"keyFrameIntervalDuration"`
-	StreamingProtocol        pulumi.StringInput                          `pulumi:"streamingProtocol"`
-}
-
-func (LiveEventInputResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventInputResponse)(nil)).Elem()
-}
-
-func (i LiveEventInputResponseArgs) ToLiveEventInputResponseOutput() LiveEventInputResponseOutput {
-	return i.ToLiveEventInputResponseOutputWithContext(context.Background())
-}
-
-func (i LiveEventInputResponseArgs) ToLiveEventInputResponseOutputWithContext(ctx context.Context) LiveEventInputResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputResponseOutput)
-}
-
-func (i LiveEventInputResponseArgs) ToLiveEventInputResponsePtrOutput() LiveEventInputResponsePtrOutput {
-	return i.ToLiveEventInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LiveEventInputResponseArgs) ToLiveEventInputResponsePtrOutputWithContext(ctx context.Context) LiveEventInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputResponseOutput).ToLiveEventInputResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LiveEventInputResponsePtrInput interface {
-	pulumi.Input
-
-	ToLiveEventInputResponsePtrOutput() LiveEventInputResponsePtrOutput
-	ToLiveEventInputResponsePtrOutputWithContext(context.Context) LiveEventInputResponsePtrOutput
-}
-
-type liveEventInputResponsePtrType LiveEventInputResponseArgs
-
-func LiveEventInputResponsePtr(v *LiveEventInputResponseArgs) LiveEventInputResponsePtrInput {
-	return (*liveEventInputResponsePtrType)(v)
-}
-
-func (*liveEventInputResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventInputResponse)(nil)).Elem()
-}
-
-func (i *liveEventInputResponsePtrType) ToLiveEventInputResponsePtrOutput() LiveEventInputResponsePtrOutput {
-	return i.ToLiveEventInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *liveEventInputResponsePtrType) ToLiveEventInputResponsePtrOutputWithContext(ctx context.Context) LiveEventInputResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputResponsePtrOutput)
-}
-
 type LiveEventInputResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventInputResponseOutput) ElementType() reflect.Type {
@@ -2579,16 +1756,6 @@ func (o LiveEventInputResponseOutput) ToLiveEventInputResponseOutput() LiveEvent
 
 func (o LiveEventInputResponseOutput) ToLiveEventInputResponseOutputWithContext(ctx context.Context) LiveEventInputResponseOutput {
 	return o
-}
-
-func (o LiveEventInputResponseOutput) ToLiveEventInputResponsePtrOutput() LiveEventInputResponsePtrOutput {
-	return o.ToLiveEventInputResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventInputResponseOutput) ToLiveEventInputResponsePtrOutputWithContext(ctx context.Context) LiveEventInputResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventInputResponse) *LiveEventInputResponse {
-		return &v
-	}).(LiveEventInputResponsePtrOutput)
 }
 
 func (o LiveEventInputResponseOutput) AccessControl() LiveEventInputAccessControlResponsePtrOutput {
@@ -2609,75 +1776,6 @@ func (o LiveEventInputResponseOutput) KeyFrameIntervalDuration() pulumi.StringPt
 
 func (o LiveEventInputResponseOutput) StreamingProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LiveEventInputResponse) string { return v.StreamingProtocol }).(pulumi.StringOutput)
-}
-
-type LiveEventInputResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (LiveEventInputResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventInputResponse)(nil)).Elem()
-}
-
-func (o LiveEventInputResponsePtrOutput) ToLiveEventInputResponsePtrOutput() LiveEventInputResponsePtrOutput {
-	return o
-}
-
-func (o LiveEventInputResponsePtrOutput) ToLiveEventInputResponsePtrOutputWithContext(ctx context.Context) LiveEventInputResponsePtrOutput {
-	return o
-}
-
-func (o LiveEventInputResponsePtrOutput) Elem() LiveEventInputResponseOutput {
-	return o.ApplyT(func(v *LiveEventInputResponse) LiveEventInputResponse {
-		if v != nil {
-			return *v
-		}
-		var ret LiveEventInputResponse
-		return ret
-	}).(LiveEventInputResponseOutput)
-}
-
-func (o LiveEventInputResponsePtrOutput) AccessControl() LiveEventInputAccessControlResponsePtrOutput {
-	return o.ApplyT(func(v *LiveEventInputResponse) *LiveEventInputAccessControlResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AccessControl
-	}).(LiveEventInputAccessControlResponsePtrOutput)
-}
-
-func (o LiveEventInputResponsePtrOutput) AccessToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccessToken
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LiveEventInputResponsePtrOutput) Endpoints() LiveEventEndpointResponseArrayOutput {
-	return o.ApplyT(func(v *LiveEventInputResponse) []LiveEventEndpointResponse {
-		if v == nil {
-			return nil
-		}
-		return v.Endpoints
-	}).(LiveEventEndpointResponseArrayOutput)
-}
-
-func (o LiveEventInputResponsePtrOutput) KeyFrameIntervalDuration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyFrameIntervalDuration
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LiveEventInputResponsePtrOutput) StreamingProtocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LiveEventInputResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StreamingProtocol
-	}).(pulumi.StringPtrOutput)
 }
 
 type LiveEventInputTrackSelection struct {
@@ -2790,60 +1888,6 @@ type LiveEventInputTrackSelectionResponse struct {
 	Operation *string `pulumi:"operation"`
 	Property  *string `pulumi:"property"`
 	Value     *string `pulumi:"value"`
-}
-
-
-
-
-
-type LiveEventInputTrackSelectionResponseInput interface {
-	pulumi.Input
-
-	ToLiveEventInputTrackSelectionResponseOutput() LiveEventInputTrackSelectionResponseOutput
-	ToLiveEventInputTrackSelectionResponseOutputWithContext(context.Context) LiveEventInputTrackSelectionResponseOutput
-}
-
-type LiveEventInputTrackSelectionResponseArgs struct {
-	Operation pulumi.StringPtrInput `pulumi:"operation"`
-	Property  pulumi.StringPtrInput `pulumi:"property"`
-	Value     pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (LiveEventInputTrackSelectionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventInputTrackSelectionResponse)(nil)).Elem()
-}
-
-func (i LiveEventInputTrackSelectionResponseArgs) ToLiveEventInputTrackSelectionResponseOutput() LiveEventInputTrackSelectionResponseOutput {
-	return i.ToLiveEventInputTrackSelectionResponseOutputWithContext(context.Background())
-}
-
-func (i LiveEventInputTrackSelectionResponseArgs) ToLiveEventInputTrackSelectionResponseOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTrackSelectionResponseOutput)
-}
-
-
-
-
-
-type LiveEventInputTrackSelectionResponseArrayInput interface {
-	pulumi.Input
-
-	ToLiveEventInputTrackSelectionResponseArrayOutput() LiveEventInputTrackSelectionResponseArrayOutput
-	ToLiveEventInputTrackSelectionResponseArrayOutputWithContext(context.Context) LiveEventInputTrackSelectionResponseArrayOutput
-}
-
-type LiveEventInputTrackSelectionResponseArray []LiveEventInputTrackSelectionResponseInput
-
-func (LiveEventInputTrackSelectionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LiveEventInputTrackSelectionResponse)(nil)).Elem()
-}
-
-func (i LiveEventInputTrackSelectionResponseArray) ToLiveEventInputTrackSelectionResponseArrayOutput() LiveEventInputTrackSelectionResponseArrayOutput {
-	return i.ToLiveEventInputTrackSelectionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LiveEventInputTrackSelectionResponseArray) ToLiveEventInputTrackSelectionResponseArrayOutputWithContext(ctx context.Context) LiveEventInputTrackSelectionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventInputTrackSelectionResponseArrayOutput)
 }
 
 type LiveEventInputTrackSelectionResponseOutput struct{ *pulumi.OutputState }
@@ -3029,74 +2073,6 @@ type LiveEventOutputTranscriptionTrackResponse struct {
 	TrackName string `pulumi:"trackName"`
 }
 
-
-
-
-
-type LiveEventOutputTranscriptionTrackResponseInput interface {
-	pulumi.Input
-
-	ToLiveEventOutputTranscriptionTrackResponseOutput() LiveEventOutputTranscriptionTrackResponseOutput
-	ToLiveEventOutputTranscriptionTrackResponseOutputWithContext(context.Context) LiveEventOutputTranscriptionTrackResponseOutput
-}
-
-type LiveEventOutputTranscriptionTrackResponseArgs struct {
-	TrackName pulumi.StringInput `pulumi:"trackName"`
-}
-
-func (LiveEventOutputTranscriptionTrackResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventOutputTranscriptionTrackResponse)(nil)).Elem()
-}
-
-func (i LiveEventOutputTranscriptionTrackResponseArgs) ToLiveEventOutputTranscriptionTrackResponseOutput() LiveEventOutputTranscriptionTrackResponseOutput {
-	return i.ToLiveEventOutputTranscriptionTrackResponseOutputWithContext(context.Background())
-}
-
-func (i LiveEventOutputTranscriptionTrackResponseArgs) ToLiveEventOutputTranscriptionTrackResponseOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackResponseOutput)
-}
-
-func (i LiveEventOutputTranscriptionTrackResponseArgs) ToLiveEventOutputTranscriptionTrackResponsePtrOutput() LiveEventOutputTranscriptionTrackResponsePtrOutput {
-	return i.ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LiveEventOutputTranscriptionTrackResponseArgs) ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackResponseOutput).ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LiveEventOutputTranscriptionTrackResponsePtrInput interface {
-	pulumi.Input
-
-	ToLiveEventOutputTranscriptionTrackResponsePtrOutput() LiveEventOutputTranscriptionTrackResponsePtrOutput
-	ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput
-}
-
-type liveEventOutputTranscriptionTrackResponsePtrType LiveEventOutputTranscriptionTrackResponseArgs
-
-func LiveEventOutputTranscriptionTrackResponsePtr(v *LiveEventOutputTranscriptionTrackResponseArgs) LiveEventOutputTranscriptionTrackResponsePtrInput {
-	return (*liveEventOutputTranscriptionTrackResponsePtrType)(v)
-}
-
-func (*liveEventOutputTranscriptionTrackResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventOutputTranscriptionTrackResponse)(nil)).Elem()
-}
-
-func (i *liveEventOutputTranscriptionTrackResponsePtrType) ToLiveEventOutputTranscriptionTrackResponsePtrOutput() LiveEventOutputTranscriptionTrackResponsePtrOutput {
-	return i.ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *liveEventOutputTranscriptionTrackResponsePtrType) ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventOutputTranscriptionTrackResponsePtrOutput)
-}
-
 type LiveEventOutputTranscriptionTrackResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventOutputTranscriptionTrackResponseOutput) ElementType() reflect.Type {
@@ -3109,16 +2085,6 @@ func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTransc
 
 func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTranscriptionTrackResponseOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponseOutput {
 	return o
-}
-
-func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTranscriptionTrackResponsePtrOutput() LiveEventOutputTranscriptionTrackResponsePtrOutput {
-	return o.ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventOutputTranscriptionTrackResponseOutput) ToLiveEventOutputTranscriptionTrackResponsePtrOutputWithContext(ctx context.Context) LiveEventOutputTranscriptionTrackResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventOutputTranscriptionTrackResponse) *LiveEventOutputTranscriptionTrackResponse {
-		return &v
-	}).(LiveEventOutputTranscriptionTrackResponsePtrOutput)
 }
 
 func (o LiveEventOutputTranscriptionTrackResponseOutput) TrackName() pulumi.StringOutput {
@@ -3488,74 +2454,6 @@ type LiveEventPreviewAccessControlResponse struct {
 	Ip *IPAccessControlResponse `pulumi:"ip"`
 }
 
-
-
-
-
-type LiveEventPreviewAccessControlResponseInput interface {
-	pulumi.Input
-
-	ToLiveEventPreviewAccessControlResponseOutput() LiveEventPreviewAccessControlResponseOutput
-	ToLiveEventPreviewAccessControlResponseOutputWithContext(context.Context) LiveEventPreviewAccessControlResponseOutput
-}
-
-type LiveEventPreviewAccessControlResponseArgs struct {
-	Ip IPAccessControlResponsePtrInput `pulumi:"ip"`
-}
-
-func (LiveEventPreviewAccessControlResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventPreviewAccessControlResponse)(nil)).Elem()
-}
-
-func (i LiveEventPreviewAccessControlResponseArgs) ToLiveEventPreviewAccessControlResponseOutput() LiveEventPreviewAccessControlResponseOutput {
-	return i.ToLiveEventPreviewAccessControlResponseOutputWithContext(context.Background())
-}
-
-func (i LiveEventPreviewAccessControlResponseArgs) ToLiveEventPreviewAccessControlResponseOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlResponseOutput)
-}
-
-func (i LiveEventPreviewAccessControlResponseArgs) ToLiveEventPreviewAccessControlResponsePtrOutput() LiveEventPreviewAccessControlResponsePtrOutput {
-	return i.ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LiveEventPreviewAccessControlResponseArgs) ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlResponseOutput).ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LiveEventPreviewAccessControlResponsePtrInput interface {
-	pulumi.Input
-
-	ToLiveEventPreviewAccessControlResponsePtrOutput() LiveEventPreviewAccessControlResponsePtrOutput
-	ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(context.Context) LiveEventPreviewAccessControlResponsePtrOutput
-}
-
-type liveEventPreviewAccessControlResponsePtrType LiveEventPreviewAccessControlResponseArgs
-
-func LiveEventPreviewAccessControlResponsePtr(v *LiveEventPreviewAccessControlResponseArgs) LiveEventPreviewAccessControlResponsePtrInput {
-	return (*liveEventPreviewAccessControlResponsePtrType)(v)
-}
-
-func (*liveEventPreviewAccessControlResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventPreviewAccessControlResponse)(nil)).Elem()
-}
-
-func (i *liveEventPreviewAccessControlResponsePtrType) ToLiveEventPreviewAccessControlResponsePtrOutput() LiveEventPreviewAccessControlResponsePtrOutput {
-	return i.ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *liveEventPreviewAccessControlResponsePtrType) ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewAccessControlResponsePtrOutput)
-}
-
 type LiveEventPreviewAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewAccessControlResponseOutput) ElementType() reflect.Type {
@@ -3568,16 +2466,6 @@ func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessCon
 
 func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessControlResponseOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlResponseOutput {
 	return o
-}
-
-func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessControlResponsePtrOutput() LiveEventPreviewAccessControlResponsePtrOutput {
-	return o.ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventPreviewAccessControlResponseOutput) ToLiveEventPreviewAccessControlResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewAccessControlResponse) *LiveEventPreviewAccessControlResponse {
-		return &v
-	}).(LiveEventPreviewAccessControlResponsePtrOutput)
 }
 
 func (o LiveEventPreviewAccessControlResponseOutput) Ip() IPAccessControlResponsePtrOutput {
@@ -3625,78 +2513,6 @@ type LiveEventPreviewResponse struct {
 	StreamingPolicyName *string                                `pulumi:"streamingPolicyName"`
 }
 
-
-
-
-
-type LiveEventPreviewResponseInput interface {
-	pulumi.Input
-
-	ToLiveEventPreviewResponseOutput() LiveEventPreviewResponseOutput
-	ToLiveEventPreviewResponseOutputWithContext(context.Context) LiveEventPreviewResponseOutput
-}
-
-type LiveEventPreviewResponseArgs struct {
-	AccessControl       LiveEventPreviewAccessControlResponsePtrInput `pulumi:"accessControl"`
-	AlternativeMediaId  pulumi.StringPtrInput                         `pulumi:"alternativeMediaId"`
-	Endpoints           LiveEventEndpointResponseArrayInput           `pulumi:"endpoints"`
-	PreviewLocator      pulumi.StringPtrInput                         `pulumi:"previewLocator"`
-	StreamingPolicyName pulumi.StringPtrInput                         `pulumi:"streamingPolicyName"`
-}
-
-func (LiveEventPreviewResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventPreviewResponse)(nil)).Elem()
-}
-
-func (i LiveEventPreviewResponseArgs) ToLiveEventPreviewResponseOutput() LiveEventPreviewResponseOutput {
-	return i.ToLiveEventPreviewResponseOutputWithContext(context.Background())
-}
-
-func (i LiveEventPreviewResponseArgs) ToLiveEventPreviewResponseOutputWithContext(ctx context.Context) LiveEventPreviewResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewResponseOutput)
-}
-
-func (i LiveEventPreviewResponseArgs) ToLiveEventPreviewResponsePtrOutput() LiveEventPreviewResponsePtrOutput {
-	return i.ToLiveEventPreviewResponsePtrOutputWithContext(context.Background())
-}
-
-func (i LiveEventPreviewResponseArgs) ToLiveEventPreviewResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewResponseOutput).ToLiveEventPreviewResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type LiveEventPreviewResponsePtrInput interface {
-	pulumi.Input
-
-	ToLiveEventPreviewResponsePtrOutput() LiveEventPreviewResponsePtrOutput
-	ToLiveEventPreviewResponsePtrOutputWithContext(context.Context) LiveEventPreviewResponsePtrOutput
-}
-
-type liveEventPreviewResponsePtrType LiveEventPreviewResponseArgs
-
-func LiveEventPreviewResponsePtr(v *LiveEventPreviewResponseArgs) LiveEventPreviewResponsePtrInput {
-	return (*liveEventPreviewResponsePtrType)(v)
-}
-
-func (*liveEventPreviewResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LiveEventPreviewResponse)(nil)).Elem()
-}
-
-func (i *liveEventPreviewResponsePtrType) ToLiveEventPreviewResponsePtrOutput() LiveEventPreviewResponsePtrOutput {
-	return i.ToLiveEventPreviewResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *liveEventPreviewResponsePtrType) ToLiveEventPreviewResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventPreviewResponsePtrOutput)
-}
-
 type LiveEventPreviewResponseOutput struct{ *pulumi.OutputState }
 
 func (LiveEventPreviewResponseOutput) ElementType() reflect.Type {
@@ -3709,16 +2525,6 @@ func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponseOutput() LiveE
 
 func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponseOutputWithContext(ctx context.Context) LiveEventPreviewResponseOutput {
 	return o
-}
-
-func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponsePtrOutput() LiveEventPreviewResponsePtrOutput {
-	return o.ToLiveEventPreviewResponsePtrOutputWithContext(context.Background())
-}
-
-func (o LiveEventPreviewResponseOutput) ToLiveEventPreviewResponsePtrOutputWithContext(ctx context.Context) LiveEventPreviewResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LiveEventPreviewResponse) *LiveEventPreviewResponse {
-		return &v
-	}).(LiveEventPreviewResponsePtrOutput)
 }
 
 func (o LiveEventPreviewResponseOutput) AccessControl() LiveEventPreviewAccessControlResponsePtrOutput {
@@ -3920,60 +2726,6 @@ type LiveEventTranscriptionResponse struct {
 	InputTrackSelection      []LiveEventInputTrackSelectionResponse     `pulumi:"inputTrackSelection"`
 	Language                 *string                                    `pulumi:"language"`
 	OutputTranscriptionTrack *LiveEventOutputTranscriptionTrackResponse `pulumi:"outputTranscriptionTrack"`
-}
-
-
-
-
-
-type LiveEventTranscriptionResponseInput interface {
-	pulumi.Input
-
-	ToLiveEventTranscriptionResponseOutput() LiveEventTranscriptionResponseOutput
-	ToLiveEventTranscriptionResponseOutputWithContext(context.Context) LiveEventTranscriptionResponseOutput
-}
-
-type LiveEventTranscriptionResponseArgs struct {
-	InputTrackSelection      LiveEventInputTrackSelectionResponseArrayInput    `pulumi:"inputTrackSelection"`
-	Language                 pulumi.StringPtrInput                             `pulumi:"language"`
-	OutputTranscriptionTrack LiveEventOutputTranscriptionTrackResponsePtrInput `pulumi:"outputTranscriptionTrack"`
-}
-
-func (LiveEventTranscriptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LiveEventTranscriptionResponse)(nil)).Elem()
-}
-
-func (i LiveEventTranscriptionResponseArgs) ToLiveEventTranscriptionResponseOutput() LiveEventTranscriptionResponseOutput {
-	return i.ToLiveEventTranscriptionResponseOutputWithContext(context.Background())
-}
-
-func (i LiveEventTranscriptionResponseArgs) ToLiveEventTranscriptionResponseOutputWithContext(ctx context.Context) LiveEventTranscriptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTranscriptionResponseOutput)
-}
-
-
-
-
-
-type LiveEventTranscriptionResponseArrayInput interface {
-	pulumi.Input
-
-	ToLiveEventTranscriptionResponseArrayOutput() LiveEventTranscriptionResponseArrayOutput
-	ToLiveEventTranscriptionResponseArrayOutputWithContext(context.Context) LiveEventTranscriptionResponseArrayOutput
-}
-
-type LiveEventTranscriptionResponseArray []LiveEventTranscriptionResponseInput
-
-func (LiveEventTranscriptionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LiveEventTranscriptionResponse)(nil)).Elem()
-}
-
-func (i LiveEventTranscriptionResponseArray) ToLiveEventTranscriptionResponseArrayOutput() LiveEventTranscriptionResponseArrayOutput {
-	return i.ToLiveEventTranscriptionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LiveEventTranscriptionResponseArray) ToLiveEventTranscriptionResponseArrayOutputWithContext(ctx context.Context) LiveEventTranscriptionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LiveEventTranscriptionResponseArrayOutput)
 }
 
 type LiveEventTranscriptionResponseOutput struct{ *pulumi.OutputState }
@@ -4179,75 +2931,6 @@ type StreamingEndpointAccessControlResponse struct {
 	Ip     *IPAccessControlResponse     `pulumi:"ip"`
 }
 
-
-
-
-
-type StreamingEndpointAccessControlResponseInput interface {
-	pulumi.Input
-
-	ToStreamingEndpointAccessControlResponseOutput() StreamingEndpointAccessControlResponseOutput
-	ToStreamingEndpointAccessControlResponseOutputWithContext(context.Context) StreamingEndpointAccessControlResponseOutput
-}
-
-type StreamingEndpointAccessControlResponseArgs struct {
-	Akamai AkamaiAccessControlResponsePtrInput `pulumi:"akamai"`
-	Ip     IPAccessControlResponsePtrInput     `pulumi:"ip"`
-}
-
-func (StreamingEndpointAccessControlResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingEndpointAccessControlResponse)(nil)).Elem()
-}
-
-func (i StreamingEndpointAccessControlResponseArgs) ToStreamingEndpointAccessControlResponseOutput() StreamingEndpointAccessControlResponseOutput {
-	return i.ToStreamingEndpointAccessControlResponseOutputWithContext(context.Background())
-}
-
-func (i StreamingEndpointAccessControlResponseArgs) ToStreamingEndpointAccessControlResponseOutputWithContext(ctx context.Context) StreamingEndpointAccessControlResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlResponseOutput)
-}
-
-func (i StreamingEndpointAccessControlResponseArgs) ToStreamingEndpointAccessControlResponsePtrOutput() StreamingEndpointAccessControlResponsePtrOutput {
-	return i.ToStreamingEndpointAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i StreamingEndpointAccessControlResponseArgs) ToStreamingEndpointAccessControlResponsePtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlResponseOutput).ToStreamingEndpointAccessControlResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type StreamingEndpointAccessControlResponsePtrInput interface {
-	pulumi.Input
-
-	ToStreamingEndpointAccessControlResponsePtrOutput() StreamingEndpointAccessControlResponsePtrOutput
-	ToStreamingEndpointAccessControlResponsePtrOutputWithContext(context.Context) StreamingEndpointAccessControlResponsePtrOutput
-}
-
-type streamingEndpointAccessControlResponsePtrType StreamingEndpointAccessControlResponseArgs
-
-func StreamingEndpointAccessControlResponsePtr(v *StreamingEndpointAccessControlResponseArgs) StreamingEndpointAccessControlResponsePtrInput {
-	return (*streamingEndpointAccessControlResponsePtrType)(v)
-}
-
-func (*streamingEndpointAccessControlResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StreamingEndpointAccessControlResponse)(nil)).Elem()
-}
-
-func (i *streamingEndpointAccessControlResponsePtrType) ToStreamingEndpointAccessControlResponsePtrOutput() StreamingEndpointAccessControlResponsePtrOutput {
-	return i.ToStreamingEndpointAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *streamingEndpointAccessControlResponsePtrType) ToStreamingEndpointAccessControlResponsePtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingEndpointAccessControlResponsePtrOutput)
-}
-
 type StreamingEndpointAccessControlResponseOutput struct{ *pulumi.OutputState }
 
 func (StreamingEndpointAccessControlResponseOutput) ElementType() reflect.Type {
@@ -4260,16 +2943,6 @@ func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessC
 
 func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessControlResponseOutputWithContext(ctx context.Context) StreamingEndpointAccessControlResponseOutput {
 	return o
-}
-
-func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessControlResponsePtrOutput() StreamingEndpointAccessControlResponsePtrOutput {
-	return o.ToStreamingEndpointAccessControlResponsePtrOutputWithContext(context.Background())
-}
-
-func (o StreamingEndpointAccessControlResponseOutput) ToStreamingEndpointAccessControlResponsePtrOutputWithContext(ctx context.Context) StreamingEndpointAccessControlResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingEndpointAccessControlResponse) *StreamingEndpointAccessControlResponse {
-		return &v
-	}).(StreamingEndpointAccessControlResponsePtrOutput)
 }
 
 func (o StreamingEndpointAccessControlResponseOutput) Akamai() AkamaiAccessControlResponsePtrOutput {
@@ -4356,13 +3029,11 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventEndpointResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventEndpointResponseArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventInputTypeOutput{})
-	pulumi.RegisterOutputType(LiveEventInputTypePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventInputAccessControlResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputResponseOutput{})
-	pulumi.RegisterOutputType(LiveEventInputResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventInputTrackSelectionOutput{})
 	pulumi.RegisterOutputType(LiveEventInputTrackSelectionArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventInputTrackSelectionResponseOutput{})

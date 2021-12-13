@@ -133,7 +133,7 @@ type ProximityPlacementGroupInput interface {
 }
 
 func (*ProximityPlacementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProximityPlacementGroup)(nil))
+	return reflect.TypeOf((**ProximityPlacementGroup)(nil)).Elem()
 }
 
 func (i *ProximityPlacementGroup) ToProximityPlacementGroupOutput() ProximityPlacementGroupOutput {
@@ -147,7 +147,7 @@ func (i *ProximityPlacementGroup) ToProximityPlacementGroupOutputWithContext(ctx
 type ProximityPlacementGroupOutput struct{ *pulumi.OutputState }
 
 func (ProximityPlacementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProximityPlacementGroup)(nil))
+	return reflect.TypeOf((**ProximityPlacementGroup)(nil)).Elem()
 }
 
 func (o ProximityPlacementGroupOutput) ToProximityPlacementGroupOutput() ProximityPlacementGroupOutput {

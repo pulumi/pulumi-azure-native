@@ -13,7 +13,7 @@ func LookupContainerApp(ctx *pulumi.Context, args *LookupContainerAppArgs, opts 
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupContainerAppArgs struct {
@@ -35,4 +35,15 @@ type LookupContainerAppResult struct {
 	Tags               map[string]string      `pulumi:"tags"`
 	Template           *TemplateResponse      `pulumi:"template"`
 	Type               string                 `pulumi:"type"`
+}
+
+
+func (val *LookupContainerAppResult) Defaults() *LookupContainerAppResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Configuration = tmp.Configuration.Defaults()
+
+	return &tmp
 }

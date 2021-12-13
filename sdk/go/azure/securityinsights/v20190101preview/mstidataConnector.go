@@ -129,7 +129,7 @@ type MSTIDataConnectorInput interface {
 }
 
 func (*MSTIDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*MSTIDataConnector)(nil))
+	return reflect.TypeOf((**MSTIDataConnector)(nil)).Elem()
 }
 
 func (i *MSTIDataConnector) ToMSTIDataConnectorOutput() MSTIDataConnectorOutput {
@@ -143,7 +143,7 @@ func (i *MSTIDataConnector) ToMSTIDataConnectorOutputWithContext(ctx context.Con
 type MSTIDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (MSTIDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MSTIDataConnector)(nil))
+	return reflect.TypeOf((**MSTIDataConnector)(nil)).Elem()
 }
 
 func (o MSTIDataConnectorOutput) ToMSTIDataConnectorOutput() MSTIDataConnectorOutput {

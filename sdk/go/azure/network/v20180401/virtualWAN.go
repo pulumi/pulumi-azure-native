@@ -175,7 +175,7 @@ type VirtualWANInput interface {
 }
 
 func (*VirtualWAN) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualWAN)(nil))
+	return reflect.TypeOf((**VirtualWAN)(nil)).Elem()
 }
 
 func (i *VirtualWAN) ToVirtualWANOutput() VirtualWANOutput {
@@ -189,7 +189,7 @@ func (i *VirtualWAN) ToVirtualWANOutputWithContext(ctx context.Context) VirtualW
 type VirtualWANOutput struct{ *pulumi.OutputState }
 
 func (VirtualWANOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualWAN)(nil))
+	return reflect.TypeOf((**VirtualWAN)(nil)).Elem()
 }
 
 func (o VirtualWANOutput) ToVirtualWANOutput() VirtualWANOutput {

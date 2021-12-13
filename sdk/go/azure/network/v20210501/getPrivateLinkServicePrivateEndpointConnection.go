@@ -13,7 +13,7 @@ func LookupPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context, args
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPrivateLinkServicePrivateEndpointConnectionArgs struct {
@@ -33,4 +33,15 @@ type LookupPrivateLinkServicePrivateEndpointConnectionResult struct {
 	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
 	ProvisioningState                 string                                     `pulumi:"provisioningState"`
 	Type                              string                                     `pulumi:"type"`
+}
+
+
+func (val *LookupPrivateLinkServicePrivateEndpointConnectionResult) Defaults() *LookupPrivateLinkServicePrivateEndpointConnectionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.PrivateEndpoint = *tmp.PrivateEndpoint.Defaults()
+
+	return &tmp
 }

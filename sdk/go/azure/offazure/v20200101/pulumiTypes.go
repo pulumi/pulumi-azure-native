@@ -166,78 +166,6 @@ type SiteAgentPropertiesResponse struct {
 	Version          string  `pulumi:"version"`
 }
 
-
-
-
-
-type SiteAgentPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSiteAgentPropertiesResponseOutput() SiteAgentPropertiesResponseOutput
-	ToSiteAgentPropertiesResponseOutputWithContext(context.Context) SiteAgentPropertiesResponseOutput
-}
-
-type SiteAgentPropertiesResponseArgs struct {
-	Id               pulumi.StringInput    `pulumi:"id"`
-	KeyVaultId       pulumi.StringPtrInput `pulumi:"keyVaultId"`
-	KeyVaultUri      pulumi.StringPtrInput `pulumi:"keyVaultUri"`
-	LastHeartBeatUtc pulumi.StringInput    `pulumi:"lastHeartBeatUtc"`
-	Version          pulumi.StringInput    `pulumi:"version"`
-}
-
-func (SiteAgentPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteAgentPropertiesResponse)(nil)).Elem()
-}
-
-func (i SiteAgentPropertiesResponseArgs) ToSiteAgentPropertiesResponseOutput() SiteAgentPropertiesResponseOutput {
-	return i.ToSiteAgentPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SiteAgentPropertiesResponseArgs) ToSiteAgentPropertiesResponseOutputWithContext(ctx context.Context) SiteAgentPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteAgentPropertiesResponseOutput)
-}
-
-func (i SiteAgentPropertiesResponseArgs) ToSiteAgentPropertiesResponsePtrOutput() SiteAgentPropertiesResponsePtrOutput {
-	return i.ToSiteAgentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SiteAgentPropertiesResponseArgs) ToSiteAgentPropertiesResponsePtrOutputWithContext(ctx context.Context) SiteAgentPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteAgentPropertiesResponseOutput).ToSiteAgentPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SiteAgentPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSiteAgentPropertiesResponsePtrOutput() SiteAgentPropertiesResponsePtrOutput
-	ToSiteAgentPropertiesResponsePtrOutputWithContext(context.Context) SiteAgentPropertiesResponsePtrOutput
-}
-
-type siteAgentPropertiesResponsePtrType SiteAgentPropertiesResponseArgs
-
-func SiteAgentPropertiesResponsePtr(v *SiteAgentPropertiesResponseArgs) SiteAgentPropertiesResponsePtrInput {
-	return (*siteAgentPropertiesResponsePtrType)(v)
-}
-
-func (*siteAgentPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteAgentPropertiesResponse)(nil)).Elem()
-}
-
-func (i *siteAgentPropertiesResponsePtrType) ToSiteAgentPropertiesResponsePtrOutput() SiteAgentPropertiesResponsePtrOutput {
-	return i.ToSiteAgentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *siteAgentPropertiesResponsePtrType) ToSiteAgentPropertiesResponsePtrOutputWithContext(ctx context.Context) SiteAgentPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteAgentPropertiesResponsePtrOutput)
-}
-
 type SiteAgentPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SiteAgentPropertiesResponseOutput) ElementType() reflect.Type {
@@ -250,16 +178,6 @@ func (o SiteAgentPropertiesResponseOutput) ToSiteAgentPropertiesResponseOutput()
 
 func (o SiteAgentPropertiesResponseOutput) ToSiteAgentPropertiesResponseOutputWithContext(ctx context.Context) SiteAgentPropertiesResponseOutput {
 	return o
-}
-
-func (o SiteAgentPropertiesResponseOutput) ToSiteAgentPropertiesResponsePtrOutput() SiteAgentPropertiesResponsePtrOutput {
-	return o.ToSiteAgentPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SiteAgentPropertiesResponseOutput) ToSiteAgentPropertiesResponsePtrOutputWithContext(ctx context.Context) SiteAgentPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteAgentPropertiesResponse) *SiteAgentPropertiesResponse {
-		return &v
-	}).(SiteAgentPropertiesResponsePtrOutput)
 }
 
 func (o SiteAgentPropertiesResponseOutput) Id() pulumi.StringOutput {
@@ -537,78 +455,6 @@ type SitePropertiesResponse struct {
 	ServicePrincipalIdentityDetails *SiteSpnPropertiesResponse   `pulumi:"servicePrincipalIdentityDetails"`
 }
 
-
-
-
-
-type SitePropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSitePropertiesResponseOutput() SitePropertiesResponseOutput
-	ToSitePropertiesResponseOutputWithContext(context.Context) SitePropertiesResponseOutput
-}
-
-type SitePropertiesResponseArgs struct {
-	AgentDetails                    SiteAgentPropertiesResponsePtrInput `pulumi:"agentDetails"`
-	ApplianceName                   pulumi.StringPtrInput               `pulumi:"applianceName"`
-	DiscoverySolutionId             pulumi.StringPtrInput               `pulumi:"discoverySolutionId"`
-	ServiceEndpoint                 pulumi.StringInput                  `pulumi:"serviceEndpoint"`
-	ServicePrincipalIdentityDetails SiteSpnPropertiesResponsePtrInput   `pulumi:"servicePrincipalIdentityDetails"`
-}
-
-func (SitePropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SitePropertiesResponse)(nil)).Elem()
-}
-
-func (i SitePropertiesResponseArgs) ToSitePropertiesResponseOutput() SitePropertiesResponseOutput {
-	return i.ToSitePropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SitePropertiesResponseArgs) ToSitePropertiesResponseOutputWithContext(ctx context.Context) SitePropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesResponseOutput)
-}
-
-func (i SitePropertiesResponseArgs) ToSitePropertiesResponsePtrOutput() SitePropertiesResponsePtrOutput {
-	return i.ToSitePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SitePropertiesResponseArgs) ToSitePropertiesResponsePtrOutputWithContext(ctx context.Context) SitePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesResponseOutput).ToSitePropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SitePropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSitePropertiesResponsePtrOutput() SitePropertiesResponsePtrOutput
-	ToSitePropertiesResponsePtrOutputWithContext(context.Context) SitePropertiesResponsePtrOutput
-}
-
-type sitePropertiesResponsePtrType SitePropertiesResponseArgs
-
-func SitePropertiesResponsePtr(v *SitePropertiesResponseArgs) SitePropertiesResponsePtrInput {
-	return (*sitePropertiesResponsePtrType)(v)
-}
-
-func (*sitePropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SitePropertiesResponse)(nil)).Elem()
-}
-
-func (i *sitePropertiesResponsePtrType) ToSitePropertiesResponsePtrOutput() SitePropertiesResponsePtrOutput {
-	return i.ToSitePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sitePropertiesResponsePtrType) ToSitePropertiesResponsePtrOutputWithContext(ctx context.Context) SitePropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesResponsePtrOutput)
-}
-
 type SitePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SitePropertiesResponseOutput) ElementType() reflect.Type {
@@ -621,16 +467,6 @@ func (o SitePropertiesResponseOutput) ToSitePropertiesResponseOutput() SitePrope
 
 func (o SitePropertiesResponseOutput) ToSitePropertiesResponseOutputWithContext(ctx context.Context) SitePropertiesResponseOutput {
 	return o
-}
-
-func (o SitePropertiesResponseOutput) ToSitePropertiesResponsePtrOutput() SitePropertiesResponsePtrOutput {
-	return o.ToSitePropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SitePropertiesResponseOutput) ToSitePropertiesResponsePtrOutputWithContext(ctx context.Context) SitePropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SitePropertiesResponse) *SitePropertiesResponse {
-		return &v
-	}).(SitePropertiesResponsePtrOutput)
 }
 
 func (o SitePropertiesResponseOutput) AgentDetails() SiteAgentPropertiesResponsePtrOutput {
@@ -651,75 +487,6 @@ func (o SitePropertiesResponseOutput) ServiceEndpoint() pulumi.StringOutput {
 
 func (o SitePropertiesResponseOutput) ServicePrincipalIdentityDetails() SiteSpnPropertiesResponsePtrOutput {
 	return o.ApplyT(func(v SitePropertiesResponse) *SiteSpnPropertiesResponse { return v.ServicePrincipalIdentityDetails }).(SiteSpnPropertiesResponsePtrOutput)
-}
-
-type SitePropertiesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SitePropertiesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SitePropertiesResponse)(nil)).Elem()
-}
-
-func (o SitePropertiesResponsePtrOutput) ToSitePropertiesResponsePtrOutput() SitePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SitePropertiesResponsePtrOutput) ToSitePropertiesResponsePtrOutputWithContext(ctx context.Context) SitePropertiesResponsePtrOutput {
-	return o
-}
-
-func (o SitePropertiesResponsePtrOutput) Elem() SitePropertiesResponseOutput {
-	return o.ApplyT(func(v *SitePropertiesResponse) SitePropertiesResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SitePropertiesResponse
-		return ret
-	}).(SitePropertiesResponseOutput)
-}
-
-func (o SitePropertiesResponsePtrOutput) AgentDetails() SiteAgentPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *SitePropertiesResponse) *SiteAgentPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AgentDetails
-	}).(SiteAgentPropertiesResponsePtrOutput)
-}
-
-func (o SitePropertiesResponsePtrOutput) ApplianceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SitePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApplianceName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SitePropertiesResponsePtrOutput) DiscoverySolutionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SitePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiscoverySolutionId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SitePropertiesResponsePtrOutput) ServiceEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SitePropertiesResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ServiceEndpoint
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SitePropertiesResponsePtrOutput) ServicePrincipalIdentityDetails() SiteSpnPropertiesResponsePtrOutput {
-	return o.ApplyT(func(v *SitePropertiesResponse) *SiteSpnPropertiesResponse {
-		if v == nil {
-			return nil
-		}
-		return v.ServicePrincipalIdentityDetails
-	}).(SiteSpnPropertiesResponsePtrOutput)
 }
 
 type SiteSpnProperties struct {
@@ -939,79 +706,6 @@ type SiteSpnPropertiesResponse struct {
 	TenantId      *string `pulumi:"tenantId"`
 }
 
-
-
-
-
-type SiteSpnPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToSiteSpnPropertiesResponseOutput() SiteSpnPropertiesResponseOutput
-	ToSiteSpnPropertiesResponseOutputWithContext(context.Context) SiteSpnPropertiesResponseOutput
-}
-
-type SiteSpnPropertiesResponseArgs struct {
-	AadAuthority  pulumi.StringPtrInput `pulumi:"aadAuthority"`
-	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	Audience      pulumi.StringPtrInput `pulumi:"audience"`
-	ObjectId      pulumi.StringPtrInput `pulumi:"objectId"`
-	RawCertData   pulumi.StringPtrInput `pulumi:"rawCertData"`
-	TenantId      pulumi.StringPtrInput `pulumi:"tenantId"`
-}
-
-func (SiteSpnPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSpnPropertiesResponse)(nil)).Elem()
-}
-
-func (i SiteSpnPropertiesResponseArgs) ToSiteSpnPropertiesResponseOutput() SiteSpnPropertiesResponseOutput {
-	return i.ToSiteSpnPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i SiteSpnPropertiesResponseArgs) ToSiteSpnPropertiesResponseOutputWithContext(ctx context.Context) SiteSpnPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteSpnPropertiesResponseOutput)
-}
-
-func (i SiteSpnPropertiesResponseArgs) ToSiteSpnPropertiesResponsePtrOutput() SiteSpnPropertiesResponsePtrOutput {
-	return i.ToSiteSpnPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SiteSpnPropertiesResponseArgs) ToSiteSpnPropertiesResponsePtrOutputWithContext(ctx context.Context) SiteSpnPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteSpnPropertiesResponseOutput).ToSiteSpnPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SiteSpnPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToSiteSpnPropertiesResponsePtrOutput() SiteSpnPropertiesResponsePtrOutput
-	ToSiteSpnPropertiesResponsePtrOutputWithContext(context.Context) SiteSpnPropertiesResponsePtrOutput
-}
-
-type siteSpnPropertiesResponsePtrType SiteSpnPropertiesResponseArgs
-
-func SiteSpnPropertiesResponsePtr(v *SiteSpnPropertiesResponseArgs) SiteSpnPropertiesResponsePtrInput {
-	return (*siteSpnPropertiesResponsePtrType)(v)
-}
-
-func (*siteSpnPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteSpnPropertiesResponse)(nil)).Elem()
-}
-
-func (i *siteSpnPropertiesResponsePtrType) ToSiteSpnPropertiesResponsePtrOutput() SiteSpnPropertiesResponsePtrOutput {
-	return i.ToSiteSpnPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *siteSpnPropertiesResponsePtrType) ToSiteSpnPropertiesResponsePtrOutputWithContext(ctx context.Context) SiteSpnPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteSpnPropertiesResponsePtrOutput)
-}
-
 type SiteSpnPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (SiteSpnPropertiesResponseOutput) ElementType() reflect.Type {
@@ -1024,16 +718,6 @@ func (o SiteSpnPropertiesResponseOutput) ToSiteSpnPropertiesResponseOutput() Sit
 
 func (o SiteSpnPropertiesResponseOutput) ToSiteSpnPropertiesResponseOutputWithContext(ctx context.Context) SiteSpnPropertiesResponseOutput {
 	return o
-}
-
-func (o SiteSpnPropertiesResponseOutput) ToSiteSpnPropertiesResponsePtrOutput() SiteSpnPropertiesResponsePtrOutput {
-	return o.ToSiteSpnPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SiteSpnPropertiesResponseOutput) ToSiteSpnPropertiesResponsePtrOutputWithContext(ctx context.Context) SiteSpnPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteSpnPropertiesResponse) *SiteSpnPropertiesResponse {
-		return &v
-	}).(SiteSpnPropertiesResponsePtrOutput)
 }
 
 func (o SiteSpnPropertiesResponseOutput) AadAuthority() pulumi.StringPtrOutput {
@@ -1146,7 +830,6 @@ func init() {
 	pulumi.RegisterOutputType(SitePropertiesOutput{})
 	pulumi.RegisterOutputType(SitePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SitePropertiesResponseOutput{})
-	pulumi.RegisterOutputType(SitePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteSpnPropertiesResponseOutput{})

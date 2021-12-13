@@ -111,7 +111,7 @@ type PatchScheduleInput interface {
 }
 
 func (*PatchSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchSchedule)(nil))
+	return reflect.TypeOf((**PatchSchedule)(nil)).Elem()
 }
 
 func (i *PatchSchedule) ToPatchScheduleOutput() PatchScheduleOutput {
@@ -125,7 +125,7 @@ func (i *PatchSchedule) ToPatchScheduleOutputWithContext(ctx context.Context) Pa
 type PatchScheduleOutput struct{ *pulumi.OutputState }
 
 func (PatchScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PatchSchedule)(nil))
+	return reflect.TypeOf((**PatchSchedule)(nil)).Elem()
 }
 
 func (o PatchScheduleOutput) ToPatchScheduleOutput() PatchScheduleOutput {

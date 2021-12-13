@@ -50,6 +50,7 @@ func NewConnectedCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	args.Identity = args.Identity.ToConnectedClusterIdentityOutput().ApplyT(func(v ConnectedClusterIdentity) ConnectedClusterIdentity { return *v.Defaults() }).(ConnectedClusterIdentityOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:kubernetes:ConnectedCluster"),
@@ -133,7 +134,7 @@ type ConnectedClusterInput interface {
 }
 
 func (*ConnectedCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedCluster)(nil))
+	return reflect.TypeOf((**ConnectedCluster)(nil)).Elem()
 }
 
 func (i *ConnectedCluster) ToConnectedClusterOutput() ConnectedClusterOutput {
@@ -147,7 +148,7 @@ func (i *ConnectedCluster) ToConnectedClusterOutputWithContext(ctx context.Conte
 type ConnectedClusterOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedCluster)(nil))
+	return reflect.TypeOf((**ConnectedCluster)(nil)).Elem()
 }
 
 func (o ConnectedClusterOutput) ToConnectedClusterOutput() ConnectedClusterOutput {

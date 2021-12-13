@@ -143,7 +143,7 @@ type BlobContainerDataSetInput interface {
 }
 
 func (*BlobContainerDataSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobContainerDataSet)(nil))
+	return reflect.TypeOf((**BlobContainerDataSet)(nil)).Elem()
 }
 
 func (i *BlobContainerDataSet) ToBlobContainerDataSetOutput() BlobContainerDataSetOutput {
@@ -157,7 +157,7 @@ func (i *BlobContainerDataSet) ToBlobContainerDataSetOutputWithContext(ctx conte
 type BlobContainerDataSetOutput struct{ *pulumi.OutputState }
 
 func (BlobContainerDataSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobContainerDataSet)(nil))
+	return reflect.TypeOf((**BlobContainerDataSet)(nil)).Elem()
 }
 
 func (o BlobContainerDataSetOutput) ToBlobContainerDataSetOutput() BlobContainerDataSetOutput {

@@ -13,7 +13,7 @@ func LookupMaintenanceConfiguration(ctx *pulumi.Context, args *LookupMaintenance
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupMaintenanceConfigurationArgs struct {
@@ -39,4 +39,15 @@ type LookupMaintenanceConfigurationResult struct {
 	TimeZone            *string                          `pulumi:"timeZone"`
 	Type                string                           `pulumi:"type"`
 	Visibility          *string                          `pulumi:"visibility"`
+}
+
+
+func (val *LookupMaintenanceConfigurationResult) Defaults() *LookupMaintenanceConfigurationResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.InstallPatches = tmp.InstallPatches.Defaults()
+
+	return &tmp
 }

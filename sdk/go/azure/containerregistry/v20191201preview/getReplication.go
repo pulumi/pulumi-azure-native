@@ -13,7 +13,7 @@ func LookupReplication(ctx *pulumi.Context, args *LookupReplicationArgs, opts ..
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupReplicationArgs struct {
@@ -33,4 +33,17 @@ type LookupReplicationResult struct {
 	SystemData            SystemDataResponse `pulumi:"systemData"`
 	Tags                  map[string]string  `pulumi:"tags"`
 	Type                  string             `pulumi:"type"`
+}
+
+
+func (val *LookupReplicationResult) Defaults() *LookupReplicationResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RegionEndpointEnabled) {
+		regionEndpointEnabled_ := true
+		tmp.RegionEndpointEnabled = &regionEndpointEnabled_
+	}
+	return &tmp
 }

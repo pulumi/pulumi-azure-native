@@ -13,7 +13,7 @@ func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulum
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupSnapshotArgs struct {
@@ -37,4 +37,15 @@ type LookupSnapshotResult struct {
 	Tags                         map[string]string                     `pulumi:"tags"`
 	TimeCreated                  string                                `pulumi:"timeCreated"`
 	Type                         string                                `pulumi:"type"`
+}
+
+
+func (val *LookupSnapshotResult) Defaults() *LookupSnapshotResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Sku = tmp.Sku.Defaults()
+
+	return &tmp
 }

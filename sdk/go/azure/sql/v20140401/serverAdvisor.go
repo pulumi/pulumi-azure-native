@@ -122,7 +122,7 @@ type ServerAdvisorInput interface {
 }
 
 func (*ServerAdvisor) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAdvisor)(nil))
+	return reflect.TypeOf((**ServerAdvisor)(nil)).Elem()
 }
 
 func (i *ServerAdvisor) ToServerAdvisorOutput() ServerAdvisorOutput {
@@ -136,7 +136,7 @@ func (i *ServerAdvisor) ToServerAdvisorOutputWithContext(ctx context.Context) Se
 type ServerAdvisorOutput struct{ *pulumi.OutputState }
 
 func (ServerAdvisorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAdvisor)(nil))
+	return reflect.TypeOf((**ServerAdvisor)(nil)).Elem()
 }
 
 func (o ServerAdvisorOutput) ToServerAdvisorOutput() ServerAdvisorOutput {

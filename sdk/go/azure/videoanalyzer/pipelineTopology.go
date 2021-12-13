@@ -127,7 +127,7 @@ type PipelineTopologyInput interface {
 }
 
 func (*PipelineTopology) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineTopology)(nil))
+	return reflect.TypeOf((**PipelineTopology)(nil)).Elem()
 }
 
 func (i *PipelineTopology) ToPipelineTopologyOutput() PipelineTopologyOutput {
@@ -141,7 +141,7 @@ func (i *PipelineTopology) ToPipelineTopologyOutputWithContext(ctx context.Conte
 type PipelineTopologyOutput struct{ *pulumi.OutputState }
 
 func (PipelineTopologyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PipelineTopology)(nil))
+	return reflect.TypeOf((**PipelineTopology)(nil)).Elem()
 }
 
 func (o PipelineTopologyOutput) ToPipelineTopologyOutput() PipelineTopologyOutput {

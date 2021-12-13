@@ -154,7 +154,7 @@ type WebAppHybridConnectionInput interface {
 }
 
 func (*WebAppHybridConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHybridConnection)(nil))
+	return reflect.TypeOf((**WebAppHybridConnection)(nil)).Elem()
 }
 
 func (i *WebAppHybridConnection) ToWebAppHybridConnectionOutput() WebAppHybridConnectionOutput {
@@ -168,7 +168,7 @@ func (i *WebAppHybridConnection) ToWebAppHybridConnectionOutputWithContext(ctx c
 type WebAppHybridConnectionOutput struct{ *pulumi.OutputState }
 
 func (WebAppHybridConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHybridConnection)(nil))
+	return reflect.TypeOf((**WebAppHybridConnection)(nil)).Elem()
 }
 
 func (o WebAppHybridConnectionOutput) ToWebAppHybridConnectionOutput() WebAppHybridConnectionOutput {

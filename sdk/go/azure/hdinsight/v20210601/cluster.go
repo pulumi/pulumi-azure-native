@@ -35,6 +35,9 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToClusterCreatePropertiesPtrOutput().ApplyT(func(v *ClusterCreateProperties) *ClusterCreateProperties { return v.Defaults() }).(ClusterCreatePropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:hdinsight:Cluster"),
@@ -111,7 +114,7 @@ type ClusterInput interface {
 }
 
 func (*Cluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cluster)(nil))
+	return reflect.TypeOf((**Cluster)(nil)).Elem()
 }
 
 func (i *Cluster) ToClusterOutput() ClusterOutput {
@@ -125,7 +128,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cluster)(nil))
+	return reflect.TypeOf((**Cluster)(nil)).Elem()
 }
 
 func (o ClusterOutput) ToClusterOutput() ClusterOutput {

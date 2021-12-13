@@ -16,60 +16,6 @@ type ApplicationArtifactResponse struct {
 	Uri  string `pulumi:"uri"`
 }
 
-
-
-
-
-type ApplicationArtifactResponseInput interface {
-	pulumi.Input
-
-	ToApplicationArtifactResponseOutput() ApplicationArtifactResponseOutput
-	ToApplicationArtifactResponseOutputWithContext(context.Context) ApplicationArtifactResponseOutput
-}
-
-type ApplicationArtifactResponseArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-	Type pulumi.StringInput `pulumi:"type"`
-	Uri  pulumi.StringInput `pulumi:"uri"`
-}
-
-func (ApplicationArtifactResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationArtifactResponse)(nil)).Elem()
-}
-
-func (i ApplicationArtifactResponseArgs) ToApplicationArtifactResponseOutput() ApplicationArtifactResponseOutput {
-	return i.ToApplicationArtifactResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationArtifactResponseArgs) ToApplicationArtifactResponseOutputWithContext(ctx context.Context) ApplicationArtifactResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArtifactResponseOutput)
-}
-
-
-
-
-
-type ApplicationArtifactResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationArtifactResponseArrayOutput() ApplicationArtifactResponseArrayOutput
-	ToApplicationArtifactResponseArrayOutputWithContext(context.Context) ApplicationArtifactResponseArrayOutput
-}
-
-type ApplicationArtifactResponseArray []ApplicationArtifactResponseInput
-
-func (ApplicationArtifactResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationArtifactResponse)(nil)).Elem()
-}
-
-func (i ApplicationArtifactResponseArray) ToApplicationArtifactResponseArrayOutput() ApplicationArtifactResponseArrayOutput {
-	return i.ToApplicationArtifactResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationArtifactResponseArray) ToApplicationArtifactResponseArrayOutputWithContext(ctx context.Context) ApplicationArtifactResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationArtifactResponseArrayOutput)
-}
-
 type ApplicationArtifactResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationArtifactResponseOutput) ElementType() reflect.Type {
@@ -221,59 +167,6 @@ type ApplicationAuthorizationResponse struct {
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
 
-
-
-
-
-type ApplicationAuthorizationResponseInput interface {
-	pulumi.Input
-
-	ToApplicationAuthorizationResponseOutput() ApplicationAuthorizationResponseOutput
-	ToApplicationAuthorizationResponseOutputWithContext(context.Context) ApplicationAuthorizationResponseOutput
-}
-
-type ApplicationAuthorizationResponseArgs struct {
-	PrincipalId      pulumi.StringInput `pulumi:"principalId"`
-	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
-}
-
-func (ApplicationAuthorizationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationAuthorizationResponse)(nil)).Elem()
-}
-
-func (i ApplicationAuthorizationResponseArgs) ToApplicationAuthorizationResponseOutput() ApplicationAuthorizationResponseOutput {
-	return i.ToApplicationAuthorizationResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationAuthorizationResponseArgs) ToApplicationAuthorizationResponseOutputWithContext(ctx context.Context) ApplicationAuthorizationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAuthorizationResponseOutput)
-}
-
-
-
-
-
-type ApplicationAuthorizationResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationAuthorizationResponseArrayOutput() ApplicationAuthorizationResponseArrayOutput
-	ToApplicationAuthorizationResponseArrayOutputWithContext(context.Context) ApplicationAuthorizationResponseArrayOutput
-}
-
-type ApplicationAuthorizationResponseArray []ApplicationAuthorizationResponseInput
-
-func (ApplicationAuthorizationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationAuthorizationResponse)(nil)).Elem()
-}
-
-func (i ApplicationAuthorizationResponseArray) ToApplicationAuthorizationResponseArrayOutput() ApplicationAuthorizationResponseArrayOutput {
-	return i.ToApplicationAuthorizationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationAuthorizationResponseArray) ToApplicationAuthorizationResponseArrayOutputWithContext(ctx context.Context) ApplicationAuthorizationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAuthorizationResponseArrayOutput)
-}
-
 type ApplicationAuthorizationResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationAuthorizationResponseOutput) ElementType() reflect.Type {
@@ -320,74 +213,6 @@ type ApplicationBillingDetailsDefinitionResponse struct {
 	ResourceUsageId *string `pulumi:"resourceUsageId"`
 }
 
-
-
-
-
-type ApplicationBillingDetailsDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToApplicationBillingDetailsDefinitionResponseOutput() ApplicationBillingDetailsDefinitionResponseOutput
-	ToApplicationBillingDetailsDefinitionResponseOutputWithContext(context.Context) ApplicationBillingDetailsDefinitionResponseOutput
-}
-
-type ApplicationBillingDetailsDefinitionResponseArgs struct {
-	ResourceUsageId pulumi.StringPtrInput `pulumi:"resourceUsageId"`
-}
-
-func (ApplicationBillingDetailsDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationBillingDetailsDefinitionResponse)(nil)).Elem()
-}
-
-func (i ApplicationBillingDetailsDefinitionResponseArgs) ToApplicationBillingDetailsDefinitionResponseOutput() ApplicationBillingDetailsDefinitionResponseOutput {
-	return i.ToApplicationBillingDetailsDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationBillingDetailsDefinitionResponseArgs) ToApplicationBillingDetailsDefinitionResponseOutputWithContext(ctx context.Context) ApplicationBillingDetailsDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationBillingDetailsDefinitionResponseOutput)
-}
-
-func (i ApplicationBillingDetailsDefinitionResponseArgs) ToApplicationBillingDetailsDefinitionResponsePtrOutput() ApplicationBillingDetailsDefinitionResponsePtrOutput {
-	return i.ToApplicationBillingDetailsDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationBillingDetailsDefinitionResponseArgs) ToApplicationBillingDetailsDefinitionResponsePtrOutputWithContext(ctx context.Context) ApplicationBillingDetailsDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationBillingDetailsDefinitionResponseOutput).ToApplicationBillingDetailsDefinitionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationBillingDetailsDefinitionResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationBillingDetailsDefinitionResponsePtrOutput() ApplicationBillingDetailsDefinitionResponsePtrOutput
-	ToApplicationBillingDetailsDefinitionResponsePtrOutputWithContext(context.Context) ApplicationBillingDetailsDefinitionResponsePtrOutput
-}
-
-type applicationBillingDetailsDefinitionResponsePtrType ApplicationBillingDetailsDefinitionResponseArgs
-
-func ApplicationBillingDetailsDefinitionResponsePtr(v *ApplicationBillingDetailsDefinitionResponseArgs) ApplicationBillingDetailsDefinitionResponsePtrInput {
-	return (*applicationBillingDetailsDefinitionResponsePtrType)(v)
-}
-
-func (*applicationBillingDetailsDefinitionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationBillingDetailsDefinitionResponse)(nil)).Elem()
-}
-
-func (i *applicationBillingDetailsDefinitionResponsePtrType) ToApplicationBillingDetailsDefinitionResponsePtrOutput() ApplicationBillingDetailsDefinitionResponsePtrOutput {
-	return i.ToApplicationBillingDetailsDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationBillingDetailsDefinitionResponsePtrType) ToApplicationBillingDetailsDefinitionResponsePtrOutputWithContext(ctx context.Context) ApplicationBillingDetailsDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationBillingDetailsDefinitionResponsePtrOutput)
-}
-
 type ApplicationBillingDetailsDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationBillingDetailsDefinitionResponseOutput) ElementType() reflect.Type {
@@ -402,127 +227,14 @@ func (o ApplicationBillingDetailsDefinitionResponseOutput) ToApplicationBillingD
 	return o
 }
 
-func (o ApplicationBillingDetailsDefinitionResponseOutput) ToApplicationBillingDetailsDefinitionResponsePtrOutput() ApplicationBillingDetailsDefinitionResponsePtrOutput {
-	return o.ToApplicationBillingDetailsDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationBillingDetailsDefinitionResponseOutput) ToApplicationBillingDetailsDefinitionResponsePtrOutputWithContext(ctx context.Context) ApplicationBillingDetailsDefinitionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationBillingDetailsDefinitionResponse) *ApplicationBillingDetailsDefinitionResponse {
-		return &v
-	}).(ApplicationBillingDetailsDefinitionResponsePtrOutput)
-}
-
 func (o ApplicationBillingDetailsDefinitionResponseOutput) ResourceUsageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationBillingDetailsDefinitionResponse) *string { return v.ResourceUsageId }).(pulumi.StringPtrOutput)
-}
-
-type ApplicationBillingDetailsDefinitionResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationBillingDetailsDefinitionResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationBillingDetailsDefinitionResponse)(nil)).Elem()
-}
-
-func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) ToApplicationBillingDetailsDefinitionResponsePtrOutput() ApplicationBillingDetailsDefinitionResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) ToApplicationBillingDetailsDefinitionResponsePtrOutputWithContext(ctx context.Context) ApplicationBillingDetailsDefinitionResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) Elem() ApplicationBillingDetailsDefinitionResponseOutput {
-	return o.ApplyT(func(v *ApplicationBillingDetailsDefinitionResponse) ApplicationBillingDetailsDefinitionResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationBillingDetailsDefinitionResponse
-		return ret
-	}).(ApplicationBillingDetailsDefinitionResponseOutput)
-}
-
-func (o ApplicationBillingDetailsDefinitionResponsePtrOutput) ResourceUsageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationBillingDetailsDefinitionResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceUsageId
-	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationClientDetailsResponse struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	Oid           *string `pulumi:"oid"`
 	Puid          *string `pulumi:"puid"`
-}
-
-
-
-
-
-type ApplicationClientDetailsResponseInput interface {
-	pulumi.Input
-
-	ToApplicationClientDetailsResponseOutput() ApplicationClientDetailsResponseOutput
-	ToApplicationClientDetailsResponseOutputWithContext(context.Context) ApplicationClientDetailsResponseOutput
-}
-
-type ApplicationClientDetailsResponseArgs struct {
-	ApplicationId pulumi.StringPtrInput `pulumi:"applicationId"`
-	Oid           pulumi.StringPtrInput `pulumi:"oid"`
-	Puid          pulumi.StringPtrInput `pulumi:"puid"`
-}
-
-func (ApplicationClientDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationClientDetailsResponse)(nil)).Elem()
-}
-
-func (i ApplicationClientDetailsResponseArgs) ToApplicationClientDetailsResponseOutput() ApplicationClientDetailsResponseOutput {
-	return i.ToApplicationClientDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationClientDetailsResponseArgs) ToApplicationClientDetailsResponseOutputWithContext(ctx context.Context) ApplicationClientDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationClientDetailsResponseOutput)
-}
-
-func (i ApplicationClientDetailsResponseArgs) ToApplicationClientDetailsResponsePtrOutput() ApplicationClientDetailsResponsePtrOutput {
-	return i.ToApplicationClientDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationClientDetailsResponseArgs) ToApplicationClientDetailsResponsePtrOutputWithContext(ctx context.Context) ApplicationClientDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationClientDetailsResponseOutput).ToApplicationClientDetailsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationClientDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationClientDetailsResponsePtrOutput() ApplicationClientDetailsResponsePtrOutput
-	ToApplicationClientDetailsResponsePtrOutputWithContext(context.Context) ApplicationClientDetailsResponsePtrOutput
-}
-
-type applicationClientDetailsResponsePtrType ApplicationClientDetailsResponseArgs
-
-func ApplicationClientDetailsResponsePtr(v *ApplicationClientDetailsResponseArgs) ApplicationClientDetailsResponsePtrInput {
-	return (*applicationClientDetailsResponsePtrType)(v)
-}
-
-func (*applicationClientDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationClientDetailsResponse)(nil)).Elem()
-}
-
-func (i *applicationClientDetailsResponsePtrType) ToApplicationClientDetailsResponsePtrOutput() ApplicationClientDetailsResponsePtrOutput {
-	return i.ToApplicationClientDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationClientDetailsResponsePtrType) ToApplicationClientDetailsResponsePtrOutputWithContext(ctx context.Context) ApplicationClientDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationClientDetailsResponsePtrOutput)
 }
 
 type ApplicationClientDetailsResponseOutput struct{ *pulumi.OutputState }
@@ -539,16 +251,6 @@ func (o ApplicationClientDetailsResponseOutput) ToApplicationClientDetailsRespon
 	return o
 }
 
-func (o ApplicationClientDetailsResponseOutput) ToApplicationClientDetailsResponsePtrOutput() ApplicationClientDetailsResponsePtrOutput {
-	return o.ToApplicationClientDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationClientDetailsResponseOutput) ToApplicationClientDetailsResponsePtrOutputWithContext(ctx context.Context) ApplicationClientDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationClientDetailsResponse) *ApplicationClientDetailsResponse {
-		return &v
-	}).(ApplicationClientDetailsResponsePtrOutput)
-}
-
 func (o ApplicationClientDetailsResponseOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationClientDetailsResponse) *string { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
@@ -559,57 +261,6 @@ func (o ApplicationClientDetailsResponseOutput) Oid() pulumi.StringPtrOutput {
 
 func (o ApplicationClientDetailsResponseOutput) Puid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationClientDetailsResponse) *string { return v.Puid }).(pulumi.StringPtrOutput)
-}
-
-type ApplicationClientDetailsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationClientDetailsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationClientDetailsResponse)(nil)).Elem()
-}
-
-func (o ApplicationClientDetailsResponsePtrOutput) ToApplicationClientDetailsResponsePtrOutput() ApplicationClientDetailsResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationClientDetailsResponsePtrOutput) ToApplicationClientDetailsResponsePtrOutputWithContext(ctx context.Context) ApplicationClientDetailsResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationClientDetailsResponsePtrOutput) Elem() ApplicationClientDetailsResponseOutput {
-	return o.ApplyT(func(v *ApplicationClientDetailsResponse) ApplicationClientDetailsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationClientDetailsResponse
-		return ret
-	}).(ApplicationClientDetailsResponseOutput)
-}
-
-func (o ApplicationClientDetailsResponsePtrOutput) ApplicationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationClientDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApplicationClientDetailsResponsePtrOutput) Oid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationClientDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Oid
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApplicationClientDetailsResponsePtrOutput) Puid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationClientDetailsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Puid
-	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationDefinitionArtifact struct {
@@ -722,60 +373,6 @@ type ApplicationDefinitionArtifactResponse struct {
 	Name string `pulumi:"name"`
 	Type string `pulumi:"type"`
 	Uri  string `pulumi:"uri"`
-}
-
-
-
-
-
-type ApplicationDefinitionArtifactResponseInput interface {
-	pulumi.Input
-
-	ToApplicationDefinitionArtifactResponseOutput() ApplicationDefinitionArtifactResponseOutput
-	ToApplicationDefinitionArtifactResponseOutputWithContext(context.Context) ApplicationDefinitionArtifactResponseOutput
-}
-
-type ApplicationDefinitionArtifactResponseArgs struct {
-	Name pulumi.StringInput `pulumi:"name"`
-	Type pulumi.StringInput `pulumi:"type"`
-	Uri  pulumi.StringInput `pulumi:"uri"`
-}
-
-func (ApplicationDefinitionArtifactResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDefinitionArtifactResponse)(nil)).Elem()
-}
-
-func (i ApplicationDefinitionArtifactResponseArgs) ToApplicationDefinitionArtifactResponseOutput() ApplicationDefinitionArtifactResponseOutput {
-	return i.ToApplicationDefinitionArtifactResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationDefinitionArtifactResponseArgs) ToApplicationDefinitionArtifactResponseOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionArtifactResponseOutput)
-}
-
-
-
-
-
-type ApplicationDefinitionArtifactResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationDefinitionArtifactResponseArrayOutput() ApplicationDefinitionArtifactResponseArrayOutput
-	ToApplicationDefinitionArtifactResponseArrayOutputWithContext(context.Context) ApplicationDefinitionArtifactResponseArrayOutput
-}
-
-type ApplicationDefinitionArtifactResponseArray []ApplicationDefinitionArtifactResponseInput
-
-func (ApplicationDefinitionArtifactResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationDefinitionArtifactResponse)(nil)).Elem()
-}
-
-func (i ApplicationDefinitionArtifactResponseArray) ToApplicationDefinitionArtifactResponseArrayOutput() ApplicationDefinitionArtifactResponseArrayOutput {
-	return i.ToApplicationDefinitionArtifactResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationDefinitionArtifactResponseArray) ToApplicationDefinitionArtifactResponseArrayOutputWithContext(ctx context.Context) ApplicationDefinitionArtifactResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinitionArtifactResponseArrayOutput)
 }
 
 type ApplicationDefinitionArtifactResponseOutput struct{ *pulumi.OutputState }
@@ -961,74 +558,6 @@ type ApplicationDeploymentPolicyResponse struct {
 	DeploymentMode string `pulumi:"deploymentMode"`
 }
 
-
-
-
-
-type ApplicationDeploymentPolicyResponseInput interface {
-	pulumi.Input
-
-	ToApplicationDeploymentPolicyResponseOutput() ApplicationDeploymentPolicyResponseOutput
-	ToApplicationDeploymentPolicyResponseOutputWithContext(context.Context) ApplicationDeploymentPolicyResponseOutput
-}
-
-type ApplicationDeploymentPolicyResponseArgs struct {
-	DeploymentMode pulumi.StringInput `pulumi:"deploymentMode"`
-}
-
-func (ApplicationDeploymentPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeploymentPolicyResponse)(nil)).Elem()
-}
-
-func (i ApplicationDeploymentPolicyResponseArgs) ToApplicationDeploymentPolicyResponseOutput() ApplicationDeploymentPolicyResponseOutput {
-	return i.ToApplicationDeploymentPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationDeploymentPolicyResponseArgs) ToApplicationDeploymentPolicyResponseOutputWithContext(ctx context.Context) ApplicationDeploymentPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeploymentPolicyResponseOutput)
-}
-
-func (i ApplicationDeploymentPolicyResponseArgs) ToApplicationDeploymentPolicyResponsePtrOutput() ApplicationDeploymentPolicyResponsePtrOutput {
-	return i.ToApplicationDeploymentPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationDeploymentPolicyResponseArgs) ToApplicationDeploymentPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationDeploymentPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeploymentPolicyResponseOutput).ToApplicationDeploymentPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationDeploymentPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationDeploymentPolicyResponsePtrOutput() ApplicationDeploymentPolicyResponsePtrOutput
-	ToApplicationDeploymentPolicyResponsePtrOutputWithContext(context.Context) ApplicationDeploymentPolicyResponsePtrOutput
-}
-
-type applicationDeploymentPolicyResponsePtrType ApplicationDeploymentPolicyResponseArgs
-
-func ApplicationDeploymentPolicyResponsePtr(v *ApplicationDeploymentPolicyResponseArgs) ApplicationDeploymentPolicyResponsePtrInput {
-	return (*applicationDeploymentPolicyResponsePtrType)(v)
-}
-
-func (*applicationDeploymentPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationDeploymentPolicyResponse)(nil)).Elem()
-}
-
-func (i *applicationDeploymentPolicyResponsePtrType) ToApplicationDeploymentPolicyResponsePtrOutput() ApplicationDeploymentPolicyResponsePtrOutput {
-	return i.ToApplicationDeploymentPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationDeploymentPolicyResponsePtrType) ToApplicationDeploymentPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationDeploymentPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeploymentPolicyResponsePtrOutput)
-}
-
 type ApplicationDeploymentPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDeploymentPolicyResponseOutput) ElementType() reflect.Type {
@@ -1041,16 +570,6 @@ func (o ApplicationDeploymentPolicyResponseOutput) ToApplicationDeploymentPolicy
 
 func (o ApplicationDeploymentPolicyResponseOutput) ToApplicationDeploymentPolicyResponseOutputWithContext(ctx context.Context) ApplicationDeploymentPolicyResponseOutput {
 	return o
-}
-
-func (o ApplicationDeploymentPolicyResponseOutput) ToApplicationDeploymentPolicyResponsePtrOutput() ApplicationDeploymentPolicyResponsePtrOutput {
-	return o.ToApplicationDeploymentPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationDeploymentPolicyResponseOutput) ToApplicationDeploymentPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationDeploymentPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationDeploymentPolicyResponse) *ApplicationDeploymentPolicyResponse {
-		return &v
-	}).(ApplicationDeploymentPolicyResponsePtrOutput)
 }
 
 func (o ApplicationDeploymentPolicyResponseOutput) DeploymentMode() pulumi.StringOutput {
@@ -1275,77 +794,6 @@ type ApplicationJitAccessPolicyResponse struct {
 	MaximumJitAccessDuration *string                         `pulumi:"maximumJitAccessDuration"`
 }
 
-
-
-
-
-type ApplicationJitAccessPolicyResponseInput interface {
-	pulumi.Input
-
-	ToApplicationJitAccessPolicyResponseOutput() ApplicationJitAccessPolicyResponseOutput
-	ToApplicationJitAccessPolicyResponseOutputWithContext(context.Context) ApplicationJitAccessPolicyResponseOutput
-}
-
-type ApplicationJitAccessPolicyResponseArgs struct {
-	JitAccessEnabled         pulumi.BoolInput                        `pulumi:"jitAccessEnabled"`
-	JitApprovalMode          pulumi.StringPtrInput                   `pulumi:"jitApprovalMode"`
-	JitApprovers             JitApproverDefinitionResponseArrayInput `pulumi:"jitApprovers"`
-	MaximumJitAccessDuration pulumi.StringPtrInput                   `pulumi:"maximumJitAccessDuration"`
-}
-
-func (ApplicationJitAccessPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationJitAccessPolicyResponse)(nil)).Elem()
-}
-
-func (i ApplicationJitAccessPolicyResponseArgs) ToApplicationJitAccessPolicyResponseOutput() ApplicationJitAccessPolicyResponseOutput {
-	return i.ToApplicationJitAccessPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationJitAccessPolicyResponseArgs) ToApplicationJitAccessPolicyResponseOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJitAccessPolicyResponseOutput)
-}
-
-func (i ApplicationJitAccessPolicyResponseArgs) ToApplicationJitAccessPolicyResponsePtrOutput() ApplicationJitAccessPolicyResponsePtrOutput {
-	return i.ToApplicationJitAccessPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationJitAccessPolicyResponseArgs) ToApplicationJitAccessPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJitAccessPolicyResponseOutput).ToApplicationJitAccessPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationJitAccessPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationJitAccessPolicyResponsePtrOutput() ApplicationJitAccessPolicyResponsePtrOutput
-	ToApplicationJitAccessPolicyResponsePtrOutputWithContext(context.Context) ApplicationJitAccessPolicyResponsePtrOutput
-}
-
-type applicationJitAccessPolicyResponsePtrType ApplicationJitAccessPolicyResponseArgs
-
-func ApplicationJitAccessPolicyResponsePtr(v *ApplicationJitAccessPolicyResponseArgs) ApplicationJitAccessPolicyResponsePtrInput {
-	return (*applicationJitAccessPolicyResponsePtrType)(v)
-}
-
-func (*applicationJitAccessPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationJitAccessPolicyResponse)(nil)).Elem()
-}
-
-func (i *applicationJitAccessPolicyResponsePtrType) ToApplicationJitAccessPolicyResponsePtrOutput() ApplicationJitAccessPolicyResponsePtrOutput {
-	return i.ToApplicationJitAccessPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationJitAccessPolicyResponsePtrType) ToApplicationJitAccessPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJitAccessPolicyResponsePtrOutput)
-}
-
 type ApplicationJitAccessPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationJitAccessPolicyResponseOutput) ElementType() reflect.Type {
@@ -1358,16 +806,6 @@ func (o ApplicationJitAccessPolicyResponseOutput) ToApplicationJitAccessPolicyRe
 
 func (o ApplicationJitAccessPolicyResponseOutput) ToApplicationJitAccessPolicyResponseOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyResponseOutput {
 	return o
-}
-
-func (o ApplicationJitAccessPolicyResponseOutput) ToApplicationJitAccessPolicyResponsePtrOutput() ApplicationJitAccessPolicyResponsePtrOutput {
-	return o.ToApplicationJitAccessPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationJitAccessPolicyResponseOutput) ToApplicationJitAccessPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationJitAccessPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationJitAccessPolicyResponse) *ApplicationJitAccessPolicyResponse {
-		return &v
-	}).(ApplicationJitAccessPolicyResponsePtrOutput)
 }
 
 func (o ApplicationJitAccessPolicyResponseOutput) JitAccessEnabled() pulumi.BoolOutput {
@@ -1583,74 +1021,6 @@ type ApplicationManagementPolicyResponse struct {
 	Mode *string `pulumi:"mode"`
 }
 
-
-
-
-
-type ApplicationManagementPolicyResponseInput interface {
-	pulumi.Input
-
-	ToApplicationManagementPolicyResponseOutput() ApplicationManagementPolicyResponseOutput
-	ToApplicationManagementPolicyResponseOutputWithContext(context.Context) ApplicationManagementPolicyResponseOutput
-}
-
-type ApplicationManagementPolicyResponseArgs struct {
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
-}
-
-func (ApplicationManagementPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationManagementPolicyResponse)(nil)).Elem()
-}
-
-func (i ApplicationManagementPolicyResponseArgs) ToApplicationManagementPolicyResponseOutput() ApplicationManagementPolicyResponseOutput {
-	return i.ToApplicationManagementPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationManagementPolicyResponseArgs) ToApplicationManagementPolicyResponseOutputWithContext(ctx context.Context) ApplicationManagementPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationManagementPolicyResponseOutput)
-}
-
-func (i ApplicationManagementPolicyResponseArgs) ToApplicationManagementPolicyResponsePtrOutput() ApplicationManagementPolicyResponsePtrOutput {
-	return i.ToApplicationManagementPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationManagementPolicyResponseArgs) ToApplicationManagementPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationManagementPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationManagementPolicyResponseOutput).ToApplicationManagementPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationManagementPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationManagementPolicyResponsePtrOutput() ApplicationManagementPolicyResponsePtrOutput
-	ToApplicationManagementPolicyResponsePtrOutputWithContext(context.Context) ApplicationManagementPolicyResponsePtrOutput
-}
-
-type applicationManagementPolicyResponsePtrType ApplicationManagementPolicyResponseArgs
-
-func ApplicationManagementPolicyResponsePtr(v *ApplicationManagementPolicyResponseArgs) ApplicationManagementPolicyResponsePtrInput {
-	return (*applicationManagementPolicyResponsePtrType)(v)
-}
-
-func (*applicationManagementPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationManagementPolicyResponse)(nil)).Elem()
-}
-
-func (i *applicationManagementPolicyResponsePtrType) ToApplicationManagementPolicyResponsePtrOutput() ApplicationManagementPolicyResponsePtrOutput {
-	return i.ToApplicationManagementPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationManagementPolicyResponsePtrType) ToApplicationManagementPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationManagementPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationManagementPolicyResponsePtrOutput)
-}
-
 type ApplicationManagementPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationManagementPolicyResponseOutput) ElementType() reflect.Type {
@@ -1663,16 +1033,6 @@ func (o ApplicationManagementPolicyResponseOutput) ToApplicationManagementPolicy
 
 func (o ApplicationManagementPolicyResponseOutput) ToApplicationManagementPolicyResponseOutputWithContext(ctx context.Context) ApplicationManagementPolicyResponseOutput {
 	return o
-}
-
-func (o ApplicationManagementPolicyResponseOutput) ToApplicationManagementPolicyResponsePtrOutput() ApplicationManagementPolicyResponsePtrOutput {
-	return o.ToApplicationManagementPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationManagementPolicyResponseOutput) ToApplicationManagementPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationManagementPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationManagementPolicyResponse) *ApplicationManagementPolicyResponse {
-		return &v
-	}).(ApplicationManagementPolicyResponsePtrOutput)
 }
 
 func (o ApplicationManagementPolicyResponseOutput) Mode() pulumi.StringPtrOutput {
@@ -1808,58 +1168,6 @@ func (o ApplicationNotificationEndpointArrayOutput) Index(i pulumi.IntInput) App
 
 type ApplicationNotificationEndpointResponse struct {
 	Uri string `pulumi:"uri"`
-}
-
-
-
-
-
-type ApplicationNotificationEndpointResponseInput interface {
-	pulumi.Input
-
-	ToApplicationNotificationEndpointResponseOutput() ApplicationNotificationEndpointResponseOutput
-	ToApplicationNotificationEndpointResponseOutputWithContext(context.Context) ApplicationNotificationEndpointResponseOutput
-}
-
-type ApplicationNotificationEndpointResponseArgs struct {
-	Uri pulumi.StringInput `pulumi:"uri"`
-}
-
-func (ApplicationNotificationEndpointResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationNotificationEndpointResponse)(nil)).Elem()
-}
-
-func (i ApplicationNotificationEndpointResponseArgs) ToApplicationNotificationEndpointResponseOutput() ApplicationNotificationEndpointResponseOutput {
-	return i.ToApplicationNotificationEndpointResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationNotificationEndpointResponseArgs) ToApplicationNotificationEndpointResponseOutputWithContext(ctx context.Context) ApplicationNotificationEndpointResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationEndpointResponseOutput)
-}
-
-
-
-
-
-type ApplicationNotificationEndpointResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationNotificationEndpointResponseArrayOutput() ApplicationNotificationEndpointResponseArrayOutput
-	ToApplicationNotificationEndpointResponseArrayOutputWithContext(context.Context) ApplicationNotificationEndpointResponseArrayOutput
-}
-
-type ApplicationNotificationEndpointResponseArray []ApplicationNotificationEndpointResponseInput
-
-func (ApplicationNotificationEndpointResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationNotificationEndpointResponse)(nil)).Elem()
-}
-
-func (i ApplicationNotificationEndpointResponseArray) ToApplicationNotificationEndpointResponseArrayOutput() ApplicationNotificationEndpointResponseArrayOutput {
-	return i.ToApplicationNotificationEndpointResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationNotificationEndpointResponseArray) ToApplicationNotificationEndpointResponseArrayOutputWithContext(ctx context.Context) ApplicationNotificationEndpointResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationEndpointResponseArrayOutput)
 }
 
 type ApplicationNotificationEndpointResponseOutput struct{ *pulumi.OutputState }
@@ -2039,74 +1347,6 @@ type ApplicationNotificationPolicyResponse struct {
 	NotificationEndpoints []ApplicationNotificationEndpointResponse `pulumi:"notificationEndpoints"`
 }
 
-
-
-
-
-type ApplicationNotificationPolicyResponseInput interface {
-	pulumi.Input
-
-	ToApplicationNotificationPolicyResponseOutput() ApplicationNotificationPolicyResponseOutput
-	ToApplicationNotificationPolicyResponseOutputWithContext(context.Context) ApplicationNotificationPolicyResponseOutput
-}
-
-type ApplicationNotificationPolicyResponseArgs struct {
-	NotificationEndpoints ApplicationNotificationEndpointResponseArrayInput `pulumi:"notificationEndpoints"`
-}
-
-func (ApplicationNotificationPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationNotificationPolicyResponse)(nil)).Elem()
-}
-
-func (i ApplicationNotificationPolicyResponseArgs) ToApplicationNotificationPolicyResponseOutput() ApplicationNotificationPolicyResponseOutput {
-	return i.ToApplicationNotificationPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationNotificationPolicyResponseArgs) ToApplicationNotificationPolicyResponseOutputWithContext(ctx context.Context) ApplicationNotificationPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationPolicyResponseOutput)
-}
-
-func (i ApplicationNotificationPolicyResponseArgs) ToApplicationNotificationPolicyResponsePtrOutput() ApplicationNotificationPolicyResponsePtrOutput {
-	return i.ToApplicationNotificationPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationNotificationPolicyResponseArgs) ToApplicationNotificationPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationNotificationPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationPolicyResponseOutput).ToApplicationNotificationPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationNotificationPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationNotificationPolicyResponsePtrOutput() ApplicationNotificationPolicyResponsePtrOutput
-	ToApplicationNotificationPolicyResponsePtrOutputWithContext(context.Context) ApplicationNotificationPolicyResponsePtrOutput
-}
-
-type applicationNotificationPolicyResponsePtrType ApplicationNotificationPolicyResponseArgs
-
-func ApplicationNotificationPolicyResponsePtr(v *ApplicationNotificationPolicyResponseArgs) ApplicationNotificationPolicyResponsePtrInput {
-	return (*applicationNotificationPolicyResponsePtrType)(v)
-}
-
-func (*applicationNotificationPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationNotificationPolicyResponse)(nil)).Elem()
-}
-
-func (i *applicationNotificationPolicyResponsePtrType) ToApplicationNotificationPolicyResponsePtrOutput() ApplicationNotificationPolicyResponsePtrOutput {
-	return i.ToApplicationNotificationPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationNotificationPolicyResponsePtrType) ToApplicationNotificationPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationNotificationPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNotificationPolicyResponsePtrOutput)
-}
-
 type ApplicationNotificationPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationNotificationPolicyResponseOutput) ElementType() reflect.Type {
@@ -2119,16 +1359,6 @@ func (o ApplicationNotificationPolicyResponseOutput) ToApplicationNotificationPo
 
 func (o ApplicationNotificationPolicyResponseOutput) ToApplicationNotificationPolicyResponseOutputWithContext(ctx context.Context) ApplicationNotificationPolicyResponseOutput {
 	return o
-}
-
-func (o ApplicationNotificationPolicyResponseOutput) ToApplicationNotificationPolicyResponsePtrOutput() ApplicationNotificationPolicyResponsePtrOutput {
-	return o.ToApplicationNotificationPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationNotificationPolicyResponseOutput) ToApplicationNotificationPolicyResponsePtrOutputWithContext(ctx context.Context) ApplicationNotificationPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationNotificationPolicyResponse) *ApplicationNotificationPolicyResponse {
-		return &v
-	}).(ApplicationNotificationPolicyResponsePtrOutput)
 }
 
 func (o ApplicationNotificationPolicyResponseOutput) NotificationEndpoints() ApplicationNotificationEndpointResponseArrayOutput {
@@ -2176,76 +1406,6 @@ type ApplicationPackageContactResponse struct {
 	Phone       string  `pulumi:"phone"`
 }
 
-
-
-
-
-type ApplicationPackageContactResponseInput interface {
-	pulumi.Input
-
-	ToApplicationPackageContactResponseOutput() ApplicationPackageContactResponseOutput
-	ToApplicationPackageContactResponseOutputWithContext(context.Context) ApplicationPackageContactResponseOutput
-}
-
-type ApplicationPackageContactResponseArgs struct {
-	ContactName pulumi.StringPtrInput `pulumi:"contactName"`
-	Email       pulumi.StringInput    `pulumi:"email"`
-	Phone       pulumi.StringInput    `pulumi:"phone"`
-}
-
-func (ApplicationPackageContactResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackageContactResponse)(nil)).Elem()
-}
-
-func (i ApplicationPackageContactResponseArgs) ToApplicationPackageContactResponseOutput() ApplicationPackageContactResponseOutput {
-	return i.ToApplicationPackageContactResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageContactResponseArgs) ToApplicationPackageContactResponseOutputWithContext(ctx context.Context) ApplicationPackageContactResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageContactResponseOutput)
-}
-
-func (i ApplicationPackageContactResponseArgs) ToApplicationPackageContactResponsePtrOutput() ApplicationPackageContactResponsePtrOutput {
-	return i.ToApplicationPackageContactResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageContactResponseArgs) ToApplicationPackageContactResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageContactResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageContactResponseOutput).ToApplicationPackageContactResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationPackageContactResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationPackageContactResponsePtrOutput() ApplicationPackageContactResponsePtrOutput
-	ToApplicationPackageContactResponsePtrOutputWithContext(context.Context) ApplicationPackageContactResponsePtrOutput
-}
-
-type applicationPackageContactResponsePtrType ApplicationPackageContactResponseArgs
-
-func ApplicationPackageContactResponsePtr(v *ApplicationPackageContactResponseArgs) ApplicationPackageContactResponsePtrInput {
-	return (*applicationPackageContactResponsePtrType)(v)
-}
-
-func (*applicationPackageContactResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationPackageContactResponse)(nil)).Elem()
-}
-
-func (i *applicationPackageContactResponsePtrType) ToApplicationPackageContactResponsePtrOutput() ApplicationPackageContactResponsePtrOutput {
-	return i.ToApplicationPackageContactResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationPackageContactResponsePtrType) ToApplicationPackageContactResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageContactResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageContactResponsePtrOutput)
-}
-
 type ApplicationPackageContactResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageContactResponseOutput) ElementType() reflect.Type {
@@ -2260,16 +1420,6 @@ func (o ApplicationPackageContactResponseOutput) ToApplicationPackageContactResp
 	return o
 }
 
-func (o ApplicationPackageContactResponseOutput) ToApplicationPackageContactResponsePtrOutput() ApplicationPackageContactResponsePtrOutput {
-	return o.ToApplicationPackageContactResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationPackageContactResponseOutput) ToApplicationPackageContactResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageContactResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPackageContactResponse) *ApplicationPackageContactResponse {
-		return &v
-	}).(ApplicationPackageContactResponsePtrOutput)
-}
-
 func (o ApplicationPackageContactResponseOutput) ContactName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageContactResponse) *string { return v.ContactName }).(pulumi.StringPtrOutput)
 }
@@ -2280,57 +1430,6 @@ func (o ApplicationPackageContactResponseOutput) Email() pulumi.StringOutput {
 
 func (o ApplicationPackageContactResponseOutput) Phone() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationPackageContactResponse) string { return v.Phone }).(pulumi.StringOutput)
-}
-
-type ApplicationPackageContactResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationPackageContactResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationPackageContactResponse)(nil)).Elem()
-}
-
-func (o ApplicationPackageContactResponsePtrOutput) ToApplicationPackageContactResponsePtrOutput() ApplicationPackageContactResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationPackageContactResponsePtrOutput) ToApplicationPackageContactResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageContactResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationPackageContactResponsePtrOutput) Elem() ApplicationPackageContactResponseOutput {
-	return o.ApplyT(func(v *ApplicationPackageContactResponse) ApplicationPackageContactResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationPackageContactResponse
-		return ret
-	}).(ApplicationPackageContactResponseOutput)
-}
-
-func (o ApplicationPackageContactResponsePtrOutput) ContactName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationPackageContactResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ContactName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApplicationPackageContactResponsePtrOutput) Email() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationPackageContactResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Email
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApplicationPackageContactResponsePtrOutput) Phone() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationPackageContactResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Phone
-	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationPackageLockingPolicyDefinition struct {
@@ -2470,74 +1569,6 @@ type ApplicationPackageLockingPolicyDefinitionResponse struct {
 	AllowedActions []string `pulumi:"allowedActions"`
 }
 
-
-
-
-
-type ApplicationPackageLockingPolicyDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToApplicationPackageLockingPolicyDefinitionResponseOutput() ApplicationPackageLockingPolicyDefinitionResponseOutput
-	ToApplicationPackageLockingPolicyDefinitionResponseOutputWithContext(context.Context) ApplicationPackageLockingPolicyDefinitionResponseOutput
-}
-
-type ApplicationPackageLockingPolicyDefinitionResponseArgs struct {
-	AllowedActions pulumi.StringArrayInput `pulumi:"allowedActions"`
-}
-
-func (ApplicationPackageLockingPolicyDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackageLockingPolicyDefinitionResponse)(nil)).Elem()
-}
-
-func (i ApplicationPackageLockingPolicyDefinitionResponseArgs) ToApplicationPackageLockingPolicyDefinitionResponseOutput() ApplicationPackageLockingPolicyDefinitionResponseOutput {
-	return i.ToApplicationPackageLockingPolicyDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageLockingPolicyDefinitionResponseArgs) ToApplicationPackageLockingPolicyDefinitionResponseOutputWithContext(ctx context.Context) ApplicationPackageLockingPolicyDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageLockingPolicyDefinitionResponseOutput)
-}
-
-func (i ApplicationPackageLockingPolicyDefinitionResponseArgs) ToApplicationPackageLockingPolicyDefinitionResponsePtrOutput() ApplicationPackageLockingPolicyDefinitionResponsePtrOutput {
-	return i.ToApplicationPackageLockingPolicyDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageLockingPolicyDefinitionResponseArgs) ToApplicationPackageLockingPolicyDefinitionResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageLockingPolicyDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageLockingPolicyDefinitionResponseOutput).ToApplicationPackageLockingPolicyDefinitionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationPackageLockingPolicyDefinitionResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationPackageLockingPolicyDefinitionResponsePtrOutput() ApplicationPackageLockingPolicyDefinitionResponsePtrOutput
-	ToApplicationPackageLockingPolicyDefinitionResponsePtrOutputWithContext(context.Context) ApplicationPackageLockingPolicyDefinitionResponsePtrOutput
-}
-
-type applicationPackageLockingPolicyDefinitionResponsePtrType ApplicationPackageLockingPolicyDefinitionResponseArgs
-
-func ApplicationPackageLockingPolicyDefinitionResponsePtr(v *ApplicationPackageLockingPolicyDefinitionResponseArgs) ApplicationPackageLockingPolicyDefinitionResponsePtrInput {
-	return (*applicationPackageLockingPolicyDefinitionResponsePtrType)(v)
-}
-
-func (*applicationPackageLockingPolicyDefinitionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationPackageLockingPolicyDefinitionResponse)(nil)).Elem()
-}
-
-func (i *applicationPackageLockingPolicyDefinitionResponsePtrType) ToApplicationPackageLockingPolicyDefinitionResponsePtrOutput() ApplicationPackageLockingPolicyDefinitionResponsePtrOutput {
-	return i.ToApplicationPackageLockingPolicyDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationPackageLockingPolicyDefinitionResponsePtrType) ToApplicationPackageLockingPolicyDefinitionResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageLockingPolicyDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageLockingPolicyDefinitionResponsePtrOutput)
-}
-
 type ApplicationPackageLockingPolicyDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageLockingPolicyDefinitionResponseOutput) ElementType() reflect.Type {
@@ -2550,16 +1581,6 @@ func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) ToApplicationPa
 
 func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) ToApplicationPackageLockingPolicyDefinitionResponseOutputWithContext(ctx context.Context) ApplicationPackageLockingPolicyDefinitionResponseOutput {
 	return o
-}
-
-func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) ToApplicationPackageLockingPolicyDefinitionResponsePtrOutput() ApplicationPackageLockingPolicyDefinitionResponsePtrOutput {
-	return o.ToApplicationPackageLockingPolicyDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) ToApplicationPackageLockingPolicyDefinitionResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageLockingPolicyDefinitionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPackageLockingPolicyDefinitionResponse) *ApplicationPackageLockingPolicyDefinitionResponse {
-		return &v
-	}).(ApplicationPackageLockingPolicyDefinitionResponsePtrOutput)
 }
 
 func (o ApplicationPackageLockingPolicyDefinitionResponseOutput) AllowedActions() pulumi.StringArrayOutput {
@@ -2604,75 +1625,6 @@ type ApplicationPackageSupportUrlsResponse struct {
 	PublicAzure     *string `pulumi:"publicAzure"`
 }
 
-
-
-
-
-type ApplicationPackageSupportUrlsResponseInput interface {
-	pulumi.Input
-
-	ToApplicationPackageSupportUrlsResponseOutput() ApplicationPackageSupportUrlsResponseOutput
-	ToApplicationPackageSupportUrlsResponseOutputWithContext(context.Context) ApplicationPackageSupportUrlsResponseOutput
-}
-
-type ApplicationPackageSupportUrlsResponseArgs struct {
-	GovernmentCloud pulumi.StringPtrInput `pulumi:"governmentCloud"`
-	PublicAzure     pulumi.StringPtrInput `pulumi:"publicAzure"`
-}
-
-func (ApplicationPackageSupportUrlsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPackageSupportUrlsResponse)(nil)).Elem()
-}
-
-func (i ApplicationPackageSupportUrlsResponseArgs) ToApplicationPackageSupportUrlsResponseOutput() ApplicationPackageSupportUrlsResponseOutput {
-	return i.ToApplicationPackageSupportUrlsResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageSupportUrlsResponseArgs) ToApplicationPackageSupportUrlsResponseOutputWithContext(ctx context.Context) ApplicationPackageSupportUrlsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageSupportUrlsResponseOutput)
-}
-
-func (i ApplicationPackageSupportUrlsResponseArgs) ToApplicationPackageSupportUrlsResponsePtrOutput() ApplicationPackageSupportUrlsResponsePtrOutput {
-	return i.ToApplicationPackageSupportUrlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationPackageSupportUrlsResponseArgs) ToApplicationPackageSupportUrlsResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageSupportUrlsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageSupportUrlsResponseOutput).ToApplicationPackageSupportUrlsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApplicationPackageSupportUrlsResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationPackageSupportUrlsResponsePtrOutput() ApplicationPackageSupportUrlsResponsePtrOutput
-	ToApplicationPackageSupportUrlsResponsePtrOutputWithContext(context.Context) ApplicationPackageSupportUrlsResponsePtrOutput
-}
-
-type applicationPackageSupportUrlsResponsePtrType ApplicationPackageSupportUrlsResponseArgs
-
-func ApplicationPackageSupportUrlsResponsePtr(v *ApplicationPackageSupportUrlsResponseArgs) ApplicationPackageSupportUrlsResponsePtrInput {
-	return (*applicationPackageSupportUrlsResponsePtrType)(v)
-}
-
-func (*applicationPackageSupportUrlsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationPackageSupportUrlsResponse)(nil)).Elem()
-}
-
-func (i *applicationPackageSupportUrlsResponsePtrType) ToApplicationPackageSupportUrlsResponsePtrOutput() ApplicationPackageSupportUrlsResponsePtrOutput {
-	return i.ToApplicationPackageSupportUrlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationPackageSupportUrlsResponsePtrType) ToApplicationPackageSupportUrlsResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageSupportUrlsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPackageSupportUrlsResponsePtrOutput)
-}
-
 type ApplicationPackageSupportUrlsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApplicationPackageSupportUrlsResponseOutput) ElementType() reflect.Type {
@@ -2687,64 +1639,12 @@ func (o ApplicationPackageSupportUrlsResponseOutput) ToApplicationPackageSupport
 	return o
 }
 
-func (o ApplicationPackageSupportUrlsResponseOutput) ToApplicationPackageSupportUrlsResponsePtrOutput() ApplicationPackageSupportUrlsResponsePtrOutput {
-	return o.ToApplicationPackageSupportUrlsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationPackageSupportUrlsResponseOutput) ToApplicationPackageSupportUrlsResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageSupportUrlsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPackageSupportUrlsResponse) *ApplicationPackageSupportUrlsResponse {
-		return &v
-	}).(ApplicationPackageSupportUrlsResponsePtrOutput)
-}
-
 func (o ApplicationPackageSupportUrlsResponseOutput) GovernmentCloud() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageSupportUrlsResponse) *string { return v.GovernmentCloud }).(pulumi.StringPtrOutput)
 }
 
 func (o ApplicationPackageSupportUrlsResponseOutput) PublicAzure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationPackageSupportUrlsResponse) *string { return v.PublicAzure }).(pulumi.StringPtrOutput)
-}
-
-type ApplicationPackageSupportUrlsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationPackageSupportUrlsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationPackageSupportUrlsResponse)(nil)).Elem()
-}
-
-func (o ApplicationPackageSupportUrlsResponsePtrOutput) ToApplicationPackageSupportUrlsResponsePtrOutput() ApplicationPackageSupportUrlsResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationPackageSupportUrlsResponsePtrOutput) ToApplicationPackageSupportUrlsResponsePtrOutputWithContext(ctx context.Context) ApplicationPackageSupportUrlsResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationPackageSupportUrlsResponsePtrOutput) Elem() ApplicationPackageSupportUrlsResponseOutput {
-	return o.ApplyT(func(v *ApplicationPackageSupportUrlsResponse) ApplicationPackageSupportUrlsResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ApplicationPackageSupportUrlsResponse
-		return ret
-	}).(ApplicationPackageSupportUrlsResponseOutput)
-}
-
-func (o ApplicationPackageSupportUrlsResponsePtrOutput) GovernmentCloud() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationPackageSupportUrlsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GovernmentCloud
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApplicationPackageSupportUrlsResponsePtrOutput) PublicAzure() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ApplicationPackageSupportUrlsResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicAzure
-	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationPolicy struct {
@@ -2857,60 +1757,6 @@ type ApplicationPolicyResponse struct {
 	Name               *string `pulumi:"name"`
 	Parameters         *string `pulumi:"parameters"`
 	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
-}
-
-
-
-
-
-type ApplicationPolicyResponseInput interface {
-	pulumi.Input
-
-	ToApplicationPolicyResponseOutput() ApplicationPolicyResponseOutput
-	ToApplicationPolicyResponseOutputWithContext(context.Context) ApplicationPolicyResponseOutput
-}
-
-type ApplicationPolicyResponseArgs struct {
-	Name               pulumi.StringPtrInput `pulumi:"name"`
-	Parameters         pulumi.StringPtrInput `pulumi:"parameters"`
-	PolicyDefinitionId pulumi.StringPtrInput `pulumi:"policyDefinitionId"`
-}
-
-func (ApplicationPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationPolicyResponse)(nil)).Elem()
-}
-
-func (i ApplicationPolicyResponseArgs) ToApplicationPolicyResponseOutput() ApplicationPolicyResponseOutput {
-	return i.ToApplicationPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationPolicyResponseArgs) ToApplicationPolicyResponseOutputWithContext(ctx context.Context) ApplicationPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPolicyResponseOutput)
-}
-
-
-
-
-
-type ApplicationPolicyResponseArrayInput interface {
-	pulumi.Input
-
-	ToApplicationPolicyResponseArrayOutput() ApplicationPolicyResponseArrayOutput
-	ToApplicationPolicyResponseArrayOutputWithContext(context.Context) ApplicationPolicyResponseArrayOutput
-}
-
-type ApplicationPolicyResponseArray []ApplicationPolicyResponseInput
-
-func (ApplicationPolicyResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationPolicyResponse)(nil)).Elem()
-}
-
-func (i ApplicationPolicyResponseArray) ToApplicationPolicyResponseArrayOutput() ApplicationPolicyResponseArrayOutput {
-	return i.ToApplicationPolicyResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationPolicyResponseArray) ToApplicationPolicyResponseArrayOutputWithContext(ctx context.Context) ApplicationPolicyResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPolicyResponseArrayOutput)
 }
 
 type ApplicationPolicyResponseOutput struct{ *pulumi.OutputState }
@@ -3071,60 +1917,6 @@ type JitApproverDefinitionResponse struct {
 	Type        *string `pulumi:"type"`
 }
 
-
-
-
-
-type JitApproverDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToJitApproverDefinitionResponseOutput() JitApproverDefinitionResponseOutput
-	ToJitApproverDefinitionResponseOutputWithContext(context.Context) JitApproverDefinitionResponseOutput
-}
-
-type JitApproverDefinitionResponseArgs struct {
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	Id          pulumi.StringInput    `pulumi:"id"`
-	Type        pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (JitApproverDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitApproverDefinitionResponse)(nil)).Elem()
-}
-
-func (i JitApproverDefinitionResponseArgs) ToJitApproverDefinitionResponseOutput() JitApproverDefinitionResponseOutput {
-	return i.ToJitApproverDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i JitApproverDefinitionResponseArgs) ToJitApproverDefinitionResponseOutputWithContext(ctx context.Context) JitApproverDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitApproverDefinitionResponseOutput)
-}
-
-
-
-
-
-type JitApproverDefinitionResponseArrayInput interface {
-	pulumi.Input
-
-	ToJitApproverDefinitionResponseArrayOutput() JitApproverDefinitionResponseArrayOutput
-	ToJitApproverDefinitionResponseArrayOutputWithContext(context.Context) JitApproverDefinitionResponseArrayOutput
-}
-
-type JitApproverDefinitionResponseArray []JitApproverDefinitionResponseInput
-
-func (JitApproverDefinitionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JitApproverDefinitionResponse)(nil)).Elem()
-}
-
-func (i JitApproverDefinitionResponseArray) ToJitApproverDefinitionResponseArrayOutput() JitApproverDefinitionResponseArrayOutput {
-	return i.ToJitApproverDefinitionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i JitApproverDefinitionResponseArray) ToJitApproverDefinitionResponseArrayOutputWithContext(ctx context.Context) JitApproverDefinitionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitApproverDefinitionResponseArrayOutput)
-}
-
 type JitApproverDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (JitApproverDefinitionResponseOutput) ElementType() reflect.Type {
@@ -3276,59 +2068,6 @@ type JitAuthorizationPoliciesResponse struct {
 	RoleDefinitionId string `pulumi:"roleDefinitionId"`
 }
 
-
-
-
-
-type JitAuthorizationPoliciesResponseInput interface {
-	pulumi.Input
-
-	ToJitAuthorizationPoliciesResponseOutput() JitAuthorizationPoliciesResponseOutput
-	ToJitAuthorizationPoliciesResponseOutputWithContext(context.Context) JitAuthorizationPoliciesResponseOutput
-}
-
-type JitAuthorizationPoliciesResponseArgs struct {
-	PrincipalId      pulumi.StringInput `pulumi:"principalId"`
-	RoleDefinitionId pulumi.StringInput `pulumi:"roleDefinitionId"`
-}
-
-func (JitAuthorizationPoliciesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitAuthorizationPoliciesResponse)(nil)).Elem()
-}
-
-func (i JitAuthorizationPoliciesResponseArgs) ToJitAuthorizationPoliciesResponseOutput() JitAuthorizationPoliciesResponseOutput {
-	return i.ToJitAuthorizationPoliciesResponseOutputWithContext(context.Background())
-}
-
-func (i JitAuthorizationPoliciesResponseArgs) ToJitAuthorizationPoliciesResponseOutputWithContext(ctx context.Context) JitAuthorizationPoliciesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitAuthorizationPoliciesResponseOutput)
-}
-
-
-
-
-
-type JitAuthorizationPoliciesResponseArrayInput interface {
-	pulumi.Input
-
-	ToJitAuthorizationPoliciesResponseArrayOutput() JitAuthorizationPoliciesResponseArrayOutput
-	ToJitAuthorizationPoliciesResponseArrayOutputWithContext(context.Context) JitAuthorizationPoliciesResponseArrayOutput
-}
-
-type JitAuthorizationPoliciesResponseArray []JitAuthorizationPoliciesResponseInput
-
-func (JitAuthorizationPoliciesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JitAuthorizationPoliciesResponse)(nil)).Elem()
-}
-
-func (i JitAuthorizationPoliciesResponseArray) ToJitAuthorizationPoliciesResponseArrayOutput() JitAuthorizationPoliciesResponseArrayOutput {
-	return i.ToJitAuthorizationPoliciesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i JitAuthorizationPoliciesResponseArray) ToJitAuthorizationPoliciesResponseArrayOutputWithContext(ctx context.Context) JitAuthorizationPoliciesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitAuthorizationPoliciesResponseArrayOutput)
-}
-
 type JitAuthorizationPoliciesResponseOutput struct{ *pulumi.OutputState }
 
 func (JitAuthorizationPoliciesResponseOutput) ElementType() reflect.Type {
@@ -3406,47 +2145,6 @@ func (i JitSchedulingPolicyArgs) ToJitSchedulingPolicyOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(JitSchedulingPolicyOutput)
 }
 
-func (i JitSchedulingPolicyArgs) ToJitSchedulingPolicyPtrOutput() JitSchedulingPolicyPtrOutput {
-	return i.ToJitSchedulingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i JitSchedulingPolicyArgs) ToJitSchedulingPolicyPtrOutputWithContext(ctx context.Context) JitSchedulingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitSchedulingPolicyOutput).ToJitSchedulingPolicyPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type JitSchedulingPolicyPtrInput interface {
-	pulumi.Input
-
-	ToJitSchedulingPolicyPtrOutput() JitSchedulingPolicyPtrOutput
-	ToJitSchedulingPolicyPtrOutputWithContext(context.Context) JitSchedulingPolicyPtrOutput
-}
-
-type jitSchedulingPolicyPtrType JitSchedulingPolicyArgs
-
-func JitSchedulingPolicyPtr(v *JitSchedulingPolicyArgs) JitSchedulingPolicyPtrInput {
-	return (*jitSchedulingPolicyPtrType)(v)
-}
-
-func (*jitSchedulingPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JitSchedulingPolicy)(nil)).Elem()
-}
-
-func (i *jitSchedulingPolicyPtrType) ToJitSchedulingPolicyPtrOutput() JitSchedulingPolicyPtrOutput {
-	return i.ToJitSchedulingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *jitSchedulingPolicyPtrType) ToJitSchedulingPolicyPtrOutputWithContext(ctx context.Context) JitSchedulingPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitSchedulingPolicyPtrOutput)
-}
-
 type JitSchedulingPolicyOutput struct{ *pulumi.OutputState }
 
 func (JitSchedulingPolicyOutput) ElementType() reflect.Type {
@@ -3461,16 +2159,6 @@ func (o JitSchedulingPolicyOutput) ToJitSchedulingPolicyOutputWithContext(ctx co
 	return o
 }
 
-func (o JitSchedulingPolicyOutput) ToJitSchedulingPolicyPtrOutput() JitSchedulingPolicyPtrOutput {
-	return o.ToJitSchedulingPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o JitSchedulingPolicyOutput) ToJitSchedulingPolicyPtrOutputWithContext(ctx context.Context) JitSchedulingPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JitSchedulingPolicy) *JitSchedulingPolicy {
-		return &v
-	}).(JitSchedulingPolicyPtrOutput)
-}
-
 func (o JitSchedulingPolicyOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicy) string { return v.Duration }).(pulumi.StringOutput)
 }
@@ -3483,131 +2171,10 @@ func (o JitSchedulingPolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicy) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type JitSchedulingPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (JitSchedulingPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JitSchedulingPolicy)(nil)).Elem()
-}
-
-func (o JitSchedulingPolicyPtrOutput) ToJitSchedulingPolicyPtrOutput() JitSchedulingPolicyPtrOutput {
-	return o
-}
-
-func (o JitSchedulingPolicyPtrOutput) ToJitSchedulingPolicyPtrOutputWithContext(ctx context.Context) JitSchedulingPolicyPtrOutput {
-	return o
-}
-
-func (o JitSchedulingPolicyPtrOutput) Elem() JitSchedulingPolicyOutput {
-	return o.ApplyT(func(v *JitSchedulingPolicy) JitSchedulingPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret JitSchedulingPolicy
-		return ret
-	}).(JitSchedulingPolicyOutput)
-}
-
-func (o JitSchedulingPolicyPtrOutput) Duration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JitSchedulingPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Duration
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JitSchedulingPolicyPtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JitSchedulingPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JitSchedulingPolicyPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JitSchedulingPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 type JitSchedulingPolicyResponse struct {
 	Duration  string `pulumi:"duration"`
 	StartTime string `pulumi:"startTime"`
 	Type      string `pulumi:"type"`
-}
-
-
-
-
-
-type JitSchedulingPolicyResponseInput interface {
-	pulumi.Input
-
-	ToJitSchedulingPolicyResponseOutput() JitSchedulingPolicyResponseOutput
-	ToJitSchedulingPolicyResponseOutputWithContext(context.Context) JitSchedulingPolicyResponseOutput
-}
-
-type JitSchedulingPolicyResponseArgs struct {
-	Duration  pulumi.StringInput `pulumi:"duration"`
-	StartTime pulumi.StringInput `pulumi:"startTime"`
-	Type      pulumi.StringInput `pulumi:"type"`
-}
-
-func (JitSchedulingPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JitSchedulingPolicyResponse)(nil)).Elem()
-}
-
-func (i JitSchedulingPolicyResponseArgs) ToJitSchedulingPolicyResponseOutput() JitSchedulingPolicyResponseOutput {
-	return i.ToJitSchedulingPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i JitSchedulingPolicyResponseArgs) ToJitSchedulingPolicyResponseOutputWithContext(ctx context.Context) JitSchedulingPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitSchedulingPolicyResponseOutput)
-}
-
-func (i JitSchedulingPolicyResponseArgs) ToJitSchedulingPolicyResponsePtrOutput() JitSchedulingPolicyResponsePtrOutput {
-	return i.ToJitSchedulingPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i JitSchedulingPolicyResponseArgs) ToJitSchedulingPolicyResponsePtrOutputWithContext(ctx context.Context) JitSchedulingPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitSchedulingPolicyResponseOutput).ToJitSchedulingPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type JitSchedulingPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToJitSchedulingPolicyResponsePtrOutput() JitSchedulingPolicyResponsePtrOutput
-	ToJitSchedulingPolicyResponsePtrOutputWithContext(context.Context) JitSchedulingPolicyResponsePtrOutput
-}
-
-type jitSchedulingPolicyResponsePtrType JitSchedulingPolicyResponseArgs
-
-func JitSchedulingPolicyResponsePtr(v *JitSchedulingPolicyResponseArgs) JitSchedulingPolicyResponsePtrInput {
-	return (*jitSchedulingPolicyResponsePtrType)(v)
-}
-
-func (*jitSchedulingPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JitSchedulingPolicyResponse)(nil)).Elem()
-}
-
-func (i *jitSchedulingPolicyResponsePtrType) ToJitSchedulingPolicyResponsePtrOutput() JitSchedulingPolicyResponsePtrOutput {
-	return i.ToJitSchedulingPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *jitSchedulingPolicyResponsePtrType) ToJitSchedulingPolicyResponsePtrOutputWithContext(ctx context.Context) JitSchedulingPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JitSchedulingPolicyResponsePtrOutput)
 }
 
 type JitSchedulingPolicyResponseOutput struct{ *pulumi.OutputState }
@@ -3624,16 +2191,6 @@ func (o JitSchedulingPolicyResponseOutput) ToJitSchedulingPolicyResponseOutputWi
 	return o
 }
 
-func (o JitSchedulingPolicyResponseOutput) ToJitSchedulingPolicyResponsePtrOutput() JitSchedulingPolicyResponsePtrOutput {
-	return o.ToJitSchedulingPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o JitSchedulingPolicyResponseOutput) ToJitSchedulingPolicyResponsePtrOutputWithContext(ctx context.Context) JitSchedulingPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JitSchedulingPolicyResponse) *JitSchedulingPolicyResponse {
-		return &v
-	}).(JitSchedulingPolicyResponsePtrOutput)
-}
-
 func (o JitSchedulingPolicyResponseOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicyResponse) string { return v.Duration }).(pulumi.StringOutput)
 }
@@ -3644,57 +2201,6 @@ func (o JitSchedulingPolicyResponseOutput) StartTime() pulumi.StringOutput {
 
 func (o JitSchedulingPolicyResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v JitSchedulingPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type JitSchedulingPolicyResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (JitSchedulingPolicyResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JitSchedulingPolicyResponse)(nil)).Elem()
-}
-
-func (o JitSchedulingPolicyResponsePtrOutput) ToJitSchedulingPolicyResponsePtrOutput() JitSchedulingPolicyResponsePtrOutput {
-	return o
-}
-
-func (o JitSchedulingPolicyResponsePtrOutput) ToJitSchedulingPolicyResponsePtrOutputWithContext(ctx context.Context) JitSchedulingPolicyResponsePtrOutput {
-	return o
-}
-
-func (o JitSchedulingPolicyResponsePtrOutput) Elem() JitSchedulingPolicyResponseOutput {
-	return o.ApplyT(func(v *JitSchedulingPolicyResponse) JitSchedulingPolicyResponse {
-		if v != nil {
-			return *v
-		}
-		var ret JitSchedulingPolicyResponse
-		return ret
-	}).(JitSchedulingPolicyResponseOutput)
-}
-
-func (o JitSchedulingPolicyResponsePtrOutput) Duration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JitSchedulingPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Duration
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JitSchedulingPolicyResponsePtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JitSchedulingPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartTime
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o JitSchedulingPolicyResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JitSchedulingPolicyResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type ManagedServiceIdentity struct {
@@ -3852,77 +2358,6 @@ type ManagedServiceIdentityResponse struct {
 	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
-
-
-
-
-type ManagedServiceIdentityResponseInput interface {
-	pulumi.Input
-
-	ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput
-	ToManagedServiceIdentityResponseOutputWithContext(context.Context) ManagedServiceIdentityResponseOutput
-}
-
-type ManagedServiceIdentityResponseArgs struct {
-	PrincipalId            pulumi.StringInput                   `pulumi:"principalId"`
-	TenantId               pulumi.StringInput                   `pulumi:"tenantId"`
-	Type                   pulumi.StringInput                   `pulumi:"type"`
-	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
-}
-
-func (ManagedServiceIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedServiceIdentityResponse)(nil)).Elem()
-}
-
-func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponseOutput() ManagedServiceIdentityResponseOutput {
-	return i.ToManagedServiceIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponseOutput)
-}
-
-func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
-	return i.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ManagedServiceIdentityResponseArgs) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponseOutput).ToManagedServiceIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ManagedServiceIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput
-	ToManagedServiceIdentityResponsePtrOutputWithContext(context.Context) ManagedServiceIdentityResponsePtrOutput
-}
-
-type managedServiceIdentityResponsePtrType ManagedServiceIdentityResponseArgs
-
-func ManagedServiceIdentityResponsePtr(v *ManagedServiceIdentityResponseArgs) ManagedServiceIdentityResponsePtrInput {
-	return (*managedServiceIdentityResponsePtrType)(v)
-}
-
-func (*managedServiceIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedServiceIdentityResponse)(nil)).Elem()
-}
-
-func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
-	return i.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *managedServiceIdentityResponsePtrType) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedServiceIdentityResponsePtrOutput)
-}
-
 type ManagedServiceIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (ManagedServiceIdentityResponseOutput) ElementType() reflect.Type {
@@ -3935,16 +2370,6 @@ func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOu
 
 func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponseOutputWithContext(ctx context.Context) ManagedServiceIdentityResponseOutput {
 	return o
-}
-
-func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutput() ManagedServiceIdentityResponsePtrOutput {
-	return o.ToManagedServiceIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ManagedServiceIdentityResponseOutput) ToManagedServiceIdentityResponsePtrOutputWithContext(ctx context.Context) ManagedServiceIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ManagedServiceIdentityResponse) *ManagedServiceIdentityResponse {
-		return &v
-	}).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 func (o ManagedServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
@@ -4226,78 +2651,6 @@ type PlanResponse struct {
 	Version       string  `pulumi:"version"`
 }
 
-
-
-
-
-type PlanResponseInput interface {
-	pulumi.Input
-
-	ToPlanResponseOutput() PlanResponseOutput
-	ToPlanResponseOutputWithContext(context.Context) PlanResponseOutput
-}
-
-type PlanResponseArgs struct {
-	Name          pulumi.StringInput    `pulumi:"name"`
-	Product       pulumi.StringInput    `pulumi:"product"`
-	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	Publisher     pulumi.StringInput    `pulumi:"publisher"`
-	Version       pulumi.StringInput    `pulumi:"version"`
-}
-
-func (PlanResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlanResponse)(nil)).Elem()
-}
-
-func (i PlanResponseArgs) ToPlanResponseOutput() PlanResponseOutput {
-	return i.ToPlanResponseOutputWithContext(context.Background())
-}
-
-func (i PlanResponseArgs) ToPlanResponseOutputWithContext(ctx context.Context) PlanResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlanResponseOutput)
-}
-
-func (i PlanResponseArgs) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
-	return i.ToPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PlanResponseArgs) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlanResponseOutput).ToPlanResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PlanResponsePtrInput interface {
-	pulumi.Input
-
-	ToPlanResponsePtrOutput() PlanResponsePtrOutput
-	ToPlanResponsePtrOutputWithContext(context.Context) PlanResponsePtrOutput
-}
-
-type planResponsePtrType PlanResponseArgs
-
-func PlanResponsePtr(v *PlanResponseArgs) PlanResponsePtrInput {
-	return (*planResponsePtrType)(v)
-}
-
-func (*planResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PlanResponse)(nil)).Elem()
-}
-
-func (i *planResponsePtrType) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
-	return i.ToPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *planResponsePtrType) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PlanResponsePtrOutput)
-}
-
 type PlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PlanResponseOutput) ElementType() reflect.Type {
@@ -4310,16 +2663,6 @@ func (o PlanResponseOutput) ToPlanResponseOutput() PlanResponseOutput {
 
 func (o PlanResponseOutput) ToPlanResponseOutputWithContext(ctx context.Context) PlanResponseOutput {
 	return o
-}
-
-func (o PlanResponseOutput) ToPlanResponsePtrOutput() PlanResponsePtrOutput {
-	return o.ToPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PlanResponseOutput) ToPlanResponsePtrOutputWithContext(ctx context.Context) PlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanResponse) *PlanResponse {
-		return &v
-	}).(PlanResponsePtrOutput)
 }
 
 func (o PlanResponseOutput) Name() pulumi.StringOutput {
@@ -4628,79 +2971,6 @@ type SkuResponse struct {
 	Tier     *string `pulumi:"tier"`
 }
 
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Family   pulumi.StringPtrInput `pulumi:"family"`
-	Model    pulumi.StringPtrInput `pulumi:"model"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Size     pulumi.StringPtrInput `pulumi:"size"`
-	Tier     pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
-}
-
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -4713,16 +2983,6 @@ func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
 
 func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
 	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
 }
 
 func (o SkuResponseOutput) Capacity() pulumi.IntPtrOutput {
@@ -4836,79 +3096,6 @@ type SystemDataResponse struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -4921,16 +3108,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -4957,140 +3134,9 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 type UserAssignedIdentityResponse struct {
 	ClientId    string `pulumi:"clientId"`
 	PrincipalId string `pulumi:"principalId"`
-}
-
-
-
-
-
-type UserAssignedIdentityResponseInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput
-	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
-}
-
-type UserAssignedIdentityResponseArgs struct {
-	ClientId    pulumi.StringInput `pulumi:"clientId"`
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-}
-
-func (UserAssignedIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
-	return i.ToUserAssignedIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseOutput)
-}
-
-
-
-
-
-type UserAssignedIdentityResponseMapInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput
-	ToUserAssignedIdentityResponseMapOutputWithContext(context.Context) UserAssignedIdentityResponseMapOutput
-}
-
-type UserAssignedIdentityResponseMap map[string]UserAssignedIdentityResponseInput
-
-func (UserAssignedIdentityResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
-	return i.ToUserAssignedIdentityResponseMapOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
 }
 
 type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
@@ -5143,9 +3189,7 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationAuthorizationResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationAuthorizationResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationBillingDetailsDefinitionResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationBillingDetailsDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationClientDetailsResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationClientDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinitionArtifactOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinitionArtifactArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinitionArtifactResponseOutput{})
@@ -5171,13 +3215,11 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationNotificationPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationNotificationPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageContactResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationPackageContactResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageLockingPolicyDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPackageSupportUrlsResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationPackageSupportUrlsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationPolicyResponseOutput{})
@@ -5191,9 +3233,7 @@ func init() {
 	pulumi.RegisterOutputType(JitAuthorizationPoliciesResponseOutput{})
 	pulumi.RegisterOutputType(JitAuthorizationPoliciesResponseArrayOutput{})
 	pulumi.RegisterOutputType(JitSchedulingPolicyOutput{})
-	pulumi.RegisterOutputType(JitSchedulingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(JitSchedulingPolicyResponseOutput{})
-	pulumi.RegisterOutputType(JitSchedulingPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ManagedServiceIdentityResponseOutput{})
@@ -5207,7 +3247,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 }

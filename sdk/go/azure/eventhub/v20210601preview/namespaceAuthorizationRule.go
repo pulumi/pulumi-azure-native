@@ -118,7 +118,7 @@ type NamespaceAuthorizationRuleInput interface {
 }
 
 func (*NamespaceAuthorizationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil))
+	return reflect.TypeOf((**NamespaceAuthorizationRule)(nil)).Elem()
 }
 
 func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutput() NamespaceAuthorizationRuleOutput {
@@ -132,7 +132,7 @@ func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithConte
 type NamespaceAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (NamespaceAuthorizationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceAuthorizationRule)(nil))
+	return reflect.TypeOf((**NamespaceAuthorizationRule)(nil)).Elem()
 }
 
 func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutput() NamespaceAuthorizationRuleOutput {

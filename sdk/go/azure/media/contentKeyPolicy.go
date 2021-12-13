@@ -118,7 +118,7 @@ type ContentKeyPolicyInput interface {
 }
 
 func (*ContentKeyPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicy)(nil))
+	return reflect.TypeOf((**ContentKeyPolicy)(nil)).Elem()
 }
 
 func (i *ContentKeyPolicy) ToContentKeyPolicyOutput() ContentKeyPolicyOutput {
@@ -132,7 +132,7 @@ func (i *ContentKeyPolicy) ToContentKeyPolicyOutputWithContext(ctx context.Conte
 type ContentKeyPolicyOutput struct{ *pulumi.OutputState }
 
 func (ContentKeyPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContentKeyPolicy)(nil))
+	return reflect.TypeOf((**ContentKeyPolicy)(nil)).Elem()
 }
 
 func (o ContentKeyPolicyOutput) ToContentKeyPolicyOutput() ContentKeyPolicyOutput {

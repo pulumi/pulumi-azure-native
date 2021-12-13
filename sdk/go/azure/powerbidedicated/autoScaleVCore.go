@@ -110,7 +110,7 @@ type AutoScaleVCoreInput interface {
 }
 
 func (*AutoScaleVCore) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScaleVCore)(nil))
+	return reflect.TypeOf((**AutoScaleVCore)(nil)).Elem()
 }
 
 func (i *AutoScaleVCore) ToAutoScaleVCoreOutput() AutoScaleVCoreOutput {
@@ -124,7 +124,7 @@ func (i *AutoScaleVCore) ToAutoScaleVCoreOutputWithContext(ctx context.Context) 
 type AutoScaleVCoreOutput struct{ *pulumi.OutputState }
 
 func (AutoScaleVCoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutoScaleVCore)(nil))
+	return reflect.TypeOf((**AutoScaleVCore)(nil)).Elem()
 }
 
 func (o AutoScaleVCoreOutput) ToAutoScaleVCoreOutput() AutoScaleVCoreOutput {

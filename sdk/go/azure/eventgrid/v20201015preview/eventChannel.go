@@ -117,7 +117,7 @@ type EventChannelInput interface {
 }
 
 func (*EventChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventChannel)(nil))
+	return reflect.TypeOf((**EventChannel)(nil)).Elem()
 }
 
 func (i *EventChannel) ToEventChannelOutput() EventChannelOutput {
@@ -131,7 +131,7 @@ func (i *EventChannel) ToEventChannelOutputWithContext(ctx context.Context) Even
 type EventChannelOutput struct{ *pulumi.OutputState }
 
 func (EventChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventChannel)(nil))
+	return reflect.TypeOf((**EventChannel)(nil)).Elem()
 }
 
 func (o EventChannelOutput) ToEventChannelOutput() EventChannelOutput {

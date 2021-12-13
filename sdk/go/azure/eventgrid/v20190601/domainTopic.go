@@ -115,7 +115,7 @@ type DomainTopicInput interface {
 }
 
 func (*DomainTopic) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTopic)(nil))
+	return reflect.TypeOf((**DomainTopic)(nil)).Elem()
 }
 
 func (i *DomainTopic) ToDomainTopicOutput() DomainTopicOutput {
@@ -129,7 +129,7 @@ func (i *DomainTopic) ToDomainTopicOutputWithContext(ctx context.Context) Domain
 type DomainTopicOutput struct{ *pulumi.OutputState }
 
 func (DomainTopicOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTopic)(nil))
+	return reflect.TypeOf((**DomainTopic)(nil)).Elem()
 }
 
 func (o DomainTopicOutput) ToDomainTopicOutput() DomainTopicOutput {

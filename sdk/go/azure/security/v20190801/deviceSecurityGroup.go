@@ -103,7 +103,7 @@ type DeviceSecurityGroupInput interface {
 }
 
 func (*DeviceSecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceSecurityGroup)(nil))
+	return reflect.TypeOf((**DeviceSecurityGroup)(nil)).Elem()
 }
 
 func (i *DeviceSecurityGroup) ToDeviceSecurityGroupOutput() DeviceSecurityGroupOutput {
@@ -117,7 +117,7 @@ func (i *DeviceSecurityGroup) ToDeviceSecurityGroupOutputWithContext(ctx context
 type DeviceSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (DeviceSecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceSecurityGroup)(nil))
+	return reflect.TypeOf((**DeviceSecurityGroup)(nil)).Elem()
 }
 
 func (o DeviceSecurityGroupOutput) ToDeviceSecurityGroupOutput() DeviceSecurityGroupOutput {

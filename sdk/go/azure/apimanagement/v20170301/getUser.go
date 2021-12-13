@@ -13,7 +13,7 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupUserArgs struct {
@@ -35,4 +35,17 @@ type LookupUserResult struct {
 	RegistrationDate *string                        `pulumi:"registrationDate"`
 	State            *string                        `pulumi:"state"`
 	Type             string                         `pulumi:"type"`
+}
+
+
+func (val *LookupUserResult) Defaults() *LookupUserResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.State) {
+		state_ := "active"
+		tmp.State = &state_
+	}
+	return &tmp
 }

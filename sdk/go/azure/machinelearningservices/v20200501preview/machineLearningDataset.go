@@ -45,7 +45,8 @@ func NewMachineLearningDataset(ctx *pulumi.Context,
 	if args.WorkspaceName == nil {
 		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
-	if args.SkipValidation == nil {
+	args.Parameters = args.Parameters.ToDatasetCreateRequestParametersOutput().ApplyT(func(v DatasetCreateRequestParameters) DatasetCreateRequestParameters { return *v.Defaults() }).(DatasetCreateRequestParametersOutput)
+	if isZero(args.SkipValidation) {
 		args.SkipValidation = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -120,7 +121,7 @@ type MachineLearningDatasetInput interface {
 }
 
 func (*MachineLearningDataset) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningDataset)(nil))
+	return reflect.TypeOf((**MachineLearningDataset)(nil)).Elem()
 }
 
 func (i *MachineLearningDataset) ToMachineLearningDatasetOutput() MachineLearningDatasetOutput {
@@ -134,7 +135,7 @@ func (i *MachineLearningDataset) ToMachineLearningDatasetOutputWithContext(ctx c
 type MachineLearningDatasetOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningDatasetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningDataset)(nil))
+	return reflect.TypeOf((**MachineLearningDataset)(nil)).Elem()
 }
 
 func (o MachineLearningDatasetOutput) ToMachineLearningDatasetOutput() MachineLearningDatasetOutput {

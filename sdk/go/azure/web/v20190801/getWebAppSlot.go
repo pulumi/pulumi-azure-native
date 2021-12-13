@@ -13,7 +13,7 @@ func LookupWebAppSlot(ctx *pulumi.Context, args *LookupWebAppSlotArgs, opts ...p
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupWebAppSlotArgs struct {
@@ -66,4 +66,31 @@ type LookupWebAppSlotResult struct {
 	TrafficManagerHostNames     []string                           `pulumi:"trafficManagerHostNames"`
 	Type                        string                             `pulumi:"type"`
 	UsageState                  string                             `pulumi:"usageState"`
+}
+
+
+func (val *LookupWebAppSlotResult) Defaults() *LookupWebAppSlotResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HyperV) {
+		hyperV_ := false
+		tmp.HyperV = &hyperV_
+	}
+	if isZero(tmp.IsXenon) {
+		isXenon_ := false
+		tmp.IsXenon = &isXenon_
+	}
+	if isZero(tmp.Reserved) {
+		reserved_ := false
+		tmp.Reserved = &reserved_
+	}
+	if isZero(tmp.ScmSiteAlsoStopped) {
+		scmSiteAlsoStopped_ := false
+		tmp.ScmSiteAlsoStopped = &scmSiteAlsoStopped_
+	}
+	tmp.SiteConfig = tmp.SiteConfig.Defaults()
+
+	return &tmp
 }

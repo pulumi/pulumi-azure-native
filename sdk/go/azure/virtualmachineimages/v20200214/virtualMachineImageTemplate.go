@@ -48,8 +48,11 @@ func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
-	if args.BuildTimeoutInMinutes == nil {
+	if isZero(args.BuildTimeoutInMinutes) {
 		args.BuildTimeoutInMinutes = pulumi.IntPtr(0)
+	}
+	if args.VmProfile != nil {
+		args.VmProfile = args.VmProfile.ToImageTemplateVmProfilePtrOutput().ApplyT(func(v *ImageTemplateVmProfile) *ImageTemplateVmProfile { return v.Defaults() }).(ImageTemplateVmProfilePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -139,7 +142,7 @@ type VirtualMachineImageTemplateInput interface {
 }
 
 func (*VirtualMachineImageTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineImageTemplate)(nil))
+	return reflect.TypeOf((**VirtualMachineImageTemplate)(nil)).Elem()
 }
 
 func (i *VirtualMachineImageTemplate) ToVirtualMachineImageTemplateOutput() VirtualMachineImageTemplateOutput {
@@ -153,7 +156,7 @@ func (i *VirtualMachineImageTemplate) ToVirtualMachineImageTemplateOutputWithCon
 type VirtualMachineImageTemplateOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineImageTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineImageTemplate)(nil))
+	return reflect.TypeOf((**VirtualMachineImageTemplate)(nil)).Elem()
 }
 
 func (o VirtualMachineImageTemplateOutput) ToVirtualMachineImageTemplateOutput() VirtualMachineImageTemplateOutput {

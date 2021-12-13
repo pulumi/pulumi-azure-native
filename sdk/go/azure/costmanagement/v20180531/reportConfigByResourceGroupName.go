@@ -101,7 +101,7 @@ type ReportConfigByResourceGroupNameInput interface {
 }
 
 func (*ReportConfigByResourceGroupName) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfigByResourceGroupName)(nil))
+	return reflect.TypeOf((**ReportConfigByResourceGroupName)(nil)).Elem()
 }
 
 func (i *ReportConfigByResourceGroupName) ToReportConfigByResourceGroupNameOutput() ReportConfigByResourceGroupNameOutput {
@@ -115,7 +115,7 @@ func (i *ReportConfigByResourceGroupName) ToReportConfigByResourceGroupNameOutpu
 type ReportConfigByResourceGroupNameOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigByResourceGroupNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfigByResourceGroupName)(nil))
+	return reflect.TypeOf((**ReportConfigByResourceGroupName)(nil)).Elem()
 }
 
 func (o ReportConfigByResourceGroupNameOutput) ToReportConfigByResourceGroupNameOutput() ReportConfigByResourceGroupNameOutput {

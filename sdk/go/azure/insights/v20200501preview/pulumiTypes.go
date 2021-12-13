@@ -115,59 +115,6 @@ type ActionResponse struct {
 	WebHookProperties map[string]string `pulumi:"webHookProperties"`
 }
 
-
-
-
-
-type ActionResponseInput interface {
-	pulumi.Input
-
-	ToActionResponseOutput() ActionResponseOutput
-	ToActionResponseOutputWithContext(context.Context) ActionResponseOutput
-}
-
-type ActionResponseArgs struct {
-	ActionGroupId     pulumi.StringPtrInput `pulumi:"actionGroupId"`
-	WebHookProperties pulumi.StringMapInput `pulumi:"webHookProperties"`
-}
-
-func (ActionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ActionResponse)(nil)).Elem()
-}
-
-func (i ActionResponseArgs) ToActionResponseOutput() ActionResponseOutput {
-	return i.ToActionResponseOutputWithContext(context.Background())
-}
-
-func (i ActionResponseArgs) ToActionResponseOutputWithContext(ctx context.Context) ActionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseOutput)
-}
-
-
-
-
-
-type ActionResponseArrayInput interface {
-	pulumi.Input
-
-	ToActionResponseArrayOutput() ActionResponseArrayOutput
-	ToActionResponseArrayOutputWithContext(context.Context) ActionResponseArrayOutput
-}
-
-type ActionResponseArray []ActionResponseInput
-
-func (ActionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ActionResponse)(nil)).Elem()
-}
-
-func (i ActionResponseArray) ToActionResponseArrayOutput() ActionResponseArrayOutput {
-	return i.ToActionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ActionResponseArray) ToActionResponseArrayOutputWithContext(ctx context.Context) ActionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ActionResponseArrayOutput)
-}
-
 type ActionResponseOutput struct{ *pulumi.OutputState }
 
 func (ActionResponseOutput) ElementType() reflect.Type {
@@ -219,6 +166,17 @@ type Condition struct {
 	ResourceIdColumn    *string                  `pulumi:"resourceIdColumn"`
 	Threshold           float64                  `pulumi:"threshold"`
 	TimeAggregation     string                   `pulumi:"timeAggregation"`
+}
+
+
+func (val *Condition) Defaults() *Condition {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.FailingPeriods = tmp.FailingPeriods.Defaults()
+
+	return &tmp
 }
 
 
@@ -349,6 +307,23 @@ func (o ConditionArrayOutput) Index(i pulumi.IntInput) ConditionOutput {
 type ConditionFailingPeriods struct {
 	MinFailingPeriodsToAlert  *float64 `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods *float64 `pulumi:"numberOfEvaluationPeriods"`
+}
+
+
+func (val *ConditionFailingPeriods) Defaults() *ConditionFailingPeriods {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MinFailingPeriodsToAlert) {
+		minFailingPeriodsToAlert_ := 1.0
+		tmp.MinFailingPeriodsToAlert = &minFailingPeriodsToAlert_
+	}
+	if isZero(tmp.NumberOfEvaluationPeriods) {
+		numberOfEvaluationPeriods_ := 1.0
+		tmp.NumberOfEvaluationPeriods = &numberOfEvaluationPeriods_
+	}
+	return &tmp
 }
 
 
@@ -506,62 +481,14 @@ type ConditionResponse struct {
 }
 
 
+func (val *ConditionResponse) Defaults() *ConditionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.FailingPeriods = tmp.FailingPeriods.Defaults()
 
-
-
-type ConditionResponseInput interface {
-	pulumi.Input
-
-	ToConditionResponseOutput() ConditionResponseOutput
-	ToConditionResponseOutputWithContext(context.Context) ConditionResponseOutput
-}
-
-type ConditionResponseArgs struct {
-	Dimensions          DimensionResponseArrayInput             `pulumi:"dimensions"`
-	FailingPeriods      ConditionResponseFailingPeriodsPtrInput `pulumi:"failingPeriods"`
-	MetricMeasureColumn pulumi.StringPtrInput                   `pulumi:"metricMeasureColumn"`
-	Operator            pulumi.StringInput                      `pulumi:"operator"`
-	Query               pulumi.StringPtrInput                   `pulumi:"query"`
-	ResourceIdColumn    pulumi.StringPtrInput                   `pulumi:"resourceIdColumn"`
-	Threshold           pulumi.Float64Input                     `pulumi:"threshold"`
-	TimeAggregation     pulumi.StringInput                      `pulumi:"timeAggregation"`
-}
-
-func (ConditionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConditionResponse)(nil)).Elem()
-}
-
-func (i ConditionResponseArgs) ToConditionResponseOutput() ConditionResponseOutput {
-	return i.ToConditionResponseOutputWithContext(context.Background())
-}
-
-func (i ConditionResponseArgs) ToConditionResponseOutputWithContext(ctx context.Context) ConditionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseOutput)
-}
-
-
-
-
-
-type ConditionResponseArrayInput interface {
-	pulumi.Input
-
-	ToConditionResponseArrayOutput() ConditionResponseArrayOutput
-	ToConditionResponseArrayOutputWithContext(context.Context) ConditionResponseArrayOutput
-}
-
-type ConditionResponseArray []ConditionResponseInput
-
-func (ConditionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConditionResponse)(nil)).Elem()
-}
-
-func (i ConditionResponseArray) ToConditionResponseArrayOutput() ConditionResponseArrayOutput {
-	return i.ToConditionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ConditionResponseArray) ToConditionResponseArrayOutputWithContext(ctx context.Context) ConditionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseArrayOutput)
+	return &tmp
 }
 
 type ConditionResponseOutput struct{ *pulumi.OutputState }
@@ -636,72 +563,20 @@ type ConditionResponseFailingPeriods struct {
 }
 
 
-
-
-
-type ConditionResponseFailingPeriodsInput interface {
-	pulumi.Input
-
-	ToConditionResponseFailingPeriodsOutput() ConditionResponseFailingPeriodsOutput
-	ToConditionResponseFailingPeriodsOutputWithContext(context.Context) ConditionResponseFailingPeriodsOutput
-}
-
-type ConditionResponseFailingPeriodsArgs struct {
-	MinFailingPeriodsToAlert  pulumi.Float64PtrInput `pulumi:"minFailingPeriodsToAlert"`
-	NumberOfEvaluationPeriods pulumi.Float64PtrInput `pulumi:"numberOfEvaluationPeriods"`
-}
-
-func (ConditionResponseFailingPeriodsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConditionResponseFailingPeriods)(nil)).Elem()
-}
-
-func (i ConditionResponseFailingPeriodsArgs) ToConditionResponseFailingPeriodsOutput() ConditionResponseFailingPeriodsOutput {
-	return i.ToConditionResponseFailingPeriodsOutputWithContext(context.Background())
-}
-
-func (i ConditionResponseFailingPeriodsArgs) ToConditionResponseFailingPeriodsOutputWithContext(ctx context.Context) ConditionResponseFailingPeriodsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseFailingPeriodsOutput)
-}
-
-func (i ConditionResponseFailingPeriodsArgs) ToConditionResponseFailingPeriodsPtrOutput() ConditionResponseFailingPeriodsPtrOutput {
-	return i.ToConditionResponseFailingPeriodsPtrOutputWithContext(context.Background())
-}
-
-func (i ConditionResponseFailingPeriodsArgs) ToConditionResponseFailingPeriodsPtrOutputWithContext(ctx context.Context) ConditionResponseFailingPeriodsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseFailingPeriodsOutput).ToConditionResponseFailingPeriodsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConditionResponseFailingPeriodsPtrInput interface {
-	pulumi.Input
-
-	ToConditionResponseFailingPeriodsPtrOutput() ConditionResponseFailingPeriodsPtrOutput
-	ToConditionResponseFailingPeriodsPtrOutputWithContext(context.Context) ConditionResponseFailingPeriodsPtrOutput
-}
-
-type conditionResponseFailingPeriodsPtrType ConditionResponseFailingPeriodsArgs
-
-func ConditionResponseFailingPeriodsPtr(v *ConditionResponseFailingPeriodsArgs) ConditionResponseFailingPeriodsPtrInput {
-	return (*conditionResponseFailingPeriodsPtrType)(v)
-}
-
-func (*conditionResponseFailingPeriodsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConditionResponseFailingPeriods)(nil)).Elem()
-}
-
-func (i *conditionResponseFailingPeriodsPtrType) ToConditionResponseFailingPeriodsPtrOutput() ConditionResponseFailingPeriodsPtrOutput {
-	return i.ToConditionResponseFailingPeriodsPtrOutputWithContext(context.Background())
-}
-
-func (i *conditionResponseFailingPeriodsPtrType) ToConditionResponseFailingPeriodsPtrOutputWithContext(ctx context.Context) ConditionResponseFailingPeriodsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConditionResponseFailingPeriodsPtrOutput)
+func (val *ConditionResponseFailingPeriods) Defaults() *ConditionResponseFailingPeriods {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MinFailingPeriodsToAlert) {
+		minFailingPeriodsToAlert_ := 1.0
+		tmp.MinFailingPeriodsToAlert = &minFailingPeriodsToAlert_
+	}
+	if isZero(tmp.NumberOfEvaluationPeriods) {
+		numberOfEvaluationPeriods_ := 1.0
+		tmp.NumberOfEvaluationPeriods = &numberOfEvaluationPeriods_
+	}
+	return &tmp
 }
 
 type ConditionResponseFailingPeriodsOutput struct{ *pulumi.OutputState }
@@ -716,16 +591,6 @@ func (o ConditionResponseFailingPeriodsOutput) ToConditionResponseFailingPeriods
 
 func (o ConditionResponseFailingPeriodsOutput) ToConditionResponseFailingPeriodsOutputWithContext(ctx context.Context) ConditionResponseFailingPeriodsOutput {
 	return o
-}
-
-func (o ConditionResponseFailingPeriodsOutput) ToConditionResponseFailingPeriodsPtrOutput() ConditionResponseFailingPeriodsPtrOutput {
-	return o.ToConditionResponseFailingPeriodsPtrOutputWithContext(context.Background())
-}
-
-func (o ConditionResponseFailingPeriodsOutput) ToConditionResponseFailingPeriodsPtrOutputWithContext(ctx context.Context) ConditionResponseFailingPeriodsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConditionResponseFailingPeriods) *ConditionResponseFailingPeriods {
-		return &v
-	}).(ConditionResponseFailingPeriodsPtrOutput)
 }
 
 func (o ConditionResponseFailingPeriodsOutput) MinFailingPeriodsToAlert() pulumi.Float64PtrOutput {
@@ -890,60 +755,6 @@ type DimensionResponse struct {
 	Values   []string `pulumi:"values"`
 }
 
-
-
-
-
-type DimensionResponseInput interface {
-	pulumi.Input
-
-	ToDimensionResponseOutput() DimensionResponseOutput
-	ToDimensionResponseOutputWithContext(context.Context) DimensionResponseOutput
-}
-
-type DimensionResponseArgs struct {
-	Name     pulumi.StringInput      `pulumi:"name"`
-	Operator pulumi.StringInput      `pulumi:"operator"`
-	Values   pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (DimensionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DimensionResponse)(nil)).Elem()
-}
-
-func (i DimensionResponseArgs) ToDimensionResponseOutput() DimensionResponseOutput {
-	return i.ToDimensionResponseOutputWithContext(context.Background())
-}
-
-func (i DimensionResponseArgs) ToDimensionResponseOutputWithContext(ctx context.Context) DimensionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DimensionResponseOutput)
-}
-
-
-
-
-
-type DimensionResponseArrayInput interface {
-	pulumi.Input
-
-	ToDimensionResponseArrayOutput() DimensionResponseArrayOutput
-	ToDimensionResponseArrayOutputWithContext(context.Context) DimensionResponseArrayOutput
-}
-
-type DimensionResponseArray []DimensionResponseInput
-
-func (DimensionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DimensionResponse)(nil)).Elem()
-}
-
-func (i DimensionResponseArray) ToDimensionResponseArrayOutput() DimensionResponseArrayOutput {
-	return i.ToDimensionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DimensionResponseArray) ToDimensionResponseArrayOutputWithContext(ctx context.Context) DimensionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DimensionResponseArrayOutput)
-}
-
 type DimensionResponseOutput struct{ *pulumi.OutputState }
 
 func (DimensionResponseOutput) ElementType() reflect.Type {
@@ -1021,47 +832,6 @@ func (i ScheduledQueryRuleCriteriaArgs) ToScheduledQueryRuleCriteriaOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleCriteriaOutput)
 }
 
-func (i ScheduledQueryRuleCriteriaArgs) ToScheduledQueryRuleCriteriaPtrOutput() ScheduledQueryRuleCriteriaPtrOutput {
-	return i.ToScheduledQueryRuleCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i ScheduledQueryRuleCriteriaArgs) ToScheduledQueryRuleCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleCriteriaOutput).ToScheduledQueryRuleCriteriaPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ScheduledQueryRuleCriteriaPtrInput interface {
-	pulumi.Input
-
-	ToScheduledQueryRuleCriteriaPtrOutput() ScheduledQueryRuleCriteriaPtrOutput
-	ToScheduledQueryRuleCriteriaPtrOutputWithContext(context.Context) ScheduledQueryRuleCriteriaPtrOutput
-}
-
-type scheduledQueryRuleCriteriaPtrType ScheduledQueryRuleCriteriaArgs
-
-func ScheduledQueryRuleCriteriaPtr(v *ScheduledQueryRuleCriteriaArgs) ScheduledQueryRuleCriteriaPtrInput {
-	return (*scheduledQueryRuleCriteriaPtrType)(v)
-}
-
-func (*scheduledQueryRuleCriteriaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRuleCriteria)(nil)).Elem()
-}
-
-func (i *scheduledQueryRuleCriteriaPtrType) ToScheduledQueryRuleCriteriaPtrOutput() ScheduledQueryRuleCriteriaPtrOutput {
-	return i.ToScheduledQueryRuleCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i *scheduledQueryRuleCriteriaPtrType) ToScheduledQueryRuleCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleCriteriaPtrOutput)
-}
-
 type ScheduledQueryRuleCriteriaOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRuleCriteriaOutput) ElementType() reflect.Type {
@@ -1076,123 +846,12 @@ func (o ScheduledQueryRuleCriteriaOutput) ToScheduledQueryRuleCriteriaOutputWith
 	return o
 }
 
-func (o ScheduledQueryRuleCriteriaOutput) ToScheduledQueryRuleCriteriaPtrOutput() ScheduledQueryRuleCriteriaPtrOutput {
-	return o.ToScheduledQueryRuleCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (o ScheduledQueryRuleCriteriaOutput) ToScheduledQueryRuleCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRuleCriteria) *ScheduledQueryRuleCriteria {
-		return &v
-	}).(ScheduledQueryRuleCriteriaPtrOutput)
-}
-
 func (o ScheduledQueryRuleCriteriaOutput) AllOf() ConditionArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRuleCriteria) []Condition { return v.AllOf }).(ConditionArrayOutput)
 }
 
-type ScheduledQueryRuleCriteriaPtrOutput struct{ *pulumi.OutputState }
-
-func (ScheduledQueryRuleCriteriaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRuleCriteria)(nil)).Elem()
-}
-
-func (o ScheduledQueryRuleCriteriaPtrOutput) ToScheduledQueryRuleCriteriaPtrOutput() ScheduledQueryRuleCriteriaPtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRuleCriteriaPtrOutput) ToScheduledQueryRuleCriteriaPtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaPtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRuleCriteriaPtrOutput) Elem() ScheduledQueryRuleCriteriaOutput {
-	return o.ApplyT(func(v *ScheduledQueryRuleCriteria) ScheduledQueryRuleCriteria {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduledQueryRuleCriteria
-		return ret
-	}).(ScheduledQueryRuleCriteriaOutput)
-}
-
-func (o ScheduledQueryRuleCriteriaPtrOutput) AllOf() ConditionArrayOutput {
-	return o.ApplyT(func(v *ScheduledQueryRuleCriteria) []Condition {
-		if v == nil {
-			return nil
-		}
-		return v.AllOf
-	}).(ConditionArrayOutput)
-}
-
 type ScheduledQueryRuleCriteriaResponse struct {
 	AllOf []ConditionResponse `pulumi:"allOf"`
-}
-
-
-
-
-
-type ScheduledQueryRuleCriteriaResponseInput interface {
-	pulumi.Input
-
-	ToScheduledQueryRuleCriteriaResponseOutput() ScheduledQueryRuleCriteriaResponseOutput
-	ToScheduledQueryRuleCriteriaResponseOutputWithContext(context.Context) ScheduledQueryRuleCriteriaResponseOutput
-}
-
-type ScheduledQueryRuleCriteriaResponseArgs struct {
-	AllOf ConditionResponseArrayInput `pulumi:"allOf"`
-}
-
-func (ScheduledQueryRuleCriteriaResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledQueryRuleCriteriaResponse)(nil)).Elem()
-}
-
-func (i ScheduledQueryRuleCriteriaResponseArgs) ToScheduledQueryRuleCriteriaResponseOutput() ScheduledQueryRuleCriteriaResponseOutput {
-	return i.ToScheduledQueryRuleCriteriaResponseOutputWithContext(context.Background())
-}
-
-func (i ScheduledQueryRuleCriteriaResponseArgs) ToScheduledQueryRuleCriteriaResponseOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleCriteriaResponseOutput)
-}
-
-func (i ScheduledQueryRuleCriteriaResponseArgs) ToScheduledQueryRuleCriteriaResponsePtrOutput() ScheduledQueryRuleCriteriaResponsePtrOutput {
-	return i.ToScheduledQueryRuleCriteriaResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ScheduledQueryRuleCriteriaResponseArgs) ToScheduledQueryRuleCriteriaResponsePtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleCriteriaResponseOutput).ToScheduledQueryRuleCriteriaResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ScheduledQueryRuleCriteriaResponsePtrInput interface {
-	pulumi.Input
-
-	ToScheduledQueryRuleCriteriaResponsePtrOutput() ScheduledQueryRuleCriteriaResponsePtrOutput
-	ToScheduledQueryRuleCriteriaResponsePtrOutputWithContext(context.Context) ScheduledQueryRuleCriteriaResponsePtrOutput
-}
-
-type scheduledQueryRuleCriteriaResponsePtrType ScheduledQueryRuleCriteriaResponseArgs
-
-func ScheduledQueryRuleCriteriaResponsePtr(v *ScheduledQueryRuleCriteriaResponseArgs) ScheduledQueryRuleCriteriaResponsePtrInput {
-	return (*scheduledQueryRuleCriteriaResponsePtrType)(v)
-}
-
-func (*scheduledQueryRuleCriteriaResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRuleCriteriaResponse)(nil)).Elem()
-}
-
-func (i *scheduledQueryRuleCriteriaResponsePtrType) ToScheduledQueryRuleCriteriaResponsePtrOutput() ScheduledQueryRuleCriteriaResponsePtrOutput {
-	return i.ToScheduledQueryRuleCriteriaResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *scheduledQueryRuleCriteriaResponsePtrType) ToScheduledQueryRuleCriteriaResponsePtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRuleCriteriaResponsePtrOutput)
 }
 
 type ScheduledQueryRuleCriteriaResponseOutput struct{ *pulumi.OutputState }
@@ -1209,51 +868,8 @@ func (o ScheduledQueryRuleCriteriaResponseOutput) ToScheduledQueryRuleCriteriaRe
 	return o
 }
 
-func (o ScheduledQueryRuleCriteriaResponseOutput) ToScheduledQueryRuleCriteriaResponsePtrOutput() ScheduledQueryRuleCriteriaResponsePtrOutput {
-	return o.ToScheduledQueryRuleCriteriaResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ScheduledQueryRuleCriteriaResponseOutput) ToScheduledQueryRuleCriteriaResponsePtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRuleCriteriaResponse) *ScheduledQueryRuleCriteriaResponse {
-		return &v
-	}).(ScheduledQueryRuleCriteriaResponsePtrOutput)
-}
-
 func (o ScheduledQueryRuleCriteriaResponseOutput) AllOf() ConditionResponseArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryRuleCriteriaResponse) []ConditionResponse { return v.AllOf }).(ConditionResponseArrayOutput)
-}
-
-type ScheduledQueryRuleCriteriaResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ScheduledQueryRuleCriteriaResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledQueryRuleCriteriaResponse)(nil)).Elem()
-}
-
-func (o ScheduledQueryRuleCriteriaResponsePtrOutput) ToScheduledQueryRuleCriteriaResponsePtrOutput() ScheduledQueryRuleCriteriaResponsePtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRuleCriteriaResponsePtrOutput) ToScheduledQueryRuleCriteriaResponsePtrOutputWithContext(ctx context.Context) ScheduledQueryRuleCriteriaResponsePtrOutput {
-	return o
-}
-
-func (o ScheduledQueryRuleCriteriaResponsePtrOutput) Elem() ScheduledQueryRuleCriteriaResponseOutput {
-	return o.ApplyT(func(v *ScheduledQueryRuleCriteriaResponse) ScheduledQueryRuleCriteriaResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduledQueryRuleCriteriaResponse
-		return ret
-	}).(ScheduledQueryRuleCriteriaResponseOutput)
-}
-
-func (o ScheduledQueryRuleCriteriaResponsePtrOutput) AllOf() ConditionResponseArrayOutput {
-	return o.ApplyT(func(v *ScheduledQueryRuleCriteriaResponse) []ConditionResponse {
-		if v == nil {
-			return nil
-		}
-		return v.AllOf
-	}).(ConditionResponseArrayOutput)
 }
 
 func init() {
@@ -1274,7 +890,5 @@ func init() {
 	pulumi.RegisterOutputType(DimensionResponseOutput{})
 	pulumi.RegisterOutputType(DimensionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRuleCriteriaOutput{})
-	pulumi.RegisterOutputType(ScheduledQueryRuleCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRuleCriteriaResponseOutput{})
-	pulumi.RegisterOutputType(ScheduledQueryRuleCriteriaResponsePtrOutput{})
 }

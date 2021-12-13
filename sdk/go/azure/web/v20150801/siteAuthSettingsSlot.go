@@ -202,7 +202,7 @@ type SiteAuthSettingsSlotInput interface {
 }
 
 func (*SiteAuthSettingsSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteAuthSettingsSlot)(nil))
+	return reflect.TypeOf((**SiteAuthSettingsSlot)(nil)).Elem()
 }
 
 func (i *SiteAuthSettingsSlot) ToSiteAuthSettingsSlotOutput() SiteAuthSettingsSlotOutput {
@@ -216,7 +216,7 @@ func (i *SiteAuthSettingsSlot) ToSiteAuthSettingsSlotOutputWithContext(ctx conte
 type SiteAuthSettingsSlotOutput struct{ *pulumi.OutputState }
 
 func (SiteAuthSettingsSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteAuthSettingsSlot)(nil))
+	return reflect.TypeOf((**SiteAuthSettingsSlot)(nil)).Elem()
 }
 
 func (o SiteAuthSettingsSlotOutput) ToSiteAuthSettingsSlotOutput() SiteAuthSettingsSlotOutput {

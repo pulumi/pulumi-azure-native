@@ -122,60 +122,6 @@ type DashboardLensResponse struct {
 	Parts    map[string]DashboardPartsResponse `pulumi:"parts"`
 }
 
-
-
-
-
-type DashboardLensResponseInput interface {
-	pulumi.Input
-
-	ToDashboardLensResponseOutput() DashboardLensResponseOutput
-	ToDashboardLensResponseOutputWithContext(context.Context) DashboardLensResponseOutput
-}
-
-type DashboardLensResponseArgs struct {
-	Metadata pulumi.MapInput                `pulumi:"metadata"`
-	Order    pulumi.IntInput                `pulumi:"order"`
-	Parts    DashboardPartsResponseMapInput `pulumi:"parts"`
-}
-
-func (DashboardLensResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardLensResponse)(nil)).Elem()
-}
-
-func (i DashboardLensResponseArgs) ToDashboardLensResponseOutput() DashboardLensResponseOutput {
-	return i.ToDashboardLensResponseOutputWithContext(context.Background())
-}
-
-func (i DashboardLensResponseArgs) ToDashboardLensResponseOutputWithContext(ctx context.Context) DashboardLensResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensResponseOutput)
-}
-
-
-
-
-
-type DashboardLensResponseMapInput interface {
-	pulumi.Input
-
-	ToDashboardLensResponseMapOutput() DashboardLensResponseMapOutput
-	ToDashboardLensResponseMapOutputWithContext(context.Context) DashboardLensResponseMapOutput
-}
-
-type DashboardLensResponseMap map[string]DashboardLensResponseInput
-
-func (DashboardLensResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DashboardLensResponse)(nil)).Elem()
-}
-
-func (i DashboardLensResponseMap) ToDashboardLensResponseMapOutput() DashboardLensResponseMapOutput {
-	return i.ToDashboardLensResponseMapOutputWithContext(context.Background())
-}
-
-func (i DashboardLensResponseMap) ToDashboardLensResponseMapOutputWithContext(ctx context.Context) DashboardLensResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardLensResponseMapOutput)
-}
-
 type DashboardLensResponseOutput struct{ *pulumi.OutputState }
 
 func (DashboardLensResponseOutput) ElementType() reflect.Type {
@@ -400,59 +346,6 @@ type DashboardPartsResponse struct {
 	Position DashboardPartsResponsePosition `pulumi:"position"`
 }
 
-
-
-
-
-type DashboardPartsResponseInput interface {
-	pulumi.Input
-
-	ToDashboardPartsResponseOutput() DashboardPartsResponseOutput
-	ToDashboardPartsResponseOutputWithContext(context.Context) DashboardPartsResponseOutput
-}
-
-type DashboardPartsResponseArgs struct {
-	Metadata pulumi.Input                        `pulumi:"metadata"`
-	Position DashboardPartsResponsePositionInput `pulumi:"position"`
-}
-
-func (DashboardPartsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPartsResponse)(nil)).Elem()
-}
-
-func (i DashboardPartsResponseArgs) ToDashboardPartsResponseOutput() DashboardPartsResponseOutput {
-	return i.ToDashboardPartsResponseOutputWithContext(context.Background())
-}
-
-func (i DashboardPartsResponseArgs) ToDashboardPartsResponseOutputWithContext(ctx context.Context) DashboardPartsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponseOutput)
-}
-
-
-
-
-
-type DashboardPartsResponseMapInput interface {
-	pulumi.Input
-
-	ToDashboardPartsResponseMapOutput() DashboardPartsResponseMapOutput
-	ToDashboardPartsResponseMapOutputWithContext(context.Context) DashboardPartsResponseMapOutput
-}
-
-type DashboardPartsResponseMap map[string]DashboardPartsResponseInput
-
-func (DashboardPartsResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DashboardPartsResponse)(nil)).Elem()
-}
-
-func (i DashboardPartsResponseMap) ToDashboardPartsResponseMapOutput() DashboardPartsResponseMapOutput {
-	return i.ToDashboardPartsResponseMapOutputWithContext(context.Background())
-}
-
-func (i DashboardPartsResponseMap) ToDashboardPartsResponseMapOutputWithContext(ctx context.Context) DashboardPartsResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponseMapOutput)
-}
-
 type DashboardPartsResponseOutput struct{ *pulumi.OutputState }
 
 func (DashboardPartsResponseOutput) ElementType() reflect.Type {
@@ -501,37 +394,6 @@ type DashboardPartsResponsePosition struct {
 	RowSpan  int                    `pulumi:"rowSpan"`
 	X        int                    `pulumi:"x"`
 	Y        int                    `pulumi:"y"`
-}
-
-
-
-
-
-type DashboardPartsResponsePositionInput interface {
-	pulumi.Input
-
-	ToDashboardPartsResponsePositionOutput() DashboardPartsResponsePositionOutput
-	ToDashboardPartsResponsePositionOutputWithContext(context.Context) DashboardPartsResponsePositionOutput
-}
-
-type DashboardPartsResponsePositionArgs struct {
-	ColSpan  pulumi.IntInput `pulumi:"colSpan"`
-	Metadata pulumi.MapInput `pulumi:"metadata"`
-	RowSpan  pulumi.IntInput `pulumi:"rowSpan"`
-	X        pulumi.IntInput `pulumi:"x"`
-	Y        pulumi.IntInput `pulumi:"y"`
-}
-
-func (DashboardPartsResponsePositionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardPartsResponsePosition)(nil)).Elem()
-}
-
-func (i DashboardPartsResponsePositionArgs) ToDashboardPartsResponsePositionOutput() DashboardPartsResponsePositionOutput {
-	return i.ToDashboardPartsResponsePositionOutputWithContext(context.Background())
-}
-
-func (i DashboardPartsResponsePositionArgs) ToDashboardPartsResponsePositionOutputWithContext(ctx context.Context) DashboardPartsResponsePositionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardPartsResponsePositionOutput)
 }
 
 type DashboardPartsResponsePositionOutput struct{ *pulumi.OutputState }

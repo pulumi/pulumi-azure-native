@@ -96,7 +96,7 @@ type ScopeAssignmentInput interface {
 }
 
 func (*ScopeAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScopeAssignment)(nil))
+	return reflect.TypeOf((**ScopeAssignment)(nil)).Elem()
 }
 
 func (i *ScopeAssignment) ToScopeAssignmentOutput() ScopeAssignmentOutput {
@@ -110,7 +110,7 @@ func (i *ScopeAssignment) ToScopeAssignmentOutputWithContext(ctx context.Context
 type ScopeAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ScopeAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScopeAssignment)(nil))
+	return reflect.TypeOf((**ScopeAssignment)(nil)).Elem()
 }
 
 func (o ScopeAssignmentOutput) ToScopeAssignmentOutput() ScopeAssignmentOutput {

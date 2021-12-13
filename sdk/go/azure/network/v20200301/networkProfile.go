@@ -166,7 +166,7 @@ type NetworkProfileInput interface {
 }
 
 func (*NetworkProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkProfile)(nil))
+	return reflect.TypeOf((**NetworkProfile)(nil)).Elem()
 }
 
 func (i *NetworkProfile) ToNetworkProfileOutput() NetworkProfileOutput {
@@ -180,7 +180,7 @@ func (i *NetworkProfile) ToNetworkProfileOutputWithContext(ctx context.Context) 
 type NetworkProfileOutput struct{ *pulumi.OutputState }
 
 func (NetworkProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkProfile)(nil))
+	return reflect.TypeOf((**NetworkProfile)(nil)).Elem()
 }
 
 func (o NetworkProfileOutput) ToNetworkProfileOutput() NetworkProfileOutput {

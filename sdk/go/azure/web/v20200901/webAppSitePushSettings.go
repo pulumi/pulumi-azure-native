@@ -140,7 +140,7 @@ type WebAppSitePushSettingsInput interface {
 }
 
 func (*WebAppSitePushSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSitePushSettings)(nil))
+	return reflect.TypeOf((**WebAppSitePushSettings)(nil)).Elem()
 }
 
 func (i *WebAppSitePushSettings) ToWebAppSitePushSettingsOutput() WebAppSitePushSettingsOutput {
@@ -154,7 +154,7 @@ func (i *WebAppSitePushSettings) ToWebAppSitePushSettingsOutputWithContext(ctx c
 type WebAppSitePushSettingsOutput struct{ *pulumi.OutputState }
 
 func (WebAppSitePushSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSitePushSettings)(nil))
+	return reflect.TypeOf((**WebAppSitePushSettings)(nil)).Elem()
 }
 
 func (o WebAppSitePushSettingsOutput) ToWebAppSitePushSettingsOutput() WebAppSitePushSettingsOutput {

@@ -102,7 +102,7 @@ type ControllerDetailsInput interface {
 }
 
 func (*ControllerDetails) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControllerDetails)(nil))
+	return reflect.TypeOf((**ControllerDetails)(nil)).Elem()
 }
 
 func (i *ControllerDetails) ToControllerDetailsOutput() ControllerDetailsOutput {
@@ -116,7 +116,7 @@ func (i *ControllerDetails) ToControllerDetailsOutputWithContext(ctx context.Con
 type ControllerDetailsOutput struct{ *pulumi.OutputState }
 
 func (ControllerDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControllerDetails)(nil))
+	return reflect.TypeOf((**ControllerDetails)(nil)).Elem()
 }
 
 func (o ControllerDetailsOutput) ToControllerDetailsOutput() ControllerDetailsOutput {

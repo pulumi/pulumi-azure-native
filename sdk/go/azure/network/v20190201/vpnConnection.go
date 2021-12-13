@@ -203,7 +203,7 @@ type VpnConnectionInput interface {
 }
 
 func (*VpnConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnConnection)(nil))
+	return reflect.TypeOf((**VpnConnection)(nil)).Elem()
 }
 
 func (i *VpnConnection) ToVpnConnectionOutput() VpnConnectionOutput {
@@ -217,7 +217,7 @@ func (i *VpnConnection) ToVpnConnectionOutputWithContext(ctx context.Context) Vp
 type VpnConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnConnection)(nil))
+	return reflect.TypeOf((**VpnConnection)(nil)).Elem()
 }
 
 func (o VpnConnectionOutput) ToVpnConnectionOutput() VpnConnectionOutput {

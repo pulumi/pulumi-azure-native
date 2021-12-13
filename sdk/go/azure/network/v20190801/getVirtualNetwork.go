@@ -13,7 +13,7 @@ func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupVirtualNetworkArgs struct {
@@ -40,4 +40,21 @@ type LookupVirtualNetworkResult struct {
 	Tags                   map[string]string                     `pulumi:"tags"`
 	Type                   string                                `pulumi:"type"`
 	VirtualNetworkPeerings []VirtualNetworkPeeringResponse       `pulumi:"virtualNetworkPeerings"`
+}
+
+
+func (val *LookupVirtualNetworkResult) Defaults() *LookupVirtualNetworkResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableDdosProtection) {
+		enableDdosProtection_ := false
+		tmp.EnableDdosProtection = &enableDdosProtection_
+	}
+	if isZero(tmp.EnableVmProtection) {
+		enableVmProtection_ := false
+		tmp.EnableVmProtection = &enableVmProtection_
+	}
+	return &tmp
 }

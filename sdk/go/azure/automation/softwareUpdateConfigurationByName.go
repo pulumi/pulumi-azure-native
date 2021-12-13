@@ -46,6 +46,7 @@ func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	if args.UpdateConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'UpdateConfiguration'")
 	}
+	args.ScheduleInfo = args.ScheduleInfo.ToSUCSchedulePropertiesOutput().ApplyT(func(v SUCScheduleProperties) SUCScheduleProperties { return *v.Defaults() }).(SUCSchedulePropertiesOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:automation/v20170515preview:SoftwareUpdateConfigurationByName"),
@@ -119,7 +120,7 @@ type SoftwareUpdateConfigurationByNameInput interface {
 }
 
 func (*SoftwareUpdateConfigurationByName) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwareUpdateConfigurationByName)(nil))
+	return reflect.TypeOf((**SoftwareUpdateConfigurationByName)(nil)).Elem()
 }
 
 func (i *SoftwareUpdateConfigurationByName) ToSoftwareUpdateConfigurationByNameOutput() SoftwareUpdateConfigurationByNameOutput {
@@ -133,7 +134,7 @@ func (i *SoftwareUpdateConfigurationByName) ToSoftwareUpdateConfigurationByNameO
 type SoftwareUpdateConfigurationByNameOutput struct{ *pulumi.OutputState }
 
 func (SoftwareUpdateConfigurationByNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwareUpdateConfigurationByName)(nil))
+	return reflect.TypeOf((**SoftwareUpdateConfigurationByName)(nil)).Elem()
 }
 
 func (o SoftwareUpdateConfigurationByNameOutput) ToSoftwareUpdateConfigurationByNameOutput() SoftwareUpdateConfigurationByNameOutput {

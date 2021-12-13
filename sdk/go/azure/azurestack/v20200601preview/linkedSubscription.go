@@ -112,7 +112,7 @@ type LinkedSubscriptionInput interface {
 }
 
 func (*LinkedSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedSubscription)(nil))
+	return reflect.TypeOf((**LinkedSubscription)(nil)).Elem()
 }
 
 func (i *LinkedSubscription) ToLinkedSubscriptionOutput() LinkedSubscriptionOutput {
@@ -126,7 +126,7 @@ func (i *LinkedSubscription) ToLinkedSubscriptionOutputWithContext(ctx context.C
 type LinkedSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (LinkedSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedSubscription)(nil))
+	return reflect.TypeOf((**LinkedSubscription)(nil)).Elem()
 }
 
 func (o LinkedSubscriptionOutput) ToLinkedSubscriptionOutput() LinkedSubscriptionOutput {

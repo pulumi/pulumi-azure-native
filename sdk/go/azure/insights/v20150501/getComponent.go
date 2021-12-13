@@ -13,7 +13,7 @@ func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupComponentArgs struct {
@@ -47,4 +47,32 @@ type LookupComponentResult struct {
 	Tags                       map[string]string                   `pulumi:"tags"`
 	TenantId                   string                              `pulumi:"tenantId"`
 	Type                       string                              `pulumi:"type"`
+}
+
+
+func (val *LookupComponentResult) Defaults() *LookupComponentResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ApplicationType) {
+		tmp.ApplicationType = "web"
+	}
+	if isZero(tmp.FlowType) {
+		flowType_ := "Bluefield"
+		tmp.FlowType = &flowType_
+	}
+	if isZero(tmp.IngestionMode) {
+		ingestionMode_ := "ApplicationInsights"
+		tmp.IngestionMode = &ingestionMode_
+	}
+	if isZero(tmp.RequestSource) {
+		requestSource_ := "rest"
+		tmp.RequestSource = &requestSource_
+	}
+	if isZero(tmp.RetentionInDays) {
+		retentionInDays_ := 90
+		tmp.RetentionInDays = &retentionInDays_
+	}
+	return &tmp
 }

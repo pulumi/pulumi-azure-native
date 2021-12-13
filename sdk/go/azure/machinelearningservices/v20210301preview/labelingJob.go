@@ -103,7 +103,7 @@ type LabelingJobInput interface {
 }
 
 func (*LabelingJob) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingJob)(nil))
+	return reflect.TypeOf((**LabelingJob)(nil)).Elem()
 }
 
 func (i *LabelingJob) ToLabelingJobOutput() LabelingJobOutput {
@@ -117,7 +117,7 @@ func (i *LabelingJob) ToLabelingJobOutputWithContext(ctx context.Context) Labeli
 type LabelingJobOutput struct{ *pulumi.OutputState }
 
 func (LabelingJobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabelingJob)(nil))
+	return reflect.TypeOf((**LabelingJob)(nil)).Elem()
 }
 
 func (o LabelingJobOutput) ToLabelingJobOutput() LabelingJobOutput {

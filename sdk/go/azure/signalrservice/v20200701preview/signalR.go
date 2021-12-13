@@ -45,6 +45,9 @@ func NewSignalR(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.NetworkACLs != nil {
+		args.NetworkACLs = args.NetworkACLs.ToSignalRNetworkACLsPtrOutput().ApplyT(func(v *SignalRNetworkACLs) *SignalRNetworkACLs { return v.Defaults() }).(SignalRNetworkACLsPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:signalrservice:SignalR"),
@@ -146,7 +149,7 @@ type SignalRInput interface {
 }
 
 func (*SignalR) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalR)(nil))
+	return reflect.TypeOf((**SignalR)(nil)).Elem()
 }
 
 func (i *SignalR) ToSignalROutput() SignalROutput {
@@ -160,7 +163,7 @@ func (i *SignalR) ToSignalROutputWithContext(ctx context.Context) SignalROutput 
 type SignalROutput struct{ *pulumi.OutputState }
 
 func (SignalROutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalR)(nil))
+	return reflect.TypeOf((**SignalR)(nil)).Elem()
 }
 
 func (o SignalROutput) ToSignalROutput() SignalROutput {

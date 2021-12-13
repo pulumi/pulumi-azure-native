@@ -62,11 +62,14 @@ func NewWebApp(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Reserved == nil {
+	if isZero(args.Reserved) {
 		args.Reserved = pulumi.BoolPtr(false)
 	}
-	if args.ScmSiteAlsoStopped == nil {
+	if isZero(args.ScmSiteAlsoStopped) {
 		args.ScmSiteAlsoStopped = pulumi.BoolPtr(false)
+	}
+	if args.SiteConfig != nil {
+		args.SiteConfig = args.SiteConfig.ToSiteConfigPtrOutput().ApplyT(func(v *SiteConfig) *SiteConfig { return v.Defaults() }).(SiteConfigPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -199,7 +202,7 @@ type WebAppInput interface {
 }
 
 func (*WebApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebApp)(nil))
+	return reflect.TypeOf((**WebApp)(nil)).Elem()
 }
 
 func (i *WebApp) ToWebAppOutput() WebAppOutput {
@@ -213,7 +216,7 @@ func (i *WebApp) ToWebAppOutputWithContext(ctx context.Context) WebAppOutput {
 type WebAppOutput struct{ *pulumi.OutputState }
 
 func (WebAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebApp)(nil))
+	return reflect.TypeOf((**WebApp)(nil)).Elem()
 }
 
 func (o WebAppOutput) ToWebAppOutput() WebAppOutput {

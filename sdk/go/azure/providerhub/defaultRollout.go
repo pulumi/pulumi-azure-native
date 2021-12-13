@@ -100,7 +100,7 @@ type DefaultRolloutInput interface {
 }
 
 func (*DefaultRollout) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultRollout)(nil))
+	return reflect.TypeOf((**DefaultRollout)(nil)).Elem()
 }
 
 func (i *DefaultRollout) ToDefaultRolloutOutput() DefaultRolloutOutput {
@@ -114,7 +114,7 @@ func (i *DefaultRollout) ToDefaultRolloutOutputWithContext(ctx context.Context) 
 type DefaultRolloutOutput struct{ *pulumi.OutputState }
 
 func (DefaultRolloutOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultRollout)(nil))
+	return reflect.TypeOf((**DefaultRollout)(nil)).Elem()
 }
 
 func (o DefaultRolloutOutput) ToDefaultRolloutOutput() DefaultRolloutOutput {

@@ -41,7 +41,10 @@ func NewGlobalSchedule(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Status == nil {
+	if args.NotificationSettings != nil {
+		args.NotificationSettings = args.NotificationSettings.ToNotificationSettingsPtrOutput().ApplyT(func(v *NotificationSettings) *NotificationSettings { return v.Defaults() }).(NotificationSettingsPtrOutput)
+	}
+	if isZero(args.Status) {
 		args.Status = pulumi.StringPtr("Disabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -127,7 +130,7 @@ type GlobalScheduleInput interface {
 }
 
 func (*GlobalSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalSchedule)(nil))
+	return reflect.TypeOf((**GlobalSchedule)(nil)).Elem()
 }
 
 func (i *GlobalSchedule) ToGlobalScheduleOutput() GlobalScheduleOutput {
@@ -141,7 +144,7 @@ func (i *GlobalSchedule) ToGlobalScheduleOutputWithContext(ctx context.Context) 
 type GlobalScheduleOutput struct{ *pulumi.OutputState }
 
 func (GlobalScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalSchedule)(nil))
+	return reflect.TypeOf((**GlobalSchedule)(nil)).Elem()
 }
 
 func (o GlobalScheduleOutput) ToGlobalScheduleOutput() GlobalScheduleOutput {

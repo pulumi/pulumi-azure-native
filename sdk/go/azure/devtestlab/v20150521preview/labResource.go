@@ -128,7 +128,7 @@ type LabResourceInput interface {
 }
 
 func (*LabResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabResource)(nil))
+	return reflect.TypeOf((**LabResource)(nil)).Elem()
 }
 
 func (i *LabResource) ToLabResourceOutput() LabResourceOutput {
@@ -142,7 +142,7 @@ func (i *LabResource) ToLabResourceOutputWithContext(ctx context.Context) LabRes
 type LabResourceOutput struct{ *pulumi.OutputState }
 
 func (LabResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabResource)(nil))
+	return reflect.TypeOf((**LabResource)(nil)).Elem()
 }
 
 func (o LabResourceOutput) ToLabResourceOutput() LabResourceOutput {

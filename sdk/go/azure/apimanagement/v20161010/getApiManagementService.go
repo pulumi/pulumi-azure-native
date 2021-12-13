@@ -13,7 +13,7 @@ func LookupApiManagementService(ctx *pulumi.Context, args *LookupApiManagementSe
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupApiManagementServiceArgs struct {
@@ -46,4 +46,19 @@ type LookupApiManagementServiceResult struct {
 	Type                    string                                    `pulumi:"type"`
 	VpnType                 *string                                   `pulumi:"vpnType"`
 	Vpnconfiguration        *VirtualNetworkConfigurationResponse      `pulumi:"vpnconfiguration"`
+}
+
+
+func (val *LookupApiManagementServiceResult) Defaults() *LookupApiManagementServiceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Sku = *tmp.Sku.Defaults()
+
+	if isZero(tmp.VpnType) {
+		vpnType_ := "None"
+		tmp.VpnType = &vpnType_
+	}
+	return &tmp
 }

@@ -37,6 +37,9 @@ func NewIotHubResource(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToIotHubPropertiesPtrOutput().ApplyT(func(v *IotHubProperties) *IotHubProperties { return v.Defaults() }).(IotHubPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:devices:IotHubResource"),
@@ -178,7 +181,7 @@ type IotHubResourceInput interface {
 }
 
 func (*IotHubResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubResource)(nil))
+	return reflect.TypeOf((**IotHubResource)(nil)).Elem()
 }
 
 func (i *IotHubResource) ToIotHubResourceOutput() IotHubResourceOutput {
@@ -192,7 +195,7 @@ func (i *IotHubResource) ToIotHubResourceOutputWithContext(ctx context.Context) 
 type IotHubResourceOutput struct{ *pulumi.OutputState }
 
 func (IotHubResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubResource)(nil))
+	return reflect.TypeOf((**IotHubResource)(nil)).Elem()
 }
 
 func (o IotHubResourceOutput) ToIotHubResourceOutput() IotHubResourceOutput {

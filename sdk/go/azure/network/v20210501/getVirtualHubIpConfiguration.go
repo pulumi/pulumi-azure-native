@@ -13,7 +13,7 @@ func LookupVirtualHubIpConfiguration(ctx *pulumi.Context, args *LookupVirtualHub
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupVirtualHubIpConfigurationArgs struct {
@@ -33,4 +33,17 @@ type LookupVirtualHubIpConfigurationResult struct {
 	PublicIPAddress           *PublicIPAddressResponse `pulumi:"publicIPAddress"`
 	Subnet                    *SubnetResponse          `pulumi:"subnet"`
 	Type                      string                   `pulumi:"type"`
+}
+
+
+func (val *LookupVirtualHubIpConfigurationResult) Defaults() *LookupVirtualHubIpConfigurationResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.PublicIPAddress = tmp.PublicIPAddress.Defaults()
+
+	tmp.Subnet = tmp.Subnet.Defaults()
+
+	return &tmp
 }

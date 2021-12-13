@@ -163,75 +163,6 @@ type SkuV3Response struct {
 	Tier *string `pulumi:"tier"`
 }
 
-
-
-
-
-type SkuV3ResponseInput interface {
-	pulumi.Input
-
-	ToSkuV3ResponseOutput() SkuV3ResponseOutput
-	ToSkuV3ResponseOutputWithContext(context.Context) SkuV3ResponseOutput
-}
-
-type SkuV3ResponseArgs struct {
-	Name pulumi.StringInput    `pulumi:"name"`
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (SkuV3ResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuV3Response)(nil)).Elem()
-}
-
-func (i SkuV3ResponseArgs) ToSkuV3ResponseOutput() SkuV3ResponseOutput {
-	return i.ToSkuV3ResponseOutputWithContext(context.Background())
-}
-
-func (i SkuV3ResponseArgs) ToSkuV3ResponseOutputWithContext(ctx context.Context) SkuV3ResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuV3ResponseOutput)
-}
-
-func (i SkuV3ResponseArgs) ToSkuV3ResponsePtrOutput() SkuV3ResponsePtrOutput {
-	return i.ToSkuV3ResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuV3ResponseArgs) ToSkuV3ResponsePtrOutputWithContext(ctx context.Context) SkuV3ResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuV3ResponseOutput).ToSkuV3ResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuV3ResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuV3ResponsePtrOutput() SkuV3ResponsePtrOutput
-	ToSkuV3ResponsePtrOutputWithContext(context.Context) SkuV3ResponsePtrOutput
-}
-
-type skuV3ResponsePtrType SkuV3ResponseArgs
-
-func SkuV3ResponsePtr(v *SkuV3ResponseArgs) SkuV3ResponsePtrInput {
-	return (*skuV3ResponsePtrType)(v)
-}
-
-func (*skuV3ResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuV3Response)(nil)).Elem()
-}
-
-func (i *skuV3ResponsePtrType) ToSkuV3ResponsePtrOutput() SkuV3ResponsePtrOutput {
-	return i.ToSkuV3ResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuV3ResponsePtrType) ToSkuV3ResponsePtrOutputWithContext(ctx context.Context) SkuV3ResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuV3ResponsePtrOutput)
-}
-
 type SkuV3ResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuV3ResponseOutput) ElementType() reflect.Type {
@@ -244,16 +175,6 @@ func (o SkuV3ResponseOutput) ToSkuV3ResponseOutput() SkuV3ResponseOutput {
 
 func (o SkuV3ResponseOutput) ToSkuV3ResponseOutputWithContext(ctx context.Context) SkuV3ResponseOutput {
 	return o
-}
-
-func (o SkuV3ResponseOutput) ToSkuV3ResponsePtrOutput() SkuV3ResponsePtrOutput {
-	return o.ToSkuV3ResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuV3ResponseOutput) ToSkuV3ResponsePtrOutputWithContext(ctx context.Context) SkuV3ResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuV3Response) *SkuV3Response {
-		return &v
-	}).(SkuV3ResponsePtrOutput)
 }
 
 func (o SkuV3ResponseOutput) Name() pulumi.StringOutput {
@@ -459,75 +380,6 @@ type SqlDatabaseDataRetentionResponse struct {
 	RetentionPeriod     *string `pulumi:"retentionPeriod"`
 }
 
-
-
-
-
-type SqlDatabaseDataRetentionResponseInput interface {
-	pulumi.Input
-
-	ToSqlDatabaseDataRetentionResponseOutput() SqlDatabaseDataRetentionResponseOutput
-	ToSqlDatabaseDataRetentionResponseOutputWithContext(context.Context) SqlDatabaseDataRetentionResponseOutput
-}
-
-type SqlDatabaseDataRetentionResponseArgs struct {
-	DropRetentionPeriod pulumi.StringPtrInput `pulumi:"dropRetentionPeriod"`
-	RetentionPeriod     pulumi.StringPtrInput `pulumi:"retentionPeriod"`
-}
-
-func (SqlDatabaseDataRetentionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabaseDataRetentionResponse)(nil)).Elem()
-}
-
-func (i SqlDatabaseDataRetentionResponseArgs) ToSqlDatabaseDataRetentionResponseOutput() SqlDatabaseDataRetentionResponseOutput {
-	return i.ToSqlDatabaseDataRetentionResponseOutputWithContext(context.Background())
-}
-
-func (i SqlDatabaseDataRetentionResponseArgs) ToSqlDatabaseDataRetentionResponseOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseDataRetentionResponseOutput)
-}
-
-func (i SqlDatabaseDataRetentionResponseArgs) ToSqlDatabaseDataRetentionResponsePtrOutput() SqlDatabaseDataRetentionResponsePtrOutput {
-	return i.ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SqlDatabaseDataRetentionResponseArgs) ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseDataRetentionResponseOutput).ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SqlDatabaseDataRetentionResponsePtrInput interface {
-	pulumi.Input
-
-	ToSqlDatabaseDataRetentionResponsePtrOutput() SqlDatabaseDataRetentionResponsePtrOutput
-	ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(context.Context) SqlDatabaseDataRetentionResponsePtrOutput
-}
-
-type sqlDatabaseDataRetentionResponsePtrType SqlDatabaseDataRetentionResponseArgs
-
-func SqlDatabaseDataRetentionResponsePtr(v *SqlDatabaseDataRetentionResponseArgs) SqlDatabaseDataRetentionResponsePtrInput {
-	return (*sqlDatabaseDataRetentionResponsePtrType)(v)
-}
-
-func (*sqlDatabaseDataRetentionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlDatabaseDataRetentionResponse)(nil)).Elem()
-}
-
-func (i *sqlDatabaseDataRetentionResponsePtrType) ToSqlDatabaseDataRetentionResponsePtrOutput() SqlDatabaseDataRetentionResponsePtrOutput {
-	return i.ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *sqlDatabaseDataRetentionResponsePtrType) ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseDataRetentionResponsePtrOutput)
-}
-
 type SqlDatabaseDataRetentionResponseOutput struct{ *pulumi.OutputState }
 
 func (SqlDatabaseDataRetentionResponseOutput) ElementType() reflect.Type {
@@ -540,16 +392,6 @@ func (o SqlDatabaseDataRetentionResponseOutput) ToSqlDatabaseDataRetentionRespon
 
 func (o SqlDatabaseDataRetentionResponseOutput) ToSqlDatabaseDataRetentionResponseOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionResponseOutput {
 	return o
-}
-
-func (o SqlDatabaseDataRetentionResponseOutput) ToSqlDatabaseDataRetentionResponsePtrOutput() SqlDatabaseDataRetentionResponsePtrOutput {
-	return o.ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SqlDatabaseDataRetentionResponseOutput) ToSqlDatabaseDataRetentionResponsePtrOutputWithContext(ctx context.Context) SqlDatabaseDataRetentionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlDatabaseDataRetentionResponse) *SqlDatabaseDataRetentionResponse {
-		return &v
-	}).(SqlDatabaseDataRetentionResponsePtrOutput)
 }
 
 func (o SqlDatabaseDataRetentionResponseOutput) DropRetentionPeriod() pulumi.StringPtrOutput {
@@ -611,79 +453,6 @@ type SystemDataResponse struct {
 	LastModifiedByType string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -696,16 +465,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringOutput {
@@ -732,84 +491,6 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringOutput {
 	return o.ApplyT(func(v SystemDataResponse) string { return v.LastModifiedByType }).(pulumi.StringOutput)
 }
 
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(SkuV3Output{})
 	pulumi.RegisterOutputType(SkuV3PtrOutput{})
@@ -820,5 +501,4 @@ func init() {
 	pulumi.RegisterOutputType(SqlDatabaseDataRetentionResponseOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseDataRetentionResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 }

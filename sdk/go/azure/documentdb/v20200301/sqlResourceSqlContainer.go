@@ -44,6 +44,7 @@ func NewSqlResourceSqlContainer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	args.Resource = args.Resource.ToSqlContainerResourceOutput().ApplyT(func(v SqlContainerResource) SqlContainerResource { return *v.Defaults() }).(SqlContainerResourceOutput)
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:documentdb:SqlResourceSqlContainer"),
@@ -176,7 +177,7 @@ type SqlResourceSqlContainerInput interface {
 }
 
 func (*SqlResourceSqlContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlContainer)(nil))
+	return reflect.TypeOf((**SqlResourceSqlContainer)(nil)).Elem()
 }
 
 func (i *SqlResourceSqlContainer) ToSqlResourceSqlContainerOutput() SqlResourceSqlContainerOutput {
@@ -190,7 +191,7 @@ func (i *SqlResourceSqlContainer) ToSqlResourceSqlContainerOutputWithContext(ctx
 type SqlResourceSqlContainerOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlContainer)(nil))
+	return reflect.TypeOf((**SqlResourceSqlContainer)(nil)).Elem()
 }
 
 func (o SqlResourceSqlContainerOutput) ToSqlResourceSqlContainerOutput() SqlResourceSqlContainerOutput {

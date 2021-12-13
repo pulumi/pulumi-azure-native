@@ -148,7 +148,7 @@ type BlobFolderDataSetInput interface {
 }
 
 func (*BlobFolderDataSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobFolderDataSet)(nil))
+	return reflect.TypeOf((**BlobFolderDataSet)(nil)).Elem()
 }
 
 func (i *BlobFolderDataSet) ToBlobFolderDataSetOutput() BlobFolderDataSetOutput {
@@ -162,7 +162,7 @@ func (i *BlobFolderDataSet) ToBlobFolderDataSetOutputWithContext(ctx context.Con
 type BlobFolderDataSetOutput struct{ *pulumi.OutputState }
 
 func (BlobFolderDataSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobFolderDataSet)(nil))
+	return reflect.TypeOf((**BlobFolderDataSet)(nil)).Elem()
 }
 
 func (o BlobFolderDataSetOutput) ToBlobFolderDataSetOutput() BlobFolderDataSetOutput {

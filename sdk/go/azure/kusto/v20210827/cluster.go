@@ -59,25 +59,25 @@ func NewCluster(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	if args.EnableAutoStop == nil {
+	if isZero(args.EnableAutoStop) {
 		args.EnableAutoStop = pulumi.BoolPtr(true)
 	}
-	if args.EnableDiskEncryption == nil {
+	if isZero(args.EnableDiskEncryption) {
 		args.EnableDiskEncryption = pulumi.BoolPtr(false)
 	}
-	if args.EnableDoubleEncryption == nil {
+	if isZero(args.EnableDoubleEncryption) {
 		args.EnableDoubleEncryption = pulumi.BoolPtr(false)
 	}
-	if args.EnablePurge == nil {
+	if isZero(args.EnablePurge) {
 		args.EnablePurge = pulumi.BoolPtr(false)
 	}
-	if args.EnableStreamingIngest == nil {
+	if isZero(args.EnableStreamingIngest) {
 		args.EnableStreamingIngest = pulumi.BoolPtr(false)
 	}
-	if args.EngineType == nil {
+	if isZero(args.EngineType) {
 		args.EngineType = pulumi.StringPtr("V3")
 	}
-	if args.PublicNetworkAccess == nil {
+	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -210,7 +210,7 @@ type ClusterInput interface {
 }
 
 func (*Cluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cluster)(nil))
+	return reflect.TypeOf((**Cluster)(nil)).Elem()
 }
 
 func (i *Cluster) ToClusterOutput() ClusterOutput {
@@ -224,7 +224,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cluster)(nil))
+	return reflect.TypeOf((**Cluster)(nil)).Elem()
 }
 
 func (o ClusterOutput) ToClusterOutput() ClusterOutput {

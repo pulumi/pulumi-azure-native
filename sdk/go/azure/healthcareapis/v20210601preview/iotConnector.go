@@ -113,7 +113,7 @@ type IotConnectorInput interface {
 }
 
 func (*IotConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotConnector)(nil))
+	return reflect.TypeOf((**IotConnector)(nil)).Elem()
 }
 
 func (i *IotConnector) ToIotConnectorOutput() IotConnectorOutput {
@@ -127,7 +127,7 @@ func (i *IotConnector) ToIotConnectorOutputWithContext(ctx context.Context) IotC
 type IotConnectorOutput struct{ *pulumi.OutputState }
 
 func (IotConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotConnector)(nil))
+	return reflect.TypeOf((**IotConnector)(nil)).Elem()
 }
 
 func (o IotConnectorOutput) ToIotConnectorOutput() IotConnectorOutput {

@@ -124,7 +124,7 @@ type RoleAssignmentArtifactInput interface {
 }
 
 func (*RoleAssignmentArtifact) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentArtifact)(nil))
+	return reflect.TypeOf((**RoleAssignmentArtifact)(nil)).Elem()
 }
 
 func (i *RoleAssignmentArtifact) ToRoleAssignmentArtifactOutput() RoleAssignmentArtifactOutput {
@@ -138,7 +138,7 @@ func (i *RoleAssignmentArtifact) ToRoleAssignmentArtifactOutputWithContext(ctx c
 type RoleAssignmentArtifactOutput struct{ *pulumi.OutputState }
 
 func (RoleAssignmentArtifactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentArtifact)(nil))
+	return reflect.TypeOf((**RoleAssignmentArtifact)(nil)).Elem()
 }
 
 func (o RoleAssignmentArtifactOutput) ToRoleAssignmentArtifactOutput() RoleAssignmentArtifactOutput {

@@ -120,7 +120,7 @@ type Python2PackageInput interface {
 }
 
 func (*Python2Package) ElementType() reflect.Type {
-	return reflect.TypeOf((*Python2Package)(nil))
+	return reflect.TypeOf((**Python2Package)(nil)).Elem()
 }
 
 func (i *Python2Package) ToPython2PackageOutput() Python2PackageOutput {
@@ -134,7 +134,7 @@ func (i *Python2Package) ToPython2PackageOutputWithContext(ctx context.Context) 
 type Python2PackageOutput struct{ *pulumi.OutputState }
 
 func (Python2PackageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Python2Package)(nil))
+	return reflect.TypeOf((**Python2Package)(nil)).Elem()
 }
 
 func (o Python2PackageOutput) ToPython2PackageOutput() Python2PackageOutput {

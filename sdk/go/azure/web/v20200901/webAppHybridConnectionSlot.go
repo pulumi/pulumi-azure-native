@@ -159,7 +159,7 @@ type WebAppHybridConnectionSlotInput interface {
 }
 
 func (*WebAppHybridConnectionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHybridConnectionSlot)(nil))
+	return reflect.TypeOf((**WebAppHybridConnectionSlot)(nil)).Elem()
 }
 
 func (i *WebAppHybridConnectionSlot) ToWebAppHybridConnectionSlotOutput() WebAppHybridConnectionSlotOutput {
@@ -173,7 +173,7 @@ func (i *WebAppHybridConnectionSlot) ToWebAppHybridConnectionSlotOutputWithConte
 type WebAppHybridConnectionSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppHybridConnectionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppHybridConnectionSlot)(nil))
+	return reflect.TypeOf((**WebAppHybridConnectionSlot)(nil)).Elem()
 }
 
 func (o WebAppHybridConnectionSlotOutput) ToWebAppHybridConnectionSlotOutput() WebAppHybridConnectionSlotOutput {

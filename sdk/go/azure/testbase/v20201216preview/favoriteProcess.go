@@ -105,7 +105,7 @@ type FavoriteProcessInput interface {
 }
 
 func (*FavoriteProcess) ElementType() reflect.Type {
-	return reflect.TypeOf((*FavoriteProcess)(nil))
+	return reflect.TypeOf((**FavoriteProcess)(nil)).Elem()
 }
 
 func (i *FavoriteProcess) ToFavoriteProcessOutput() FavoriteProcessOutput {
@@ -119,7 +119,7 @@ func (i *FavoriteProcess) ToFavoriteProcessOutputWithContext(ctx context.Context
 type FavoriteProcessOutput struct{ *pulumi.OutputState }
 
 func (FavoriteProcessOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FavoriteProcess)(nil))
+	return reflect.TypeOf((**FavoriteProcess)(nil)).Elem()
 }
 
 func (o FavoriteProcessOutput) ToFavoriteProcessOutput() FavoriteProcessOutput {

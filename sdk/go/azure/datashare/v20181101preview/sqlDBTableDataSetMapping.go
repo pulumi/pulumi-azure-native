@@ -149,7 +149,7 @@ type SqlDBTableDataSetMappingInput interface {
 }
 
 func (*SqlDBTableDataSetMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDBTableDataSetMapping)(nil))
+	return reflect.TypeOf((**SqlDBTableDataSetMapping)(nil)).Elem()
 }
 
 func (i *SqlDBTableDataSetMapping) ToSqlDBTableDataSetMappingOutput() SqlDBTableDataSetMappingOutput {
@@ -163,7 +163,7 @@ func (i *SqlDBTableDataSetMapping) ToSqlDBTableDataSetMappingOutputWithContext(c
 type SqlDBTableDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (SqlDBTableDataSetMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDBTableDataSetMapping)(nil))
+	return reflect.TypeOf((**SqlDBTableDataSetMapping)(nil)).Elem()
 }
 
 func (o SqlDBTableDataSetMappingOutput) ToSqlDBTableDataSetMappingOutput() SqlDBTableDataSetMappingOutput {

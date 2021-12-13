@@ -106,7 +106,7 @@ type SqlServerRegistrationInput interface {
 }
 
 func (*SqlServerRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerRegistration)(nil))
+	return reflect.TypeOf((**SqlServerRegistration)(nil)).Elem()
 }
 
 func (i *SqlServerRegistration) ToSqlServerRegistrationOutput() SqlServerRegistrationOutput {
@@ -120,7 +120,7 @@ func (i *SqlServerRegistration) ToSqlServerRegistrationOutputWithContext(ctx con
 type SqlServerRegistrationOutput struct{ *pulumi.OutputState }
 
 func (SqlServerRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServerRegistration)(nil))
+	return reflect.TypeOf((**SqlServerRegistration)(nil)).Elem()
 }
 
 func (o SqlServerRegistrationOutput) ToSqlServerRegistrationOutput() SqlServerRegistrationOutput {

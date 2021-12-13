@@ -149,7 +149,7 @@ type AgreementInput interface {
 }
 
 func (*Agreement) ElementType() reflect.Type {
-	return reflect.TypeOf((*Agreement)(nil))
+	return reflect.TypeOf((**Agreement)(nil)).Elem()
 }
 
 func (i *Agreement) ToAgreementOutput() AgreementOutput {
@@ -163,7 +163,7 @@ func (i *Agreement) ToAgreementOutputWithContext(ctx context.Context) AgreementO
 type AgreementOutput struct{ *pulumi.OutputState }
 
 func (AgreementOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Agreement)(nil))
+	return reflect.TypeOf((**Agreement)(nil)).Elem()
 }
 
 func (o AgreementOutput) ToAgreementOutput() AgreementOutput {

@@ -66,7 +66,7 @@ func NewDatabaseAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Kind == nil {
+	if isZero(args.Kind) {
 		args.Kind = pulumi.StringPtr("GlobalDocumentDB")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -199,7 +199,7 @@ type DatabaseAccountInput interface {
 }
 
 func (*DatabaseAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccount)(nil))
+	return reflect.TypeOf((**DatabaseAccount)(nil)).Elem()
 }
 
 func (i *DatabaseAccount) ToDatabaseAccountOutput() DatabaseAccountOutput {
@@ -213,7 +213,7 @@ func (i *DatabaseAccount) ToDatabaseAccountOutputWithContext(ctx context.Context
 type DatabaseAccountOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccount)(nil))
+	return reflect.TypeOf((**DatabaseAccount)(nil)).Elem()
 }
 
 func (o DatabaseAccountOutput) ToDatabaseAccountOutput() DatabaseAccountOutput {

@@ -122,60 +122,6 @@ type LogSettingsResponse struct {
 	RetentionPolicy *RetentionPolicyResponse `pulumi:"retentionPolicy"`
 }
 
-
-
-
-
-type LogSettingsResponseInput interface {
-	pulumi.Input
-
-	ToLogSettingsResponseOutput() LogSettingsResponseOutput
-	ToLogSettingsResponseOutputWithContext(context.Context) LogSettingsResponseOutput
-}
-
-type LogSettingsResponseArgs struct {
-	Category        pulumi.StringPtrInput           `pulumi:"category"`
-	Enabled         pulumi.BoolInput                `pulumi:"enabled"`
-	RetentionPolicy RetentionPolicyResponsePtrInput `pulumi:"retentionPolicy"`
-}
-
-func (LogSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogSettingsResponse)(nil)).Elem()
-}
-
-func (i LogSettingsResponseArgs) ToLogSettingsResponseOutput() LogSettingsResponseOutput {
-	return i.ToLogSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i LogSettingsResponseArgs) ToLogSettingsResponseOutputWithContext(ctx context.Context) LogSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsResponseOutput)
-}
-
-
-
-
-
-type LogSettingsResponseArrayInput interface {
-	pulumi.Input
-
-	ToLogSettingsResponseArrayOutput() LogSettingsResponseArrayOutput
-	ToLogSettingsResponseArrayOutputWithContext(context.Context) LogSettingsResponseArrayOutput
-}
-
-type LogSettingsResponseArray []LogSettingsResponseInput
-
-func (LogSettingsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogSettingsResponse)(nil)).Elem()
-}
-
-func (i LogSettingsResponseArray) ToLogSettingsResponseArrayOutput() LogSettingsResponseArrayOutput {
-	return i.ToLogSettingsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LogSettingsResponseArray) ToLogSettingsResponseArrayOutputWithContext(ctx context.Context) LogSettingsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogSettingsResponseArrayOutput)
-}
-
 type LogSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (LogSettingsResponseOutput) ElementType() reflect.Type {
@@ -375,75 +321,6 @@ type RetentionPolicyResponse struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
-
-
-
-
-type RetentionPolicyResponseInput interface {
-	pulumi.Input
-
-	ToRetentionPolicyResponseOutput() RetentionPolicyResponseOutput
-	ToRetentionPolicyResponseOutputWithContext(context.Context) RetentionPolicyResponseOutput
-}
-
-type RetentionPolicyResponseArgs struct {
-	Days    pulumi.IntInput  `pulumi:"days"`
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (RetentionPolicyResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RetentionPolicyResponse)(nil)).Elem()
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponseOutput() RetentionPolicyResponseOutput {
-	return i.ToRetentionPolicyResponseOutputWithContext(context.Background())
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponseOutputWithContext(ctx context.Context) RetentionPolicyResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponseOutput)
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponsePtrOutput() RetentionPolicyResponsePtrOutput {
-	return i.ToRetentionPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RetentionPolicyResponseArgs) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponseOutput).ToRetentionPolicyResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type RetentionPolicyResponsePtrInput interface {
-	pulumi.Input
-
-	ToRetentionPolicyResponsePtrOutput() RetentionPolicyResponsePtrOutput
-	ToRetentionPolicyResponsePtrOutputWithContext(context.Context) RetentionPolicyResponsePtrOutput
-}
-
-type retentionPolicyResponsePtrType RetentionPolicyResponseArgs
-
-func RetentionPolicyResponsePtr(v *RetentionPolicyResponseArgs) RetentionPolicyResponsePtrInput {
-	return (*retentionPolicyResponsePtrType)(v)
-}
-
-func (*retentionPolicyResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RetentionPolicyResponse)(nil)).Elem()
-}
-
-func (i *retentionPolicyResponsePtrType) ToRetentionPolicyResponsePtrOutput() RetentionPolicyResponsePtrOutput {
-	return i.ToRetentionPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *retentionPolicyResponsePtrType) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RetentionPolicyResponsePtrOutput)
-}
-
 type RetentionPolicyResponseOutput struct{ *pulumi.OutputState }
 
 func (RetentionPolicyResponseOutput) ElementType() reflect.Type {
@@ -456,16 +333,6 @@ func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponseOutput() Retenti
 
 func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponseOutputWithContext(ctx context.Context) RetentionPolicyResponseOutput {
 	return o
-}
-
-func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutput() RetentionPolicyResponsePtrOutput {
-	return o.ToRetentionPolicyResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RetentionPolicyResponseOutput) ToRetentionPolicyResponsePtrOutputWithContext(ctx context.Context) RetentionPolicyResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RetentionPolicyResponse) *RetentionPolicyResponse {
-		return &v
-	}).(RetentionPolicyResponsePtrOutput)
 }
 
 func (o RetentionPolicyResponseOutput) Days() pulumi.IntOutput {

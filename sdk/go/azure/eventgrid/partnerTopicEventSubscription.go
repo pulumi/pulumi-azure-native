@@ -43,8 +43,11 @@ func NewPartnerTopicEventSubscription(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.EventDeliverySchema == nil {
+	if isZero(args.EventDeliverySchema) {
 		args.EventDeliverySchema = pulumi.StringPtr("EventGridSchema")
+	}
+	if args.Filter != nil {
+		args.Filter = args.Filter.ToEventSubscriptionFilterPtrOutput().ApplyT(func(v *EventSubscriptionFilter) *EventSubscriptionFilter { return v.Defaults() }).(EventSubscriptionFilterPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -132,7 +135,7 @@ type PartnerTopicEventSubscriptionInput interface {
 }
 
 func (*PartnerTopicEventSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerTopicEventSubscription)(nil))
+	return reflect.TypeOf((**PartnerTopicEventSubscription)(nil)).Elem()
 }
 
 func (i *PartnerTopicEventSubscription) ToPartnerTopicEventSubscriptionOutput() PartnerTopicEventSubscriptionOutput {
@@ -146,7 +149,7 @@ func (i *PartnerTopicEventSubscription) ToPartnerTopicEventSubscriptionOutputWit
 type PartnerTopicEventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (PartnerTopicEventSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerTopicEventSubscription)(nil))
+	return reflect.TypeOf((**PartnerTopicEventSubscription)(nil)).Elem()
 }
 
 func (o PartnerTopicEventSubscriptionOutput) ToPartnerTopicEventSubscriptionOutput() PartnerTopicEventSubscriptionOutput {

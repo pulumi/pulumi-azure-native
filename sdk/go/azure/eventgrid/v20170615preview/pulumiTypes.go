@@ -164,76 +164,6 @@ type EventSubscriptionDestinationResponse struct {
 	EndpointUrl     *string `pulumi:"endpointUrl"`
 }
 
-
-
-
-
-type EventSubscriptionDestinationResponseInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionDestinationResponseOutput() EventSubscriptionDestinationResponseOutput
-	ToEventSubscriptionDestinationResponseOutputWithContext(context.Context) EventSubscriptionDestinationResponseOutput
-}
-
-type EventSubscriptionDestinationResponseArgs struct {
-	EndpointBaseUrl pulumi.StringInput    `pulumi:"endpointBaseUrl"`
-	EndpointType    pulumi.StringPtrInput `pulumi:"endpointType"`
-	EndpointUrl     pulumi.StringPtrInput `pulumi:"endpointUrl"`
-}
-
-func (EventSubscriptionDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponseOutput() EventSubscriptionDestinationResponseOutput {
-	return i.ToEventSubscriptionDestinationResponseOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationResponseOutput)
-}
-
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput {
-	return i.ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionDestinationResponseArgs) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationResponseOutput).ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EventSubscriptionDestinationResponsePtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput
-	ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Context) EventSubscriptionDestinationResponsePtrOutput
-}
-
-type eventSubscriptionDestinationResponsePtrType EventSubscriptionDestinationResponseArgs
-
-func EventSubscriptionDestinationResponsePtr(v *EventSubscriptionDestinationResponseArgs) EventSubscriptionDestinationResponsePtrInput {
-	return (*eventSubscriptionDestinationResponsePtrType)(v)
-}
-
-func (*eventSubscriptionDestinationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionDestinationResponse)(nil)).Elem()
-}
-
-func (i *eventSubscriptionDestinationResponsePtrType) ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput {
-	return i.ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *eventSubscriptionDestinationResponsePtrType) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionDestinationResponsePtrOutput)
-}
-
 type EventSubscriptionDestinationResponseOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionDestinationResponseOutput) ElementType() reflect.Type {
@@ -246,16 +176,6 @@ func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinati
 
 func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponseOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponseOutput {
 	return o
-}
-
-func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponsePtrOutput() EventSubscriptionDestinationResponsePtrOutput {
-	return o.ToEventSubscriptionDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionDestinationResponseOutput) ToEventSubscriptionDestinationResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionDestinationResponse) *EventSubscriptionDestinationResponse {
-		return &v
-	}).(EventSubscriptionDestinationResponsePtrOutput)
 }
 
 func (o EventSubscriptionDestinationResponseOutput) EndpointBaseUrl() pulumi.StringOutput {
@@ -326,6 +246,19 @@ type EventSubscriptionFilter struct {
 	IsSubjectCaseSensitive *bool    `pulumi:"isSubjectCaseSensitive"`
 	SubjectBeginsWith      *string  `pulumi:"subjectBeginsWith"`
 	SubjectEndsWith        *string  `pulumi:"subjectEndsWith"`
+}
+
+
+func (val *EventSubscriptionFilter) Defaults() *EventSubscriptionFilter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSubjectCaseSensitive) {
+		isSubjectCaseSensitive_ := false
+		tmp.IsSubjectCaseSensitive = &isSubjectCaseSensitive_
+	}
+	return &tmp
 }
 
 
@@ -507,74 +440,16 @@ type EventSubscriptionFilterResponse struct {
 }
 
 
-
-
-
-type EventSubscriptionFilterResponseInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionFilterResponseOutput() EventSubscriptionFilterResponseOutput
-	ToEventSubscriptionFilterResponseOutputWithContext(context.Context) EventSubscriptionFilterResponseOutput
-}
-
-type EventSubscriptionFilterResponseArgs struct {
-	IncludedEventTypes     pulumi.StringArrayInput `pulumi:"includedEventTypes"`
-	IsSubjectCaseSensitive pulumi.BoolPtrInput     `pulumi:"isSubjectCaseSensitive"`
-	SubjectBeginsWith      pulumi.StringPtrInput   `pulumi:"subjectBeginsWith"`
-	SubjectEndsWith        pulumi.StringPtrInput   `pulumi:"subjectEndsWith"`
-}
-
-func (EventSubscriptionFilterResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionFilterResponse)(nil)).Elem()
-}
-
-func (i EventSubscriptionFilterResponseArgs) ToEventSubscriptionFilterResponseOutput() EventSubscriptionFilterResponseOutput {
-	return i.ToEventSubscriptionFilterResponseOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionFilterResponseArgs) ToEventSubscriptionFilterResponseOutputWithContext(ctx context.Context) EventSubscriptionFilterResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterResponseOutput)
-}
-
-func (i EventSubscriptionFilterResponseArgs) ToEventSubscriptionFilterResponsePtrOutput() EventSubscriptionFilterResponsePtrOutput {
-	return i.ToEventSubscriptionFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionFilterResponseArgs) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterResponseOutput).ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EventSubscriptionFilterResponsePtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionFilterResponsePtrOutput() EventSubscriptionFilterResponsePtrOutput
-	ToEventSubscriptionFilterResponsePtrOutputWithContext(context.Context) EventSubscriptionFilterResponsePtrOutput
-}
-
-type eventSubscriptionFilterResponsePtrType EventSubscriptionFilterResponseArgs
-
-func EventSubscriptionFilterResponsePtr(v *EventSubscriptionFilterResponseArgs) EventSubscriptionFilterResponsePtrInput {
-	return (*eventSubscriptionFilterResponsePtrType)(v)
-}
-
-func (*eventSubscriptionFilterResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscriptionFilterResponse)(nil)).Elem()
-}
-
-func (i *eventSubscriptionFilterResponsePtrType) ToEventSubscriptionFilterResponsePtrOutput() EventSubscriptionFilterResponsePtrOutput {
-	return i.ToEventSubscriptionFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *eventSubscriptionFilterResponsePtrType) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionFilterResponsePtrOutput)
+func (val *EventSubscriptionFilterResponse) Defaults() *EventSubscriptionFilterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSubjectCaseSensitive) {
+		isSubjectCaseSensitive_ := false
+		tmp.IsSubjectCaseSensitive = &isSubjectCaseSensitive_
+	}
+	return &tmp
 }
 
 type EventSubscriptionFilterResponseOutput struct{ *pulumi.OutputState }
@@ -589,16 +464,6 @@ func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponse
 
 func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponseOutputWithContext(ctx context.Context) EventSubscriptionFilterResponseOutput {
 	return o
-}
-
-func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponsePtrOutput() EventSubscriptionFilterResponsePtrOutput {
-	return o.ToEventSubscriptionFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionFilterResponseOutput) ToEventSubscriptionFilterResponsePtrOutputWithContext(ctx context.Context) EventSubscriptionFilterResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscriptionFilterResponse) *EventSubscriptionFilterResponse {
-		return &v
-	}).(EventSubscriptionFilterResponsePtrOutput)
 }
 
 func (o EventSubscriptionFilterResponseOutput) IncludedEventTypes() pulumi.StringArrayOutput {

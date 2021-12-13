@@ -17,61 +17,6 @@ type OperationImpactResponse struct {
 	Unit                string  `pulumi:"unit"`
 }
 
-
-
-
-
-type OperationImpactResponseInput interface {
-	pulumi.Input
-
-	ToOperationImpactResponseOutput() OperationImpactResponseOutput
-	ToOperationImpactResponseOutputWithContext(context.Context) OperationImpactResponseOutput
-}
-
-type OperationImpactResponseArgs struct {
-	ChangeValueAbsolute pulumi.Float64Input `pulumi:"changeValueAbsolute"`
-	ChangeValueRelative pulumi.Float64Input `pulumi:"changeValueRelative"`
-	Name                pulumi.StringInput  `pulumi:"name"`
-	Unit                pulumi.StringInput  `pulumi:"unit"`
-}
-
-func (OperationImpactResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationImpactResponse)(nil)).Elem()
-}
-
-func (i OperationImpactResponseArgs) ToOperationImpactResponseOutput() OperationImpactResponseOutput {
-	return i.ToOperationImpactResponseOutputWithContext(context.Background())
-}
-
-func (i OperationImpactResponseArgs) ToOperationImpactResponseOutputWithContext(ctx context.Context) OperationImpactResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OperationImpactResponseOutput)
-}
-
-
-
-
-
-type OperationImpactResponseArrayInput interface {
-	pulumi.Input
-
-	ToOperationImpactResponseArrayOutput() OperationImpactResponseArrayOutput
-	ToOperationImpactResponseArrayOutputWithContext(context.Context) OperationImpactResponseArrayOutput
-}
-
-type OperationImpactResponseArray []OperationImpactResponseInput
-
-func (OperationImpactResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OperationImpactResponse)(nil)).Elem()
-}
-
-func (i OperationImpactResponseArray) ToOperationImpactResponseArrayOutput() OperationImpactResponseArrayOutput {
-	return i.ToOperationImpactResponseArrayOutputWithContext(context.Background())
-}
-
-func (i OperationImpactResponseArray) ToOperationImpactResponseArrayOutputWithContext(ctx context.Context) OperationImpactResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OperationImpactResponseArrayOutput)
-}
-
 type OperationImpactResponseOutput struct{ *pulumi.OutputState }
 
 func (OperationImpactResponseOutput) ElementType() reflect.Type {
@@ -138,72 +83,6 @@ type RecommendedIndexResponse struct {
 	State           string                    `pulumi:"state"`
 	Table           string                    `pulumi:"table"`
 	Type            string                    `pulumi:"type"`
-}
-
-
-
-
-
-type RecommendedIndexResponseInput interface {
-	pulumi.Input
-
-	ToRecommendedIndexResponseOutput() RecommendedIndexResponseOutput
-	ToRecommendedIndexResponseOutputWithContext(context.Context) RecommendedIndexResponseOutput
-}
-
-type RecommendedIndexResponseArgs struct {
-	Action          pulumi.StringInput                `pulumi:"action"`
-	Columns         pulumi.StringArrayInput           `pulumi:"columns"`
-	Created         pulumi.StringInput                `pulumi:"created"`
-	EstimatedImpact OperationImpactResponseArrayInput `pulumi:"estimatedImpact"`
-	Id              pulumi.StringInput                `pulumi:"id"`
-	IncludedColumns pulumi.StringArrayInput           `pulumi:"includedColumns"`
-	IndexScript     pulumi.StringInput                `pulumi:"indexScript"`
-	IndexType       pulumi.StringInput                `pulumi:"indexType"`
-	LastModified    pulumi.StringInput                `pulumi:"lastModified"`
-	Name            pulumi.StringInput                `pulumi:"name"`
-	ReportedImpact  OperationImpactResponseArrayInput `pulumi:"reportedImpact"`
-	Schema          pulumi.StringInput                `pulumi:"schema"`
-	State           pulumi.StringInput                `pulumi:"state"`
-	Table           pulumi.StringInput                `pulumi:"table"`
-	Type            pulumi.StringInput                `pulumi:"type"`
-}
-
-func (RecommendedIndexResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecommendedIndexResponse)(nil)).Elem()
-}
-
-func (i RecommendedIndexResponseArgs) ToRecommendedIndexResponseOutput() RecommendedIndexResponseOutput {
-	return i.ToRecommendedIndexResponseOutputWithContext(context.Background())
-}
-
-func (i RecommendedIndexResponseArgs) ToRecommendedIndexResponseOutputWithContext(ctx context.Context) RecommendedIndexResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendedIndexResponseOutput)
-}
-
-
-
-
-
-type RecommendedIndexResponseArrayInput interface {
-	pulumi.Input
-
-	ToRecommendedIndexResponseArrayOutput() RecommendedIndexResponseArrayOutput
-	ToRecommendedIndexResponseArrayOutputWithContext(context.Context) RecommendedIndexResponseArrayOutput
-}
-
-type RecommendedIndexResponseArray []RecommendedIndexResponseInput
-
-func (RecommendedIndexResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RecommendedIndexResponse)(nil)).Elem()
-}
-
-func (i RecommendedIndexResponseArray) ToRecommendedIndexResponseArrayOutput() RecommendedIndexResponseArrayOutput {
-	return i.ToRecommendedIndexResponseArrayOutputWithContext(context.Background())
-}
-
-func (i RecommendedIndexResponseArray) ToRecommendedIndexResponseArrayOutputWithContext(ctx context.Context) RecommendedIndexResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendedIndexResponseArrayOutput)
 }
 
 type RecommendedIndexResponseOutput struct{ *pulumi.OutputState }
@@ -323,79 +202,6 @@ type ServiceTierAdvisorResponse struct {
 	Type                                                   string                   `pulumi:"type"`
 	UsageBasedRecommendationServiceLevelObjective          string                   `pulumi:"usageBasedRecommendationServiceLevelObjective"`
 	UsageBasedRecommendationServiceLevelObjectiveId        string                   `pulumi:"usageBasedRecommendationServiceLevelObjectiveId"`
-}
-
-
-
-
-
-type ServiceTierAdvisorResponseInput interface {
-	pulumi.Input
-
-	ToServiceTierAdvisorResponseOutput() ServiceTierAdvisorResponseOutput
-	ToServiceTierAdvisorResponseOutputWithContext(context.Context) ServiceTierAdvisorResponseOutput
-}
-
-type ServiceTierAdvisorResponseArgs struct {
-	ActiveTimeRatio                                        pulumi.Float64Input              `pulumi:"activeTimeRatio"`
-	AvgDtu                                                 pulumi.Float64Input              `pulumi:"avgDtu"`
-	Confidence                                             pulumi.Float64Input              `pulumi:"confidence"`
-	CurrentServiceLevelObjective                           pulumi.StringInput               `pulumi:"currentServiceLevelObjective"`
-	CurrentServiceLevelObjectiveId                         pulumi.StringInput               `pulumi:"currentServiceLevelObjectiveId"`
-	DatabaseSizeBasedRecommendationServiceLevelObjective   pulumi.StringInput               `pulumi:"databaseSizeBasedRecommendationServiceLevelObjective"`
-	DatabaseSizeBasedRecommendationServiceLevelObjectiveId pulumi.StringInput               `pulumi:"databaseSizeBasedRecommendationServiceLevelObjectiveId"`
-	DisasterPlanBasedRecommendationServiceLevelObjective   pulumi.StringInput               `pulumi:"disasterPlanBasedRecommendationServiceLevelObjective"`
-	DisasterPlanBasedRecommendationServiceLevelObjectiveId pulumi.StringInput               `pulumi:"disasterPlanBasedRecommendationServiceLevelObjectiveId"`
-	Id                                                     pulumi.StringInput               `pulumi:"id"`
-	MaxDtu                                                 pulumi.Float64Input              `pulumi:"maxDtu"`
-	MaxSizeInGB                                            pulumi.Float64Input              `pulumi:"maxSizeInGB"`
-	MinDtu                                                 pulumi.Float64Input              `pulumi:"minDtu"`
-	Name                                                   pulumi.StringInput               `pulumi:"name"`
-	ObservationPeriodEnd                                   pulumi.StringInput               `pulumi:"observationPeriodEnd"`
-	ObservationPeriodStart                                 pulumi.StringInput               `pulumi:"observationPeriodStart"`
-	OverallRecommendationServiceLevelObjective             pulumi.StringInput               `pulumi:"overallRecommendationServiceLevelObjective"`
-	OverallRecommendationServiceLevelObjectiveId           pulumi.StringInput               `pulumi:"overallRecommendationServiceLevelObjectiveId"`
-	ServiceLevelObjectiveUsageMetrics                      SloUsageMetricResponseArrayInput `pulumi:"serviceLevelObjectiveUsageMetrics"`
-	Type                                                   pulumi.StringInput               `pulumi:"type"`
-	UsageBasedRecommendationServiceLevelObjective          pulumi.StringInput               `pulumi:"usageBasedRecommendationServiceLevelObjective"`
-	UsageBasedRecommendationServiceLevelObjectiveId        pulumi.StringInput               `pulumi:"usageBasedRecommendationServiceLevelObjectiveId"`
-}
-
-func (ServiceTierAdvisorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceTierAdvisorResponse)(nil)).Elem()
-}
-
-func (i ServiceTierAdvisorResponseArgs) ToServiceTierAdvisorResponseOutput() ServiceTierAdvisorResponseOutput {
-	return i.ToServiceTierAdvisorResponseOutputWithContext(context.Background())
-}
-
-func (i ServiceTierAdvisorResponseArgs) ToServiceTierAdvisorResponseOutputWithContext(ctx context.Context) ServiceTierAdvisorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTierAdvisorResponseOutput)
-}
-
-
-
-
-
-type ServiceTierAdvisorResponseArrayInput interface {
-	pulumi.Input
-
-	ToServiceTierAdvisorResponseArrayOutput() ServiceTierAdvisorResponseArrayOutput
-	ToServiceTierAdvisorResponseArrayOutputWithContext(context.Context) ServiceTierAdvisorResponseArrayOutput
-}
-
-type ServiceTierAdvisorResponseArray []ServiceTierAdvisorResponseInput
-
-func (ServiceTierAdvisorResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceTierAdvisorResponse)(nil)).Elem()
-}
-
-func (i ServiceTierAdvisorResponseArray) ToServiceTierAdvisorResponseArrayOutput() ServiceTierAdvisorResponseArrayOutput {
-	return i.ToServiceTierAdvisorResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ServiceTierAdvisorResponseArray) ToServiceTierAdvisorResponseArrayOutputWithContext(ctx context.Context) ServiceTierAdvisorResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTierAdvisorResponseArrayOutput)
 }
 
 type ServiceTierAdvisorResponseOutput struct{ *pulumi.OutputState }
@@ -536,60 +342,6 @@ type SloUsageMetricResponse struct {
 	ServiceLevelObjectiveId string  `pulumi:"serviceLevelObjectiveId"`
 }
 
-
-
-
-
-type SloUsageMetricResponseInput interface {
-	pulumi.Input
-
-	ToSloUsageMetricResponseOutput() SloUsageMetricResponseOutput
-	ToSloUsageMetricResponseOutputWithContext(context.Context) SloUsageMetricResponseOutput
-}
-
-type SloUsageMetricResponseArgs struct {
-	InRangeTimeRatio        pulumi.Float64Input `pulumi:"inRangeTimeRatio"`
-	ServiceLevelObjective   pulumi.StringInput  `pulumi:"serviceLevelObjective"`
-	ServiceLevelObjectiveId pulumi.StringInput  `pulumi:"serviceLevelObjectiveId"`
-}
-
-func (SloUsageMetricResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SloUsageMetricResponse)(nil)).Elem()
-}
-
-func (i SloUsageMetricResponseArgs) ToSloUsageMetricResponseOutput() SloUsageMetricResponseOutput {
-	return i.ToSloUsageMetricResponseOutputWithContext(context.Background())
-}
-
-func (i SloUsageMetricResponseArgs) ToSloUsageMetricResponseOutputWithContext(ctx context.Context) SloUsageMetricResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SloUsageMetricResponseOutput)
-}
-
-
-
-
-
-type SloUsageMetricResponseArrayInput interface {
-	pulumi.Input
-
-	ToSloUsageMetricResponseArrayOutput() SloUsageMetricResponseArrayOutput
-	ToSloUsageMetricResponseArrayOutputWithContext(context.Context) SloUsageMetricResponseArrayOutput
-}
-
-type SloUsageMetricResponseArray []SloUsageMetricResponseInput
-
-func (SloUsageMetricResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SloUsageMetricResponse)(nil)).Elem()
-}
-
-func (i SloUsageMetricResponseArray) ToSloUsageMetricResponseArrayOutput() SloUsageMetricResponseArrayOutput {
-	return i.ToSloUsageMetricResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SloUsageMetricResponseArray) ToSloUsageMetricResponseArrayOutputWithContext(ctx context.Context) SloUsageMetricResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SloUsageMetricResponseArrayOutput)
-}
-
 type SloUsageMetricResponseOutput struct{ *pulumi.OutputState }
 
 func (SloUsageMetricResponseOutput) ElementType() reflect.Type {
@@ -642,62 +394,6 @@ type TransparentDataEncryptionResponse struct {
 	Name     string  `pulumi:"name"`
 	Status   *string `pulumi:"status"`
 	Type     string  `pulumi:"type"`
-}
-
-
-
-
-
-type TransparentDataEncryptionResponseInput interface {
-	pulumi.Input
-
-	ToTransparentDataEncryptionResponseOutput() TransparentDataEncryptionResponseOutput
-	ToTransparentDataEncryptionResponseOutputWithContext(context.Context) TransparentDataEncryptionResponseOutput
-}
-
-type TransparentDataEncryptionResponseArgs struct {
-	Id       pulumi.StringInput    `pulumi:"id"`
-	Location pulumi.StringInput    `pulumi:"location"`
-	Name     pulumi.StringInput    `pulumi:"name"`
-	Status   pulumi.StringPtrInput `pulumi:"status"`
-	Type     pulumi.StringInput    `pulumi:"type"`
-}
-
-func (TransparentDataEncryptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransparentDataEncryptionResponse)(nil)).Elem()
-}
-
-func (i TransparentDataEncryptionResponseArgs) ToTransparentDataEncryptionResponseOutput() TransparentDataEncryptionResponseOutput {
-	return i.ToTransparentDataEncryptionResponseOutputWithContext(context.Background())
-}
-
-func (i TransparentDataEncryptionResponseArgs) ToTransparentDataEncryptionResponseOutputWithContext(ctx context.Context) TransparentDataEncryptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionResponseOutput)
-}
-
-
-
-
-
-type TransparentDataEncryptionResponseArrayInput interface {
-	pulumi.Input
-
-	ToTransparentDataEncryptionResponseArrayOutput() TransparentDataEncryptionResponseArrayOutput
-	ToTransparentDataEncryptionResponseArrayOutputWithContext(context.Context) TransparentDataEncryptionResponseArrayOutput
-}
-
-type TransparentDataEncryptionResponseArray []TransparentDataEncryptionResponseInput
-
-func (TransparentDataEncryptionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransparentDataEncryptionResponse)(nil)).Elem()
-}
-
-func (i TransparentDataEncryptionResponseArray) ToTransparentDataEncryptionResponseArrayOutput() TransparentDataEncryptionResponseArrayOutput {
-	return i.ToTransparentDataEncryptionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TransparentDataEncryptionResponseArray) ToTransparentDataEncryptionResponseArrayOutputWithContext(ctx context.Context) TransparentDataEncryptionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransparentDataEncryptionResponseArrayOutput)
 }
 
 type TransparentDataEncryptionResponseOutput struct{ *pulumi.OutputState }

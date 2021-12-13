@@ -41,6 +41,9 @@ func NewFormula(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.FormulaContent != nil {
+		args.FormulaContent = args.FormulaContent.ToLabVirtualMachineCreationParameterPtrOutput().ApplyT(func(v *LabVirtualMachineCreationParameter) *LabVirtualMachineCreationParameter { return v.Defaults() }).(LabVirtualMachineCreationParameterPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:devtestlab/v20150521preview:Formula"),
@@ -121,7 +124,7 @@ type FormulaInput interface {
 }
 
 func (*Formula) ElementType() reflect.Type {
-	return reflect.TypeOf((*Formula)(nil))
+	return reflect.TypeOf((**Formula)(nil)).Elem()
 }
 
 func (i *Formula) ToFormulaOutput() FormulaOutput {
@@ -135,7 +138,7 @@ func (i *Formula) ToFormulaOutputWithContext(ctx context.Context) FormulaOutput 
 type FormulaOutput struct{ *pulumi.OutputState }
 
 func (FormulaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Formula)(nil))
+	return reflect.TypeOf((**Formula)(nil)).Elem()
 }
 
 func (o FormulaOutput) ToFormulaOutput() FormulaOutput {

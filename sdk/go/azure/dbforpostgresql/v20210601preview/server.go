@@ -43,8 +43,20 @@ func NewServer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.AvailabilityZone == nil {
+	if isZero(args.AvailabilityZone) {
 		args.AvailabilityZone = pulumi.StringPtr("")
+	}
+	if args.Backup != nil {
+		args.Backup = args.Backup.ToBackupPtrOutput().ApplyT(func(v *Backup) *Backup { return v.Defaults() }).(BackupPtrOutput)
+	}
+	if args.HighAvailability != nil {
+		args.HighAvailability = args.HighAvailability.ToHighAvailabilityPtrOutput().ApplyT(func(v *HighAvailability) *HighAvailability { return v.Defaults() }).(HighAvailabilityPtrOutput)
+	}
+	if args.MaintenanceWindow != nil {
+		args.MaintenanceWindow = args.MaintenanceWindow.ToMaintenanceWindowPtrOutput().ApplyT(func(v *MaintenanceWindow) *MaintenanceWindow { return v.Defaults() }).(MaintenanceWindowPtrOutput)
+	}
+	if args.Network != nil {
+		args.Network = args.Network.ToNetworkPtrOutput().ApplyT(func(v *Network) *Network { return v.Defaults() }).(NetworkPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -148,7 +160,7 @@ type ServerInput interface {
 }
 
 func (*Server) ElementType() reflect.Type {
-	return reflect.TypeOf((*Server)(nil))
+	return reflect.TypeOf((**Server)(nil)).Elem()
 }
 
 func (i *Server) ToServerOutput() ServerOutput {
@@ -162,7 +174,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 type ServerOutput struct{ *pulumi.OutputState }
 
 func (ServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Server)(nil))
+	return reflect.TypeOf((**Server)(nil)).Elem()
 }
 
 func (o ServerOutput) ToServerOutput() ServerOutput {

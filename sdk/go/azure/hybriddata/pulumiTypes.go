@@ -122,60 +122,6 @@ type CustomerSecretResponse struct {
 	KeyValue      string `pulumi:"keyValue"`
 }
 
-
-
-
-
-type CustomerSecretResponseInput interface {
-	pulumi.Input
-
-	ToCustomerSecretResponseOutput() CustomerSecretResponseOutput
-	ToCustomerSecretResponseOutputWithContext(context.Context) CustomerSecretResponseOutput
-}
-
-type CustomerSecretResponseArgs struct {
-	Algorithm     pulumi.StringInput `pulumi:"algorithm"`
-	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
-	KeyValue      pulumi.StringInput `pulumi:"keyValue"`
-}
-
-func (CustomerSecretResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerSecretResponse)(nil)).Elem()
-}
-
-func (i CustomerSecretResponseArgs) ToCustomerSecretResponseOutput() CustomerSecretResponseOutput {
-	return i.ToCustomerSecretResponseOutputWithContext(context.Background())
-}
-
-func (i CustomerSecretResponseArgs) ToCustomerSecretResponseOutputWithContext(ctx context.Context) CustomerSecretResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomerSecretResponseOutput)
-}
-
-
-
-
-
-type CustomerSecretResponseArrayInput interface {
-	pulumi.Input
-
-	ToCustomerSecretResponseArrayOutput() CustomerSecretResponseArrayOutput
-	ToCustomerSecretResponseArrayOutputWithContext(context.Context) CustomerSecretResponseArrayOutput
-}
-
-type CustomerSecretResponseArray []CustomerSecretResponseInput
-
-func (CustomerSecretResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomerSecretResponse)(nil)).Elem()
-}
-
-func (i CustomerSecretResponseArray) ToCustomerSecretResponseArrayOutput() CustomerSecretResponseArrayOutput {
-	return i.ToCustomerSecretResponseArrayOutputWithContext(context.Background())
-}
-
-func (i CustomerSecretResponseArray) ToCustomerSecretResponseArrayOutputWithContext(ctx context.Context) CustomerSecretResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomerSecretResponseArrayOutput)
-}
-
 type CustomerSecretResponseOutput struct{ *pulumi.OutputState }
 
 func (CustomerSecretResponseOutput) ElementType() reflect.Type {
@@ -325,59 +271,6 @@ func (o ScheduleArrayOutput) Index(i pulumi.IntInput) ScheduleOutput {
 type ScheduleResponse struct {
 	Name       *string  `pulumi:"name"`
 	PolicyList []string `pulumi:"policyList"`
-}
-
-
-
-
-
-type ScheduleResponseInput interface {
-	pulumi.Input
-
-	ToScheduleResponseOutput() ScheduleResponseOutput
-	ToScheduleResponseOutputWithContext(context.Context) ScheduleResponseOutput
-}
-
-type ScheduleResponseArgs struct {
-	Name       pulumi.StringPtrInput   `pulumi:"name"`
-	PolicyList pulumi.StringArrayInput `pulumi:"policyList"`
-}
-
-func (ScheduleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduleResponse)(nil)).Elem()
-}
-
-func (i ScheduleResponseArgs) ToScheduleResponseOutput() ScheduleResponseOutput {
-	return i.ToScheduleResponseOutputWithContext(context.Background())
-}
-
-func (i ScheduleResponseArgs) ToScheduleResponseOutputWithContext(ctx context.Context) ScheduleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponseOutput)
-}
-
-
-
-
-
-type ScheduleResponseArrayInput interface {
-	pulumi.Input
-
-	ToScheduleResponseArrayOutput() ScheduleResponseArrayOutput
-	ToScheduleResponseArrayOutputWithContext(context.Context) ScheduleResponseArrayOutput
-}
-
-type ScheduleResponseArray []ScheduleResponseInput
-
-func (ScheduleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ScheduleResponse)(nil)).Elem()
-}
-
-func (i ScheduleResponseArray) ToScheduleResponseArrayOutput() ScheduleResponseArrayOutput {
-	return i.ToScheduleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ScheduleResponseArray) ToScheduleResponseArrayOutputWithContext(ctx context.Context) ScheduleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduleResponseArrayOutput)
 }
 
 type ScheduleResponseOutput struct{ *pulumi.OutputState }
@@ -575,75 +468,6 @@ type SkuResponse struct {
 	Tier *string `pulumi:"tier"`
 }
 
-
-
-
-
-type SkuResponseInput interface {
-	pulumi.Input
-
-	ToSkuResponseOutput() SkuResponseOutput
-	ToSkuResponseOutputWithContext(context.Context) SkuResponseOutput
-}
-
-type SkuResponseArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (SkuResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuResponse)(nil)).Elem()
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutput() SkuResponseOutput {
-	return i.ToSkuResponseOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput)
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuResponseArgs) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponseOutput).ToSkuResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuResponsePtrOutput() SkuResponsePtrOutput
-	ToSkuResponsePtrOutputWithContext(context.Context) SkuResponsePtrOutput
-}
-
-type skuResponsePtrType SkuResponseArgs
-
-func SkuResponsePtr(v *SkuResponseArgs) SkuResponsePtrInput {
-	return (*skuResponsePtrType)(v)
-}
-
-func (*skuResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuResponse)(nil)).Elem()
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return i.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuResponsePtrType) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuResponsePtrOutput)
-}
-
 type SkuResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuResponseOutput) ElementType() reflect.Type {
@@ -656,16 +480,6 @@ func (o SkuResponseOutput) ToSkuResponseOutput() SkuResponseOutput {
 
 func (o SkuResponseOutput) ToSkuResponseOutputWithContext(ctx context.Context) SkuResponseOutput {
 	return o
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutput() SkuResponsePtrOutput {
-	return o.ToSkuResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuResponseOutput) ToSkuResponsePtrOutputWithContext(ctx context.Context) SkuResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuResponse) *SkuResponse {
-		return &v
-	}).(SkuResponsePtrOutput)
 }
 
 func (o SkuResponseOutput) Name() pulumi.StringPtrOutput {

@@ -149,7 +149,7 @@ type ApiDiagnosticInput interface {
 }
 
 func (*ApiDiagnostic) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiDiagnostic)(nil))
+	return reflect.TypeOf((**ApiDiagnostic)(nil)).Elem()
 }
 
 func (i *ApiDiagnostic) ToApiDiagnosticOutput() ApiDiagnosticOutput {
@@ -163,7 +163,7 @@ func (i *ApiDiagnostic) ToApiDiagnosticOutputWithContext(ctx context.Context) Ap
 type ApiDiagnosticOutput struct{ *pulumi.OutputState }
 
 func (ApiDiagnosticOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiDiagnostic)(nil))
+	return reflect.TypeOf((**ApiDiagnostic)(nil)).Elem()
 }
 
 func (o ApiDiagnosticOutput) ToApiDiagnosticOutput() ApiDiagnosticOutput {

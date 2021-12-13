@@ -111,7 +111,7 @@ type SpatialAnchorsAccountInput interface {
 }
 
 func (*SpatialAnchorsAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpatialAnchorsAccount)(nil))
+	return reflect.TypeOf((**SpatialAnchorsAccount)(nil)).Elem()
 }
 
 func (i *SpatialAnchorsAccount) ToSpatialAnchorsAccountOutput() SpatialAnchorsAccountOutput {
@@ -125,7 +125,7 @@ func (i *SpatialAnchorsAccount) ToSpatialAnchorsAccountOutputWithContext(ctx con
 type SpatialAnchorsAccountOutput struct{ *pulumi.OutputState }
 
 func (SpatialAnchorsAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpatialAnchorsAccount)(nil))
+	return reflect.TypeOf((**SpatialAnchorsAccount)(nil)).Elem()
 }
 
 func (o SpatialAnchorsAccountOutput) ToSpatialAnchorsAccountOutput() SpatialAnchorsAccountOutput {

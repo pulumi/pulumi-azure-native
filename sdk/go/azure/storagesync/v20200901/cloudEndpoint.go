@@ -143,7 +143,7 @@ type CloudEndpointInput interface {
 }
 
 func (*CloudEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudEndpoint)(nil))
+	return reflect.TypeOf((**CloudEndpoint)(nil)).Elem()
 }
 
 func (i *CloudEndpoint) ToCloudEndpointOutput() CloudEndpointOutput {
@@ -157,7 +157,7 @@ func (i *CloudEndpoint) ToCloudEndpointOutputWithContext(ctx context.Context) Cl
 type CloudEndpointOutput struct{ *pulumi.OutputState }
 
 func (CloudEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudEndpoint)(nil))
+	return reflect.TypeOf((**CloudEndpoint)(nil)).Elem()
 }
 
 func (o CloudEndpointOutput) ToCloudEndpointOutput() CloudEndpointOutput {

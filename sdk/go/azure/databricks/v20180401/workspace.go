@@ -45,6 +45,9 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Parameters != nil {
+		args.Parameters = args.Parameters.ToWorkspaceCustomParametersPtrOutput().ApplyT(func(v *WorkspaceCustomParameters) *WorkspaceCustomParameters { return v.Defaults() }).(WorkspaceCustomParametersPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:databricks:Workspace"),
@@ -122,7 +125,7 @@ type WorkspaceInput interface {
 }
 
 func (*Workspace) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workspace)(nil))
+	return reflect.TypeOf((**Workspace)(nil)).Elem()
 }
 
 func (i *Workspace) ToWorkspaceOutput() WorkspaceOutput {
@@ -136,7 +139,7 @@ func (i *Workspace) ToWorkspaceOutputWithContext(ctx context.Context) WorkspaceO
 type WorkspaceOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workspace)(nil))
+	return reflect.TypeOf((**Workspace)(nil)).Elem()
 }
 
 func (o WorkspaceOutput) ToWorkspaceOutput() WorkspaceOutput {

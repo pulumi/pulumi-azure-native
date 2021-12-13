@@ -115,59 +115,6 @@ type PrincipalsResponse struct {
 	Upn      *string `pulumi:"upn"`
 }
 
-
-
-
-
-type PrincipalsResponseInput interface {
-	pulumi.Input
-
-	ToPrincipalsResponseOutput() PrincipalsResponseOutput
-	ToPrincipalsResponseOutputWithContext(context.Context) PrincipalsResponseOutput
-}
-
-type PrincipalsResponseArgs struct {
-	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
-	Upn      pulumi.StringPtrInput `pulumi:"upn"`
-}
-
-func (PrincipalsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrincipalsResponse)(nil)).Elem()
-}
-
-func (i PrincipalsResponseArgs) ToPrincipalsResponseOutput() PrincipalsResponseOutput {
-	return i.ToPrincipalsResponseOutputWithContext(context.Background())
-}
-
-func (i PrincipalsResponseArgs) ToPrincipalsResponseOutputWithContext(ctx context.Context) PrincipalsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalsResponseOutput)
-}
-
-
-
-
-
-type PrincipalsResponseArrayInput interface {
-	pulumi.Input
-
-	ToPrincipalsResponseArrayOutput() PrincipalsResponseArrayOutput
-	ToPrincipalsResponseArrayOutputWithContext(context.Context) PrincipalsResponseArrayOutput
-}
-
-type PrincipalsResponseArray []PrincipalsResponseInput
-
-func (PrincipalsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PrincipalsResponse)(nil)).Elem()
-}
-
-func (i PrincipalsResponseArray) ToPrincipalsResponseArrayOutput() PrincipalsResponseArrayOutput {
-	return i.ToPrincipalsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PrincipalsResponseArray) ToPrincipalsResponseArrayOutputWithContext(ctx context.Context) PrincipalsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrincipalsResponseArrayOutput)
-}
-
 type PrincipalsResponseOutput struct{ *pulumi.OutputState }
 
 func (PrincipalsResponseOutput) ElementType() reflect.Type {

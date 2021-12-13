@@ -92,7 +92,7 @@ type UserSettingsWithLocationInput interface {
 }
 
 func (*UserSettingsWithLocation) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettingsWithLocation)(nil))
+	return reflect.TypeOf((**UserSettingsWithLocation)(nil)).Elem()
 }
 
 func (i *UserSettingsWithLocation) ToUserSettingsWithLocationOutput() UserSettingsWithLocationOutput {
@@ -106,7 +106,7 @@ func (i *UserSettingsWithLocation) ToUserSettingsWithLocationOutputWithContext(c
 type UserSettingsWithLocationOutput struct{ *pulumi.OutputState }
 
 func (UserSettingsWithLocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettingsWithLocation)(nil))
+	return reflect.TypeOf((**UserSettingsWithLocation)(nil)).Elem()
 }
 
 func (o UserSettingsWithLocationOutput) ToUserSettingsWithLocationOutput() UserSettingsWithLocationOutput {

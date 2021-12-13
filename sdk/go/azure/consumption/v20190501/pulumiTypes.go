@@ -43,47 +43,6 @@ func (i BudgetTimePeriodArgs) ToBudgetTimePeriodOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodOutput)
 }
 
-func (i BudgetTimePeriodArgs) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
-	return i.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (i BudgetTimePeriodArgs) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodOutput).ToBudgetTimePeriodPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type BudgetTimePeriodPtrInput interface {
-	pulumi.Input
-
-	ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput
-	ToBudgetTimePeriodPtrOutputWithContext(context.Context) BudgetTimePeriodPtrOutput
-}
-
-type budgetTimePeriodPtrType BudgetTimePeriodArgs
-
-func BudgetTimePeriodPtr(v *BudgetTimePeriodArgs) BudgetTimePeriodPtrInput {
-	return (*budgetTimePeriodPtrType)(v)
-}
-
-func (*budgetTimePeriodPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetTimePeriod)(nil)).Elem()
-}
-
-func (i *budgetTimePeriodPtrType) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
-	return i.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetTimePeriodPtrType) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodPtrOutput)
-}
-
 type BudgetTimePeriodOutput struct{ *pulumi.OutputState }
 
 func (BudgetTimePeriodOutput) ElementType() reflect.Type {
@@ -98,16 +57,6 @@ func (o BudgetTimePeriodOutput) ToBudgetTimePeriodOutputWithContext(ctx context.
 	return o
 }
 
-func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
-	return o.ToBudgetTimePeriodPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetTimePeriodOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetTimePeriod) *BudgetTimePeriod {
-		return &v
-	}).(BudgetTimePeriodPtrOutput)
-}
-
 func (o BudgetTimePeriodOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetTimePeriod) *string { return v.EndDate }).(pulumi.StringPtrOutput)
 }
@@ -116,120 +65,9 @@ func (o BudgetTimePeriodOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetTimePeriod) string { return v.StartDate }).(pulumi.StringOutput)
 }
 
-type BudgetTimePeriodPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetTimePeriodPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetTimePeriod)(nil)).Elem()
-}
-
-func (o BudgetTimePeriodPtrOutput) ToBudgetTimePeriodPtrOutput() BudgetTimePeriodPtrOutput {
-	return o
-}
-
-func (o BudgetTimePeriodPtrOutput) ToBudgetTimePeriodPtrOutputWithContext(ctx context.Context) BudgetTimePeriodPtrOutput {
-	return o
-}
-
-func (o BudgetTimePeriodPtrOutput) Elem() BudgetTimePeriodOutput {
-	return o.ApplyT(func(v *BudgetTimePeriod) BudgetTimePeriod {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetTimePeriod
-		return ret
-	}).(BudgetTimePeriodOutput)
-}
-
-func (o BudgetTimePeriodPtrOutput) EndDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetTimePeriod) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndDate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o BudgetTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetTimePeriod) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartDate
-	}).(pulumi.StringPtrOutput)
-}
-
 type BudgetTimePeriodResponse struct {
 	EndDate   *string `pulumi:"endDate"`
 	StartDate string  `pulumi:"startDate"`
-}
-
-
-
-
-
-type BudgetTimePeriodResponseInput interface {
-	pulumi.Input
-
-	ToBudgetTimePeriodResponseOutput() BudgetTimePeriodResponseOutput
-	ToBudgetTimePeriodResponseOutputWithContext(context.Context) BudgetTimePeriodResponseOutput
-}
-
-type BudgetTimePeriodResponseArgs struct {
-	EndDate   pulumi.StringPtrInput `pulumi:"endDate"`
-	StartDate pulumi.StringInput    `pulumi:"startDate"`
-}
-
-func (BudgetTimePeriodResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetTimePeriodResponse)(nil)).Elem()
-}
-
-func (i BudgetTimePeriodResponseArgs) ToBudgetTimePeriodResponseOutput() BudgetTimePeriodResponseOutput {
-	return i.ToBudgetTimePeriodResponseOutputWithContext(context.Background())
-}
-
-func (i BudgetTimePeriodResponseArgs) ToBudgetTimePeriodResponseOutputWithContext(ctx context.Context) BudgetTimePeriodResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodResponseOutput)
-}
-
-func (i BudgetTimePeriodResponseArgs) ToBudgetTimePeriodResponsePtrOutput() BudgetTimePeriodResponsePtrOutput {
-	return i.ToBudgetTimePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BudgetTimePeriodResponseArgs) ToBudgetTimePeriodResponsePtrOutputWithContext(ctx context.Context) BudgetTimePeriodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodResponseOutput).ToBudgetTimePeriodResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type BudgetTimePeriodResponsePtrInput interface {
-	pulumi.Input
-
-	ToBudgetTimePeriodResponsePtrOutput() BudgetTimePeriodResponsePtrOutput
-	ToBudgetTimePeriodResponsePtrOutputWithContext(context.Context) BudgetTimePeriodResponsePtrOutput
-}
-
-type budgetTimePeriodResponsePtrType BudgetTimePeriodResponseArgs
-
-func BudgetTimePeriodResponsePtr(v *BudgetTimePeriodResponseArgs) BudgetTimePeriodResponsePtrInput {
-	return (*budgetTimePeriodResponsePtrType)(v)
-}
-
-func (*budgetTimePeriodResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetTimePeriodResponse)(nil)).Elem()
-}
-
-func (i *budgetTimePeriodResponsePtrType) ToBudgetTimePeriodResponsePtrOutput() BudgetTimePeriodResponsePtrOutput {
-	return i.ToBudgetTimePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *budgetTimePeriodResponsePtrType) ToBudgetTimePeriodResponsePtrOutputWithContext(ctx context.Context) BudgetTimePeriodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetTimePeriodResponsePtrOutput)
 }
 
 type BudgetTimePeriodResponseOutput struct{ *pulumi.OutputState }
@@ -246,16 +84,6 @@ func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponseOutputWithCont
 	return o
 }
 
-func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponsePtrOutput() BudgetTimePeriodResponsePtrOutput {
-	return o.ToBudgetTimePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BudgetTimePeriodResponseOutput) ToBudgetTimePeriodResponsePtrOutputWithContext(ctx context.Context) BudgetTimePeriodResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetTimePeriodResponse) *BudgetTimePeriodResponse {
-		return &v
-	}).(BudgetTimePeriodResponsePtrOutput)
-}
-
 func (o BudgetTimePeriodResponseOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BudgetTimePeriodResponse) *string { return v.EndDate }).(pulumi.StringPtrOutput)
 }
@@ -264,120 +92,9 @@ func (o BudgetTimePeriodResponseOutput) StartDate() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetTimePeriodResponse) string { return v.StartDate }).(pulumi.StringOutput)
 }
 
-type BudgetTimePeriodResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetTimePeriodResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetTimePeriodResponse)(nil)).Elem()
-}
-
-func (o BudgetTimePeriodResponsePtrOutput) ToBudgetTimePeriodResponsePtrOutput() BudgetTimePeriodResponsePtrOutput {
-	return o
-}
-
-func (o BudgetTimePeriodResponsePtrOutput) ToBudgetTimePeriodResponsePtrOutputWithContext(ctx context.Context) BudgetTimePeriodResponsePtrOutput {
-	return o
-}
-
-func (o BudgetTimePeriodResponsePtrOutput) Elem() BudgetTimePeriodResponseOutput {
-	return o.ApplyT(func(v *BudgetTimePeriodResponse) BudgetTimePeriodResponse {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetTimePeriodResponse
-		return ret
-	}).(BudgetTimePeriodResponseOutput)
-}
-
-func (o BudgetTimePeriodResponsePtrOutput) EndDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetTimePeriodResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndDate
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o BudgetTimePeriodResponsePtrOutput) StartDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetTimePeriodResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartDate
-	}).(pulumi.StringPtrOutput)
-}
-
 type CurrentSpendResponse struct {
 	Amount float64 `pulumi:"amount"`
 	Unit   string  `pulumi:"unit"`
-}
-
-
-
-
-
-type CurrentSpendResponseInput interface {
-	pulumi.Input
-
-	ToCurrentSpendResponseOutput() CurrentSpendResponseOutput
-	ToCurrentSpendResponseOutputWithContext(context.Context) CurrentSpendResponseOutput
-}
-
-type CurrentSpendResponseArgs struct {
-	Amount pulumi.Float64Input `pulumi:"amount"`
-	Unit   pulumi.StringInput  `pulumi:"unit"`
-}
-
-func (CurrentSpendResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CurrentSpendResponse)(nil)).Elem()
-}
-
-func (i CurrentSpendResponseArgs) ToCurrentSpendResponseOutput() CurrentSpendResponseOutput {
-	return i.ToCurrentSpendResponseOutputWithContext(context.Background())
-}
-
-func (i CurrentSpendResponseArgs) ToCurrentSpendResponseOutputWithContext(ctx context.Context) CurrentSpendResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CurrentSpendResponseOutput)
-}
-
-func (i CurrentSpendResponseArgs) ToCurrentSpendResponsePtrOutput() CurrentSpendResponsePtrOutput {
-	return i.ToCurrentSpendResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CurrentSpendResponseArgs) ToCurrentSpendResponsePtrOutputWithContext(ctx context.Context) CurrentSpendResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CurrentSpendResponseOutput).ToCurrentSpendResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CurrentSpendResponsePtrInput interface {
-	pulumi.Input
-
-	ToCurrentSpendResponsePtrOutput() CurrentSpendResponsePtrOutput
-	ToCurrentSpendResponsePtrOutputWithContext(context.Context) CurrentSpendResponsePtrOutput
-}
-
-type currentSpendResponsePtrType CurrentSpendResponseArgs
-
-func CurrentSpendResponsePtr(v *CurrentSpendResponseArgs) CurrentSpendResponsePtrInput {
-	return (*currentSpendResponsePtrType)(v)
-}
-
-func (*currentSpendResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CurrentSpendResponse)(nil)).Elem()
-}
-
-func (i *currentSpendResponsePtrType) ToCurrentSpendResponsePtrOutput() CurrentSpendResponsePtrOutput {
-	return i.ToCurrentSpendResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *currentSpendResponsePtrType) ToCurrentSpendResponsePtrOutputWithContext(ctx context.Context) CurrentSpendResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CurrentSpendResponsePtrOutput)
 }
 
 type CurrentSpendResponseOutput struct{ *pulumi.OutputState }
@@ -394,64 +111,12 @@ func (o CurrentSpendResponseOutput) ToCurrentSpendResponseOutputWithContext(ctx 
 	return o
 }
 
-func (o CurrentSpendResponseOutput) ToCurrentSpendResponsePtrOutput() CurrentSpendResponsePtrOutput {
-	return o.ToCurrentSpendResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CurrentSpendResponseOutput) ToCurrentSpendResponsePtrOutputWithContext(ctx context.Context) CurrentSpendResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CurrentSpendResponse) *CurrentSpendResponse {
-		return &v
-	}).(CurrentSpendResponsePtrOutput)
-}
-
 func (o CurrentSpendResponseOutput) Amount() pulumi.Float64Output {
 	return o.ApplyT(func(v CurrentSpendResponse) float64 { return v.Amount }).(pulumi.Float64Output)
 }
 
 func (o CurrentSpendResponseOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v CurrentSpendResponse) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-type CurrentSpendResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CurrentSpendResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CurrentSpendResponse)(nil)).Elem()
-}
-
-func (o CurrentSpendResponsePtrOutput) ToCurrentSpendResponsePtrOutput() CurrentSpendResponsePtrOutput {
-	return o
-}
-
-func (o CurrentSpendResponsePtrOutput) ToCurrentSpendResponsePtrOutputWithContext(ctx context.Context) CurrentSpendResponsePtrOutput {
-	return o
-}
-
-func (o CurrentSpendResponsePtrOutput) Elem() CurrentSpendResponseOutput {
-	return o.ApplyT(func(v *CurrentSpendResponse) CurrentSpendResponse {
-		if v != nil {
-			return *v
-		}
-		var ret CurrentSpendResponse
-		return ret
-	}).(CurrentSpendResponseOutput)
-}
-
-func (o CurrentSpendResponsePtrOutput) Amount() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *CurrentSpendResponse) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.Amount
-	}).(pulumi.Float64PtrOutput)
-}
-
-func (o CurrentSpendResponsePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CurrentSpendResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
 }
 
 type Filter struct {
@@ -639,77 +304,6 @@ type FilterResponse struct {
 	Tags           map[string][]string `pulumi:"tags"`
 }
 
-
-
-
-
-type FilterResponseInput interface {
-	pulumi.Input
-
-	ToFilterResponseOutput() FilterResponseOutput
-	ToFilterResponseOutputWithContext(context.Context) FilterResponseOutput
-}
-
-type FilterResponseArgs struct {
-	Meters         pulumi.StringArrayInput    `pulumi:"meters"`
-	ResourceGroups pulumi.StringArrayInput    `pulumi:"resourceGroups"`
-	Resources      pulumi.StringArrayInput    `pulumi:"resources"`
-	Tags           pulumi.StringArrayMapInput `pulumi:"tags"`
-}
-
-func (FilterResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FilterResponse)(nil)).Elem()
-}
-
-func (i FilterResponseArgs) ToFilterResponseOutput() FilterResponseOutput {
-	return i.ToFilterResponseOutputWithContext(context.Background())
-}
-
-func (i FilterResponseArgs) ToFilterResponseOutputWithContext(ctx context.Context) FilterResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterResponseOutput)
-}
-
-func (i FilterResponseArgs) ToFilterResponsePtrOutput() FilterResponsePtrOutput {
-	return i.ToFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (i FilterResponseArgs) ToFilterResponsePtrOutputWithContext(ctx context.Context) FilterResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterResponseOutput).ToFilterResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type FilterResponsePtrInput interface {
-	pulumi.Input
-
-	ToFilterResponsePtrOutput() FilterResponsePtrOutput
-	ToFilterResponsePtrOutputWithContext(context.Context) FilterResponsePtrOutput
-}
-
-type filterResponsePtrType FilterResponseArgs
-
-func FilterResponsePtr(v *FilterResponseArgs) FilterResponsePtrInput {
-	return (*filterResponsePtrType)(v)
-}
-
-func (*filterResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FilterResponse)(nil)).Elem()
-}
-
-func (i *filterResponsePtrType) ToFilterResponsePtrOutput() FilterResponsePtrOutput {
-	return i.ToFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *filterResponsePtrType) ToFilterResponsePtrOutputWithContext(ctx context.Context) FilterResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FilterResponsePtrOutput)
-}
-
 type FilterResponseOutput struct{ *pulumi.OutputState }
 
 func (FilterResponseOutput) ElementType() reflect.Type {
@@ -722,16 +316,6 @@ func (o FilterResponseOutput) ToFilterResponseOutput() FilterResponseOutput {
 
 func (o FilterResponseOutput) ToFilterResponseOutputWithContext(ctx context.Context) FilterResponseOutput {
 	return o
-}
-
-func (o FilterResponseOutput) ToFilterResponsePtrOutput() FilterResponsePtrOutput {
-	return o.ToFilterResponsePtrOutputWithContext(context.Background())
-}
-
-func (o FilterResponseOutput) ToFilterResponsePtrOutputWithContext(ctx context.Context) FilterResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FilterResponse) *FilterResponse {
-		return &v
-	}).(FilterResponsePtrOutput)
 }
 
 func (o FilterResponseOutput) Meters() pulumi.StringArrayOutput {
@@ -818,6 +402,19 @@ type Notification struct {
 	Operator      string   `pulumi:"operator"`
 	Threshold     float64  `pulumi:"threshold"`
 	ThresholdType *string  `pulumi:"thresholdType"`
+}
+
+
+func (val *Notification) Defaults() *Notification {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ThresholdType) {
+		thresholdType_ := "Actual"
+		tmp.ThresholdType = &thresholdType_
+	}
+	return &tmp
 }
 
 
@@ -951,61 +548,16 @@ type NotificationResponse struct {
 }
 
 
-
-
-
-type NotificationResponseInput interface {
-	pulumi.Input
-
-	ToNotificationResponseOutput() NotificationResponseOutput
-	ToNotificationResponseOutputWithContext(context.Context) NotificationResponseOutput
-}
-
-type NotificationResponseArgs struct {
-	ContactEmails pulumi.StringArrayInput `pulumi:"contactEmails"`
-	ContactGroups pulumi.StringArrayInput `pulumi:"contactGroups"`
-	ContactRoles  pulumi.StringArrayInput `pulumi:"contactRoles"`
-	Enabled       pulumi.BoolInput        `pulumi:"enabled"`
-	Operator      pulumi.StringInput      `pulumi:"operator"`
-	Threshold     pulumi.Float64Input     `pulumi:"threshold"`
-	ThresholdType pulumi.StringPtrInput   `pulumi:"thresholdType"`
-}
-
-func (NotificationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationResponse)(nil)).Elem()
-}
-
-func (i NotificationResponseArgs) ToNotificationResponseOutput() NotificationResponseOutput {
-	return i.ToNotificationResponseOutputWithContext(context.Background())
-}
-
-func (i NotificationResponseArgs) ToNotificationResponseOutputWithContext(ctx context.Context) NotificationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationResponseOutput)
-}
-
-
-
-
-
-type NotificationResponseMapInput interface {
-	pulumi.Input
-
-	ToNotificationResponseMapOutput() NotificationResponseMapOutput
-	ToNotificationResponseMapOutputWithContext(context.Context) NotificationResponseMapOutput
-}
-
-type NotificationResponseMap map[string]NotificationResponseInput
-
-func (NotificationResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NotificationResponse)(nil)).Elem()
-}
-
-func (i NotificationResponseMap) ToNotificationResponseMapOutput() NotificationResponseMapOutput {
-	return i.ToNotificationResponseMapOutputWithContext(context.Background())
-}
-
-func (i NotificationResponseMap) ToNotificationResponseMapOutputWithContext(ctx context.Context) NotificationResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationResponseMapOutput)
+func (val *NotificationResponse) Defaults() *NotificationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ThresholdType) {
+		thresholdType_ := "Actual"
+		tmp.ThresholdType = &thresholdType_
+	}
+	return &tmp
 }
 
 type NotificationResponseOutput struct{ *pulumi.OutputState }
@@ -1072,11 +624,8 @@ func (o NotificationResponseMapOutput) MapIndex(k pulumi.StringInput) Notificati
 
 func init() {
 	pulumi.RegisterOutputType(BudgetTimePeriodOutput{})
-	pulumi.RegisterOutputType(BudgetTimePeriodPtrOutput{})
 	pulumi.RegisterOutputType(BudgetTimePeriodResponseOutput{})
-	pulumi.RegisterOutputType(BudgetTimePeriodResponsePtrOutput{})
 	pulumi.RegisterOutputType(CurrentSpendResponseOutput{})
-	pulumi.RegisterOutputType(CurrentSpendResponsePtrOutput{})
 	pulumi.RegisterOutputType(FilterOutput{})
 	pulumi.RegisterOutputType(FilterPtrOutput{})
 	pulumi.RegisterOutputType(FilterResponseOutput{})

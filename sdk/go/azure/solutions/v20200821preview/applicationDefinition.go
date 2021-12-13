@@ -163,7 +163,7 @@ type ApplicationDefinitionInput interface {
 }
 
 func (*ApplicationDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDefinition)(nil))
+	return reflect.TypeOf((**ApplicationDefinition)(nil)).Elem()
 }
 
 func (i *ApplicationDefinition) ToApplicationDefinitionOutput() ApplicationDefinitionOutput {
@@ -177,7 +177,7 @@ func (i *ApplicationDefinition) ToApplicationDefinitionOutputWithContext(ctx con
 type ApplicationDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDefinition)(nil))
+	return reflect.TypeOf((**ApplicationDefinition)(nil)).Elem()
 }
 
 func (o ApplicationDefinitionOutput) ToApplicationDefinitionOutput() ApplicationDefinitionOutput {

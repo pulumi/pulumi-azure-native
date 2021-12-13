@@ -145,7 +145,7 @@ type WebAppSourceControlInput interface {
 }
 
 func (*WebAppSourceControl) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSourceControl)(nil))
+	return reflect.TypeOf((**WebAppSourceControl)(nil)).Elem()
 }
 
 func (i *WebAppSourceControl) ToWebAppSourceControlOutput() WebAppSourceControlOutput {
@@ -159,7 +159,7 @@ func (i *WebAppSourceControl) ToWebAppSourceControlOutputWithContext(ctx context
 type WebAppSourceControlOutput struct{ *pulumi.OutputState }
 
 func (WebAppSourceControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSourceControl)(nil))
+	return reflect.TypeOf((**WebAppSourceControl)(nil)).Elem()
 }
 
 func (o WebAppSourceControlOutput) ToWebAppSourceControlOutput() WebAppSourceControlOutput {

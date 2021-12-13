@@ -188,7 +188,7 @@ type VpnSiteInput interface {
 }
 
 func (*VpnSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnSite)(nil))
+	return reflect.TypeOf((**VpnSite)(nil)).Elem()
 }
 
 func (i *VpnSite) ToVpnSiteOutput() VpnSiteOutput {
@@ -202,7 +202,7 @@ func (i *VpnSite) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOutput 
 type VpnSiteOutput struct{ *pulumi.OutputState }
 
 func (VpnSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnSite)(nil))
+	return reflect.TypeOf((**VpnSite)(nil)).Elem()
 }
 
 func (o VpnSiteOutput) ToVpnSiteOutput() VpnSiteOutput {

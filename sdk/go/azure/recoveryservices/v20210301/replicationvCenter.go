@@ -129,7 +129,7 @@ type ReplicationvCenterInput interface {
 }
 
 func (*ReplicationvCenter) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationvCenter)(nil))
+	return reflect.TypeOf((**ReplicationvCenter)(nil)).Elem()
 }
 
 func (i *ReplicationvCenter) ToReplicationvCenterOutput() ReplicationvCenterOutput {
@@ -143,7 +143,7 @@ func (i *ReplicationvCenter) ToReplicationvCenterOutputWithContext(ctx context.C
 type ReplicationvCenterOutput struct{ *pulumi.OutputState }
 
 func (ReplicationvCenterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationvCenter)(nil))
+	return reflect.TypeOf((**ReplicationvCenter)(nil)).Elem()
 }
 
 func (o ReplicationvCenterOutput) ToReplicationvCenterOutput() ReplicationvCenterOutput {

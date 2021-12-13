@@ -83,49 +83,49 @@ func NewVolume(ctx *pulumi.Context,
 	if args.SubnetId == nil {
 		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
-	if args.AvsDataStore == nil {
+	if isZero(args.AvsDataStore) {
 		args.AvsDataStore = pulumi.StringPtr("Disabled")
 	}
-	if args.CoolAccess == nil {
+	if isZero(args.CoolAccess) {
 		args.CoolAccess = pulumi.BoolPtr(false)
 	}
-	if args.DefaultGroupQuotaInKiBs == nil {
+	if isZero(args.DefaultGroupQuotaInKiBs) {
 		args.DefaultGroupQuotaInKiBs = pulumi.Float64Ptr(0.0)
 	}
-	if args.DefaultUserQuotaInKiBs == nil {
+	if isZero(args.DefaultUserQuotaInKiBs) {
 		args.DefaultUserQuotaInKiBs = pulumi.Float64Ptr(0.0)
 	}
-	if args.IsDefaultQuotaEnabled == nil {
+	if isZero(args.IsDefaultQuotaEnabled) {
 		args.IsDefaultQuotaEnabled = pulumi.BoolPtr(false)
 	}
-	if args.KerberosEnabled == nil {
+	if isZero(args.KerberosEnabled) {
 		args.KerberosEnabled = pulumi.BoolPtr(false)
 	}
-	if args.LdapEnabled == nil {
+	if isZero(args.LdapEnabled) {
 		args.LdapEnabled = pulumi.BoolPtr(false)
 	}
-	if args.NetworkFeatures == nil {
+	if isZero(args.NetworkFeatures) {
 		args.NetworkFeatures = pulumi.StringPtr("Basic")
 	}
-	if args.SecurityStyle == nil {
+	if isZero(args.SecurityStyle) {
 		args.SecurityStyle = pulumi.StringPtr("unix")
 	}
-	if args.SmbContinuouslyAvailable == nil {
+	if isZero(args.SmbContinuouslyAvailable) {
 		args.SmbContinuouslyAvailable = pulumi.BoolPtr(false)
 	}
-	if args.SmbEncryption == nil {
+	if isZero(args.SmbEncryption) {
 		args.SmbEncryption = pulumi.BoolPtr(false)
 	}
-	if args.SnapshotDirectoryVisible == nil {
+	if isZero(args.SnapshotDirectoryVisible) {
 		args.SnapshotDirectoryVisible = pulumi.BoolPtr(true)
 	}
-	if args.ThroughputMibps == nil {
+	if isZero(args.ThroughputMibps) {
 		args.ThroughputMibps = pulumi.Float64Ptr(0.0)
 	}
-	if args.UnixPermissions == nil {
+	if isZero(args.UnixPermissions) {
 		args.UnixPermissions = pulumi.StringPtr("0770")
 	}
-	if args.UsageThreshold == nil {
+	if isZero(args.UsageThreshold) {
 		args.UsageThreshold = pulumi.Float64(107374182400.0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -318,7 +318,7 @@ type VolumeInput interface {
 }
 
 func (*Volume) ElementType() reflect.Type {
-	return reflect.TypeOf((*Volume)(nil))
+	return reflect.TypeOf((**Volume)(nil)).Elem()
 }
 
 func (i *Volume) ToVolumeOutput() VolumeOutput {
@@ -332,7 +332,7 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 type VolumeOutput struct{ *pulumi.OutputState }
 
 func (VolumeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Volume)(nil))
+	return reflect.TypeOf((**Volume)(nil)).Elem()
 }
 
 func (o VolumeOutput) ToVolumeOutput() VolumeOutput {

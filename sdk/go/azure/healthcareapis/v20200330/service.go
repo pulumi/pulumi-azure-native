@@ -124,7 +124,7 @@ type ServiceInput interface {
 }
 
 func (*Service) ElementType() reflect.Type {
-	return reflect.TypeOf((*Service)(nil))
+	return reflect.TypeOf((**Service)(nil)).Elem()
 }
 
 func (i *Service) ToServiceOutput() ServiceOutput {
@@ -138,7 +138,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Service)(nil))
+	return reflect.TypeOf((**Service)(nil)).Elem()
 }
 
 func (o ServiceOutput) ToServiceOutput() ServiceOutput {

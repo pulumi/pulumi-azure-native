@@ -111,7 +111,7 @@ type SqlServerInput interface {
 }
 
 func (*SqlServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServer)(nil))
+	return reflect.TypeOf((**SqlServer)(nil)).Elem()
 }
 
 func (i *SqlServer) ToSqlServerOutput() SqlServerOutput {
@@ -125,7 +125,7 @@ func (i *SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerO
 type SqlServerOutput struct{ *pulumi.OutputState }
 
 func (SqlServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlServer)(nil))
+	return reflect.TypeOf((**SqlServer)(nil)).Elem()
 }
 
 func (o SqlServerOutput) ToSqlServerOutput() SqlServerOutput {

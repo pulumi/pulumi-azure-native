@@ -112,7 +112,7 @@ type BackupPolicyInput interface {
 }
 
 func (*BackupPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupPolicy)(nil))
+	return reflect.TypeOf((**BackupPolicy)(nil)).Elem()
 }
 
 func (i *BackupPolicy) ToBackupPolicyOutput() BackupPolicyOutput {
@@ -126,7 +126,7 @@ func (i *BackupPolicy) ToBackupPolicyOutputWithContext(ctx context.Context) Back
 type BackupPolicyOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupPolicy)(nil))
+	return reflect.TypeOf((**BackupPolicy)(nil)).Elem()
 }
 
 func (o BackupPolicyOutput) ToBackupPolicyOutput() BackupPolicyOutput {

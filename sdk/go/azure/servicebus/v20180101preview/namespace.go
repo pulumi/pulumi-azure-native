@@ -40,6 +40,12 @@ func NewNamespace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Encryption != nil {
+		args.Encryption = args.Encryption.ToEncryptionPtrOutput().ApplyT(func(v *Encryption) *Encryption { return v.Defaults() }).(EncryptionPtrOutput)
+	}
+	if args.Identity != nil {
+		args.Identity = args.Identity.ToIdentityPtrOutput().ApplyT(func(v *Identity) *Identity { return v.Defaults() }).(IdentityPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:servicebus:Namespace"),
@@ -130,7 +136,7 @@ type NamespaceInput interface {
 }
 
 func (*Namespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*Namespace)(nil))
+	return reflect.TypeOf((**Namespace)(nil)).Elem()
 }
 
 func (i *Namespace) ToNamespaceOutput() NamespaceOutput {
@@ -144,7 +150,7 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 type NamespaceOutput struct{ *pulumi.OutputState }
 
 func (NamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Namespace)(nil))
+	return reflect.TypeOf((**Namespace)(nil)).Elem()
 }
 
 func (o NamespaceOutput) ToNamespaceOutput() NamespaceOutput {

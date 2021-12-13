@@ -42,10 +42,10 @@ func NewServerDetails(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	if args.ManagedMode == nil {
+	if isZero(args.ManagedMode) {
 		args.ManagedMode = pulumi.IntPtr(1)
 	}
-	if args.ServerMonitorMode == nil {
+	if isZero(args.ServerMonitorMode) {
 		args.ServerMonitorMode = pulumi.IntPtr(1)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -133,7 +133,7 @@ type ServerDetailsInput interface {
 }
 
 func (*ServerDetails) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDetails)(nil))
+	return reflect.TypeOf((**ServerDetails)(nil)).Elem()
 }
 
 func (i *ServerDetails) ToServerDetailsOutput() ServerDetailsOutput {
@@ -147,7 +147,7 @@ func (i *ServerDetails) ToServerDetailsOutputWithContext(ctx context.Context) Se
 type ServerDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServerDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerDetails)(nil))
+	return reflect.TypeOf((**ServerDetails)(nil)).Elem()
 }
 
 func (o ServerDetailsOutput) ToServerDetailsOutput() ServerDetailsOutput {

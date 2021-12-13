@@ -122,7 +122,7 @@ type EncryptionProtectorInput interface {
 }
 
 func (*EncryptionProtector) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionProtector)(nil))
+	return reflect.TypeOf((**EncryptionProtector)(nil)).Elem()
 }
 
 func (i *EncryptionProtector) ToEncryptionProtectorOutput() EncryptionProtectorOutput {
@@ -136,7 +136,7 @@ func (i *EncryptionProtector) ToEncryptionProtectorOutputWithContext(ctx context
 type EncryptionProtectorOutput struct{ *pulumi.OutputState }
 
 func (EncryptionProtectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionProtector)(nil))
+	return reflect.TypeOf((**EncryptionProtector)(nil)).Elem()
 }
 
 func (o EncryptionProtectorOutput) ToEncryptionProtectorOutput() EncryptionProtectorOutput {

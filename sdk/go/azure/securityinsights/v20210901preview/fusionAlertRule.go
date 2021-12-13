@@ -130,7 +130,7 @@ type FusionAlertRuleInput interface {
 }
 
 func (*FusionAlertRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*FusionAlertRule)(nil))
+	return reflect.TypeOf((**FusionAlertRule)(nil)).Elem()
 }
 
 func (i *FusionAlertRule) ToFusionAlertRuleOutput() FusionAlertRuleOutput {
@@ -144,7 +144,7 @@ func (i *FusionAlertRule) ToFusionAlertRuleOutputWithContext(ctx context.Context
 type FusionAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (FusionAlertRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FusionAlertRule)(nil))
+	return reflect.TypeOf((**FusionAlertRule)(nil)).Elem()
 }
 
 func (o FusionAlertRuleOutput) ToFusionAlertRuleOutput() FusionAlertRuleOutput {

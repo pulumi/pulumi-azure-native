@@ -19,79 +19,6 @@ type CommonExportPropertiesResponse struct {
 	RunHistory          *ExportExecutionListResultResponse `pulumi:"runHistory"`
 }
 
-
-
-
-
-type CommonExportPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToCommonExportPropertiesResponseOutput() CommonExportPropertiesResponseOutput
-	ToCommonExportPropertiesResponseOutputWithContext(context.Context) CommonExportPropertiesResponseOutput
-}
-
-type CommonExportPropertiesResponseArgs struct {
-	Definition          ExportDefinitionResponseInput             `pulumi:"definition"`
-	DeliveryInfo        ExportDeliveryInfoResponseInput           `pulumi:"deliveryInfo"`
-	Format              pulumi.StringPtrInput                     `pulumi:"format"`
-	NextRunTimeEstimate pulumi.StringInput                        `pulumi:"nextRunTimeEstimate"`
-	PartitionData       pulumi.BoolPtrInput                       `pulumi:"partitionData"`
-	RunHistory          ExportExecutionListResultResponsePtrInput `pulumi:"runHistory"`
-}
-
-func (CommonExportPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommonExportPropertiesResponse)(nil)).Elem()
-}
-
-func (i CommonExportPropertiesResponseArgs) ToCommonExportPropertiesResponseOutput() CommonExportPropertiesResponseOutput {
-	return i.ToCommonExportPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i CommonExportPropertiesResponseArgs) ToCommonExportPropertiesResponseOutputWithContext(ctx context.Context) CommonExportPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommonExportPropertiesResponseOutput)
-}
-
-func (i CommonExportPropertiesResponseArgs) ToCommonExportPropertiesResponsePtrOutput() CommonExportPropertiesResponsePtrOutput {
-	return i.ToCommonExportPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CommonExportPropertiesResponseArgs) ToCommonExportPropertiesResponsePtrOutputWithContext(ctx context.Context) CommonExportPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommonExportPropertiesResponseOutput).ToCommonExportPropertiesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type CommonExportPropertiesResponsePtrInput interface {
-	pulumi.Input
-
-	ToCommonExportPropertiesResponsePtrOutput() CommonExportPropertiesResponsePtrOutput
-	ToCommonExportPropertiesResponsePtrOutputWithContext(context.Context) CommonExportPropertiesResponsePtrOutput
-}
-
-type commonExportPropertiesResponsePtrType CommonExportPropertiesResponseArgs
-
-func CommonExportPropertiesResponsePtr(v *CommonExportPropertiesResponseArgs) CommonExportPropertiesResponsePtrInput {
-	return (*commonExportPropertiesResponsePtrType)(v)
-}
-
-func (*commonExportPropertiesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CommonExportPropertiesResponse)(nil)).Elem()
-}
-
-func (i *commonExportPropertiesResponsePtrType) ToCommonExportPropertiesResponsePtrOutput() CommonExportPropertiesResponsePtrOutput {
-	return i.ToCommonExportPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *commonExportPropertiesResponsePtrType) ToCommonExportPropertiesResponsePtrOutputWithContext(ctx context.Context) CommonExportPropertiesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommonExportPropertiesResponsePtrOutput)
-}
-
 type CommonExportPropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (CommonExportPropertiesResponseOutput) ElementType() reflect.Type {
@@ -104,16 +31,6 @@ func (o CommonExportPropertiesResponseOutput) ToCommonExportPropertiesResponseOu
 
 func (o CommonExportPropertiesResponseOutput) ToCommonExportPropertiesResponseOutputWithContext(ctx context.Context) CommonExportPropertiesResponseOutput {
 	return o
-}
-
-func (o CommonExportPropertiesResponseOutput) ToCommonExportPropertiesResponsePtrOutput() CommonExportPropertiesResponsePtrOutput {
-	return o.ToCommonExportPropertiesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CommonExportPropertiesResponseOutput) ToCommonExportPropertiesResponsePtrOutputWithContext(ctx context.Context) CommonExportPropertiesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonExportPropertiesResponse) *CommonExportPropertiesResponse {
-		return &v
-	}).(CommonExportPropertiesResponsePtrOutput)
 }
 
 func (o CommonExportPropertiesResponseOutput) Definition() ExportDefinitionResponseOutput {
@@ -223,75 +140,6 @@ type ErrorDetailsResponse struct {
 	Message string `pulumi:"message"`
 }
 
-
-
-
-
-type ErrorDetailsResponseInput interface {
-	pulumi.Input
-
-	ToErrorDetailsResponseOutput() ErrorDetailsResponseOutput
-	ToErrorDetailsResponseOutputWithContext(context.Context) ErrorDetailsResponseOutput
-}
-
-type ErrorDetailsResponseArgs struct {
-	Code    pulumi.StringInput `pulumi:"code"`
-	Message pulumi.StringInput `pulumi:"message"`
-}
-
-func (ErrorDetailsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ErrorDetailsResponse)(nil)).Elem()
-}
-
-func (i ErrorDetailsResponseArgs) ToErrorDetailsResponseOutput() ErrorDetailsResponseOutput {
-	return i.ToErrorDetailsResponseOutputWithContext(context.Background())
-}
-
-func (i ErrorDetailsResponseArgs) ToErrorDetailsResponseOutputWithContext(ctx context.Context) ErrorDetailsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailsResponseOutput)
-}
-
-func (i ErrorDetailsResponseArgs) ToErrorDetailsResponsePtrOutput() ErrorDetailsResponsePtrOutput {
-	return i.ToErrorDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ErrorDetailsResponseArgs) ToErrorDetailsResponsePtrOutputWithContext(ctx context.Context) ErrorDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailsResponseOutput).ToErrorDetailsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ErrorDetailsResponsePtrInput interface {
-	pulumi.Input
-
-	ToErrorDetailsResponsePtrOutput() ErrorDetailsResponsePtrOutput
-	ToErrorDetailsResponsePtrOutputWithContext(context.Context) ErrorDetailsResponsePtrOutput
-}
-
-type errorDetailsResponsePtrType ErrorDetailsResponseArgs
-
-func ErrorDetailsResponsePtr(v *ErrorDetailsResponseArgs) ErrorDetailsResponsePtrInput {
-	return (*errorDetailsResponsePtrType)(v)
-}
-
-func (*errorDetailsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ErrorDetailsResponse)(nil)).Elem()
-}
-
-func (i *errorDetailsResponsePtrType) ToErrorDetailsResponsePtrOutput() ErrorDetailsResponsePtrOutput {
-	return i.ToErrorDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *errorDetailsResponsePtrType) ToErrorDetailsResponsePtrOutputWithContext(ctx context.Context) ErrorDetailsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ErrorDetailsResponsePtrOutput)
-}
-
 type ErrorDetailsResponseOutput struct{ *pulumi.OutputState }
 
 func (ErrorDetailsResponseOutput) ElementType() reflect.Type {
@@ -304,16 +152,6 @@ func (o ErrorDetailsResponseOutput) ToErrorDetailsResponseOutput() ErrorDetailsR
 
 func (o ErrorDetailsResponseOutput) ToErrorDetailsResponseOutputWithContext(ctx context.Context) ErrorDetailsResponseOutput {
 	return o
-}
-
-func (o ErrorDetailsResponseOutput) ToErrorDetailsResponsePtrOutput() ErrorDetailsResponsePtrOutput {
-	return o.ToErrorDetailsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ErrorDetailsResponseOutput) ToErrorDetailsResponsePtrOutputWithContext(ctx context.Context) ErrorDetailsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ErrorDetailsResponse) *ErrorDetailsResponse {
-		return &v
-	}).(ErrorDetailsResponsePtrOutput)
 }
 
 func (o ErrorDetailsResponseOutput) Code() pulumi.StringOutput {
@@ -651,74 +489,6 @@ type ExportDatasetConfigurationResponse struct {
 	Columns []string `pulumi:"columns"`
 }
 
-
-
-
-
-type ExportDatasetConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToExportDatasetConfigurationResponseOutput() ExportDatasetConfigurationResponseOutput
-	ToExportDatasetConfigurationResponseOutputWithContext(context.Context) ExportDatasetConfigurationResponseOutput
-}
-
-type ExportDatasetConfigurationResponseArgs struct {
-	Columns pulumi.StringArrayInput `pulumi:"columns"`
-}
-
-func (ExportDatasetConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportDatasetConfigurationResponse)(nil)).Elem()
-}
-
-func (i ExportDatasetConfigurationResponseArgs) ToExportDatasetConfigurationResponseOutput() ExportDatasetConfigurationResponseOutput {
-	return i.ToExportDatasetConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i ExportDatasetConfigurationResponseArgs) ToExportDatasetConfigurationResponseOutputWithContext(ctx context.Context) ExportDatasetConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetConfigurationResponseOutput)
-}
-
-func (i ExportDatasetConfigurationResponseArgs) ToExportDatasetConfigurationResponsePtrOutput() ExportDatasetConfigurationResponsePtrOutput {
-	return i.ToExportDatasetConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExportDatasetConfigurationResponseArgs) ToExportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ExportDatasetConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetConfigurationResponseOutput).ToExportDatasetConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportDatasetConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToExportDatasetConfigurationResponsePtrOutput() ExportDatasetConfigurationResponsePtrOutput
-	ToExportDatasetConfigurationResponsePtrOutputWithContext(context.Context) ExportDatasetConfigurationResponsePtrOutput
-}
-
-type exportDatasetConfigurationResponsePtrType ExportDatasetConfigurationResponseArgs
-
-func ExportDatasetConfigurationResponsePtr(v *ExportDatasetConfigurationResponseArgs) ExportDatasetConfigurationResponsePtrInput {
-	return (*exportDatasetConfigurationResponsePtrType)(v)
-}
-
-func (*exportDatasetConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportDatasetConfigurationResponse)(nil)).Elem()
-}
-
-func (i *exportDatasetConfigurationResponsePtrType) ToExportDatasetConfigurationResponsePtrOutput() ExportDatasetConfigurationResponsePtrOutput {
-	return i.ToExportDatasetConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *exportDatasetConfigurationResponsePtrType) ToExportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ExportDatasetConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetConfigurationResponsePtrOutput)
-}
-
 type ExportDatasetConfigurationResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDatasetConfigurationResponseOutput) ElementType() reflect.Type {
@@ -731,16 +501,6 @@ func (o ExportDatasetConfigurationResponseOutput) ToExportDatasetConfigurationRe
 
 func (o ExportDatasetConfigurationResponseOutput) ToExportDatasetConfigurationResponseOutputWithContext(ctx context.Context) ExportDatasetConfigurationResponseOutput {
 	return o
-}
-
-func (o ExportDatasetConfigurationResponseOutput) ToExportDatasetConfigurationResponsePtrOutput() ExportDatasetConfigurationResponsePtrOutput {
-	return o.ToExportDatasetConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExportDatasetConfigurationResponseOutput) ToExportDatasetConfigurationResponsePtrOutputWithContext(ctx context.Context) ExportDatasetConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDatasetConfigurationResponse) *ExportDatasetConfigurationResponse {
-		return &v
-	}).(ExportDatasetConfigurationResponsePtrOutput)
 }
 
 func (o ExportDatasetConfigurationResponseOutput) Columns() pulumi.StringArrayOutput {
@@ -785,75 +545,6 @@ type ExportDatasetResponse struct {
 	Granularity   *string                             `pulumi:"granularity"`
 }
 
-
-
-
-
-type ExportDatasetResponseInput interface {
-	pulumi.Input
-
-	ToExportDatasetResponseOutput() ExportDatasetResponseOutput
-	ToExportDatasetResponseOutputWithContext(context.Context) ExportDatasetResponseOutput
-}
-
-type ExportDatasetResponseArgs struct {
-	Configuration ExportDatasetConfigurationResponsePtrInput `pulumi:"configuration"`
-	Granularity   pulumi.StringPtrInput                      `pulumi:"granularity"`
-}
-
-func (ExportDatasetResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportDatasetResponse)(nil)).Elem()
-}
-
-func (i ExportDatasetResponseArgs) ToExportDatasetResponseOutput() ExportDatasetResponseOutput {
-	return i.ToExportDatasetResponseOutputWithContext(context.Background())
-}
-
-func (i ExportDatasetResponseArgs) ToExportDatasetResponseOutputWithContext(ctx context.Context) ExportDatasetResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetResponseOutput)
-}
-
-func (i ExportDatasetResponseArgs) ToExportDatasetResponsePtrOutput() ExportDatasetResponsePtrOutput {
-	return i.ToExportDatasetResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExportDatasetResponseArgs) ToExportDatasetResponsePtrOutputWithContext(ctx context.Context) ExportDatasetResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetResponseOutput).ToExportDatasetResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportDatasetResponsePtrInput interface {
-	pulumi.Input
-
-	ToExportDatasetResponsePtrOutput() ExportDatasetResponsePtrOutput
-	ToExportDatasetResponsePtrOutputWithContext(context.Context) ExportDatasetResponsePtrOutput
-}
-
-type exportDatasetResponsePtrType ExportDatasetResponseArgs
-
-func ExportDatasetResponsePtr(v *ExportDatasetResponseArgs) ExportDatasetResponsePtrInput {
-	return (*exportDatasetResponsePtrType)(v)
-}
-
-func (*exportDatasetResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportDatasetResponse)(nil)).Elem()
-}
-
-func (i *exportDatasetResponsePtrType) ToExportDatasetResponsePtrOutput() ExportDatasetResponsePtrOutput {
-	return i.ToExportDatasetResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *exportDatasetResponsePtrType) ToExportDatasetResponsePtrOutputWithContext(ctx context.Context) ExportDatasetResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDatasetResponsePtrOutput)
-}
-
 type ExportDatasetResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportDatasetResponseOutput) ElementType() reflect.Type {
@@ -866,16 +557,6 @@ func (o ExportDatasetResponseOutput) ToExportDatasetResponseOutput() ExportDatas
 
 func (o ExportDatasetResponseOutput) ToExportDatasetResponseOutputWithContext(ctx context.Context) ExportDatasetResponseOutput {
 	return o
-}
-
-func (o ExportDatasetResponseOutput) ToExportDatasetResponsePtrOutput() ExportDatasetResponsePtrOutput {
-	return o.ToExportDatasetResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExportDatasetResponseOutput) ToExportDatasetResponsePtrOutputWithContext(ctx context.Context) ExportDatasetResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDatasetResponse) *ExportDatasetResponse {
-		return &v
-	}).(ExportDatasetResponsePtrOutput)
 }
 
 func (o ExportDatasetResponseOutput) Configuration() ExportDatasetConfigurationResponsePtrOutput {
@@ -965,47 +646,6 @@ func (i ExportDefinitionArgs) ToExportDefinitionOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionOutput)
 }
 
-func (i ExportDefinitionArgs) ToExportDefinitionPtrOutput() ExportDefinitionPtrOutput {
-	return i.ToExportDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i ExportDefinitionArgs) ToExportDefinitionPtrOutputWithContext(ctx context.Context) ExportDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionOutput).ToExportDefinitionPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToExportDefinitionPtrOutput() ExportDefinitionPtrOutput
-	ToExportDefinitionPtrOutputWithContext(context.Context) ExportDefinitionPtrOutput
-}
-
-type exportDefinitionPtrType ExportDefinitionArgs
-
-func ExportDefinitionPtr(v *ExportDefinitionArgs) ExportDefinitionPtrInput {
-	return (*exportDefinitionPtrType)(v)
-}
-
-func (*exportDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportDefinition)(nil)).Elem()
-}
-
-func (i *exportDefinitionPtrType) ToExportDefinitionPtrOutput() ExportDefinitionPtrOutput {
-	return i.ToExportDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *exportDefinitionPtrType) ToExportDefinitionPtrOutputWithContext(ctx context.Context) ExportDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionPtrOutput)
-}
-
 type ExportDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ExportDefinitionOutput) ElementType() reflect.Type {
@@ -1018,16 +658,6 @@ func (o ExportDefinitionOutput) ToExportDefinitionOutput() ExportDefinitionOutpu
 
 func (o ExportDefinitionOutput) ToExportDefinitionOutputWithContext(ctx context.Context) ExportDefinitionOutput {
 	return o
-}
-
-func (o ExportDefinitionOutput) ToExportDefinitionPtrOutput() ExportDefinitionPtrOutput {
-	return o.ToExportDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o ExportDefinitionOutput) ToExportDefinitionPtrOutputWithContext(ctx context.Context) ExportDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDefinition) *ExportDefinition {
-		return &v
-	}).(ExportDefinitionPtrOutput)
 }
 
 func (o ExportDefinitionOutput) DataSet() ExportDatasetPtrOutput {
@@ -1046,142 +676,11 @@ func (o ExportDefinitionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ExportDefinition) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type ExportDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (ExportDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportDefinition)(nil)).Elem()
-}
-
-func (o ExportDefinitionPtrOutput) ToExportDefinitionPtrOutput() ExportDefinitionPtrOutput {
-	return o
-}
-
-func (o ExportDefinitionPtrOutput) ToExportDefinitionPtrOutputWithContext(ctx context.Context) ExportDefinitionPtrOutput {
-	return o
-}
-
-func (o ExportDefinitionPtrOutput) Elem() ExportDefinitionOutput {
-	return o.ApplyT(func(v *ExportDefinition) ExportDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDefinition
-		return ret
-	}).(ExportDefinitionOutput)
-}
-
-func (o ExportDefinitionPtrOutput) DataSet() ExportDatasetPtrOutput {
-	return o.ApplyT(func(v *ExportDefinition) *ExportDataset {
-		if v == nil {
-			return nil
-		}
-		return v.DataSet
-	}).(ExportDatasetPtrOutput)
-}
-
-func (o ExportDefinitionPtrOutput) TimePeriod() ExportTimePeriodPtrOutput {
-	return o.ApplyT(func(v *ExportDefinition) *ExportTimePeriod {
-		if v == nil {
-			return nil
-		}
-		return v.TimePeriod
-	}).(ExportTimePeriodPtrOutput)
-}
-
-func (o ExportDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Timeframe
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ExportDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 type ExportDefinitionResponse struct {
 	DataSet    *ExportDatasetResponse    `pulumi:"dataSet"`
 	TimePeriod *ExportTimePeriodResponse `pulumi:"timePeriod"`
 	Timeframe  string                    `pulumi:"timeframe"`
 	Type       string                    `pulumi:"type"`
-}
-
-
-
-
-
-type ExportDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToExportDefinitionResponseOutput() ExportDefinitionResponseOutput
-	ToExportDefinitionResponseOutputWithContext(context.Context) ExportDefinitionResponseOutput
-}
-
-type ExportDefinitionResponseArgs struct {
-	DataSet    ExportDatasetResponsePtrInput    `pulumi:"dataSet"`
-	TimePeriod ExportTimePeriodResponsePtrInput `pulumi:"timePeriod"`
-	Timeframe  pulumi.StringInput               `pulumi:"timeframe"`
-	Type       pulumi.StringInput               `pulumi:"type"`
-}
-
-func (ExportDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportDefinitionResponse)(nil)).Elem()
-}
-
-func (i ExportDefinitionResponseArgs) ToExportDefinitionResponseOutput() ExportDefinitionResponseOutput {
-	return i.ToExportDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i ExportDefinitionResponseArgs) ToExportDefinitionResponseOutputWithContext(ctx context.Context) ExportDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionResponseOutput)
-}
-
-func (i ExportDefinitionResponseArgs) ToExportDefinitionResponsePtrOutput() ExportDefinitionResponsePtrOutput {
-	return i.ToExportDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExportDefinitionResponseArgs) ToExportDefinitionResponsePtrOutputWithContext(ctx context.Context) ExportDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionResponseOutput).ToExportDefinitionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportDefinitionResponsePtrInput interface {
-	pulumi.Input
-
-	ToExportDefinitionResponsePtrOutput() ExportDefinitionResponsePtrOutput
-	ToExportDefinitionResponsePtrOutputWithContext(context.Context) ExportDefinitionResponsePtrOutput
-}
-
-type exportDefinitionResponsePtrType ExportDefinitionResponseArgs
-
-func ExportDefinitionResponsePtr(v *ExportDefinitionResponseArgs) ExportDefinitionResponsePtrInput {
-	return (*exportDefinitionResponsePtrType)(v)
-}
-
-func (*exportDefinitionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportDefinitionResponse)(nil)).Elem()
-}
-
-func (i *exportDefinitionResponsePtrType) ToExportDefinitionResponsePtrOutput() ExportDefinitionResponsePtrOutput {
-	return i.ToExportDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *exportDefinitionResponsePtrType) ToExportDefinitionResponsePtrOutputWithContext(ctx context.Context) ExportDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDefinitionResponsePtrOutput)
 }
 
 type ExportDefinitionResponseOutput struct{ *pulumi.OutputState }
@@ -1196,16 +695,6 @@ func (o ExportDefinitionResponseOutput) ToExportDefinitionResponseOutput() Expor
 
 func (o ExportDefinitionResponseOutput) ToExportDefinitionResponseOutputWithContext(ctx context.Context) ExportDefinitionResponseOutput {
 	return o
-}
-
-func (o ExportDefinitionResponseOutput) ToExportDefinitionResponsePtrOutput() ExportDefinitionResponsePtrOutput {
-	return o.ToExportDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExportDefinitionResponseOutput) ToExportDefinitionResponsePtrOutputWithContext(ctx context.Context) ExportDefinitionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDefinitionResponse) *ExportDefinitionResponse {
-		return &v
-	}).(ExportDefinitionResponsePtrOutput)
 }
 
 func (o ExportDefinitionResponseOutput) DataSet() ExportDatasetResponsePtrOutput {
@@ -1323,47 +812,6 @@ func (i ExportDeliveryDestinationArgs) ToExportDeliveryDestinationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationOutput)
 }
 
-func (i ExportDeliveryDestinationArgs) ToExportDeliveryDestinationPtrOutput() ExportDeliveryDestinationPtrOutput {
-	return i.ToExportDeliveryDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i ExportDeliveryDestinationArgs) ToExportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationOutput).ToExportDeliveryDestinationPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportDeliveryDestinationPtrInput interface {
-	pulumi.Input
-
-	ToExportDeliveryDestinationPtrOutput() ExportDeliveryDestinationPtrOutput
-	ToExportDeliveryDestinationPtrOutputWithContext(context.Context) ExportDeliveryDestinationPtrOutput
-}
-
-type exportDeliveryDestinationPtrType ExportDeliveryDestinationArgs
-
-func ExportDeliveryDestinationPtr(v *ExportDeliveryDestinationArgs) ExportDeliveryDestinationPtrInput {
-	return (*exportDeliveryDestinationPtrType)(v)
-}
-
-func (*exportDeliveryDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportDeliveryDestination)(nil)).Elem()
-}
-
-func (i *exportDeliveryDestinationPtrType) ToExportDeliveryDestinationPtrOutput() ExportDeliveryDestinationPtrOutput {
-	return i.ToExportDeliveryDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *exportDeliveryDestinationPtrType) ToExportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationPtrOutput)
-}
-
 type ExportDeliveryDestinationOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryDestinationOutput) ElementType() reflect.Type {
@@ -1376,16 +824,6 @@ func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationOutput() Exp
 
 func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationOutputWithContext(ctx context.Context) ExportDeliveryDestinationOutput {
 	return o
-}
-
-func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationPtrOutput() ExportDeliveryDestinationPtrOutput {
-	return o.ToExportDeliveryDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o ExportDeliveryDestinationOutput) ToExportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryDestination) *ExportDeliveryDestination {
-		return &v
-	}).(ExportDeliveryDestinationPtrOutput)
 }
 
 func (o ExportDeliveryDestinationOutput) Container() pulumi.StringOutput {
@@ -1408,151 +846,11 @@ func (o ExportDeliveryDestinationOutput) StorageAccount() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ExportDeliveryDestination) *string { return v.StorageAccount }).(pulumi.StringPtrOutput)
 }
 
-type ExportDeliveryDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (ExportDeliveryDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportDeliveryDestination)(nil)).Elem()
-}
-
-func (o ExportDeliveryDestinationPtrOutput) ToExportDeliveryDestinationPtrOutput() ExportDeliveryDestinationPtrOutput {
-	return o
-}
-
-func (o ExportDeliveryDestinationPtrOutput) ToExportDeliveryDestinationPtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationPtrOutput {
-	return o
-}
-
-func (o ExportDeliveryDestinationPtrOutput) Elem() ExportDeliveryDestinationOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) ExportDeliveryDestination {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDeliveryDestination
-		return ret
-	}).(ExportDeliveryDestinationOutput)
-}
-
-func (o ExportDeliveryDestinationPtrOutput) Container() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Container
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ExportDeliveryDestinationPtrOutput) ResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ExportDeliveryDestinationPtrOutput) RootFolderPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RootFolderPath
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ExportDeliveryDestinationPtrOutput) SasToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SasToken
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ExportDeliveryDestinationPtrOutput) StorageAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportDeliveryDestination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccount
-	}).(pulumi.StringPtrOutput)
-}
-
 type ExportDeliveryDestinationResponse struct {
 	Container      string  `pulumi:"container"`
 	ResourceId     *string `pulumi:"resourceId"`
 	RootFolderPath *string `pulumi:"rootFolderPath"`
 	StorageAccount *string `pulumi:"storageAccount"`
-}
-
-
-
-
-
-type ExportDeliveryDestinationResponseInput interface {
-	pulumi.Input
-
-	ToExportDeliveryDestinationResponseOutput() ExportDeliveryDestinationResponseOutput
-	ToExportDeliveryDestinationResponseOutputWithContext(context.Context) ExportDeliveryDestinationResponseOutput
-}
-
-type ExportDeliveryDestinationResponseArgs struct {
-	Container      pulumi.StringInput    `pulumi:"container"`
-	ResourceId     pulumi.StringPtrInput `pulumi:"resourceId"`
-	RootFolderPath pulumi.StringPtrInput `pulumi:"rootFolderPath"`
-	StorageAccount pulumi.StringPtrInput `pulumi:"storageAccount"`
-}
-
-func (ExportDeliveryDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportDeliveryDestinationResponse)(nil)).Elem()
-}
-
-func (i ExportDeliveryDestinationResponseArgs) ToExportDeliveryDestinationResponseOutput() ExportDeliveryDestinationResponseOutput {
-	return i.ToExportDeliveryDestinationResponseOutputWithContext(context.Background())
-}
-
-func (i ExportDeliveryDestinationResponseArgs) ToExportDeliveryDestinationResponseOutputWithContext(ctx context.Context) ExportDeliveryDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationResponseOutput)
-}
-
-func (i ExportDeliveryDestinationResponseArgs) ToExportDeliveryDestinationResponsePtrOutput() ExportDeliveryDestinationResponsePtrOutput {
-	return i.ToExportDeliveryDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExportDeliveryDestinationResponseArgs) ToExportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationResponseOutput).ToExportDeliveryDestinationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportDeliveryDestinationResponsePtrInput interface {
-	pulumi.Input
-
-	ToExportDeliveryDestinationResponsePtrOutput() ExportDeliveryDestinationResponsePtrOutput
-	ToExportDeliveryDestinationResponsePtrOutputWithContext(context.Context) ExportDeliveryDestinationResponsePtrOutput
-}
-
-type exportDeliveryDestinationResponsePtrType ExportDeliveryDestinationResponseArgs
-
-func ExportDeliveryDestinationResponsePtr(v *ExportDeliveryDestinationResponseArgs) ExportDeliveryDestinationResponsePtrInput {
-	return (*exportDeliveryDestinationResponsePtrType)(v)
-}
-
-func (*exportDeliveryDestinationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportDeliveryDestinationResponse)(nil)).Elem()
-}
-
-func (i *exportDeliveryDestinationResponsePtrType) ToExportDeliveryDestinationResponsePtrOutput() ExportDeliveryDestinationResponsePtrOutput {
-	return i.ToExportDeliveryDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *exportDeliveryDestinationResponsePtrType) ToExportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
 type ExportDeliveryDestinationResponseOutput struct{ *pulumi.OutputState }
@@ -1567,16 +865,6 @@ func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResp
 
 func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResponseOutputWithContext(ctx context.Context) ExportDeliveryDestinationResponseOutput {
 	return o
-}
-
-func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResponsePtrOutput() ExportDeliveryDestinationResponsePtrOutput {
-	return o.ToExportDeliveryDestinationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExportDeliveryDestinationResponseOutput) ToExportDeliveryDestinationResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryDestinationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryDestinationResponse) *ExportDeliveryDestinationResponse {
-		return &v
-	}).(ExportDeliveryDestinationResponsePtrOutput)
 }
 
 func (o ExportDeliveryDestinationResponseOutput) Container() pulumi.StringOutput {
@@ -1686,47 +974,6 @@ func (i ExportDeliveryInfoArgs) ToExportDeliveryInfoOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoOutput)
 }
 
-func (i ExportDeliveryInfoArgs) ToExportDeliveryInfoPtrOutput() ExportDeliveryInfoPtrOutput {
-	return i.ToExportDeliveryInfoPtrOutputWithContext(context.Background())
-}
-
-func (i ExportDeliveryInfoArgs) ToExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ExportDeliveryInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoOutput).ToExportDeliveryInfoPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportDeliveryInfoPtrInput interface {
-	pulumi.Input
-
-	ToExportDeliveryInfoPtrOutput() ExportDeliveryInfoPtrOutput
-	ToExportDeliveryInfoPtrOutputWithContext(context.Context) ExportDeliveryInfoPtrOutput
-}
-
-type exportDeliveryInfoPtrType ExportDeliveryInfoArgs
-
-func ExportDeliveryInfoPtr(v *ExportDeliveryInfoArgs) ExportDeliveryInfoPtrInput {
-	return (*exportDeliveryInfoPtrType)(v)
-}
-
-func (*exportDeliveryInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportDeliveryInfo)(nil)).Elem()
-}
-
-func (i *exportDeliveryInfoPtrType) ToExportDeliveryInfoPtrOutput() ExportDeliveryInfoPtrOutput {
-	return i.ToExportDeliveryInfoPtrOutputWithContext(context.Background())
-}
-
-func (i *exportDeliveryInfoPtrType) ToExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ExportDeliveryInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoPtrOutput)
-}
-
 type ExportDeliveryInfoOutput struct{ *pulumi.OutputState }
 
 func (ExportDeliveryInfoOutput) ElementType() reflect.Type {
@@ -1741,123 +988,12 @@ func (o ExportDeliveryInfoOutput) ToExportDeliveryInfoOutputWithContext(ctx cont
 	return o
 }
 
-func (o ExportDeliveryInfoOutput) ToExportDeliveryInfoPtrOutput() ExportDeliveryInfoPtrOutput {
-	return o.ToExportDeliveryInfoPtrOutputWithContext(context.Background())
-}
-
-func (o ExportDeliveryInfoOutput) ToExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ExportDeliveryInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryInfo) *ExportDeliveryInfo {
-		return &v
-	}).(ExportDeliveryInfoPtrOutput)
-}
-
 func (o ExportDeliveryInfoOutput) Destination() ExportDeliveryDestinationOutput {
 	return o.ApplyT(func(v ExportDeliveryInfo) ExportDeliveryDestination { return v.Destination }).(ExportDeliveryDestinationOutput)
 }
 
-type ExportDeliveryInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (ExportDeliveryInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportDeliveryInfo)(nil)).Elem()
-}
-
-func (o ExportDeliveryInfoPtrOutput) ToExportDeliveryInfoPtrOutput() ExportDeliveryInfoPtrOutput {
-	return o
-}
-
-func (o ExportDeliveryInfoPtrOutput) ToExportDeliveryInfoPtrOutputWithContext(ctx context.Context) ExportDeliveryInfoPtrOutput {
-	return o
-}
-
-func (o ExportDeliveryInfoPtrOutput) Elem() ExportDeliveryInfoOutput {
-	return o.ApplyT(func(v *ExportDeliveryInfo) ExportDeliveryInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ExportDeliveryInfo
-		return ret
-	}).(ExportDeliveryInfoOutput)
-}
-
-func (o ExportDeliveryInfoPtrOutput) Destination() ExportDeliveryDestinationPtrOutput {
-	return o.ApplyT(func(v *ExportDeliveryInfo) *ExportDeliveryDestination {
-		if v == nil {
-			return nil
-		}
-		return &v.Destination
-	}).(ExportDeliveryDestinationPtrOutput)
-}
-
 type ExportDeliveryInfoResponse struct {
 	Destination ExportDeliveryDestinationResponse `pulumi:"destination"`
-}
-
-
-
-
-
-type ExportDeliveryInfoResponseInput interface {
-	pulumi.Input
-
-	ToExportDeliveryInfoResponseOutput() ExportDeliveryInfoResponseOutput
-	ToExportDeliveryInfoResponseOutputWithContext(context.Context) ExportDeliveryInfoResponseOutput
-}
-
-type ExportDeliveryInfoResponseArgs struct {
-	Destination ExportDeliveryDestinationResponseInput `pulumi:"destination"`
-}
-
-func (ExportDeliveryInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportDeliveryInfoResponse)(nil)).Elem()
-}
-
-func (i ExportDeliveryInfoResponseArgs) ToExportDeliveryInfoResponseOutput() ExportDeliveryInfoResponseOutput {
-	return i.ToExportDeliveryInfoResponseOutputWithContext(context.Background())
-}
-
-func (i ExportDeliveryInfoResponseArgs) ToExportDeliveryInfoResponseOutputWithContext(ctx context.Context) ExportDeliveryInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoResponseOutput)
-}
-
-func (i ExportDeliveryInfoResponseArgs) ToExportDeliveryInfoResponsePtrOutput() ExportDeliveryInfoResponsePtrOutput {
-	return i.ToExportDeliveryInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExportDeliveryInfoResponseArgs) ToExportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoResponseOutput).ToExportDeliveryInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportDeliveryInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToExportDeliveryInfoResponsePtrOutput() ExportDeliveryInfoResponsePtrOutput
-	ToExportDeliveryInfoResponsePtrOutputWithContext(context.Context) ExportDeliveryInfoResponsePtrOutput
-}
-
-type exportDeliveryInfoResponsePtrType ExportDeliveryInfoResponseArgs
-
-func ExportDeliveryInfoResponsePtr(v *ExportDeliveryInfoResponseArgs) ExportDeliveryInfoResponsePtrInput {
-	return (*exportDeliveryInfoResponsePtrType)(v)
-}
-
-func (*exportDeliveryInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportDeliveryInfoResponse)(nil)).Elem()
-}
-
-func (i *exportDeliveryInfoResponsePtrType) ToExportDeliveryInfoResponsePtrOutput() ExportDeliveryInfoResponsePtrOutput {
-	return i.ToExportDeliveryInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *exportDeliveryInfoResponsePtrType) ToExportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportDeliveryInfoResponsePtrOutput)
 }
 
 type ExportDeliveryInfoResponseOutput struct{ *pulumi.OutputState }
@@ -1872,16 +1008,6 @@ func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponseOutput() E
 
 func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponseOutputWithContext(ctx context.Context) ExportDeliveryInfoResponseOutput {
 	return o
-}
-
-func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponsePtrOutput() ExportDeliveryInfoResponsePtrOutput {
-	return o.ToExportDeliveryInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExportDeliveryInfoResponseOutput) ToExportDeliveryInfoResponsePtrOutputWithContext(ctx context.Context) ExportDeliveryInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportDeliveryInfoResponse) *ExportDeliveryInfoResponse {
-		return &v
-	}).(ExportDeliveryInfoResponsePtrOutput)
 }
 
 func (o ExportDeliveryInfoResponseOutput) Destination() ExportDeliveryDestinationResponseOutput {
@@ -1925,74 +1051,6 @@ type ExportExecutionListResultResponse struct {
 	Value []ExportExecutionResponse `pulumi:"value"`
 }
 
-
-
-
-
-type ExportExecutionListResultResponseInput interface {
-	pulumi.Input
-
-	ToExportExecutionListResultResponseOutput() ExportExecutionListResultResponseOutput
-	ToExportExecutionListResultResponseOutputWithContext(context.Context) ExportExecutionListResultResponseOutput
-}
-
-type ExportExecutionListResultResponseArgs struct {
-	Value ExportExecutionResponseArrayInput `pulumi:"value"`
-}
-
-func (ExportExecutionListResultResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportExecutionListResultResponse)(nil)).Elem()
-}
-
-func (i ExportExecutionListResultResponseArgs) ToExportExecutionListResultResponseOutput() ExportExecutionListResultResponseOutput {
-	return i.ToExportExecutionListResultResponseOutputWithContext(context.Background())
-}
-
-func (i ExportExecutionListResultResponseArgs) ToExportExecutionListResultResponseOutputWithContext(ctx context.Context) ExportExecutionListResultResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionListResultResponseOutput)
-}
-
-func (i ExportExecutionListResultResponseArgs) ToExportExecutionListResultResponsePtrOutput() ExportExecutionListResultResponsePtrOutput {
-	return i.ToExportExecutionListResultResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExportExecutionListResultResponseArgs) ToExportExecutionListResultResponsePtrOutputWithContext(ctx context.Context) ExportExecutionListResultResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionListResultResponseOutput).ToExportExecutionListResultResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportExecutionListResultResponsePtrInput interface {
-	pulumi.Input
-
-	ToExportExecutionListResultResponsePtrOutput() ExportExecutionListResultResponsePtrOutput
-	ToExportExecutionListResultResponsePtrOutputWithContext(context.Context) ExportExecutionListResultResponsePtrOutput
-}
-
-type exportExecutionListResultResponsePtrType ExportExecutionListResultResponseArgs
-
-func ExportExecutionListResultResponsePtr(v *ExportExecutionListResultResponseArgs) ExportExecutionListResultResponsePtrInput {
-	return (*exportExecutionListResultResponsePtrType)(v)
-}
-
-func (*exportExecutionListResultResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportExecutionListResultResponse)(nil)).Elem()
-}
-
-func (i *exportExecutionListResultResponsePtrType) ToExportExecutionListResultResponsePtrOutput() ExportExecutionListResultResponsePtrOutput {
-	return i.ToExportExecutionListResultResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *exportExecutionListResultResponsePtrType) ToExportExecutionListResultResponsePtrOutputWithContext(ctx context.Context) ExportExecutionListResultResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionListResultResponsePtrOutput)
-}
-
 type ExportExecutionListResultResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportExecutionListResultResponseOutput) ElementType() reflect.Type {
@@ -2005,16 +1063,6 @@ func (o ExportExecutionListResultResponseOutput) ToExportExecutionListResultResp
 
 func (o ExportExecutionListResultResponseOutput) ToExportExecutionListResultResponseOutputWithContext(ctx context.Context) ExportExecutionListResultResponseOutput {
 	return o
-}
-
-func (o ExportExecutionListResultResponseOutput) ToExportExecutionListResultResponsePtrOutput() ExportExecutionListResultResponsePtrOutput {
-	return o.ToExportExecutionListResultResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExportExecutionListResultResponseOutput) ToExportExecutionListResultResponsePtrOutputWithContext(ctx context.Context) ExportExecutionListResultResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportExecutionListResultResponse) *ExportExecutionListResultResponse {
-		return &v
-	}).(ExportExecutionListResultResponsePtrOutput)
 }
 
 func (o ExportExecutionListResultResponseOutput) Value() ExportExecutionResponseArrayOutput {
@@ -2068,70 +1116,6 @@ type ExportExecutionResponse struct {
 	SubmittedBy         *string                         `pulumi:"submittedBy"`
 	SubmittedTime       *string                         `pulumi:"submittedTime"`
 	Type                string                          `pulumi:"type"`
-}
-
-
-
-
-
-type ExportExecutionResponseInput interface {
-	pulumi.Input
-
-	ToExportExecutionResponseOutput() ExportExecutionResponseOutput
-	ToExportExecutionResponseOutputWithContext(context.Context) ExportExecutionResponseOutput
-}
-
-type ExportExecutionResponseArgs struct {
-	ETag                pulumi.StringPtrInput                  `pulumi:"eTag"`
-	Error               ErrorDetailsResponsePtrInput           `pulumi:"error"`
-	ExecutionType       pulumi.StringPtrInput                  `pulumi:"executionType"`
-	FileName            pulumi.StringPtrInput                  `pulumi:"fileName"`
-	Id                  pulumi.StringInput                     `pulumi:"id"`
-	Name                pulumi.StringInput                     `pulumi:"name"`
-	ProcessingEndTime   pulumi.StringPtrInput                  `pulumi:"processingEndTime"`
-	ProcessingStartTime pulumi.StringPtrInput                  `pulumi:"processingStartTime"`
-	RunSettings         CommonExportPropertiesResponsePtrInput `pulumi:"runSettings"`
-	Status              pulumi.StringPtrInput                  `pulumi:"status"`
-	SubmittedBy         pulumi.StringPtrInput                  `pulumi:"submittedBy"`
-	SubmittedTime       pulumi.StringPtrInput                  `pulumi:"submittedTime"`
-	Type                pulumi.StringInput                     `pulumi:"type"`
-}
-
-func (ExportExecutionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportExecutionResponse)(nil)).Elem()
-}
-
-func (i ExportExecutionResponseArgs) ToExportExecutionResponseOutput() ExportExecutionResponseOutput {
-	return i.ToExportExecutionResponseOutputWithContext(context.Background())
-}
-
-func (i ExportExecutionResponseArgs) ToExportExecutionResponseOutputWithContext(ctx context.Context) ExportExecutionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionResponseOutput)
-}
-
-
-
-
-
-type ExportExecutionResponseArrayInput interface {
-	pulumi.Input
-
-	ToExportExecutionResponseArrayOutput() ExportExecutionResponseArrayOutput
-	ToExportExecutionResponseArrayOutputWithContext(context.Context) ExportExecutionResponseArrayOutput
-}
-
-type ExportExecutionResponseArray []ExportExecutionResponseInput
-
-func (ExportExecutionResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExportExecutionResponse)(nil)).Elem()
-}
-
-func (i ExportExecutionResponseArray) ToExportExecutionResponseArrayOutput() ExportExecutionResponseArrayOutput {
-	return i.ToExportExecutionResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ExportExecutionResponseArray) ToExportExecutionResponseArrayOutputWithContext(ctx context.Context) ExportExecutionResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionResponseArrayOutput)
 }
 
 type ExportExecutionResponseOutput struct{ *pulumi.OutputState }
@@ -2373,75 +1357,6 @@ type ExportRecurrencePeriodResponse struct {
 	To   *string `pulumi:"to"`
 }
 
-
-
-
-
-type ExportRecurrencePeriodResponseInput interface {
-	pulumi.Input
-
-	ToExportRecurrencePeriodResponseOutput() ExportRecurrencePeriodResponseOutput
-	ToExportRecurrencePeriodResponseOutputWithContext(context.Context) ExportRecurrencePeriodResponseOutput
-}
-
-type ExportRecurrencePeriodResponseArgs struct {
-	From pulumi.StringInput    `pulumi:"from"`
-	To   pulumi.StringPtrInput `pulumi:"to"`
-}
-
-func (ExportRecurrencePeriodResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportRecurrencePeriodResponse)(nil)).Elem()
-}
-
-func (i ExportRecurrencePeriodResponseArgs) ToExportRecurrencePeriodResponseOutput() ExportRecurrencePeriodResponseOutput {
-	return i.ToExportRecurrencePeriodResponseOutputWithContext(context.Background())
-}
-
-func (i ExportRecurrencePeriodResponseArgs) ToExportRecurrencePeriodResponseOutputWithContext(ctx context.Context) ExportRecurrencePeriodResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportRecurrencePeriodResponseOutput)
-}
-
-func (i ExportRecurrencePeriodResponseArgs) ToExportRecurrencePeriodResponsePtrOutput() ExportRecurrencePeriodResponsePtrOutput {
-	return i.ToExportRecurrencePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExportRecurrencePeriodResponseArgs) ToExportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ExportRecurrencePeriodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportRecurrencePeriodResponseOutput).ToExportRecurrencePeriodResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportRecurrencePeriodResponsePtrInput interface {
-	pulumi.Input
-
-	ToExportRecurrencePeriodResponsePtrOutput() ExportRecurrencePeriodResponsePtrOutput
-	ToExportRecurrencePeriodResponsePtrOutputWithContext(context.Context) ExportRecurrencePeriodResponsePtrOutput
-}
-
-type exportRecurrencePeriodResponsePtrType ExportRecurrencePeriodResponseArgs
-
-func ExportRecurrencePeriodResponsePtr(v *ExportRecurrencePeriodResponseArgs) ExportRecurrencePeriodResponsePtrInput {
-	return (*exportRecurrencePeriodResponsePtrType)(v)
-}
-
-func (*exportRecurrencePeriodResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportRecurrencePeriodResponse)(nil)).Elem()
-}
-
-func (i *exportRecurrencePeriodResponsePtrType) ToExportRecurrencePeriodResponsePtrOutput() ExportRecurrencePeriodResponsePtrOutput {
-	return i.ToExportRecurrencePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *exportRecurrencePeriodResponsePtrType) ToExportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ExportRecurrencePeriodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportRecurrencePeriodResponsePtrOutput)
-}
-
 type ExportRecurrencePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportRecurrencePeriodResponseOutput) ElementType() reflect.Type {
@@ -2454,16 +1369,6 @@ func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponseOu
 
 func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponseOutputWithContext(ctx context.Context) ExportRecurrencePeriodResponseOutput {
 	return o
-}
-
-func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponsePtrOutput() ExportRecurrencePeriodResponsePtrOutput {
-	return o.ToExportRecurrencePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExportRecurrencePeriodResponseOutput) ToExportRecurrencePeriodResponsePtrOutputWithContext(ctx context.Context) ExportRecurrencePeriodResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportRecurrencePeriodResponse) *ExportRecurrencePeriodResponse {
-		return &v
-	}).(ExportRecurrencePeriodResponsePtrOutput)
 }
 
 func (o ExportRecurrencePeriodResponseOutput) From() pulumi.StringOutput {
@@ -2685,76 +1590,6 @@ type ExportScheduleResponse struct {
 	Status           *string                         `pulumi:"status"`
 }
 
-
-
-
-
-type ExportScheduleResponseInput interface {
-	pulumi.Input
-
-	ToExportScheduleResponseOutput() ExportScheduleResponseOutput
-	ToExportScheduleResponseOutputWithContext(context.Context) ExportScheduleResponseOutput
-}
-
-type ExportScheduleResponseArgs struct {
-	Recurrence       pulumi.StringPtrInput                  `pulumi:"recurrence"`
-	RecurrencePeriod ExportRecurrencePeriodResponsePtrInput `pulumi:"recurrencePeriod"`
-	Status           pulumi.StringPtrInput                  `pulumi:"status"`
-}
-
-func (ExportScheduleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportScheduleResponse)(nil)).Elem()
-}
-
-func (i ExportScheduleResponseArgs) ToExportScheduleResponseOutput() ExportScheduleResponseOutput {
-	return i.ToExportScheduleResponseOutputWithContext(context.Background())
-}
-
-func (i ExportScheduleResponseArgs) ToExportScheduleResponseOutputWithContext(ctx context.Context) ExportScheduleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportScheduleResponseOutput)
-}
-
-func (i ExportScheduleResponseArgs) ToExportScheduleResponsePtrOutput() ExportScheduleResponsePtrOutput {
-	return i.ToExportScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExportScheduleResponseArgs) ToExportScheduleResponsePtrOutputWithContext(ctx context.Context) ExportScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportScheduleResponseOutput).ToExportScheduleResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportScheduleResponsePtrInput interface {
-	pulumi.Input
-
-	ToExportScheduleResponsePtrOutput() ExportScheduleResponsePtrOutput
-	ToExportScheduleResponsePtrOutputWithContext(context.Context) ExportScheduleResponsePtrOutput
-}
-
-type exportScheduleResponsePtrType ExportScheduleResponseArgs
-
-func ExportScheduleResponsePtr(v *ExportScheduleResponseArgs) ExportScheduleResponsePtrInput {
-	return (*exportScheduleResponsePtrType)(v)
-}
-
-func (*exportScheduleResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportScheduleResponse)(nil)).Elem()
-}
-
-func (i *exportScheduleResponsePtrType) ToExportScheduleResponsePtrOutput() ExportScheduleResponsePtrOutput {
-	return i.ToExportScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *exportScheduleResponsePtrType) ToExportScheduleResponsePtrOutputWithContext(ctx context.Context) ExportScheduleResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportScheduleResponsePtrOutput)
-}
-
 type ExportScheduleResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportScheduleResponseOutput) ElementType() reflect.Type {
@@ -2767,16 +1602,6 @@ func (o ExportScheduleResponseOutput) ToExportScheduleResponseOutput() ExportSch
 
 func (o ExportScheduleResponseOutput) ToExportScheduleResponseOutputWithContext(ctx context.Context) ExportScheduleResponseOutput {
 	return o
-}
-
-func (o ExportScheduleResponseOutput) ToExportScheduleResponsePtrOutput() ExportScheduleResponsePtrOutput {
-	return o.ToExportScheduleResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExportScheduleResponseOutput) ToExportScheduleResponsePtrOutputWithContext(ctx context.Context) ExportScheduleResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportScheduleResponse) *ExportScheduleResponse {
-		return &v
-	}).(ExportScheduleResponsePtrOutput)
 }
 
 func (o ExportScheduleResponseOutput) Recurrence() pulumi.StringPtrOutput {
@@ -2995,75 +1820,6 @@ type ExportTimePeriodResponse struct {
 	To   string `pulumi:"to"`
 }
 
-
-
-
-
-type ExportTimePeriodResponseInput interface {
-	pulumi.Input
-
-	ToExportTimePeriodResponseOutput() ExportTimePeriodResponseOutput
-	ToExportTimePeriodResponseOutputWithContext(context.Context) ExportTimePeriodResponseOutput
-}
-
-type ExportTimePeriodResponseArgs struct {
-	From pulumi.StringInput `pulumi:"from"`
-	To   pulumi.StringInput `pulumi:"to"`
-}
-
-func (ExportTimePeriodResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportTimePeriodResponse)(nil)).Elem()
-}
-
-func (i ExportTimePeriodResponseArgs) ToExportTimePeriodResponseOutput() ExportTimePeriodResponseOutput {
-	return i.ToExportTimePeriodResponseOutputWithContext(context.Background())
-}
-
-func (i ExportTimePeriodResponseArgs) ToExportTimePeriodResponseOutputWithContext(ctx context.Context) ExportTimePeriodResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportTimePeriodResponseOutput)
-}
-
-func (i ExportTimePeriodResponseArgs) ToExportTimePeriodResponsePtrOutput() ExportTimePeriodResponsePtrOutput {
-	return i.ToExportTimePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExportTimePeriodResponseArgs) ToExportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ExportTimePeriodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportTimePeriodResponseOutput).ToExportTimePeriodResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExportTimePeriodResponsePtrInput interface {
-	pulumi.Input
-
-	ToExportTimePeriodResponsePtrOutput() ExportTimePeriodResponsePtrOutput
-	ToExportTimePeriodResponsePtrOutputWithContext(context.Context) ExportTimePeriodResponsePtrOutput
-}
-
-type exportTimePeriodResponsePtrType ExportTimePeriodResponseArgs
-
-func ExportTimePeriodResponsePtr(v *ExportTimePeriodResponseArgs) ExportTimePeriodResponsePtrInput {
-	return (*exportTimePeriodResponsePtrType)(v)
-}
-
-func (*exportTimePeriodResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportTimePeriodResponse)(nil)).Elem()
-}
-
-func (i *exportTimePeriodResponsePtrType) ToExportTimePeriodResponsePtrOutput() ExportTimePeriodResponsePtrOutput {
-	return i.ToExportTimePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *exportTimePeriodResponsePtrType) ToExportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ExportTimePeriodResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportTimePeriodResponsePtrOutput)
-}
-
 type ExportTimePeriodResponseOutput struct{ *pulumi.OutputState }
 
 func (ExportTimePeriodResponseOutput) ElementType() reflect.Type {
@@ -3076,16 +1832,6 @@ func (o ExportTimePeriodResponseOutput) ToExportTimePeriodResponseOutput() Expor
 
 func (o ExportTimePeriodResponseOutput) ToExportTimePeriodResponseOutputWithContext(ctx context.Context) ExportTimePeriodResponseOutput {
 	return o
-}
-
-func (o ExportTimePeriodResponseOutput) ToExportTimePeriodResponsePtrOutput() ExportTimePeriodResponsePtrOutput {
-	return o.ToExportTimePeriodResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExportTimePeriodResponseOutput) ToExportTimePeriodResponsePtrOutputWithContext(ctx context.Context) ExportTimePeriodResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExportTimePeriodResponse) *ExportTimePeriodResponse {
-		return &v
-	}).(ExportTimePeriodResponsePtrOutput)
 }
 
 func (o ExportTimePeriodResponseOutput) From() pulumi.StringOutput {
@@ -3152,15 +1898,12 @@ func init() {
 	pulumi.RegisterOutputType(ExportDatasetResponseOutput{})
 	pulumi.RegisterOutputType(ExportDatasetResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExportDefinitionOutput{})
-	pulumi.RegisterOutputType(ExportDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ExportDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ExportDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationOutput{})
-	pulumi.RegisterOutputType(ExportDeliveryDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationResponseOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryDestinationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryInfoOutput{})
-	pulumi.RegisterOutputType(ExportDeliveryInfoPtrOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryInfoResponseOutput{})
 	pulumi.RegisterOutputType(ExportDeliveryInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExportExecutionListResultResponseOutput{})

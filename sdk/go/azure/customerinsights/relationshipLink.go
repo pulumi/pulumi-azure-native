@@ -133,7 +133,7 @@ type RelationshipLinkInput interface {
 }
 
 func (*RelationshipLink) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipLink)(nil))
+	return reflect.TypeOf((**RelationshipLink)(nil)).Elem()
 }
 
 func (i *RelationshipLink) ToRelationshipLinkOutput() RelationshipLinkOutput {
@@ -147,7 +147,7 @@ func (i *RelationshipLink) ToRelationshipLinkOutputWithContext(ctx context.Conte
 type RelationshipLinkOutput struct{ *pulumi.OutputState }
 
 func (RelationshipLinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelationshipLink)(nil))
+	return reflect.TypeOf((**RelationshipLink)(nil)).Elem()
 }
 
 func (o RelationshipLinkOutput) ToRelationshipLinkOutput() RelationshipLinkOutput {

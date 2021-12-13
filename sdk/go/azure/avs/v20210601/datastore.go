@@ -37,6 +37,9 @@ func NewDatastore(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.DiskPoolVolume != nil {
+		args.DiskPoolVolume = args.DiskPoolVolume.ToDiskPoolVolumePtrOutput().ApplyT(func(v *DiskPoolVolume) *DiskPoolVolume { return v.Defaults() }).(DiskPoolVolumePtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:avs:Datastore"),
@@ -111,7 +114,7 @@ type DatastoreInput interface {
 }
 
 func (*Datastore) ElementType() reflect.Type {
-	return reflect.TypeOf((*Datastore)(nil))
+	return reflect.TypeOf((**Datastore)(nil)).Elem()
 }
 
 func (i *Datastore) ToDatastoreOutput() DatastoreOutput {
@@ -125,7 +128,7 @@ func (i *Datastore) ToDatastoreOutputWithContext(ctx context.Context) DatastoreO
 type DatastoreOutput struct{ *pulumi.OutputState }
 
 func (DatastoreOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Datastore)(nil))
+	return reflect.TypeOf((**Datastore)(nil)).Elem()
 }
 
 func (o DatastoreOutput) ToDatastoreOutput() DatastoreOutput {

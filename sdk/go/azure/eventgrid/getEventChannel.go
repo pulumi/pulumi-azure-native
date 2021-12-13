@@ -13,7 +13,7 @@ func LookupEventChannel(ctx *pulumi.Context, args *LookupEventChannelArgs, opts 
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupEventChannelArgs struct {
@@ -35,4 +35,15 @@ type LookupEventChannelResult struct {
 	Source                          *EventChannelSourceResponse      `pulumi:"source"`
 	SystemData                      SystemDataResponse               `pulumi:"systemData"`
 	Type                            string                           `pulumi:"type"`
+}
+
+
+func (val *LookupEventChannelResult) Defaults() *LookupEventChannelResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Filter = tmp.Filter.Defaults()
+
+	return &tmp
 }

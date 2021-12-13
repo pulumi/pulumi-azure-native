@@ -179,76 +179,6 @@ type InputLinuxParametersResponse struct {
 	PackageNameMasksToInclude []string `pulumi:"packageNameMasksToInclude"`
 }
 
-
-
-
-
-type InputLinuxParametersResponseInput interface {
-	pulumi.Input
-
-	ToInputLinuxParametersResponseOutput() InputLinuxParametersResponseOutput
-	ToInputLinuxParametersResponseOutputWithContext(context.Context) InputLinuxParametersResponseOutput
-}
-
-type InputLinuxParametersResponseArgs struct {
-	ClassificationsToInclude  pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
-	PackageNameMasksToExclude pulumi.StringArrayInput `pulumi:"packageNameMasksToExclude"`
-	PackageNameMasksToInclude pulumi.StringArrayInput `pulumi:"packageNameMasksToInclude"`
-}
-
-func (InputLinuxParametersResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputLinuxParametersResponse)(nil)).Elem()
-}
-
-func (i InputLinuxParametersResponseArgs) ToInputLinuxParametersResponseOutput() InputLinuxParametersResponseOutput {
-	return i.ToInputLinuxParametersResponseOutputWithContext(context.Background())
-}
-
-func (i InputLinuxParametersResponseArgs) ToInputLinuxParametersResponseOutputWithContext(ctx context.Context) InputLinuxParametersResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputLinuxParametersResponseOutput)
-}
-
-func (i InputLinuxParametersResponseArgs) ToInputLinuxParametersResponsePtrOutput() InputLinuxParametersResponsePtrOutput {
-	return i.ToInputLinuxParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i InputLinuxParametersResponseArgs) ToInputLinuxParametersResponsePtrOutputWithContext(ctx context.Context) InputLinuxParametersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputLinuxParametersResponseOutput).ToInputLinuxParametersResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type InputLinuxParametersResponsePtrInput interface {
-	pulumi.Input
-
-	ToInputLinuxParametersResponsePtrOutput() InputLinuxParametersResponsePtrOutput
-	ToInputLinuxParametersResponsePtrOutputWithContext(context.Context) InputLinuxParametersResponsePtrOutput
-}
-
-type inputLinuxParametersResponsePtrType InputLinuxParametersResponseArgs
-
-func InputLinuxParametersResponsePtr(v *InputLinuxParametersResponseArgs) InputLinuxParametersResponsePtrInput {
-	return (*inputLinuxParametersResponsePtrType)(v)
-}
-
-func (*inputLinuxParametersResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InputLinuxParametersResponse)(nil)).Elem()
-}
-
-func (i *inputLinuxParametersResponsePtrType) ToInputLinuxParametersResponsePtrOutput() InputLinuxParametersResponsePtrOutput {
-	return i.ToInputLinuxParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *inputLinuxParametersResponsePtrType) ToInputLinuxParametersResponsePtrOutputWithContext(ctx context.Context) InputLinuxParametersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputLinuxParametersResponsePtrOutput)
-}
-
 type InputLinuxParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (InputLinuxParametersResponseOutput) ElementType() reflect.Type {
@@ -261,16 +191,6 @@ func (o InputLinuxParametersResponseOutput) ToInputLinuxParametersResponseOutput
 
 func (o InputLinuxParametersResponseOutput) ToInputLinuxParametersResponseOutputWithContext(ctx context.Context) InputLinuxParametersResponseOutput {
 	return o
-}
-
-func (o InputLinuxParametersResponseOutput) ToInputLinuxParametersResponsePtrOutput() InputLinuxParametersResponsePtrOutput {
-	return o.ToInputLinuxParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (o InputLinuxParametersResponseOutput) ToInputLinuxParametersResponsePtrOutputWithContext(ctx context.Context) InputLinuxParametersResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputLinuxParametersResponse) *InputLinuxParametersResponse {
-		return &v
-	}).(InputLinuxParametersResponsePtrOutput)
 }
 
 func (o InputLinuxParametersResponseOutput) ClassificationsToInclude() pulumi.StringArrayOutput {
@@ -342,6 +262,19 @@ type InputPatchConfiguration struct {
 	PreTasks          []TaskProperties        `pulumi:"preTasks"`
 	RebootSetting     *string                 `pulumi:"rebootSetting"`
 	WindowsParameters *InputWindowsParameters `pulumi:"windowsParameters"`
+}
+
+
+func (val *InputPatchConfiguration) Defaults() *InputPatchConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RebootSetting) {
+		rebootSetting_ := "IfRequired"
+		tmp.RebootSetting = &rebootSetting_
+	}
+	return &tmp
 }
 
 
@@ -538,75 +471,16 @@ type InputPatchConfigurationResponse struct {
 }
 
 
-
-
-
-type InputPatchConfigurationResponseInput interface {
-	pulumi.Input
-
-	ToInputPatchConfigurationResponseOutput() InputPatchConfigurationResponseOutput
-	ToInputPatchConfigurationResponseOutputWithContext(context.Context) InputPatchConfigurationResponseOutput
-}
-
-type InputPatchConfigurationResponseArgs struct {
-	LinuxParameters   InputLinuxParametersResponsePtrInput   `pulumi:"linuxParameters"`
-	PostTasks         TaskPropertiesResponseArrayInput       `pulumi:"postTasks"`
-	PreTasks          TaskPropertiesResponseArrayInput       `pulumi:"preTasks"`
-	RebootSetting     pulumi.StringPtrInput                  `pulumi:"rebootSetting"`
-	WindowsParameters InputWindowsParametersResponsePtrInput `pulumi:"windowsParameters"`
-}
-
-func (InputPatchConfigurationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputPatchConfigurationResponse)(nil)).Elem()
-}
-
-func (i InputPatchConfigurationResponseArgs) ToInputPatchConfigurationResponseOutput() InputPatchConfigurationResponseOutput {
-	return i.ToInputPatchConfigurationResponseOutputWithContext(context.Background())
-}
-
-func (i InputPatchConfigurationResponseArgs) ToInputPatchConfigurationResponseOutputWithContext(ctx context.Context) InputPatchConfigurationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputPatchConfigurationResponseOutput)
-}
-
-func (i InputPatchConfigurationResponseArgs) ToInputPatchConfigurationResponsePtrOutput() InputPatchConfigurationResponsePtrOutput {
-	return i.ToInputPatchConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i InputPatchConfigurationResponseArgs) ToInputPatchConfigurationResponsePtrOutputWithContext(ctx context.Context) InputPatchConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputPatchConfigurationResponseOutput).ToInputPatchConfigurationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type InputPatchConfigurationResponsePtrInput interface {
-	pulumi.Input
-
-	ToInputPatchConfigurationResponsePtrOutput() InputPatchConfigurationResponsePtrOutput
-	ToInputPatchConfigurationResponsePtrOutputWithContext(context.Context) InputPatchConfigurationResponsePtrOutput
-}
-
-type inputPatchConfigurationResponsePtrType InputPatchConfigurationResponseArgs
-
-func InputPatchConfigurationResponsePtr(v *InputPatchConfigurationResponseArgs) InputPatchConfigurationResponsePtrInput {
-	return (*inputPatchConfigurationResponsePtrType)(v)
-}
-
-func (*inputPatchConfigurationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InputPatchConfigurationResponse)(nil)).Elem()
-}
-
-func (i *inputPatchConfigurationResponsePtrType) ToInputPatchConfigurationResponsePtrOutput() InputPatchConfigurationResponsePtrOutput {
-	return i.ToInputPatchConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *inputPatchConfigurationResponsePtrType) ToInputPatchConfigurationResponsePtrOutputWithContext(ctx context.Context) InputPatchConfigurationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputPatchConfigurationResponsePtrOutput)
+func (val *InputPatchConfigurationResponse) Defaults() *InputPatchConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RebootSetting) {
+		rebootSetting_ := "IfRequired"
+		tmp.RebootSetting = &rebootSetting_
+	}
+	return &tmp
 }
 
 type InputPatchConfigurationResponseOutput struct{ *pulumi.OutputState }
@@ -621,16 +495,6 @@ func (o InputPatchConfigurationResponseOutput) ToInputPatchConfigurationResponse
 
 func (o InputPatchConfigurationResponseOutput) ToInputPatchConfigurationResponseOutputWithContext(ctx context.Context) InputPatchConfigurationResponseOutput {
 	return o
-}
-
-func (o InputPatchConfigurationResponseOutput) ToInputPatchConfigurationResponsePtrOutput() InputPatchConfigurationResponsePtrOutput {
-	return o.ToInputPatchConfigurationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o InputPatchConfigurationResponseOutput) ToInputPatchConfigurationResponsePtrOutputWithContext(ctx context.Context) InputPatchConfigurationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputPatchConfigurationResponse) *InputPatchConfigurationResponse {
-		return &v
-	}).(InputPatchConfigurationResponsePtrOutput)
 }
 
 func (o InputPatchConfigurationResponseOutput) LinuxParameters() InputLinuxParametersResponsePtrOutput {
@@ -907,77 +771,6 @@ type InputWindowsParametersResponse struct {
 	KbNumbersToInclude        []string `pulumi:"kbNumbersToInclude"`
 }
 
-
-
-
-
-type InputWindowsParametersResponseInput interface {
-	pulumi.Input
-
-	ToInputWindowsParametersResponseOutput() InputWindowsParametersResponseOutput
-	ToInputWindowsParametersResponseOutputWithContext(context.Context) InputWindowsParametersResponseOutput
-}
-
-type InputWindowsParametersResponseArgs struct {
-	ClassificationsToInclude  pulumi.StringArrayInput `pulumi:"classificationsToInclude"`
-	ExcludeKbsRequiringReboot pulumi.BoolPtrInput     `pulumi:"excludeKbsRequiringReboot"`
-	KbNumbersToExclude        pulumi.StringArrayInput `pulumi:"kbNumbersToExclude"`
-	KbNumbersToInclude        pulumi.StringArrayInput `pulumi:"kbNumbersToInclude"`
-}
-
-func (InputWindowsParametersResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*InputWindowsParametersResponse)(nil)).Elem()
-}
-
-func (i InputWindowsParametersResponseArgs) ToInputWindowsParametersResponseOutput() InputWindowsParametersResponseOutput {
-	return i.ToInputWindowsParametersResponseOutputWithContext(context.Background())
-}
-
-func (i InputWindowsParametersResponseArgs) ToInputWindowsParametersResponseOutputWithContext(ctx context.Context) InputWindowsParametersResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputWindowsParametersResponseOutput)
-}
-
-func (i InputWindowsParametersResponseArgs) ToInputWindowsParametersResponsePtrOutput() InputWindowsParametersResponsePtrOutput {
-	return i.ToInputWindowsParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i InputWindowsParametersResponseArgs) ToInputWindowsParametersResponsePtrOutputWithContext(ctx context.Context) InputWindowsParametersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputWindowsParametersResponseOutput).ToInputWindowsParametersResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type InputWindowsParametersResponsePtrInput interface {
-	pulumi.Input
-
-	ToInputWindowsParametersResponsePtrOutput() InputWindowsParametersResponsePtrOutput
-	ToInputWindowsParametersResponsePtrOutputWithContext(context.Context) InputWindowsParametersResponsePtrOutput
-}
-
-type inputWindowsParametersResponsePtrType InputWindowsParametersResponseArgs
-
-func InputWindowsParametersResponsePtr(v *InputWindowsParametersResponseArgs) InputWindowsParametersResponsePtrInput {
-	return (*inputWindowsParametersResponsePtrType)(v)
-}
-
-func (*inputWindowsParametersResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InputWindowsParametersResponse)(nil)).Elem()
-}
-
-func (i *inputWindowsParametersResponsePtrType) ToInputWindowsParametersResponsePtrOutput() InputWindowsParametersResponsePtrOutput {
-	return i.ToInputWindowsParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *inputWindowsParametersResponsePtrType) ToInputWindowsParametersResponsePtrOutputWithContext(ctx context.Context) InputWindowsParametersResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InputWindowsParametersResponsePtrOutput)
-}
-
 type InputWindowsParametersResponseOutput struct{ *pulumi.OutputState }
 
 func (InputWindowsParametersResponseOutput) ElementType() reflect.Type {
@@ -990,16 +783,6 @@ func (o InputWindowsParametersResponseOutput) ToInputWindowsParametersResponseOu
 
 func (o InputWindowsParametersResponseOutput) ToInputWindowsParametersResponseOutputWithContext(ctx context.Context) InputWindowsParametersResponseOutput {
 	return o
-}
-
-func (o InputWindowsParametersResponseOutput) ToInputWindowsParametersResponsePtrOutput() InputWindowsParametersResponsePtrOutput {
-	return o.ToInputWindowsParametersResponsePtrOutputWithContext(context.Background())
-}
-
-func (o InputWindowsParametersResponseOutput) ToInputWindowsParametersResponsePtrOutputWithContext(ctx context.Context) InputWindowsParametersResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InputWindowsParametersResponse) *InputWindowsParametersResponse {
-		return &v
-	}).(InputWindowsParametersResponsePtrOutput)
 }
 
 func (o InputWindowsParametersResponseOutput) ClassificationsToInclude() pulumi.StringArrayOutput {
@@ -1087,79 +870,6 @@ type SystemDataResponse struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
 type SystemDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SystemDataResponseOutput) ElementType() reflect.Type {
@@ -1172,16 +882,6 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataRespons
 
 func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
 	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
 }
 
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -1208,88 +908,23 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 type TaskProperties struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	Source     *string           `pulumi:"source"`
 	TaskScope  *string           `pulumi:"taskScope"`
+}
+
+
+func (val *TaskProperties) Defaults() *TaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.TaskScope) {
+		taskScope_ := "Global"
+		tmp.TaskScope = &taskScope_
+	}
+	return &tmp
 }
 
 
@@ -1399,57 +1034,16 @@ type TaskPropertiesResponse struct {
 }
 
 
-
-
-
-type TaskPropertiesResponseInput interface {
-	pulumi.Input
-
-	ToTaskPropertiesResponseOutput() TaskPropertiesResponseOutput
-	ToTaskPropertiesResponseOutputWithContext(context.Context) TaskPropertiesResponseOutput
-}
-
-type TaskPropertiesResponseArgs struct {
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	Source     pulumi.StringPtrInput `pulumi:"source"`
-	TaskScope  pulumi.StringPtrInput `pulumi:"taskScope"`
-}
-
-func (TaskPropertiesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i TaskPropertiesResponseArgs) ToTaskPropertiesResponseOutput() TaskPropertiesResponseOutput {
-	return i.ToTaskPropertiesResponseOutputWithContext(context.Background())
-}
-
-func (i TaskPropertiesResponseArgs) ToTaskPropertiesResponseOutputWithContext(ctx context.Context) TaskPropertiesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskPropertiesResponseOutput)
-}
-
-
-
-
-
-type TaskPropertiesResponseArrayInput interface {
-	pulumi.Input
-
-	ToTaskPropertiesResponseArrayOutput() TaskPropertiesResponseArrayOutput
-	ToTaskPropertiesResponseArrayOutputWithContext(context.Context) TaskPropertiesResponseArrayOutput
-}
-
-type TaskPropertiesResponseArray []TaskPropertiesResponseInput
-
-func (TaskPropertiesResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskPropertiesResponse)(nil)).Elem()
-}
-
-func (i TaskPropertiesResponseArray) ToTaskPropertiesResponseArrayOutput() TaskPropertiesResponseArrayOutput {
-	return i.ToTaskPropertiesResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TaskPropertiesResponseArray) ToTaskPropertiesResponseArrayOutputWithContext(ctx context.Context) TaskPropertiesResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskPropertiesResponseArrayOutput)
+func (val *TaskPropertiesResponse) Defaults() *TaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.TaskScope) {
+		taskScope_ := "Global"
+		tmp.TaskScope = &taskScope_
+	}
+	return &tmp
 }
 
 type TaskPropertiesResponseOutput struct{ *pulumi.OutputState }
@@ -1512,7 +1106,6 @@ func init() {
 	pulumi.RegisterOutputType(InputWindowsParametersResponseOutput{})
 	pulumi.RegisterOutputType(InputWindowsParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(TaskPropertiesResponseOutput{})

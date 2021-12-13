@@ -469,75 +469,6 @@ type EncryptionConfigResponse struct {
 	Type             string                    `pulumi:"type"`
 }
 
-
-
-
-
-type EncryptionConfigResponseInput interface {
-	pulumi.Input
-
-	ToEncryptionConfigResponseOutput() EncryptionConfigResponseOutput
-	ToEncryptionConfigResponseOutputWithContext(context.Context) EncryptionConfigResponseOutput
-}
-
-type EncryptionConfigResponseArgs struct {
-	KeyVaultMetaInfo KeyVaultMetaInfoResponsePtrInput `pulumi:"keyVaultMetaInfo"`
-	Type             pulumi.StringInput               `pulumi:"type"`
-}
-
-func (EncryptionConfigResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionConfigResponse)(nil)).Elem()
-}
-
-func (i EncryptionConfigResponseArgs) ToEncryptionConfigResponseOutput() EncryptionConfigResponseOutput {
-	return i.ToEncryptionConfigResponseOutputWithContext(context.Background())
-}
-
-func (i EncryptionConfigResponseArgs) ToEncryptionConfigResponseOutputWithContext(ctx context.Context) EncryptionConfigResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigResponseOutput)
-}
-
-func (i EncryptionConfigResponseArgs) ToEncryptionConfigResponsePtrOutput() EncryptionConfigResponsePtrOutput {
-	return i.ToEncryptionConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EncryptionConfigResponseArgs) ToEncryptionConfigResponsePtrOutputWithContext(ctx context.Context) EncryptionConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigResponseOutput).ToEncryptionConfigResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EncryptionConfigResponsePtrInput interface {
-	pulumi.Input
-
-	ToEncryptionConfigResponsePtrOutput() EncryptionConfigResponsePtrOutput
-	ToEncryptionConfigResponsePtrOutputWithContext(context.Context) EncryptionConfigResponsePtrOutput
-}
-
-type encryptionConfigResponsePtrType EncryptionConfigResponseArgs
-
-func EncryptionConfigResponsePtr(v *EncryptionConfigResponseArgs) EncryptionConfigResponsePtrInput {
-	return (*encryptionConfigResponsePtrType)(v)
-}
-
-func (*encryptionConfigResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncryptionConfigResponse)(nil)).Elem()
-}
-
-func (i *encryptionConfigResponsePtrType) ToEncryptionConfigResponsePtrOutput() EncryptionConfigResponsePtrOutput {
-	return i.ToEncryptionConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *encryptionConfigResponsePtrType) ToEncryptionConfigResponsePtrOutputWithContext(ctx context.Context) EncryptionConfigResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionConfigResponsePtrOutput)
-}
-
 type EncryptionConfigResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionConfigResponseOutput) ElementType() reflect.Type {
@@ -552,64 +483,12 @@ func (o EncryptionConfigResponseOutput) ToEncryptionConfigResponseOutputWithCont
 	return o
 }
 
-func (o EncryptionConfigResponseOutput) ToEncryptionConfigResponsePtrOutput() EncryptionConfigResponsePtrOutput {
-	return o.ToEncryptionConfigResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EncryptionConfigResponseOutput) ToEncryptionConfigResponsePtrOutputWithContext(ctx context.Context) EncryptionConfigResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionConfigResponse) *EncryptionConfigResponse {
-		return &v
-	}).(EncryptionConfigResponsePtrOutput)
-}
-
 func (o EncryptionConfigResponseOutput) KeyVaultMetaInfo() KeyVaultMetaInfoResponsePtrOutput {
 	return o.ApplyT(func(v EncryptionConfigResponse) *KeyVaultMetaInfoResponse { return v.KeyVaultMetaInfo }).(KeyVaultMetaInfoResponsePtrOutput)
 }
 
 func (o EncryptionConfigResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionConfigResponse) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type EncryptionConfigResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EncryptionConfigResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncryptionConfigResponse)(nil)).Elem()
-}
-
-func (o EncryptionConfigResponsePtrOutput) ToEncryptionConfigResponsePtrOutput() EncryptionConfigResponsePtrOutput {
-	return o
-}
-
-func (o EncryptionConfigResponsePtrOutput) ToEncryptionConfigResponsePtrOutputWithContext(ctx context.Context) EncryptionConfigResponsePtrOutput {
-	return o
-}
-
-func (o EncryptionConfigResponsePtrOutput) Elem() EncryptionConfigResponseOutput {
-	return o.ApplyT(func(v *EncryptionConfigResponse) EncryptionConfigResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionConfigResponse
-		return ret
-	}).(EncryptionConfigResponseOutput)
-}
-
-func (o EncryptionConfigResponsePtrOutput) KeyVaultMetaInfo() KeyVaultMetaInfoResponsePtrOutput {
-	return o.ApplyT(func(v *EncryptionConfigResponse) *KeyVaultMetaInfoResponse {
-		if v == nil {
-			return nil
-		}
-		return v.KeyVaultMetaInfo
-	}).(KeyVaultMetaInfoResponsePtrOutput)
-}
-
-func (o EncryptionConfigResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EncryptionConfigResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type EncryptionIdentity struct {
@@ -751,76 +630,6 @@ type EncryptionIdentityResponse struct {
 	Type        string `pulumi:"type"`
 }
 
-
-
-
-
-type EncryptionIdentityResponseInput interface {
-	pulumi.Input
-
-	ToEncryptionIdentityResponseOutput() EncryptionIdentityResponseOutput
-	ToEncryptionIdentityResponseOutputWithContext(context.Context) EncryptionIdentityResponseOutput
-}
-
-type EncryptionIdentityResponseArgs struct {
-	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	TenantId    pulumi.StringInput `pulumi:"tenantId"`
-	Type        pulumi.StringInput `pulumi:"type"`
-}
-
-func (EncryptionIdentityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionIdentityResponse)(nil)).Elem()
-}
-
-func (i EncryptionIdentityResponseArgs) ToEncryptionIdentityResponseOutput() EncryptionIdentityResponseOutput {
-	return i.ToEncryptionIdentityResponseOutputWithContext(context.Background())
-}
-
-func (i EncryptionIdentityResponseArgs) ToEncryptionIdentityResponseOutputWithContext(ctx context.Context) EncryptionIdentityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityResponseOutput)
-}
-
-func (i EncryptionIdentityResponseArgs) ToEncryptionIdentityResponsePtrOutput() EncryptionIdentityResponsePtrOutput {
-	return i.ToEncryptionIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EncryptionIdentityResponseArgs) ToEncryptionIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityResponseOutput).ToEncryptionIdentityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type EncryptionIdentityResponsePtrInput interface {
-	pulumi.Input
-
-	ToEncryptionIdentityResponsePtrOutput() EncryptionIdentityResponsePtrOutput
-	ToEncryptionIdentityResponsePtrOutputWithContext(context.Context) EncryptionIdentityResponsePtrOutput
-}
-
-type encryptionIdentityResponsePtrType EncryptionIdentityResponseArgs
-
-func EncryptionIdentityResponsePtr(v *EncryptionIdentityResponseArgs) EncryptionIdentityResponsePtrInput {
-	return (*encryptionIdentityResponsePtrType)(v)
-}
-
-func (*encryptionIdentityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncryptionIdentityResponse)(nil)).Elem()
-}
-
-func (i *encryptionIdentityResponsePtrType) ToEncryptionIdentityResponsePtrOutput() EncryptionIdentityResponsePtrOutput {
-	return i.ToEncryptionIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *encryptionIdentityResponsePtrType) ToEncryptionIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionIdentityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionIdentityResponsePtrOutput)
-}
-
 type EncryptionIdentityResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionIdentityResponseOutput) ElementType() reflect.Type {
@@ -835,16 +644,6 @@ func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponseOutputWith
 	return o
 }
 
-func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponsePtrOutput() EncryptionIdentityResponsePtrOutput {
-	return o.ToEncryptionIdentityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EncryptionIdentityResponseOutput) ToEncryptionIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionIdentityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionIdentityResponse) *EncryptionIdentityResponse {
-		return &v
-	}).(EncryptionIdentityResponsePtrOutput)
-}
-
 func (o EncryptionIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
@@ -857,119 +656,12 @@ func (o EncryptionIdentityResponseOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EncryptionIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type EncryptionIdentityResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EncryptionIdentityResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncryptionIdentityResponse)(nil)).Elem()
-}
-
-func (o EncryptionIdentityResponsePtrOutput) ToEncryptionIdentityResponsePtrOutput() EncryptionIdentityResponsePtrOutput {
-	return o
-}
-
-func (o EncryptionIdentityResponsePtrOutput) ToEncryptionIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionIdentityResponsePtrOutput {
-	return o
-}
-
-func (o EncryptionIdentityResponsePtrOutput) Elem() EncryptionIdentityResponseOutput {
-	return o.ApplyT(func(v *EncryptionIdentityResponse) EncryptionIdentityResponse {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionIdentityResponse
-		return ret
-	}).(EncryptionIdentityResponseOutput)
-}
-
-func (o EncryptionIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EncryptionIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o EncryptionIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EncryptionIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o EncryptionIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EncryptionIdentityResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 type FirewallRuleResponse struct {
 	EndIpAddress   string `pulumi:"endIpAddress"`
 	Id             string `pulumi:"id"`
 	Name           string `pulumi:"name"`
 	StartIpAddress string `pulumi:"startIpAddress"`
 	Type           string `pulumi:"type"`
-}
-
-
-
-
-
-type FirewallRuleResponseInput interface {
-	pulumi.Input
-
-	ToFirewallRuleResponseOutput() FirewallRuleResponseOutput
-	ToFirewallRuleResponseOutputWithContext(context.Context) FirewallRuleResponseOutput
-}
-
-type FirewallRuleResponseArgs struct {
-	EndIpAddress   pulumi.StringInput `pulumi:"endIpAddress"`
-	Id             pulumi.StringInput `pulumi:"id"`
-	Name           pulumi.StringInput `pulumi:"name"`
-	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
-	Type           pulumi.StringInput `pulumi:"type"`
-}
-
-func (FirewallRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleResponse)(nil)).Elem()
-}
-
-func (i FirewallRuleResponseArgs) ToFirewallRuleResponseOutput() FirewallRuleResponseOutput {
-	return i.ToFirewallRuleResponseOutputWithContext(context.Background())
-}
-
-func (i FirewallRuleResponseArgs) ToFirewallRuleResponseOutputWithContext(ctx context.Context) FirewallRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleResponseOutput)
-}
-
-
-
-
-
-type FirewallRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToFirewallRuleResponseArrayOutput() FirewallRuleResponseArrayOutput
-	ToFirewallRuleResponseArrayOutputWithContext(context.Context) FirewallRuleResponseArrayOutput
-}
-
-type FirewallRuleResponseArray []FirewallRuleResponseInput
-
-func (FirewallRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallRuleResponse)(nil)).Elem()
-}
-
-func (i FirewallRuleResponseArray) ToFirewallRuleResponseArrayOutput() FirewallRuleResponseArrayOutput {
-	return i.ToFirewallRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i FirewallRuleResponseArray) ToFirewallRuleResponseArrayOutputWithContext(ctx context.Context) FirewallRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleResponseArrayOutput)
 }
 
 type FirewallRuleResponseOutput struct{ *pulumi.OutputState }
@@ -1195,76 +887,6 @@ type KeyVaultMetaInfoResponse struct {
 	KeyVaultResourceId   string `pulumi:"keyVaultResourceId"`
 }
 
-
-
-
-
-type KeyVaultMetaInfoResponseInput interface {
-	pulumi.Input
-
-	ToKeyVaultMetaInfoResponseOutput() KeyVaultMetaInfoResponseOutput
-	ToKeyVaultMetaInfoResponseOutputWithContext(context.Context) KeyVaultMetaInfoResponseOutput
-}
-
-type KeyVaultMetaInfoResponseArgs struct {
-	EncryptionKeyName    pulumi.StringInput `pulumi:"encryptionKeyName"`
-	EncryptionKeyVersion pulumi.StringInput `pulumi:"encryptionKeyVersion"`
-	KeyVaultResourceId   pulumi.StringInput `pulumi:"keyVaultResourceId"`
-}
-
-func (KeyVaultMetaInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyVaultMetaInfoResponse)(nil)).Elem()
-}
-
-func (i KeyVaultMetaInfoResponseArgs) ToKeyVaultMetaInfoResponseOutput() KeyVaultMetaInfoResponseOutput {
-	return i.ToKeyVaultMetaInfoResponseOutputWithContext(context.Background())
-}
-
-func (i KeyVaultMetaInfoResponseArgs) ToKeyVaultMetaInfoResponseOutputWithContext(ctx context.Context) KeyVaultMetaInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultMetaInfoResponseOutput)
-}
-
-func (i KeyVaultMetaInfoResponseArgs) ToKeyVaultMetaInfoResponsePtrOutput() KeyVaultMetaInfoResponsePtrOutput {
-	return i.ToKeyVaultMetaInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyVaultMetaInfoResponseArgs) ToKeyVaultMetaInfoResponsePtrOutputWithContext(ctx context.Context) KeyVaultMetaInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultMetaInfoResponseOutput).ToKeyVaultMetaInfoResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type KeyVaultMetaInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToKeyVaultMetaInfoResponsePtrOutput() KeyVaultMetaInfoResponsePtrOutput
-	ToKeyVaultMetaInfoResponsePtrOutputWithContext(context.Context) KeyVaultMetaInfoResponsePtrOutput
-}
-
-type keyVaultMetaInfoResponsePtrType KeyVaultMetaInfoResponseArgs
-
-func KeyVaultMetaInfoResponsePtr(v *KeyVaultMetaInfoResponseArgs) KeyVaultMetaInfoResponsePtrInput {
-	return (*keyVaultMetaInfoResponsePtrType)(v)
-}
-
-func (*keyVaultMetaInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyVaultMetaInfoResponse)(nil)).Elem()
-}
-
-func (i *keyVaultMetaInfoResponsePtrType) ToKeyVaultMetaInfoResponsePtrOutput() KeyVaultMetaInfoResponsePtrOutput {
-	return i.ToKeyVaultMetaInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *keyVaultMetaInfoResponsePtrType) ToKeyVaultMetaInfoResponsePtrOutputWithContext(ctx context.Context) KeyVaultMetaInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultMetaInfoResponsePtrOutput)
-}
-
 type KeyVaultMetaInfoResponseOutput struct{ *pulumi.OutputState }
 
 func (KeyVaultMetaInfoResponseOutput) ElementType() reflect.Type {
@@ -1277,16 +899,6 @@ func (o KeyVaultMetaInfoResponseOutput) ToKeyVaultMetaInfoResponseOutput() KeyVa
 
 func (o KeyVaultMetaInfoResponseOutput) ToKeyVaultMetaInfoResponseOutputWithContext(ctx context.Context) KeyVaultMetaInfoResponseOutput {
 	return o
-}
-
-func (o KeyVaultMetaInfoResponseOutput) ToKeyVaultMetaInfoResponsePtrOutput() KeyVaultMetaInfoResponsePtrOutput {
-	return o.ToKeyVaultMetaInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyVaultMetaInfoResponseOutput) ToKeyVaultMetaInfoResponsePtrOutputWithContext(ctx context.Context) KeyVaultMetaInfoResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultMetaInfoResponse) *KeyVaultMetaInfoResponse {
-		return &v
-	}).(KeyVaultMetaInfoResponsePtrOutput)
 }
 
 func (o KeyVaultMetaInfoResponseOutput) EncryptionKeyName() pulumi.StringOutput {
@@ -1359,61 +971,6 @@ type TrustedIdProviderResponse struct {
 	Type       string `pulumi:"type"`
 }
 
-
-
-
-
-type TrustedIdProviderResponseInput interface {
-	pulumi.Input
-
-	ToTrustedIdProviderResponseOutput() TrustedIdProviderResponseOutput
-	ToTrustedIdProviderResponseOutputWithContext(context.Context) TrustedIdProviderResponseOutput
-}
-
-type TrustedIdProviderResponseArgs struct {
-	Id         pulumi.StringInput `pulumi:"id"`
-	IdProvider pulumi.StringInput `pulumi:"idProvider"`
-	Name       pulumi.StringInput `pulumi:"name"`
-	Type       pulumi.StringInput `pulumi:"type"`
-}
-
-func (TrustedIdProviderResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrustedIdProviderResponse)(nil)).Elem()
-}
-
-func (i TrustedIdProviderResponseArgs) ToTrustedIdProviderResponseOutput() TrustedIdProviderResponseOutput {
-	return i.ToTrustedIdProviderResponseOutputWithContext(context.Background())
-}
-
-func (i TrustedIdProviderResponseArgs) ToTrustedIdProviderResponseOutputWithContext(ctx context.Context) TrustedIdProviderResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrustedIdProviderResponseOutput)
-}
-
-
-
-
-
-type TrustedIdProviderResponseArrayInput interface {
-	pulumi.Input
-
-	ToTrustedIdProviderResponseArrayOutput() TrustedIdProviderResponseArrayOutput
-	ToTrustedIdProviderResponseArrayOutputWithContext(context.Context) TrustedIdProviderResponseArrayOutput
-}
-
-type TrustedIdProviderResponseArray []TrustedIdProviderResponseInput
-
-func (TrustedIdProviderResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrustedIdProviderResponse)(nil)).Elem()
-}
-
-func (i TrustedIdProviderResponseArray) ToTrustedIdProviderResponseArrayOutput() TrustedIdProviderResponseArrayOutput {
-	return i.ToTrustedIdProviderResponseArrayOutputWithContext(context.Background())
-}
-
-func (i TrustedIdProviderResponseArray) ToTrustedIdProviderResponseArrayOutputWithContext(ctx context.Context) TrustedIdProviderResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrustedIdProviderResponseArrayOutput)
-}
-
 type TrustedIdProviderResponseOutput struct{ *pulumi.OutputState }
 
 func (TrustedIdProviderResponseOutput) ElementType() reflect.Type {
@@ -1469,61 +1026,6 @@ type VirtualNetworkRuleResponse struct {
 	Name     string `pulumi:"name"`
 	SubnetId string `pulumi:"subnetId"`
 	Type     string `pulumi:"type"`
-}
-
-
-
-
-
-type VirtualNetworkRuleResponseInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkRuleResponseOutput() VirtualNetworkRuleResponseOutput
-	ToVirtualNetworkRuleResponseOutputWithContext(context.Context) VirtualNetworkRuleResponseOutput
-}
-
-type VirtualNetworkRuleResponseArgs struct {
-	Id       pulumi.StringInput `pulumi:"id"`
-	Name     pulumi.StringInput `pulumi:"name"`
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
-	Type     pulumi.StringInput `pulumi:"type"`
-}
-
-func (VirtualNetworkRuleResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkRuleResponse)(nil)).Elem()
-}
-
-func (i VirtualNetworkRuleResponseArgs) ToVirtualNetworkRuleResponseOutput() VirtualNetworkRuleResponseOutput {
-	return i.ToVirtualNetworkRuleResponseOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkRuleResponseArgs) ToVirtualNetworkRuleResponseOutputWithContext(ctx context.Context) VirtualNetworkRuleResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseOutput)
-}
-
-
-
-
-
-type VirtualNetworkRuleResponseArrayInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkRuleResponseArrayOutput() VirtualNetworkRuleResponseArrayOutput
-	ToVirtualNetworkRuleResponseArrayOutputWithContext(context.Context) VirtualNetworkRuleResponseArrayOutput
-}
-
-type VirtualNetworkRuleResponseArray []VirtualNetworkRuleResponseInput
-
-func (VirtualNetworkRuleResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualNetworkRuleResponse)(nil)).Elem()
-}
-
-func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutput() VirtualNetworkRuleResponseArrayOutput {
-	return i.ToVirtualNetworkRuleResponseArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkRuleResponseArray) ToVirtualNetworkRuleResponseArrayOutputWithContext(ctx context.Context) VirtualNetworkRuleResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleResponseArrayOutput)
 }
 
 type VirtualNetworkRuleResponseOutput struct{ *pulumi.OutputState }
@@ -1586,11 +1088,9 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionConfigOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigResponseOutput{})
-	pulumi.RegisterOutputType(EncryptionConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionIdentityOutput{})
 	pulumi.RegisterOutputType(EncryptionIdentityPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionIdentityResponseOutput{})
-	pulumi.RegisterOutputType(EncryptionIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultMetaInfoOutput{})

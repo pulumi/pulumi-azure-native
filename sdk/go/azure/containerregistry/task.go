@@ -47,11 +47,14 @@ func NewTask(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.IsSystemTask == nil {
+	if isZero(args.IsSystemTask) {
 		args.IsSystemTask = pulumi.BoolPtr(false)
 	}
-	if args.Timeout == nil {
+	if isZero(args.Timeout) {
 		args.Timeout = pulumi.IntPtr(3600)
+	}
+	if args.Trigger != nil {
+		args.Trigger = args.Trigger.ToTriggerPropertiesPtrOutput().ApplyT(func(v *TriggerProperties) *TriggerProperties { return v.Defaults() }).(TriggerPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -150,7 +153,7 @@ type TaskInput interface {
 }
 
 func (*Task) ElementType() reflect.Type {
-	return reflect.TypeOf((*Task)(nil))
+	return reflect.TypeOf((**Task)(nil)).Elem()
 }
 
 func (i *Task) ToTaskOutput() TaskOutput {
@@ -164,7 +167,7 @@ func (i *Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 type TaskOutput struct{ *pulumi.OutputState }
 
 func (TaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Task)(nil))
+	return reflect.TypeOf((**Task)(nil)).Elem()
 }
 
 func (o TaskOutput) ToTaskOutput() TaskOutput {

@@ -120,7 +120,7 @@ type GalleryInput interface {
 }
 
 func (*Gallery) ElementType() reflect.Type {
-	return reflect.TypeOf((*Gallery)(nil))
+	return reflect.TypeOf((**Gallery)(nil)).Elem()
 }
 
 func (i *Gallery) ToGalleryOutput() GalleryOutput {
@@ -134,7 +134,7 @@ func (i *Gallery) ToGalleryOutputWithContext(ctx context.Context) GalleryOutput 
 type GalleryOutput struct{ *pulumi.OutputState }
 
 func (GalleryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Gallery)(nil))
+	return reflect.TypeOf((**Gallery)(nil)).Elem()
 }
 
 func (o GalleryOutput) ToGalleryOutput() GalleryOutput {

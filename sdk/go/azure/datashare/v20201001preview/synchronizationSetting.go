@@ -118,7 +118,7 @@ type SynchronizationSettingInput interface {
 }
 
 func (*SynchronizationSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*SynchronizationSetting)(nil))
+	return reflect.TypeOf((**SynchronizationSetting)(nil)).Elem()
 }
 
 func (i *SynchronizationSetting) ToSynchronizationSettingOutput() SynchronizationSettingOutput {
@@ -132,7 +132,7 @@ func (i *SynchronizationSetting) ToSynchronizationSettingOutputWithContext(ctx c
 type SynchronizationSettingOutput struct{ *pulumi.OutputState }
 
 func (SynchronizationSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SynchronizationSetting)(nil))
+	return reflect.TypeOf((**SynchronizationSetting)(nil)).Elem()
 }
 
 func (o SynchronizationSettingOutput) ToSynchronizationSettingOutput() SynchronizationSettingOutput {

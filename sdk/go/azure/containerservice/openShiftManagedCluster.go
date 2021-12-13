@@ -44,6 +44,9 @@ func NewOpenShiftManagedCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.NetworkProfile != nil {
+		args.NetworkProfile = args.NetworkProfile.ToNetworkProfilePtrOutput().ApplyT(func(v *NetworkProfile) *NetworkProfile { return v.Defaults() }).(NetworkProfilePtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:containerservice/v20180930preview:OpenShiftManagedCluster"),
@@ -131,7 +134,7 @@ type OpenShiftManagedClusterInput interface {
 }
 
 func (*OpenShiftManagedCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedCluster)(nil))
+	return reflect.TypeOf((**OpenShiftManagedCluster)(nil)).Elem()
 }
 
 func (i *OpenShiftManagedCluster) ToOpenShiftManagedClusterOutput() OpenShiftManagedClusterOutput {
@@ -145,7 +148,7 @@ func (i *OpenShiftManagedCluster) ToOpenShiftManagedClusterOutputWithContext(ctx
 type OpenShiftManagedClusterOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedCluster)(nil))
+	return reflect.TypeOf((**OpenShiftManagedCluster)(nil)).Elem()
 }
 
 func (o OpenShiftManagedClusterOutput) ToOpenShiftManagedClusterOutput() OpenShiftManagedClusterOutput {

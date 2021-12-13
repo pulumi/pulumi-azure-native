@@ -107,7 +107,7 @@ type SchemaRegistryInput interface {
 }
 
 func (*SchemaRegistry) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaRegistry)(nil))
+	return reflect.TypeOf((**SchemaRegistry)(nil)).Elem()
 }
 
 func (i *SchemaRegistry) ToSchemaRegistryOutput() SchemaRegistryOutput {
@@ -121,7 +121,7 @@ func (i *SchemaRegistry) ToSchemaRegistryOutputWithContext(ctx context.Context) 
 type SchemaRegistryOutput struct{ *pulumi.OutputState }
 
 func (SchemaRegistryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaRegistry)(nil))
+	return reflect.TypeOf((**SchemaRegistry)(nil)).Elem()
 }
 
 func (o SchemaRegistryOutput) ToSchemaRegistryOutput() SchemaRegistryOutput {

@@ -419,91 +419,6 @@ type ApiEntityResponse struct {
 	Type                 *string                                `pulumi:"type"`
 }
 
-
-
-
-
-type ApiEntityResponseInput interface {
-	pulumi.Input
-
-	ToApiEntityResponseOutput() ApiEntityResponseOutput
-	ToApiEntityResponseOutputWithContext(context.Context) ApiEntityResponseOutput
-}
-
-type ApiEntityResponseArgs struct {
-	ApiDefinitionUrl     pulumi.StringPtrInput                    `pulumi:"apiDefinitionUrl"`
-	BackendService       BackendServiceDefinitionResponsePtrInput `pulumi:"backendService"`
-	Capabilities         pulumi.StringArrayInput                  `pulumi:"capabilities"`
-	ChangedTime          pulumi.StringPtrInput                    `pulumi:"changedTime"`
-	ConnectionParameters ConnectionParameterResponseMapInput      `pulumi:"connectionParameters"`
-	CreatedTime          pulumi.StringPtrInput                    `pulumi:"createdTime"`
-	GeneralInformation   GeneralApiInformationResponsePtrInput    `pulumi:"generalInformation"`
-	Id                   pulumi.StringPtrInput                    `pulumi:"id"`
-	Kind                 pulumi.StringPtrInput                    `pulumi:"kind"`
-	Location             pulumi.StringInput                       `pulumi:"location"`
-	Metadata             pulumi.Input                             `pulumi:"metadata"`
-	Name                 pulumi.StringPtrInput                    `pulumi:"name"`
-	Path                 pulumi.StringPtrInput                    `pulumi:"path"`
-	Policies             ApiPoliciesResponsePtrInput              `pulumi:"policies"`
-	Protocols            pulumi.StringArrayInput                  `pulumi:"protocols"`
-	RuntimeUrls          pulumi.StringArrayInput                  `pulumi:"runtimeUrls"`
-	Tags                 pulumi.StringMapInput                    `pulumi:"tags"`
-	Type                 pulumi.StringPtrInput                    `pulumi:"type"`
-}
-
-func (ApiEntityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiEntityResponse)(nil)).Elem()
-}
-
-func (i ApiEntityResponseArgs) ToApiEntityResponseOutput() ApiEntityResponseOutput {
-	return i.ToApiEntityResponseOutputWithContext(context.Background())
-}
-
-func (i ApiEntityResponseArgs) ToApiEntityResponseOutputWithContext(ctx context.Context) ApiEntityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityResponseOutput)
-}
-
-func (i ApiEntityResponseArgs) ToApiEntityResponsePtrOutput() ApiEntityResponsePtrOutput {
-	return i.ToApiEntityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApiEntityResponseArgs) ToApiEntityResponsePtrOutputWithContext(ctx context.Context) ApiEntityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityResponseOutput).ToApiEntityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApiEntityResponsePtrInput interface {
-	pulumi.Input
-
-	ToApiEntityResponsePtrOutput() ApiEntityResponsePtrOutput
-	ToApiEntityResponsePtrOutputWithContext(context.Context) ApiEntityResponsePtrOutput
-}
-
-type apiEntityResponsePtrType ApiEntityResponseArgs
-
-func ApiEntityResponsePtr(v *ApiEntityResponseArgs) ApiEntityResponsePtrInput {
-	return (*apiEntityResponsePtrType)(v)
-}
-
-func (*apiEntityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiEntityResponse)(nil)).Elem()
-}
-
-func (i *apiEntityResponsePtrType) ToApiEntityResponsePtrOutput() ApiEntityResponsePtrOutput {
-	return i.ToApiEntityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *apiEntityResponsePtrType) ToApiEntityResponsePtrOutputWithContext(ctx context.Context) ApiEntityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiEntityResponsePtrOutput)
-}
-
 type ApiEntityResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiEntityResponseOutput) ElementType() reflect.Type {
@@ -516,16 +431,6 @@ func (o ApiEntityResponseOutput) ToApiEntityResponseOutput() ApiEntityResponseOu
 
 func (o ApiEntityResponseOutput) ToApiEntityResponseOutputWithContext(ctx context.Context) ApiEntityResponseOutput {
 	return o
-}
-
-func (o ApiEntityResponseOutput) ToApiEntityResponsePtrOutput() ApiEntityResponsePtrOutput {
-	return o.ToApiEntityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApiEntityResponseOutput) ToApiEntityResponsePtrOutputWithContext(ctx context.Context) ApiEntityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEntityResponse) *ApiEntityResponse {
-		return &v
-	}).(ApiEntityResponsePtrOutput)
 }
 
 func (o ApiEntityResponseOutput) ApiDefinitionUrl() pulumi.StringPtrOutput {
@@ -1121,60 +1026,6 @@ type ApiOAuthSettingsParameterResponse struct {
 	Value        *string     `pulumi:"value"`
 }
 
-
-
-
-
-type ApiOAuthSettingsParameterResponseInput interface {
-	pulumi.Input
-
-	ToApiOAuthSettingsParameterResponseOutput() ApiOAuthSettingsParameterResponseOutput
-	ToApiOAuthSettingsParameterResponseOutputWithContext(context.Context) ApiOAuthSettingsParameterResponseOutput
-}
-
-type ApiOAuthSettingsParameterResponseArgs struct {
-	Options      pulumi.Input          `pulumi:"options"`
-	UiDefinition pulumi.Input          `pulumi:"uiDefinition"`
-	Value        pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ApiOAuthSettingsParameterResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOAuthSettingsParameterResponse)(nil)).Elem()
-}
-
-func (i ApiOAuthSettingsParameterResponseArgs) ToApiOAuthSettingsParameterResponseOutput() ApiOAuthSettingsParameterResponseOutput {
-	return i.ToApiOAuthSettingsParameterResponseOutputWithContext(context.Background())
-}
-
-func (i ApiOAuthSettingsParameterResponseArgs) ToApiOAuthSettingsParameterResponseOutputWithContext(ctx context.Context) ApiOAuthSettingsParameterResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsParameterResponseOutput)
-}
-
-
-
-
-
-type ApiOAuthSettingsParameterResponseMapInput interface {
-	pulumi.Input
-
-	ToApiOAuthSettingsParameterResponseMapOutput() ApiOAuthSettingsParameterResponseMapOutput
-	ToApiOAuthSettingsParameterResponseMapOutputWithContext(context.Context) ApiOAuthSettingsParameterResponseMapOutput
-}
-
-type ApiOAuthSettingsParameterResponseMap map[string]ApiOAuthSettingsParameterResponseInput
-
-func (ApiOAuthSettingsParameterResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ApiOAuthSettingsParameterResponse)(nil)).Elem()
-}
-
-func (i ApiOAuthSettingsParameterResponseMap) ToApiOAuthSettingsParameterResponseMapOutput() ApiOAuthSettingsParameterResponseMapOutput {
-	return i.ToApiOAuthSettingsParameterResponseMapOutputWithContext(context.Background())
-}
-
-func (i ApiOAuthSettingsParameterResponseMap) ToApiOAuthSettingsParameterResponseMapOutputWithContext(ctx context.Context) ApiOAuthSettingsParameterResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsParameterResponseMapOutput)
-}
-
 type ApiOAuthSettingsParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiOAuthSettingsParameterResponseOutput) ElementType() reflect.Type {
@@ -1231,80 +1082,6 @@ type ApiOAuthSettingsResponse struct {
 	Scopes           []string                                     `pulumi:"scopes"`
 }
 
-
-
-
-
-type ApiOAuthSettingsResponseInput interface {
-	pulumi.Input
-
-	ToApiOAuthSettingsResponseOutput() ApiOAuthSettingsResponseOutput
-	ToApiOAuthSettingsResponseOutputWithContext(context.Context) ApiOAuthSettingsResponseOutput
-}
-
-type ApiOAuthSettingsResponseArgs struct {
-	ClientId         pulumi.StringPtrInput                     `pulumi:"clientId"`
-	ClientSecret     pulumi.StringPtrInput                     `pulumi:"clientSecret"`
-	CustomParameters ApiOAuthSettingsParameterResponseMapInput `pulumi:"customParameters"`
-	IdentityProvider pulumi.StringPtrInput                     `pulumi:"identityProvider"`
-	Properties       pulumi.Input                              `pulumi:"properties"`
-	RedirectUrl      pulumi.StringPtrInput                     `pulumi:"redirectUrl"`
-	Scopes           pulumi.StringArrayInput                   `pulumi:"scopes"`
-}
-
-func (ApiOAuthSettingsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOAuthSettingsResponse)(nil)).Elem()
-}
-
-func (i ApiOAuthSettingsResponseArgs) ToApiOAuthSettingsResponseOutput() ApiOAuthSettingsResponseOutput {
-	return i.ToApiOAuthSettingsResponseOutputWithContext(context.Background())
-}
-
-func (i ApiOAuthSettingsResponseArgs) ToApiOAuthSettingsResponseOutputWithContext(ctx context.Context) ApiOAuthSettingsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsResponseOutput)
-}
-
-func (i ApiOAuthSettingsResponseArgs) ToApiOAuthSettingsResponsePtrOutput() ApiOAuthSettingsResponsePtrOutput {
-	return i.ToApiOAuthSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApiOAuthSettingsResponseArgs) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsResponseOutput).ToApiOAuthSettingsResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApiOAuthSettingsResponsePtrInput interface {
-	pulumi.Input
-
-	ToApiOAuthSettingsResponsePtrOutput() ApiOAuthSettingsResponsePtrOutput
-	ToApiOAuthSettingsResponsePtrOutputWithContext(context.Context) ApiOAuthSettingsResponsePtrOutput
-}
-
-type apiOAuthSettingsResponsePtrType ApiOAuthSettingsResponseArgs
-
-func ApiOAuthSettingsResponsePtr(v *ApiOAuthSettingsResponseArgs) ApiOAuthSettingsResponsePtrInput {
-	return (*apiOAuthSettingsResponsePtrType)(v)
-}
-
-func (*apiOAuthSettingsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiOAuthSettingsResponse)(nil)).Elem()
-}
-
-func (i *apiOAuthSettingsResponsePtrType) ToApiOAuthSettingsResponsePtrOutput() ApiOAuthSettingsResponsePtrOutput {
-	return i.ToApiOAuthSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *apiOAuthSettingsResponsePtrType) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiOAuthSettingsResponsePtrOutput)
-}
-
 type ApiOAuthSettingsResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiOAuthSettingsResponseOutput) ElementType() reflect.Type {
@@ -1317,16 +1094,6 @@ func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponseOutput() ApiOA
 
 func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponseOutputWithContext(ctx context.Context) ApiOAuthSettingsResponseOutput {
 	return o
-}
-
-func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutput() ApiOAuthSettingsResponsePtrOutput {
-	return o.ToApiOAuthSettingsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApiOAuthSettingsResponseOutput) ToApiOAuthSettingsResponsePtrOutputWithContext(ctx context.Context) ApiOAuthSettingsResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOAuthSettingsResponse) *ApiOAuthSettingsResponse {
-		return &v
-	}).(ApiOAuthSettingsResponsePtrOutput)
 }
 
 func (o ApiOAuthSettingsResponseOutput) ClientId() pulumi.StringPtrOutput {
@@ -1679,80 +1446,6 @@ type ApiPoliciesResponse struct {
 	Type     *string           `pulumi:"type"`
 }
 
-
-
-
-
-type ApiPoliciesResponseInput interface {
-	pulumi.Input
-
-	ToApiPoliciesResponseOutput() ApiPoliciesResponseOutput
-	ToApiPoliciesResponseOutputWithContext(context.Context) ApiPoliciesResponseOutput
-}
-
-type ApiPoliciesResponseArgs struct {
-	Content  pulumi.StringPtrInput `pulumi:"content"`
-	Id       pulumi.StringPtrInput `pulumi:"id"`
-	Kind     pulumi.StringPtrInput `pulumi:"kind"`
-	Location pulumi.StringInput    `pulumi:"location"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Tags     pulumi.StringMapInput `pulumi:"tags"`
-	Type     pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (ApiPoliciesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiPoliciesResponse)(nil)).Elem()
-}
-
-func (i ApiPoliciesResponseArgs) ToApiPoliciesResponseOutput() ApiPoliciesResponseOutput {
-	return i.ToApiPoliciesResponseOutputWithContext(context.Background())
-}
-
-func (i ApiPoliciesResponseArgs) ToApiPoliciesResponseOutputWithContext(ctx context.Context) ApiPoliciesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPoliciesResponseOutput)
-}
-
-func (i ApiPoliciesResponseArgs) ToApiPoliciesResponsePtrOutput() ApiPoliciesResponsePtrOutput {
-	return i.ToApiPoliciesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApiPoliciesResponseArgs) ToApiPoliciesResponsePtrOutputWithContext(ctx context.Context) ApiPoliciesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPoliciesResponseOutput).ToApiPoliciesResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ApiPoliciesResponsePtrInput interface {
-	pulumi.Input
-
-	ToApiPoliciesResponsePtrOutput() ApiPoliciesResponsePtrOutput
-	ToApiPoliciesResponsePtrOutputWithContext(context.Context) ApiPoliciesResponsePtrOutput
-}
-
-type apiPoliciesResponsePtrType ApiPoliciesResponseArgs
-
-func ApiPoliciesResponsePtr(v *ApiPoliciesResponseArgs) ApiPoliciesResponsePtrInput {
-	return (*apiPoliciesResponsePtrType)(v)
-}
-
-func (*apiPoliciesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApiPoliciesResponse)(nil)).Elem()
-}
-
-func (i *apiPoliciesResponsePtrType) ToApiPoliciesResponsePtrOutput() ApiPoliciesResponsePtrOutput {
-	return i.ToApiPoliciesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *apiPoliciesResponsePtrType) ToApiPoliciesResponsePtrOutputWithContext(ctx context.Context) ApiPoliciesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiPoliciesResponsePtrOutput)
-}
-
 type ApiPoliciesResponseOutput struct{ *pulumi.OutputState }
 
 func (ApiPoliciesResponseOutput) ElementType() reflect.Type {
@@ -1765,16 +1458,6 @@ func (o ApiPoliciesResponseOutput) ToApiPoliciesResponseOutput() ApiPoliciesResp
 
 func (o ApiPoliciesResponseOutput) ToApiPoliciesResponseOutputWithContext(ctx context.Context) ApiPoliciesResponseOutput {
 	return o
-}
-
-func (o ApiPoliciesResponseOutput) ToApiPoliciesResponsePtrOutput() ApiPoliciesResponsePtrOutput {
-	return o.ToApiPoliciesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApiPoliciesResponseOutput) ToApiPoliciesResponsePtrOutputWithContext(ctx context.Context) ApiPoliciesResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiPoliciesResponse) *ApiPoliciesResponse {
-		return &v
-	}).(ApiPoliciesResponsePtrOutput)
 }
 
 func (o ApiPoliciesResponseOutput) Content() pulumi.StringPtrOutput {
@@ -2093,78 +1776,6 @@ type ArmPlanResponse struct {
 	Version       *string `pulumi:"version"`
 }
 
-
-
-
-
-type ArmPlanResponseInput interface {
-	pulumi.Input
-
-	ToArmPlanResponseOutput() ArmPlanResponseOutput
-	ToArmPlanResponseOutputWithContext(context.Context) ArmPlanResponseOutput
-}
-
-type ArmPlanResponseArgs struct {
-	Name          pulumi.StringPtrInput `pulumi:"name"`
-	Product       pulumi.StringPtrInput `pulumi:"product"`
-	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
-	Version       pulumi.StringPtrInput `pulumi:"version"`
-}
-
-func (ArmPlanResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmPlanResponse)(nil)).Elem()
-}
-
-func (i ArmPlanResponseArgs) ToArmPlanResponseOutput() ArmPlanResponseOutput {
-	return i.ToArmPlanResponseOutputWithContext(context.Background())
-}
-
-func (i ArmPlanResponseArgs) ToArmPlanResponseOutputWithContext(ctx context.Context) ArmPlanResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanResponseOutput)
-}
-
-func (i ArmPlanResponseArgs) ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOutput {
-	return i.ToArmPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ArmPlanResponseArgs) ToArmPlanResponsePtrOutputWithContext(ctx context.Context) ArmPlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanResponseOutput).ToArmPlanResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ArmPlanResponsePtrInput interface {
-	pulumi.Input
-
-	ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOutput
-	ToArmPlanResponsePtrOutputWithContext(context.Context) ArmPlanResponsePtrOutput
-}
-
-type armPlanResponsePtrType ArmPlanResponseArgs
-
-func ArmPlanResponsePtr(v *ArmPlanResponseArgs) ArmPlanResponsePtrInput {
-	return (*armPlanResponsePtrType)(v)
-}
-
-func (*armPlanResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmPlanResponse)(nil)).Elem()
-}
-
-func (i *armPlanResponsePtrType) ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOutput {
-	return i.ToArmPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *armPlanResponsePtrType) ToArmPlanResponsePtrOutputWithContext(ctx context.Context) ArmPlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmPlanResponsePtrOutput)
-}
-
 type ArmPlanResponseOutput struct{ *pulumi.OutputState }
 
 func (ArmPlanResponseOutput) ElementType() reflect.Type {
@@ -2177,16 +1788,6 @@ func (o ArmPlanResponseOutput) ToArmPlanResponseOutput() ArmPlanResponseOutput {
 
 func (o ArmPlanResponseOutput) ToArmPlanResponseOutputWithContext(ctx context.Context) ArmPlanResponseOutput {
 	return o
-}
-
-func (o ArmPlanResponseOutput) ToArmPlanResponsePtrOutput() ArmPlanResponsePtrOutput {
-	return o.ToArmPlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ArmPlanResponseOutput) ToArmPlanResponsePtrOutputWithContext(ctx context.Context) ArmPlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ArmPlanResponse) *ArmPlanResponse {
-		return &v
-	}).(ArmPlanResponsePtrOutput)
 }
 
 func (o ArmPlanResponseOutput) Name() pulumi.StringPtrOutput {
@@ -2529,81 +2130,6 @@ type BackendServiceDefinitionResponse struct {
 	Type                          *string                                         `pulumi:"type"`
 }
 
-
-
-
-
-type BackendServiceDefinitionResponseInput interface {
-	pulumi.Input
-
-	ToBackendServiceDefinitionResponseOutput() BackendServiceDefinitionResponseOutput
-	ToBackendServiceDefinitionResponseOutputWithContext(context.Context) BackendServiceDefinitionResponseOutput
-}
-
-type BackendServiceDefinitionResponseArgs struct {
-	HostingEnvironmentServiceUrls HostingEnvironmentServiceDescriptionsResponseArrayInput `pulumi:"hostingEnvironmentServiceUrls"`
-	Id                            pulumi.StringPtrInput                                   `pulumi:"id"`
-	Kind                          pulumi.StringPtrInput                                   `pulumi:"kind"`
-	Location                      pulumi.StringInput                                      `pulumi:"location"`
-	Name                          pulumi.StringPtrInput                                   `pulumi:"name"`
-	ServiceUrl                    pulumi.StringPtrInput                                   `pulumi:"serviceUrl"`
-	Tags                          pulumi.StringMapInput                                   `pulumi:"tags"`
-	Type                          pulumi.StringPtrInput                                   `pulumi:"type"`
-}
-
-func (BackendServiceDefinitionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackendServiceDefinitionResponse)(nil)).Elem()
-}
-
-func (i BackendServiceDefinitionResponseArgs) ToBackendServiceDefinitionResponseOutput() BackendServiceDefinitionResponseOutput {
-	return i.ToBackendServiceDefinitionResponseOutputWithContext(context.Background())
-}
-
-func (i BackendServiceDefinitionResponseArgs) ToBackendServiceDefinitionResponseOutputWithContext(ctx context.Context) BackendServiceDefinitionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceDefinitionResponseOutput)
-}
-
-func (i BackendServiceDefinitionResponseArgs) ToBackendServiceDefinitionResponsePtrOutput() BackendServiceDefinitionResponsePtrOutput {
-	return i.ToBackendServiceDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i BackendServiceDefinitionResponseArgs) ToBackendServiceDefinitionResponsePtrOutputWithContext(ctx context.Context) BackendServiceDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceDefinitionResponseOutput).ToBackendServiceDefinitionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type BackendServiceDefinitionResponsePtrInput interface {
-	pulumi.Input
-
-	ToBackendServiceDefinitionResponsePtrOutput() BackendServiceDefinitionResponsePtrOutput
-	ToBackendServiceDefinitionResponsePtrOutputWithContext(context.Context) BackendServiceDefinitionResponsePtrOutput
-}
-
-type backendServiceDefinitionResponsePtrType BackendServiceDefinitionResponseArgs
-
-func BackendServiceDefinitionResponsePtr(v *BackendServiceDefinitionResponseArgs) BackendServiceDefinitionResponsePtrInput {
-	return (*backendServiceDefinitionResponsePtrType)(v)
-}
-
-func (*backendServiceDefinitionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackendServiceDefinitionResponse)(nil)).Elem()
-}
-
-func (i *backendServiceDefinitionResponsePtrType) ToBackendServiceDefinitionResponsePtrOutput() BackendServiceDefinitionResponsePtrOutput {
-	return i.ToBackendServiceDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *backendServiceDefinitionResponsePtrType) ToBackendServiceDefinitionResponsePtrOutputWithContext(ctx context.Context) BackendServiceDefinitionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackendServiceDefinitionResponsePtrOutput)
-}
-
 type BackendServiceDefinitionResponseOutput struct{ *pulumi.OutputState }
 
 func (BackendServiceDefinitionResponseOutput) ElementType() reflect.Type {
@@ -2616,16 +2142,6 @@ func (o BackendServiceDefinitionResponseOutput) ToBackendServiceDefinitionRespon
 
 func (o BackendServiceDefinitionResponseOutput) ToBackendServiceDefinitionResponseOutputWithContext(ctx context.Context) BackendServiceDefinitionResponseOutput {
 	return o
-}
-
-func (o BackendServiceDefinitionResponseOutput) ToBackendServiceDefinitionResponsePtrOutput() BackendServiceDefinitionResponsePtrOutput {
-	return o.ToBackendServiceDefinitionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o BackendServiceDefinitionResponseOutput) ToBackendServiceDefinitionResponsePtrOutputWithContext(ctx context.Context) BackendServiceDefinitionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendServiceDefinitionResponse) *BackendServiceDefinitionResponse {
-		return &v
-	}).(BackendServiceDefinitionResponsePtrOutput)
 }
 
 func (o BackendServiceDefinitionResponseOutput) HostingEnvironmentServiceUrls() HostingEnvironmentServiceDescriptionsResponseArrayOutput {
@@ -3007,81 +2523,6 @@ type ConnectionErrorResponse struct {
 	Type     *string           `pulumi:"type"`
 }
 
-
-
-
-
-type ConnectionErrorResponseInput interface {
-	pulumi.Input
-
-	ToConnectionErrorResponseOutput() ConnectionErrorResponseOutput
-	ToConnectionErrorResponseOutputWithContext(context.Context) ConnectionErrorResponseOutput
-}
-
-type ConnectionErrorResponseArgs struct {
-	Code     pulumi.StringPtrInput `pulumi:"code"`
-	Id       pulumi.StringPtrInput `pulumi:"id"`
-	Kind     pulumi.StringPtrInput `pulumi:"kind"`
-	Location pulumi.StringInput    `pulumi:"location"`
-	Message  pulumi.StringPtrInput `pulumi:"message"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Tags     pulumi.StringMapInput `pulumi:"tags"`
-	Type     pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (ConnectionErrorResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionErrorResponse)(nil)).Elem()
-}
-
-func (i ConnectionErrorResponseArgs) ToConnectionErrorResponseOutput() ConnectionErrorResponseOutput {
-	return i.ToConnectionErrorResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectionErrorResponseArgs) ToConnectionErrorResponseOutputWithContext(ctx context.Context) ConnectionErrorResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionErrorResponseOutput)
-}
-
-func (i ConnectionErrorResponseArgs) ToConnectionErrorResponsePtrOutput() ConnectionErrorResponsePtrOutput {
-	return i.ToConnectionErrorResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectionErrorResponseArgs) ToConnectionErrorResponsePtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionErrorResponseOutput).ToConnectionErrorResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ConnectionErrorResponsePtrInput interface {
-	pulumi.Input
-
-	ToConnectionErrorResponsePtrOutput() ConnectionErrorResponsePtrOutput
-	ToConnectionErrorResponsePtrOutputWithContext(context.Context) ConnectionErrorResponsePtrOutput
-}
-
-type connectionErrorResponsePtrType ConnectionErrorResponseArgs
-
-func ConnectionErrorResponsePtr(v *ConnectionErrorResponseArgs) ConnectionErrorResponsePtrInput {
-	return (*connectionErrorResponsePtrType)(v)
-}
-
-func (*connectionErrorResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionErrorResponse)(nil)).Elem()
-}
-
-func (i *connectionErrorResponsePtrType) ToConnectionErrorResponsePtrOutput() ConnectionErrorResponsePtrOutput {
-	return i.ToConnectionErrorResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *connectionErrorResponsePtrType) ToConnectionErrorResponsePtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionErrorResponsePtrOutput)
-}
-
 type ConnectionErrorResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionErrorResponseOutput) ElementType() reflect.Type {
@@ -3094,16 +2535,6 @@ func (o ConnectionErrorResponseOutput) ToConnectionErrorResponseOutput() Connect
 
 func (o ConnectionErrorResponseOutput) ToConnectionErrorResponseOutputWithContext(ctx context.Context) ConnectionErrorResponseOutput {
 	return o
-}
-
-func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutput() ConnectionErrorResponsePtrOutput {
-	return o.ToConnectionErrorResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectionErrorResponseOutput) ToConnectionErrorResponsePtrOutputWithContext(ctx context.Context) ConnectionErrorResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionErrorResponse) *ConnectionErrorResponse {
-		return &v
-	}).(ConnectionErrorResponsePtrOutput)
 }
 
 func (o ConnectionErrorResponseOutput) Code() pulumi.StringPtrOutput {
@@ -3353,61 +2784,6 @@ type ConnectionParameterResponse struct {
 	UiDefinition  interface{}               `pulumi:"uiDefinition"`
 }
 
-
-
-
-
-type ConnectionParameterResponseInput interface {
-	pulumi.Input
-
-	ToConnectionParameterResponseOutput() ConnectionParameterResponseOutput
-	ToConnectionParameterResponseOutputWithContext(context.Context) ConnectionParameterResponseOutput
-}
-
-type ConnectionParameterResponseArgs struct {
-	DefaultValue  pulumi.Input                     `pulumi:"defaultValue"`
-	OAuthSettings ApiOAuthSettingsResponsePtrInput `pulumi:"oAuthSettings"`
-	Type          pulumi.StringPtrInput            `pulumi:"type"`
-	UiDefinition  pulumi.Input                     `pulumi:"uiDefinition"`
-}
-
-func (ConnectionParameterResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionParameterResponse)(nil)).Elem()
-}
-
-func (i ConnectionParameterResponseArgs) ToConnectionParameterResponseOutput() ConnectionParameterResponseOutput {
-	return i.ToConnectionParameterResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectionParameterResponseArgs) ToConnectionParameterResponseOutputWithContext(ctx context.Context) ConnectionParameterResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterResponseOutput)
-}
-
-
-
-
-
-type ConnectionParameterResponseMapInput interface {
-	pulumi.Input
-
-	ToConnectionParameterResponseMapOutput() ConnectionParameterResponseMapOutput
-	ToConnectionParameterResponseMapOutputWithContext(context.Context) ConnectionParameterResponseMapOutput
-}
-
-type ConnectionParameterResponseMap map[string]ConnectionParameterResponseInput
-
-func (ConnectionParameterResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ConnectionParameterResponse)(nil)).Elem()
-}
-
-func (i ConnectionParameterResponseMap) ToConnectionParameterResponseMapOutput() ConnectionParameterResponseMapOutput {
-	return i.ToConnectionParameterResponseMapOutputWithContext(context.Background())
-}
-
-func (i ConnectionParameterResponseMap) ToConnectionParameterResponseMapOutputWithContext(ctx context.Context) ConnectionParameterResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionParameterResponseMapOutput)
-}
-
 type ConnectionParameterResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionParameterResponseOutput) ElementType() reflect.Type {
@@ -3612,66 +2988,6 @@ type ConnectionStatusResponse struct {
 	Type     *string                  `pulumi:"type"`
 }
 
-
-
-
-
-type ConnectionStatusResponseInput interface {
-	pulumi.Input
-
-	ToConnectionStatusResponseOutput() ConnectionStatusResponseOutput
-	ToConnectionStatusResponseOutputWithContext(context.Context) ConnectionStatusResponseOutput
-}
-
-type ConnectionStatusResponseArgs struct {
-	Error    ConnectionErrorResponsePtrInput `pulumi:"error"`
-	Id       pulumi.StringPtrInput           `pulumi:"id"`
-	Kind     pulumi.StringPtrInput           `pulumi:"kind"`
-	Location pulumi.StringInput              `pulumi:"location"`
-	Name     pulumi.StringPtrInput           `pulumi:"name"`
-	Status   pulumi.StringPtrInput           `pulumi:"status"`
-	Tags     pulumi.StringMapInput           `pulumi:"tags"`
-	Target   pulumi.StringPtrInput           `pulumi:"target"`
-	Type     pulumi.StringPtrInput           `pulumi:"type"`
-}
-
-func (ConnectionStatusResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionStatusResponse)(nil)).Elem()
-}
-
-func (i ConnectionStatusResponseArgs) ToConnectionStatusResponseOutput() ConnectionStatusResponseOutput {
-	return i.ToConnectionStatusResponseOutputWithContext(context.Background())
-}
-
-func (i ConnectionStatusResponseArgs) ToConnectionStatusResponseOutputWithContext(ctx context.Context) ConnectionStatusResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatusResponseOutput)
-}
-
-
-
-
-
-type ConnectionStatusResponseArrayInput interface {
-	pulumi.Input
-
-	ToConnectionStatusResponseArrayOutput() ConnectionStatusResponseArrayOutput
-	ToConnectionStatusResponseArrayOutputWithContext(context.Context) ConnectionStatusResponseArrayOutput
-}
-
-type ConnectionStatusResponseArray []ConnectionStatusResponseInput
-
-func (ConnectionStatusResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectionStatusResponse)(nil)).Elem()
-}
-
-func (i ConnectionStatusResponseArray) ToConnectionStatusResponseArrayOutput() ConnectionStatusResponseArrayOutput {
-	return i.ToConnectionStatusResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectionStatusResponseArray) ToConnectionStatusResponseArrayOutputWithContext(ctx context.Context) ConnectionStatusResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionStatusResponseArrayOutput)
-}
-
 type ConnectionStatusResponseOutput struct{ *pulumi.OutputState }
 
 func (ConnectionStatusResponseOutput) ElementType() reflect.Type {
@@ -3750,226 +3066,11 @@ type ConsentLinkInputParameter struct {
 	TenantId      *string        `pulumi:"tenantId"`
 }
 
-
-
-
-
-type ConsentLinkInputParameterInput interface {
-	pulumi.Input
-
-	ToConsentLinkInputParameterOutput() ConsentLinkInputParameterOutput
-	ToConsentLinkInputParameterOutputWithContext(context.Context) ConsentLinkInputParameterOutput
-}
-
-type ConsentLinkInputParameterArgs struct {
-	ObjectId      pulumi.StringPtrInput `pulumi:"objectId"`
-	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
-	PrincipalType PrincipalTypePtrInput `pulumi:"principalType"`
-	RedirectUrl   pulumi.StringPtrInput `pulumi:"redirectUrl"`
-	TenantId      pulumi.StringPtrInput `pulumi:"tenantId"`
-}
-
-func (ConsentLinkInputParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsentLinkInputParameter)(nil)).Elem()
-}
-
-func (i ConsentLinkInputParameterArgs) ToConsentLinkInputParameterOutput() ConsentLinkInputParameterOutput {
-	return i.ToConsentLinkInputParameterOutputWithContext(context.Background())
-}
-
-func (i ConsentLinkInputParameterArgs) ToConsentLinkInputParameterOutputWithContext(ctx context.Context) ConsentLinkInputParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConsentLinkInputParameterOutput)
-}
-
-
-
-
-
-type ConsentLinkInputParameterArrayInput interface {
-	pulumi.Input
-
-	ToConsentLinkInputParameterArrayOutput() ConsentLinkInputParameterArrayOutput
-	ToConsentLinkInputParameterArrayOutputWithContext(context.Context) ConsentLinkInputParameterArrayOutput
-}
-
-type ConsentLinkInputParameterArray []ConsentLinkInputParameterInput
-
-func (ConsentLinkInputParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConsentLinkInputParameter)(nil)).Elem()
-}
-
-func (i ConsentLinkInputParameterArray) ToConsentLinkInputParameterArrayOutput() ConsentLinkInputParameterArrayOutput {
-	return i.ToConsentLinkInputParameterArrayOutputWithContext(context.Background())
-}
-
-func (i ConsentLinkInputParameterArray) ToConsentLinkInputParameterArrayOutputWithContext(ctx context.Context) ConsentLinkInputParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConsentLinkInputParameterArrayOutput)
-}
-
-type ConsentLinkInputParameterOutput struct{ *pulumi.OutputState }
-
-func (ConsentLinkInputParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsentLinkInputParameter)(nil)).Elem()
-}
-
-func (o ConsentLinkInputParameterOutput) ToConsentLinkInputParameterOutput() ConsentLinkInputParameterOutput {
-	return o
-}
-
-func (o ConsentLinkInputParameterOutput) ToConsentLinkInputParameterOutputWithContext(ctx context.Context) ConsentLinkInputParameterOutput {
-	return o
-}
-
-func (o ConsentLinkInputParameterOutput) ObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
-}
-
-func (o ConsentLinkInputParameterOutput) ParameterName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.ParameterName }).(pulumi.StringPtrOutput)
-}
-
-func (o ConsentLinkInputParameterOutput) PrincipalType() PrincipalTypePtrOutput {
-	return o.ApplyT(func(v ConsentLinkInputParameter) *PrincipalType { return v.PrincipalType }).(PrincipalTypePtrOutput)
-}
-
-func (o ConsentLinkInputParameterOutput) RedirectUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.RedirectUrl }).(pulumi.StringPtrOutput)
-}
-
-func (o ConsentLinkInputParameterOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsentLinkInputParameter) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-type ConsentLinkInputParameterArrayOutput struct{ *pulumi.OutputState }
-
-func (ConsentLinkInputParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConsentLinkInputParameter)(nil)).Elem()
-}
-
-func (o ConsentLinkInputParameterArrayOutput) ToConsentLinkInputParameterArrayOutput() ConsentLinkInputParameterArrayOutput {
-	return o
-}
-
-func (o ConsentLinkInputParameterArrayOutput) ToConsentLinkInputParameterArrayOutputWithContext(ctx context.Context) ConsentLinkInputParameterArrayOutput {
-	return o
-}
-
-func (o ConsentLinkInputParameterArrayOutput) Index(i pulumi.IntInput) ConsentLinkInputParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConsentLinkInputParameter {
-		return vs[0].([]ConsentLinkInputParameter)[vs[1].(int)]
-	}).(ConsentLinkInputParameterOutput)
-}
-
 type ConsentLinkResponse struct {
 	DisplayName        *string `pulumi:"displayName"`
 	FirstPartyLoginUri *string `pulumi:"firstPartyLoginUri"`
 	Link               *string `pulumi:"link"`
 	Status             *string `pulumi:"status"`
-}
-
-
-
-
-
-type ConsentLinkResponseInput interface {
-	pulumi.Input
-
-	ToConsentLinkResponseOutput() ConsentLinkResponseOutput
-	ToConsentLinkResponseOutputWithContext(context.Context) ConsentLinkResponseOutput
-}
-
-type ConsentLinkResponseArgs struct {
-	DisplayName        pulumi.StringPtrInput `pulumi:"displayName"`
-	FirstPartyLoginUri pulumi.StringPtrInput `pulumi:"firstPartyLoginUri"`
-	Link               pulumi.StringPtrInput `pulumi:"link"`
-	Status             pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (ConsentLinkResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsentLinkResponse)(nil)).Elem()
-}
-
-func (i ConsentLinkResponseArgs) ToConsentLinkResponseOutput() ConsentLinkResponseOutput {
-	return i.ToConsentLinkResponseOutputWithContext(context.Background())
-}
-
-func (i ConsentLinkResponseArgs) ToConsentLinkResponseOutputWithContext(ctx context.Context) ConsentLinkResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConsentLinkResponseOutput)
-}
-
-
-
-
-
-type ConsentLinkResponseArrayInput interface {
-	pulumi.Input
-
-	ToConsentLinkResponseArrayOutput() ConsentLinkResponseArrayOutput
-	ToConsentLinkResponseArrayOutputWithContext(context.Context) ConsentLinkResponseArrayOutput
-}
-
-type ConsentLinkResponseArray []ConsentLinkResponseInput
-
-func (ConsentLinkResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConsentLinkResponse)(nil)).Elem()
-}
-
-func (i ConsentLinkResponseArray) ToConsentLinkResponseArrayOutput() ConsentLinkResponseArrayOutput {
-	return i.ToConsentLinkResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ConsentLinkResponseArray) ToConsentLinkResponseArrayOutputWithContext(ctx context.Context) ConsentLinkResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConsentLinkResponseArrayOutput)
-}
-
-type ConsentLinkResponseOutput struct{ *pulumi.OutputState }
-
-func (ConsentLinkResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsentLinkResponse)(nil)).Elem()
-}
-
-func (o ConsentLinkResponseOutput) ToConsentLinkResponseOutput() ConsentLinkResponseOutput {
-	return o
-}
-
-func (o ConsentLinkResponseOutput) ToConsentLinkResponseOutputWithContext(ctx context.Context) ConsentLinkResponseOutput {
-	return o
-}
-
-func (o ConsentLinkResponseOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsentLinkResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-func (o ConsentLinkResponseOutput) FirstPartyLoginUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsentLinkResponse) *string { return v.FirstPartyLoginUri }).(pulumi.StringPtrOutput)
-}
-
-func (o ConsentLinkResponseOutput) Link() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsentLinkResponse) *string { return v.Link }).(pulumi.StringPtrOutput)
-}
-
-func (o ConsentLinkResponseOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsentLinkResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type ConsentLinkResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (ConsentLinkResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConsentLinkResponse)(nil)).Elem()
-}
-
-func (o ConsentLinkResponseArrayOutput) ToConsentLinkResponseArrayOutput() ConsentLinkResponseArrayOutput {
-	return o
-}
-
-func (o ConsentLinkResponseArrayOutput) ToConsentLinkResponseArrayOutputWithContext(ctx context.Context) ConsentLinkResponseArrayOutput {
-	return o
-}
-
-func (o ConsentLinkResponseArrayOutput) Index(i pulumi.IntInput) ConsentLinkResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConsentLinkResponse {
-		return vs[0].([]ConsentLinkResponse)[vs[1].(int)]
-	}).(ConsentLinkResponseOutput)
 }
 
 type CustomLoginSettingValue struct {
@@ -4110,64 +3211,6 @@ type CustomLoginSettingValueResponse struct {
 	Option   *string           `pulumi:"option"`
 	Tags     map[string]string `pulumi:"tags"`
 	Type     *string           `pulumi:"type"`
-}
-
-
-
-
-
-type CustomLoginSettingValueResponseInput interface {
-	pulumi.Input
-
-	ToCustomLoginSettingValueResponseOutput() CustomLoginSettingValueResponseOutput
-	ToCustomLoginSettingValueResponseOutputWithContext(context.Context) CustomLoginSettingValueResponseOutput
-}
-
-type CustomLoginSettingValueResponseArgs struct {
-	Id       pulumi.StringPtrInput `pulumi:"id"`
-	Kind     pulumi.StringPtrInput `pulumi:"kind"`
-	Location pulumi.StringInput    `pulumi:"location"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Option   pulumi.StringPtrInput `pulumi:"option"`
-	Tags     pulumi.StringMapInput `pulumi:"tags"`
-	Type     pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (CustomLoginSettingValueResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomLoginSettingValueResponse)(nil)).Elem()
-}
-
-func (i CustomLoginSettingValueResponseArgs) ToCustomLoginSettingValueResponseOutput() CustomLoginSettingValueResponseOutput {
-	return i.ToCustomLoginSettingValueResponseOutputWithContext(context.Background())
-}
-
-func (i CustomLoginSettingValueResponseArgs) ToCustomLoginSettingValueResponseOutputWithContext(ctx context.Context) CustomLoginSettingValueResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomLoginSettingValueResponseOutput)
-}
-
-
-
-
-
-type CustomLoginSettingValueResponseMapInput interface {
-	pulumi.Input
-
-	ToCustomLoginSettingValueResponseMapOutput() CustomLoginSettingValueResponseMapOutput
-	ToCustomLoginSettingValueResponseMapOutputWithContext(context.Context) CustomLoginSettingValueResponseMapOutput
-}
-
-type CustomLoginSettingValueResponseMap map[string]CustomLoginSettingValueResponseInput
-
-func (CustomLoginSettingValueResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CustomLoginSettingValueResponse)(nil)).Elem()
-}
-
-func (i CustomLoginSettingValueResponseMap) ToCustomLoginSettingValueResponseMapOutput() CustomLoginSettingValueResponseMapOutput {
-	return i.ToCustomLoginSettingValueResponseMapOutputWithContext(context.Background())
-}
-
-func (i CustomLoginSettingValueResponseMap) ToCustomLoginSettingValueResponseMapOutputWithContext(ctx context.Context) CustomLoginSettingValueResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomLoginSettingValueResponseMapOutput)
 }
 
 type CustomLoginSettingValueResponseOutput struct{ *pulumi.OutputState }
@@ -4465,80 +3508,6 @@ type ExpandedParentApiEntityResponse struct {
 	Type     *string                                   `pulumi:"type"`
 }
 
-
-
-
-
-type ExpandedParentApiEntityResponseInput interface {
-	pulumi.Input
-
-	ToExpandedParentApiEntityResponseOutput() ExpandedParentApiEntityResponseOutput
-	ToExpandedParentApiEntityResponseOutputWithContext(context.Context) ExpandedParentApiEntityResponseOutput
-}
-
-type ExpandedParentApiEntityResponseArgs struct {
-	Entity   ResponseMessageEnvelopeApiEntityResponsePtrInput `pulumi:"entity"`
-	Id       pulumi.StringPtrInput                            `pulumi:"id"`
-	Kind     pulumi.StringPtrInput                            `pulumi:"kind"`
-	Location pulumi.StringInput                               `pulumi:"location"`
-	Name     pulumi.StringPtrInput                            `pulumi:"name"`
-	Tags     pulumi.StringMapInput                            `pulumi:"tags"`
-	Type     pulumi.StringPtrInput                            `pulumi:"type"`
-}
-
-func (ExpandedParentApiEntityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpandedParentApiEntityResponse)(nil)).Elem()
-}
-
-func (i ExpandedParentApiEntityResponseArgs) ToExpandedParentApiEntityResponseOutput() ExpandedParentApiEntityResponseOutput {
-	return i.ToExpandedParentApiEntityResponseOutputWithContext(context.Background())
-}
-
-func (i ExpandedParentApiEntityResponseArgs) ToExpandedParentApiEntityResponseOutputWithContext(ctx context.Context) ExpandedParentApiEntityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpandedParentApiEntityResponseOutput)
-}
-
-func (i ExpandedParentApiEntityResponseArgs) ToExpandedParentApiEntityResponsePtrOutput() ExpandedParentApiEntityResponsePtrOutput {
-	return i.ToExpandedParentApiEntityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ExpandedParentApiEntityResponseArgs) ToExpandedParentApiEntityResponsePtrOutputWithContext(ctx context.Context) ExpandedParentApiEntityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpandedParentApiEntityResponseOutput).ToExpandedParentApiEntityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ExpandedParentApiEntityResponsePtrInput interface {
-	pulumi.Input
-
-	ToExpandedParentApiEntityResponsePtrOutput() ExpandedParentApiEntityResponsePtrOutput
-	ToExpandedParentApiEntityResponsePtrOutputWithContext(context.Context) ExpandedParentApiEntityResponsePtrOutput
-}
-
-type expandedParentApiEntityResponsePtrType ExpandedParentApiEntityResponseArgs
-
-func ExpandedParentApiEntityResponsePtr(v *ExpandedParentApiEntityResponseArgs) ExpandedParentApiEntityResponsePtrInput {
-	return (*expandedParentApiEntityResponsePtrType)(v)
-}
-
-func (*expandedParentApiEntityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExpandedParentApiEntityResponse)(nil)).Elem()
-}
-
-func (i *expandedParentApiEntityResponsePtrType) ToExpandedParentApiEntityResponsePtrOutput() ExpandedParentApiEntityResponsePtrOutput {
-	return i.ToExpandedParentApiEntityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *expandedParentApiEntityResponsePtrType) ToExpandedParentApiEntityResponsePtrOutputWithContext(ctx context.Context) ExpandedParentApiEntityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExpandedParentApiEntityResponsePtrOutput)
-}
-
 type ExpandedParentApiEntityResponseOutput struct{ *pulumi.OutputState }
 
 func (ExpandedParentApiEntityResponseOutput) ElementType() reflect.Type {
@@ -4551,16 +3520,6 @@ func (o ExpandedParentApiEntityResponseOutput) ToExpandedParentApiEntityResponse
 
 func (o ExpandedParentApiEntityResponseOutput) ToExpandedParentApiEntityResponseOutputWithContext(ctx context.Context) ExpandedParentApiEntityResponseOutput {
 	return o
-}
-
-func (o ExpandedParentApiEntityResponseOutput) ToExpandedParentApiEntityResponsePtrOutput() ExpandedParentApiEntityResponsePtrOutput {
-	return o.ToExpandedParentApiEntityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ExpandedParentApiEntityResponseOutput) ToExpandedParentApiEntityResponsePtrOutputWithContext(ctx context.Context) ExpandedParentApiEntityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExpandedParentApiEntityResponse) *ExpandedParentApiEntityResponse {
-		return &v
-	}).(ExpandedParentApiEntityResponsePtrOutput)
 }
 
 func (o ExpandedParentApiEntityResponseOutput) Entity() ResponseMessageEnvelopeApiEntityResponsePtrOutput {
@@ -4991,85 +3950,6 @@ type GeneralApiInformationResponse struct {
 	Type                  *string           `pulumi:"type"`
 }
 
-
-
-
-
-type GeneralApiInformationResponseInput interface {
-	pulumi.Input
-
-	ToGeneralApiInformationResponseOutput() GeneralApiInformationResponseOutput
-	ToGeneralApiInformationResponseOutputWithContext(context.Context) GeneralApiInformationResponseOutput
-}
-
-type GeneralApiInformationResponseArgs struct {
-	ConnectionDisplayName pulumi.StringPtrInput `pulumi:"connectionDisplayName"`
-	ConnectionPortalUrl   pulumi.Input          `pulumi:"connectionPortalUrl"`
-	Description           pulumi.StringPtrInput `pulumi:"description"`
-	DisplayName           pulumi.StringPtrInput `pulumi:"displayName"`
-	IconUrl               pulumi.StringPtrInput `pulumi:"iconUrl"`
-	Id                    pulumi.StringPtrInput `pulumi:"id"`
-	Kind                  pulumi.StringPtrInput `pulumi:"kind"`
-	Location              pulumi.StringInput    `pulumi:"location"`
-	Name                  pulumi.StringPtrInput `pulumi:"name"`
-	Tags                  pulumi.StringMapInput `pulumi:"tags"`
-	TermsOfUseUrl         pulumi.StringPtrInput `pulumi:"termsOfUseUrl"`
-	Type                  pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (GeneralApiInformationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeneralApiInformationResponse)(nil)).Elem()
-}
-
-func (i GeneralApiInformationResponseArgs) ToGeneralApiInformationResponseOutput() GeneralApiInformationResponseOutput {
-	return i.ToGeneralApiInformationResponseOutputWithContext(context.Background())
-}
-
-func (i GeneralApiInformationResponseArgs) ToGeneralApiInformationResponseOutputWithContext(ctx context.Context) GeneralApiInformationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GeneralApiInformationResponseOutput)
-}
-
-func (i GeneralApiInformationResponseArgs) ToGeneralApiInformationResponsePtrOutput() GeneralApiInformationResponsePtrOutput {
-	return i.ToGeneralApiInformationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i GeneralApiInformationResponseArgs) ToGeneralApiInformationResponsePtrOutputWithContext(ctx context.Context) GeneralApiInformationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GeneralApiInformationResponseOutput).ToGeneralApiInformationResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type GeneralApiInformationResponsePtrInput interface {
-	pulumi.Input
-
-	ToGeneralApiInformationResponsePtrOutput() GeneralApiInformationResponsePtrOutput
-	ToGeneralApiInformationResponsePtrOutputWithContext(context.Context) GeneralApiInformationResponsePtrOutput
-}
-
-type generalApiInformationResponsePtrType GeneralApiInformationResponseArgs
-
-func GeneralApiInformationResponsePtr(v *GeneralApiInformationResponseArgs) GeneralApiInformationResponsePtrInput {
-	return (*generalApiInformationResponsePtrType)(v)
-}
-
-func (*generalApiInformationResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GeneralApiInformationResponse)(nil)).Elem()
-}
-
-func (i *generalApiInformationResponsePtrType) ToGeneralApiInformationResponsePtrOutput() GeneralApiInformationResponsePtrOutput {
-	return i.ToGeneralApiInformationResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *generalApiInformationResponsePtrType) ToGeneralApiInformationResponsePtrOutputWithContext(ctx context.Context) GeneralApiInformationResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GeneralApiInformationResponsePtrOutput)
-}
-
 type GeneralApiInformationResponseOutput struct{ *pulumi.OutputState }
 
 func (GeneralApiInformationResponseOutput) ElementType() reflect.Type {
@@ -5082,16 +3962,6 @@ func (o GeneralApiInformationResponseOutput) ToGeneralApiInformationResponseOutp
 
 func (o GeneralApiInformationResponseOutput) ToGeneralApiInformationResponseOutputWithContext(ctx context.Context) GeneralApiInformationResponseOutput {
 	return o
-}
-
-func (o GeneralApiInformationResponseOutput) ToGeneralApiInformationResponsePtrOutput() GeneralApiInformationResponsePtrOutput {
-	return o.ToGeneralApiInformationResponsePtrOutputWithContext(context.Background())
-}
-
-func (o GeneralApiInformationResponseOutput) ToGeneralApiInformationResponsePtrOutputWithContext(ctx context.Context) GeneralApiInformationResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GeneralApiInformationResponse) *GeneralApiInformationResponse {
-		return &v
-	}).(GeneralApiInformationResponsePtrOutput)
 }
 
 func (o GeneralApiInformationResponseOutput) ConnectionDisplayName() pulumi.StringPtrOutput {
@@ -5393,61 +4263,6 @@ type HostingEnvironmentServiceDescriptionsResponse struct {
 	UseInternalRouting   *bool   `pulumi:"useInternalRouting"`
 }
 
-
-
-
-
-type HostingEnvironmentServiceDescriptionsResponseInput interface {
-	pulumi.Input
-
-	ToHostingEnvironmentServiceDescriptionsResponseOutput() HostingEnvironmentServiceDescriptionsResponseOutput
-	ToHostingEnvironmentServiceDescriptionsResponseOutputWithContext(context.Context) HostingEnvironmentServiceDescriptionsResponseOutput
-}
-
-type HostingEnvironmentServiceDescriptionsResponseArgs struct {
-	HostId               pulumi.StringPtrInput `pulumi:"hostId"`
-	HostingEnvironmentId pulumi.StringPtrInput `pulumi:"hostingEnvironmentId"`
-	ServiceUrl           pulumi.StringPtrInput `pulumi:"serviceUrl"`
-	UseInternalRouting   pulumi.BoolPtrInput   `pulumi:"useInternalRouting"`
-}
-
-func (HostingEnvironmentServiceDescriptionsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostingEnvironmentServiceDescriptionsResponse)(nil)).Elem()
-}
-
-func (i HostingEnvironmentServiceDescriptionsResponseArgs) ToHostingEnvironmentServiceDescriptionsResponseOutput() HostingEnvironmentServiceDescriptionsResponseOutput {
-	return i.ToHostingEnvironmentServiceDescriptionsResponseOutputWithContext(context.Background())
-}
-
-func (i HostingEnvironmentServiceDescriptionsResponseArgs) ToHostingEnvironmentServiceDescriptionsResponseOutputWithContext(ctx context.Context) HostingEnvironmentServiceDescriptionsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentServiceDescriptionsResponseOutput)
-}
-
-
-
-
-
-type HostingEnvironmentServiceDescriptionsResponseArrayInput interface {
-	pulumi.Input
-
-	ToHostingEnvironmentServiceDescriptionsResponseArrayOutput() HostingEnvironmentServiceDescriptionsResponseArrayOutput
-	ToHostingEnvironmentServiceDescriptionsResponseArrayOutputWithContext(context.Context) HostingEnvironmentServiceDescriptionsResponseArrayOutput
-}
-
-type HostingEnvironmentServiceDescriptionsResponseArray []HostingEnvironmentServiceDescriptionsResponseInput
-
-func (HostingEnvironmentServiceDescriptionsResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HostingEnvironmentServiceDescriptionsResponse)(nil)).Elem()
-}
-
-func (i HostingEnvironmentServiceDescriptionsResponseArray) ToHostingEnvironmentServiceDescriptionsResponseArrayOutput() HostingEnvironmentServiceDescriptionsResponseArrayOutput {
-	return i.ToHostingEnvironmentServiceDescriptionsResponseArrayOutputWithContext(context.Background())
-}
-
-func (i HostingEnvironmentServiceDescriptionsResponseArray) ToHostingEnvironmentServiceDescriptionsResponseArrayOutputWithContext(ctx context.Context) HostingEnvironmentServiceDescriptionsResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentServiceDescriptionsResponseArrayOutput)
-}
-
 type HostingEnvironmentServiceDescriptionsResponseOutput struct{ *pulumi.OutputState }
 
 func (HostingEnvironmentServiceDescriptionsResponseOutput) ElementType() reflect.Type {
@@ -5638,64 +4453,6 @@ type ParameterCustomLoginSettingValuesResponse struct {
 	Name             *string                                    `pulumi:"name"`
 	Tags             map[string]string                          `pulumi:"tags"`
 	Type             *string                                    `pulumi:"type"`
-}
-
-
-
-
-
-type ParameterCustomLoginSettingValuesResponseInput interface {
-	pulumi.Input
-
-	ToParameterCustomLoginSettingValuesResponseOutput() ParameterCustomLoginSettingValuesResponseOutput
-	ToParameterCustomLoginSettingValuesResponseOutputWithContext(context.Context) ParameterCustomLoginSettingValuesResponseOutput
-}
-
-type ParameterCustomLoginSettingValuesResponseArgs struct {
-	CustomParameters CustomLoginSettingValueResponseMapInput `pulumi:"customParameters"`
-	Id               pulumi.StringPtrInput                   `pulumi:"id"`
-	Kind             pulumi.StringPtrInput                   `pulumi:"kind"`
-	Location         pulumi.StringInput                      `pulumi:"location"`
-	Name             pulumi.StringPtrInput                   `pulumi:"name"`
-	Tags             pulumi.StringMapInput                   `pulumi:"tags"`
-	Type             pulumi.StringPtrInput                   `pulumi:"type"`
-}
-
-func (ParameterCustomLoginSettingValuesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterCustomLoginSettingValuesResponse)(nil)).Elem()
-}
-
-func (i ParameterCustomLoginSettingValuesResponseArgs) ToParameterCustomLoginSettingValuesResponseOutput() ParameterCustomLoginSettingValuesResponseOutput {
-	return i.ToParameterCustomLoginSettingValuesResponseOutputWithContext(context.Background())
-}
-
-func (i ParameterCustomLoginSettingValuesResponseArgs) ToParameterCustomLoginSettingValuesResponseOutputWithContext(ctx context.Context) ParameterCustomLoginSettingValuesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterCustomLoginSettingValuesResponseOutput)
-}
-
-
-
-
-
-type ParameterCustomLoginSettingValuesResponseMapInput interface {
-	pulumi.Input
-
-	ToParameterCustomLoginSettingValuesResponseMapOutput() ParameterCustomLoginSettingValuesResponseMapOutput
-	ToParameterCustomLoginSettingValuesResponseMapOutputWithContext(context.Context) ParameterCustomLoginSettingValuesResponseMapOutput
-}
-
-type ParameterCustomLoginSettingValuesResponseMap map[string]ParameterCustomLoginSettingValuesResponseInput
-
-func (ParameterCustomLoginSettingValuesResponseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ParameterCustomLoginSettingValuesResponse)(nil)).Elem()
-}
-
-func (i ParameterCustomLoginSettingValuesResponseMap) ToParameterCustomLoginSettingValuesResponseMapOutput() ParameterCustomLoginSettingValuesResponseMapOutput {
-	return i.ToParameterCustomLoginSettingValuesResponseMapOutputWithContext(context.Background())
-}
-
-func (i ParameterCustomLoginSettingValuesResponseMap) ToParameterCustomLoginSettingValuesResponseMapOutputWithContext(ctx context.Context) ParameterCustomLoginSettingValuesResponseMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterCustomLoginSettingValuesResponseMapOutput)
 }
 
 type ParameterCustomLoginSettingValuesResponseOutput struct{ *pulumi.OutputState }
@@ -6011,81 +4768,6 @@ type ResponseMessageEnvelopeApiEntityResponse struct {
 	Type       *string                 `pulumi:"type"`
 }
 
-
-
-
-
-type ResponseMessageEnvelopeApiEntityResponseInput interface {
-	pulumi.Input
-
-	ToResponseMessageEnvelopeApiEntityResponseOutput() ResponseMessageEnvelopeApiEntityResponseOutput
-	ToResponseMessageEnvelopeApiEntityResponseOutputWithContext(context.Context) ResponseMessageEnvelopeApiEntityResponseOutput
-}
-
-type ResponseMessageEnvelopeApiEntityResponseArgs struct {
-	Id         pulumi.StringPtrInput          `pulumi:"id"`
-	Location   pulumi.StringPtrInput          `pulumi:"location"`
-	Name       pulumi.StringPtrInput          `pulumi:"name"`
-	Plan       ArmPlanResponsePtrInput        `pulumi:"plan"`
-	Properties ApiEntityResponsePtrInput      `pulumi:"properties"`
-	Sku        SkuDescriptionResponsePtrInput `pulumi:"sku"`
-	Tags       pulumi.StringMapInput          `pulumi:"tags"`
-	Type       pulumi.StringPtrInput          `pulumi:"type"`
-}
-
-func (ResponseMessageEnvelopeApiEntityResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponseMessageEnvelopeApiEntityResponse)(nil)).Elem()
-}
-
-func (i ResponseMessageEnvelopeApiEntityResponseArgs) ToResponseMessageEnvelopeApiEntityResponseOutput() ResponseMessageEnvelopeApiEntityResponseOutput {
-	return i.ToResponseMessageEnvelopeApiEntityResponseOutputWithContext(context.Background())
-}
-
-func (i ResponseMessageEnvelopeApiEntityResponseArgs) ToResponseMessageEnvelopeApiEntityResponseOutputWithContext(ctx context.Context) ResponseMessageEnvelopeApiEntityResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponseMessageEnvelopeApiEntityResponseOutput)
-}
-
-func (i ResponseMessageEnvelopeApiEntityResponseArgs) ToResponseMessageEnvelopeApiEntityResponsePtrOutput() ResponseMessageEnvelopeApiEntityResponsePtrOutput {
-	return i.ToResponseMessageEnvelopeApiEntityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ResponseMessageEnvelopeApiEntityResponseArgs) ToResponseMessageEnvelopeApiEntityResponsePtrOutputWithContext(ctx context.Context) ResponseMessageEnvelopeApiEntityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponseMessageEnvelopeApiEntityResponseOutput).ToResponseMessageEnvelopeApiEntityResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type ResponseMessageEnvelopeApiEntityResponsePtrInput interface {
-	pulumi.Input
-
-	ToResponseMessageEnvelopeApiEntityResponsePtrOutput() ResponseMessageEnvelopeApiEntityResponsePtrOutput
-	ToResponseMessageEnvelopeApiEntityResponsePtrOutputWithContext(context.Context) ResponseMessageEnvelopeApiEntityResponsePtrOutput
-}
-
-type responseMessageEnvelopeApiEntityResponsePtrType ResponseMessageEnvelopeApiEntityResponseArgs
-
-func ResponseMessageEnvelopeApiEntityResponsePtr(v *ResponseMessageEnvelopeApiEntityResponseArgs) ResponseMessageEnvelopeApiEntityResponsePtrInput {
-	return (*responseMessageEnvelopeApiEntityResponsePtrType)(v)
-}
-
-func (*responseMessageEnvelopeApiEntityResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResponseMessageEnvelopeApiEntityResponse)(nil)).Elem()
-}
-
-func (i *responseMessageEnvelopeApiEntityResponsePtrType) ToResponseMessageEnvelopeApiEntityResponsePtrOutput() ResponseMessageEnvelopeApiEntityResponsePtrOutput {
-	return i.ToResponseMessageEnvelopeApiEntityResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *responseMessageEnvelopeApiEntityResponsePtrType) ToResponseMessageEnvelopeApiEntityResponsePtrOutputWithContext(ctx context.Context) ResponseMessageEnvelopeApiEntityResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponseMessageEnvelopeApiEntityResponsePtrOutput)
-}
-
 type ResponseMessageEnvelopeApiEntityResponseOutput struct{ *pulumi.OutputState }
 
 func (ResponseMessageEnvelopeApiEntityResponseOutput) ElementType() reflect.Type {
@@ -6098,16 +4780,6 @@ func (o ResponseMessageEnvelopeApiEntityResponseOutput) ToResponseMessageEnvelop
 
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) ToResponseMessageEnvelopeApiEntityResponseOutputWithContext(ctx context.Context) ResponseMessageEnvelopeApiEntityResponseOutput {
 	return o
-}
-
-func (o ResponseMessageEnvelopeApiEntityResponseOutput) ToResponseMessageEnvelopeApiEntityResponsePtrOutput() ResponseMessageEnvelopeApiEntityResponsePtrOutput {
-	return o.ToResponseMessageEnvelopeApiEntityResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ResponseMessageEnvelopeApiEntityResponseOutput) ToResponseMessageEnvelopeApiEntityResponsePtrOutputWithContext(ctx context.Context) ResponseMessageEnvelopeApiEntityResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponseMessageEnvelopeApiEntityResponse) *ResponseMessageEnvelopeApiEntityResponse {
-		return &v
-	}).(ResponseMessageEnvelopeApiEntityResponsePtrOutput)
 }
 
 func (o ResponseMessageEnvelopeApiEntityResponseOutput) Id() pulumi.StringPtrOutput {
@@ -6439,78 +5111,6 @@ type SkuDescriptionResponse struct {
 	Tier     *string `pulumi:"tier"`
 }
 
-
-
-
-
-type SkuDescriptionResponseInput interface {
-	pulumi.Input
-
-	ToSkuDescriptionResponseOutput() SkuDescriptionResponseOutput
-	ToSkuDescriptionResponseOutputWithContext(context.Context) SkuDescriptionResponseOutput
-}
-
-type SkuDescriptionResponseArgs struct {
-	Capacity pulumi.IntPtrInput    `pulumi:"capacity"`
-	Family   pulumi.StringPtrInput `pulumi:"family"`
-	Name     pulumi.StringPtrInput `pulumi:"name"`
-	Size     pulumi.StringPtrInput `pulumi:"size"`
-	Tier     pulumi.StringPtrInput `pulumi:"tier"`
-}
-
-func (SkuDescriptionResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SkuDescriptionResponse)(nil)).Elem()
-}
-
-func (i SkuDescriptionResponseArgs) ToSkuDescriptionResponseOutput() SkuDescriptionResponseOutput {
-	return i.ToSkuDescriptionResponseOutputWithContext(context.Background())
-}
-
-func (i SkuDescriptionResponseArgs) ToSkuDescriptionResponseOutputWithContext(ctx context.Context) SkuDescriptionResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuDescriptionResponseOutput)
-}
-
-func (i SkuDescriptionResponseArgs) ToSkuDescriptionResponsePtrOutput() SkuDescriptionResponsePtrOutput {
-	return i.ToSkuDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SkuDescriptionResponseArgs) ToSkuDescriptionResponsePtrOutputWithContext(ctx context.Context) SkuDescriptionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuDescriptionResponseOutput).ToSkuDescriptionResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SkuDescriptionResponsePtrInput interface {
-	pulumi.Input
-
-	ToSkuDescriptionResponsePtrOutput() SkuDescriptionResponsePtrOutput
-	ToSkuDescriptionResponsePtrOutputWithContext(context.Context) SkuDescriptionResponsePtrOutput
-}
-
-type skuDescriptionResponsePtrType SkuDescriptionResponseArgs
-
-func SkuDescriptionResponsePtr(v *SkuDescriptionResponseArgs) SkuDescriptionResponsePtrInput {
-	return (*skuDescriptionResponsePtrType)(v)
-}
-
-func (*skuDescriptionResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SkuDescriptionResponse)(nil)).Elem()
-}
-
-func (i *skuDescriptionResponsePtrType) ToSkuDescriptionResponsePtrOutput() SkuDescriptionResponsePtrOutput {
-	return i.ToSkuDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *skuDescriptionResponsePtrType) ToSkuDescriptionResponsePtrOutputWithContext(ctx context.Context) SkuDescriptionResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SkuDescriptionResponsePtrOutput)
-}
-
 type SkuDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (SkuDescriptionResponseOutput) ElementType() reflect.Type {
@@ -6523,16 +5123,6 @@ func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponseOutput() SkuDescri
 
 func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponseOutputWithContext(ctx context.Context) SkuDescriptionResponseOutput {
 	return o
-}
-
-func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutput() SkuDescriptionResponsePtrOutput {
-	return o.ToSkuDescriptionResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SkuDescriptionResponseOutput) ToSkuDescriptionResponsePtrOutputWithContext(ctx context.Context) SkuDescriptionResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SkuDescriptionResponse) *SkuDescriptionResponse {
-		return &v
-	}).(SkuDescriptionResponsePtrOutput)
 }
 
 func (o SkuDescriptionResponseOutput) Capacity() pulumi.IntPtrOutput {
@@ -6661,10 +5251,6 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionStatusArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionStatusResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionStatusResponseArrayOutput{})
-	pulumi.RegisterOutputType(ConsentLinkInputParameterOutput{})
-	pulumi.RegisterOutputType(ConsentLinkInputParameterArrayOutput{})
-	pulumi.RegisterOutputType(ConsentLinkResponseOutput{})
-	pulumi.RegisterOutputType(ConsentLinkResponseArrayOutput{})
 	pulumi.RegisterOutputType(CustomLoginSettingValueOutput{})
 	pulumi.RegisterOutputType(CustomLoginSettingValueMapOutput{})
 	pulumi.RegisterOutputType(CustomLoginSettingValueResponseOutput{})

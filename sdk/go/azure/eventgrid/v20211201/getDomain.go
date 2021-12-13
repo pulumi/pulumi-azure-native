@@ -13,7 +13,7 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDomainArgs struct {
@@ -41,4 +41,33 @@ type LookupDomainResult struct {
 	SystemData                           SystemDataResponse                  `pulumi:"systemData"`
 	Tags                                 map[string]string                   `pulumi:"tags"`
 	Type                                 string                              `pulumi:"type"`
+}
+
+
+func (val *LookupDomainResult) Defaults() *LookupDomainResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AutoCreateTopicWithFirstSubscription) {
+		autoCreateTopicWithFirstSubscription_ := true
+		tmp.AutoCreateTopicWithFirstSubscription = &autoCreateTopicWithFirstSubscription_
+	}
+	if isZero(tmp.AutoDeleteTopicWithLastSubscription) {
+		autoDeleteTopicWithLastSubscription_ := true
+		tmp.AutoDeleteTopicWithLastSubscription = &autoDeleteTopicWithLastSubscription_
+	}
+	if isZero(tmp.DisableLocalAuth) {
+		disableLocalAuth_ := false
+		tmp.DisableLocalAuth = &disableLocalAuth_
+	}
+	if isZero(tmp.InputSchema) {
+		inputSchema_ := "EventGridSchema"
+		tmp.InputSchema = &inputSchema_
+	}
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "Enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	return &tmp
 }

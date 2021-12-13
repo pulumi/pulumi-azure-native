@@ -145,7 +145,7 @@ type SiteMetadataSlotInput interface {
 }
 
 func (*SiteMetadataSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteMetadataSlot)(nil))
+	return reflect.TypeOf((**SiteMetadataSlot)(nil)).Elem()
 }
 
 func (i *SiteMetadataSlot) ToSiteMetadataSlotOutput() SiteMetadataSlotOutput {
@@ -159,7 +159,7 @@ func (i *SiteMetadataSlot) ToSiteMetadataSlotOutputWithContext(ctx context.Conte
 type SiteMetadataSlotOutput struct{ *pulumi.OutputState }
 
 func (SiteMetadataSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteMetadataSlot)(nil))
+	return reflect.TypeOf((**SiteMetadataSlot)(nil)).Elem()
 }
 
 func (o SiteMetadataSlotOutput) ToSiteMetadataSlotOutput() SiteMetadataSlotOutput {

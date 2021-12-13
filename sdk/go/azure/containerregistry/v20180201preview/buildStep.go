@@ -93,7 +93,7 @@ type BuildStepInput interface {
 }
 
 func (*BuildStep) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildStep)(nil))
+	return reflect.TypeOf((**BuildStep)(nil)).Elem()
 }
 
 func (i *BuildStep) ToBuildStepOutput() BuildStepOutput {
@@ -107,7 +107,7 @@ func (i *BuildStep) ToBuildStepOutputWithContext(ctx context.Context) BuildStepO
 type BuildStepOutput struct{ *pulumi.OutputState }
 
 func (BuildStepOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildStep)(nil))
+	return reflect.TypeOf((**BuildStep)(nil)).Elem()
 }
 
 func (o BuildStepOutput) ToBuildStepOutput() BuildStepOutput {

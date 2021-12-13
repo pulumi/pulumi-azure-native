@@ -128,7 +128,7 @@ type PrivateDnsZoneGroupInput interface {
 }
 
 func (*PrivateDnsZoneGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateDnsZoneGroup)(nil))
+	return reflect.TypeOf((**PrivateDnsZoneGroup)(nil)).Elem()
 }
 
 func (i *PrivateDnsZoneGroup) ToPrivateDnsZoneGroupOutput() PrivateDnsZoneGroupOutput {
@@ -142,7 +142,7 @@ func (i *PrivateDnsZoneGroup) ToPrivateDnsZoneGroupOutputWithContext(ctx context
 type PrivateDnsZoneGroupOutput struct{ *pulumi.OutputState }
 
 func (PrivateDnsZoneGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateDnsZoneGroup)(nil))
+	return reflect.TypeOf((**PrivateDnsZoneGroup)(nil)).Elem()
 }
 
 func (o PrivateDnsZoneGroupOutput) ToPrivateDnsZoneGroupOutput() PrivateDnsZoneGroupOutput {

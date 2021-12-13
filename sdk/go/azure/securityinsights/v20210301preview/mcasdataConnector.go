@@ -130,7 +130,7 @@ type MCASDataConnectorInput interface {
 }
 
 func (*MCASDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*MCASDataConnector)(nil))
+	return reflect.TypeOf((**MCASDataConnector)(nil)).Elem()
 }
 
 func (i *MCASDataConnector) ToMCASDataConnectorOutput() MCASDataConnectorOutput {
@@ -144,7 +144,7 @@ func (i *MCASDataConnector) ToMCASDataConnectorOutputWithContext(ctx context.Con
 type MCASDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (MCASDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MCASDataConnector)(nil))
+	return reflect.TypeOf((**MCASDataConnector)(nil)).Elem()
 }
 
 func (o MCASDataConnectorOutput) ToMCASDataConnectorOutput() MCASDataConnectorOutput {

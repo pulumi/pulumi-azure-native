@@ -108,7 +108,7 @@ type GuestAgentInput interface {
 }
 
 func (*GuestAgent) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestAgent)(nil))
+	return reflect.TypeOf((**GuestAgent)(nil)).Elem()
 }
 
 func (i *GuestAgent) ToGuestAgentOutput() GuestAgentOutput {
@@ -122,7 +122,7 @@ func (i *GuestAgent) ToGuestAgentOutputWithContext(ctx context.Context) GuestAge
 type GuestAgentOutput struct{ *pulumi.OutputState }
 
 func (GuestAgentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestAgent)(nil))
+	return reflect.TypeOf((**GuestAgent)(nil)).Elem()
 }
 
 func (o GuestAgentOutput) ToGuestAgentOutput() GuestAgentOutput {

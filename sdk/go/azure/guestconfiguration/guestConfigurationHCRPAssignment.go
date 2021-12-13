@@ -33,6 +33,11 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToGuestConfigurationAssignmentPropertiesPtrOutput().ApplyT(func(v *GuestConfigurationAssignmentProperties) *GuestConfigurationAssignmentProperties {
+			return v.Defaults()
+		}).(GuestConfigurationAssignmentPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"),
@@ -107,7 +112,7 @@ type GuestConfigurationHCRPAssignmentInput interface {
 }
 
 func (*GuestConfigurationHCRPAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestConfigurationHCRPAssignment)(nil))
+	return reflect.TypeOf((**GuestConfigurationHCRPAssignment)(nil)).Elem()
 }
 
 func (i *GuestConfigurationHCRPAssignment) ToGuestConfigurationHCRPAssignmentOutput() GuestConfigurationHCRPAssignmentOutput {
@@ -121,7 +126,7 @@ func (i *GuestConfigurationHCRPAssignment) ToGuestConfigurationHCRPAssignmentOut
 type GuestConfigurationHCRPAssignmentOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationHCRPAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestConfigurationHCRPAssignment)(nil))
+	return reflect.TypeOf((**GuestConfigurationHCRPAssignment)(nil)).Elem()
 }
 
 func (o GuestConfigurationHCRPAssignmentOutput) ToGuestConfigurationHCRPAssignmentOutput() GuestConfigurationHCRPAssignmentOutput {

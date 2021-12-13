@@ -16,6 +16,19 @@ type NetworkProfile struct {
 }
 
 
+func (val *NetworkProfile) Defaults() *NetworkProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.VnetCidr) {
+		vnetCidr_ := "10.0.0.0/8"
+		tmp.VnetCidr = &vnetCidr_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -164,72 +177,16 @@ type NetworkProfileResponse struct {
 }
 
 
-
-
-
-type NetworkProfileResponseInput interface {
-	pulumi.Input
-
-	ToNetworkProfileResponseOutput() NetworkProfileResponseOutput
-	ToNetworkProfileResponseOutputWithContext(context.Context) NetworkProfileResponseOutput
-}
-
-type NetworkProfileResponseArgs struct {
-	PeerVnetId pulumi.StringPtrInput `pulumi:"peerVnetId"`
-	VnetCidr   pulumi.StringPtrInput `pulumi:"vnetCidr"`
-}
-
-func (NetworkProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkProfileResponse)(nil)).Elem()
-}
-
-func (i NetworkProfileResponseArgs) ToNetworkProfileResponseOutput() NetworkProfileResponseOutput {
-	return i.ToNetworkProfileResponseOutputWithContext(context.Background())
-}
-
-func (i NetworkProfileResponseArgs) ToNetworkProfileResponseOutputWithContext(ctx context.Context) NetworkProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponseOutput)
-}
-
-func (i NetworkProfileResponseArgs) ToNetworkProfileResponsePtrOutput() NetworkProfileResponsePtrOutput {
-	return i.ToNetworkProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i NetworkProfileResponseArgs) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponseOutput).ToNetworkProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type NetworkProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToNetworkProfileResponsePtrOutput() NetworkProfileResponsePtrOutput
-	ToNetworkProfileResponsePtrOutputWithContext(context.Context) NetworkProfileResponsePtrOutput
-}
-
-type networkProfileResponsePtrType NetworkProfileResponseArgs
-
-func NetworkProfileResponsePtr(v *NetworkProfileResponseArgs) NetworkProfileResponsePtrInput {
-	return (*networkProfileResponsePtrType)(v)
-}
-
-func (*networkProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetworkProfileResponse)(nil)).Elem()
-}
-
-func (i *networkProfileResponsePtrType) ToNetworkProfileResponsePtrOutput() NetworkProfileResponsePtrOutput {
-	return i.ToNetworkProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *networkProfileResponsePtrType) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetworkProfileResponsePtrOutput)
+func (val *NetworkProfileResponse) Defaults() *NetworkProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.VnetCidr) {
+		vnetCidr_ := "10.0.0.0/8"
+		tmp.VnetCidr = &vnetCidr_
+	}
+	return &tmp
 }
 
 type NetworkProfileResponseOutput struct{ *pulumi.OutputState }
@@ -244,16 +201,6 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponseOutput() NetworkPr
 
 func (o NetworkProfileResponseOutput) ToNetworkProfileResponseOutputWithContext(ctx context.Context) NetworkProfileResponseOutput {
 	return o
-}
-
-func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutput() NetworkProfileResponsePtrOutput {
-	return o.ToNetworkProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o NetworkProfileResponseOutput) ToNetworkProfileResponsePtrOutputWithContext(ctx context.Context) NetworkProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetworkProfileResponse) *NetworkProfileResponse {
-		return &v
-	}).(NetworkProfileResponsePtrOutput)
 }
 
 func (o NetworkProfileResponseOutput) PeerVnetId() pulumi.StringPtrOutput {
@@ -507,78 +454,6 @@ type OpenShiftManagedClusterAADIdentityProviderResponse struct {
 	TenantId             *string `pulumi:"tenantId"`
 }
 
-
-
-
-
-type OpenShiftManagedClusterAADIdentityProviderResponseInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterAADIdentityProviderResponseOutput() OpenShiftManagedClusterAADIdentityProviderResponseOutput
-	ToOpenShiftManagedClusterAADIdentityProviderResponseOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderResponseOutput
-}
-
-type OpenShiftManagedClusterAADIdentityProviderResponseArgs struct {
-	ClientId             pulumi.StringPtrInput `pulumi:"clientId"`
-	CustomerAdminGroupId pulumi.StringPtrInput `pulumi:"customerAdminGroupId"`
-	Kind                 pulumi.StringInput    `pulumi:"kind"`
-	Secret               pulumi.StringPtrInput `pulumi:"secret"`
-	TenantId             pulumi.StringPtrInput `pulumi:"tenantId"`
-}
-
-func (OpenShiftManagedClusterAADIdentityProviderResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedClusterAADIdentityProviderResponse)(nil)).Elem()
-}
-
-func (i OpenShiftManagedClusterAADIdentityProviderResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderResponseOutput() OpenShiftManagedClusterAADIdentityProviderResponseOutput {
-	return i.ToOpenShiftManagedClusterAADIdentityProviderResponseOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterAADIdentityProviderResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderResponseOutput)
-}
-
-func (i OpenShiftManagedClusterAADIdentityProviderResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
-	return i.ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterAADIdentityProviderResponseArgs) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderResponseOutput).ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OpenShiftManagedClusterAADIdentityProviderResponsePtrInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput
-	ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(context.Context) OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput
-}
-
-type openShiftManagedClusterAADIdentityProviderResponsePtrType OpenShiftManagedClusterAADIdentityProviderResponseArgs
-
-func OpenShiftManagedClusterAADIdentityProviderResponsePtr(v *OpenShiftManagedClusterAADIdentityProviderResponseArgs) OpenShiftManagedClusterAADIdentityProviderResponsePtrInput {
-	return (*openShiftManagedClusterAADIdentityProviderResponsePtrType)(v)
-}
-
-func (*openShiftManagedClusterAADIdentityProviderResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenShiftManagedClusterAADIdentityProviderResponse)(nil)).Elem()
-}
-
-func (i *openShiftManagedClusterAADIdentityProviderResponsePtrType) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
-	return i.ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *openShiftManagedClusterAADIdentityProviderResponsePtrType) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput)
-}
-
 type OpenShiftManagedClusterAADIdentityProviderResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAADIdentityProviderResponseOutput) ElementType() reflect.Type {
@@ -591,16 +466,6 @@ func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftMan
 
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponseOutput {
 	return o
-}
-
-func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutput() OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
-	return o.ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ToOpenShiftManagedClusterAADIdentityProviderResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterAADIdentityProviderResponse) *OpenShiftManagedClusterAADIdentityProviderResponse {
-		return &v
-	}).(OpenShiftManagedClusterAADIdentityProviderResponsePtrOutput)
 }
 
 func (o OpenShiftManagedClusterAADIdentityProviderResponseOutput) ClientId() pulumi.StringPtrOutput {
@@ -699,6 +564,19 @@ type OpenShiftManagedClusterAgentPoolProfile struct {
 	Role       *string `pulumi:"role"`
 	SubnetCidr *string `pulumi:"subnetCidr"`
 	VmSize     string  `pulumi:"vmSize"`
+}
+
+
+func (val *OpenShiftManagedClusterAgentPoolProfile) Defaults() *OpenShiftManagedClusterAgentPoolProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SubnetCidr) {
+		subnetCidr_ := "10.0.0.0/24"
+		tmp.SubnetCidr = &subnetCidr_
+	}
+	return &tmp
 }
 
 
@@ -826,60 +704,16 @@ type OpenShiftManagedClusterAgentPoolProfileResponse struct {
 }
 
 
-
-
-
-type OpenShiftManagedClusterAgentPoolProfileResponseInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterAgentPoolProfileResponseOutput() OpenShiftManagedClusterAgentPoolProfileResponseOutput
-	ToOpenShiftManagedClusterAgentPoolProfileResponseOutputWithContext(context.Context) OpenShiftManagedClusterAgentPoolProfileResponseOutput
-}
-
-type OpenShiftManagedClusterAgentPoolProfileResponseArgs struct {
-	Count      pulumi.IntInput       `pulumi:"count"`
-	Name       pulumi.StringInput    `pulumi:"name"`
-	OsType     pulumi.StringPtrInput `pulumi:"osType"`
-	Role       pulumi.StringPtrInput `pulumi:"role"`
-	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	VmSize     pulumi.StringInput    `pulumi:"vmSize"`
-}
-
-func (OpenShiftManagedClusterAgentPoolProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedClusterAgentPoolProfileResponse)(nil)).Elem()
-}
-
-func (i OpenShiftManagedClusterAgentPoolProfileResponseArgs) ToOpenShiftManagedClusterAgentPoolProfileResponseOutput() OpenShiftManagedClusterAgentPoolProfileResponseOutput {
-	return i.ToOpenShiftManagedClusterAgentPoolProfileResponseOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterAgentPoolProfileResponseArgs) ToOpenShiftManagedClusterAgentPoolProfileResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAgentPoolProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAgentPoolProfileResponseOutput)
-}
-
-
-
-
-
-type OpenShiftManagedClusterAgentPoolProfileResponseArrayInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterAgentPoolProfileResponseArrayOutput() OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput
-	ToOpenShiftManagedClusterAgentPoolProfileResponseArrayOutputWithContext(context.Context) OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput
-}
-
-type OpenShiftManagedClusterAgentPoolProfileResponseArray []OpenShiftManagedClusterAgentPoolProfileResponseInput
-
-func (OpenShiftManagedClusterAgentPoolProfileResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OpenShiftManagedClusterAgentPoolProfileResponse)(nil)).Elem()
-}
-
-func (i OpenShiftManagedClusterAgentPoolProfileResponseArray) ToOpenShiftManagedClusterAgentPoolProfileResponseArrayOutput() OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput {
-	return i.ToOpenShiftManagedClusterAgentPoolProfileResponseArrayOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterAgentPoolProfileResponseArray) ToOpenShiftManagedClusterAgentPoolProfileResponseArrayOutputWithContext(ctx context.Context) OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAgentPoolProfileResponseArrayOutput)
+func (val *OpenShiftManagedClusterAgentPoolProfileResponse) Defaults() *OpenShiftManagedClusterAgentPoolProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SubnetCidr) {
+		subnetCidr_ := "10.0.0.0/24"
+		tmp.SubnetCidr = &subnetCidr_
+	}
+	return &tmp
 }
 
 type OpenShiftManagedClusterAgentPoolProfileResponseOutput struct{ *pulumi.OutputState }
@@ -1079,74 +913,6 @@ type OpenShiftManagedClusterAuthProfileResponse struct {
 	IdentityProviders []OpenShiftManagedClusterIdentityProviderResponse `pulumi:"identityProviders"`
 }
 
-
-
-
-
-type OpenShiftManagedClusterAuthProfileResponseInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterAuthProfileResponseOutput() OpenShiftManagedClusterAuthProfileResponseOutput
-	ToOpenShiftManagedClusterAuthProfileResponseOutputWithContext(context.Context) OpenShiftManagedClusterAuthProfileResponseOutput
-}
-
-type OpenShiftManagedClusterAuthProfileResponseArgs struct {
-	IdentityProviders OpenShiftManagedClusterIdentityProviderResponseArrayInput `pulumi:"identityProviders"`
-}
-
-func (OpenShiftManagedClusterAuthProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedClusterAuthProfileResponse)(nil)).Elem()
-}
-
-func (i OpenShiftManagedClusterAuthProfileResponseArgs) ToOpenShiftManagedClusterAuthProfileResponseOutput() OpenShiftManagedClusterAuthProfileResponseOutput {
-	return i.ToOpenShiftManagedClusterAuthProfileResponseOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterAuthProfileResponseArgs) ToOpenShiftManagedClusterAuthProfileResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAuthProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAuthProfileResponseOutput)
-}
-
-func (i OpenShiftManagedClusterAuthProfileResponseArgs) ToOpenShiftManagedClusterAuthProfileResponsePtrOutput() OpenShiftManagedClusterAuthProfileResponsePtrOutput {
-	return i.ToOpenShiftManagedClusterAuthProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterAuthProfileResponseArgs) ToOpenShiftManagedClusterAuthProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAuthProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAuthProfileResponseOutput).ToOpenShiftManagedClusterAuthProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OpenShiftManagedClusterAuthProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterAuthProfileResponsePtrOutput() OpenShiftManagedClusterAuthProfileResponsePtrOutput
-	ToOpenShiftManagedClusterAuthProfileResponsePtrOutputWithContext(context.Context) OpenShiftManagedClusterAuthProfileResponsePtrOutput
-}
-
-type openShiftManagedClusterAuthProfileResponsePtrType OpenShiftManagedClusterAuthProfileResponseArgs
-
-func OpenShiftManagedClusterAuthProfileResponsePtr(v *OpenShiftManagedClusterAuthProfileResponseArgs) OpenShiftManagedClusterAuthProfileResponsePtrInput {
-	return (*openShiftManagedClusterAuthProfileResponsePtrType)(v)
-}
-
-func (*openShiftManagedClusterAuthProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenShiftManagedClusterAuthProfileResponse)(nil)).Elem()
-}
-
-func (i *openShiftManagedClusterAuthProfileResponsePtrType) ToOpenShiftManagedClusterAuthProfileResponsePtrOutput() OpenShiftManagedClusterAuthProfileResponsePtrOutput {
-	return i.ToOpenShiftManagedClusterAuthProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *openShiftManagedClusterAuthProfileResponsePtrType) ToOpenShiftManagedClusterAuthProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAuthProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterAuthProfileResponsePtrOutput)
-}
-
 type OpenShiftManagedClusterAuthProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterAuthProfileResponseOutput) ElementType() reflect.Type {
@@ -1159,16 +925,6 @@ func (o OpenShiftManagedClusterAuthProfileResponseOutput) ToOpenShiftManagedClus
 
 func (o OpenShiftManagedClusterAuthProfileResponseOutput) ToOpenShiftManagedClusterAuthProfileResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterAuthProfileResponseOutput {
 	return o
-}
-
-func (o OpenShiftManagedClusterAuthProfileResponseOutput) ToOpenShiftManagedClusterAuthProfileResponsePtrOutput() OpenShiftManagedClusterAuthProfileResponsePtrOutput {
-	return o.ToOpenShiftManagedClusterAuthProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OpenShiftManagedClusterAuthProfileResponseOutput) ToOpenShiftManagedClusterAuthProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterAuthProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterAuthProfileResponse) *OpenShiftManagedClusterAuthProfileResponse {
-		return &v
-	}).(OpenShiftManagedClusterAuthProfileResponsePtrOutput)
 }
 
 func (o OpenShiftManagedClusterAuthProfileResponseOutput) IdentityProviders() OpenShiftManagedClusterIdentityProviderResponseArrayOutput {
@@ -1315,59 +1071,6 @@ func (o OpenShiftManagedClusterIdentityProviderArrayOutput) Index(i pulumi.IntIn
 type OpenShiftManagedClusterIdentityProviderResponse struct {
 	Name     *string                                             `pulumi:"name"`
 	Provider *OpenShiftManagedClusterAADIdentityProviderResponse `pulumi:"provider"`
-}
-
-
-
-
-
-type OpenShiftManagedClusterIdentityProviderResponseInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterIdentityProviderResponseOutput() OpenShiftManagedClusterIdentityProviderResponseOutput
-	ToOpenShiftManagedClusterIdentityProviderResponseOutputWithContext(context.Context) OpenShiftManagedClusterIdentityProviderResponseOutput
-}
-
-type OpenShiftManagedClusterIdentityProviderResponseArgs struct {
-	Name     pulumi.StringPtrInput                                      `pulumi:"name"`
-	Provider OpenShiftManagedClusterAADIdentityProviderResponsePtrInput `pulumi:"provider"`
-}
-
-func (OpenShiftManagedClusterIdentityProviderResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedClusterIdentityProviderResponse)(nil)).Elem()
-}
-
-func (i OpenShiftManagedClusterIdentityProviderResponseArgs) ToOpenShiftManagedClusterIdentityProviderResponseOutput() OpenShiftManagedClusterIdentityProviderResponseOutput {
-	return i.ToOpenShiftManagedClusterIdentityProviderResponseOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterIdentityProviderResponseArgs) ToOpenShiftManagedClusterIdentityProviderResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterIdentityProviderResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterIdentityProviderResponseOutput)
-}
-
-
-
-
-
-type OpenShiftManagedClusterIdentityProviderResponseArrayInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterIdentityProviderResponseArrayOutput() OpenShiftManagedClusterIdentityProviderResponseArrayOutput
-	ToOpenShiftManagedClusterIdentityProviderResponseArrayOutputWithContext(context.Context) OpenShiftManagedClusterIdentityProviderResponseArrayOutput
-}
-
-type OpenShiftManagedClusterIdentityProviderResponseArray []OpenShiftManagedClusterIdentityProviderResponseInput
-
-func (OpenShiftManagedClusterIdentityProviderResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OpenShiftManagedClusterIdentityProviderResponse)(nil)).Elem()
-}
-
-func (i OpenShiftManagedClusterIdentityProviderResponseArray) ToOpenShiftManagedClusterIdentityProviderResponseArrayOutput() OpenShiftManagedClusterIdentityProviderResponseArrayOutput {
-	return i.ToOpenShiftManagedClusterIdentityProviderResponseArrayOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterIdentityProviderResponseArray) ToOpenShiftManagedClusterIdentityProviderResponseArrayOutputWithContext(ctx context.Context) OpenShiftManagedClusterIdentityProviderResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterIdentityProviderResponseArrayOutput)
 }
 
 type OpenShiftManagedClusterIdentityProviderResponseOutput struct{ *pulumi.OutputState }
@@ -1615,78 +1318,6 @@ type OpenShiftManagedClusterMasterPoolProfileResponse struct {
 	VmSize     string  `pulumi:"vmSize"`
 }
 
-
-
-
-
-type OpenShiftManagedClusterMasterPoolProfileResponseInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterMasterPoolProfileResponseOutput() OpenShiftManagedClusterMasterPoolProfileResponseOutput
-	ToOpenShiftManagedClusterMasterPoolProfileResponseOutputWithContext(context.Context) OpenShiftManagedClusterMasterPoolProfileResponseOutput
-}
-
-type OpenShiftManagedClusterMasterPoolProfileResponseArgs struct {
-	Count      pulumi.IntInput       `pulumi:"count"`
-	Name       pulumi.StringPtrInput `pulumi:"name"`
-	OsType     pulumi.StringPtrInput `pulumi:"osType"`
-	SubnetCidr pulumi.StringPtrInput `pulumi:"subnetCidr"`
-	VmSize     pulumi.StringInput    `pulumi:"vmSize"`
-}
-
-func (OpenShiftManagedClusterMasterPoolProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedClusterMasterPoolProfileResponse)(nil)).Elem()
-}
-
-func (i OpenShiftManagedClusterMasterPoolProfileResponseArgs) ToOpenShiftManagedClusterMasterPoolProfileResponseOutput() OpenShiftManagedClusterMasterPoolProfileResponseOutput {
-	return i.ToOpenShiftManagedClusterMasterPoolProfileResponseOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterMasterPoolProfileResponseArgs) ToOpenShiftManagedClusterMasterPoolProfileResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterMasterPoolProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMasterPoolProfileResponseOutput)
-}
-
-func (i OpenShiftManagedClusterMasterPoolProfileResponseArgs) ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutput() OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput {
-	return i.ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterMasterPoolProfileResponseArgs) ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMasterPoolProfileResponseOutput).ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type OpenShiftManagedClusterMasterPoolProfileResponsePtrInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutput() OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput
-	ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutputWithContext(context.Context) OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput
-}
-
-type openShiftManagedClusterMasterPoolProfileResponsePtrType OpenShiftManagedClusterMasterPoolProfileResponseArgs
-
-func OpenShiftManagedClusterMasterPoolProfileResponsePtr(v *OpenShiftManagedClusterMasterPoolProfileResponseArgs) OpenShiftManagedClusterMasterPoolProfileResponsePtrInput {
-	return (*openShiftManagedClusterMasterPoolProfileResponsePtrType)(v)
-}
-
-func (*openShiftManagedClusterMasterPoolProfileResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OpenShiftManagedClusterMasterPoolProfileResponse)(nil)).Elem()
-}
-
-func (i *openShiftManagedClusterMasterPoolProfileResponsePtrType) ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutput() OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput {
-	return i.ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *openShiftManagedClusterMasterPoolProfileResponsePtrType) ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput)
-}
-
 type OpenShiftManagedClusterMasterPoolProfileResponseOutput struct{ *pulumi.OutputState }
 
 func (OpenShiftManagedClusterMasterPoolProfileResponseOutput) ElementType() reflect.Type {
@@ -1699,16 +1330,6 @@ func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) ToOpenShiftManag
 
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) ToOpenShiftManagedClusterMasterPoolProfileResponseOutputWithContext(ctx context.Context) OpenShiftManagedClusterMasterPoolProfileResponseOutput {
 	return o
-}
-
-func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutput() OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput {
-	return o.ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutputWithContext(context.Background())
-}
-
-func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) ToOpenShiftManagedClusterMasterPoolProfileResponsePtrOutputWithContext(ctx context.Context) OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenShiftManagedClusterMasterPoolProfileResponse) *OpenShiftManagedClusterMasterPoolProfileResponse {
-		return &v
-	}).(OpenShiftManagedClusterMasterPoolProfileResponsePtrOutput)
 }
 
 func (o OpenShiftManagedClusterMasterPoolProfileResponseOutput) Count() pulumi.IntOutput {
@@ -1904,60 +1525,6 @@ type OpenShiftRouterProfileResponse struct {
 	Fqdn            string  `pulumi:"fqdn"`
 	Name            *string `pulumi:"name"`
 	PublicSubdomain *string `pulumi:"publicSubdomain"`
-}
-
-
-
-
-
-type OpenShiftRouterProfileResponseInput interface {
-	pulumi.Input
-
-	ToOpenShiftRouterProfileResponseOutput() OpenShiftRouterProfileResponseOutput
-	ToOpenShiftRouterProfileResponseOutputWithContext(context.Context) OpenShiftRouterProfileResponseOutput
-}
-
-type OpenShiftRouterProfileResponseArgs struct {
-	Fqdn            pulumi.StringInput    `pulumi:"fqdn"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
-	PublicSubdomain pulumi.StringPtrInput `pulumi:"publicSubdomain"`
-}
-
-func (OpenShiftRouterProfileResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftRouterProfileResponse)(nil)).Elem()
-}
-
-func (i OpenShiftRouterProfileResponseArgs) ToOpenShiftRouterProfileResponseOutput() OpenShiftRouterProfileResponseOutput {
-	return i.ToOpenShiftRouterProfileResponseOutputWithContext(context.Background())
-}
-
-func (i OpenShiftRouterProfileResponseArgs) ToOpenShiftRouterProfileResponseOutputWithContext(ctx context.Context) OpenShiftRouterProfileResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftRouterProfileResponseOutput)
-}
-
-
-
-
-
-type OpenShiftRouterProfileResponseArrayInput interface {
-	pulumi.Input
-
-	ToOpenShiftRouterProfileResponseArrayOutput() OpenShiftRouterProfileResponseArrayOutput
-	ToOpenShiftRouterProfileResponseArrayOutputWithContext(context.Context) OpenShiftRouterProfileResponseArrayOutput
-}
-
-type OpenShiftRouterProfileResponseArray []OpenShiftRouterProfileResponseInput
-
-func (OpenShiftRouterProfileResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OpenShiftRouterProfileResponse)(nil)).Elem()
-}
-
-func (i OpenShiftRouterProfileResponseArray) ToOpenShiftRouterProfileResponseArrayOutput() OpenShiftRouterProfileResponseArrayOutput {
-	return i.ToOpenShiftRouterProfileResponseArrayOutputWithContext(context.Background())
-}
-
-func (i OpenShiftRouterProfileResponseArray) ToOpenShiftRouterProfileResponseArrayOutputWithContext(ctx context.Context) OpenShiftRouterProfileResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftRouterProfileResponseArrayOutput)
 }
 
 type OpenShiftRouterProfileResponseOutput struct{ *pulumi.OutputState }
@@ -2191,77 +1758,6 @@ type PurchasePlanResponse struct {
 	Publisher     *string `pulumi:"publisher"`
 }
 
-
-
-
-
-type PurchasePlanResponseInput interface {
-	pulumi.Input
-
-	ToPurchasePlanResponseOutput() PurchasePlanResponseOutput
-	ToPurchasePlanResponseOutputWithContext(context.Context) PurchasePlanResponseOutput
-}
-
-type PurchasePlanResponseArgs struct {
-	Name          pulumi.StringPtrInput `pulumi:"name"`
-	Product       pulumi.StringPtrInput `pulumi:"product"`
-	PromotionCode pulumi.StringPtrInput `pulumi:"promotionCode"`
-	Publisher     pulumi.StringPtrInput `pulumi:"publisher"`
-}
-
-func (PurchasePlanResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PurchasePlanResponse)(nil)).Elem()
-}
-
-func (i PurchasePlanResponseArgs) ToPurchasePlanResponseOutput() PurchasePlanResponseOutput {
-	return i.ToPurchasePlanResponseOutputWithContext(context.Background())
-}
-
-func (i PurchasePlanResponseArgs) ToPurchasePlanResponseOutputWithContext(ctx context.Context) PurchasePlanResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanResponseOutput)
-}
-
-func (i PurchasePlanResponseArgs) ToPurchasePlanResponsePtrOutput() PurchasePlanResponsePtrOutput {
-	return i.ToPurchasePlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i PurchasePlanResponseArgs) ToPurchasePlanResponsePtrOutputWithContext(ctx context.Context) PurchasePlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanResponseOutput).ToPurchasePlanResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type PurchasePlanResponsePtrInput interface {
-	pulumi.Input
-
-	ToPurchasePlanResponsePtrOutput() PurchasePlanResponsePtrOutput
-	ToPurchasePlanResponsePtrOutputWithContext(context.Context) PurchasePlanResponsePtrOutput
-}
-
-type purchasePlanResponsePtrType PurchasePlanResponseArgs
-
-func PurchasePlanResponsePtr(v *PurchasePlanResponseArgs) PurchasePlanResponsePtrInput {
-	return (*purchasePlanResponsePtrType)(v)
-}
-
-func (*purchasePlanResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PurchasePlanResponse)(nil)).Elem()
-}
-
-func (i *purchasePlanResponsePtrType) ToPurchasePlanResponsePtrOutput() PurchasePlanResponsePtrOutput {
-	return i.ToPurchasePlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *purchasePlanResponsePtrType) ToPurchasePlanResponsePtrOutputWithContext(ctx context.Context) PurchasePlanResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PurchasePlanResponsePtrOutput)
-}
-
 type PurchasePlanResponseOutput struct{ *pulumi.OutputState }
 
 func (PurchasePlanResponseOutput) ElementType() reflect.Type {
@@ -2274,16 +1770,6 @@ func (o PurchasePlanResponseOutput) ToPurchasePlanResponseOutput() PurchasePlanR
 
 func (o PurchasePlanResponseOutput) ToPurchasePlanResponseOutputWithContext(ctx context.Context) PurchasePlanResponseOutput {
 	return o
-}
-
-func (o PurchasePlanResponseOutput) ToPurchasePlanResponsePtrOutput() PurchasePlanResponsePtrOutput {
-	return o.ToPurchasePlanResponsePtrOutputWithContext(context.Background())
-}
-
-func (o PurchasePlanResponseOutput) ToPurchasePlanResponsePtrOutputWithContext(ctx context.Context) PurchasePlanResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PurchasePlanResponse) *PurchasePlanResponse {
-		return &v
-	}).(PurchasePlanResponsePtrOutput)
 }
 
 func (o PurchasePlanResponseOutput) Name() pulumi.StringPtrOutput {

@@ -102,7 +102,7 @@ type PrivateEndpointConnectionProxyInput interface {
 }
 
 func (*PrivateEndpointConnectionProxy) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProxy)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionProxy)(nil)).Elem()
 }
 
 func (i *PrivateEndpointConnectionProxy) ToPrivateEndpointConnectionProxyOutput() PrivateEndpointConnectionProxyOutput {
@@ -116,7 +116,7 @@ func (i *PrivateEndpointConnectionProxy) ToPrivateEndpointConnectionProxyOutputW
 type PrivateEndpointConnectionProxyOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionProxyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProxy)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionProxy)(nil)).Elem()
 }
 
 func (o PrivateEndpointConnectionProxyOutput) ToPrivateEndpointConnectionProxyOutput() PrivateEndpointConnectionProxyOutput {

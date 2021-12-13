@@ -126,7 +126,7 @@ type IscsiTargetInput interface {
 }
 
 func (*IscsiTarget) ElementType() reflect.Type {
-	return reflect.TypeOf((*IscsiTarget)(nil))
+	return reflect.TypeOf((**IscsiTarget)(nil)).Elem()
 }
 
 func (i *IscsiTarget) ToIscsiTargetOutput() IscsiTargetOutput {
@@ -140,7 +140,7 @@ func (i *IscsiTarget) ToIscsiTargetOutputWithContext(ctx context.Context) IscsiT
 type IscsiTargetOutput struct{ *pulumi.OutputState }
 
 func (IscsiTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IscsiTarget)(nil))
+	return reflect.TypeOf((**IscsiTarget)(nil)).Elem()
 }
 
 func (o IscsiTargetOutput) ToIscsiTargetOutput() IscsiTargetOutput {

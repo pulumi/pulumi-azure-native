@@ -134,7 +134,7 @@ type SqlVirtualMachineInput interface {
 }
 
 func (*SqlVirtualMachine) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlVirtualMachine)(nil))
+	return reflect.TypeOf((**SqlVirtualMachine)(nil)).Elem()
 }
 
 func (i *SqlVirtualMachine) ToSqlVirtualMachineOutput() SqlVirtualMachineOutput {
@@ -148,7 +148,7 @@ func (i *SqlVirtualMachine) ToSqlVirtualMachineOutputWithContext(ctx context.Con
 type SqlVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (SqlVirtualMachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlVirtualMachine)(nil))
+	return reflect.TypeOf((**SqlVirtualMachine)(nil)).Elem()
 }
 
 func (o SqlVirtualMachineOutput) ToSqlVirtualMachineOutput() SqlVirtualMachineOutput {

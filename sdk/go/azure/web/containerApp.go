@@ -37,6 +37,9 @@ func NewContainerApp(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Configuration != nil {
+		args.Configuration = args.Configuration.ToConfigurationPtrOutput().ApplyT(func(v *Configuration) *Configuration { return v.Defaults() }).(ConfigurationPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:web/v20210301:ContainerApp"),
@@ -109,7 +112,7 @@ type ContainerAppInput interface {
 }
 
 func (*ContainerApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerApp)(nil))
+	return reflect.TypeOf((**ContainerApp)(nil)).Elem()
 }
 
 func (i *ContainerApp) ToContainerAppOutput() ContainerAppOutput {
@@ -123,7 +126,7 @@ func (i *ContainerApp) ToContainerAppOutputWithContext(ctx context.Context) Cont
 type ContainerAppOutput struct{ *pulumi.OutputState }
 
 func (ContainerAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerApp)(nil))
+	return reflect.TypeOf((**ContainerApp)(nil)).Elem()
 }
 
 func (o ContainerAppOutput) ToContainerAppOutput() ContainerAppOutput {

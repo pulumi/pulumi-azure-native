@@ -124,7 +124,7 @@ type JobAgentInput interface {
 }
 
 func (*JobAgent) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobAgent)(nil))
+	return reflect.TypeOf((**JobAgent)(nil)).Elem()
 }
 
 func (i *JobAgent) ToJobAgentOutput() JobAgentOutput {
@@ -138,7 +138,7 @@ func (i *JobAgent) ToJobAgentOutputWithContext(ctx context.Context) JobAgentOutp
 type JobAgentOutput struct{ *pulumi.OutputState }
 
 func (JobAgentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobAgent)(nil))
+	return reflect.TypeOf((**JobAgent)(nil)).Elem()
 }
 
 func (o JobAgentOutput) ToJobAgentOutput() JobAgentOutput {

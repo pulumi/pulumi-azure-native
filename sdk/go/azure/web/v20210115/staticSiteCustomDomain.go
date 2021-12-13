@@ -37,7 +37,7 @@ func NewStaticSiteCustomDomain(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ValidationMethod == nil {
+	if isZero(args.ValidationMethod) {
 		args.ValidationMethod = pulumi.StringPtr("cname-delegation")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -115,7 +115,7 @@ type StaticSiteCustomDomainInput interface {
 }
 
 func (*StaticSiteCustomDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSiteCustomDomain)(nil))
+	return reflect.TypeOf((**StaticSiteCustomDomain)(nil)).Elem()
 }
 
 func (i *StaticSiteCustomDomain) ToStaticSiteCustomDomainOutput() StaticSiteCustomDomainOutput {
@@ -129,7 +129,7 @@ func (i *StaticSiteCustomDomain) ToStaticSiteCustomDomainOutputWithContext(ctx c
 type StaticSiteCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteCustomDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSiteCustomDomain)(nil))
+	return reflect.TypeOf((**StaticSiteCustomDomain)(nil)).Elem()
 }
 
 func (o StaticSiteCustomDomainOutput) ToStaticSiteCustomDomainOutput() StaticSiteCustomDomainOutput {

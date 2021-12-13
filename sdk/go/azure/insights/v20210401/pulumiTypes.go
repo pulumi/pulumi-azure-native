@@ -152,79 +152,6 @@ type DataCollectionEndpointResourceResponseSystemData struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type DataCollectionEndpointResourceResponseSystemDataInput interface {
-	pulumi.Input
-
-	ToDataCollectionEndpointResourceResponseSystemDataOutput() DataCollectionEndpointResourceResponseSystemDataOutput
-	ToDataCollectionEndpointResourceResponseSystemDataOutputWithContext(context.Context) DataCollectionEndpointResourceResponseSystemDataOutput
-}
-
-type DataCollectionEndpointResourceResponseSystemDataArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (DataCollectionEndpointResourceResponseSystemDataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionEndpointResourceResponseSystemData)(nil)).Elem()
-}
-
-func (i DataCollectionEndpointResourceResponseSystemDataArgs) ToDataCollectionEndpointResourceResponseSystemDataOutput() DataCollectionEndpointResourceResponseSystemDataOutput {
-	return i.ToDataCollectionEndpointResourceResponseSystemDataOutputWithContext(context.Background())
-}
-
-func (i DataCollectionEndpointResourceResponseSystemDataArgs) ToDataCollectionEndpointResourceResponseSystemDataOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResourceResponseSystemDataOutput)
-}
-
-func (i DataCollectionEndpointResourceResponseSystemDataArgs) ToDataCollectionEndpointResourceResponseSystemDataPtrOutput() DataCollectionEndpointResourceResponseSystemDataPtrOutput {
-	return i.ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (i DataCollectionEndpointResourceResponseSystemDataArgs) ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResourceResponseSystemDataOutput).ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DataCollectionEndpointResourceResponseSystemDataPtrInput interface {
-	pulumi.Input
-
-	ToDataCollectionEndpointResourceResponseSystemDataPtrOutput() DataCollectionEndpointResourceResponseSystemDataPtrOutput
-	ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(context.Context) DataCollectionEndpointResourceResponseSystemDataPtrOutput
-}
-
-type dataCollectionEndpointResourceResponseSystemDataPtrType DataCollectionEndpointResourceResponseSystemDataArgs
-
-func DataCollectionEndpointResourceResponseSystemDataPtr(v *DataCollectionEndpointResourceResponseSystemDataArgs) DataCollectionEndpointResourceResponseSystemDataPtrInput {
-	return (*dataCollectionEndpointResourceResponseSystemDataPtrType)(v)
-}
-
-func (*dataCollectionEndpointResourceResponseSystemDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCollectionEndpointResourceResponseSystemData)(nil)).Elem()
-}
-
-func (i *dataCollectionEndpointResourceResponseSystemDataPtrType) ToDataCollectionEndpointResourceResponseSystemDataPtrOutput() DataCollectionEndpointResourceResponseSystemDataPtrOutput {
-	return i.ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCollectionEndpointResourceResponseSystemDataPtrType) ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResourceResponseSystemDataPtrOutput)
-}
-
 type DataCollectionEndpointResourceResponseSystemDataOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionEndpointResourceResponseSystemDataOutput) ElementType() reflect.Type {
@@ -237,16 +164,6 @@ func (o DataCollectionEndpointResourceResponseSystemDataOutput) ToDataCollection
 
 func (o DataCollectionEndpointResourceResponseSystemDataOutput) ToDataCollectionEndpointResourceResponseSystemDataOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataOutput {
 	return o
-}
-
-func (o DataCollectionEndpointResourceResponseSystemDataOutput) ToDataCollectionEndpointResourceResponseSystemDataPtrOutput() DataCollectionEndpointResourceResponseSystemDataPtrOutput {
-	return o.ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (o DataCollectionEndpointResourceResponseSystemDataOutput) ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionEndpointResourceResponseSystemData) *DataCollectionEndpointResourceResponseSystemData {
-		return &v
-	}).(DataCollectionEndpointResourceResponseSystemDataPtrOutput)
 }
 
 func (o DataCollectionEndpointResourceResponseSystemDataOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -273,154 +190,8 @@ func (o DataCollectionEndpointResourceResponseSystemDataOutput) LastModifiedByTy
 	return o.ApplyT(func(v DataCollectionEndpointResourceResponseSystemData) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type DataCollectionEndpointResourceResponseSystemDataPtrOutput struct{ *pulumi.OutputState }
-
-func (DataCollectionEndpointResourceResponseSystemDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCollectionEndpointResourceResponseSystemData)(nil)).Elem()
-}
-
-func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) ToDataCollectionEndpointResourceResponseSystemDataPtrOutput() DataCollectionEndpointResourceResponseSystemDataPtrOutput {
-	return o
-}
-
-func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) ToDataCollectionEndpointResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResourceResponseSystemDataPtrOutput {
-	return o
-}
-
-func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) Elem() DataCollectionEndpointResourceResponseSystemDataOutput {
-	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) DataCollectionEndpointResourceResponseSystemData {
-		if v != nil {
-			return *v
-		}
-		var ret DataCollectionEndpointResourceResponseSystemData
-		return ret
-	}).(DataCollectionEndpointResourceResponseSystemDataOutput)
-}
-
-func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionEndpointResourceResponseSystemDataPtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionEndpointResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 type DataCollectionEndpointResponseConfigurationAccess struct {
 	Endpoint string `pulumi:"endpoint"`
-}
-
-
-
-
-
-type DataCollectionEndpointResponseConfigurationAccessInput interface {
-	pulumi.Input
-
-	ToDataCollectionEndpointResponseConfigurationAccessOutput() DataCollectionEndpointResponseConfigurationAccessOutput
-	ToDataCollectionEndpointResponseConfigurationAccessOutputWithContext(context.Context) DataCollectionEndpointResponseConfigurationAccessOutput
-}
-
-type DataCollectionEndpointResponseConfigurationAccessArgs struct {
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-}
-
-func (DataCollectionEndpointResponseConfigurationAccessArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionEndpointResponseConfigurationAccess)(nil)).Elem()
-}
-
-func (i DataCollectionEndpointResponseConfigurationAccessArgs) ToDataCollectionEndpointResponseConfigurationAccessOutput() DataCollectionEndpointResponseConfigurationAccessOutput {
-	return i.ToDataCollectionEndpointResponseConfigurationAccessOutputWithContext(context.Background())
-}
-
-func (i DataCollectionEndpointResponseConfigurationAccessArgs) ToDataCollectionEndpointResponseConfigurationAccessOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseConfigurationAccessOutput)
-}
-
-func (i DataCollectionEndpointResponseConfigurationAccessArgs) ToDataCollectionEndpointResponseConfigurationAccessPtrOutput() DataCollectionEndpointResponseConfigurationAccessPtrOutput {
-	return i.ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(context.Background())
-}
-
-func (i DataCollectionEndpointResponseConfigurationAccessArgs) ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseConfigurationAccessOutput).ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DataCollectionEndpointResponseConfigurationAccessPtrInput interface {
-	pulumi.Input
-
-	ToDataCollectionEndpointResponseConfigurationAccessPtrOutput() DataCollectionEndpointResponseConfigurationAccessPtrOutput
-	ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(context.Context) DataCollectionEndpointResponseConfigurationAccessPtrOutput
-}
-
-type dataCollectionEndpointResponseConfigurationAccessPtrType DataCollectionEndpointResponseConfigurationAccessArgs
-
-func DataCollectionEndpointResponseConfigurationAccessPtr(v *DataCollectionEndpointResponseConfigurationAccessArgs) DataCollectionEndpointResponseConfigurationAccessPtrInput {
-	return (*dataCollectionEndpointResponseConfigurationAccessPtrType)(v)
-}
-
-func (*dataCollectionEndpointResponseConfigurationAccessPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCollectionEndpointResponseConfigurationAccess)(nil)).Elem()
-}
-
-func (i *dataCollectionEndpointResponseConfigurationAccessPtrType) ToDataCollectionEndpointResponseConfigurationAccessPtrOutput() DataCollectionEndpointResponseConfigurationAccessPtrOutput {
-	return i.ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCollectionEndpointResponseConfigurationAccessPtrType) ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseConfigurationAccessPtrOutput)
 }
 
 type DataCollectionEndpointResponseConfigurationAccessOutput struct{ *pulumi.OutputState }
@@ -435,16 +206,6 @@ func (o DataCollectionEndpointResponseConfigurationAccessOutput) ToDataCollectio
 
 func (o DataCollectionEndpointResponseConfigurationAccessOutput) ToDataCollectionEndpointResponseConfigurationAccessOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessOutput {
 	return o
-}
-
-func (o DataCollectionEndpointResponseConfigurationAccessOutput) ToDataCollectionEndpointResponseConfigurationAccessPtrOutput() DataCollectionEndpointResponseConfigurationAccessPtrOutput {
-	return o.ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(context.Background())
-}
-
-func (o DataCollectionEndpointResponseConfigurationAccessOutput) ToDataCollectionEndpointResponseConfigurationAccessPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseConfigurationAccessPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionEndpointResponseConfigurationAccess) *DataCollectionEndpointResponseConfigurationAccess {
-		return &v
-	}).(DataCollectionEndpointResponseConfigurationAccessPtrOutput)
 }
 
 func (o DataCollectionEndpointResponseConfigurationAccessOutput) Endpoint() pulumi.StringOutput {
@@ -488,74 +249,6 @@ type DataCollectionEndpointResponseLogsIngestion struct {
 	Endpoint string `pulumi:"endpoint"`
 }
 
-
-
-
-
-type DataCollectionEndpointResponseLogsIngestionInput interface {
-	pulumi.Input
-
-	ToDataCollectionEndpointResponseLogsIngestionOutput() DataCollectionEndpointResponseLogsIngestionOutput
-	ToDataCollectionEndpointResponseLogsIngestionOutputWithContext(context.Context) DataCollectionEndpointResponseLogsIngestionOutput
-}
-
-type DataCollectionEndpointResponseLogsIngestionArgs struct {
-	Endpoint pulumi.StringInput `pulumi:"endpoint"`
-}
-
-func (DataCollectionEndpointResponseLogsIngestionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionEndpointResponseLogsIngestion)(nil)).Elem()
-}
-
-func (i DataCollectionEndpointResponseLogsIngestionArgs) ToDataCollectionEndpointResponseLogsIngestionOutput() DataCollectionEndpointResponseLogsIngestionOutput {
-	return i.ToDataCollectionEndpointResponseLogsIngestionOutputWithContext(context.Background())
-}
-
-func (i DataCollectionEndpointResponseLogsIngestionArgs) ToDataCollectionEndpointResponseLogsIngestionOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseLogsIngestionOutput)
-}
-
-func (i DataCollectionEndpointResponseLogsIngestionArgs) ToDataCollectionEndpointResponseLogsIngestionPtrOutput() DataCollectionEndpointResponseLogsIngestionPtrOutput {
-	return i.ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(context.Background())
-}
-
-func (i DataCollectionEndpointResponseLogsIngestionArgs) ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseLogsIngestionOutput).ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DataCollectionEndpointResponseLogsIngestionPtrInput interface {
-	pulumi.Input
-
-	ToDataCollectionEndpointResponseLogsIngestionPtrOutput() DataCollectionEndpointResponseLogsIngestionPtrOutput
-	ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(context.Context) DataCollectionEndpointResponseLogsIngestionPtrOutput
-}
-
-type dataCollectionEndpointResponseLogsIngestionPtrType DataCollectionEndpointResponseLogsIngestionArgs
-
-func DataCollectionEndpointResponseLogsIngestionPtr(v *DataCollectionEndpointResponseLogsIngestionArgs) DataCollectionEndpointResponseLogsIngestionPtrInput {
-	return (*dataCollectionEndpointResponseLogsIngestionPtrType)(v)
-}
-
-func (*dataCollectionEndpointResponseLogsIngestionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCollectionEndpointResponseLogsIngestion)(nil)).Elem()
-}
-
-func (i *dataCollectionEndpointResponseLogsIngestionPtrType) ToDataCollectionEndpointResponseLogsIngestionPtrOutput() DataCollectionEndpointResponseLogsIngestionPtrOutput {
-	return i.ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCollectionEndpointResponseLogsIngestionPtrType) ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseLogsIngestionPtrOutput)
-}
-
 type DataCollectionEndpointResponseLogsIngestionOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionEndpointResponseLogsIngestionOutput) ElementType() reflect.Type {
@@ -568,16 +261,6 @@ func (o DataCollectionEndpointResponseLogsIngestionOutput) ToDataCollectionEndpo
 
 func (o DataCollectionEndpointResponseLogsIngestionOutput) ToDataCollectionEndpointResponseLogsIngestionOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionOutput {
 	return o
-}
-
-func (o DataCollectionEndpointResponseLogsIngestionOutput) ToDataCollectionEndpointResponseLogsIngestionPtrOutput() DataCollectionEndpointResponseLogsIngestionPtrOutput {
-	return o.ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(context.Background())
-}
-
-func (o DataCollectionEndpointResponseLogsIngestionOutput) ToDataCollectionEndpointResponseLogsIngestionPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseLogsIngestionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionEndpointResponseLogsIngestion) *DataCollectionEndpointResponseLogsIngestion {
-		return &v
-	}).(DataCollectionEndpointResponseLogsIngestionPtrOutput)
 }
 
 func (o DataCollectionEndpointResponseLogsIngestionOutput) Endpoint() pulumi.StringOutput {
@@ -621,74 +304,6 @@ type DataCollectionEndpointResponseNetworkAcls struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 }
 
-
-
-
-
-type DataCollectionEndpointResponseNetworkAclsInput interface {
-	pulumi.Input
-
-	ToDataCollectionEndpointResponseNetworkAclsOutput() DataCollectionEndpointResponseNetworkAclsOutput
-	ToDataCollectionEndpointResponseNetworkAclsOutputWithContext(context.Context) DataCollectionEndpointResponseNetworkAclsOutput
-}
-
-type DataCollectionEndpointResponseNetworkAclsArgs struct {
-	PublicNetworkAccess pulumi.StringPtrInput `pulumi:"publicNetworkAccess"`
-}
-
-func (DataCollectionEndpointResponseNetworkAclsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionEndpointResponseNetworkAcls)(nil)).Elem()
-}
-
-func (i DataCollectionEndpointResponseNetworkAclsArgs) ToDataCollectionEndpointResponseNetworkAclsOutput() DataCollectionEndpointResponseNetworkAclsOutput {
-	return i.ToDataCollectionEndpointResponseNetworkAclsOutputWithContext(context.Background())
-}
-
-func (i DataCollectionEndpointResponseNetworkAclsArgs) ToDataCollectionEndpointResponseNetworkAclsOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseNetworkAclsOutput)
-}
-
-func (i DataCollectionEndpointResponseNetworkAclsArgs) ToDataCollectionEndpointResponseNetworkAclsPtrOutput() DataCollectionEndpointResponseNetworkAclsPtrOutput {
-	return i.ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(context.Background())
-}
-
-func (i DataCollectionEndpointResponseNetworkAclsArgs) ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseNetworkAclsOutput).ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DataCollectionEndpointResponseNetworkAclsPtrInput interface {
-	pulumi.Input
-
-	ToDataCollectionEndpointResponseNetworkAclsPtrOutput() DataCollectionEndpointResponseNetworkAclsPtrOutput
-	ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(context.Context) DataCollectionEndpointResponseNetworkAclsPtrOutput
-}
-
-type dataCollectionEndpointResponseNetworkAclsPtrType DataCollectionEndpointResponseNetworkAclsArgs
-
-func DataCollectionEndpointResponseNetworkAclsPtr(v *DataCollectionEndpointResponseNetworkAclsArgs) DataCollectionEndpointResponseNetworkAclsPtrInput {
-	return (*dataCollectionEndpointResponseNetworkAclsPtrType)(v)
-}
-
-func (*dataCollectionEndpointResponseNetworkAclsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCollectionEndpointResponseNetworkAcls)(nil)).Elem()
-}
-
-func (i *dataCollectionEndpointResponseNetworkAclsPtrType) ToDataCollectionEndpointResponseNetworkAclsPtrOutput() DataCollectionEndpointResponseNetworkAclsPtrOutput {
-	return i.ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCollectionEndpointResponseNetworkAclsPtrType) ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionEndpointResponseNetworkAclsPtrOutput)
-}
-
 type DataCollectionEndpointResponseNetworkAclsOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionEndpointResponseNetworkAclsOutput) ElementType() reflect.Type {
@@ -701,16 +316,6 @@ func (o DataCollectionEndpointResponseNetworkAclsOutput) ToDataCollectionEndpoin
 
 func (o DataCollectionEndpointResponseNetworkAclsOutput) ToDataCollectionEndpointResponseNetworkAclsOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsOutput {
 	return o
-}
-
-func (o DataCollectionEndpointResponseNetworkAclsOutput) ToDataCollectionEndpointResponseNetworkAclsPtrOutput() DataCollectionEndpointResponseNetworkAclsPtrOutput {
-	return o.ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(context.Background())
-}
-
-func (o DataCollectionEndpointResponseNetworkAclsOutput) ToDataCollectionEndpointResponseNetworkAclsPtrOutputWithContext(ctx context.Context) DataCollectionEndpointResponseNetworkAclsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionEndpointResponseNetworkAcls) *DataCollectionEndpointResponseNetworkAcls {
-		return &v
-	}).(DataCollectionEndpointResponseNetworkAclsPtrOutput)
 }
 
 func (o DataCollectionEndpointResponseNetworkAclsOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
@@ -759,79 +364,6 @@ type DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataInput interface {
-	pulumi.Input
-
-	ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput() DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput
-	ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutputWithContext(context.Context) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput
-}
-
-type DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData)(nil)).Elem()
-}
-
-func (i DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataArgs) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput() DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput {
-	return i.ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutputWithContext(context.Background())
-}
-
-func (i DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataArgs) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutputWithContext(ctx context.Context) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput)
-}
-
-func (i DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataArgs) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput() DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput {
-	return i.ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (i DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataArgs) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput).ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrInput interface {
-	pulumi.Input
-
-	ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput() DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput
-	ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutputWithContext(context.Context) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput
-}
-
-type dataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrType DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataArgs
-
-func DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtr(v *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataArgs) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrInput {
-	return (*dataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrType)(v)
-}
-
-func (*dataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData)(nil)).Elem()
-}
-
-func (i *dataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrType) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput() DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput {
-	return i.ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrType) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput)
-}
-
 type DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput) ElementType() reflect.Type {
@@ -844,16 +376,6 @@ func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput) 
 
 func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutputWithContext(ctx context.Context) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput {
 	return o
-}
-
-func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput() DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput {
-	return o.ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData {
-		return &v
-	}).(DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput)
 }
 
 func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -884,84 +406,6 @@ func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput) 
 
 func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) *string {
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-type DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput struct{ *pulumi.OutputState }
-
-func (DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData)(nil)).Elem()
-}
-
-func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput() DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput {
-	return o
-}
-
-func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput) ToDataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput {
-	return o
-}
-
-func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput) Elem() DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput {
-	return o.ApplyT(func(v *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData {
-		if v != nil {
-			return *v
-		}
-		var ret DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData
-		return ret
-	}).(DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput)
-}
-
-func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
 		return v.LastModifiedByType
 	}).(pulumi.StringPtrOutput)
 }
@@ -1303,79 +747,6 @@ type DataCollectionRuleResourceResponseSystemData struct {
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 }
 
-
-
-
-
-type DataCollectionRuleResourceResponseSystemDataInput interface {
-	pulumi.Input
-
-	ToDataCollectionRuleResourceResponseSystemDataOutput() DataCollectionRuleResourceResponseSystemDataOutput
-	ToDataCollectionRuleResourceResponseSystemDataOutputWithContext(context.Context) DataCollectionRuleResourceResponseSystemDataOutput
-}
-
-type DataCollectionRuleResourceResponseSystemDataArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (DataCollectionRuleResourceResponseSystemDataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRuleResourceResponseSystemData)(nil)).Elem()
-}
-
-func (i DataCollectionRuleResourceResponseSystemDataArgs) ToDataCollectionRuleResourceResponseSystemDataOutput() DataCollectionRuleResourceResponseSystemDataOutput {
-	return i.ToDataCollectionRuleResourceResponseSystemDataOutputWithContext(context.Background())
-}
-
-func (i DataCollectionRuleResourceResponseSystemDataArgs) ToDataCollectionRuleResourceResponseSystemDataOutputWithContext(ctx context.Context) DataCollectionRuleResourceResponseSystemDataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleResourceResponseSystemDataOutput)
-}
-
-func (i DataCollectionRuleResourceResponseSystemDataArgs) ToDataCollectionRuleResourceResponseSystemDataPtrOutput() DataCollectionRuleResourceResponseSystemDataPtrOutput {
-	return i.ToDataCollectionRuleResourceResponseSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (i DataCollectionRuleResourceResponseSystemDataArgs) ToDataCollectionRuleResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionRuleResourceResponseSystemDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleResourceResponseSystemDataOutput).ToDataCollectionRuleResourceResponseSystemDataPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DataCollectionRuleResourceResponseSystemDataPtrInput interface {
-	pulumi.Input
-
-	ToDataCollectionRuleResourceResponseSystemDataPtrOutput() DataCollectionRuleResourceResponseSystemDataPtrOutput
-	ToDataCollectionRuleResourceResponseSystemDataPtrOutputWithContext(context.Context) DataCollectionRuleResourceResponseSystemDataPtrOutput
-}
-
-type dataCollectionRuleResourceResponseSystemDataPtrType DataCollectionRuleResourceResponseSystemDataArgs
-
-func DataCollectionRuleResourceResponseSystemDataPtr(v *DataCollectionRuleResourceResponseSystemDataArgs) DataCollectionRuleResourceResponseSystemDataPtrInput {
-	return (*dataCollectionRuleResourceResponseSystemDataPtrType)(v)
-}
-
-func (*dataCollectionRuleResourceResponseSystemDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCollectionRuleResourceResponseSystemData)(nil)).Elem()
-}
-
-func (i *dataCollectionRuleResourceResponseSystemDataPtrType) ToDataCollectionRuleResourceResponseSystemDataPtrOutput() DataCollectionRuleResourceResponseSystemDataPtrOutput {
-	return i.ToDataCollectionRuleResourceResponseSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCollectionRuleResourceResponseSystemDataPtrType) ToDataCollectionRuleResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionRuleResourceResponseSystemDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleResourceResponseSystemDataPtrOutput)
-}
-
 type DataCollectionRuleResourceResponseSystemDataOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleResourceResponseSystemDataOutput) ElementType() reflect.Type {
@@ -1388,16 +759,6 @@ func (o DataCollectionRuleResourceResponseSystemDataOutput) ToDataCollectionRule
 
 func (o DataCollectionRuleResourceResponseSystemDataOutput) ToDataCollectionRuleResourceResponseSystemDataOutputWithContext(ctx context.Context) DataCollectionRuleResourceResponseSystemDataOutput {
 	return o
-}
-
-func (o DataCollectionRuleResourceResponseSystemDataOutput) ToDataCollectionRuleResourceResponseSystemDataPtrOutput() DataCollectionRuleResourceResponseSystemDataPtrOutput {
-	return o.ToDataCollectionRuleResourceResponseSystemDataPtrOutputWithContext(context.Background())
-}
-
-func (o DataCollectionRuleResourceResponseSystemDataOutput) ToDataCollectionRuleResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionRuleResourceResponseSystemDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleResourceResponseSystemData) *DataCollectionRuleResourceResponseSystemData {
-		return &v
-	}).(DataCollectionRuleResourceResponseSystemDataPtrOutput)
 }
 
 func (o DataCollectionRuleResourceResponseSystemDataOutput) CreatedAt() pulumi.StringPtrOutput {
@@ -1424,160 +785,11 @@ func (o DataCollectionRuleResourceResponseSystemDataOutput) LastModifiedByType()
 	return o.ApplyT(func(v DataCollectionRuleResourceResponseSystemData) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
-type DataCollectionRuleResourceResponseSystemDataPtrOutput struct{ *pulumi.OutputState }
-
-func (DataCollectionRuleResourceResponseSystemDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCollectionRuleResourceResponseSystemData)(nil)).Elem()
-}
-
-func (o DataCollectionRuleResourceResponseSystemDataPtrOutput) ToDataCollectionRuleResourceResponseSystemDataPtrOutput() DataCollectionRuleResourceResponseSystemDataPtrOutput {
-	return o
-}
-
-func (o DataCollectionRuleResourceResponseSystemDataPtrOutput) ToDataCollectionRuleResourceResponseSystemDataPtrOutputWithContext(ctx context.Context) DataCollectionRuleResourceResponseSystemDataPtrOutput {
-	return o
-}
-
-func (o DataCollectionRuleResourceResponseSystemDataPtrOutput) Elem() DataCollectionRuleResourceResponseSystemDataOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResourceResponseSystemData) DataCollectionRuleResourceResponseSystemData {
-		if v != nil {
-			return *v
-		}
-		var ret DataCollectionRuleResourceResponseSystemData
-		return ret
-	}).(DataCollectionRuleResourceResponseSystemDataOutput)
-}
-
-func (o DataCollectionRuleResourceResponseSystemDataPtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionRuleResourceResponseSystemDataPtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionRuleResourceResponseSystemDataPtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionRuleResourceResponseSystemDataPtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionRuleResourceResponseSystemDataPtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DataCollectionRuleResourceResponseSystemDataPtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCollectionRuleResourceResponseSystemData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 type DataCollectionRuleResponseDataSources struct {
 	Extensions          []ExtensionDataSourceResponse       `pulumi:"extensions"`
 	PerformanceCounters []PerfCounterDataSourceResponse     `pulumi:"performanceCounters"`
 	Syslog              []SyslogDataSourceResponse          `pulumi:"syslog"`
 	WindowsEventLogs    []WindowsEventLogDataSourceResponse `pulumi:"windowsEventLogs"`
-}
-
-
-
-
-
-type DataCollectionRuleResponseDataSourcesInput interface {
-	pulumi.Input
-
-	ToDataCollectionRuleResponseDataSourcesOutput() DataCollectionRuleResponseDataSourcesOutput
-	ToDataCollectionRuleResponseDataSourcesOutputWithContext(context.Context) DataCollectionRuleResponseDataSourcesOutput
-}
-
-type DataCollectionRuleResponseDataSourcesArgs struct {
-	Extensions          ExtensionDataSourceResponseArrayInput       `pulumi:"extensions"`
-	PerformanceCounters PerfCounterDataSourceResponseArrayInput     `pulumi:"performanceCounters"`
-	Syslog              SyslogDataSourceResponseArrayInput          `pulumi:"syslog"`
-	WindowsEventLogs    WindowsEventLogDataSourceResponseArrayInput `pulumi:"windowsEventLogs"`
-}
-
-func (DataCollectionRuleResponseDataSourcesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRuleResponseDataSources)(nil)).Elem()
-}
-
-func (i DataCollectionRuleResponseDataSourcesArgs) ToDataCollectionRuleResponseDataSourcesOutput() DataCollectionRuleResponseDataSourcesOutput {
-	return i.ToDataCollectionRuleResponseDataSourcesOutputWithContext(context.Background())
-}
-
-func (i DataCollectionRuleResponseDataSourcesArgs) ToDataCollectionRuleResponseDataSourcesOutputWithContext(ctx context.Context) DataCollectionRuleResponseDataSourcesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleResponseDataSourcesOutput)
-}
-
-func (i DataCollectionRuleResponseDataSourcesArgs) ToDataCollectionRuleResponseDataSourcesPtrOutput() DataCollectionRuleResponseDataSourcesPtrOutput {
-	return i.ToDataCollectionRuleResponseDataSourcesPtrOutputWithContext(context.Background())
-}
-
-func (i DataCollectionRuleResponseDataSourcesArgs) ToDataCollectionRuleResponseDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDataSourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleResponseDataSourcesOutput).ToDataCollectionRuleResponseDataSourcesPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DataCollectionRuleResponseDataSourcesPtrInput interface {
-	pulumi.Input
-
-	ToDataCollectionRuleResponseDataSourcesPtrOutput() DataCollectionRuleResponseDataSourcesPtrOutput
-	ToDataCollectionRuleResponseDataSourcesPtrOutputWithContext(context.Context) DataCollectionRuleResponseDataSourcesPtrOutput
-}
-
-type dataCollectionRuleResponseDataSourcesPtrType DataCollectionRuleResponseDataSourcesArgs
-
-func DataCollectionRuleResponseDataSourcesPtr(v *DataCollectionRuleResponseDataSourcesArgs) DataCollectionRuleResponseDataSourcesPtrInput {
-	return (*dataCollectionRuleResponseDataSourcesPtrType)(v)
-}
-
-func (*dataCollectionRuleResponseDataSourcesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCollectionRuleResponseDataSources)(nil)).Elem()
-}
-
-func (i *dataCollectionRuleResponseDataSourcesPtrType) ToDataCollectionRuleResponseDataSourcesPtrOutput() DataCollectionRuleResponseDataSourcesPtrOutput {
-	return i.ToDataCollectionRuleResponseDataSourcesPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCollectionRuleResponseDataSourcesPtrType) ToDataCollectionRuleResponseDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDataSourcesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleResponseDataSourcesPtrOutput)
 }
 
 type DataCollectionRuleResponseDataSourcesOutput struct{ *pulumi.OutputState }
@@ -1592,16 +804,6 @@ func (o DataCollectionRuleResponseDataSourcesOutput) ToDataCollectionRuleRespons
 
 func (o DataCollectionRuleResponseDataSourcesOutput) ToDataCollectionRuleResponseDataSourcesOutputWithContext(ctx context.Context) DataCollectionRuleResponseDataSourcesOutput {
 	return o
-}
-
-func (o DataCollectionRuleResponseDataSourcesOutput) ToDataCollectionRuleResponseDataSourcesPtrOutput() DataCollectionRuleResponseDataSourcesPtrOutput {
-	return o.ToDataCollectionRuleResponseDataSourcesPtrOutputWithContext(context.Background())
-}
-
-func (o DataCollectionRuleResponseDataSourcesOutput) ToDataCollectionRuleResponseDataSourcesPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDataSourcesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleResponseDataSources) *DataCollectionRuleResponseDataSources {
-		return &v
-	}).(DataCollectionRuleResponseDataSourcesPtrOutput)
 }
 
 func (o DataCollectionRuleResponseDataSourcesOutput) Extensions() ExtensionDataSourceResponseArrayOutput {
@@ -1689,75 +891,6 @@ type DataCollectionRuleResponseDestinations struct {
 	LogAnalytics        []LogAnalyticsDestinationResponse            `pulumi:"logAnalytics"`
 }
 
-
-
-
-
-type DataCollectionRuleResponseDestinationsInput interface {
-	pulumi.Input
-
-	ToDataCollectionRuleResponseDestinationsOutput() DataCollectionRuleResponseDestinationsOutput
-	ToDataCollectionRuleResponseDestinationsOutputWithContext(context.Context) DataCollectionRuleResponseDestinationsOutput
-}
-
-type DataCollectionRuleResponseDestinationsArgs struct {
-	AzureMonitorMetrics DestinationsSpecResponseAzureMonitorMetricsPtrInput `pulumi:"azureMonitorMetrics"`
-	LogAnalytics        LogAnalyticsDestinationResponseArrayInput           `pulumi:"logAnalytics"`
-}
-
-func (DataCollectionRuleResponseDestinationsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataCollectionRuleResponseDestinations)(nil)).Elem()
-}
-
-func (i DataCollectionRuleResponseDestinationsArgs) ToDataCollectionRuleResponseDestinationsOutput() DataCollectionRuleResponseDestinationsOutput {
-	return i.ToDataCollectionRuleResponseDestinationsOutputWithContext(context.Background())
-}
-
-func (i DataCollectionRuleResponseDestinationsArgs) ToDataCollectionRuleResponseDestinationsOutputWithContext(ctx context.Context) DataCollectionRuleResponseDestinationsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleResponseDestinationsOutput)
-}
-
-func (i DataCollectionRuleResponseDestinationsArgs) ToDataCollectionRuleResponseDestinationsPtrOutput() DataCollectionRuleResponseDestinationsPtrOutput {
-	return i.ToDataCollectionRuleResponseDestinationsPtrOutputWithContext(context.Background())
-}
-
-func (i DataCollectionRuleResponseDestinationsArgs) ToDataCollectionRuleResponseDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDestinationsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleResponseDestinationsOutput).ToDataCollectionRuleResponseDestinationsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DataCollectionRuleResponseDestinationsPtrInput interface {
-	pulumi.Input
-
-	ToDataCollectionRuleResponseDestinationsPtrOutput() DataCollectionRuleResponseDestinationsPtrOutput
-	ToDataCollectionRuleResponseDestinationsPtrOutputWithContext(context.Context) DataCollectionRuleResponseDestinationsPtrOutput
-}
-
-type dataCollectionRuleResponseDestinationsPtrType DataCollectionRuleResponseDestinationsArgs
-
-func DataCollectionRuleResponseDestinationsPtr(v *DataCollectionRuleResponseDestinationsArgs) DataCollectionRuleResponseDestinationsPtrInput {
-	return (*dataCollectionRuleResponseDestinationsPtrType)(v)
-}
-
-func (*dataCollectionRuleResponseDestinationsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCollectionRuleResponseDestinations)(nil)).Elem()
-}
-
-func (i *dataCollectionRuleResponseDestinationsPtrType) ToDataCollectionRuleResponseDestinationsPtrOutput() DataCollectionRuleResponseDestinationsPtrOutput {
-	return i.ToDataCollectionRuleResponseDestinationsPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCollectionRuleResponseDestinationsPtrType) ToDataCollectionRuleResponseDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDestinationsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleResponseDestinationsPtrOutput)
-}
-
 type DataCollectionRuleResponseDestinationsOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleResponseDestinationsOutput) ElementType() reflect.Type {
@@ -1770,16 +903,6 @@ func (o DataCollectionRuleResponseDestinationsOutput) ToDataCollectionRuleRespon
 
 func (o DataCollectionRuleResponseDestinationsOutput) ToDataCollectionRuleResponseDestinationsOutputWithContext(ctx context.Context) DataCollectionRuleResponseDestinationsOutput {
 	return o
-}
-
-func (o DataCollectionRuleResponseDestinationsOutput) ToDataCollectionRuleResponseDestinationsPtrOutput() DataCollectionRuleResponseDestinationsPtrOutput {
-	return o.ToDataCollectionRuleResponseDestinationsPtrOutputWithContext(context.Background())
-}
-
-func (o DataCollectionRuleResponseDestinationsOutput) ToDataCollectionRuleResponseDestinationsPtrOutputWithContext(ctx context.Context) DataCollectionRuleResponseDestinationsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCollectionRuleResponseDestinations) *DataCollectionRuleResponseDestinations {
-		return &v
-	}).(DataCollectionRuleResponseDestinationsPtrOutput)
 }
 
 func (o DataCollectionRuleResponseDestinationsOutput) AzureMonitorMetrics() DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
@@ -1939,59 +1062,6 @@ func (o DataFlowArrayOutput) Index(i pulumi.IntInput) DataFlowOutput {
 type DataFlowResponse struct {
 	Destinations []string `pulumi:"destinations"`
 	Streams      []string `pulumi:"streams"`
-}
-
-
-
-
-
-type DataFlowResponseInput interface {
-	pulumi.Input
-
-	ToDataFlowResponseOutput() DataFlowResponseOutput
-	ToDataFlowResponseOutputWithContext(context.Context) DataFlowResponseOutput
-}
-
-type DataFlowResponseArgs struct {
-	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
-	Streams      pulumi.StringArrayInput `pulumi:"streams"`
-}
-
-func (DataFlowResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFlowResponse)(nil)).Elem()
-}
-
-func (i DataFlowResponseArgs) ToDataFlowResponseOutput() DataFlowResponseOutput {
-	return i.ToDataFlowResponseOutputWithContext(context.Background())
-}
-
-func (i DataFlowResponseArgs) ToDataFlowResponseOutputWithContext(ctx context.Context) DataFlowResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataFlowResponseOutput)
-}
-
-
-
-
-
-type DataFlowResponseArrayInput interface {
-	pulumi.Input
-
-	ToDataFlowResponseArrayOutput() DataFlowResponseArrayOutput
-	ToDataFlowResponseArrayOutputWithContext(context.Context) DataFlowResponseArrayOutput
-}
-
-type DataFlowResponseArray []DataFlowResponseInput
-
-func (DataFlowResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DataFlowResponse)(nil)).Elem()
-}
-
-func (i DataFlowResponseArray) ToDataFlowResponseArrayOutput() DataFlowResponseArrayOutput {
-	return i.ToDataFlowResponseArrayOutputWithContext(context.Background())
-}
-
-func (i DataFlowResponseArray) ToDataFlowResponseArrayOutputWithContext(ctx context.Context) DataFlowResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataFlowResponseArrayOutput)
 }
 
 type DataFlowResponseOutput struct{ *pulumi.OutputState }
@@ -2173,74 +1243,6 @@ type DestinationsSpecResponseAzureMonitorMetrics struct {
 	Name *string `pulumi:"name"`
 }
 
-
-
-
-
-type DestinationsSpecResponseAzureMonitorMetricsInput interface {
-	pulumi.Input
-
-	ToDestinationsSpecResponseAzureMonitorMetricsOutput() DestinationsSpecResponseAzureMonitorMetricsOutput
-	ToDestinationsSpecResponseAzureMonitorMetricsOutputWithContext(context.Context) DestinationsSpecResponseAzureMonitorMetricsOutput
-}
-
-type DestinationsSpecResponseAzureMonitorMetricsArgs struct {
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (DestinationsSpecResponseAzureMonitorMetricsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DestinationsSpecResponseAzureMonitorMetrics)(nil)).Elem()
-}
-
-func (i DestinationsSpecResponseAzureMonitorMetricsArgs) ToDestinationsSpecResponseAzureMonitorMetricsOutput() DestinationsSpecResponseAzureMonitorMetricsOutput {
-	return i.ToDestinationsSpecResponseAzureMonitorMetricsOutputWithContext(context.Background())
-}
-
-func (i DestinationsSpecResponseAzureMonitorMetricsArgs) ToDestinationsSpecResponseAzureMonitorMetricsOutputWithContext(ctx context.Context) DestinationsSpecResponseAzureMonitorMetricsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DestinationsSpecResponseAzureMonitorMetricsOutput)
-}
-
-func (i DestinationsSpecResponseAzureMonitorMetricsArgs) ToDestinationsSpecResponseAzureMonitorMetricsPtrOutput() DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
-	return i.ToDestinationsSpecResponseAzureMonitorMetricsPtrOutputWithContext(context.Background())
-}
-
-func (i DestinationsSpecResponseAzureMonitorMetricsArgs) ToDestinationsSpecResponseAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DestinationsSpecResponseAzureMonitorMetricsOutput).ToDestinationsSpecResponseAzureMonitorMetricsPtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type DestinationsSpecResponseAzureMonitorMetricsPtrInput interface {
-	pulumi.Input
-
-	ToDestinationsSpecResponseAzureMonitorMetricsPtrOutput() DestinationsSpecResponseAzureMonitorMetricsPtrOutput
-	ToDestinationsSpecResponseAzureMonitorMetricsPtrOutputWithContext(context.Context) DestinationsSpecResponseAzureMonitorMetricsPtrOutput
-}
-
-type destinationsSpecResponseAzureMonitorMetricsPtrType DestinationsSpecResponseAzureMonitorMetricsArgs
-
-func DestinationsSpecResponseAzureMonitorMetricsPtr(v *DestinationsSpecResponseAzureMonitorMetricsArgs) DestinationsSpecResponseAzureMonitorMetricsPtrInput {
-	return (*destinationsSpecResponseAzureMonitorMetricsPtrType)(v)
-}
-
-func (*destinationsSpecResponseAzureMonitorMetricsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DestinationsSpecResponseAzureMonitorMetrics)(nil)).Elem()
-}
-
-func (i *destinationsSpecResponseAzureMonitorMetricsPtrType) ToDestinationsSpecResponseAzureMonitorMetricsPtrOutput() DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
-	return i.ToDestinationsSpecResponseAzureMonitorMetricsPtrOutputWithContext(context.Background())
-}
-
-func (i *destinationsSpecResponseAzureMonitorMetricsPtrType) ToDestinationsSpecResponseAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DestinationsSpecResponseAzureMonitorMetricsPtrOutput)
-}
-
 type DestinationsSpecResponseAzureMonitorMetricsOutput struct{ *pulumi.OutputState }
 
 func (DestinationsSpecResponseAzureMonitorMetricsOutput) ElementType() reflect.Type {
@@ -2253,16 +1255,6 @@ func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecRes
 
 func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecResponseAzureMonitorMetricsOutputWithContext(ctx context.Context) DestinationsSpecResponseAzureMonitorMetricsOutput {
 	return o
-}
-
-func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecResponseAzureMonitorMetricsPtrOutput() DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
-	return o.ToDestinationsSpecResponseAzureMonitorMetricsPtrOutputWithContext(context.Background())
-}
-
-func (o DestinationsSpecResponseAzureMonitorMetricsOutput) ToDestinationsSpecResponseAzureMonitorMetricsPtrOutputWithContext(ctx context.Context) DestinationsSpecResponseAzureMonitorMetricsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DestinationsSpecResponseAzureMonitorMetrics) *DestinationsSpecResponseAzureMonitorMetrics {
-		return &v
-	}).(DestinationsSpecResponseAzureMonitorMetricsPtrOutput)
 }
 
 func (o DestinationsSpecResponseAzureMonitorMetricsOutput) Name() pulumi.StringPtrOutput {
@@ -2428,62 +1420,6 @@ type ExtensionDataSourceResponse struct {
 	Streams           []string    `pulumi:"streams"`
 }
 
-
-
-
-
-type ExtensionDataSourceResponseInput interface {
-	pulumi.Input
-
-	ToExtensionDataSourceResponseOutput() ExtensionDataSourceResponseOutput
-	ToExtensionDataSourceResponseOutputWithContext(context.Context) ExtensionDataSourceResponseOutput
-}
-
-type ExtensionDataSourceResponseArgs struct {
-	ExtensionName     pulumi.StringInput      `pulumi:"extensionName"`
-	ExtensionSettings pulumi.Input            `pulumi:"extensionSettings"`
-	InputDataSources  pulumi.StringArrayInput `pulumi:"inputDataSources"`
-	Name              pulumi.StringPtrInput   `pulumi:"name"`
-	Streams           pulumi.StringArrayInput `pulumi:"streams"`
-}
-
-func (ExtensionDataSourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExtensionDataSourceResponse)(nil)).Elem()
-}
-
-func (i ExtensionDataSourceResponseArgs) ToExtensionDataSourceResponseOutput() ExtensionDataSourceResponseOutput {
-	return i.ToExtensionDataSourceResponseOutputWithContext(context.Background())
-}
-
-func (i ExtensionDataSourceResponseArgs) ToExtensionDataSourceResponseOutputWithContext(ctx context.Context) ExtensionDataSourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtensionDataSourceResponseOutput)
-}
-
-
-
-
-
-type ExtensionDataSourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToExtensionDataSourceResponseArrayOutput() ExtensionDataSourceResponseArrayOutput
-	ToExtensionDataSourceResponseArrayOutputWithContext(context.Context) ExtensionDataSourceResponseArrayOutput
-}
-
-type ExtensionDataSourceResponseArray []ExtensionDataSourceResponseInput
-
-func (ExtensionDataSourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExtensionDataSourceResponse)(nil)).Elem()
-}
-
-func (i ExtensionDataSourceResponseArray) ToExtensionDataSourceResponseArrayOutput() ExtensionDataSourceResponseArrayOutput {
-	return i.ToExtensionDataSourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i ExtensionDataSourceResponseArray) ToExtensionDataSourceResponseArrayOutputWithContext(ctx context.Context) ExtensionDataSourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExtensionDataSourceResponseArrayOutput)
-}
-
 type ExtensionDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (ExtensionDataSourceResponseOutput) ElementType() reflect.Type {
@@ -2642,60 +1578,6 @@ type LogAnalyticsDestinationResponse struct {
 	Name                *string `pulumi:"name"`
 	WorkspaceId         string  `pulumi:"workspaceId"`
 	WorkspaceResourceId *string `pulumi:"workspaceResourceId"`
-}
-
-
-
-
-
-type LogAnalyticsDestinationResponseInput interface {
-	pulumi.Input
-
-	ToLogAnalyticsDestinationResponseOutput() LogAnalyticsDestinationResponseOutput
-	ToLogAnalyticsDestinationResponseOutputWithContext(context.Context) LogAnalyticsDestinationResponseOutput
-}
-
-type LogAnalyticsDestinationResponseArgs struct {
-	Name                pulumi.StringPtrInput `pulumi:"name"`
-	WorkspaceId         pulumi.StringInput    `pulumi:"workspaceId"`
-	WorkspaceResourceId pulumi.StringPtrInput `pulumi:"workspaceResourceId"`
-}
-
-func (LogAnalyticsDestinationResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LogAnalyticsDestinationResponse)(nil)).Elem()
-}
-
-func (i LogAnalyticsDestinationResponseArgs) ToLogAnalyticsDestinationResponseOutput() LogAnalyticsDestinationResponseOutput {
-	return i.ToLogAnalyticsDestinationResponseOutputWithContext(context.Background())
-}
-
-func (i LogAnalyticsDestinationResponseArgs) ToLogAnalyticsDestinationResponseOutputWithContext(ctx context.Context) LogAnalyticsDestinationResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsDestinationResponseOutput)
-}
-
-
-
-
-
-type LogAnalyticsDestinationResponseArrayInput interface {
-	pulumi.Input
-
-	ToLogAnalyticsDestinationResponseArrayOutput() LogAnalyticsDestinationResponseArrayOutput
-	ToLogAnalyticsDestinationResponseArrayOutputWithContext(context.Context) LogAnalyticsDestinationResponseArrayOutput
-}
-
-type LogAnalyticsDestinationResponseArray []LogAnalyticsDestinationResponseInput
-
-func (LogAnalyticsDestinationResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LogAnalyticsDestinationResponse)(nil)).Elem()
-}
-
-func (i LogAnalyticsDestinationResponseArray) ToLogAnalyticsDestinationResponseArrayOutput() LogAnalyticsDestinationResponseArrayOutput {
-	return i.ToLogAnalyticsDestinationResponseArrayOutputWithContext(context.Background())
-}
-
-func (i LogAnalyticsDestinationResponseArray) ToLogAnalyticsDestinationResponseArrayOutputWithContext(ctx context.Context) LogAnalyticsDestinationResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogAnalyticsDestinationResponseArrayOutput)
 }
 
 type LogAnalyticsDestinationResponseOutput struct{ *pulumi.OutputState }
@@ -2861,61 +1743,6 @@ type PerfCounterDataSourceResponse struct {
 	Name                       *string  `pulumi:"name"`
 	SamplingFrequencyInSeconds *int     `pulumi:"samplingFrequencyInSeconds"`
 	Streams                    []string `pulumi:"streams"`
-}
-
-
-
-
-
-type PerfCounterDataSourceResponseInput interface {
-	pulumi.Input
-
-	ToPerfCounterDataSourceResponseOutput() PerfCounterDataSourceResponseOutput
-	ToPerfCounterDataSourceResponseOutputWithContext(context.Context) PerfCounterDataSourceResponseOutput
-}
-
-type PerfCounterDataSourceResponseArgs struct {
-	CounterSpecifiers          pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
-	Name                       pulumi.StringPtrInput   `pulumi:"name"`
-	SamplingFrequencyInSeconds pulumi.IntPtrInput      `pulumi:"samplingFrequencyInSeconds"`
-	Streams                    pulumi.StringArrayInput `pulumi:"streams"`
-}
-
-func (PerfCounterDataSourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PerfCounterDataSourceResponse)(nil)).Elem()
-}
-
-func (i PerfCounterDataSourceResponseArgs) ToPerfCounterDataSourceResponseOutput() PerfCounterDataSourceResponseOutput {
-	return i.ToPerfCounterDataSourceResponseOutputWithContext(context.Background())
-}
-
-func (i PerfCounterDataSourceResponseArgs) ToPerfCounterDataSourceResponseOutputWithContext(ctx context.Context) PerfCounterDataSourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PerfCounterDataSourceResponseOutput)
-}
-
-
-
-
-
-type PerfCounterDataSourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToPerfCounterDataSourceResponseArrayOutput() PerfCounterDataSourceResponseArrayOutput
-	ToPerfCounterDataSourceResponseArrayOutputWithContext(context.Context) PerfCounterDataSourceResponseArrayOutput
-}
-
-type PerfCounterDataSourceResponseArray []PerfCounterDataSourceResponseInput
-
-func (PerfCounterDataSourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PerfCounterDataSourceResponse)(nil)).Elem()
-}
-
-func (i PerfCounterDataSourceResponseArray) ToPerfCounterDataSourceResponseArrayOutput() PerfCounterDataSourceResponseArrayOutput {
-	return i.ToPerfCounterDataSourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i PerfCounterDataSourceResponseArray) ToPerfCounterDataSourceResponseArrayOutputWithContext(ctx context.Context) PerfCounterDataSourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PerfCounterDataSourceResponseArrayOutput)
 }
 
 type PerfCounterDataSourceResponseOutput struct{ *pulumi.OutputState }
@@ -3087,61 +1914,6 @@ type SyslogDataSourceResponse struct {
 	Streams       []string `pulumi:"streams"`
 }
 
-
-
-
-
-type SyslogDataSourceResponseInput interface {
-	pulumi.Input
-
-	ToSyslogDataSourceResponseOutput() SyslogDataSourceResponseOutput
-	ToSyslogDataSourceResponseOutputWithContext(context.Context) SyslogDataSourceResponseOutput
-}
-
-type SyslogDataSourceResponseArgs struct {
-	FacilityNames pulumi.StringArrayInput `pulumi:"facilityNames"`
-	LogLevels     pulumi.StringArrayInput `pulumi:"logLevels"`
-	Name          pulumi.StringPtrInput   `pulumi:"name"`
-	Streams       pulumi.StringArrayInput `pulumi:"streams"`
-}
-
-func (SyslogDataSourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyslogDataSourceResponse)(nil)).Elem()
-}
-
-func (i SyslogDataSourceResponseArgs) ToSyslogDataSourceResponseOutput() SyslogDataSourceResponseOutput {
-	return i.ToSyslogDataSourceResponseOutputWithContext(context.Background())
-}
-
-func (i SyslogDataSourceResponseArgs) ToSyslogDataSourceResponseOutputWithContext(ctx context.Context) SyslogDataSourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyslogDataSourceResponseOutput)
-}
-
-
-
-
-
-type SyslogDataSourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToSyslogDataSourceResponseArrayOutput() SyslogDataSourceResponseArrayOutput
-	ToSyslogDataSourceResponseArrayOutputWithContext(context.Context) SyslogDataSourceResponseArrayOutput
-}
-
-type SyslogDataSourceResponseArray []SyslogDataSourceResponseInput
-
-func (SyslogDataSourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SyslogDataSourceResponse)(nil)).Elem()
-}
-
-func (i SyslogDataSourceResponseArray) ToSyslogDataSourceResponseArrayOutput() SyslogDataSourceResponseArrayOutput {
-	return i.ToSyslogDataSourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i SyslogDataSourceResponseArray) ToSyslogDataSourceResponseArrayOutputWithContext(ctx context.Context) SyslogDataSourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyslogDataSourceResponseArrayOutput)
-}
-
 type SyslogDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (SyslogDataSourceResponseOutput) ElementType() reflect.Type {
@@ -3304,60 +2076,6 @@ type WindowsEventLogDataSourceResponse struct {
 	XPathQueries []string `pulumi:"xPathQueries"`
 }
 
-
-
-
-
-type WindowsEventLogDataSourceResponseInput interface {
-	pulumi.Input
-
-	ToWindowsEventLogDataSourceResponseOutput() WindowsEventLogDataSourceResponseOutput
-	ToWindowsEventLogDataSourceResponseOutputWithContext(context.Context) WindowsEventLogDataSourceResponseOutput
-}
-
-type WindowsEventLogDataSourceResponseArgs struct {
-	Name         pulumi.StringPtrInput   `pulumi:"name"`
-	Streams      pulumi.StringArrayInput `pulumi:"streams"`
-	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
-}
-
-func (WindowsEventLogDataSourceResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WindowsEventLogDataSourceResponse)(nil)).Elem()
-}
-
-func (i WindowsEventLogDataSourceResponseArgs) ToWindowsEventLogDataSourceResponseOutput() WindowsEventLogDataSourceResponseOutput {
-	return i.ToWindowsEventLogDataSourceResponseOutputWithContext(context.Background())
-}
-
-func (i WindowsEventLogDataSourceResponseArgs) ToWindowsEventLogDataSourceResponseOutputWithContext(ctx context.Context) WindowsEventLogDataSourceResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsEventLogDataSourceResponseOutput)
-}
-
-
-
-
-
-type WindowsEventLogDataSourceResponseArrayInput interface {
-	pulumi.Input
-
-	ToWindowsEventLogDataSourceResponseArrayOutput() WindowsEventLogDataSourceResponseArrayOutput
-	ToWindowsEventLogDataSourceResponseArrayOutputWithContext(context.Context) WindowsEventLogDataSourceResponseArrayOutput
-}
-
-type WindowsEventLogDataSourceResponseArray []WindowsEventLogDataSourceResponseInput
-
-func (WindowsEventLogDataSourceResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WindowsEventLogDataSourceResponse)(nil)).Elem()
-}
-
-func (i WindowsEventLogDataSourceResponseArray) ToWindowsEventLogDataSourceResponseArrayOutput() WindowsEventLogDataSourceResponseArrayOutput {
-	return i.ToWindowsEventLogDataSourceResponseArrayOutputWithContext(context.Background())
-}
-
-func (i WindowsEventLogDataSourceResponseArray) ToWindowsEventLogDataSourceResponseArrayOutputWithContext(ctx context.Context) WindowsEventLogDataSourceResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WindowsEventLogDataSourceResponseArrayOutput)
-}
-
 type WindowsEventLogDataSourceResponseOutput struct{ *pulumi.OutputState }
 
 func (WindowsEventLogDataSourceResponseOutput) ElementType() reflect.Type {
@@ -3408,7 +2126,6 @@ func init() {
 	pulumi.RegisterOutputType(DataCollectionEndpointNetworkAclsOutput{})
 	pulumi.RegisterOutputType(DataCollectionEndpointNetworkAclsPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionEndpointResourceResponseSystemDataOutput{})
-	pulumi.RegisterOutputType(DataCollectionEndpointResourceResponseSystemDataPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionEndpointResponseConfigurationAccessOutput{})
 	pulumi.RegisterOutputType(DataCollectionEndpointResponseConfigurationAccessPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionEndpointResponseLogsIngestionOutput{})
@@ -3416,13 +2133,11 @@ func init() {
 	pulumi.RegisterOutputType(DataCollectionEndpointResponseNetworkAclsOutput{})
 	pulumi.RegisterOutputType(DataCollectionEndpointResponseNetworkAclsPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataOutput{})
-	pulumi.RegisterOutputType(DataCollectionRuleAssociationProxyOnlyResourceResponseSystemDataPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleDataSourcesPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleDestinationsOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleDestinationsPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleResourceResponseSystemDataOutput{})
-	pulumi.RegisterOutputType(DataCollectionRuleResourceResponseSystemDataPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleResponseDataSourcesOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleResponseDataSourcesPtrOutput{})
 	pulumi.RegisterOutputType(DataCollectionRuleResponseDestinationsOutput{})
