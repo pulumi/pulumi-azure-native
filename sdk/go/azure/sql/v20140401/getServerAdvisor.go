@@ -1,0 +1,36 @@
+
+
+
+package v20140401
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupServerAdvisor(ctx *pulumi.Context, args *LookupServerAdvisorArgs, opts ...pulumi.InvokeOption) (*LookupServerAdvisorResult, error) {
+	var rv LookupServerAdvisorResult
+	err := ctx.Invoke("azure-native:sql/v20140401:getServerAdvisor", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupServerAdvisorArgs struct {
+	AdvisorName       string `pulumi:"advisorName"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ServerName        string `pulumi:"serverName"`
+}
+
+
+type LookupServerAdvisorResult struct {
+	AdvisorStatus         string `pulumi:"advisorStatus"`
+	AutoExecuteValue      string `pulumi:"autoExecuteValue"`
+	Id                    string `pulumi:"id"`
+	Kind                  string `pulumi:"kind"`
+	LastChecked           string `pulumi:"lastChecked"`
+	Location              string `pulumi:"location"`
+	Name                  string `pulumi:"name"`
+	RecommendationsStatus string `pulumi:"recommendationsStatus"`
+	Type                  string `pulumi:"type"`
+}

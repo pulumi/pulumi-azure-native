@@ -1,0 +1,43 @@
+
+
+
+package security
+
+import (
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func LookupAssignment(ctx *pulumi.Context, args *LookupAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupAssignmentResult, error) {
+	var rv LookupAssignmentResult
+	err := ctx.Invoke("azure-native:security:getAssignment", args, &rv, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &rv, nil
+}
+
+type LookupAssignmentArgs struct {
+	AssignmentId      string `pulumi:"assignmentId"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+}
+
+
+type LookupAssignmentResult struct {
+	AdditionalData    *AssignmentPropertiesResponseAdditionalData `pulumi:"additionalData"`
+	AssignedComponent *AssignedComponentItemResponse              `pulumi:"assignedComponent"`
+	AssignedStandard  *AssignedStandardItemResponse               `pulumi:"assignedStandard"`
+	Description       *string                                     `pulumi:"description"`
+	DisplayName       *string                                     `pulumi:"displayName"`
+	Effect            *string                                     `pulumi:"effect"`
+	Etag              *string                                     `pulumi:"etag"`
+	ExpiresOn         *string                                     `pulumi:"expiresOn"`
+	Id                string                                      `pulumi:"id"`
+	Kind              *string                                     `pulumi:"kind"`
+	Location          *string                                     `pulumi:"location"`
+	Metadata          interface{}                                 `pulumi:"metadata"`
+	Name              string                                      `pulumi:"name"`
+	Scope             *string                                     `pulumi:"scope"`
+	SystemData        SystemDataResponse                          `pulumi:"systemData"`
+	Tags              map[string]string                           `pulumi:"tags"`
+	Type              string                                      `pulumi:"type"`
+}
