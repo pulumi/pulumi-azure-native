@@ -19,7 +19,6 @@ type MoveCollection struct {
 	Location   pulumi.StringPtrOutput                 `pulumi:"location"`
 	Name       pulumi.StringOutput                    `pulumi:"name"`
 	Properties MoveCollectionPropertiesResponseOutput `pulumi:"properties"`
-	SystemData SystemDataResponseOutput               `pulumi:"systemData"`
 	Tags       pulumi.StringMapOutput                 `pulumi:"tags"`
 	Type       pulumi.StringOutput                    `pulumi:"type"`
 }

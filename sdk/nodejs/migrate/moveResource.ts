@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the move resource.
- * API Version: 2021-08-01.
+ * API Version: 2021-01-01.
  */
 export class MoveResource extends pulumi.CustomResource {
     /**
@@ -45,10 +45,6 @@ export class MoveResource extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.migrate.MoveResourcePropertiesResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.SystemDataResponse>;
-    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -75,12 +71,10 @@ export class MoveResource extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {

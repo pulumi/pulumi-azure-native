@@ -27,6 +27,5 @@ type LookupMoveResourceResult struct {
 	Id         string                         `pulumi:"id"`
 	Name       string                         `pulumi:"name"`
 	Properties MoveResourcePropertiesResponse `pulumi:"properties"`
-	SystemData SystemDataResponse             `pulumi:"systemData"`
 	Type       string                         `pulumi:"type"`
 }

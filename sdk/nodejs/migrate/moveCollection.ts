@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Define the move collection.
- * API Version: 2021-08-01.
+ * API Version: 2021-01-01.
  */
 export class MoveCollection extends pulumi.CustomResource {
     /**
@@ -57,10 +57,6 @@ export class MoveCollection extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.migrate.MoveCollectionPropertiesResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.SystemDataResponse>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -91,7 +87,6 @@ export class MoveCollection extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
             inputs["etag"] = undefined /*out*/;
@@ -99,7 +94,6 @@ export class MoveCollection extends pulumi.CustomResource {
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }

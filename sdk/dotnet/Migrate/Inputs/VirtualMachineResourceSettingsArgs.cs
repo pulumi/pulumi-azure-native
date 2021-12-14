@@ -22,18 +22,6 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Gets or sets the Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
         /// <summary>
         /// Gets or sets the target availability set id for virtual machines not in an availability set at source.
         /// </summary>
@@ -57,18 +45,6 @@ namespace Pulumi.AzureNative.Migrate.Inputs
         /// </summary>
         [Input("targetVmSize")]
         public Input<string>? TargetVmSize { get; set; }
-
-        [Input("userManagedIdentities")]
-        private InputList<string>? _userManagedIdentities;
-
-        /// <summary>
-        /// Gets or sets user-managed identities
-        /// </summary>
-        public InputList<string> UserManagedIdentities
-        {
-            get => _userManagedIdentities ?? (_userManagedIdentities = new InputList<string>());
-            set => _userManagedIdentities = value;
-        }
 
         public VirtualMachineResourceSettingsArgs()
         {

@@ -64,7 +64,6 @@ __all__ = [
     'SqlServerResourceSettingsResponse',
     'SubnetReferenceResponse',
     'SubnetResourceSettingsResponse',
-    'SystemDataResponse',
     'VirtualMachineResourceSettingsResponse',
     'VirtualNetworkResourceSettingsResponse',
     'VmUptimeResponse',
@@ -552,7 +551,6 @@ class AvailabilitySetResourceSettingsResponse(dict):
                  resource_type: str,
                  target_resource_name: str,
                  fault_domain: Optional[int] = None,
-                 tags: Optional[Mapping[str, str]] = None,
                  update_domain: Optional[int] = None):
         """
         Gets or sets the availability set resource settings.
@@ -560,15 +558,12 @@ class AvailabilitySetResourceSettingsResponse(dict):
                Expected value is 'Microsoft.Compute/availabilitySets'.
         :param str target_resource_name: Gets or sets the target Resource name.
         :param int fault_domain: Gets or sets the target fault domain.
-        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param int update_domain: Gets or sets the target update domain.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/availabilitySets')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
         if fault_domain is not None:
             pulumi.set(__self__, "fault_domain", fault_domain)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if update_domain is not None:
             pulumi.set(__self__, "update_domain", update_domain)
 
@@ -596,14 +591,6 @@ class AvailabilitySetResourceSettingsResponse(dict):
         Gets or sets the target fault domain.
         """
         return pulumi.get(self, "fault_domain")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the Resource tags.
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateDomain")
@@ -1634,7 +1621,6 @@ class LoadBalancerResourceSettingsResponse(dict):
                  backend_address_pools: Optional[Sequence['outputs.LBBackendAddressPoolResourceSettingsResponse']] = None,
                  frontend_ip_configurations: Optional[Sequence['outputs.LBFrontendIPConfigurationResourceSettingsResponse']] = None,
                  sku: Optional[str] = None,
-                 tags: Optional[Mapping[str, str]] = None,
                  zones: Optional[str] = None):
         """
         Defines the load balancer resource settings.
@@ -1644,7 +1630,6 @@ class LoadBalancerResourceSettingsResponse(dict):
         :param Sequence['LBBackendAddressPoolResourceSettingsResponse'] backend_address_pools: Gets or sets the backend address pools of the load balancer.
         :param Sequence['LBFrontendIPConfigurationResourceSettingsResponse'] frontend_ip_configurations: Gets or sets the frontend IP configurations of the load balancer.
         :param str sku: Gets or sets load balancer sku (Basic/Standard).
-        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str zones: Gets or sets the csv list of zones common for all frontend IP configurations. Note this is given
                 precedence only if frontend IP configurations settings are not present.
         """
@@ -1656,8 +1641,6 @@ class LoadBalancerResourceSettingsResponse(dict):
             pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -1701,14 +1684,6 @@ class LoadBalancerResourceSettingsResponse(dict):
         Gets or sets load balancer sku (Basic/Standard).
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the Resource tags.
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
@@ -2530,8 +2505,7 @@ class NetworkInterfaceResourceSettingsResponse(dict):
                  resource_type: str,
                  target_resource_name: str,
                  enable_accelerated_networking: Optional[bool] = None,
-                 ip_configurations: Optional[Sequence['outputs.NicIpConfigurationResourceSettingsResponse']] = None,
-                 tags: Optional[Mapping[str, str]] = None):
+                 ip_configurations: Optional[Sequence['outputs.NicIpConfigurationResourceSettingsResponse']] = None):
         """
         Defines the network interface resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -2539,7 +2513,6 @@ class NetworkInterfaceResourceSettingsResponse(dict):
         :param str target_resource_name: Gets or sets the target Resource name.
         :param bool enable_accelerated_networking: Gets or sets a value indicating whether accelerated networking is enabled.
         :param Sequence['NicIpConfigurationResourceSettingsResponse'] ip_configurations: Gets or sets the IP configurations of the NIC.
-        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkInterfaces')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -2547,8 +2520,6 @@ class NetworkInterfaceResourceSettingsResponse(dict):
             pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2583,14 +2554,6 @@ class NetworkInterfaceResourceSettingsResponse(dict):
         """
         return pulumi.get(self, "ip_configurations")
 
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the Resource tags.
-        """
-        return pulumi.get(self, "tags")
-
 
 @pulumi.output_type
 class NetworkSecurityGroupResourceSettingsResponse(dict):
@@ -2621,22 +2584,18 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
-                 security_rules: Optional[Sequence['outputs.NsgSecurityRuleResponse']] = None,
-                 tags: Optional[Mapping[str, str]] = None):
+                 security_rules: Optional[Sequence['outputs.NsgSecurityRuleResponse']] = None):
         """
         Defines the NSG resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Network/networkSecurityGroups'.
         :param str target_resource_name: Gets or sets the target Resource name.
         :param Sequence['NsgSecurityRuleResponse'] security_rules: Gets or sets Security rules of network security group.
-        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/networkSecurityGroups')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
         if security_rules is not None:
             pulumi.set(__self__, "security_rules", security_rules)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -2662,14 +2621,6 @@ class NetworkSecurityGroupResourceSettingsResponse(dict):
         Gets or sets Security rules of network security group.
         """
         return pulumi.get(self, "security_rules")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the Resource tags.
-        """
-        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -3495,7 +3446,6 @@ class PublicIPAddressResourceSettingsResponse(dict):
                  fqdn: Optional[str] = None,
                  public_ip_allocation_method: Optional[str] = None,
                  sku: Optional[str] = None,
-                 tags: Optional[Mapping[str, str]] = None,
                  zones: Optional[str] = None):
         """
         Defines the public IP address resource settings.
@@ -3506,7 +3456,6 @@ class PublicIPAddressResourceSettingsResponse(dict):
         :param str fqdn: Gets or sets the fully qualified domain name.
         :param str public_ip_allocation_method: Gets or sets public IP allocation method.
         :param str sku: Gets or sets public IP sku.
-        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str zones: Gets or sets public IP zones.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/publicIPAddresses')
@@ -3519,8 +3468,6 @@ class PublicIPAddressResourceSettingsResponse(dict):
             pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
 
@@ -3572,14 +3519,6 @@ class PublicIPAddressResourceSettingsResponse(dict):
         Gets or sets public IP sku.
         """
         return pulumi.get(self, "sku")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the Resource tags.
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
@@ -4174,20 +4113,16 @@ class SqlDatabaseResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
-                 tags: Optional[Mapping[str, str]] = None,
                  zone_redundant: Optional[str] = None):
         """
         Defines the Sql Database resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers/databases'.
         :param str target_resource_name: Gets or sets the target Resource name.
-        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str zone_redundant: Defines the zone redundant resource setting.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/databases')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -4207,14 +4142,6 @@ class SqlDatabaseResourceSettingsResponse(dict):
         Gets or sets the target Resource name.
         """
         return pulumi.get(self, "target_resource_name")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the Resource tags.
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="zoneRedundant")
@@ -4254,20 +4181,16 @@ class SqlElasticPoolResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
-                 tags: Optional[Mapping[str, str]] = None,
                  zone_redundant: Optional[str] = None):
         """
         Defines the Sql ElasticPool resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Sql/servers/elasticPools'.
         :param str target_resource_name: Gets or sets the target Resource name.
-        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str zone_redundant: Defines the zone redundant resource setting.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/elasticPools')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -4287,14 +4210,6 @@ class SqlElasticPoolResourceSettingsResponse(dict):
         Gets or sets the target Resource name.
         """
         return pulumi.get(self, "target_resource_name")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the Resource tags.
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="zoneRedundant")
@@ -4477,116 +4392,6 @@ class SubnetResourceSettingsResponse(dict):
 
 
 @pulumi.output_type
-class SystemDataResponse(dict):
-    """
-    Metadata pertaining to creation and last modification of the resource.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "createdAt":
-            suggest = "created_at"
-        elif key == "createdBy":
-            suggest = "created_by"
-        elif key == "createdByType":
-            suggest = "created_by_type"
-        elif key == "lastModifiedAt":
-            suggest = "last_modified_at"
-        elif key == "lastModifiedBy":
-            suggest = "last_modified_by"
-        elif key == "lastModifiedByType":
-            suggest = "last_modified_by_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SystemDataResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 created_at: Optional[str] = None,
-                 created_by: Optional[str] = None,
-                 created_by_type: Optional[str] = None,
-                 last_modified_at: Optional[str] = None,
-                 last_modified_by: Optional[str] = None,
-                 last_modified_by_type: Optional[str] = None):
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The timestamp of resource creation (UTC).
-        :param str created_by: The identity that created the resource.
-        :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
-        :param str last_modified_by: The identity that last modified the resource.
-        :param str last_modified_by_type: The type of identity that last modified the resource.
-        """
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
 class VirtualMachineResourceSettingsResponse(dict):
     """
     Gets or sets the virtual machine resource settings.
@@ -4604,8 +4409,6 @@ class VirtualMachineResourceSettingsResponse(dict):
             suggest = "target_availability_zone"
         elif key == "targetVmSize":
             suggest = "target_vm_size"
-        elif key == "userManagedIdentities":
-            suggest = "user_managed_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VirtualMachineResourceSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -4621,34 +4424,26 @@ class VirtualMachineResourceSettingsResponse(dict):
     def __init__(__self__, *,
                  resource_type: str,
                  target_resource_name: str,
-                 tags: Optional[Mapping[str, str]] = None,
                  target_availability_set_id: Optional[str] = None,
                  target_availability_zone: Optional[str] = None,
-                 target_vm_size: Optional[str] = None,
-                 user_managed_identities: Optional[Sequence[str]] = None):
+                 target_vm_size: Optional[str] = None):
         """
         Gets or sets the virtual machine resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
                Expected value is 'Microsoft.Compute/virtualMachines'.
         :param str target_resource_name: Gets or sets the target Resource name.
-        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         :param str target_availability_set_id: Gets or sets the target availability set id for virtual machines not in an availability set at source.
         :param str target_availability_zone: Gets or sets the target availability zone.
         :param str target_vm_size: Gets or sets the target virtual machine size.
-        :param Sequence[str] user_managed_identities: Gets or sets user-managed identities
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/virtualMachines')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if target_availability_set_id is not None:
             pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
         if target_availability_zone is not None:
             pulumi.set(__self__, "target_availability_zone", target_availability_zone)
         if target_vm_size is not None:
             pulumi.set(__self__, "target_vm_size", target_vm_size)
-        if user_managed_identities is not None:
-            pulumi.set(__self__, "user_managed_identities", user_managed_identities)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -4666,14 +4461,6 @@ class VirtualMachineResourceSettingsResponse(dict):
         Gets or sets the target Resource name.
         """
         return pulumi.get(self, "target_resource_name")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the Resource tags.
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="targetAvailabilitySetId")
@@ -4698,14 +4485,6 @@ class VirtualMachineResourceSettingsResponse(dict):
         Gets or sets the target virtual machine size.
         """
         return pulumi.get(self, "target_vm_size")
-
-    @property
-    @pulumi.getter(name="userManagedIdentities")
-    def user_managed_identities(self) -> Optional[Sequence[str]]:
-        """
-        Gets or sets user-managed identities
-        """
-        return pulumi.get(self, "user_managed_identities")
 
 
 @pulumi.output_type
@@ -4744,8 +4523,7 @@ class VirtualNetworkResourceSettingsResponse(dict):
                  address_space: Optional[Sequence[str]] = None,
                  dns_servers: Optional[Sequence[str]] = None,
                  enable_ddos_protection: Optional[bool] = None,
-                 subnets: Optional[Sequence['outputs.SubnetResourceSettingsResponse']] = None,
-                 tags: Optional[Mapping[str, str]] = None):
+                 subnets: Optional[Sequence['outputs.SubnetResourceSettingsResponse']] = None):
         """
         Defines the virtual network resource settings.
         :param str resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
@@ -4757,7 +4535,6 @@ class VirtualNetworkResourceSettingsResponse(dict):
         :param bool enable_ddos_protection: Gets or sets a value indicating whether gets or sets whether the
                DDOS protection should be switched on.
         :param Sequence['SubnetResourceSettingsResponse'] subnets: Gets or sets List of subnets in a VirtualNetwork.
-        :param Mapping[str, str] tags: Gets or sets the Resource tags.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Network/virtualNetworks')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -4769,8 +4546,6 @@ class VirtualNetworkResourceSettingsResponse(dict):
             pulumi.set(__self__, "enable_ddos_protection", enable_ddos_protection)
         if subnets is not None:
             pulumi.set(__self__, "subnets", subnets)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceType")
@@ -4822,14 +4597,6 @@ class VirtualNetworkResourceSettingsResponse(dict):
         Gets or sets List of subnets in a VirtualNetwork.
         """
         return pulumi.get(self, "subnets")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        """
-        Gets or sets the Resource tags.
-        """
-        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

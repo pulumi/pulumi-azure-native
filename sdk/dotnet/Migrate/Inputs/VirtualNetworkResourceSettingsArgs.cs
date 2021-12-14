@@ -66,18 +66,6 @@ namespace Pulumi.AzureNative.Migrate.Inputs
             set => _subnets = value;
         }
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Gets or sets the Resource tags.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
         /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>

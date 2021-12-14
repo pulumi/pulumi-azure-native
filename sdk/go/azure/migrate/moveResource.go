@@ -16,7 +16,6 @@ type MoveResource struct {
 
 	Name       pulumi.StringOutput                  `pulumi:"name"`
 	Properties MoveResourcePropertiesResponseOutput `pulumi:"properties"`
-	SystemData SystemDataResponseOutput             `pulumi:"systemData"`
 	Type       pulumi.StringOutput                  `pulumi:"type"`
 }
 

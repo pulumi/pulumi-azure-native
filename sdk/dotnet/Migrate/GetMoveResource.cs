@@ -14,14 +14,14 @@ namespace Pulumi.AzureNative.Migrate
     {
         /// <summary>
         /// Defines the move resource.
-        /// API Version: 2021-08-01.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Task<GetMoveResourceResult> InvokeAsync(GetMoveResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMoveResourceResult>("azure-native:migrate:getMoveResource", args ?? new GetMoveResourceArgs(), options.WithVersion());
 
         /// <summary>
         /// Defines the move resource.
-        /// API Version: 2021-08-01.
+        /// API Version: 2021-01-01.
         /// </summary>
         public static Output<GetMoveResourceResult> Invoke(GetMoveResourceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetMoveResourceResult>("azure-native:migrate:getMoveResource", args ?? new GetMoveResourceInvokeArgs(), options.WithVersion());
@@ -95,10 +95,6 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         public readonly Outputs.MoveResourcePropertiesResponse Properties;
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
@@ -111,14 +107,11 @@ namespace Pulumi.AzureNative.Migrate
 
             Outputs.MoveResourcePropertiesResponse properties,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
-            SystemData = systemData;
             Type = type;
         }
     }

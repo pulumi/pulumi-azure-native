@@ -1070,11 +1070,10 @@ func (o AutomaticResolutionPropertiesResponsePtrOutput) MoveResourceId() pulumi.
 }
 
 type AvailabilitySetResourceSettings struct {
-	FaultDomain        *int              `pulumi:"faultDomain"`
-	ResourceType       string            `pulumi:"resourceType"`
-	Tags               map[string]string `pulumi:"tags"`
-	TargetResourceName string            `pulumi:"targetResourceName"`
-	UpdateDomain       *int              `pulumi:"updateDomain"`
+	FaultDomain        *int   `pulumi:"faultDomain"`
+	ResourceType       string `pulumi:"resourceType"`
+	TargetResourceName string `pulumi:"targetResourceName"`
+	UpdateDomain       *int   `pulumi:"updateDomain"`
 }
 
 
@@ -1089,11 +1088,10 @@ type AvailabilitySetResourceSettingsInput interface {
 }
 
 type AvailabilitySetResourceSettingsArgs struct {
-	FaultDomain        pulumi.IntPtrInput    `pulumi:"faultDomain"`
-	ResourceType       pulumi.StringInput    `pulumi:"resourceType"`
-	Tags               pulumi.StringMapInput `pulumi:"tags"`
-	TargetResourceName pulumi.StringInput    `pulumi:"targetResourceName"`
-	UpdateDomain       pulumi.IntPtrInput    `pulumi:"updateDomain"`
+	FaultDomain        pulumi.IntPtrInput `pulumi:"faultDomain"`
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
+	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+	UpdateDomain       pulumi.IntPtrInput `pulumi:"updateDomain"`
 }
 
 func (AvailabilitySetResourceSettingsArgs) ElementType() reflect.Type {
@@ -1130,10 +1128,6 @@ func (o AvailabilitySetResourceSettingsOutput) ResourceType() pulumi.StringOutpu
 	return o.ApplyT(func(v AvailabilitySetResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-func (o AvailabilitySetResourceSettingsOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AvailabilitySetResourceSettings) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o AvailabilitySetResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
@@ -1143,11 +1137,10 @@ func (o AvailabilitySetResourceSettingsOutput) UpdateDomain() pulumi.IntPtrOutpu
 }
 
 type AvailabilitySetResourceSettingsResponse struct {
-	FaultDomain        *int              `pulumi:"faultDomain"`
-	ResourceType       string            `pulumi:"resourceType"`
-	Tags               map[string]string `pulumi:"tags"`
-	TargetResourceName string            `pulumi:"targetResourceName"`
-	UpdateDomain       *int              `pulumi:"updateDomain"`
+	FaultDomain        *int   `pulumi:"faultDomain"`
+	ResourceType       string `pulumi:"resourceType"`
+	TargetResourceName string `pulumi:"targetResourceName"`
+	UpdateDomain       *int   `pulumi:"updateDomain"`
 }
 
 
@@ -1162,11 +1155,10 @@ type AvailabilitySetResourceSettingsResponseInput interface {
 }
 
 type AvailabilitySetResourceSettingsResponseArgs struct {
-	FaultDomain        pulumi.IntPtrInput    `pulumi:"faultDomain"`
-	ResourceType       pulumi.StringInput    `pulumi:"resourceType"`
-	Tags               pulumi.StringMapInput `pulumi:"tags"`
-	TargetResourceName pulumi.StringInput    `pulumi:"targetResourceName"`
-	UpdateDomain       pulumi.IntPtrInput    `pulumi:"updateDomain"`
+	FaultDomain        pulumi.IntPtrInput `pulumi:"faultDomain"`
+	ResourceType       pulumi.StringInput `pulumi:"resourceType"`
+	TargetResourceName pulumi.StringInput `pulumi:"targetResourceName"`
+	UpdateDomain       pulumi.IntPtrInput `pulumi:"updateDomain"`
 }
 
 func (AvailabilitySetResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -1201,10 +1193,6 @@ func (o AvailabilitySetResourceSettingsResponseOutput) FaultDomain() pulumi.IntP
 
 func (o AvailabilitySetResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailabilitySetResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
-}
-
-func (o AvailabilitySetResourceSettingsResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AvailabilitySetResourceSettingsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o AvailabilitySetResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
@@ -4547,7 +4535,6 @@ type LoadBalancerResourceSettings struct {
 	FrontendIPConfigurations []LBFrontendIPConfigurationResourceSettings `pulumi:"frontendIPConfigurations"`
 	ResourceType             string                                      `pulumi:"resourceType"`
 	Sku                      *string                                     `pulumi:"sku"`
-	Tags                     map[string]string                           `pulumi:"tags"`
 	TargetResourceName       string                                      `pulumi:"targetResourceName"`
 	Zones                    *string                                     `pulumi:"zones"`
 }
@@ -4568,7 +4555,6 @@ type LoadBalancerResourceSettingsArgs struct {
 	FrontendIPConfigurations LBFrontendIPConfigurationResourceSettingsArrayInput `pulumi:"frontendIPConfigurations"`
 	ResourceType             pulumi.StringInput                                  `pulumi:"resourceType"`
 	Sku                      pulumi.StringPtrInput                               `pulumi:"sku"`
-	Tags                     pulumi.StringMapInput                               `pulumi:"tags"`
 	TargetResourceName       pulumi.StringInput                                  `pulumi:"targetResourceName"`
 	Zones                    pulumi.StringPtrInput                               `pulumi:"zones"`
 }
@@ -4619,10 +4605,6 @@ func (o LoadBalancerResourceSettingsOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettings) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-func (o LoadBalancerResourceSettingsOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LoadBalancerResourceSettings) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o LoadBalancerResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
@@ -4636,7 +4618,6 @@ type LoadBalancerResourceSettingsResponse struct {
 	FrontendIPConfigurations []LBFrontendIPConfigurationResourceSettingsResponse `pulumi:"frontendIPConfigurations"`
 	ResourceType             string                                              `pulumi:"resourceType"`
 	Sku                      *string                                             `pulumi:"sku"`
-	Tags                     map[string]string                                   `pulumi:"tags"`
 	TargetResourceName       string                                              `pulumi:"targetResourceName"`
 	Zones                    *string                                             `pulumi:"zones"`
 }
@@ -4657,7 +4638,6 @@ type LoadBalancerResourceSettingsResponseArgs struct {
 	FrontendIPConfigurations LBFrontendIPConfigurationResourceSettingsResponseArrayInput `pulumi:"frontendIPConfigurations"`
 	ResourceType             pulumi.StringInput                                          `pulumi:"resourceType"`
 	Sku                      pulumi.StringPtrInput                                       `pulumi:"sku"`
-	Tags                     pulumi.StringMapInput                                       `pulumi:"tags"`
 	TargetResourceName       pulumi.StringInput                                          `pulumi:"targetResourceName"`
 	Zones                    pulumi.StringPtrInput                                       `pulumi:"zones"`
 }
@@ -4706,10 +4686,6 @@ func (o LoadBalancerResourceSettingsResponseOutput) ResourceType() pulumi.String
 
 func (o LoadBalancerResourceSettingsResponseOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerResourceSettingsResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
-}
-
-func (o LoadBalancerResourceSettingsResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LoadBalancerResourceSettingsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o LoadBalancerResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
@@ -7370,7 +7346,6 @@ type NetworkInterfaceResourceSettings struct {
 	EnableAcceleratedNetworking *bool                                `pulumi:"enableAcceleratedNetworking"`
 	IpConfigurations            []NicIpConfigurationResourceSettings `pulumi:"ipConfigurations"`
 	ResourceType                string                               `pulumi:"resourceType"`
-	Tags                        map[string]string                    `pulumi:"tags"`
 	TargetResourceName          string                               `pulumi:"targetResourceName"`
 }
 
@@ -7389,7 +7364,6 @@ type NetworkInterfaceResourceSettingsArgs struct {
 	EnableAcceleratedNetworking pulumi.BoolPtrInput                          `pulumi:"enableAcceleratedNetworking"`
 	IpConfigurations            NicIpConfigurationResourceSettingsArrayInput `pulumi:"ipConfigurations"`
 	ResourceType                pulumi.StringInput                           `pulumi:"resourceType"`
-	Tags                        pulumi.StringMapInput                        `pulumi:"tags"`
 	TargetResourceName          pulumi.StringInput                           `pulumi:"targetResourceName"`
 }
 
@@ -7433,10 +7407,6 @@ func (o NetworkInterfaceResourceSettingsOutput) ResourceType() pulumi.StringOutp
 	return o.ApplyT(func(v NetworkInterfaceResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-func (o NetworkInterfaceResourceSettingsOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NetworkInterfaceResourceSettings) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o NetworkInterfaceResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
@@ -7445,7 +7415,6 @@ type NetworkInterfaceResourceSettingsResponse struct {
 	EnableAcceleratedNetworking *bool                                        `pulumi:"enableAcceleratedNetworking"`
 	IpConfigurations            []NicIpConfigurationResourceSettingsResponse `pulumi:"ipConfigurations"`
 	ResourceType                string                                       `pulumi:"resourceType"`
-	Tags                        map[string]string                            `pulumi:"tags"`
 	TargetResourceName          string                                       `pulumi:"targetResourceName"`
 }
 
@@ -7464,7 +7433,6 @@ type NetworkInterfaceResourceSettingsResponseArgs struct {
 	EnableAcceleratedNetworking pulumi.BoolPtrInput                                  `pulumi:"enableAcceleratedNetworking"`
 	IpConfigurations            NicIpConfigurationResourceSettingsResponseArrayInput `pulumi:"ipConfigurations"`
 	ResourceType                pulumi.StringInput                                   `pulumi:"resourceType"`
-	Tags                        pulumi.StringMapInput                                `pulumi:"tags"`
 	TargetResourceName          pulumi.StringInput                                   `pulumi:"targetResourceName"`
 }
 
@@ -7508,10 +7476,6 @@ func (o NetworkInterfaceResourceSettingsResponseOutput) ResourceType() pulumi.St
 	return o.ApplyT(func(v NetworkInterfaceResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-func (o NetworkInterfaceResourceSettingsResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NetworkInterfaceResourceSettingsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o NetworkInterfaceResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkInterfaceResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
@@ -7519,7 +7483,6 @@ func (o NetworkInterfaceResourceSettingsResponseOutput) TargetResourceName() pul
 type NetworkSecurityGroupResourceSettings struct {
 	ResourceType       string            `pulumi:"resourceType"`
 	SecurityRules      []NsgSecurityRule `pulumi:"securityRules"`
-	Tags               map[string]string `pulumi:"tags"`
 	TargetResourceName string            `pulumi:"targetResourceName"`
 }
 
@@ -7537,7 +7500,6 @@ type NetworkSecurityGroupResourceSettingsInput interface {
 type NetworkSecurityGroupResourceSettingsArgs struct {
 	ResourceType       pulumi.StringInput        `pulumi:"resourceType"`
 	SecurityRules      NsgSecurityRuleArrayInput `pulumi:"securityRules"`
-	Tags               pulumi.StringMapInput     `pulumi:"tags"`
 	TargetResourceName pulumi.StringInput        `pulumi:"targetResourceName"`
 }
 
@@ -7575,10 +7537,6 @@ func (o NetworkSecurityGroupResourceSettingsOutput) SecurityRules() NsgSecurityR
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettings) []NsgSecurityRule { return v.SecurityRules }).(NsgSecurityRuleArrayOutput)
 }
 
-func (o NetworkSecurityGroupResourceSettingsOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NetworkSecurityGroupResourceSettings) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o NetworkSecurityGroupResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
@@ -7586,7 +7544,6 @@ func (o NetworkSecurityGroupResourceSettingsOutput) TargetResourceName() pulumi.
 type NetworkSecurityGroupResourceSettingsResponse struct {
 	ResourceType       string                    `pulumi:"resourceType"`
 	SecurityRules      []NsgSecurityRuleResponse `pulumi:"securityRules"`
-	Tags               map[string]string         `pulumi:"tags"`
 	TargetResourceName string                    `pulumi:"targetResourceName"`
 }
 
@@ -7604,7 +7561,6 @@ type NetworkSecurityGroupResourceSettingsResponseInput interface {
 type NetworkSecurityGroupResourceSettingsResponseArgs struct {
 	ResourceType       pulumi.StringInput                `pulumi:"resourceType"`
 	SecurityRules      NsgSecurityRuleResponseArrayInput `pulumi:"securityRules"`
-	Tags               pulumi.StringMapInput             `pulumi:"tags"`
 	TargetResourceName pulumi.StringInput                `pulumi:"targetResourceName"`
 }
 
@@ -7640,10 +7596,6 @@ func (o NetworkSecurityGroupResourceSettingsResponseOutput) ResourceType() pulum
 
 func (o NetworkSecurityGroupResourceSettingsResponseOutput) SecurityRules() NsgSecurityRuleResponseArrayOutput {
 	return o.ApplyT(func(v NetworkSecurityGroupResourceSettingsResponse) []NsgSecurityRuleResponse { return v.SecurityRules }).(NsgSecurityRuleResponseArrayOutput)
-}
-
-func (o NetworkSecurityGroupResourceSettingsResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NetworkSecurityGroupResourceSettingsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o NetworkSecurityGroupResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
@@ -9792,14 +9744,13 @@ func (o ProjectPropertiesResponsePtrOutput) UpdatedTimestamp() pulumi.StringPtrO
 }
 
 type PublicIPAddressResourceSettings struct {
-	DomainNameLabel          *string           `pulumi:"domainNameLabel"`
-	Fqdn                     *string           `pulumi:"fqdn"`
-	PublicIpAllocationMethod *string           `pulumi:"publicIpAllocationMethod"`
-	ResourceType             string            `pulumi:"resourceType"`
-	Sku                      *string           `pulumi:"sku"`
-	Tags                     map[string]string `pulumi:"tags"`
-	TargetResourceName       string            `pulumi:"targetResourceName"`
-	Zones                    *string           `pulumi:"zones"`
+	DomainNameLabel          *string `pulumi:"domainNameLabel"`
+	Fqdn                     *string `pulumi:"fqdn"`
+	PublicIpAllocationMethod *string `pulumi:"publicIpAllocationMethod"`
+	ResourceType             string  `pulumi:"resourceType"`
+	Sku                      *string `pulumi:"sku"`
+	TargetResourceName       string  `pulumi:"targetResourceName"`
+	Zones                    *string `pulumi:"zones"`
 }
 
 
@@ -9819,7 +9770,6 @@ type PublicIPAddressResourceSettingsArgs struct {
 	PublicIpAllocationMethod pulumi.StringPtrInput `pulumi:"publicIpAllocationMethod"`
 	ResourceType             pulumi.StringInput    `pulumi:"resourceType"`
 	Sku                      pulumi.StringPtrInput `pulumi:"sku"`
-	Tags                     pulumi.StringMapInput `pulumi:"tags"`
 	TargetResourceName       pulumi.StringInput    `pulumi:"targetResourceName"`
 	Zones                    pulumi.StringPtrInput `pulumi:"zones"`
 }
@@ -9870,10 +9820,6 @@ func (o PublicIPAddressResourceSettingsOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettings) *string { return v.Sku }).(pulumi.StringPtrOutput)
 }
 
-func (o PublicIPAddressResourceSettingsOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PublicIPAddressResourceSettings) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o PublicIPAddressResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
@@ -9883,14 +9829,13 @@ func (o PublicIPAddressResourceSettingsOutput) Zones() pulumi.StringPtrOutput {
 }
 
 type PublicIPAddressResourceSettingsResponse struct {
-	DomainNameLabel          *string           `pulumi:"domainNameLabel"`
-	Fqdn                     *string           `pulumi:"fqdn"`
-	PublicIpAllocationMethod *string           `pulumi:"publicIpAllocationMethod"`
-	ResourceType             string            `pulumi:"resourceType"`
-	Sku                      *string           `pulumi:"sku"`
-	Tags                     map[string]string `pulumi:"tags"`
-	TargetResourceName       string            `pulumi:"targetResourceName"`
-	Zones                    *string           `pulumi:"zones"`
+	DomainNameLabel          *string `pulumi:"domainNameLabel"`
+	Fqdn                     *string `pulumi:"fqdn"`
+	PublicIpAllocationMethod *string `pulumi:"publicIpAllocationMethod"`
+	ResourceType             string  `pulumi:"resourceType"`
+	Sku                      *string `pulumi:"sku"`
+	TargetResourceName       string  `pulumi:"targetResourceName"`
+	Zones                    *string `pulumi:"zones"`
 }
 
 
@@ -9910,7 +9855,6 @@ type PublicIPAddressResourceSettingsResponseArgs struct {
 	PublicIpAllocationMethod pulumi.StringPtrInput `pulumi:"publicIpAllocationMethod"`
 	ResourceType             pulumi.StringInput    `pulumi:"resourceType"`
 	Sku                      pulumi.StringPtrInput `pulumi:"sku"`
-	Tags                     pulumi.StringMapInput `pulumi:"tags"`
 	TargetResourceName       pulumi.StringInput    `pulumi:"targetResourceName"`
 	Zones                    pulumi.StringPtrInput `pulumi:"zones"`
 }
@@ -9959,10 +9903,6 @@ func (o PublicIPAddressResourceSettingsResponseOutput) ResourceType() pulumi.Str
 
 func (o PublicIPAddressResourceSettingsResponseOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
-}
-
-func (o PublicIPAddressResourceSettingsResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PublicIPAddressResourceSettingsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o PublicIPAddressResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
@@ -11416,10 +11356,9 @@ func (o SolutionPropertiesResponsePtrOutput) Tool() pulumi.StringPtrOutput {
 }
 
 type SqlDatabaseResourceSettings struct {
-	ResourceType       string            `pulumi:"resourceType"`
-	Tags               map[string]string `pulumi:"tags"`
-	TargetResourceName string            `pulumi:"targetResourceName"`
-	ZoneRedundant      *string           `pulumi:"zoneRedundant"`
+	ResourceType       string  `pulumi:"resourceType"`
+	TargetResourceName string  `pulumi:"targetResourceName"`
+	ZoneRedundant      *string `pulumi:"zoneRedundant"`
 }
 
 
@@ -11435,7 +11374,6 @@ type SqlDatabaseResourceSettingsInput interface {
 
 type SqlDatabaseResourceSettingsArgs struct {
 	ResourceType       pulumi.StringInput    `pulumi:"resourceType"`
-	Tags               pulumi.StringMapInput `pulumi:"tags"`
 	TargetResourceName pulumi.StringInput    `pulumi:"targetResourceName"`
 	ZoneRedundant      pulumi.StringPtrInput `pulumi:"zoneRedundant"`
 }
@@ -11470,10 +11408,6 @@ func (o SqlDatabaseResourceSettingsOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-func (o SqlDatabaseResourceSettingsOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SqlDatabaseResourceSettings) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o SqlDatabaseResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
@@ -11483,10 +11417,9 @@ func (o SqlDatabaseResourceSettingsOutput) ZoneRedundant() pulumi.StringPtrOutpu
 }
 
 type SqlDatabaseResourceSettingsResponse struct {
-	ResourceType       string            `pulumi:"resourceType"`
-	Tags               map[string]string `pulumi:"tags"`
-	TargetResourceName string            `pulumi:"targetResourceName"`
-	ZoneRedundant      *string           `pulumi:"zoneRedundant"`
+	ResourceType       string  `pulumi:"resourceType"`
+	TargetResourceName string  `pulumi:"targetResourceName"`
+	ZoneRedundant      *string `pulumi:"zoneRedundant"`
 }
 
 
@@ -11502,7 +11435,6 @@ type SqlDatabaseResourceSettingsResponseInput interface {
 
 type SqlDatabaseResourceSettingsResponseArgs struct {
 	ResourceType       pulumi.StringInput    `pulumi:"resourceType"`
-	Tags               pulumi.StringMapInput `pulumi:"tags"`
 	TargetResourceName pulumi.StringInput    `pulumi:"targetResourceName"`
 	ZoneRedundant      pulumi.StringPtrInput `pulumi:"zoneRedundant"`
 }
@@ -11537,10 +11469,6 @@ func (o SqlDatabaseResourceSettingsResponseOutput) ResourceType() pulumi.StringO
 	return o.ApplyT(func(v SqlDatabaseResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-func (o SqlDatabaseResourceSettingsResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SqlDatabaseResourceSettingsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o SqlDatabaseResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlDatabaseResourceSettingsResponse) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
@@ -11550,10 +11478,9 @@ func (o SqlDatabaseResourceSettingsResponseOutput) ZoneRedundant() pulumi.String
 }
 
 type SqlElasticPoolResourceSettings struct {
-	ResourceType       string            `pulumi:"resourceType"`
-	Tags               map[string]string `pulumi:"tags"`
-	TargetResourceName string            `pulumi:"targetResourceName"`
-	ZoneRedundant      *string           `pulumi:"zoneRedundant"`
+	ResourceType       string  `pulumi:"resourceType"`
+	TargetResourceName string  `pulumi:"targetResourceName"`
+	ZoneRedundant      *string `pulumi:"zoneRedundant"`
 }
 
 
@@ -11569,7 +11496,6 @@ type SqlElasticPoolResourceSettingsInput interface {
 
 type SqlElasticPoolResourceSettingsArgs struct {
 	ResourceType       pulumi.StringInput    `pulumi:"resourceType"`
-	Tags               pulumi.StringMapInput `pulumi:"tags"`
 	TargetResourceName pulumi.StringInput    `pulumi:"targetResourceName"`
 	ZoneRedundant      pulumi.StringPtrInput `pulumi:"zoneRedundant"`
 }
@@ -11604,10 +11530,6 @@ func (o SqlElasticPoolResourceSettingsOutput) ResourceType() pulumi.StringOutput
 	return o.ApplyT(func(v SqlElasticPoolResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-func (o SqlElasticPoolResourceSettingsOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SqlElasticPoolResourceSettings) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o SqlElasticPoolResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlElasticPoolResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
@@ -11617,10 +11539,9 @@ func (o SqlElasticPoolResourceSettingsOutput) ZoneRedundant() pulumi.StringPtrOu
 }
 
 type SqlElasticPoolResourceSettingsResponse struct {
-	ResourceType       string            `pulumi:"resourceType"`
-	Tags               map[string]string `pulumi:"tags"`
-	TargetResourceName string            `pulumi:"targetResourceName"`
-	ZoneRedundant      *string           `pulumi:"zoneRedundant"`
+	ResourceType       string  `pulumi:"resourceType"`
+	TargetResourceName string  `pulumi:"targetResourceName"`
+	ZoneRedundant      *string `pulumi:"zoneRedundant"`
 }
 
 
@@ -11636,7 +11557,6 @@ type SqlElasticPoolResourceSettingsResponseInput interface {
 
 type SqlElasticPoolResourceSettingsResponseArgs struct {
 	ResourceType       pulumi.StringInput    `pulumi:"resourceType"`
-	Tags               pulumi.StringMapInput `pulumi:"tags"`
 	TargetResourceName pulumi.StringInput    `pulumi:"targetResourceName"`
 	ZoneRedundant      pulumi.StringPtrInput `pulumi:"zoneRedundant"`
 }
@@ -11669,10 +11589,6 @@ func (o SqlElasticPoolResourceSettingsResponseOutput) ToSqlElasticPoolResourceSe
 
 func (o SqlElasticPoolResourceSettingsResponseOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlElasticPoolResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
-}
-
-func (o SqlElasticPoolResourceSettingsResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SqlElasticPoolResourceSettingsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o SqlElasticPoolResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
@@ -12301,222 +12217,12 @@ func (o SubnetResourceSettingsResponseArrayOutput) Index(i pulumi.IntInput) Subn
 	}).(SubnetResourceSettingsResponseOutput)
 }
 
-type SystemDataResponse struct {
-	CreatedAt          *string `pulumi:"createdAt"`
-	CreatedBy          *string `pulumi:"createdBy"`
-	CreatedByType      *string `pulumi:"createdByType"`
-	LastModifiedAt     *string `pulumi:"lastModifiedAt"`
-	LastModifiedBy     *string `pulumi:"lastModifiedBy"`
-	LastModifiedByType *string `pulumi:"lastModifiedByType"`
-}
-
-
-
-
-
-type SystemDataResponseInput interface {
-	pulumi.Input
-
-	ToSystemDataResponseOutput() SystemDataResponseOutput
-	ToSystemDataResponseOutputWithContext(context.Context) SystemDataResponseOutput
-}
-
-type SystemDataResponseArgs struct {
-	CreatedAt          pulumi.StringPtrInput `pulumi:"createdAt"`
-	CreatedBy          pulumi.StringPtrInput `pulumi:"createdBy"`
-	CreatedByType      pulumi.StringPtrInput `pulumi:"createdByType"`
-	LastModifiedAt     pulumi.StringPtrInput `pulumi:"lastModifiedAt"`
-	LastModifiedBy     pulumi.StringPtrInput `pulumi:"lastModifiedBy"`
-	LastModifiedByType pulumi.StringPtrInput `pulumi:"lastModifiedByType"`
-}
-
-func (SystemDataResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return i.ToSystemDataResponseOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput)
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SystemDataResponseArgs) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponseOutput).ToSystemDataResponsePtrOutputWithContext(ctx)
-}
-
-
-
-
-
-
-
-
-
-type SystemDataResponsePtrInput interface {
-	pulumi.Input
-
-	ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput
-	ToSystemDataResponsePtrOutputWithContext(context.Context) SystemDataResponsePtrOutput
-}
-
-type systemDataResponsePtrType SystemDataResponseArgs
-
-func SystemDataResponsePtr(v *SystemDataResponseArgs) SystemDataResponsePtrInput {
-	return (*systemDataResponsePtrType)(v)
-}
-
-func (*systemDataResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return i.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *systemDataResponsePtrType) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SystemDataResponsePtrOutput)
-}
-
-type SystemDataResponseOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
-	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
-	return o
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o.ToSystemDataResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SystemDataResponseOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SystemDataResponse) *SystemDataResponse {
-		return &v
-	}).(SystemDataResponsePtrOutput)
-}
-
-func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
-}
-
-type SystemDataResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SystemDataResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SystemDataResponse)(nil)).Elem()
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutput() SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) ToSystemDataResponsePtrOutputWithContext(ctx context.Context) SystemDataResponsePtrOutput {
-	return o
-}
-
-func (o SystemDataResponsePtrOutput) Elem() SystemDataResponseOutput {
-	return o.ApplyT(func(v *SystemDataResponse) SystemDataResponse {
-		if v != nil {
-			return *v
-		}
-		var ret SystemDataResponse
-		return ret
-	}).(SystemDataResponseOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) CreatedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CreatedByType
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedAt() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedAt
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o SystemDataResponsePtrOutput) LastModifiedByType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SystemDataResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastModifiedByType
-	}).(pulumi.StringPtrOutput)
-}
-
 type VirtualMachineResourceSettings struct {
-	ResourceType            string            `pulumi:"resourceType"`
-	Tags                    map[string]string `pulumi:"tags"`
-	TargetAvailabilitySetId *string           `pulumi:"targetAvailabilitySetId"`
-	TargetAvailabilityZone  *string           `pulumi:"targetAvailabilityZone"`
-	TargetResourceName      string            `pulumi:"targetResourceName"`
-	TargetVmSize            *string           `pulumi:"targetVmSize"`
-	UserManagedIdentities   []string          `pulumi:"userManagedIdentities"`
+	ResourceType            string  `pulumi:"resourceType"`
+	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
+	TargetAvailabilityZone  *string `pulumi:"targetAvailabilityZone"`
+	TargetResourceName      string  `pulumi:"targetResourceName"`
+	TargetVmSize            *string `pulumi:"targetVmSize"`
 }
 
 
@@ -12531,13 +12237,11 @@ type VirtualMachineResourceSettingsInput interface {
 }
 
 type VirtualMachineResourceSettingsArgs struct {
-	ResourceType            pulumi.StringInput      `pulumi:"resourceType"`
-	Tags                    pulumi.StringMapInput   `pulumi:"tags"`
-	TargetAvailabilitySetId pulumi.StringPtrInput   `pulumi:"targetAvailabilitySetId"`
-	TargetAvailabilityZone  pulumi.StringPtrInput   `pulumi:"targetAvailabilityZone"`
-	TargetResourceName      pulumi.StringInput      `pulumi:"targetResourceName"`
-	TargetVmSize            pulumi.StringPtrInput   `pulumi:"targetVmSize"`
-	UserManagedIdentities   pulumi.StringArrayInput `pulumi:"userManagedIdentities"`
+	ResourceType            pulumi.StringInput    `pulumi:"resourceType"`
+	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
+	TargetAvailabilityZone  pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
+	TargetResourceName      pulumi.StringInput    `pulumi:"targetResourceName"`
+	TargetVmSize            pulumi.StringPtrInput `pulumi:"targetVmSize"`
 }
 
 func (VirtualMachineResourceSettingsArgs) ElementType() reflect.Type {
@@ -12570,10 +12274,6 @@ func (o VirtualMachineResourceSettingsOutput) ResourceType() pulumi.StringOutput
 	return o.ApplyT(func(v VirtualMachineResourceSettings) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-func (o VirtualMachineResourceSettingsOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineResourceSettings) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o VirtualMachineResourceSettingsOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettings) *string { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
@@ -12590,18 +12290,12 @@ func (o VirtualMachineResourceSettingsOutput) TargetVmSize() pulumi.StringPtrOut
 	return o.ApplyT(func(v VirtualMachineResourceSettings) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
-func (o VirtualMachineResourceSettingsOutput) UserManagedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualMachineResourceSettings) []string { return v.UserManagedIdentities }).(pulumi.StringArrayOutput)
-}
-
 type VirtualMachineResourceSettingsResponse struct {
-	ResourceType            string            `pulumi:"resourceType"`
-	Tags                    map[string]string `pulumi:"tags"`
-	TargetAvailabilitySetId *string           `pulumi:"targetAvailabilitySetId"`
-	TargetAvailabilityZone  *string           `pulumi:"targetAvailabilityZone"`
-	TargetResourceName      string            `pulumi:"targetResourceName"`
-	TargetVmSize            *string           `pulumi:"targetVmSize"`
-	UserManagedIdentities   []string          `pulumi:"userManagedIdentities"`
+	ResourceType            string  `pulumi:"resourceType"`
+	TargetAvailabilitySetId *string `pulumi:"targetAvailabilitySetId"`
+	TargetAvailabilityZone  *string `pulumi:"targetAvailabilityZone"`
+	TargetResourceName      string  `pulumi:"targetResourceName"`
+	TargetVmSize            *string `pulumi:"targetVmSize"`
 }
 
 
@@ -12616,13 +12310,11 @@ type VirtualMachineResourceSettingsResponseInput interface {
 }
 
 type VirtualMachineResourceSettingsResponseArgs struct {
-	ResourceType            pulumi.StringInput      `pulumi:"resourceType"`
-	Tags                    pulumi.StringMapInput   `pulumi:"tags"`
-	TargetAvailabilitySetId pulumi.StringPtrInput   `pulumi:"targetAvailabilitySetId"`
-	TargetAvailabilityZone  pulumi.StringPtrInput   `pulumi:"targetAvailabilityZone"`
-	TargetResourceName      pulumi.StringInput      `pulumi:"targetResourceName"`
-	TargetVmSize            pulumi.StringPtrInput   `pulumi:"targetVmSize"`
-	UserManagedIdentities   pulumi.StringArrayInput `pulumi:"userManagedIdentities"`
+	ResourceType            pulumi.StringInput    `pulumi:"resourceType"`
+	TargetAvailabilitySetId pulumi.StringPtrInput `pulumi:"targetAvailabilitySetId"`
+	TargetAvailabilityZone  pulumi.StringPtrInput `pulumi:"targetAvailabilityZone"`
+	TargetResourceName      pulumi.StringInput    `pulumi:"targetResourceName"`
+	TargetVmSize            pulumi.StringPtrInput `pulumi:"targetVmSize"`
 }
 
 func (VirtualMachineResourceSettingsResponseArgs) ElementType() reflect.Type {
@@ -12655,10 +12347,6 @@ func (o VirtualMachineResourceSettingsResponseOutput) ResourceType() pulumi.Stri
 	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) string { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-func (o VirtualMachineResourceSettingsResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o VirtualMachineResourceSettingsResponseOutput) TargetAvailabilitySetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) *string { return v.TargetAvailabilitySetId }).(pulumi.StringPtrOutput)
 }
@@ -12675,17 +12363,12 @@ func (o VirtualMachineResourceSettingsResponseOutput) TargetVmSize() pulumi.Stri
 	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) *string { return v.TargetVmSize }).(pulumi.StringPtrOutput)
 }
 
-func (o VirtualMachineResourceSettingsResponseOutput) UserManagedIdentities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualMachineResourceSettingsResponse) []string { return v.UserManagedIdentities }).(pulumi.StringArrayOutput)
-}
-
 type VirtualNetworkResourceSettings struct {
 	AddressSpace         []string                 `pulumi:"addressSpace"`
 	DnsServers           []string                 `pulumi:"dnsServers"`
 	EnableDdosProtection *bool                    `pulumi:"enableDdosProtection"`
 	ResourceType         string                   `pulumi:"resourceType"`
 	Subnets              []SubnetResourceSettings `pulumi:"subnets"`
-	Tags                 map[string]string        `pulumi:"tags"`
 	TargetResourceName   string                   `pulumi:"targetResourceName"`
 }
 
@@ -12706,7 +12389,6 @@ type VirtualNetworkResourceSettingsArgs struct {
 	EnableDdosProtection pulumi.BoolPtrInput              `pulumi:"enableDdosProtection"`
 	ResourceType         pulumi.StringInput               `pulumi:"resourceType"`
 	Subnets              SubnetResourceSettingsArrayInput `pulumi:"subnets"`
-	Tags                 pulumi.StringMapInput            `pulumi:"tags"`
 	TargetResourceName   pulumi.StringInput               `pulumi:"targetResourceName"`
 }
 
@@ -12756,10 +12438,6 @@ func (o VirtualNetworkResourceSettingsOutput) Subnets() SubnetResourceSettingsAr
 	return o.ApplyT(func(v VirtualNetworkResourceSettings) []SubnetResourceSettings { return v.Subnets }).(SubnetResourceSettingsArrayOutput)
 }
 
-func (o VirtualNetworkResourceSettingsOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualNetworkResourceSettings) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
 func (o VirtualNetworkResourceSettingsOutput) TargetResourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettings) string { return v.TargetResourceName }).(pulumi.StringOutput)
 }
@@ -12770,7 +12448,6 @@ type VirtualNetworkResourceSettingsResponse struct {
 	EnableDdosProtection *bool                            `pulumi:"enableDdosProtection"`
 	ResourceType         string                           `pulumi:"resourceType"`
 	Subnets              []SubnetResourceSettingsResponse `pulumi:"subnets"`
-	Tags                 map[string]string                `pulumi:"tags"`
 	TargetResourceName   string                           `pulumi:"targetResourceName"`
 }
 
@@ -12791,7 +12468,6 @@ type VirtualNetworkResourceSettingsResponseArgs struct {
 	EnableDdosProtection pulumi.BoolPtrInput                      `pulumi:"enableDdosProtection"`
 	ResourceType         pulumi.StringInput                       `pulumi:"resourceType"`
 	Subnets              SubnetResourceSettingsResponseArrayInput `pulumi:"subnets"`
-	Tags                 pulumi.StringMapInput                    `pulumi:"tags"`
 	TargetResourceName   pulumi.StringInput                       `pulumi:"targetResourceName"`
 }
 
@@ -12839,10 +12515,6 @@ func (o VirtualNetworkResourceSettingsResponseOutput) ResourceType() pulumi.Stri
 
 func (o VirtualNetworkResourceSettingsResponseOutput) Subnets() SubnetResourceSettingsResponseArrayOutput {
 	return o.ApplyT(func(v VirtualNetworkResourceSettingsResponse) []SubnetResourceSettingsResponse { return v.Subnets }).(SubnetResourceSettingsResponseArrayOutput)
-}
-
-func (o VirtualNetworkResourceSettingsResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualNetworkResourceSettingsResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o VirtualNetworkResourceSettingsResponseOutput) TargetResourceName() pulumi.StringOutput {
@@ -13303,8 +12975,6 @@ func init() {
 	pulumi.RegisterOutputType(SubnetResourceSettingsArrayOutput{})
 	pulumi.RegisterOutputType(SubnetResourceSettingsResponseOutput{})
 	pulumi.RegisterOutputType(SubnetResourceSettingsResponseArrayOutput{})
-	pulumi.RegisterOutputType(SystemDataResponseOutput{})
-	pulumi.RegisterOutputType(SystemDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineResourceSettingsOutput{})
 	pulumi.RegisterOutputType(VirtualMachineResourceSettingsResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkResourceSettingsOutput{})

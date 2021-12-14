@@ -29,7 +29,6 @@ type LookupMoveCollectionResult struct {
 	Location   *string                          `pulumi:"location"`
 	Name       string                           `pulumi:"name"`
 	Properties MoveCollectionPropertiesResponse `pulumi:"properties"`
-	SystemData SystemDataResponse               `pulumi:"systemData"`
 	Tags       map[string]string                `pulumi:"tags"`
 	Type       string                           `pulumi:"type"`
 }

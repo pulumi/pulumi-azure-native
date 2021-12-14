@@ -26,10 +26,6 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.NsgSecurityRuleResponse> SecurityRules;
         /// <summary>
-        /// Gets or sets the Resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
         public readonly string TargetResourceName;
@@ -40,13 +36,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             ImmutableArray<Outputs.NsgSecurityRuleResponse> securityRules,
 
-            ImmutableDictionary<string, string>? tags,
-
             string targetResourceName)
         {
             ResourceType = resourceType;
             SecurityRules = securityRules;
-            Tags = tags;
             TargetResourceName = targetResourceName;
         }
     }

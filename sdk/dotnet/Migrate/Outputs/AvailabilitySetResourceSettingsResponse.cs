@@ -26,10 +26,6 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string ResourceType;
         /// <summary>
-        /// Gets or sets the Resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
         public readonly string TargetResourceName;
@@ -44,15 +40,12 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string resourceType,
 
-            ImmutableDictionary<string, string>? tags,
-
             string targetResourceName,
 
             int? updateDomain)
         {
             FaultDomain = faultDomain;
             ResourceType = resourceType;
-            Tags = tags;
             TargetResourceName = targetResourceName;
             UpdateDomain = updateDomain;
         }

@@ -38,10 +38,6 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string? Sku;
         /// <summary>
-        /// Gets or sets the Resource tags.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
         public readonly string TargetResourceName;
@@ -62,8 +58,6 @@ namespace Pulumi.AzureNative.Migrate.Outputs
 
             string? sku,
 
-            ImmutableDictionary<string, string>? tags,
-
             string targetResourceName,
 
             string? zones)
@@ -73,7 +67,6 @@ namespace Pulumi.AzureNative.Migrate.Outputs
             PublicIpAllocationMethod = publicIpAllocationMethod;
             ResourceType = resourceType;
             Sku = sku;
-            Tags = tags;
             TargetResourceName = targetResourceName;
             Zones = zones;
         }

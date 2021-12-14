@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the move resource.
- * API Version: 2021-08-01.
+ * API Version: 2021-01-01.
  */
 export function getMoveResource(args: GetMoveResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveResourceResult> {
     if (!opts) {
@@ -55,10 +55,6 @@ export interface GetMoveResourceResult {
      * Defines the move resource properties.
      */
     readonly properties: outputs.migrate.MoveResourcePropertiesResponse;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.migrate.SystemDataResponse;
     /**
      * The type of the resource.
      */
