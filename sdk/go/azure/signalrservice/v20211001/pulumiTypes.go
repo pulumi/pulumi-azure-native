@@ -3557,6 +3557,19 @@ type SignalRNetworkACLs struct {
 }
 
 
+func (val *SignalRNetworkACLs) Defaults() *SignalRNetworkACLs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		defaultAction_ := "Deny"
+		tmp.DefaultAction = &defaultAction_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3717,6 +3730,19 @@ type SignalRNetworkACLsResponse struct {
 	DefaultAction    *string                      `pulumi:"defaultAction"`
 	PrivateEndpoints []PrivateEndpointACLResponse `pulumi:"privateEndpoints"`
 	PublicNetwork    *NetworkACLResponse          `pulumi:"publicNetwork"`
+}
+
+
+func (val *SignalRNetworkACLsResponse) Defaults() *SignalRNetworkACLsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		defaultAction_ := "Deny"
+		tmp.DefaultAction = &defaultAction_
+	}
+	return &tmp
 }
 
 
@@ -3881,6 +3907,19 @@ type SignalRTlsSettings struct {
 }
 
 
+func (val *SignalRTlsSettings) Defaults() *SignalRTlsSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertEnabled) {
+		clientCertEnabled_ := true
+		tmp.ClientCertEnabled = &clientCertEnabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4011,6 +4050,19 @@ func (o SignalRTlsSettingsPtrOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
 
 type SignalRTlsSettingsResponse struct {
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
+}
+
+
+func (val *SignalRTlsSettingsResponse) Defaults() *SignalRTlsSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertEnabled) {
+		clientCertEnabled_ := true
+		tmp.ClientCertEnabled = &clientCertEnabled_
+	}
+	return &tmp
 }
 
 

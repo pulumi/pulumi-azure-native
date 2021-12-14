@@ -112,7 +112,7 @@ type SshPublicKeyInput interface {
 }
 
 func (*SshPublicKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*SshPublicKey)(nil))
+	return reflect.TypeOf((**SshPublicKey)(nil)).Elem()
 }
 
 func (i *SshPublicKey) ToSshPublicKeyOutput() SshPublicKeyOutput {
@@ -126,7 +126,7 @@ func (i *SshPublicKey) ToSshPublicKeyOutputWithContext(ctx context.Context) SshP
 type SshPublicKeyOutput struct{ *pulumi.OutputState }
 
 func (SshPublicKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SshPublicKey)(nil))
+	return reflect.TypeOf((**SshPublicKey)(nil)).Elem()
 }
 
 func (o SshPublicKeyOutput) ToSshPublicKeyOutput() SshPublicKeyOutput {

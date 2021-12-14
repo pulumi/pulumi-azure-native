@@ -32,6 +32,10 @@ func NewService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	skuApplier := func(v Sku) *Sku { return v.Defaults() }
+	if args.Sku != nil {
+		args.Sku = args.Sku.ToSkuPtrOutput().Elem().ApplyT(skuApplier).(SkuPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:appplatform:Service"),
@@ -112,7 +116,7 @@ type ServiceInput interface {
 }
 
 func (*Service) ElementType() reflect.Type {
-	return reflect.TypeOf((*Service)(nil))
+	return reflect.TypeOf((**Service)(nil)).Elem()
 }
 
 func (i *Service) ToServiceOutput() ServiceOutput {
@@ -126,7 +130,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Service)(nil))
+	return reflect.TypeOf((**Service)(nil)).Elem()
 }
 
 func (o ServiceOutput) ToServiceOutput() ServiceOutput {

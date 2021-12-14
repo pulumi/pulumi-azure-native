@@ -13,7 +13,7 @@ func LookupTask(ctx *pulumi.Context, args *LookupTaskArgs, opts ...pulumi.Invoke
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupTaskArgs struct {
@@ -44,4 +44,23 @@ type LookupTaskResult struct {
 	Timeout            *int                        `pulumi:"timeout"`
 	Trigger            *TriggerPropertiesResponse  `pulumi:"trigger"`
 	Type               string                      `pulumi:"type"`
+}
+
+
+func (val *LookupTaskResult) Defaults() *LookupTaskResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSystemTask) {
+		isSystemTask_ := false
+		tmp.IsSystemTask = &isSystemTask_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := 3600
+		tmp.Timeout = &timeout_
+	}
+	tmp.Trigger = tmp.Trigger.Defaults()
+
+	return &tmp
 }

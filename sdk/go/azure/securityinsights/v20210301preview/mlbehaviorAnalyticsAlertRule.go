@@ -135,7 +135,7 @@ type MLBehaviorAnalyticsAlertRuleInput interface {
 }
 
 func (*MLBehaviorAnalyticsAlertRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLBehaviorAnalyticsAlertRule)(nil))
+	return reflect.TypeOf((**MLBehaviorAnalyticsAlertRule)(nil)).Elem()
 }
 
 func (i *MLBehaviorAnalyticsAlertRule) ToMLBehaviorAnalyticsAlertRuleOutput() MLBehaviorAnalyticsAlertRuleOutput {
@@ -149,7 +149,7 @@ func (i *MLBehaviorAnalyticsAlertRule) ToMLBehaviorAnalyticsAlertRuleOutputWithC
 type MLBehaviorAnalyticsAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (MLBehaviorAnalyticsAlertRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLBehaviorAnalyticsAlertRule)(nil))
+	return reflect.TypeOf((**MLBehaviorAnalyticsAlertRule)(nil)).Elem()
 }
 
 func (o MLBehaviorAnalyticsAlertRuleOutput) ToMLBehaviorAnalyticsAlertRuleOutput() MLBehaviorAnalyticsAlertRuleOutput {

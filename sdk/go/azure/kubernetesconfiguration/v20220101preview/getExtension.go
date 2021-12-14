@@ -13,7 +13,7 @@ func LookupExtension(ctx *pulumi.Context, args *LookupExtensionArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupExtensionArgs struct {
@@ -44,4 +44,21 @@ type LookupExtensionResult struct {
 	SystemData                     SystemDataResponse                    `pulumi:"systemData"`
 	Type                           string                                `pulumi:"type"`
 	Version                        *string                               `pulumi:"version"`
+}
+
+
+func (val *LookupExtensionResult) Defaults() *LookupExtensionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AutoUpgradeMinorVersion) {
+		autoUpgradeMinorVersion_ := true
+		tmp.AutoUpgradeMinorVersion = &autoUpgradeMinorVersion_
+	}
+	if isZero(tmp.ReleaseTrain) {
+		releaseTrain_ := "Stable"
+		tmp.ReleaseTrain = &releaseTrain_
+	}
+	return &tmp
 }

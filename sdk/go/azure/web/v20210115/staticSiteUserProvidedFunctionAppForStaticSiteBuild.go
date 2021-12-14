@@ -119,7 +119,7 @@ type StaticSiteUserProvidedFunctionAppForStaticSiteBuildInput interface {
 }
 
 func (*StaticSiteUserProvidedFunctionAppForStaticSiteBuild) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSiteUserProvidedFunctionAppForStaticSiteBuild)(nil))
+	return reflect.TypeOf((**StaticSiteUserProvidedFunctionAppForStaticSiteBuild)(nil)).Elem()
 }
 
 func (i *StaticSiteUserProvidedFunctionAppForStaticSiteBuild) ToStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput() StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput {
@@ -133,7 +133,7 @@ func (i *StaticSiteUserProvidedFunctionAppForStaticSiteBuild) ToStaticSiteUserPr
 type StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticSiteUserProvidedFunctionAppForStaticSiteBuild)(nil))
+	return reflect.TypeOf((**StaticSiteUserProvidedFunctionAppForStaticSiteBuild)(nil)).Elem()
 }
 
 func (o StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput) ToStaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput() StaticSiteUserProvidedFunctionAppForStaticSiteBuildOutput {

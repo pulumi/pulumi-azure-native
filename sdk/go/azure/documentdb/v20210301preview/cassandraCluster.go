@@ -112,7 +112,7 @@ type CassandraClusterInput interface {
 }
 
 func (*CassandraCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraCluster)(nil))
+	return reflect.TypeOf((**CassandraCluster)(nil)).Elem()
 }
 
 func (i *CassandraCluster) ToCassandraClusterOutput() CassandraClusterOutput {
@@ -126,7 +126,7 @@ func (i *CassandraCluster) ToCassandraClusterOutputWithContext(ctx context.Conte
 type CassandraClusterOutput struct{ *pulumi.OutputState }
 
 func (CassandraClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraCluster)(nil))
+	return reflect.TypeOf((**CassandraCluster)(nil)).Elem()
 }
 
 func (o CassandraClusterOutput) ToCassandraClusterOutput() CassandraClusterOutput {

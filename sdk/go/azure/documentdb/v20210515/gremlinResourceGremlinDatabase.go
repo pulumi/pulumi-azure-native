@@ -168,7 +168,7 @@ type GremlinResourceGremlinDatabaseInput interface {
 }
 
 func (*GremlinResourceGremlinDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinResourceGremlinDatabase)(nil))
+	return reflect.TypeOf((**GremlinResourceGremlinDatabase)(nil)).Elem()
 }
 
 func (i *GremlinResourceGremlinDatabase) ToGremlinResourceGremlinDatabaseOutput() GremlinResourceGremlinDatabaseOutput {
@@ -182,7 +182,7 @@ func (i *GremlinResourceGremlinDatabase) ToGremlinResourceGremlinDatabaseOutputW
 type GremlinResourceGremlinDatabaseOutput struct{ *pulumi.OutputState }
 
 func (GremlinResourceGremlinDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinResourceGremlinDatabase)(nil))
+	return reflect.TypeOf((**GremlinResourceGremlinDatabase)(nil)).Elem()
 }
 
 func (o GremlinResourceGremlinDatabaseOutput) ToGremlinResourceGremlinDatabaseOutput() GremlinResourceGremlinDatabaseOutput {

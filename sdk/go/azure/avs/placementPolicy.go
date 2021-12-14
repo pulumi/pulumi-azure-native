@@ -101,7 +101,7 @@ type PlacementPolicyInput interface {
 }
 
 func (*PlacementPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlacementPolicy)(nil))
+	return reflect.TypeOf((**PlacementPolicy)(nil)).Elem()
 }
 
 func (i *PlacementPolicy) ToPlacementPolicyOutput() PlacementPolicyOutput {
@@ -115,7 +115,7 @@ func (i *PlacementPolicy) ToPlacementPolicyOutputWithContext(ctx context.Context
 type PlacementPolicyOutput struct{ *pulumi.OutputState }
 
 func (PlacementPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PlacementPolicy)(nil))
+	return reflect.TypeOf((**PlacementPolicy)(nil)).Elem()
 }
 
 func (o PlacementPolicyOutput) ToPlacementPolicyOutput() PlacementPolicyOutput {

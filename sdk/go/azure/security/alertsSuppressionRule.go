@@ -111,7 +111,7 @@ type AlertsSuppressionRuleInput interface {
 }
 
 func (*AlertsSuppressionRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertsSuppressionRule)(nil))
+	return reflect.TypeOf((**AlertsSuppressionRule)(nil)).Elem()
 }
 
 func (i *AlertsSuppressionRule) ToAlertsSuppressionRuleOutput() AlertsSuppressionRuleOutput {
@@ -125,7 +125,7 @@ func (i *AlertsSuppressionRule) ToAlertsSuppressionRuleOutputWithContext(ctx con
 type AlertsSuppressionRuleOutput struct{ *pulumi.OutputState }
 
 func (AlertsSuppressionRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertsSuppressionRule)(nil))
+	return reflect.TypeOf((**AlertsSuppressionRule)(nil)).Elem()
 }
 
 func (o AlertsSuppressionRuleOutput) ToAlertsSuppressionRuleOutput() AlertsSuppressionRuleOutput {

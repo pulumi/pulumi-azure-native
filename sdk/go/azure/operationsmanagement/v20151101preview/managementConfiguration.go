@@ -94,7 +94,7 @@ type ManagementConfigurationInput interface {
 }
 
 func (*ManagementConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementConfiguration)(nil))
+	return reflect.TypeOf((**ManagementConfiguration)(nil)).Elem()
 }
 
 func (i *ManagementConfiguration) ToManagementConfigurationOutput() ManagementConfigurationOutput {
@@ -108,7 +108,7 @@ func (i *ManagementConfiguration) ToManagementConfigurationOutputWithContext(ctx
 type ManagementConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ManagementConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementConfiguration)(nil))
+	return reflect.TypeOf((**ManagementConfiguration)(nil)).Elem()
 }
 
 func (o ManagementConfigurationOutput) ToManagementConfigurationOutput() ManagementConfigurationOutput {

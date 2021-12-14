@@ -192,7 +192,7 @@ type AuthorizationServerInput interface {
 }
 
 func (*AuthorizationServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizationServer)(nil))
+	return reflect.TypeOf((**AuthorizationServer)(nil)).Elem()
 }
 
 func (i *AuthorizationServer) ToAuthorizationServerOutput() AuthorizationServerOutput {
@@ -206,7 +206,7 @@ func (i *AuthorizationServer) ToAuthorizationServerOutputWithContext(ctx context
 type AuthorizationServerOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizationServer)(nil))
+	return reflect.TypeOf((**AuthorizationServer)(nil)).Elem()
 }
 
 func (o AuthorizationServerOutput) ToAuthorizationServerOutput() AuthorizationServerOutput {

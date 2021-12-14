@@ -127,7 +127,7 @@ type FormulaInput interface {
 }
 
 func (*Formula) ElementType() reflect.Type {
-	return reflect.TypeOf((*Formula)(nil))
+	return reflect.TypeOf((**Formula)(nil)).Elem()
 }
 
 func (i *Formula) ToFormulaOutput() FormulaOutput {
@@ -141,7 +141,7 @@ func (i *Formula) ToFormulaOutputWithContext(ctx context.Context) FormulaOutput 
 type FormulaOutput struct{ *pulumi.OutputState }
 
 func (FormulaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Formula)(nil))
+	return reflect.TypeOf((**Formula)(nil)).Elem()
 }
 
 func (o FormulaOutput) ToFormulaOutput() FormulaOutput {

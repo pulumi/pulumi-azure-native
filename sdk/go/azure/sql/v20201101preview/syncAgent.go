@@ -116,7 +116,7 @@ type SyncAgentInput interface {
 }
 
 func (*SyncAgent) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncAgent)(nil))
+	return reflect.TypeOf((**SyncAgent)(nil)).Elem()
 }
 
 func (i *SyncAgent) ToSyncAgentOutput() SyncAgentOutput {
@@ -130,7 +130,7 @@ func (i *SyncAgent) ToSyncAgentOutputWithContext(ctx context.Context) SyncAgentO
 type SyncAgentOutput struct{ *pulumi.OutputState }
 
 func (SyncAgentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncAgent)(nil))
+	return reflect.TypeOf((**SyncAgent)(nil)).Elem()
 }
 
 func (o SyncAgentOutput) ToSyncAgentOutput() SyncAgentOutput {

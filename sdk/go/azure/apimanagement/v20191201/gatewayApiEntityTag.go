@@ -136,7 +136,7 @@ type GatewayApiEntityTagInput interface {
 }
 
 func (*GatewayApiEntityTag) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayApiEntityTag)(nil))
+	return reflect.TypeOf((**GatewayApiEntityTag)(nil)).Elem()
 }
 
 func (i *GatewayApiEntityTag) ToGatewayApiEntityTagOutput() GatewayApiEntityTagOutput {
@@ -150,7 +150,7 @@ func (i *GatewayApiEntityTag) ToGatewayApiEntityTagOutputWithContext(ctx context
 type GatewayApiEntityTagOutput struct{ *pulumi.OutputState }
 
 func (GatewayApiEntityTagOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayApiEntityTag)(nil))
+	return reflect.TypeOf((**GatewayApiEntityTag)(nil)).Elem()
 }
 
 func (o GatewayApiEntityTagOutput) ToGatewayApiEntityTagOutput() GatewayApiEntityTagOutput {

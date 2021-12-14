@@ -136,7 +136,7 @@ type ServerAzureADAdministratorInput interface {
 }
 
 func (*ServerAzureADAdministrator) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAzureADAdministrator)(nil))
+	return reflect.TypeOf((**ServerAzureADAdministrator)(nil)).Elem()
 }
 
 func (i *ServerAzureADAdministrator) ToServerAzureADAdministratorOutput() ServerAzureADAdministratorOutput {
@@ -150,7 +150,7 @@ func (i *ServerAzureADAdministrator) ToServerAzureADAdministratorOutputWithConte
 type ServerAzureADAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ServerAzureADAdministratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAzureADAdministrator)(nil))
+	return reflect.TypeOf((**ServerAzureADAdministrator)(nil)).Elem()
 }
 
 func (o ServerAzureADAdministratorOutput) ToServerAzureADAdministratorOutput() ServerAzureADAdministratorOutput {

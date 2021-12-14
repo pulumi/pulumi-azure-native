@@ -17,6 +17,17 @@ type AutoscaleNotification struct {
 }
 
 
+func (val *AutoscaleNotification) Defaults() *AutoscaleNotification {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Email = tmp.Email.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -120,6 +131,17 @@ type AutoscaleNotificationResponse struct {
 	Email     *EmailNotificationResponse    `pulumi:"email"`
 	Operation string                        `pulumi:"operation"`
 	Webhooks  []WebhookNotificationResponse `pulumi:"webhooks"`
+}
+
+
+func (val *AutoscaleNotificationResponse) Defaults() *AutoscaleNotificationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Email = tmp.Email.Defaults()
+
+	return &tmp
 }
 
 
@@ -465,6 +487,23 @@ type EmailNotification struct {
 }
 
 
+func (val *EmailNotification) Defaults() *EmailNotification {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SendToSubscriptionAdministrator) {
+		sendToSubscriptionAdministrator_ := false
+		tmp.SendToSubscriptionAdministrator = &sendToSubscriptionAdministrator_
+	}
+	if isZero(tmp.SendToSubscriptionCoAdministrators) {
+		sendToSubscriptionCoAdministrators_ := false
+		tmp.SendToSubscriptionCoAdministrators = &sendToSubscriptionCoAdministrators_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -625,6 +664,23 @@ type EmailNotificationResponse struct {
 	CustomEmails                       []string `pulumi:"customEmails"`
 	SendToSubscriptionAdministrator    *bool    `pulumi:"sendToSubscriptionAdministrator"`
 	SendToSubscriptionCoAdministrators *bool    `pulumi:"sendToSubscriptionCoAdministrators"`
+}
+
+
+func (val *EmailNotificationResponse) Defaults() *EmailNotificationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SendToSubscriptionAdministrator) {
+		sendToSubscriptionAdministrator_ := false
+		tmp.SendToSubscriptionAdministrator = &sendToSubscriptionAdministrator_
+	}
+	if isZero(tmp.SendToSubscriptionCoAdministrators) {
+		sendToSubscriptionCoAdministrators_ := false
+		tmp.SendToSubscriptionCoAdministrators = &sendToSubscriptionCoAdministrators_
+	}
+	return &tmp
 }
 
 
@@ -1674,6 +1730,19 @@ type ScaleAction struct {
 }
 
 
+func (val *ScaleAction) Defaults() *ScaleAction {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Value) {
+		value_ := "1"
+		tmp.Value = &value_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1738,6 +1807,19 @@ type ScaleActionResponse struct {
 	Direction string  `pulumi:"direction"`
 	Type      string  `pulumi:"type"`
 	Value     *string `pulumi:"value"`
+}
+
+
+func (val *ScaleActionResponse) Defaults() *ScaleActionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Value) {
+		value_ := "1"
+		tmp.Value = &value_
+	}
+	return &tmp
 }
 
 
@@ -1925,6 +2007,17 @@ func (o ScaleCapacityResponseOutput) Minimum() pulumi.StringOutput {
 type ScaleRule struct {
 	MetricTrigger MetricTrigger `pulumi:"metricTrigger"`
 	ScaleAction   ScaleAction   `pulumi:"scaleAction"`
+}
+
+
+func (val *ScaleRule) Defaults() *ScaleRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ScaleAction = *tmp.ScaleAction.Defaults()
+
+	return &tmp
 }
 
 
@@ -2237,6 +2330,17 @@ func (o ScaleRuleMetricDimensionResponseArrayOutput) Index(i pulumi.IntInput) Sc
 type ScaleRuleResponse struct {
 	MetricTrigger MetricTriggerResponse `pulumi:"metricTrigger"`
 	ScaleAction   ScaleActionResponse   `pulumi:"scaleAction"`
+}
+
+
+func (val *ScaleRuleResponse) Defaults() *ScaleRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ScaleAction = *tmp.ScaleAction.Defaults()
+
+	return &tmp
 }
 
 

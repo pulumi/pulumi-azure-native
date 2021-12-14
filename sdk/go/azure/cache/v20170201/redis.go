@@ -146,7 +146,7 @@ type RedisInput interface {
 }
 
 func (*Redis) ElementType() reflect.Type {
-	return reflect.TypeOf((*Redis)(nil))
+	return reflect.TypeOf((**Redis)(nil)).Elem()
 }
 
 func (i *Redis) ToRedisOutput() RedisOutput {
@@ -160,7 +160,7 @@ func (i *Redis) ToRedisOutputWithContext(ctx context.Context) RedisOutput {
 type RedisOutput struct{ *pulumi.OutputState }
 
 func (RedisOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Redis)(nil))
+	return reflect.TypeOf((**Redis)(nil)).Elem()
 }
 
 func (o RedisOutput) ToRedisOutput() RedisOutput {

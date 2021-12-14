@@ -137,7 +137,7 @@ type PolicySetDefinitionAtManagementGroupInput interface {
 }
 
 func (*PolicySetDefinitionAtManagementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinitionAtManagementGroup)(nil))
+	return reflect.TypeOf((**PolicySetDefinitionAtManagementGroup)(nil)).Elem()
 }
 
 func (i *PolicySetDefinitionAtManagementGroup) ToPolicySetDefinitionAtManagementGroupOutput() PolicySetDefinitionAtManagementGroupOutput {
@@ -151,7 +151,7 @@ func (i *PolicySetDefinitionAtManagementGroup) ToPolicySetDefinitionAtManagement
 type PolicySetDefinitionAtManagementGroupOutput struct{ *pulumi.OutputState }
 
 func (PolicySetDefinitionAtManagementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinitionAtManagementGroup)(nil))
+	return reflect.TypeOf((**PolicySetDefinitionAtManagementGroup)(nil)).Elem()
 }
 
 func (o PolicySetDefinitionAtManagementGroupOutput) ToPolicySetDefinitionAtManagementGroupOutput() PolicySetDefinitionAtManagementGroupOutput {

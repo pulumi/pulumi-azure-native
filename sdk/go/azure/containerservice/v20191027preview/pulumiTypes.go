@@ -17,6 +17,19 @@ type NetworkProfile struct {
 }
 
 
+func (val *NetworkProfile) Defaults() *NetworkProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.VnetCidr) {
+		vnetCidr_ := "10.0.0.0/8"
+		tmp.VnetCidr = &vnetCidr_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -177,6 +190,19 @@ type NetworkProfileResponse struct {
 	ManagementSubnetCidr *string `pulumi:"managementSubnetCidr"`
 	VnetCidr             *string `pulumi:"vnetCidr"`
 	VnetId               *string `pulumi:"vnetId"`
+}
+
+
+func (val *NetworkProfileResponse) Defaults() *NetworkProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.VnetCidr) {
+		vnetCidr_ := "10.0.0.0/8"
+		tmp.VnetCidr = &vnetCidr_
+	}
+	return &tmp
 }
 
 
@@ -998,6 +1024,19 @@ type OpenShiftManagedClusterAgentPoolProfile struct {
 }
 
 
+func (val *OpenShiftManagedClusterAgentPoolProfile) Defaults() *OpenShiftManagedClusterAgentPoolProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SubnetCidr) {
+		subnetCidr_ := "10.0.0.0/24"
+		tmp.SubnetCidr = &subnetCidr_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1119,6 +1158,19 @@ type OpenShiftManagedClusterAgentPoolProfileResponse struct {
 	Role       *string `pulumi:"role"`
 	SubnetCidr *string `pulumi:"subnetCidr"`
 	VmSize     string  `pulumi:"vmSize"`
+}
+
+
+func (val *OpenShiftManagedClusterAgentPoolProfileResponse) Defaults() *OpenShiftManagedClusterAgentPoolProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SubnetCidr) {
+		subnetCidr_ := "10.0.0.0/24"
+		tmp.SubnetCidr = &subnetCidr_
+	}
+	return &tmp
 }
 
 

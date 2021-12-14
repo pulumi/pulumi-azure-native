@@ -112,7 +112,7 @@ type SapMonitorInput interface {
 }
 
 func (*SapMonitor) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapMonitor)(nil))
+	return reflect.TypeOf((**SapMonitor)(nil)).Elem()
 }
 
 func (i *SapMonitor) ToSapMonitorOutput() SapMonitorOutput {
@@ -126,7 +126,7 @@ func (i *SapMonitor) ToSapMonitorOutputWithContext(ctx context.Context) SapMonit
 type SapMonitorOutput struct{ *pulumi.OutputState }
 
 func (SapMonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SapMonitor)(nil))
+	return reflect.TypeOf((**SapMonitor)(nil)).Elem()
 }
 
 func (o SapMonitorOutput) ToSapMonitorOutput() SapMonitorOutput {

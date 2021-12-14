@@ -113,7 +113,7 @@ type LivePipelineInput interface {
 }
 
 func (*LivePipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*LivePipeline)(nil))
+	return reflect.TypeOf((**LivePipeline)(nil)).Elem()
 }
 
 func (i *LivePipeline) ToLivePipelineOutput() LivePipelineOutput {
@@ -127,7 +127,7 @@ func (i *LivePipeline) ToLivePipelineOutputWithContext(ctx context.Context) Live
 type LivePipelineOutput struct{ *pulumi.OutputState }
 
 func (LivePipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LivePipeline)(nil))
+	return reflect.TypeOf((**LivePipeline)(nil)).Elem()
 }
 
 func (o LivePipelineOutput) ToLivePipelineOutput() LivePipelineOutput {

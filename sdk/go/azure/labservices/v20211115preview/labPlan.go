@@ -39,6 +39,14 @@ func NewLabPlan(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	defaultAutoShutdownProfileApplier := func(v AutoShutdownProfile) *AutoShutdownProfile { return v.Defaults() }
+	if args.DefaultAutoShutdownProfile != nil {
+		args.DefaultAutoShutdownProfile = args.DefaultAutoShutdownProfile.ToAutoShutdownProfilePtrOutput().Elem().ApplyT(defaultAutoShutdownProfileApplier).(AutoShutdownProfilePtrOutput)
+	}
+	defaultConnectionProfileApplier := func(v ConnectionProfile) *ConnectionProfile { return v.Defaults() }
+	if args.DefaultConnectionProfile != nil {
+		args.DefaultConnectionProfile = args.DefaultConnectionProfile.ToConnectionProfilePtrOutput().Elem().ApplyT(defaultConnectionProfileApplier).(ConnectionProfilePtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:labservices:LabPlan"),
@@ -120,7 +128,7 @@ type LabPlanInput interface {
 }
 
 func (*LabPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabPlan)(nil))
+	return reflect.TypeOf((**LabPlan)(nil)).Elem()
 }
 
 func (i *LabPlan) ToLabPlanOutput() LabPlanOutput {
@@ -134,7 +142,7 @@ func (i *LabPlan) ToLabPlanOutputWithContext(ctx context.Context) LabPlanOutput 
 type LabPlanOutput struct{ *pulumi.OutputState }
 
 func (LabPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabPlan)(nil))
+	return reflect.TypeOf((**LabPlan)(nil)).Elem()
 }
 
 func (o LabPlanOutput) ToLabPlanOutput() LabPlanOutput {

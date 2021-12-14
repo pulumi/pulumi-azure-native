@@ -23,6 +23,25 @@ type AppResourceProperties struct {
 }
 
 
+func (val *AppResourceProperties) Defaults() *AppResourceProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableEndToEndTLS) {
+		enableEndToEndTLS_ := false
+		tmp.EnableEndToEndTLS = &enableEndToEndTLS_
+	}
+	if isZero(tmp.HttpsOnly) {
+		httpsOnly_ := false
+		tmp.HttpsOnly = &httpsOnly_
+	}
+	tmp.TemporaryDisk = tmp.TemporaryDisk.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -276,6 +295,25 @@ type AppResourcePropertiesResponse struct {
 	Public                *bool                                  `pulumi:"public"`
 	TemporaryDisk         *TemporaryDiskResponse                 `pulumi:"temporaryDisk"`
 	Url                   string                                 `pulumi:"url"`
+}
+
+
+func (val *AppResourcePropertiesResponse) Defaults() *AppResourcePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableEndToEndTLS) {
+		enableEndToEndTLS_ := false
+		tmp.EnableEndToEndTLS = &enableEndToEndTLS_
+	}
+	if isZero(tmp.HttpsOnly) {
+		httpsOnly_ := false
+		tmp.HttpsOnly = &httpsOnly_
+	}
+	tmp.TemporaryDisk = tmp.TemporaryDisk.Defaults()
+
+	return &tmp
 }
 
 
@@ -2851,6 +2889,17 @@ type DeploymentResourceProperties struct {
 }
 
 
+func (val *DeploymentResourceProperties) Defaults() *DeploymentResourceProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DeploymentSettings = tmp.DeploymentSettings.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3002,6 +3051,17 @@ type DeploymentResourcePropertiesResponse struct {
 	ProvisioningState  string                       `pulumi:"provisioningState"`
 	Source             *UserSourceInfoResponse      `pulumi:"source"`
 	Status             string                       `pulumi:"status"`
+}
+
+
+func (val *DeploymentResourcePropertiesResponse) Defaults() *DeploymentResourcePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DeploymentSettings = tmp.DeploymentSettings.Defaults()
+
+	return &tmp
 }
 
 
@@ -3240,6 +3300,27 @@ type DeploymentSettings struct {
 	NetCoreMainEntryPath   *string                                   `pulumi:"netCoreMainEntryPath"`
 	ResourceRequests       *ResourceRequests                         `pulumi:"resourceRequests"`
 	RuntimeVersion         *string                                   `pulumi:"runtimeVersion"`
+}
+
+
+func (val *DeploymentSettings) Defaults() *DeploymentSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Cpu) {
+		cpu_ := 1
+		tmp.Cpu = &cpu_
+	}
+	if isZero(tmp.MemoryInGB) {
+		memoryInGB_ := 1
+		tmp.MemoryInGB = &memoryInGB_
+	}
+	if isZero(tmp.RuntimeVersion) {
+		runtimeVersion_ := "Java_8"
+		tmp.RuntimeVersion = &runtimeVersion_
+	}
+	return &tmp
 }
 
 
@@ -3611,6 +3692,27 @@ type DeploymentSettingsResponse struct {
 	NetCoreMainEntryPath   *string                                           `pulumi:"netCoreMainEntryPath"`
 	ResourceRequests       *ResourceRequestsResponse                         `pulumi:"resourceRequests"`
 	RuntimeVersion         *string                                           `pulumi:"runtimeVersion"`
+}
+
+
+func (val *DeploymentSettingsResponse) Defaults() *DeploymentSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Cpu) {
+		cpu_ := 1
+		tmp.Cpu = &cpu_
+	}
+	if isZero(tmp.MemoryInGB) {
+		memoryInGB_ := 1
+		tmp.MemoryInGB = &memoryInGB_
+	}
+	if isZero(tmp.RuntimeVersion) {
+		runtimeVersion_ := "Java_8"
+		tmp.RuntimeVersion = &runtimeVersion_
+	}
+	return &tmp
 }
 
 
@@ -4280,6 +4382,19 @@ type KeyVaultCertificateProperties struct {
 }
 
 
+func (val *KeyVaultCertificateProperties) Defaults() *KeyVaultCertificateProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExcludePrivateKey) {
+		excludePrivateKey_ := false
+		tmp.ExcludePrivateKey = &excludePrivateKey_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4357,6 +4472,19 @@ type KeyVaultCertificatePropertiesResponse struct {
 	Thumbprint        string   `pulumi:"thumbprint"`
 	Type              string   `pulumi:"type"`
 	VaultUri          string   `pulumi:"vaultUri"`
+}
+
+
+func (val *KeyVaultCertificatePropertiesResponse) Defaults() *KeyVaultCertificatePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExcludePrivateKey) {
+		excludePrivateKey_ := false
+		tmp.ExcludePrivateKey = &excludePrivateKey_
+	}
+	return &tmp
 }
 
 
@@ -4465,6 +4593,19 @@ type LoadedCertificate struct {
 }
 
 
+func (val *LoadedCertificate) Defaults() *LoadedCertificate {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LoadTrustStore) {
+		loadTrustStore_ := false
+		tmp.LoadTrustStore = &loadTrustStore_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4562,6 +4703,19 @@ func (o LoadedCertificateArrayOutput) Index(i pulumi.IntInput) LoadedCertificate
 type LoadedCertificateResponse struct {
 	LoadTrustStore *bool  `pulumi:"loadTrustStore"`
 	ResourceId     string `pulumi:"resourceId"`
+}
+
+
+func (val *LoadedCertificateResponse) Defaults() *LoadedCertificateResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LoadTrustStore) {
+		loadTrustStore_ := false
+		tmp.LoadTrustStore = &loadTrustStore_
+	}
+	return &tmp
 }
 
 
@@ -6266,6 +6420,23 @@ type Sku struct {
 }
 
 
+func (val *Sku) Defaults() *Sku {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Name) {
+		name_ := "S0"
+		tmp.Name = &name_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := "Standard"
+		tmp.Tier = &tier_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6426,6 +6597,23 @@ type SkuResponse struct {
 	Capacity *int    `pulumi:"capacity"`
 	Name     *string `pulumi:"name"`
 	Tier     *string `pulumi:"tier"`
+}
+
+
+func (val *SkuResponse) Defaults() *SkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Name) {
+		name_ := "S0"
+		tmp.Name = &name_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := "Standard"
+		tmp.Tier = &tier_
+	}
+	return &tmp
 }
 
 
@@ -7110,6 +7298,19 @@ type TemporaryDisk struct {
 }
 
 
+func (val *TemporaryDisk) Defaults() *TemporaryDisk {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountPath) {
+		mountPath_ := "/tmp"
+		tmp.MountPath = &mountPath_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -7255,6 +7456,19 @@ func (o TemporaryDiskPtrOutput) SizeInGB() pulumi.IntPtrOutput {
 type TemporaryDiskResponse struct {
 	MountPath *string `pulumi:"mountPath"`
 	SizeInGB  *int    `pulumi:"sizeInGB"`
+}
+
+
+func (val *TemporaryDiskResponse) Defaults() *TemporaryDiskResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountPath) {
+		mountPath_ := "/tmp"
+		tmp.MountPath = &mountPath_
+	}
+	return &tmp
 }
 
 

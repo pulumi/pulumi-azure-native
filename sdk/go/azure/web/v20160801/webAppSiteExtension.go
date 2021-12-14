@@ -142,7 +142,7 @@ type WebAppSiteExtensionInput interface {
 }
 
 func (*WebAppSiteExtension) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSiteExtension)(nil))
+	return reflect.TypeOf((**WebAppSiteExtension)(nil)).Elem()
 }
 
 func (i *WebAppSiteExtension) ToWebAppSiteExtensionOutput() WebAppSiteExtensionOutput {
@@ -156,7 +156,7 @@ func (i *WebAppSiteExtension) ToWebAppSiteExtensionOutputWithContext(ctx context
 type WebAppSiteExtensionOutput struct{ *pulumi.OutputState }
 
 func (WebAppSiteExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSiteExtension)(nil))
+	return reflect.TypeOf((**WebAppSiteExtension)(nil)).Elem()
 }
 
 func (o WebAppSiteExtensionOutput) ToWebAppSiteExtensionOutput() WebAppSiteExtensionOutput {

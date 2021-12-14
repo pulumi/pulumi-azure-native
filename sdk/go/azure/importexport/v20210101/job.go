@@ -33,6 +33,10 @@ func NewJob(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	propertiesApplier := func(v JobDetails) *JobDetails { return v.Defaults() }
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToJobDetailsPtrOutput().Elem().ApplyT(propertiesApplier).(JobDetailsPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:importexport:Job"),
@@ -105,7 +109,7 @@ type JobInput interface {
 }
 
 func (*Job) ElementType() reflect.Type {
-	return reflect.TypeOf((*Job)(nil))
+	return reflect.TypeOf((**Job)(nil)).Elem()
 }
 
 func (i *Job) ToJobOutput() JobOutput {
@@ -119,7 +123,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 type JobOutput struct{ *pulumi.OutputState }
 
 func (JobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Job)(nil))
+	return reflect.TypeOf((**Job)(nil)).Elem()
 }
 
 func (o JobOutput) ToJobOutput() JobOutput {

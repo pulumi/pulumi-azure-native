@@ -13,7 +13,7 @@ func LookupDatabaseAccount(ctx *pulumi.Context, args *LookupDatabaseAccountArgs,
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDatabaseAccountArgs struct {
@@ -61,4 +61,21 @@ type LookupDatabaseAccountResult struct {
 	Type                               string                              `pulumi:"type"`
 	VirtualNetworkRules                []VirtualNetworkRuleResponse        `pulumi:"virtualNetworkRules"`
 	WriteLocations                     []LocationResponse                  `pulumi:"writeLocations"`
+}
+
+
+func (val *LookupDatabaseAccountResult) Defaults() *LookupDatabaseAccountResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CreateMode) {
+		createMode_ := "Default"
+		tmp.CreateMode = &createMode_
+	}
+	if isZero(tmp.Kind) {
+		kind_ := "GlobalDocumentDB"
+		tmp.Kind = &kind_
+	}
+	return &tmp
 }

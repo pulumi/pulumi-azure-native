@@ -48,6 +48,14 @@ func NewFlowLog(ctx *pulumi.Context,
 	if args.TargetResourceId == nil {
 		return nil, errors.New("invalid value for required argument 'TargetResourceId'")
 	}
+	formatApplier := func(v FlowLogFormatParameters) *FlowLogFormatParameters { return v.Defaults() }
+	if args.Format != nil {
+		args.Format = args.Format.ToFlowLogFormatParametersPtrOutput().Elem().ApplyT(formatApplier).(FlowLogFormatParametersPtrOutput)
+	}
+	retentionPolicyApplier := func(v RetentionPolicyParameters) *RetentionPolicyParameters { return v.Defaults() }
+	if args.RetentionPolicy != nil {
+		args.RetentionPolicy = args.RetentionPolicy.ToRetentionPolicyParametersPtrOutput().Elem().ApplyT(retentionPolicyApplier).(RetentionPolicyParametersPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:network:FlowLog"),
@@ -161,7 +169,7 @@ type FlowLogInput interface {
 }
 
 func (*FlowLog) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowLog)(nil))
+	return reflect.TypeOf((**FlowLog)(nil)).Elem()
 }
 
 func (i *FlowLog) ToFlowLogOutput() FlowLogOutput {
@@ -175,7 +183,7 @@ func (i *FlowLog) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput 
 type FlowLogOutput struct{ *pulumi.OutputState }
 
 func (FlowLogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowLog)(nil))
+	return reflect.TypeOf((**FlowLog)(nil)).Elem()
 }
 
 func (o FlowLogOutput) ToFlowLogOutput() FlowLogOutput {

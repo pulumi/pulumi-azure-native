@@ -224,7 +224,7 @@ type ManagedHostingEnvironmentInput interface {
 }
 
 func (*ManagedHostingEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedHostingEnvironment)(nil))
+	return reflect.TypeOf((**ManagedHostingEnvironment)(nil)).Elem()
 }
 
 func (i *ManagedHostingEnvironment) ToManagedHostingEnvironmentOutput() ManagedHostingEnvironmentOutput {
@@ -238,7 +238,7 @@ func (i *ManagedHostingEnvironment) ToManagedHostingEnvironmentOutputWithContext
 type ManagedHostingEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (ManagedHostingEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedHostingEnvironment)(nil))
+	return reflect.TypeOf((**ManagedHostingEnvironment)(nil)).Elem()
 }
 
 func (o ManagedHostingEnvironmentOutput) ToManagedHostingEnvironmentOutput() ManagedHostingEnvironmentOutput {

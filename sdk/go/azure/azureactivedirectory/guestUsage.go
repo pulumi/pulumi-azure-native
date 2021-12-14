@@ -97,7 +97,7 @@ type GuestUsageInput interface {
 }
 
 func (*GuestUsage) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestUsage)(nil))
+	return reflect.TypeOf((**GuestUsage)(nil)).Elem()
 }
 
 func (i *GuestUsage) ToGuestUsageOutput() GuestUsageOutput {
@@ -111,7 +111,7 @@ func (i *GuestUsage) ToGuestUsageOutputWithContext(ctx context.Context) GuestUsa
 type GuestUsageOutput struct{ *pulumi.OutputState }
 
 func (GuestUsageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestUsage)(nil))
+	return reflect.TypeOf((**GuestUsage)(nil)).Elem()
 }
 
 func (o GuestUsageOutput) ToGuestUsageOutput() GuestUsageOutput {

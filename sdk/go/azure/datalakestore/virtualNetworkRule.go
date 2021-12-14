@@ -99,7 +99,7 @@ type VirtualNetworkRuleInput interface {
 }
 
 func (*VirtualNetworkRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkRule)(nil))
+	return reflect.TypeOf((**VirtualNetworkRule)(nil)).Elem()
 }
 
 func (i *VirtualNetworkRule) ToVirtualNetworkRuleOutput() VirtualNetworkRuleOutput {
@@ -113,7 +113,7 @@ func (i *VirtualNetworkRule) ToVirtualNetworkRuleOutputWithContext(ctx context.C
 type VirtualNetworkRuleOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkRule)(nil))
+	return reflect.TypeOf((**VirtualNetworkRule)(nil)).Elem()
 }
 
 func (o VirtualNetworkRuleOutput) ToVirtualNetworkRuleOutput() VirtualNetworkRuleOutput {

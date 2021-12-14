@@ -132,7 +132,7 @@ type AssessmentMetadataInSubscriptionInput interface {
 }
 
 func (*AssessmentMetadataInSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentMetadataInSubscription)(nil))
+	return reflect.TypeOf((**AssessmentMetadataInSubscription)(nil)).Elem()
 }
 
 func (i *AssessmentMetadataInSubscription) ToAssessmentMetadataInSubscriptionOutput() AssessmentMetadataInSubscriptionOutput {
@@ -146,7 +146,7 @@ func (i *AssessmentMetadataInSubscription) ToAssessmentMetadataInSubscriptionOut
 type AssessmentMetadataInSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (AssessmentMetadataInSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AssessmentMetadataInSubscription)(nil))
+	return reflect.TypeOf((**AssessmentMetadataInSubscription)(nil)).Elem()
 }
 
 func (o AssessmentMetadataInSubscriptionOutput) ToAssessmentMetadataInSubscriptionOutput() AssessmentMetadataInSubscriptionOutput {

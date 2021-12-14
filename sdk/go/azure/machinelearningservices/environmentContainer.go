@@ -100,7 +100,7 @@ type EnvironmentContainerInput interface {
 }
 
 func (*EnvironmentContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentContainer)(nil))
+	return reflect.TypeOf((**EnvironmentContainer)(nil)).Elem()
 }
 
 func (i *EnvironmentContainer) ToEnvironmentContainerOutput() EnvironmentContainerOutput {
@@ -114,7 +114,7 @@ func (i *EnvironmentContainer) ToEnvironmentContainerOutputWithContext(ctx conte
 type EnvironmentContainerOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentContainer)(nil))
+	return reflect.TypeOf((**EnvironmentContainer)(nil)).Elem()
 }
 
 func (o EnvironmentContainerOutput) ToEnvironmentContainerOutput() EnvironmentContainerOutput {

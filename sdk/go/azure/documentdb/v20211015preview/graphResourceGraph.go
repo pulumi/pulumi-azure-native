@@ -114,7 +114,7 @@ type GraphResourceGraphInput interface {
 }
 
 func (*GraphResourceGraph) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphResourceGraph)(nil))
+	return reflect.TypeOf((**GraphResourceGraph)(nil)).Elem()
 }
 
 func (i *GraphResourceGraph) ToGraphResourceGraphOutput() GraphResourceGraphOutput {
@@ -128,7 +128,7 @@ func (i *GraphResourceGraph) ToGraphResourceGraphOutputWithContext(ctx context.C
 type GraphResourceGraphOutput struct{ *pulumi.OutputState }
 
 func (GraphResourceGraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GraphResourceGraph)(nil))
+	return reflect.TypeOf((**GraphResourceGraph)(nil)).Elem()
 }
 
 func (o GraphResourceGraphOutput) ToGraphResourceGraphOutput() GraphResourceGraphOutput {

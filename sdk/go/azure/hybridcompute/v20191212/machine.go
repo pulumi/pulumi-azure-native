@@ -152,7 +152,7 @@ type MachineInput interface {
 }
 
 func (*Machine) ElementType() reflect.Type {
-	return reflect.TypeOf((*Machine)(nil))
+	return reflect.TypeOf((**Machine)(nil)).Elem()
 }
 
 func (i *Machine) ToMachineOutput() MachineOutput {
@@ -166,7 +166,7 @@ func (i *Machine) ToMachineOutputWithContext(ctx context.Context) MachineOutput 
 type MachineOutput struct{ *pulumi.OutputState }
 
 func (MachineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Machine)(nil))
+	return reflect.TypeOf((**Machine)(nil)).Elem()
 }
 
 func (o MachineOutput) ToMachineOutput() MachineOutput {

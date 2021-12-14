@@ -132,7 +132,7 @@ type ProductGroupInput interface {
 }
 
 func (*ProductGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductGroup)(nil))
+	return reflect.TypeOf((**ProductGroup)(nil)).Elem()
 }
 
 func (i *ProductGroup) ToProductGroupOutput() ProductGroupOutput {
@@ -146,7 +146,7 @@ func (i *ProductGroup) ToProductGroupOutputWithContext(ctx context.Context) Prod
 type ProductGroupOutput struct{ *pulumi.OutputState }
 
 func (ProductGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductGroup)(nil))
+	return reflect.TypeOf((**ProductGroup)(nil)).Elem()
 }
 
 func (o ProductGroupOutput) ToProductGroupOutput() ProductGroupOutput {

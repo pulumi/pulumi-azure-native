@@ -75,3 +75,11 @@ func PkgVersion() (semver.Version, error) {
 	}
 	return semver.Version{}, fmt.Errorf("failed to determine the package version from %s", pkgPath)
 }
+
+
+func isZero(v interface{}) bool {
+	if v == nil {
+		return true
+	}
+	return reflect.ValueOf(v).IsZero()
+}

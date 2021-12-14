@@ -107,7 +107,7 @@ type MoveCollectionInput interface {
 }
 
 func (*MoveCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*MoveCollection)(nil))
+	return reflect.TypeOf((**MoveCollection)(nil)).Elem()
 }
 
 func (i *MoveCollection) ToMoveCollectionOutput() MoveCollectionOutput {
@@ -121,7 +121,7 @@ func (i *MoveCollection) ToMoveCollectionOutputWithContext(ctx context.Context) 
 type MoveCollectionOutput struct{ *pulumi.OutputState }
 
 func (MoveCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MoveCollection)(nil))
+	return reflect.TypeOf((**MoveCollection)(nil)).Elem()
 }
 
 func (o MoveCollectionOutput) ToMoveCollectionOutput() MoveCollectionOutput {

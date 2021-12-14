@@ -130,7 +130,7 @@ type DiskPoolInput interface {
 }
 
 func (*DiskPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskPool)(nil))
+	return reflect.TypeOf((**DiskPool)(nil)).Elem()
 }
 
 func (i *DiskPool) ToDiskPoolOutput() DiskPoolOutput {
@@ -144,7 +144,7 @@ func (i *DiskPool) ToDiskPoolOutputWithContext(ctx context.Context) DiskPoolOutp
 type DiskPoolOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskPool)(nil))
+	return reflect.TypeOf((**DiskPool)(nil)).Elem()
 }
 
 func (o DiskPoolOutput) ToDiskPoolOutput() DiskPoolOutput {

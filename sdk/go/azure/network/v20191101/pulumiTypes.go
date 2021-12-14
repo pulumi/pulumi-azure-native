@@ -25870,6 +25870,19 @@ type FlowLogFormatParameters struct {
 }
 
 
+func (val *FlowLogFormatParameters) Defaults() *FlowLogFormatParameters {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Version) {
+		version_ := 0
+		tmp.Version = &version_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -26015,6 +26028,19 @@ func (o FlowLogFormatParametersPtrOutput) Version() pulumi.IntPtrOutput {
 type FlowLogFormatParametersResponse struct {
 	Type    *string `pulumi:"type"`
 	Version *int    `pulumi:"version"`
+}
+
+
+func (val *FlowLogFormatParametersResponse) Defaults() *FlowLogFormatParametersResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Version) {
+		version_ := 0
+		tmp.Version = &version_
+	}
+	return &tmp
 }
 
 
@@ -35903,6 +35929,19 @@ type PacketCaptureFilter struct {
 }
 
 
+func (val *PacketCaptureFilter) Defaults() *PacketCaptureFilter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		protocol_ := "Any"
+		tmp.Protocol = &protocol_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -36018,6 +36057,19 @@ type PacketCaptureFilterResponse struct {
 	Protocol        *string `pulumi:"protocol"`
 	RemoteIPAddress *string `pulumi:"remoteIPAddress"`
 	RemotePort      *string `pulumi:"remotePort"`
+}
+
+
+func (val *PacketCaptureFilterResponse) Defaults() *PacketCaptureFilterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		protocol_ := "Any"
+		tmp.Protocol = &protocol_
+	}
+	return &tmp
 }
 
 
@@ -41188,6 +41240,23 @@ type RetentionPolicyParameters struct {
 }
 
 
+func (val *RetentionPolicyParameters) Defaults() *RetentionPolicyParameters {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		days_ := 0
+		tmp.Days = &days_
+	}
+	if isZero(tmp.Enabled) {
+		enabled_ := false
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -41333,6 +41402,23 @@ func (o RetentionPolicyParametersPtrOutput) Enabled() pulumi.BoolPtrOutput {
 type RetentionPolicyParametersResponse struct {
 	Days    *int  `pulumi:"days"`
 	Enabled *bool `pulumi:"enabled"`
+}
+
+
+func (val *RetentionPolicyParametersResponse) Defaults() *RetentionPolicyParametersResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		days_ := 0
+		tmp.Days = &days_
+	}
+	if isZero(tmp.Enabled) {
+		enabled_ := false
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
 }
 
 

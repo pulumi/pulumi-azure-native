@@ -124,7 +124,7 @@ type ReplicationPolicyInput interface {
 }
 
 func (*ReplicationPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationPolicy)(nil))
+	return reflect.TypeOf((**ReplicationPolicy)(nil)).Elem()
 }
 
 func (i *ReplicationPolicy) ToReplicationPolicyOutput() ReplicationPolicyOutput {
@@ -138,7 +138,7 @@ func (i *ReplicationPolicy) ToReplicationPolicyOutputWithContext(ctx context.Con
 type ReplicationPolicyOutput struct{ *pulumi.OutputState }
 
 func (ReplicationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationPolicy)(nil))
+	return reflect.TypeOf((**ReplicationPolicy)(nil)).Elem()
 }
 
 func (o ReplicationPolicyOutput) ToReplicationPolicyOutput() ReplicationPolicyOutput {

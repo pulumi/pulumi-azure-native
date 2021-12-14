@@ -131,7 +131,7 @@ type AFDOriginInput interface {
 }
 
 func (*AFDOrigin) ElementType() reflect.Type {
-	return reflect.TypeOf((*AFDOrigin)(nil))
+	return reflect.TypeOf((**AFDOrigin)(nil)).Elem()
 }
 
 func (i *AFDOrigin) ToAFDOriginOutput() AFDOriginOutput {
@@ -145,7 +145,7 @@ func (i *AFDOrigin) ToAFDOriginOutputWithContext(ctx context.Context) AFDOriginO
 type AFDOriginOutput struct{ *pulumi.OutputState }
 
 func (AFDOriginOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AFDOrigin)(nil))
+	return reflect.TypeOf((**AFDOrigin)(nil)).Elem()
 }
 
 func (o AFDOriginOutput) ToAFDOriginOutput() AFDOriginOutput {

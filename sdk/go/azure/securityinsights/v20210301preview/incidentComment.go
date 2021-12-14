@@ -125,7 +125,7 @@ type IncidentCommentInput interface {
 }
 
 func (*IncidentComment) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentComment)(nil))
+	return reflect.TypeOf((**IncidentComment)(nil)).Elem()
 }
 
 func (i *IncidentComment) ToIncidentCommentOutput() IncidentCommentOutput {
@@ -139,7 +139,7 @@ func (i *IncidentComment) ToIncidentCommentOutputWithContext(ctx context.Context
 type IncidentCommentOutput struct{ *pulumi.OutputState }
 
 func (IncidentCommentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IncidentComment)(nil))
+	return reflect.TypeOf((**IncidentComment)(nil)).Elem()
 }
 
 func (o IncidentCommentOutput) ToIncidentCommentOutput() IncidentCommentOutput {

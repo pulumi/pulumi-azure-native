@@ -122,7 +122,7 @@ type EventHubAuthorizationRuleInput interface {
 }
 
 func (*EventHubAuthorizationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubAuthorizationRule)(nil))
+	return reflect.TypeOf((**EventHubAuthorizationRule)(nil)).Elem()
 }
 
 func (i *EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutput() EventHubAuthorizationRuleOutput {
@@ -136,7 +136,7 @@ func (i *EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutputWithContext
 type EventHubAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (EventHubAuthorizationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubAuthorizationRule)(nil))
+	return reflect.TypeOf((**EventHubAuthorizationRule)(nil)).Elem()
 }
 
 func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRuleOutput() EventHubAuthorizationRuleOutput {

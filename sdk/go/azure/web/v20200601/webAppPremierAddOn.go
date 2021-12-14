@@ -150,7 +150,7 @@ type WebAppPremierAddOnInput interface {
 }
 
 func (*WebAppPremierAddOn) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPremierAddOn)(nil))
+	return reflect.TypeOf((**WebAppPremierAddOn)(nil)).Elem()
 }
 
 func (i *WebAppPremierAddOn) ToWebAppPremierAddOnOutput() WebAppPremierAddOnOutput {
@@ -164,7 +164,7 @@ func (i *WebAppPremierAddOn) ToWebAppPremierAddOnOutputWithContext(ctx context.C
 type WebAppPremierAddOnOutput struct{ *pulumi.OutputState }
 
 func (WebAppPremierAddOnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppPremierAddOn)(nil))
+	return reflect.TypeOf((**WebAppPremierAddOn)(nil)).Elem()
 }
 
 func (o WebAppPremierAddOnOutput) ToWebAppPremierAddOnOutput() WebAppPremierAddOnOutput {

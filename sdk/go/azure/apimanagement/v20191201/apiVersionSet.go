@@ -144,7 +144,7 @@ type ApiVersionSetInput interface {
 }
 
 func (*ApiVersionSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiVersionSet)(nil))
+	return reflect.TypeOf((**ApiVersionSet)(nil)).Elem()
 }
 
 func (i *ApiVersionSet) ToApiVersionSetOutput() ApiVersionSetOutput {
@@ -158,7 +158,7 @@ func (i *ApiVersionSet) ToApiVersionSetOutputWithContext(ctx context.Context) Ap
 type ApiVersionSetOutput struct{ *pulumi.OutputState }
 
 func (ApiVersionSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiVersionSet)(nil))
+	return reflect.TypeOf((**ApiVersionSet)(nil)).Elem()
 }
 
 func (o ApiVersionSetOutput) ToApiVersionSetOutput() ApiVersionSetOutput {

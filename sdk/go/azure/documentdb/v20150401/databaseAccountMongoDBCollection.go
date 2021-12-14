@@ -172,7 +172,7 @@ type DatabaseAccountMongoDBCollectionInput interface {
 }
 
 func (*DatabaseAccountMongoDBCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongoDBCollection)(nil))
+	return reflect.TypeOf((**DatabaseAccountMongoDBCollection)(nil)).Elem()
 }
 
 func (i *DatabaseAccountMongoDBCollection) ToDatabaseAccountMongoDBCollectionOutput() DatabaseAccountMongoDBCollectionOutput {
@@ -186,7 +186,7 @@ func (i *DatabaseAccountMongoDBCollection) ToDatabaseAccountMongoDBCollectionOut
 type DatabaseAccountMongoDBCollectionOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountMongoDBCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongoDBCollection)(nil))
+	return reflect.TypeOf((**DatabaseAccountMongoDBCollection)(nil)).Elem()
 }
 
 func (o DatabaseAccountMongoDBCollectionOutput) ToDatabaseAccountMongoDBCollectionOutput() DatabaseAccountMongoDBCollectionOutput {

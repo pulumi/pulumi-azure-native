@@ -13,7 +13,7 @@ func LookupServiceFabric(ctx *pulumi.Context, args *LookupServiceFabricArgs, opt
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupServiceFabricArgs struct {
@@ -36,4 +36,15 @@ type LookupServiceFabricResult struct {
 	Tags                    map[string]string          `pulumi:"tags"`
 	Type                    string                     `pulumi:"type"`
 	UniqueIdentifier        string                     `pulumi:"uniqueIdentifier"`
+}
+
+
+func (val *LookupServiceFabricResult) Defaults() *LookupServiceFabricResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ApplicableSchedule = *tmp.ApplicableSchedule.Defaults()
+
+	return &tmp
 }

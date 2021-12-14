@@ -13,7 +13,7 @@ func LookupWebhook(ctx *pulumi.Context, args *LookupWebhookArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupWebhookArgs struct {
@@ -38,4 +38,17 @@ type LookupWebhookResult struct {
 	Runbook          *RunbookAssociationPropertyResponse `pulumi:"runbook"`
 	Type             string                              `pulumi:"type"`
 	Uri              *string                             `pulumi:"uri"`
+}
+
+
+func (val *LookupWebhookResult) Defaults() *LookupWebhookResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEnabled) {
+		isEnabled_ := false
+		tmp.IsEnabled = &isEnabled_
+	}
+	return &tmp
 }

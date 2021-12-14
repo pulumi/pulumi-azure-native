@@ -54,6 +54,12 @@ func NewLab(ctx *pulumi.Context,
 	if args.VirtualMachineProfile == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualMachineProfile'")
 	}
+	autoShutdownProfileApplier := func(v AutoShutdownProfile) *AutoShutdownProfile { return v.Defaults() }
+	args.AutoShutdownProfile = args.AutoShutdownProfile.ToAutoShutdownProfileOutput().ApplyT(autoShutdownProfileApplier).(AutoShutdownProfilePtrOutput).Elem()
+	connectionProfileApplier := func(v ConnectionProfile) *ConnectionProfile { return v.Defaults() }
+	args.ConnectionProfile = args.ConnectionProfile.ToConnectionProfileOutput().ApplyT(connectionProfileApplier).(ConnectionProfilePtrOutput).Elem()
+	virtualMachineProfileApplier := func(v VirtualMachineProfile) *VirtualMachineProfile { return v.Defaults() }
+	args.VirtualMachineProfile = args.VirtualMachineProfile.ToVirtualMachineProfileOutput().ApplyT(virtualMachineProfileApplier).(VirtualMachineProfilePtrOutput).Elem()
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:labservices/v20211001preview:Lab"),
@@ -136,7 +142,7 @@ type LabInput interface {
 }
 
 func (*Lab) ElementType() reflect.Type {
-	return reflect.TypeOf((*Lab)(nil))
+	return reflect.TypeOf((**Lab)(nil)).Elem()
 }
 
 func (i *Lab) ToLabOutput() LabOutput {
@@ -150,7 +156,7 @@ func (i *Lab) ToLabOutputWithContext(ctx context.Context) LabOutput {
 type LabOutput struct{ *pulumi.OutputState }
 
 func (LabOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Lab)(nil))
+	return reflect.TypeOf((**Lab)(nil)).Elem()
 }
 
 func (o LabOutput) ToLabOutput() LabOutput {

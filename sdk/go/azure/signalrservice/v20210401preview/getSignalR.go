@@ -13,7 +13,7 @@ func LookupSignalR(ctx *pulumi.Context, args *LookupSignalRArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupSignalRArgs struct {
@@ -45,4 +45,17 @@ type LookupSignalRResult struct {
 	Type                       string                              `pulumi:"type"`
 	Upstream                   *ServerlessUpstreamSettingsResponse `pulumi:"upstream"`
 	Version                    string                              `pulumi:"version"`
+}
+
+
+func (val *LookupSignalRResult) Defaults() *LookupSignalRResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.NetworkACLs = tmp.NetworkACLs.Defaults()
+
+	tmp.Tls = tmp.Tls.Defaults()
+
+	return &tmp
 }

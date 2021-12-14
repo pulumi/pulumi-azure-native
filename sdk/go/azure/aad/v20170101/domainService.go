@@ -136,7 +136,7 @@ type DomainServiceInput interface {
 }
 
 func (*DomainService) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainService)(nil))
+	return reflect.TypeOf((**DomainService)(nil)).Elem()
 }
 
 func (i *DomainService) ToDomainServiceOutput() DomainServiceOutput {
@@ -150,7 +150,7 @@ func (i *DomainService) ToDomainServiceOutputWithContext(ctx context.Context) Do
 type DomainServiceOutput struct{ *pulumi.OutputState }
 
 func (DomainServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainService)(nil))
+	return reflect.TypeOf((**DomainService)(nil)).Elem()
 }
 
 func (o DomainServiceOutput) ToDomainServiceOutput() DomainServiceOutput {

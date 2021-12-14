@@ -31161,6 +31161,19 @@ type PacketCaptureFilter struct {
 }
 
 
+func (val *PacketCaptureFilter) Defaults() *PacketCaptureFilter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		protocol_ := "Any"
+		tmp.Protocol = &protocol_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -31276,6 +31289,19 @@ type PacketCaptureFilterResponse struct {
 	Protocol        *string `pulumi:"protocol"`
 	RemoteIPAddress *string `pulumi:"remoteIPAddress"`
 	RemotePort      *string `pulumi:"remotePort"`
+}
+
+
+func (val *PacketCaptureFilterResponse) Defaults() *PacketCaptureFilterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		protocol_ := "Any"
+		tmp.Protocol = &protocol_
+	}
+	return &tmp
 }
 
 

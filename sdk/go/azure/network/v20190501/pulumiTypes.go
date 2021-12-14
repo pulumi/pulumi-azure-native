@@ -394,6 +394,19 @@ type BackendPoolsSettings struct {
 }
 
 
+func (val *BackendPoolsSettings) Defaults() *BackendPoolsSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnforceCertificateNameCheck) {
+		enforceCertificateNameCheck_ := "Enabled"
+		tmp.EnforceCertificateNameCheck = &enforceCertificateNameCheck_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -539,6 +552,19 @@ func (o BackendPoolsSettingsPtrOutput) SendRecvTimeoutSeconds() pulumi.IntPtrOut
 type BackendPoolsSettingsResponse struct {
 	EnforceCertificateNameCheck *string `pulumi:"enforceCertificateNameCheck"`
 	SendRecvTimeoutSeconds      *int    `pulumi:"sendRecvTimeoutSeconds"`
+}
+
+
+func (val *BackendPoolsSettingsResponse) Defaults() *BackendPoolsSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnforceCertificateNameCheck) {
+		enforceCertificateNameCheck_ := "Enabled"
+		tmp.EnforceCertificateNameCheck = &enforceCertificateNameCheck_
+	}
+	return &tmp
 }
 
 
@@ -1902,6 +1928,19 @@ type HealthProbeSettingsModel struct {
 }
 
 
+func (val *HealthProbeSettingsModel) Defaults() *HealthProbeSettingsModel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HealthProbeMethod) {
+		healthProbeMethod_ := "HEAD"
+		tmp.HealthProbeMethod = &healthProbeMethod_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2031,6 +2070,19 @@ type HealthProbeSettingsModelResponse struct {
 	Protocol          *string `pulumi:"protocol"`
 	ResourceState     string  `pulumi:"resourceState"`
 	Type              string  `pulumi:"type"`
+}
+
+
+func (val *HealthProbeSettingsModelResponse) Defaults() *HealthProbeSettingsModelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HealthProbeMethod) {
+		healthProbeMethod_ := "HEAD"
+		tmp.HealthProbeMethod = &healthProbeMethod_
+	}
+	return &tmp
 }
 
 

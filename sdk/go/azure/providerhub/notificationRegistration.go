@@ -100,7 +100,7 @@ type NotificationRegistrationInput interface {
 }
 
 func (*NotificationRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRegistration)(nil))
+	return reflect.TypeOf((**NotificationRegistration)(nil)).Elem()
 }
 
 func (i *NotificationRegistration) ToNotificationRegistrationOutput() NotificationRegistrationOutput {
@@ -114,7 +114,7 @@ func (i *NotificationRegistration) ToNotificationRegistrationOutputWithContext(c
 type NotificationRegistrationOutput struct{ *pulumi.OutputState }
 
 func (NotificationRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRegistration)(nil))
+	return reflect.TypeOf((**NotificationRegistration)(nil)).Elem()
 }
 
 func (o NotificationRegistrationOutput) ToNotificationRegistrationOutput() NotificationRegistrationOutput {

@@ -13,7 +13,7 @@ func LookupManagedCluster(ctx *pulumi.Context, args *LookupManagedClusterArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupManagedClusterArgs struct {
@@ -61,4 +61,15 @@ type LookupManagedClusterResult struct {
 	Tags                    map[string]string                                  `pulumi:"tags"`
 	Type                    string                                             `pulumi:"type"`
 	WindowsProfile          *ManagedClusterWindowsProfileResponse              `pulumi:"windowsProfile"`
+}
+
+
+func (val *LookupManagedClusterResult) Defaults() *LookupManagedClusterResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.NetworkProfile = tmp.NetworkProfile.Defaults()
+
+	return &tmp
 }

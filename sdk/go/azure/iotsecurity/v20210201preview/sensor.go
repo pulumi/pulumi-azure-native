@@ -105,7 +105,7 @@ type SensorInput interface {
 }
 
 func (*Sensor) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sensor)(nil))
+	return reflect.TypeOf((**Sensor)(nil)).Elem()
 }
 
 func (i *Sensor) ToSensorOutput() SensorOutput {
@@ -119,7 +119,7 @@ func (i *Sensor) ToSensorOutputWithContext(ctx context.Context) SensorOutput {
 type SensorOutput struct{ *pulumi.OutputState }
 
 func (SensorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Sensor)(nil))
+	return reflect.TypeOf((**Sensor)(nil)).Elem()
 }
 
 func (o SensorOutput) ToSensorOutput() SensorOutput {

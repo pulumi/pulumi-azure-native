@@ -65,6 +65,14 @@ func NewStorageAccount(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
+	encryptionApplier := func(v Encryption) *Encryption { return v.Defaults() }
+	if args.Encryption != nil {
+		args.Encryption = args.Encryption.ToEncryptionPtrOutput().Elem().ApplyT(encryptionApplier).(EncryptionPtrOutput)
+	}
+	networkRuleSetApplier := func(v NetworkRuleSet) *NetworkRuleSet { return v.Defaults() }
+	if args.NetworkRuleSet != nil {
+		args.NetworkRuleSet = args.NetworkRuleSet.ToNetworkRuleSetPtrOutput().Elem().ApplyT(networkRuleSetApplier).(NetworkRuleSetPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:storage:StorageAccount"),
@@ -212,7 +220,7 @@ type StorageAccountInput interface {
 }
 
 func (*StorageAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccount)(nil))
+	return reflect.TypeOf((**StorageAccount)(nil)).Elem()
 }
 
 func (i *StorageAccount) ToStorageAccountOutput() StorageAccountOutput {
@@ -226,7 +234,7 @@ func (i *StorageAccount) ToStorageAccountOutputWithContext(ctx context.Context) 
 type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccount)(nil))
+	return reflect.TypeOf((**StorageAccount)(nil)).Elem()
 }
 
 func (o StorageAccountOutput) ToStorageAccountOutput() StorageAccountOutput {

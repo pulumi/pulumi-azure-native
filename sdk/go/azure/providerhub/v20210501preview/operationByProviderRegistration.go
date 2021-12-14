@@ -105,7 +105,7 @@ type OperationByProviderRegistrationInput interface {
 }
 
 func (*OperationByProviderRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationByProviderRegistration)(nil))
+	return reflect.TypeOf((**OperationByProviderRegistration)(nil)).Elem()
 }
 
 func (i *OperationByProviderRegistration) ToOperationByProviderRegistrationOutput() OperationByProviderRegistrationOutput {
@@ -119,7 +119,7 @@ func (i *OperationByProviderRegistration) ToOperationByProviderRegistrationOutpu
 type OperationByProviderRegistrationOutput struct{ *pulumi.OutputState }
 
 func (OperationByProviderRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OperationByProviderRegistration)(nil))
+	return reflect.TypeOf((**OperationByProviderRegistration)(nil)).Elem()
 }
 
 func (o OperationByProviderRegistrationOutput) ToOperationByProviderRegistrationOutput() OperationByProviderRegistrationOutput {

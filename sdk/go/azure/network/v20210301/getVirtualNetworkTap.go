@@ -13,7 +13,7 @@ func LookupVirtualNetworkTap(ctx *pulumi.Context, args *LookupVirtualNetworkTapA
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupVirtualNetworkTapArgs struct {
@@ -35,4 +35,17 @@ type LookupVirtualNetworkTapResult struct {
 	ResourceGuid                                   string                                     `pulumi:"resourceGuid"`
 	Tags                                           map[string]string                          `pulumi:"tags"`
 	Type                                           string                                     `pulumi:"type"`
+}
+
+
+func (val *LookupVirtualNetworkTapResult) Defaults() *LookupVirtualNetworkTapResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DestinationLoadBalancerFrontEndIPConfiguration = tmp.DestinationLoadBalancerFrontEndIPConfiguration.Defaults()
+
+	tmp.DestinationNetworkInterfaceIPConfiguration = tmp.DestinationNetworkInterfaceIPConfiguration.Defaults()
+
+	return &tmp
 }

@@ -109,7 +109,7 @@ type ManagementAssociationInput interface {
 }
 
 func (*ManagementAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementAssociation)(nil))
+	return reflect.TypeOf((**ManagementAssociation)(nil)).Elem()
 }
 
 func (i *ManagementAssociation) ToManagementAssociationOutput() ManagementAssociationOutput {
@@ -123,7 +123,7 @@ func (i *ManagementAssociation) ToManagementAssociationOutputWithContext(ctx con
 type ManagementAssociationOutput struct{ *pulumi.OutputState }
 
 func (ManagementAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementAssociation)(nil))
+	return reflect.TypeOf((**ManagementAssociation)(nil)).Elem()
 }
 
 func (o ManagementAssociationOutput) ToManagementAssociationOutput() ManagementAssociationOutput {

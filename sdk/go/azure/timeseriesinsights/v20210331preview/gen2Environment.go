@@ -55,7 +55,7 @@ func NewGen2Environment(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'TimeSeriesIdProperties'")
 	}
 	args.Kind = pulumi.String("Gen2")
-	if args.PublicNetworkAccess == nil {
+	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -149,7 +149,7 @@ type Gen2EnvironmentInput interface {
 }
 
 func (*Gen2Environment) ElementType() reflect.Type {
-	return reflect.TypeOf((*Gen2Environment)(nil))
+	return reflect.TypeOf((**Gen2Environment)(nil)).Elem()
 }
 
 func (i *Gen2Environment) ToGen2EnvironmentOutput() Gen2EnvironmentOutput {
@@ -163,7 +163,7 @@ func (i *Gen2Environment) ToGen2EnvironmentOutputWithContext(ctx context.Context
 type Gen2EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (Gen2EnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Gen2Environment)(nil))
+	return reflect.TypeOf((**Gen2Environment)(nil)).Elem()
 }
 
 func (o Gen2EnvironmentOutput) ToGen2EnvironmentOutput() Gen2EnvironmentOutput {

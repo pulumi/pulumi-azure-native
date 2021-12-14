@@ -138,7 +138,7 @@ type PartnerRegistrationInput interface {
 }
 
 func (*PartnerRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerRegistration)(nil))
+	return reflect.TypeOf((**PartnerRegistration)(nil)).Elem()
 }
 
 func (i *PartnerRegistration) ToPartnerRegistrationOutput() PartnerRegistrationOutput {
@@ -152,7 +152,7 @@ func (i *PartnerRegistration) ToPartnerRegistrationOutputWithContext(ctx context
 type PartnerRegistrationOutput struct{ *pulumi.OutputState }
 
 func (PartnerRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PartnerRegistration)(nil))
+	return reflect.TypeOf((**PartnerRegistration)(nil)).Elem()
 }
 
 func (o PartnerRegistrationOutput) ToPartnerRegistrationOutput() PartnerRegistrationOutput {

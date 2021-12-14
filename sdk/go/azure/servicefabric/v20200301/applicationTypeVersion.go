@@ -134,7 +134,7 @@ type ApplicationTypeVersionInput interface {
 }
 
 func (*ApplicationTypeVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTypeVersion)(nil))
+	return reflect.TypeOf((**ApplicationTypeVersion)(nil)).Elem()
 }
 
 func (i *ApplicationTypeVersion) ToApplicationTypeVersionOutput() ApplicationTypeVersionOutput {
@@ -148,7 +148,7 @@ func (i *ApplicationTypeVersion) ToApplicationTypeVersionOutputWithContext(ctx c
 type ApplicationTypeVersionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationTypeVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTypeVersion)(nil))
+	return reflect.TypeOf((**ApplicationTypeVersion)(nil)).Elem()
 }
 
 func (o ApplicationTypeVersionOutput) ToApplicationTypeVersionOutput() ApplicationTypeVersionOutput {

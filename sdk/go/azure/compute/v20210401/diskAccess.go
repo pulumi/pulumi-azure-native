@@ -112,7 +112,7 @@ type DiskAccessInput interface {
 }
 
 func (*DiskAccess) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskAccess)(nil))
+	return reflect.TypeOf((**DiskAccess)(nil)).Elem()
 }
 
 func (i *DiskAccess) ToDiskAccessOutput() DiskAccessOutput {
@@ -126,7 +126,7 @@ func (i *DiskAccess) ToDiskAccessOutputWithContext(ctx context.Context) DiskAcce
 type DiskAccessOutput struct{ *pulumi.OutputState }
 
 func (DiskAccessOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskAccess)(nil))
+	return reflect.TypeOf((**DiskAccess)(nil)).Elem()
 }
 
 func (o DiskAccessOutput) ToDiskAccessOutput() DiskAccessOutput {

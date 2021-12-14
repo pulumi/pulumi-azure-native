@@ -119,7 +119,7 @@ type JobTargetGroupInput interface {
 }
 
 func (*JobTargetGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobTargetGroup)(nil))
+	return reflect.TypeOf((**JobTargetGroup)(nil)).Elem()
 }
 
 func (i *JobTargetGroup) ToJobTargetGroupOutput() JobTargetGroupOutput {
@@ -133,7 +133,7 @@ func (i *JobTargetGroup) ToJobTargetGroupOutputWithContext(ctx context.Context) 
 type JobTargetGroupOutput struct{ *pulumi.OutputState }
 
 func (JobTargetGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobTargetGroup)(nil))
+	return reflect.TypeOf((**JobTargetGroup)(nil)).Elem()
 }
 
 func (o JobTargetGroupOutput) ToJobTargetGroupOutput() JobTargetGroupOutput {

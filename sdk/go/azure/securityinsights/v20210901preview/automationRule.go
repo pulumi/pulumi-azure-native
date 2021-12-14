@@ -128,7 +128,7 @@ type AutomationRuleInput interface {
 }
 
 func (*AutomationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRule)(nil))
+	return reflect.TypeOf((**AutomationRule)(nil)).Elem()
 }
 
 func (i *AutomationRule) ToAutomationRuleOutput() AutomationRuleOutput {
@@ -142,7 +142,7 @@ func (i *AutomationRule) ToAutomationRuleOutputWithContext(ctx context.Context) 
 type AutomationRuleOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationRule)(nil))
+	return reflect.TypeOf((**AutomationRule)(nil)).Elem()
 }
 
 func (o AutomationRuleOutput) ToAutomationRuleOutput() AutomationRuleOutput {

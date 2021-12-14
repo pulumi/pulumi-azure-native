@@ -121,7 +121,7 @@ type PeeringServicePrefixInput interface {
 }
 
 func (*PeeringServicePrefix) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringServicePrefix)(nil))
+	return reflect.TypeOf((**PeeringServicePrefix)(nil)).Elem()
 }
 
 func (i *PeeringServicePrefix) ToPeeringServicePrefixOutput() PeeringServicePrefixOutput {
@@ -135,7 +135,7 @@ func (i *PeeringServicePrefix) ToPeeringServicePrefixOutputWithContext(ctx conte
 type PeeringServicePrefixOutput struct{ *pulumi.OutputState }
 
 func (PeeringServicePrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringServicePrefix)(nil))
+	return reflect.TypeOf((**PeeringServicePrefix)(nil)).Elem()
 }
 
 func (o PeeringServicePrefixOutput) ToPeeringServicePrefixOutput() PeeringServicePrefixOutput {

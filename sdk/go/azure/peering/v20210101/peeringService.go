@@ -128,7 +128,7 @@ type PeeringServiceInput interface {
 }
 
 func (*PeeringService) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringService)(nil))
+	return reflect.TypeOf((**PeeringService)(nil)).Elem()
 }
 
 func (i *PeeringService) ToPeeringServiceOutput() PeeringServiceOutput {
@@ -142,7 +142,7 @@ func (i *PeeringService) ToPeeringServiceOutputWithContext(ctx context.Context) 
 type PeeringServiceOutput struct{ *pulumi.OutputState }
 
 func (PeeringServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeeringService)(nil))
+	return reflect.TypeOf((**PeeringService)(nil)).Elem()
 }
 
 func (o PeeringServiceOutput) ToPeeringServiceOutput() PeeringServiceOutput {

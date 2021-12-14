@@ -13,7 +13,7 @@ func LookupSchedule(ctx *pulumi.Context, args *LookupScheduleArgs, opts ...pulum
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupScheduleArgs struct {
@@ -41,4 +41,17 @@ type LookupScheduleResult struct {
 	StartTimeOffsetMinutes  float64                   `pulumi:"startTimeOffsetMinutes"`
 	TimeZone                *string                   `pulumi:"timeZone"`
 	Type                    string                    `pulumi:"type"`
+}
+
+
+func (val *LookupScheduleResult) Defaults() *LookupScheduleResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEnabled) {
+		isEnabled_ := false
+		tmp.IsEnabled = &isEnabled_
+	}
+	return &tmp
 }

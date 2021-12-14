@@ -111,7 +111,7 @@ type AFDOriginGroupInput interface {
 }
 
 func (*AFDOriginGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*AFDOriginGroup)(nil))
+	return reflect.TypeOf((**AFDOriginGroup)(nil)).Elem()
 }
 
 func (i *AFDOriginGroup) ToAFDOriginGroupOutput() AFDOriginGroupOutput {
@@ -125,7 +125,7 @@ func (i *AFDOriginGroup) ToAFDOriginGroupOutputWithContext(ctx context.Context) 
 type AFDOriginGroupOutput struct{ *pulumi.OutputState }
 
 func (AFDOriginGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AFDOriginGroup)(nil))
+	return reflect.TypeOf((**AFDOriginGroup)(nil)).Elem()
 }
 
 func (o AFDOriginGroupOutput) ToAFDOriginGroupOutput() AFDOriginGroupOutput {

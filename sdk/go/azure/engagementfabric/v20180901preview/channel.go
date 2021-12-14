@@ -105,7 +105,7 @@ type ChannelInput interface {
 }
 
 func (*Channel) ElementType() reflect.Type {
-	return reflect.TypeOf((*Channel)(nil))
+	return reflect.TypeOf((**Channel)(nil)).Elem()
 }
 
 func (i *Channel) ToChannelOutput() ChannelOutput {
@@ -119,7 +119,7 @@ func (i *Channel) ToChannelOutputWithContext(ctx context.Context) ChannelOutput 
 type ChannelOutput struct{ *pulumi.OutputState }
 
 func (ChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Channel)(nil))
+	return reflect.TypeOf((**Channel)(nil)).Elem()
 }
 
 func (o ChannelOutput) ToChannelOutput() ChannelOutput {

@@ -16,6 +16,17 @@ type ApplicationDeltaHealthPolicy struct {
 }
 
 
+func (val *ApplicationDeltaHealthPolicy) Defaults() *ApplicationDeltaHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DefaultServiceTypeDeltaHealthPolicy = tmp.DefaultServiceTypeDeltaHealthPolicy.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -117,6 +128,17 @@ func (o ApplicationDeltaHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) Ap
 type ApplicationDeltaHealthPolicyResponse struct {
 	DefaultServiceTypeDeltaHealthPolicy *ServiceTypeDeltaHealthPolicyResponse           `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
 	ServiceTypeDeltaHealthPolicies      map[string]ServiceTypeDeltaHealthPolicyResponse `pulumi:"serviceTypeDeltaHealthPolicies"`
+}
+
+
+func (val *ApplicationDeltaHealthPolicyResponse) Defaults() *ApplicationDeltaHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DefaultServiceTypeDeltaHealthPolicy = tmp.DefaultServiceTypeDeltaHealthPolicy.Defaults()
+
+	return &tmp
 }
 
 
@@ -224,6 +246,17 @@ type ApplicationHealthPolicy struct {
 }
 
 
+func (val *ApplicationHealthPolicy) Defaults() *ApplicationHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DefaultServiceTypeHealthPolicy = tmp.DefaultServiceTypeHealthPolicy.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -321,6 +354,17 @@ func (o ApplicationHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) Applica
 type ApplicationHealthPolicyResponse struct {
 	DefaultServiceTypeHealthPolicy *ServiceTypeHealthPolicyResponse           `pulumi:"defaultServiceTypeHealthPolicy"`
 	ServiceTypeHealthPolicies      map[string]ServiceTypeHealthPolicyResponse `pulumi:"serviceTypeHealthPolicies"`
+}
+
+
+func (val *ApplicationHealthPolicyResponse) Defaults() *ApplicationHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DefaultServiceTypeHealthPolicy = tmp.DefaultServiceTypeHealthPolicy.Defaults()
+
+	return &tmp
 }
 
 
@@ -1493,6 +1537,23 @@ type ClusterHealthPolicy struct {
 }
 
 
+func (val *ClusterHealthPolicy) Defaults() *ClusterHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyApplications) {
+		maxPercentUnhealthyApplications_ := 0
+		tmp.MaxPercentUnhealthyApplications = &maxPercentUnhealthyApplications_
+	}
+	if isZero(tmp.MaxPercentUnhealthyNodes) {
+		maxPercentUnhealthyNodes_ := 0
+		tmp.MaxPercentUnhealthyNodes = &maxPercentUnhealthyNodes_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1653,6 +1714,23 @@ type ClusterHealthPolicyResponse struct {
 	ApplicationHealthPolicies       map[string]ApplicationHealthPolicyResponse `pulumi:"applicationHealthPolicies"`
 	MaxPercentUnhealthyApplications *int                                       `pulumi:"maxPercentUnhealthyApplications"`
 	MaxPercentUnhealthyNodes        *int                                       `pulumi:"maxPercentUnhealthyNodes"`
+}
+
+
+func (val *ClusterHealthPolicyResponse) Defaults() *ClusterHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyApplications) {
+		maxPercentUnhealthyApplications_ := 0
+		tmp.MaxPercentUnhealthyApplications = &maxPercentUnhealthyApplications_
+	}
+	if isZero(tmp.MaxPercentUnhealthyNodes) {
+		maxPercentUnhealthyNodes_ := 0
+		tmp.MaxPercentUnhealthyNodes = &maxPercentUnhealthyNodes_
+	}
+	return &tmp
 }
 
 
@@ -2189,6 +2267,17 @@ type ClusterUpgradePolicy struct {
 }
 
 
+func (val *ClusterUpgradePolicy) Defaults() *ClusterUpgradePolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.HealthPolicy = *tmp.HealthPolicy.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -2439,6 +2528,17 @@ type ClusterUpgradePolicyResponse struct {
 	UpgradeDomainTimeout          string                                   `pulumi:"upgradeDomainTimeout"`
 	UpgradeReplicaSetCheckTimeout string                                   `pulumi:"upgradeReplicaSetCheckTimeout"`
 	UpgradeTimeout                string                                   `pulumi:"upgradeTimeout"`
+}
+
+
+func (val *ClusterUpgradePolicyResponse) Defaults() *ClusterUpgradePolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.HealthPolicy = *tmp.HealthPolicy.Defaults()
+
+	return &tmp
 }
 
 
@@ -4283,6 +4383,19 @@ type ServiceTypeDeltaHealthPolicy struct {
 }
 
 
+func (val *ServiceTypeDeltaHealthPolicy) Defaults() *ServiceTypeDeltaHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentDeltaUnhealthyServices) {
+		maxPercentDeltaUnhealthyServices_ := 0
+		tmp.MaxPercentDeltaUnhealthyServices = &maxPercentDeltaUnhealthyServices_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4458,6 +4571,19 @@ func (o ServiceTypeDeltaHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) Se
 
 type ServiceTypeDeltaHealthPolicyResponse struct {
 	MaxPercentDeltaUnhealthyServices *int `pulumi:"maxPercentDeltaUnhealthyServices"`
+}
+
+
+func (val *ServiceTypeDeltaHealthPolicyResponse) Defaults() *ServiceTypeDeltaHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentDeltaUnhealthyServices) {
+		maxPercentDeltaUnhealthyServices_ := 0
+		tmp.MaxPercentDeltaUnhealthyServices = &maxPercentDeltaUnhealthyServices_
+	}
+	return &tmp
 }
 
 
@@ -4639,6 +4765,19 @@ type ServiceTypeHealthPolicy struct {
 }
 
 
+func (val *ServiceTypeHealthPolicy) Defaults() *ServiceTypeHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyServices) {
+		maxPercentUnhealthyServices_ := 0
+		tmp.MaxPercentUnhealthyServices = &maxPercentUnhealthyServices_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4814,6 +4953,19 @@ func (o ServiceTypeHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) Service
 
 type ServiceTypeHealthPolicyResponse struct {
 	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
+}
+
+
+func (val *ServiceTypeHealthPolicyResponse) Defaults() *ServiceTypeHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyServices) {
+		maxPercentUnhealthyServices_ := 0
+		tmp.MaxPercentUnhealthyServices = &maxPercentUnhealthyServices_
+	}
+	return &tmp
 }
 
 

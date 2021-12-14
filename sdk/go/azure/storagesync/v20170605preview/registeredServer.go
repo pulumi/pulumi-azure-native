@@ -154,7 +154,7 @@ type RegisteredServerInput interface {
 }
 
 func (*RegisteredServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegisteredServer)(nil))
+	return reflect.TypeOf((**RegisteredServer)(nil)).Elem()
 }
 
 func (i *RegisteredServer) ToRegisteredServerOutput() RegisteredServerOutput {
@@ -168,7 +168,7 @@ func (i *RegisteredServer) ToRegisteredServerOutputWithContext(ctx context.Conte
 type RegisteredServerOutput struct{ *pulumi.OutputState }
 
 func (RegisteredServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegisteredServer)(nil))
+	return reflect.TypeOf((**RegisteredServer)(nil)).Elem()
 }
 
 func (o RegisteredServerOutput) ToRegisteredServerOutput() RegisteredServerOutput {

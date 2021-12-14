@@ -48,7 +48,7 @@ func NewUser(ctx *pulumi.Context,
 	if args.ServiceName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
-	if args.State == nil {
+	if isZero(args.State) {
 		args.State = pulumi.StringPtr("active")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -169,7 +169,7 @@ type UserInput interface {
 }
 
 func (*User) ElementType() reflect.Type {
-	return reflect.TypeOf((*User)(nil))
+	return reflect.TypeOf((**User)(nil)).Elem()
 }
 
 func (i *User) ToUserOutput() UserOutput {
@@ -183,7 +183,7 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*User)(nil))
+	return reflect.TypeOf((**User)(nil)).Elem()
 }
 
 func (o UserOutput) ToUserOutput() UserOutput {

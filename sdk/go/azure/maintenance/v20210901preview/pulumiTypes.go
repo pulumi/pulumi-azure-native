@@ -345,6 +345,19 @@ type InputPatchConfiguration struct {
 }
 
 
+func (val *InputPatchConfiguration) Defaults() *InputPatchConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RebootSetting) {
+		rebootSetting_ := "IfRequired"
+		tmp.RebootSetting = &rebootSetting_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -535,6 +548,19 @@ type InputPatchConfigurationResponse struct {
 	PreTasks          []TaskPropertiesResponse        `pulumi:"preTasks"`
 	RebootSetting     *string                         `pulumi:"rebootSetting"`
 	WindowsParameters *InputWindowsParametersResponse `pulumi:"windowsParameters"`
+}
+
+
+func (val *InputPatchConfigurationResponse) Defaults() *InputPatchConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RebootSetting) {
+		rebootSetting_ := "IfRequired"
+		tmp.RebootSetting = &rebootSetting_
+	}
+	return &tmp
 }
 
 
@@ -1293,6 +1319,19 @@ type TaskProperties struct {
 }
 
 
+func (val *TaskProperties) Defaults() *TaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.TaskScope) {
+		taskScope_ := "Global"
+		tmp.TaskScope = &taskScope_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1396,6 +1435,19 @@ type TaskPropertiesResponse struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	Source     *string           `pulumi:"source"`
 	TaskScope  *string           `pulumi:"taskScope"`
+}
+
+
+func (val *TaskPropertiesResponse) Defaults() *TaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.TaskScope) {
+		taskScope_ := "Global"
+		tmp.TaskScope = &taskScope_
+	}
+	return &tmp
 }
 
 

@@ -13,7 +13,7 @@ func LookupDomainService(ctx *pulumi.Context, args *LookupDomainServiceArgs, opt
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDomainServiceArgs struct {
@@ -44,4 +44,17 @@ type LookupDomainServiceResult struct {
 	TenantId                string                          `pulumi:"tenantId"`
 	Type                    string                          `pulumi:"type"`
 	Version                 int                             `pulumi:"version"`
+}
+
+
+func (val *LookupDomainServiceResult) Defaults() *LookupDomainServiceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DomainSecuritySettings = tmp.DomainSecuritySettings.Defaults()
+
+	tmp.LdapsSettings = tmp.LdapsSettings.Defaults()
+
+	return &tmp
 }

@@ -869,6 +869,19 @@ type DiskPoolVolume struct {
 }
 
 
+func (val *DiskPoolVolume) Defaults() *DiskPoolVolume {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountOption) {
+		mountOption_ := "MOUNT"
+		tmp.MountOption = &mountOption_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1030,6 +1043,19 @@ type DiskPoolVolumeResponse struct {
 	MountOption *string `pulumi:"mountOption"`
 	Path        string  `pulumi:"path"`
 	TargetId    string  `pulumi:"targetId"`
+}
+
+
+func (val *DiskPoolVolumeResponse) Defaults() *DiskPoolVolumeResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountOption) {
+		mountOption_ := "MOUNT"
+		tmp.MountOption = &mountOption_
+	}
+	return &tmp
 }
 
 

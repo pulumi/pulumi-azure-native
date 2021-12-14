@@ -140,7 +140,7 @@ type DatabaseBlobAuditingPolicyInput interface {
 }
 
 func (*DatabaseBlobAuditingPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseBlobAuditingPolicy)(nil))
+	return reflect.TypeOf((**DatabaseBlobAuditingPolicy)(nil)).Elem()
 }
 
 func (i *DatabaseBlobAuditingPolicy) ToDatabaseBlobAuditingPolicyOutput() DatabaseBlobAuditingPolicyOutput {
@@ -154,7 +154,7 @@ func (i *DatabaseBlobAuditingPolicy) ToDatabaseBlobAuditingPolicyOutputWithConte
 type DatabaseBlobAuditingPolicyOutput struct{ *pulumi.OutputState }
 
 func (DatabaseBlobAuditingPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseBlobAuditingPolicy)(nil))
+	return reflect.TypeOf((**DatabaseBlobAuditingPolicy)(nil)).Elem()
 }
 
 func (o DatabaseBlobAuditingPolicyOutput) ToDatabaseBlobAuditingPolicyOutput() DatabaseBlobAuditingPolicyOutput {

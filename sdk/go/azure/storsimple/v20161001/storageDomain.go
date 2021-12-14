@@ -102,7 +102,7 @@ type StorageDomainInput interface {
 }
 
 func (*StorageDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageDomain)(nil))
+	return reflect.TypeOf((**StorageDomain)(nil)).Elem()
 }
 
 func (i *StorageDomain) ToStorageDomainOutput() StorageDomainOutput {
@@ -116,7 +116,7 @@ func (i *StorageDomain) ToStorageDomainOutputWithContext(ctx context.Context) St
 type StorageDomainOutput struct{ *pulumi.OutputState }
 
 func (StorageDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageDomain)(nil))
+	return reflect.TypeOf((**StorageDomain)(nil)).Elem()
 }
 
 func (o StorageDomainOutput) ToStorageDomainOutput() StorageDomainOutput {

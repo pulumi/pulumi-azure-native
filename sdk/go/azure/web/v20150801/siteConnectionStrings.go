@@ -140,7 +140,7 @@ type SiteConnectionStringsInput interface {
 }
 
 func (*SiteConnectionStrings) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteConnectionStrings)(nil))
+	return reflect.TypeOf((**SiteConnectionStrings)(nil)).Elem()
 }
 
 func (i *SiteConnectionStrings) ToSiteConnectionStringsOutput() SiteConnectionStringsOutput {
@@ -154,7 +154,7 @@ func (i *SiteConnectionStrings) ToSiteConnectionStringsOutputWithContext(ctx con
 type SiteConnectionStringsOutput struct{ *pulumi.OutputState }
 
 func (SiteConnectionStringsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteConnectionStrings)(nil))
+	return reflect.TypeOf((**SiteConnectionStrings)(nil)).Elem()
 }
 
 func (o SiteConnectionStringsOutput) ToSiteConnectionStringsOutput() SiteConnectionStringsOutput {

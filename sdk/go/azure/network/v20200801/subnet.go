@@ -51,10 +51,10 @@ func NewSubnet(ctx *pulumi.Context,
 	if args.VirtualNetworkName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkName'")
 	}
-	if args.PrivateEndpointNetworkPolicies == nil {
+	if isZero(args.PrivateEndpointNetworkPolicies) {
 		args.PrivateEndpointNetworkPolicies = pulumi.StringPtr("Enabled")
 	}
-	if args.PrivateLinkServiceNetworkPolicies == nil {
+	if isZero(args.PrivateLinkServiceNetworkPolicies) {
 		args.PrivateLinkServiceNetworkPolicies = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -263,7 +263,7 @@ type SubnetInput interface {
 }
 
 func (*Subnet) ElementType() reflect.Type {
-	return reflect.TypeOf((*Subnet)(nil))
+	return reflect.TypeOf((**Subnet)(nil)).Elem()
 }
 
 func (i *Subnet) ToSubnetOutput() SubnetOutput {
@@ -277,7 +277,7 @@ func (i *Subnet) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
 type SubnetOutput struct{ *pulumi.OutputState }
 
 func (SubnetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Subnet)(nil))
+	return reflect.TypeOf((**Subnet)(nil)).Elem()
 }
 
 func (o SubnetOutput) ToSubnetOutput() SubnetOutput {

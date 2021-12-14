@@ -151,7 +151,7 @@ type SqlPoolSensitivityLabelInput interface {
 }
 
 func (*SqlPoolSensitivityLabel) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolSensitivityLabel)(nil))
+	return reflect.TypeOf((**SqlPoolSensitivityLabel)(nil)).Elem()
 }
 
 func (i *SqlPoolSensitivityLabel) ToSqlPoolSensitivityLabelOutput() SqlPoolSensitivityLabelOutput {
@@ -165,7 +165,7 @@ func (i *SqlPoolSensitivityLabel) ToSqlPoolSensitivityLabelOutputWithContext(ctx
 type SqlPoolSensitivityLabelOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolSensitivityLabelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolSensitivityLabel)(nil))
+	return reflect.TypeOf((**SqlPoolSensitivityLabel)(nil)).Elem()
 }
 
 func (o SqlPoolSensitivityLabelOutput) ToSqlPoolSensitivityLabelOutput() SqlPoolSensitivityLabelOutput {

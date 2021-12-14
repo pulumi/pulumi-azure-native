@@ -132,7 +132,7 @@ type IscsiDiskInput interface {
 }
 
 func (*IscsiDisk) ElementType() reflect.Type {
-	return reflect.TypeOf((*IscsiDisk)(nil))
+	return reflect.TypeOf((**IscsiDisk)(nil)).Elem()
 }
 
 func (i *IscsiDisk) ToIscsiDiskOutput() IscsiDiskOutput {
@@ -146,7 +146,7 @@ func (i *IscsiDisk) ToIscsiDiskOutputWithContext(ctx context.Context) IscsiDiskO
 type IscsiDiskOutput struct{ *pulumi.OutputState }
 
 func (IscsiDiskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IscsiDisk)(nil))
+	return reflect.TypeOf((**IscsiDisk)(nil)).Elem()
 }
 
 func (o IscsiDiskOutput) ToIscsiDiskOutput() IscsiDiskOutput {

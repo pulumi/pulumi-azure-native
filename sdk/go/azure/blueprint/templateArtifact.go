@@ -124,7 +124,7 @@ type TemplateArtifactInput interface {
 }
 
 func (*TemplateArtifact) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateArtifact)(nil))
+	return reflect.TypeOf((**TemplateArtifact)(nil)).Elem()
 }
 
 func (i *TemplateArtifact) ToTemplateArtifactOutput() TemplateArtifactOutput {
@@ -138,7 +138,7 @@ func (i *TemplateArtifact) ToTemplateArtifactOutputWithContext(ctx context.Conte
 type TemplateArtifactOutput struct{ *pulumi.OutputState }
 
 func (TemplateArtifactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateArtifact)(nil))
+	return reflect.TypeOf((**TemplateArtifact)(nil)).Elem()
 }
 
 func (o TemplateArtifactOutput) ToTemplateArtifactOutput() TemplateArtifactOutput {

@@ -53,10 +53,10 @@ func NewRedis(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	if args.EnableNonSslPort == nil {
+	if isZero(args.EnableNonSslPort) {
 		args.EnableNonSslPort = pulumi.BoolPtr(false)
 	}
-	if args.PublicNetworkAccess == nil {
+	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -166,7 +166,7 @@ type RedisInput interface {
 }
 
 func (*Redis) ElementType() reflect.Type {
-	return reflect.TypeOf((*Redis)(nil))
+	return reflect.TypeOf((**Redis)(nil)).Elem()
 }
 
 func (i *Redis) ToRedisOutput() RedisOutput {
@@ -180,7 +180,7 @@ func (i *Redis) ToRedisOutputWithContext(ctx context.Context) RedisOutput {
 type RedisOutput struct{ *pulumi.OutputState }
 
 func (RedisOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Redis)(nil))
+	return reflect.TypeOf((**Redis)(nil)).Elem()
 }
 
 func (o RedisOutput) ToRedisOutput() RedisOutput {

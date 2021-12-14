@@ -105,7 +105,7 @@ type EnvironmentSpecificationVersionInput interface {
 }
 
 func (*EnvironmentSpecificationVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentSpecificationVersion)(nil))
+	return reflect.TypeOf((**EnvironmentSpecificationVersion)(nil)).Elem()
 }
 
 func (i *EnvironmentSpecificationVersion) ToEnvironmentSpecificationVersionOutput() EnvironmentSpecificationVersionOutput {
@@ -119,7 +119,7 @@ func (i *EnvironmentSpecificationVersion) ToEnvironmentSpecificationVersionOutpu
 type EnvironmentSpecificationVersionOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentSpecificationVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentSpecificationVersion)(nil))
+	return reflect.TypeOf((**EnvironmentSpecificationVersion)(nil)).Elem()
 }
 
 func (o EnvironmentSpecificationVersionOutput) ToEnvironmentSpecificationVersionOutput() EnvironmentSpecificationVersionOutput {

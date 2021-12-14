@@ -127,7 +127,7 @@ type MDATPDataConnectorInput interface {
 }
 
 func (*MDATPDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*MDATPDataConnector)(nil))
+	return reflect.TypeOf((**MDATPDataConnector)(nil)).Elem()
 }
 
 func (i *MDATPDataConnector) ToMDATPDataConnectorOutput() MDATPDataConnectorOutput {
@@ -141,7 +141,7 @@ func (i *MDATPDataConnector) ToMDATPDataConnectorOutputWithContext(ctx context.C
 type MDATPDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (MDATPDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MDATPDataConnector)(nil))
+	return reflect.TypeOf((**MDATPDataConnector)(nil)).Elem()
 }
 
 func (o MDATPDataConnectorOutput) ToMDATPDataConnectorOutput() MDATPDataConnectorOutput {

@@ -46,7 +46,7 @@ func NewAgentPool(ctx *pulumi.Context,
 	if args.VmSize == nil {
 		return nil, errors.New("invalid value for required argument 'VmSize'")
 	}
-	if args.Count == nil {
+	if isZero(args.Count) {
 		args.Count = pulumi.Int(1)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -198,7 +198,7 @@ type AgentPoolInput interface {
 }
 
 func (*AgentPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPool)(nil))
+	return reflect.TypeOf((**AgentPool)(nil)).Elem()
 }
 
 func (i *AgentPool) ToAgentPoolOutput() AgentPoolOutput {
@@ -212,7 +212,7 @@ func (i *AgentPool) ToAgentPoolOutputWithContext(ctx context.Context) AgentPoolO
 type AgentPoolOutput struct{ *pulumi.OutputState }
 
 func (AgentPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPool)(nil))
+	return reflect.TypeOf((**AgentPool)(nil)).Elem()
 }
 
 func (o AgentPoolOutput) ToAgentPoolOutput() AgentPoolOutput {

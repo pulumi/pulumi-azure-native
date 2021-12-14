@@ -129,7 +129,7 @@ type TagByApiInput interface {
 }
 
 func (*TagByApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagByApi)(nil))
+	return reflect.TypeOf((**TagByApi)(nil)).Elem()
 }
 
 func (i *TagByApi) ToTagByApiOutput() TagByApiOutput {
@@ -143,7 +143,7 @@ func (i *TagByApi) ToTagByApiOutputWithContext(ctx context.Context) TagByApiOutp
 type TagByApiOutput struct{ *pulumi.OutputState }
 
 func (TagByApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagByApi)(nil))
+	return reflect.TypeOf((**TagByApi)(nil)).Elem()
 }
 
 func (o TagByApiOutput) ToTagByApiOutput() TagByApiOutput {

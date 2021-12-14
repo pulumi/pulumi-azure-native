@@ -183,7 +183,7 @@ type ManagedClusterInput interface {
 }
 
 func (*ManagedCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedCluster)(nil))
+	return reflect.TypeOf((**ManagedCluster)(nil)).Elem()
 }
 
 func (i *ManagedCluster) ToManagedClusterOutput() ManagedClusterOutput {
@@ -197,7 +197,7 @@ func (i *ManagedCluster) ToManagedClusterOutputWithContext(ctx context.Context) 
 type ManagedClusterOutput struct{ *pulumi.OutputState }
 
 func (ManagedClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedCluster)(nil))
+	return reflect.TypeOf((**ManagedCluster)(nil)).Elem()
 }
 
 func (o ManagedClusterOutput) ToManagedClusterOutput() ManagedClusterOutput {

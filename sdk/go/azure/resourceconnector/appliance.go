@@ -38,7 +38,7 @@ func NewAppliance(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Distro == nil {
+	if isZero(args.Distro) {
 		args.Distro = pulumi.StringPtr("AKSEdge")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -113,7 +113,7 @@ type ApplianceInput interface {
 }
 
 func (*Appliance) ElementType() reflect.Type {
-	return reflect.TypeOf((*Appliance)(nil))
+	return reflect.TypeOf((**Appliance)(nil)).Elem()
 }
 
 func (i *Appliance) ToApplianceOutput() ApplianceOutput {
@@ -127,7 +127,7 @@ func (i *Appliance) ToApplianceOutputWithContext(ctx context.Context) ApplianceO
 type ApplianceOutput struct{ *pulumi.OutputState }
 
 func (ApplianceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Appliance)(nil))
+	return reflect.TypeOf((**Appliance)(nil)).Elem()
 }
 
 func (o ApplianceOutput) ToApplianceOutput() ApplianceOutput {

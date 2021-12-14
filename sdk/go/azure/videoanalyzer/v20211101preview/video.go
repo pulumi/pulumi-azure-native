@@ -111,7 +111,7 @@ type VideoInput interface {
 }
 
 func (*Video) ElementType() reflect.Type {
-	return reflect.TypeOf((*Video)(nil))
+	return reflect.TypeOf((**Video)(nil)).Elem()
 }
 
 func (i *Video) ToVideoOutput() VideoOutput {
@@ -125,7 +125,7 @@ func (i *Video) ToVideoOutputWithContext(ctx context.Context) VideoOutput {
 type VideoOutput struct{ *pulumi.OutputState }
 
 func (VideoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Video)(nil))
+	return reflect.TypeOf((**Video)(nil)).Elem()
 }
 
 func (o VideoOutput) ToVideoOutput() VideoOutput {

@@ -1962,6 +1962,25 @@ type DataBoxCustomerDiskJobDetails struct {
 }
 
 
+func (val *DataBoxCustomerDiskJobDetails) Defaults() *DataBoxCustomerDiskJobDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableManifestBackup) {
+		enableManifestBackup_ := false
+		tmp.EnableManifestBackup = &enableManifestBackup_
+	}
+	tmp.KeyEncryptionKey = tmp.KeyEncryptionKey.Defaults()
+
+	tmp.Preferences = tmp.Preferences.Defaults()
+
+	tmp.ShippingAddress = tmp.ShippingAddress.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -2083,6 +2102,25 @@ type DataBoxCustomerDiskJobDetailsResponse struct {
 	ReturnToCustomerPackageDetails PackageCarrierDetailsResponse             `pulumi:"returnToCustomerPackageDetails"`
 	ReverseShipmentLabelSasKey     string                                    `pulumi:"reverseShipmentLabelSasKey"`
 	ShippingAddress                *ShippingAddressResponse                  `pulumi:"shippingAddress"`
+}
+
+
+func (val *DataBoxCustomerDiskJobDetailsResponse) Defaults() *DataBoxCustomerDiskJobDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableManifestBackup) {
+		enableManifestBackup_ := false
+		tmp.EnableManifestBackup = &enableManifestBackup_
+	}
+	tmp.KeyEncryptionKey = tmp.KeyEncryptionKey.Defaults()
+
+	tmp.Preferences = tmp.Preferences.Defaults()
+
+	tmp.ShippingAddress = tmp.ShippingAddress.Defaults()
+
+	return &tmp
 }
 
 
@@ -2450,6 +2488,21 @@ type DataBoxDiskJobDetails struct {
 }
 
 
+func (val *DataBoxDiskJobDetails) Defaults() *DataBoxDiskJobDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.KeyEncryptionKey = tmp.KeyEncryptionKey.Defaults()
+
+	tmp.Preferences = tmp.Preferences.Defaults()
+
+	tmp.ShippingAddress = tmp.ShippingAddress.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -2562,6 +2615,21 @@ type DataBoxDiskJobDetailsResponse struct {
 	ReturnPackage               PackageShippingDetailsResponse    `pulumi:"returnPackage"`
 	ReverseShipmentLabelSasKey  string                            `pulumi:"reverseShipmentLabelSasKey"`
 	ShippingAddress             *ShippingAddressResponse          `pulumi:"shippingAddress"`
+}
+
+
+func (val *DataBoxDiskJobDetailsResponse) Defaults() *DataBoxDiskJobDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.KeyEncryptionKey = tmp.KeyEncryptionKey.Defaults()
+
+	tmp.Preferences = tmp.Preferences.Defaults()
+
+	tmp.ShippingAddress = tmp.ShippingAddress.Defaults()
+
+	return &tmp
 }
 
 
@@ -2875,6 +2943,21 @@ type DataBoxHeavyJobDetails struct {
 }
 
 
+func (val *DataBoxHeavyJobDetails) Defaults() *DataBoxHeavyJobDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.KeyEncryptionKey = tmp.KeyEncryptionKey.Defaults()
+
+	tmp.Preferences = tmp.Preferences.Defaults()
+
+	tmp.ShippingAddress = tmp.ShippingAddress.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -2980,6 +3063,21 @@ type DataBoxHeavyJobDetailsResponse struct {
 	ReturnPackage               PackageShippingDetailsResponse    `pulumi:"returnPackage"`
 	ReverseShipmentLabelSasKey  string                            `pulumi:"reverseShipmentLabelSasKey"`
 	ShippingAddress             *ShippingAddressResponse          `pulumi:"shippingAddress"`
+}
+
+
+func (val *DataBoxHeavyJobDetailsResponse) Defaults() *DataBoxHeavyJobDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.KeyEncryptionKey = tmp.KeyEncryptionKey.Defaults()
+
+	tmp.Preferences = tmp.Preferences.Defaults()
+
+	tmp.ShippingAddress = tmp.ShippingAddress.Defaults()
+
+	return &tmp
 }
 
 
@@ -3326,6 +3424,21 @@ type DataBoxJobDetails struct {
 }
 
 
+func (val *DataBoxJobDetails) Defaults() *DataBoxJobDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.KeyEncryptionKey = tmp.KeyEncryptionKey.Defaults()
+
+	tmp.Preferences = tmp.Preferences.Defaults()
+
+	tmp.ShippingAddress = tmp.ShippingAddress.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3431,6 +3544,21 @@ type DataBoxJobDetailsResponse struct {
 	ReturnPackage               PackageShippingDetailsResponse    `pulumi:"returnPackage"`
 	ReverseShipmentLabelSasKey  string                            `pulumi:"reverseShipmentLabelSasKey"`
 	ShippingAddress             *ShippingAddressResponse          `pulumi:"shippingAddress"`
+}
+
+
+func (val *DataBoxJobDetailsResponse) Defaults() *DataBoxJobDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.KeyEncryptionKey = tmp.KeyEncryptionKey.Defaults()
+
+	tmp.Preferences = tmp.Preferences.Defaults()
+
+	tmp.ShippingAddress = tmp.ShippingAddress.Defaults()
+
+	return &tmp
 }
 
 
@@ -3700,6 +3828,21 @@ type DataExportDetails struct {
 }
 
 
+func (val *DataExportDetails) Defaults() *DataExportDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LogCollectionLevel) {
+		logCollectionLevel_ := "Error"
+		tmp.LogCollectionLevel = &logCollectionLevel_
+	}
+	tmp.TransferConfiguration = *tmp.TransferConfiguration.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3803,6 +3946,21 @@ type DataExportDetailsResponse struct {
 	AccountDetails        interface{}                   `pulumi:"accountDetails"`
 	LogCollectionLevel    *string                       `pulumi:"logCollectionLevel"`
 	TransferConfiguration TransferConfigurationResponse `pulumi:"transferConfiguration"`
+}
+
+
+func (val *DataExportDetailsResponse) Defaults() *DataExportDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LogCollectionLevel) {
+		logCollectionLevel_ := "Error"
+		tmp.LogCollectionLevel = &logCollectionLevel_
+	}
+	tmp.TransferConfiguration = *tmp.TransferConfiguration.Defaults()
+
+	return &tmp
 }
 
 
@@ -3911,6 +4069,19 @@ type DataImportDetails struct {
 }
 
 
+func (val *DataImportDetails) Defaults() *DataImportDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LogCollectionLevel) {
+		logCollectionLevel_ := "Error"
+		tmp.LogCollectionLevel = &logCollectionLevel_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4008,6 +4179,19 @@ func (o DataImportDetailsArrayOutput) Index(i pulumi.IntInput) DataImportDetails
 type DataImportDetailsResponse struct {
 	AccountDetails     interface{} `pulumi:"accountDetails"`
 	LogCollectionLevel *string     `pulumi:"logCollectionLevel"`
+}
+
+
+func (val *DataImportDetailsResponse) Defaults() *DataImportDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LogCollectionLevel) {
+		logCollectionLevel_ := "Error"
+		tmp.LogCollectionLevel = &logCollectionLevel_
+	}
+	return &tmp
 }
 
 
@@ -4542,6 +4726,19 @@ type EncryptionPreferences struct {
 }
 
 
+func (val *EncryptionPreferences) Defaults() *EncryptionPreferences {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DoubleEncryption) {
+		doubleEncryption_ := "Disabled"
+		tmp.DoubleEncryption = &doubleEncryption_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4672,6 +4869,19 @@ func (o EncryptionPreferencesPtrOutput) DoubleEncryption() pulumi.StringPtrOutpu
 
 type EncryptionPreferencesResponse struct {
 	DoubleEncryption *string `pulumi:"doubleEncryption"`
+}
+
+
+func (val *EncryptionPreferencesResponse) Defaults() *EncryptionPreferencesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DoubleEncryption) {
+		doubleEncryption_ := "Disabled"
+		tmp.DoubleEncryption = &doubleEncryption_
+	}
+	return &tmp
 }
 
 
@@ -6015,6 +6225,18 @@ type KeyEncryptionKey struct {
 }
 
 
+func (val *KeyEncryptionKey) Defaults() *KeyEncryptionKey {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KekType) {
+		tmp.KekType = "MicrosoftManaged"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6190,6 +6412,18 @@ type KeyEncryptionKeyResponse struct {
 	KekType            string                      `pulumi:"kekType"`
 	KekUrl             *string                     `pulumi:"kekUrl"`
 	KekVaultResourceID *string                     `pulumi:"kekVaultResourceID"`
+}
+
+
+func (val *KeyEncryptionKeyResponse) Defaults() *KeyEncryptionKeyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KekType) {
+		tmp.KekType = "MicrosoftManaged"
+	}
+	return &tmp
 }
 
 
@@ -6432,6 +6666,18 @@ type ManagedDiskDetails struct {
 }
 
 
+func (val *ManagedDiskDetails) Defaults() *ManagedDiskDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DataAccountType) {
+		tmp.DataAccountType = "StorageAccount"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6498,6 +6744,18 @@ type ManagedDiskDetailsResponse struct {
 }
 
 
+func (val *ManagedDiskDetailsResponse) Defaults() *ManagedDiskDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DataAccountType) {
+		tmp.DataAccountType = "StorageAccount"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6555,6 +6813,18 @@ func (o ManagedDiskDetailsResponseOutput) StagingStorageAccountId() pulumi.Strin
 type NotificationPreference struct {
 	SendNotification bool   `pulumi:"sendNotification"`
 	StageName        string `pulumi:"stageName"`
+}
+
+
+func (val *NotificationPreference) Defaults() *NotificationPreference {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SendNotification) {
+		tmp.SendNotification = true
+	}
+	return &tmp
 }
 
 
@@ -6655,6 +6925,18 @@ func (o NotificationPreferenceArrayOutput) Index(i pulumi.IntInput) Notification
 type NotificationPreferenceResponse struct {
 	SendNotification bool   `pulumi:"sendNotification"`
 	StageName        string `pulumi:"stageName"`
+}
+
+
+func (val *NotificationPreferenceResponse) Defaults() *NotificationPreferenceResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SendNotification) {
+		tmp.SendNotification = true
+	}
+	return &tmp
 }
 
 
@@ -6997,6 +7279,17 @@ type Preferences struct {
 }
 
 
+func (val *Preferences) Defaults() *Preferences {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.EncryptionPreferences = tmp.EncryptionPreferences.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -7157,6 +7450,17 @@ type PreferencesResponse struct {
 	EncryptionPreferences     *EncryptionPreferencesResponse `pulumi:"encryptionPreferences"`
 	PreferredDataCenterRegion []string                       `pulumi:"preferredDataCenterRegion"`
 	TransportPreferences      *TransportPreferencesResponse  `pulumi:"transportPreferences"`
+}
+
+
+func (val *PreferencesResponse) Defaults() *PreferencesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.EncryptionPreferences = tmp.EncryptionPreferences.Defaults()
+
+	return &tmp
 }
 
 
@@ -7322,6 +7626,19 @@ type ResourceIdentity struct {
 }
 
 
+func (val *ResourceIdentity) Defaults() *ResourceIdentity {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "None"
+		tmp.Type = &type_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -7469,6 +7786,19 @@ type ResourceIdentityResponse struct {
 	TenantId               string                                  `pulumi:"tenantId"`
 	Type                   *string                                 `pulumi:"type"`
 	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+
+func (val *ResourceIdentityResponse) Defaults() *ResourceIdentityResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "None"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 
@@ -7776,6 +8106,19 @@ type ShippingAddress struct {
 }
 
 
+func (val *ShippingAddress) Defaults() *ShippingAddress {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AddressType) {
+		addressType_ := "None"
+		tmp.AddressType = &addressType_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -8041,6 +8384,19 @@ type ShippingAddressResponse struct {
 	StreetAddress2  *string `pulumi:"streetAddress2"`
 	StreetAddress3  *string `pulumi:"streetAddress3"`
 	ZipExtendedCode *string `pulumi:"zipExtendedCode"`
+}
+
+
+func (val *ShippingAddressResponse) Defaults() *ShippingAddressResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AddressType) {
+		addressType_ := "None"
+		tmp.AddressType = &addressType_
+	}
+	return &tmp
 }
 
 
@@ -8631,6 +8987,18 @@ type StorageAccountDetails struct {
 }
 
 
+func (val *StorageAccountDetails) Defaults() *StorageAccountDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DataAccountType) {
+		tmp.DataAccountType = "StorageAccount"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -8688,6 +9056,18 @@ func (o StorageAccountDetailsOutput) StorageAccountId() pulumi.StringOutput {
 type StorageAccountDetailsResponse struct {
 	DataAccountType  string `pulumi:"dataAccountType"`
 	StorageAccountId string `pulumi:"storageAccountId"`
+}
+
+
+func (val *StorageAccountDetailsResponse) Defaults() *StorageAccountDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DataAccountType) {
+		tmp.DataAccountType = "StorageAccount"
+	}
+	return &tmp
 }
 
 
@@ -8955,6 +9335,18 @@ type TransferAllDetails struct {
 }
 
 
+func (val *TransferAllDetails) Defaults() *TransferAllDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DataAccountType) {
+		tmp.DataAccountType = "StorageAccount"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -9115,6 +9507,18 @@ type TransferAllDetailsResponse struct {
 	DataAccountType  string `pulumi:"dataAccountType"`
 	TransferAllBlobs *bool  `pulumi:"transferAllBlobs"`
 	TransferAllFiles *bool  `pulumi:"transferAllFiles"`
+}
+
+
+func (val *TransferAllDetailsResponse) Defaults() *TransferAllDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DataAccountType) {
+		tmp.DataAccountType = "StorageAccount"
+	}
+	return &tmp
 }
 
 
@@ -9281,6 +9685,19 @@ type TransferConfiguration struct {
 }
 
 
+func (val *TransferConfiguration) Defaults() *TransferConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TransferAllDetails = tmp.TransferAllDetails.Defaults()
+
+	tmp.TransferFilterDetails = tmp.TransferFilterDetails.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -9344,6 +9761,19 @@ type TransferConfigurationResponse struct {
 }
 
 
+func (val *TransferConfigurationResponse) Defaults() *TransferConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TransferAllDetails = tmp.TransferAllDetails.Defaults()
+
+	tmp.TransferFilterDetails = tmp.TransferFilterDetails.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -9404,6 +9834,17 @@ func (o TransferConfigurationResponseOutput) TransferFilterDetails() TransferCon
 
 type TransferConfigurationResponseTransferAllDetails struct {
 	Include *TransferAllDetailsResponse `pulumi:"include"`
+}
+
+
+func (val *TransferConfigurationResponseTransferAllDetails) Defaults() *TransferConfigurationResponseTransferAllDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Include = tmp.Include.Defaults()
+
+	return &tmp
 }
 
 
@@ -9537,6 +9978,17 @@ func (o TransferConfigurationResponseTransferAllDetailsPtrOutput) Include() Tran
 
 type TransferConfigurationResponseTransferFilterDetails struct {
 	Include *TransferFilterDetailsResponse `pulumi:"include"`
+}
+
+
+func (val *TransferConfigurationResponseTransferFilterDetails) Defaults() *TransferConfigurationResponseTransferFilterDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Include = tmp.Include.Defaults()
+
+	return &tmp
 }
 
 
@@ -9675,6 +10127,17 @@ type TransferConfigurationTransferAllDetails struct {
 }
 
 
+func (val *TransferConfigurationTransferAllDetails) Defaults() *TransferConfigurationTransferAllDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Include = tmp.Include.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -9805,6 +10268,17 @@ func (o TransferConfigurationTransferAllDetailsPtrOutput) Include() TransferAllD
 
 type TransferConfigurationTransferFilterDetails struct {
 	Include *TransferFilterDetails `pulumi:"include"`
+}
+
+
+func (val *TransferConfigurationTransferFilterDetails) Defaults() *TransferConfigurationTransferFilterDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Include = tmp.Include.Defaults()
+
+	return &tmp
 }
 
 
@@ -9941,6 +10415,18 @@ type TransferFilterDetails struct {
 	BlobFilterDetails      *BlobFilterDetails      `pulumi:"blobFilterDetails"`
 	DataAccountType        string                  `pulumi:"dataAccountType"`
 	FilterFileDetails      []FilterFileDetails     `pulumi:"filterFileDetails"`
+}
+
+
+func (val *TransferFilterDetails) Defaults() *TransferFilterDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DataAccountType) {
+		tmp.DataAccountType = "StorageAccount"
+	}
+	return &tmp
 }
 
 
@@ -10119,6 +10605,18 @@ type TransferFilterDetailsResponse struct {
 	BlobFilterDetails      *BlobFilterDetailsResponse      `pulumi:"blobFilterDetails"`
 	DataAccountType        string                          `pulumi:"dataAccountType"`
 	FilterFileDetails      []FilterFileDetailsResponse     `pulumi:"filterFileDetails"`
+}
+
+
+func (val *TransferFilterDetailsResponse) Defaults() *TransferFilterDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DataAccountType) {
+		tmp.DataAccountType = "StorageAccount"
+	}
+	return &tmp
 }
 
 

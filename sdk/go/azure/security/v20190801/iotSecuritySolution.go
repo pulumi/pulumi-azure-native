@@ -48,10 +48,10 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Status == nil {
+	if isZero(args.Status) {
 		args.Status = pulumi.StringPtr("Enabled")
 	}
-	if args.UnmaskedIpLoggingStatus == nil {
+	if isZero(args.UnmaskedIpLoggingStatus) {
 		args.UnmaskedIpLoggingStatus = pulumi.StringPtr("Disabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -141,7 +141,7 @@ type IotSecuritySolutionInput interface {
 }
 
 func (*IotSecuritySolution) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotSecuritySolution)(nil))
+	return reflect.TypeOf((**IotSecuritySolution)(nil)).Elem()
 }
 
 func (i *IotSecuritySolution) ToIotSecuritySolutionOutput() IotSecuritySolutionOutput {
@@ -155,7 +155,7 @@ func (i *IotSecuritySolution) ToIotSecuritySolutionOutputWithContext(ctx context
 type IotSecuritySolutionOutput struct{ *pulumi.OutputState }
 
 func (IotSecuritySolutionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotSecuritySolution)(nil))
+	return reflect.TypeOf((**IotSecuritySolution)(nil)).Elem()
 }
 
 func (o IotSecuritySolutionOutput) ToIotSecuritySolutionOutput() IotSecuritySolutionOutput {

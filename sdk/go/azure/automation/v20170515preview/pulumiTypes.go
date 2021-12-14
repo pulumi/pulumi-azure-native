@@ -1619,6 +1619,19 @@ type ScheduleProperties struct {
 }
 
 
+func (val *ScheduleProperties) Defaults() *ScheduleProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEnabled) {
+		isEnabled_ := false
+		tmp.IsEnabled = &isEnabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1930,6 +1943,19 @@ type SchedulePropertiesResponse struct {
 	StartTime               *string                   `pulumi:"startTime"`
 	StartTimeOffsetMinutes  float64                   `pulumi:"startTimeOffsetMinutes"`
 	TimeZone                *string                   `pulumi:"timeZone"`
+}
+
+
+func (val *SchedulePropertiesResponse) Defaults() *SchedulePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEnabled) {
+		isEnabled_ := false
+		tmp.IsEnabled = &isEnabled_
+	}
+	return &tmp
 }
 
 

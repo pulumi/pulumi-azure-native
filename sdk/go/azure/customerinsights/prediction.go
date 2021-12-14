@@ -157,7 +157,7 @@ type PredictionInput interface {
 }
 
 func (*Prediction) ElementType() reflect.Type {
-	return reflect.TypeOf((*Prediction)(nil))
+	return reflect.TypeOf((**Prediction)(nil)).Elem()
 }
 
 func (i *Prediction) ToPredictionOutput() PredictionOutput {
@@ -171,7 +171,7 @@ func (i *Prediction) ToPredictionOutputWithContext(ctx context.Context) Predicti
 type PredictionOutput struct{ *pulumi.OutputState }
 
 func (PredictionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Prediction)(nil))
+	return reflect.TypeOf((**Prediction)(nil)).Elem()
 }
 
 func (o PredictionOutput) ToPredictionOutput() PredictionOutput {

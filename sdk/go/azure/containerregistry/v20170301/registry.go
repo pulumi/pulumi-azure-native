@@ -42,7 +42,7 @@ func NewRegistry(ctx *pulumi.Context,
 	if args.StorageAccount == nil {
 		return nil, errors.New("invalid value for required argument 'StorageAccount'")
 	}
-	if args.AdminUserEnabled == nil {
+	if isZero(args.AdminUserEnabled) {
 		args.AdminUserEnabled = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -142,7 +142,7 @@ type RegistryInput interface {
 }
 
 func (*Registry) ElementType() reflect.Type {
-	return reflect.TypeOf((*Registry)(nil))
+	return reflect.TypeOf((**Registry)(nil)).Elem()
 }
 
 func (i *Registry) ToRegistryOutput() RegistryOutput {
@@ -156,7 +156,7 @@ func (i *Registry) ToRegistryOutputWithContext(ctx context.Context) RegistryOutp
 type RegistryOutput struct{ *pulumi.OutputState }
 
 func (RegistryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Registry)(nil))
+	return reflect.TypeOf((**Registry)(nil)).Elem()
 }
 
 func (o RegistryOutput) ToRegistryOutput() RegistryOutput {

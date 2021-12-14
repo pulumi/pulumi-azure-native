@@ -17,6 +17,19 @@ type Action struct {
 }
 
 
+func (val *Action) Defaults() *Action {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RequiresPreprocessing) {
+		requiresPreprocessing_ := true
+		tmp.RequiresPreprocessing = &requiresPreprocessing_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -177,6 +190,19 @@ type ActionResponse struct {
 	CompatibilityLevel    *int    `pulumi:"compatibilityLevel"`
 	RequiresPreprocessing *bool   `pulumi:"requiresPreprocessing"`
 	SqlExpression         *string `pulumi:"sqlExpression"`
+}
+
+
+func (val *ActionResponse) Defaults() *ActionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RequiresPreprocessing) {
+		requiresPreprocessing_ := true
+		tmp.RequiresPreprocessing = &requiresPreprocessing_
+	}
+	return &tmp
 }
 
 
@@ -646,6 +672,19 @@ type CorrelationFilter struct {
 }
 
 
+func (val *CorrelationFilter) Defaults() *CorrelationFilter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RequiresPreprocessing) {
+		requiresPreprocessing_ := true
+		tmp.RequiresPreprocessing = &requiresPreprocessing_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -911,6 +950,19 @@ type CorrelationFilterResponse struct {
 	RequiresPreprocessing *bool             `pulumi:"requiresPreprocessing"`
 	SessionId             *string           `pulumi:"sessionId"`
 	To                    *string           `pulumi:"to"`
+}
+
+
+func (val *CorrelationFilterResponse) Defaults() *CorrelationFilterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RequiresPreprocessing) {
+		requiresPreprocessing_ := true
+		tmp.RequiresPreprocessing = &requiresPreprocessing_
+	}
+	return &tmp
 }
 
 
@@ -1367,6 +1419,19 @@ type NWRuleSetIpRules struct {
 }
 
 
+func (val *NWRuleSetIpRules) Defaults() *NWRuleSetIpRules {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1464,6 +1529,19 @@ func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOu
 type NWRuleSetIpRulesResponse struct {
 	Action *string `pulumi:"action"`
 	IpMask *string `pulumi:"ipMask"`
+}
+
+
+func (val *NWRuleSetIpRulesResponse) Defaults() *NWRuleSetIpRulesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
 }
 
 
@@ -2360,6 +2438,23 @@ type SqlFilter struct {
 }
 
 
+func (val *SqlFilter) Defaults() *SqlFilter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CompatibilityLevel) {
+		compatibilityLevel_ := 20
+		tmp.CompatibilityLevel = &compatibilityLevel_
+	}
+	if isZero(tmp.RequiresPreprocessing) {
+		requiresPreprocessing_ := true
+		tmp.RequiresPreprocessing = &requiresPreprocessing_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2520,6 +2615,23 @@ type SqlFilterResponse struct {
 	CompatibilityLevel    *int    `pulumi:"compatibilityLevel"`
 	RequiresPreprocessing *bool   `pulumi:"requiresPreprocessing"`
 	SqlExpression         *string `pulumi:"sqlExpression"`
+}
+
+
+func (val *SqlFilterResponse) Defaults() *SqlFilterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CompatibilityLevel) {
+		compatibilityLevel_ := 20
+		tmp.CompatibilityLevel = &compatibilityLevel_
+	}
+	if isZero(tmp.RequiresPreprocessing) {
+		requiresPreprocessing_ := true
+		tmp.RequiresPreprocessing = &requiresPreprocessing_
+	}
+	return &tmp
 }
 
 

@@ -105,7 +105,7 @@ type LabAccountInput interface {
 }
 
 func (*LabAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabAccount)(nil))
+	return reflect.TypeOf((**LabAccount)(nil)).Elem()
 }
 
 func (i *LabAccount) ToLabAccountOutput() LabAccountOutput {
@@ -119,7 +119,7 @@ func (i *LabAccount) ToLabAccountOutputWithContext(ctx context.Context) LabAccou
 type LabAccountOutput struct{ *pulumi.OutputState }
 
 func (LabAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LabAccount)(nil))
+	return reflect.TypeOf((**LabAccount)(nil)).Elem()
 }
 
 func (o LabAccountOutput) ToLabAccountOutput() LabAccountOutput {

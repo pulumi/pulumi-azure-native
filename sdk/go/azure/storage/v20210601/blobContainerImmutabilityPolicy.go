@@ -139,7 +139,7 @@ type BlobContainerImmutabilityPolicyInput interface {
 }
 
 func (*BlobContainerImmutabilityPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobContainerImmutabilityPolicy)(nil))
+	return reflect.TypeOf((**BlobContainerImmutabilityPolicy)(nil)).Elem()
 }
 
 func (i *BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutput() BlobContainerImmutabilityPolicyOutput {
@@ -153,7 +153,7 @@ func (i *BlobContainerImmutabilityPolicy) ToBlobContainerImmutabilityPolicyOutpu
 type BlobContainerImmutabilityPolicyOutput struct{ *pulumi.OutputState }
 
 func (BlobContainerImmutabilityPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobContainerImmutabilityPolicy)(nil))
+	return reflect.TypeOf((**BlobContainerImmutabilityPolicy)(nil)).Elem()
 }
 
 func (o BlobContainerImmutabilityPolicyOutput) ToBlobContainerImmutabilityPolicyOutput() BlobContainerImmutabilityPolicyOutput {

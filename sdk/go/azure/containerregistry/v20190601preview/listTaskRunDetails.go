@@ -13,7 +13,7 @@ func ListTaskRunDetails(ctx *pulumi.Context, args *ListTaskRunDetailsArgs, opts 
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type ListTaskRunDetailsArgs struct {
@@ -35,4 +35,15 @@ type ListTaskRunDetailsResult struct {
 	RunResult         RunResponse                 `pulumi:"runResult"`
 	SystemData        SystemDataResponse          `pulumi:"systemData"`
 	Type              string                      `pulumi:"type"`
+}
+
+
+func (val *ListTaskRunDetailsResult) Defaults() *ListTaskRunDetailsResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.RunResult = *tmp.RunResult.Defaults()
+
+	return &tmp
 }

@@ -46,6 +46,10 @@ func NewBatchAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	autoStorageApplier := func(v AutoStorageBaseProperties) *AutoStorageBaseProperties { return v.Defaults() }
+	if args.AutoStorage != nil {
+		args.AutoStorage = args.AutoStorage.ToAutoStorageBasePropertiesPtrOutput().Elem().ApplyT(autoStorageApplier).(AutoStorageBasePropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:batch:BatchAccount"),
@@ -157,7 +161,7 @@ type BatchAccountInput interface {
 }
 
 func (*BatchAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccount)(nil))
+	return reflect.TypeOf((**BatchAccount)(nil)).Elem()
 }
 
 func (i *BatchAccount) ToBatchAccountOutput() BatchAccountOutput {
@@ -171,7 +175,7 @@ func (i *BatchAccount) ToBatchAccountOutputWithContext(ctx context.Context) Batc
 type BatchAccountOutput struct{ *pulumi.OutputState }
 
 func (BatchAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BatchAccount)(nil))
+	return reflect.TypeOf((**BatchAccount)(nil)).Elem()
 }
 
 func (o BatchAccountOutput) ToBatchAccountOutput() BatchAccountOutput {

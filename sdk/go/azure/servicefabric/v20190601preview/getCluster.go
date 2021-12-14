@@ -13,7 +13,7 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupClusterArgs struct {
@@ -52,4 +52,15 @@ type LookupClusterResult struct {
 	UpgradeDescription                 *ClusterUpgradePolicyResponse            `pulumi:"upgradeDescription"`
 	UpgradeMode                        *string                                  `pulumi:"upgradeMode"`
 	VmImage                            *string                                  `pulumi:"vmImage"`
+}
+
+
+func (val *LookupClusterResult) Defaults() *LookupClusterResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.UpgradeDescription = tmp.UpgradeDescription.Defaults()
+
+	return &tmp
 }

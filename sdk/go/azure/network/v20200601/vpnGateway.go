@@ -183,7 +183,7 @@ type VpnGatewayInput interface {
 }
 
 func (*VpnGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGateway)(nil))
+	return reflect.TypeOf((**VpnGateway)(nil)).Elem()
 }
 
 func (i *VpnGateway) ToVpnGatewayOutput() VpnGatewayOutput {
@@ -197,7 +197,7 @@ func (i *VpnGateway) ToVpnGatewayOutputWithContext(ctx context.Context) VpnGatew
 type VpnGatewayOutput struct{ *pulumi.OutputState }
 
 func (VpnGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnGateway)(nil))
+	return reflect.TypeOf((**VpnGateway)(nil)).Elem()
 }
 
 func (o VpnGatewayOutput) ToVpnGatewayOutput() VpnGatewayOutput {

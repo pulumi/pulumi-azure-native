@@ -1380,6 +1380,19 @@ type NWRuleSetIpRules struct {
 }
 
 
+func (val *NWRuleSetIpRules) Defaults() *NWRuleSetIpRules {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1477,6 +1490,19 @@ func (o NWRuleSetIpRulesArrayOutput) Index(i pulumi.IntInput) NWRuleSetIpRulesOu
 type NWRuleSetIpRulesResponse struct {
 	Action *string `pulumi:"action"`
 	IpMask *string `pulumi:"ipMask"`
+}
+
+
+func (val *NWRuleSetIpRulesResponse) Defaults() *NWRuleSetIpRulesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
 }
 
 

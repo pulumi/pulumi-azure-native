@@ -113,7 +113,7 @@ type PrivateLinkServicesForSCCPowershellInput interface {
 }
 
 func (*PrivateLinkServicesForSCCPowershell) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicesForSCCPowershell)(nil))
+	return reflect.TypeOf((**PrivateLinkServicesForSCCPowershell)(nil)).Elem()
 }
 
 func (i *PrivateLinkServicesForSCCPowershell) ToPrivateLinkServicesForSCCPowershellOutput() PrivateLinkServicesForSCCPowershellOutput {
@@ -127,7 +127,7 @@ func (i *PrivateLinkServicesForSCCPowershell) ToPrivateLinkServicesForSCCPowersh
 type PrivateLinkServicesForSCCPowershellOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServicesForSCCPowershellOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicesForSCCPowershell)(nil))
+	return reflect.TypeOf((**PrivateLinkServicesForSCCPowershell)(nil)).Elem()
 }
 
 func (o PrivateLinkServicesForSCCPowershellOutput) ToPrivateLinkServicesForSCCPowershellOutput() PrivateLinkServicesForSCCPowershellOutput {

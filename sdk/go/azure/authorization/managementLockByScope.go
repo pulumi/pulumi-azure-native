@@ -106,7 +106,7 @@ type ManagementLockByScopeInput interface {
 }
 
 func (*ManagementLockByScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockByScope)(nil))
+	return reflect.TypeOf((**ManagementLockByScope)(nil)).Elem()
 }
 
 func (i *ManagementLockByScope) ToManagementLockByScopeOutput() ManagementLockByScopeOutput {
@@ -120,7 +120,7 @@ func (i *ManagementLockByScope) ToManagementLockByScopeOutputWithContext(ctx con
 type ManagementLockByScopeOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockByScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockByScope)(nil))
+	return reflect.TypeOf((**ManagementLockByScope)(nil)).Elem()
 }
 
 func (o ManagementLockByScopeOutput) ToManagementLockByScopeOutput() ManagementLockByScopeOutput {

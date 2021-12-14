@@ -482,6 +482,19 @@ type DriveStatus struct {
 }
 
 
+func (val *DriveStatus) Defaults() *DriveStatus {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.State) {
+		state_ := "Specified"
+		tmp.State = &state_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -642,6 +655,19 @@ type DriveStatusResponse struct {
 }
 
 
+func (val *DriveStatusResponse) Defaults() *DriveStatusResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.State) {
+		state_ := "Specified"
+		tmp.State = &state_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -790,6 +816,19 @@ type EncryptionKeyDetails struct {
 	KekType            *string `pulumi:"kekType"`
 	KekUrl             *string `pulumi:"kekUrl"`
 	KekVaultResourceID *string `pulumi:"kekVaultResourceID"`
+}
+
+
+func (val *EncryptionKeyDetails) Defaults() *EncryptionKeyDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KekType) {
+		kekType_ := "MicrosoftManaged"
+		tmp.KekType = &kekType_
+	}
+	return &tmp
 }
 
 
@@ -953,6 +992,19 @@ type EncryptionKeyDetailsResponse struct {
 	KekType            *string `pulumi:"kekType"`
 	KekUrl             *string `pulumi:"kekUrl"`
 	KekVaultResourceID *string `pulumi:"kekVaultResourceID"`
+}
+
+
+func (val *EncryptionKeyDetailsResponse) Defaults() *EncryptionKeyDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KekType) {
+		kekType_ := "MicrosoftManaged"
+		tmp.KekType = &kekType_
+	}
+	return &tmp
 }
 
 
@@ -1445,6 +1497,19 @@ type IdentityDetailsResponse struct {
 }
 
 
+func (val *IdentityDetailsResponse) Defaults() *IdentityDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "None"
+		tmp.Type = &type_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1620,6 +1685,29 @@ type JobDetails struct {
 	ShippingInformation   *ShippingInformation        `pulumi:"shippingInformation"`
 	State                 *string                     `pulumi:"state"`
 	StorageAccountId      *string                     `pulumi:"storageAccountId"`
+}
+
+
+func (val *JobDetails) Defaults() *JobDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.BackupDriveManifest) {
+		backupDriveManifest_ := false
+		tmp.BackupDriveManifest = &backupDriveManifest_
+	}
+	if isZero(tmp.CancelRequested) {
+		cancelRequested_ := false
+		tmp.CancelRequested = &cancelRequested_
+	}
+	tmp.EncryptionKey = tmp.EncryptionKey.Defaults()
+
+	if isZero(tmp.State) {
+		state_ := "Creating"
+		tmp.State = &state_
+	}
+	return &tmp
 }
 
 
@@ -2008,6 +2096,29 @@ type JobDetailsResponse struct {
 	ShippingInformation   *ShippingInformationResponse        `pulumi:"shippingInformation"`
 	State                 *string                             `pulumi:"state"`
 	StorageAccountId      *string                             `pulumi:"storageAccountId"`
+}
+
+
+func (val *JobDetailsResponse) Defaults() *JobDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.BackupDriveManifest) {
+		backupDriveManifest_ := false
+		tmp.BackupDriveManifest = &backupDriveManifest_
+	}
+	if isZero(tmp.CancelRequested) {
+		cancelRequested_ := false
+		tmp.CancelRequested = &cancelRequested_
+	}
+	tmp.EncryptionKey = tmp.EncryptionKey.Defaults()
+
+	if isZero(tmp.State) {
+		state_ := "Creating"
+		tmp.State = &state_
+	}
+	return &tmp
 }
 
 

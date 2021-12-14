@@ -129,7 +129,7 @@ type DedicatedHostGroupInput interface {
 }
 
 func (*DedicatedHostGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHostGroup)(nil))
+	return reflect.TypeOf((**DedicatedHostGroup)(nil)).Elem()
 }
 
 func (i *DedicatedHostGroup) ToDedicatedHostGroupOutput() DedicatedHostGroupOutput {
@@ -143,7 +143,7 @@ func (i *DedicatedHostGroup) ToDedicatedHostGroupOutputWithContext(ctx context.C
 type DedicatedHostGroupOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHostGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHostGroup)(nil))
+	return reflect.TypeOf((**DedicatedHostGroup)(nil)).Elem()
 }
 
 func (o DedicatedHostGroupOutput) ToDedicatedHostGroupOutput() DedicatedHostGroupOutput {

@@ -24,6 +24,23 @@ type ActiveDirectory struct {
 }
 
 
+func (val *ActiveDirectory) Defaults() *ActiveDirectory {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ActiveDirectoryId) {
+		activeDirectoryId_ := "guid id"
+		tmp.ActiveDirectoryId = &activeDirectoryId_
+	}
+	if isZero(tmp.OrganizationalUnit) {
+		organizationalUnit_ := "CN=Computers"
+		tmp.OrganizationalUnit = &organizationalUnit_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -172,6 +189,23 @@ type ActiveDirectoryResponse struct {
 }
 
 
+func (val *ActiveDirectoryResponse) Defaults() *ActiveDirectoryResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ActiveDirectoryId) {
+		activeDirectoryId_ := "guid id"
+		tmp.ActiveDirectoryId = &activeDirectoryId_
+	}
+	if isZero(tmp.OrganizationalUnit) {
+		organizationalUnit_ := "CN=Computers"
+		tmp.OrganizationalUnit = &organizationalUnit_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -317,6 +351,19 @@ type ExportPolicyRule struct {
 }
 
 
+func (val *ExportPolicyRule) Defaults() *ExportPolicyRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Cifs) {
+		cifs_ := false
+		tmp.Cifs = &cifs_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -444,6 +491,19 @@ type ExportPolicyRuleResponse struct {
 	RuleIndex      *int    `pulumi:"ruleIndex"`
 	UnixReadOnly   *bool   `pulumi:"unixReadOnly"`
 	UnixReadWrite  *bool   `pulumi:"unixReadWrite"`
+}
+
+
+func (val *ExportPolicyRuleResponse) Defaults() *ExportPolicyRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Cifs) {
+		cifs_ := false
+		tmp.Cifs = &cifs_
+	}
+	return &tmp
 }
 
 

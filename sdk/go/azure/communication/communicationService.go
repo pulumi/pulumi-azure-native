@@ -109,7 +109,7 @@ type CommunicationServiceInput interface {
 }
 
 func (*CommunicationService) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommunicationService)(nil))
+	return reflect.TypeOf((**CommunicationService)(nil)).Elem()
 }
 
 func (i *CommunicationService) ToCommunicationServiceOutput() CommunicationServiceOutput {
@@ -123,7 +123,7 @@ func (i *CommunicationService) ToCommunicationServiceOutputWithContext(ctx conte
 type CommunicationServiceOutput struct{ *pulumi.OutputState }
 
 func (CommunicationServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommunicationService)(nil))
+	return reflect.TypeOf((**CommunicationService)(nil)).Elem()
 }
 
 func (o CommunicationServiceOutput) ToCommunicationServiceOutput() CommunicationServiceOutput {

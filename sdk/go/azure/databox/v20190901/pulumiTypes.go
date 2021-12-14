@@ -788,6 +788,17 @@ type DataBoxDiskJobDetails struct {
 }
 
 
+func (val *DataBoxDiskJobDetails) Defaults() *DataBoxDiskJobDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ShippingAddress = *tmp.ShippingAddress.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -885,6 +896,17 @@ type DataBoxDiskJobDetailsResponse struct {
 	ReturnPackage               PackageShippingDetailsResponse    `pulumi:"returnPackage"`
 	ReverseShipmentLabelSasKey  string                            `pulumi:"reverseShipmentLabelSasKey"`
 	ShippingAddress             ShippingAddressResponse           `pulumi:"shippingAddress"`
+}
+
+
+func (val *DataBoxDiskJobDetailsResponse) Defaults() *DataBoxDiskJobDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ShippingAddress = *tmp.ShippingAddress.Defaults()
+
+	return &tmp
 }
 
 
@@ -1157,6 +1179,17 @@ type DataBoxHeavyJobDetails struct {
 }
 
 
+func (val *DataBoxHeavyJobDetails) Defaults() *DataBoxHeavyJobDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ShippingAddress = *tmp.ShippingAddress.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1247,6 +1280,17 @@ type DataBoxHeavyJobDetailsResponse struct {
 	ReturnPackage               PackageShippingDetailsResponse `pulumi:"returnPackage"`
 	ReverseShipmentLabelSasKey  string                         `pulumi:"reverseShipmentLabelSasKey"`
 	ShippingAddress             ShippingAddressResponse        `pulumi:"shippingAddress"`
+}
+
+
+func (val *DataBoxHeavyJobDetailsResponse) Defaults() *DataBoxHeavyJobDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ShippingAddress = *tmp.ShippingAddress.Defaults()
+
+	return &tmp
 }
 
 
@@ -1558,6 +1602,17 @@ type DataBoxJobDetails struct {
 }
 
 
+func (val *DataBoxJobDetails) Defaults() *DataBoxJobDetails {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ShippingAddress = *tmp.ShippingAddress.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1648,6 +1703,17 @@ type DataBoxJobDetailsResponse struct {
 	ReturnPackage               PackageShippingDetailsResponse `pulumi:"returnPackage"`
 	ReverseShipmentLabelSasKey  string                         `pulumi:"reverseShipmentLabelSasKey"`
 	ShippingAddress             ShippingAddressResponse        `pulumi:"shippingAddress"`
+}
+
+
+func (val *DataBoxJobDetailsResponse) Defaults() *DataBoxJobDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ShippingAddress = *tmp.ShippingAddress.Defaults()
+
+	return &tmp
 }
 
 
@@ -3128,6 +3194,18 @@ type NotificationPreference struct {
 }
 
 
+func (val *NotificationPreference) Defaults() *NotificationPreference {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SendNotification) {
+		tmp.SendNotification = true
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3225,6 +3303,18 @@ func (o NotificationPreferenceArrayOutput) Index(i pulumi.IntInput) Notification
 type NotificationPreferenceResponse struct {
 	SendNotification bool   `pulumi:"sendNotification"`
 	StageName        string `pulumi:"stageName"`
+}
+
+
+func (val *NotificationPreferenceResponse) Defaults() *NotificationPreferenceResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SendNotification) {
+		tmp.SendNotification = true
+	}
+	return &tmp
 }
 
 
@@ -3811,6 +3901,19 @@ type ShippingAddress struct {
 }
 
 
+func (val *ShippingAddress) Defaults() *ShippingAddress {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AddressType) {
+		addressType_ := "None"
+		tmp.AddressType = &addressType_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3911,6 +4014,19 @@ type ShippingAddressResponse struct {
 	StreetAddress2  *string `pulumi:"streetAddress2"`
 	StreetAddress3  *string `pulumi:"streetAddress3"`
 	ZipExtendedCode *string `pulumi:"zipExtendedCode"`
+}
+
+
+func (val *ShippingAddressResponse) Defaults() *ShippingAddressResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AddressType) {
+		addressType_ := "None"
+		tmp.AddressType = &addressType_
+	}
+	return &tmp
 }
 
 

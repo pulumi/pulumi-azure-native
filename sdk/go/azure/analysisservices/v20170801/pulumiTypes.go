@@ -821,6 +821,19 @@ type ResourceSku struct {
 }
 
 
+func (val *ResourceSku) Defaults() *ResourceSku {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Capacity) {
+		capacity_ := 1
+		tmp.Capacity = &capacity_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -981,6 +994,19 @@ type ResourceSkuResponse struct {
 	Capacity *int    `pulumi:"capacity"`
 	Name     string  `pulumi:"name"`
 	Tier     *string `pulumi:"tier"`
+}
+
+
+func (val *ResourceSkuResponse) Defaults() *ResourceSkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Capacity) {
+		capacity_ := 1
+		tmp.Capacity = &capacity_
+	}
+	return &tmp
 }
 
 

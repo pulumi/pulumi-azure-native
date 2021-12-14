@@ -188,7 +188,7 @@ type VirtualWanInput interface {
 }
 
 func (*VirtualWan) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualWan)(nil))
+	return reflect.TypeOf((**VirtualWan)(nil)).Elem()
 }
 
 func (i *VirtualWan) ToVirtualWanOutput() VirtualWanOutput {
@@ -202,7 +202,7 @@ func (i *VirtualWan) ToVirtualWanOutputWithContext(ctx context.Context) VirtualW
 type VirtualWanOutput struct{ *pulumi.OutputState }
 
 func (VirtualWanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualWan)(nil))
+	return reflect.TypeOf((**VirtualWan)(nil)).Elem()
 }
 
 func (o VirtualWanOutput) ToVirtualWanOutput() VirtualWanOutput {

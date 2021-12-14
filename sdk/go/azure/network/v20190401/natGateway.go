@@ -172,7 +172,7 @@ type NatGatewayInput interface {
 }
 
 func (*NatGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatGateway)(nil))
+	return reflect.TypeOf((**NatGateway)(nil)).Elem()
 }
 
 func (i *NatGateway) ToNatGatewayOutput() NatGatewayOutput {
@@ -186,7 +186,7 @@ func (i *NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatew
 type NatGatewayOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NatGateway)(nil))
+	return reflect.TypeOf((**NatGateway)(nil)).Elem()
 }
 
 func (o NatGatewayOutput) ToNatGatewayOutput() NatGatewayOutput {

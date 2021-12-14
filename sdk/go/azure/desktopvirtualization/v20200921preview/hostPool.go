@@ -179,7 +179,7 @@ type HostPoolInput interface {
 }
 
 func (*HostPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostPool)(nil))
+	return reflect.TypeOf((**HostPool)(nil)).Elem()
 }
 
 func (i *HostPool) ToHostPoolOutput() HostPoolOutput {
@@ -193,7 +193,7 @@ func (i *HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutp
 type HostPoolOutput struct{ *pulumi.OutputState }
 
 func (HostPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostPool)(nil))
+	return reflect.TypeOf((**HostPool)(nil)).Elem()
 }
 
 func (o HostPoolOutput) ToHostPoolOutput() HostPoolOutput {

@@ -129,7 +129,7 @@ type MTPDataConnectorInput interface {
 }
 
 func (*MTPDataConnector) ElementType() reflect.Type {
-	return reflect.TypeOf((*MTPDataConnector)(nil))
+	return reflect.TypeOf((**MTPDataConnector)(nil)).Elem()
 }
 
 func (i *MTPDataConnector) ToMTPDataConnectorOutput() MTPDataConnectorOutput {
@@ -143,7 +143,7 @@ func (i *MTPDataConnector) ToMTPDataConnectorOutputWithContext(ctx context.Conte
 type MTPDataConnectorOutput struct{ *pulumi.OutputState }
 
 func (MTPDataConnectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MTPDataConnector)(nil))
+	return reflect.TypeOf((**MTPDataConnector)(nil)).Elem()
 }
 
 func (o MTPDataConnectorOutput) ToMTPDataConnectorOutput() MTPDataConnectorOutput {

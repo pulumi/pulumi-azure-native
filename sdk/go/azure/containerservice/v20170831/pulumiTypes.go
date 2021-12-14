@@ -23,6 +23,19 @@ type ContainerServiceAgentPoolProfile struct {
 }
 
 
+func (val *ContainerServiceAgentPoolProfile) Defaults() *ContainerServiceAgentPoolProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		count_ := 1
+		tmp.Count = &count_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -163,6 +176,19 @@ type ContainerServiceAgentPoolProfileResponse struct {
 	StorageProfile *string `pulumi:"storageProfile"`
 	VmSize         string  `pulumi:"vmSize"`
 	VnetSubnetID   *string `pulumi:"vnetSubnetID"`
+}
+
+
+func (val *ContainerServiceAgentPoolProfileResponse) Defaults() *ContainerServiceAgentPoolProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Count) {
+		count_ := 1
+		tmp.Count = &count_
+	}
+	return &tmp
 }
 
 

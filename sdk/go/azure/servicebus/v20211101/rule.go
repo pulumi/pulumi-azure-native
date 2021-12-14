@@ -43,6 +43,18 @@ func NewRule(ctx *pulumi.Context,
 	if args.TopicName == nil {
 		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
+	actionApplier := func(v Action) *Action { return v.Defaults() }
+	if args.Action != nil {
+		args.Action = args.Action.ToActionPtrOutput().Elem().ApplyT(actionApplier).(ActionPtrOutput)
+	}
+	correlationFilterApplier := func(v CorrelationFilter) *CorrelationFilter { return v.Defaults() }
+	if args.CorrelationFilter != nil {
+		args.CorrelationFilter = args.CorrelationFilter.ToCorrelationFilterPtrOutput().Elem().ApplyT(correlationFilterApplier).(CorrelationFilterPtrOutput)
+	}
+	sqlFilterApplier := func(v SqlFilter) *SqlFilter { return v.Defaults() }
+	if args.SqlFilter != nil {
+		args.SqlFilter = args.SqlFilter.ToSqlFilterPtrOutput().Elem().ApplyT(sqlFilterApplier).(SqlFilterPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:servicebus:Rule"),
@@ -129,7 +141,7 @@ type RuleInput interface {
 }
 
 func (*Rule) ElementType() reflect.Type {
-	return reflect.TypeOf((*Rule)(nil))
+	return reflect.TypeOf((**Rule)(nil)).Elem()
 }
 
 func (i *Rule) ToRuleOutput() RuleOutput {
@@ -143,7 +155,7 @@ func (i *Rule) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 type RuleOutput struct{ *pulumi.OutputState }
 
 func (RuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Rule)(nil))
+	return reflect.TypeOf((**Rule)(nil)).Elem()
 }
 
 func (o RuleOutput) ToRuleOutput() RuleOutput {

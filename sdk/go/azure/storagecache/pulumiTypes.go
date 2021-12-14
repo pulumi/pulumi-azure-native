@@ -1041,6 +1041,17 @@ type CacheDirectorySettings struct {
 }
 
 
+func (val *CacheDirectorySettings) Defaults() *CacheDirectorySettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.UsernameDownload = tmp.UsernameDownload.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1186,6 +1197,17 @@ func (o CacheDirectorySettingsPtrOutput) UsernameDownload() CacheUsernameDownloa
 type CacheDirectorySettingsResponse struct {
 	ActiveDirectory  *CacheActiveDirectorySettingsResponse  `pulumi:"activeDirectory"`
 	UsernameDownload *CacheUsernameDownloadSettingsResponse `pulumi:"usernameDownload"`
+}
+
+
+func (val *CacheDirectorySettingsResponse) Defaults() *CacheDirectorySettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.UsernameDownload = tmp.UsernameDownload.Defaults()
+
+	return &tmp
 }
 
 
@@ -2066,6 +2088,23 @@ type CacheNetworkSettings struct {
 }
 
 
+func (val *CacheNetworkSettings) Defaults() *CacheNetworkSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mtu) {
+		mtu_ := 1500
+		tmp.Mtu = &mtu_
+	}
+	if isZero(tmp.NtpServer) {
+		ntpServer_ := "time.windows.com"
+		tmp.NtpServer = &ntpServer_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2242,6 +2281,23 @@ type CacheNetworkSettingsResponse struct {
 	Mtu              *int     `pulumi:"mtu"`
 	NtpServer        *string  `pulumi:"ntpServer"`
 	UtilityAddresses []string `pulumi:"utilityAddresses"`
+}
+
+
+func (val *CacheNetworkSettingsResponse) Defaults() *CacheNetworkSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mtu) {
+		mtu_ := 1500
+		tmp.Mtu = &mtu_
+	}
+	if isZero(tmp.NtpServer) {
+		ntpServer_ := "time.windows.com"
+		tmp.NtpServer = &ntpServer_
+	}
+	return &tmp
 }
 
 
@@ -3169,6 +3225,19 @@ type CacheUsernameDownloadSettings struct {
 }
 
 
+func (val *CacheUsernameDownloadSettings) Defaults() *CacheUsernameDownloadSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UsernameSource) {
+		usernameSource_ := "None"
+		tmp.UsernameSource = &usernameSource_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3598,6 +3667,19 @@ type CacheUsernameDownloadSettingsResponse struct {
 	UserFileURI             *string                                           `pulumi:"userFileURI"`
 	UsernameDownloaded      string                                            `pulumi:"usernameDownloaded"`
 	UsernameSource          *string                                           `pulumi:"usernameSource"`
+}
+
+
+func (val *CacheUsernameDownloadSettingsResponse) Defaults() *CacheUsernameDownloadSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UsernameSource) {
+		usernameSource_ := "None"
+		tmp.UsernameSource = &usernameSource_
+	}
+	return &tmp
 }
 
 
@@ -4969,6 +5051,19 @@ type NamespaceJunction struct {
 }
 
 
+func (val *NamespaceJunction) Defaults() *NamespaceJunction {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.NfsAccessPolicy) {
+		nfsAccessPolicy_ := "default"
+		tmp.NfsAccessPolicy = &nfsAccessPolicy_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -5078,6 +5173,19 @@ type NamespaceJunctionResponse struct {
 	NfsAccessPolicy *string `pulumi:"nfsAccessPolicy"`
 	NfsExport       *string `pulumi:"nfsExport"`
 	TargetPath      *string `pulumi:"targetPath"`
+}
+
+
+func (val *NamespaceJunctionResponse) Defaults() *NamespaceJunctionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.NfsAccessPolicy) {
+		nfsAccessPolicy_ := "default"
+		tmp.NfsAccessPolicy = &nfsAccessPolicy_
+	}
+	return &tmp
 }
 
 

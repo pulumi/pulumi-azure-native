@@ -159,7 +159,7 @@ type BlobDataSetMappingInput interface {
 }
 
 func (*BlobDataSetMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobDataSetMapping)(nil))
+	return reflect.TypeOf((**BlobDataSetMapping)(nil)).Elem()
 }
 
 func (i *BlobDataSetMapping) ToBlobDataSetMappingOutput() BlobDataSetMappingOutput {
@@ -173,7 +173,7 @@ func (i *BlobDataSetMapping) ToBlobDataSetMappingOutputWithContext(ctx context.C
 type BlobDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (BlobDataSetMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobDataSetMapping)(nil))
+	return reflect.TypeOf((**BlobDataSetMapping)(nil)).Elem()
 }
 
 func (o BlobDataSetMappingOutput) ToBlobDataSetMappingOutput() BlobDataSetMappingOutput {

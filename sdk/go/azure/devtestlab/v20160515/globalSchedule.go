@@ -128,7 +128,7 @@ type GlobalScheduleInput interface {
 }
 
 func (*GlobalSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalSchedule)(nil))
+	return reflect.TypeOf((**GlobalSchedule)(nil)).Elem()
 }
 
 func (i *GlobalSchedule) ToGlobalScheduleOutput() GlobalScheduleOutput {
@@ -142,7 +142,7 @@ func (i *GlobalSchedule) ToGlobalScheduleOutputWithContext(ctx context.Context) 
 type GlobalScheduleOutput struct{ *pulumi.OutputState }
 
 func (GlobalScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalSchedule)(nil))
+	return reflect.TypeOf((**GlobalSchedule)(nil)).Elem()
 }
 
 func (o GlobalScheduleOutput) ToGlobalScheduleOutput() GlobalScheduleOutput {

@@ -174,7 +174,7 @@ type SqlResourceSqlDatabaseInput interface {
 }
 
 func (*SqlResourceSqlDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlDatabase)(nil))
+	return reflect.TypeOf((**SqlResourceSqlDatabase)(nil)).Elem()
 }
 
 func (i *SqlResourceSqlDatabase) ToSqlResourceSqlDatabaseOutput() SqlResourceSqlDatabaseOutput {
@@ -188,7 +188,7 @@ func (i *SqlResourceSqlDatabase) ToSqlResourceSqlDatabaseOutputWithContext(ctx c
 type SqlResourceSqlDatabaseOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlDatabase)(nil))
+	return reflect.TypeOf((**SqlResourceSqlDatabase)(nil)).Elem()
 }
 
 func (o SqlResourceSqlDatabaseOutput) ToSqlResourceSqlDatabaseOutput() SqlResourceSqlDatabaseOutput {

@@ -13,7 +13,7 @@ func LookupSystemTopicEventSubscription(ctx *pulumi.Context, args *LookupSystemT
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupSystemTopicEventSubscriptionArgs struct {
@@ -39,4 +39,19 @@ type LookupSystemTopicEventSubscriptionResult struct {
 	SystemData                     SystemDataResponse                        `pulumi:"systemData"`
 	Topic                          string                                    `pulumi:"topic"`
 	Type                           string                                    `pulumi:"type"`
+}
+
+
+func (val *LookupSystemTopicEventSubscriptionResult) Defaults() *LookupSystemTopicEventSubscriptionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EventDeliverySchema) {
+		eventDeliverySchema_ := "EventGridSchema"
+		tmp.EventDeliverySchema = &eventDeliverySchema_
+	}
+	tmp.Filter = tmp.Filter.Defaults()
+
+	return &tmp
 }

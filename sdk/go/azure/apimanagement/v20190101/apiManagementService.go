@@ -63,10 +63,10 @@ func NewApiManagementService(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	if args.EnableClientCertificate == nil {
+	if isZero(args.EnableClientCertificate) {
 		args.EnableClientCertificate = pulumi.BoolPtr(false)
 	}
-	if args.VirtualNetworkType == nil {
+	if isZero(args.VirtualNetworkType) {
 		args.VirtualNetworkType = pulumi.StringPtr("None")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -193,7 +193,7 @@ type ApiManagementServiceInput interface {
 }
 
 func (*ApiManagementService) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiManagementService)(nil))
+	return reflect.TypeOf((**ApiManagementService)(nil)).Elem()
 }
 
 func (i *ApiManagementService) ToApiManagementServiceOutput() ApiManagementServiceOutput {
@@ -207,7 +207,7 @@ func (i *ApiManagementService) ToApiManagementServiceOutputWithContext(ctx conte
 type ApiManagementServiceOutput struct{ *pulumi.OutputState }
 
 func (ApiManagementServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiManagementService)(nil))
+	return reflect.TypeOf((**ApiManagementService)(nil)).Elem()
 }
 
 func (o ApiManagementServiceOutput) ToApiManagementServiceOutput() ApiManagementServiceOutput {

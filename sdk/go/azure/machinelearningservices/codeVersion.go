@@ -105,7 +105,7 @@ type CodeVersionInput interface {
 }
 
 func (*CodeVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeVersion)(nil))
+	return reflect.TypeOf((**CodeVersion)(nil)).Elem()
 }
 
 func (i *CodeVersion) ToCodeVersionOutput() CodeVersionOutput {
@@ -119,7 +119,7 @@ func (i *CodeVersion) ToCodeVersionOutputWithContext(ctx context.Context) CodeVe
 type CodeVersionOutput struct{ *pulumi.OutputState }
 
 func (CodeVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CodeVersion)(nil))
+	return reflect.TypeOf((**CodeVersion)(nil)).Elem()
 }
 
 func (o CodeVersionOutput) ToCodeVersionOutput() CodeVersionOutput {

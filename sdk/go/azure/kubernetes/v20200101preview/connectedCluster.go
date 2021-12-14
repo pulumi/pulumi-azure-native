@@ -140,7 +140,7 @@ type ConnectedClusterInput interface {
 }
 
 func (*ConnectedCluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedCluster)(nil))
+	return reflect.TypeOf((**ConnectedCluster)(nil)).Elem()
 }
 
 func (i *ConnectedCluster) ToConnectedClusterOutput() ConnectedClusterOutput {
@@ -154,7 +154,7 @@ func (i *ConnectedCluster) ToConnectedClusterOutputWithContext(ctx context.Conte
 type ConnectedClusterOutput struct{ *pulumi.OutputState }
 
 func (ConnectedClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectedCluster)(nil))
+	return reflect.TypeOf((**ConnectedCluster)(nil)).Elem()
 }
 
 func (o ConnectedClusterOutput) ToConnectedClusterOutput() ConnectedClusterOutput {

@@ -47,6 +47,10 @@ func NewNamespace(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	encryptionApplier := func(v Encryption) *Encryption { return v.Defaults() }
+	if args.Encryption != nil {
+		args.Encryption = args.Encryption.ToEncryptionPtrOutput().Elem().ApplyT(encryptionApplier).(EncryptionPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:eventhub:Namespace"),
@@ -149,7 +153,7 @@ type NamespaceInput interface {
 }
 
 func (*Namespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*Namespace)(nil))
+	return reflect.TypeOf((**Namespace)(nil)).Elem()
 }
 
 func (i *Namespace) ToNamespaceOutput() NamespaceOutput {
@@ -163,7 +167,7 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 type NamespaceOutput struct{ *pulumi.OutputState }
 
 func (NamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Namespace)(nil))
+	return reflect.TypeOf((**Namespace)(nil)).Elem()
 }
 
 func (o NamespaceOutput) ToNamespaceOutput() NamespaceOutput {

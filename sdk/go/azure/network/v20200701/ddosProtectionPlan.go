@@ -173,7 +173,7 @@ type DdosProtectionPlanInput interface {
 }
 
 func (*DdosProtectionPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*DdosProtectionPlan)(nil))
+	return reflect.TypeOf((**DdosProtectionPlan)(nil)).Elem()
 }
 
 func (i *DdosProtectionPlan) ToDdosProtectionPlanOutput() DdosProtectionPlanOutput {
@@ -187,7 +187,7 @@ func (i *DdosProtectionPlan) ToDdosProtectionPlanOutputWithContext(ctx context.C
 type DdosProtectionPlanOutput struct{ *pulumi.OutputState }
 
 func (DdosProtectionPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DdosProtectionPlan)(nil))
+	return reflect.TypeOf((**DdosProtectionPlan)(nil)).Elem()
 }
 
 func (o DdosProtectionPlanOutput) ToDdosProtectionPlanOutput() DdosProtectionPlanOutput {

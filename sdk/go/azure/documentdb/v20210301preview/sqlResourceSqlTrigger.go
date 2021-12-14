@@ -165,7 +165,7 @@ type SqlResourceSqlTriggerInput interface {
 }
 
 func (*SqlResourceSqlTrigger) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlTrigger)(nil))
+	return reflect.TypeOf((**SqlResourceSqlTrigger)(nil)).Elem()
 }
 
 func (i *SqlResourceSqlTrigger) ToSqlResourceSqlTriggerOutput() SqlResourceSqlTriggerOutput {
@@ -179,7 +179,7 @@ func (i *SqlResourceSqlTrigger) ToSqlResourceSqlTriggerOutputWithContext(ctx con
 type SqlResourceSqlTriggerOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlTriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlTrigger)(nil))
+	return reflect.TypeOf((**SqlResourceSqlTrigger)(nil)).Elem()
 }
 
 func (o SqlResourceSqlTriggerOutput) ToSqlResourceSqlTriggerOutput() SqlResourceSqlTriggerOutput {

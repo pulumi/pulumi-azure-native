@@ -51,7 +51,7 @@ func NewStorageAccount(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	if args.EnableHttpsTrafficOnly == nil {
+	if isZero(args.EnableHttpsTrafficOnly) {
 		args.EnableHttpsTrafficOnly = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -181,7 +181,7 @@ type StorageAccountInput interface {
 }
 
 func (*StorageAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccount)(nil))
+	return reflect.TypeOf((**StorageAccount)(nil)).Elem()
 }
 
 func (i *StorageAccount) ToStorageAccountOutput() StorageAccountOutput {
@@ -195,7 +195,7 @@ func (i *StorageAccount) ToStorageAccountOutputWithContext(ctx context.Context) 
 type StorageAccountOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccount)(nil))
+	return reflect.TypeOf((**StorageAccount)(nil)).Elem()
 }
 
 func (o StorageAccountOutput) ToStorageAccountOutput() StorageAccountOutput {

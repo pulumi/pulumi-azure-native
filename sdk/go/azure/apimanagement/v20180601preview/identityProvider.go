@@ -161,7 +161,7 @@ type IdentityProviderInput interface {
 }
 
 func (*IdentityProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProvider)(nil))
+	return reflect.TypeOf((**IdentityProvider)(nil)).Elem()
 }
 
 func (i *IdentityProvider) ToIdentityProviderOutput() IdentityProviderOutput {
@@ -175,7 +175,7 @@ func (i *IdentityProvider) ToIdentityProviderOutputWithContext(ctx context.Conte
 type IdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProvider)(nil))
+	return reflect.TypeOf((**IdentityProvider)(nil)).Elem()
 }
 
 func (o IdentityProviderOutput) ToIdentityProviderOutput() IdentityProviderOutput {

@@ -219,7 +219,7 @@ type RouteFilterRuleInput interface {
 }
 
 func (*RouteFilterRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteFilterRule)(nil))
+	return reflect.TypeOf((**RouteFilterRule)(nil)).Elem()
 }
 
 func (i *RouteFilterRule) ToRouteFilterRuleOutput() RouteFilterRuleOutput {
@@ -233,7 +233,7 @@ func (i *RouteFilterRule) ToRouteFilterRuleOutputWithContext(ctx context.Context
 type RouteFilterRuleOutput struct{ *pulumi.OutputState }
 
 func (RouteFilterRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RouteFilterRule)(nil))
+	return reflect.TypeOf((**RouteFilterRule)(nil)).Elem()
 }
 
 func (o RouteFilterRuleOutput) ToRouteFilterRuleOutput() RouteFilterRuleOutput {

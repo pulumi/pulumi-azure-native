@@ -130,6 +130,19 @@ type AlertProcessingRuleProperties struct {
 }
 
 
+func (val *AlertProcessingRuleProperties) Defaults() *AlertProcessingRuleProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		enabled_ := true
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -335,6 +348,19 @@ type AlertProcessingRulePropertiesResponse struct {
 	Enabled     *bool               `pulumi:"enabled"`
 	Schedule    *ScheduleResponse   `pulumi:"schedule"`
 	Scopes      []string            `pulumi:"scopes"`
+}
+
+
+func (val *AlertProcessingRulePropertiesResponse) Defaults() *AlertProcessingRulePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		enabled_ := true
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
 }
 
 

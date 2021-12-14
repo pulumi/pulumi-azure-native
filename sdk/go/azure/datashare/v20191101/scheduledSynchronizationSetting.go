@@ -132,7 +132,7 @@ type ScheduledSynchronizationSettingInput interface {
 }
 
 func (*ScheduledSynchronizationSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledSynchronizationSetting)(nil))
+	return reflect.TypeOf((**ScheduledSynchronizationSetting)(nil)).Elem()
 }
 
 func (i *ScheduledSynchronizationSetting) ToScheduledSynchronizationSettingOutput() ScheduledSynchronizationSettingOutput {
@@ -146,7 +146,7 @@ func (i *ScheduledSynchronizationSetting) ToScheduledSynchronizationSettingOutpu
 type ScheduledSynchronizationSettingOutput struct{ *pulumi.OutputState }
 
 func (ScheduledSynchronizationSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ScheduledSynchronizationSetting)(nil))
+	return reflect.TypeOf((**ScheduledSynchronizationSetting)(nil)).Elem()
 }
 
 func (o ScheduledSynchronizationSettingOutput) ToScheduledSynchronizationSettingOutput() ScheduledSynchronizationSettingOutput {

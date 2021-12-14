@@ -173,7 +173,7 @@ type ServiceEndpointPolicyDefinitionInput interface {
 }
 
 func (*ServiceEndpointPolicyDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointPolicyDefinition)(nil))
+	return reflect.TypeOf((**ServiceEndpointPolicyDefinition)(nil)).Elem()
 }
 
 func (i *ServiceEndpointPolicyDefinition) ToServiceEndpointPolicyDefinitionOutput() ServiceEndpointPolicyDefinitionOutput {
@@ -187,7 +187,7 @@ func (i *ServiceEndpointPolicyDefinition) ToServiceEndpointPolicyDefinitionOutpu
 type ServiceEndpointPolicyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointPolicyDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointPolicyDefinition)(nil))
+	return reflect.TypeOf((**ServiceEndpointPolicyDefinition)(nil)).Elem()
 }
 
 func (o ServiceEndpointPolicyDefinitionOutput) ToServiceEndpointPolicyDefinitionOutput() ServiceEndpointPolicyDefinitionOutput {

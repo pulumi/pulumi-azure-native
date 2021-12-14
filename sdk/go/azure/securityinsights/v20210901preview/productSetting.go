@@ -110,7 +110,7 @@ type ProductSettingInput interface {
 }
 
 func (*ProductSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductSetting)(nil))
+	return reflect.TypeOf((**ProductSetting)(nil)).Elem()
 }
 
 func (i *ProductSetting) ToProductSettingOutput() ProductSettingOutput {
@@ -124,7 +124,7 @@ func (i *ProductSetting) ToProductSettingOutputWithContext(ctx context.Context) 
 type ProductSettingOutput struct{ *pulumi.OutputState }
 
 func (ProductSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProductSetting)(nil))
+	return reflect.TypeOf((**ProductSetting)(nil)).Elem()
 }
 
 func (o ProductSettingOutput) ToProductSettingOutput() ProductSettingOutput {

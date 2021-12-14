@@ -105,7 +105,7 @@ type ModelVersionInput interface {
 }
 
 func (*ModelVersion) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelVersion)(nil))
+	return reflect.TypeOf((**ModelVersion)(nil)).Elem()
 }
 
 func (i *ModelVersion) ToModelVersionOutput() ModelVersionOutput {
@@ -119,7 +119,7 @@ func (i *ModelVersion) ToModelVersionOutputWithContext(ctx context.Context) Mode
 type ModelVersionOutput struct{ *pulumi.OutputState }
 
 func (ModelVersionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelVersion)(nil))
+	return reflect.TypeOf((**ModelVersion)(nil)).Elem()
 }
 
 func (o ModelVersionOutput) ToModelVersionOutput() ModelVersionOutput {

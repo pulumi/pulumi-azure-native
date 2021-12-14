@@ -97,7 +97,7 @@ type SecurityContactInput interface {
 }
 
 func (*SecurityContact) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityContact)(nil))
+	return reflect.TypeOf((**SecurityContact)(nil)).Elem()
 }
 
 func (i *SecurityContact) ToSecurityContactOutput() SecurityContactOutput {
@@ -111,7 +111,7 @@ func (i *SecurityContact) ToSecurityContactOutputWithContext(ctx context.Context
 type SecurityContactOutput struct{ *pulumi.OutputState }
 
 func (SecurityContactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityContact)(nil))
+	return reflect.TypeOf((**SecurityContact)(nil)).Elem()
 }
 
 func (o SecurityContactOutput) ToSecurityContactOutput() SecurityContactOutput {

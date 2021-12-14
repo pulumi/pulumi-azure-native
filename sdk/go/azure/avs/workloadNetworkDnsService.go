@@ -122,7 +122,7 @@ type WorkloadNetworkDnsServiceInput interface {
 }
 
 func (*WorkloadNetworkDnsService) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDnsService)(nil))
+	return reflect.TypeOf((**WorkloadNetworkDnsService)(nil)).Elem()
 }
 
 func (i *WorkloadNetworkDnsService) ToWorkloadNetworkDnsServiceOutput() WorkloadNetworkDnsServiceOutput {
@@ -136,7 +136,7 @@ func (i *WorkloadNetworkDnsService) ToWorkloadNetworkDnsServiceOutputWithContext
 type WorkloadNetworkDnsServiceOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkDnsServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDnsService)(nil))
+	return reflect.TypeOf((**WorkloadNetworkDnsService)(nil)).Elem()
 }
 
 func (o WorkloadNetworkDnsServiceOutput) ToWorkloadNetworkDnsServiceOutput() WorkloadNetworkDnsServiceOutput {

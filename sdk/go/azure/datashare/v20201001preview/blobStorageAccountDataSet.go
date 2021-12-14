@@ -132,7 +132,7 @@ type BlobStorageAccountDataSetInput interface {
 }
 
 func (*BlobStorageAccountDataSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobStorageAccountDataSet)(nil))
+	return reflect.TypeOf((**BlobStorageAccountDataSet)(nil)).Elem()
 }
 
 func (i *BlobStorageAccountDataSet) ToBlobStorageAccountDataSetOutput() BlobStorageAccountDataSetOutput {
@@ -146,7 +146,7 @@ func (i *BlobStorageAccountDataSet) ToBlobStorageAccountDataSetOutputWithContext
 type BlobStorageAccountDataSetOutput struct{ *pulumi.OutputState }
 
 func (BlobStorageAccountDataSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobStorageAccountDataSet)(nil))
+	return reflect.TypeOf((**BlobStorageAccountDataSet)(nil)).Elem()
 }
 
 func (o BlobStorageAccountDataSetOutput) ToBlobStorageAccountDataSetOutput() BlobStorageAccountDataSetOutput {

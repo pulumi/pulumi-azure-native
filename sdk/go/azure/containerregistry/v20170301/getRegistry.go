@@ -13,7 +13,7 @@ func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulum
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupRegistryArgs struct {
@@ -34,4 +34,17 @@ type LookupRegistryResult struct {
 	StorageAccount    *StorageAccountPropertiesResponse `pulumi:"storageAccount"`
 	Tags              map[string]string                 `pulumi:"tags"`
 	Type              string                            `pulumi:"type"`
+}
+
+
+func (val *LookupRegistryResult) Defaults() *LookupRegistryResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AdminUserEnabled) {
+		adminUserEnabled_ := false
+		tmp.AdminUserEnabled = &adminUserEnabled_
+	}
+	return &tmp
 }

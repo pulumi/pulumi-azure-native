@@ -535,6 +535,18 @@ type DiskSkuResponse struct {
 }
 
 
+func (val *DiskSkuResponse) Defaults() *DiskSkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Tier) {
+		tmp.Tier = "Standard"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2201,6 +2213,18 @@ func (o SnapshotSkuPtrOutput) Name() pulumi.StringPtrOutput {
 type SnapshotSkuResponse struct {
 	Name *string `pulumi:"name"`
 	Tier string  `pulumi:"tier"`
+}
+
+
+func (val *SnapshotSkuResponse) Defaults() *SnapshotSkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Tier) {
+		tmp.Tier = "Standard"
+	}
+	return &tmp
 }
 
 

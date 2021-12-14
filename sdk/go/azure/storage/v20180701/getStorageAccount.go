@@ -13,7 +13,7 @@ func LookupStorageAccount(ctx *pulumi.Context, args *LookupStorageAccountArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupStorageAccountArgs struct {
@@ -50,4 +50,17 @@ type LookupStorageAccountResult struct {
 	StatusOfSecondary              string                      `pulumi:"statusOfSecondary"`
 	Tags                           map[string]string           `pulumi:"tags"`
 	Type                           string                      `pulumi:"type"`
+}
+
+
+func (val *LookupStorageAccountResult) Defaults() *LookupStorageAccountResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Encryption = *tmp.Encryption.Defaults()
+
+	tmp.NetworkRuleSet = *tmp.NetworkRuleSet.Defaults()
+
+	return &tmp
 }

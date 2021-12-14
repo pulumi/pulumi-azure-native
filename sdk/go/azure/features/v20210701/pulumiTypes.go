@@ -211,6 +211,19 @@ type SubscriptionFeatureRegistrationProperties struct {
 }
 
 
+func (val *SubscriptionFeatureRegistrationProperties) Defaults() *SubscriptionFeatureRegistrationProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ShouldFeatureDisplayInPortal) {
+		shouldFeatureDisplayInPortal_ := false
+		tmp.ShouldFeatureDisplayInPortal = &shouldFeatureDisplayInPortal_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -396,6 +409,19 @@ type SubscriptionFeatureRegistrationResponseProperties struct {
 	State                        *string                       `pulumi:"state"`
 	SubscriptionId               string                        `pulumi:"subscriptionId"`
 	TenantId                     string                        `pulumi:"tenantId"`
+}
+
+
+func (val *SubscriptionFeatureRegistrationResponseProperties) Defaults() *SubscriptionFeatureRegistrationResponseProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ShouldFeatureDisplayInPortal) {
+		shouldFeatureDisplayInPortal_ := false
+		tmp.ShouldFeatureDisplayInPortal = &shouldFeatureDisplayInPortal_
+	}
+	return &tmp
 }
 
 

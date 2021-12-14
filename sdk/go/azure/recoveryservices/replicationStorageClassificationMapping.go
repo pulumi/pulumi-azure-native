@@ -134,7 +134,7 @@ type ReplicationStorageClassificationMappingInput interface {
 }
 
 func (*ReplicationStorageClassificationMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationStorageClassificationMapping)(nil))
+	return reflect.TypeOf((**ReplicationStorageClassificationMapping)(nil)).Elem()
 }
 
 func (i *ReplicationStorageClassificationMapping) ToReplicationStorageClassificationMappingOutput() ReplicationStorageClassificationMappingOutput {
@@ -148,7 +148,7 @@ func (i *ReplicationStorageClassificationMapping) ToReplicationStorageClassifica
 type ReplicationStorageClassificationMappingOutput struct{ *pulumi.OutputState }
 
 func (ReplicationStorageClassificationMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationStorageClassificationMapping)(nil))
+	return reflect.TypeOf((**ReplicationStorageClassificationMapping)(nil)).Elem()
 }
 
 func (o ReplicationStorageClassificationMappingOutput) ToReplicationStorageClassificationMappingOutput() ReplicationStorageClassificationMappingOutput {

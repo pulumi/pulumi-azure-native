@@ -133,7 +133,7 @@ type LoadBalancerBackendAddressPoolInput interface {
 }
 
 func (*LoadBalancerBackendAddressPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerBackendAddressPool)(nil))
+	return reflect.TypeOf((**LoadBalancerBackendAddressPool)(nil)).Elem()
 }
 
 func (i *LoadBalancerBackendAddressPool) ToLoadBalancerBackendAddressPoolOutput() LoadBalancerBackendAddressPoolOutput {
@@ -147,7 +147,7 @@ func (i *LoadBalancerBackendAddressPool) ToLoadBalancerBackendAddressPoolOutputW
 type LoadBalancerBackendAddressPoolOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerBackendAddressPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoadBalancerBackendAddressPool)(nil))
+	return reflect.TypeOf((**LoadBalancerBackendAddressPool)(nil)).Elem()
 }
 
 func (o LoadBalancerBackendAddressPoolOutput) ToLoadBalancerBackendAddressPoolOutput() LoadBalancerBackendAddressPoolOutput {

@@ -103,7 +103,7 @@ type CapacityReservationGroupInput interface {
 }
 
 func (*CapacityReservationGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityReservationGroup)(nil))
+	return reflect.TypeOf((**CapacityReservationGroup)(nil)).Elem()
 }
 
 func (i *CapacityReservationGroup) ToCapacityReservationGroupOutput() CapacityReservationGroupOutput {
@@ -117,7 +117,7 @@ func (i *CapacityReservationGroup) ToCapacityReservationGroupOutputWithContext(c
 type CapacityReservationGroupOutput struct{ *pulumi.OutputState }
 
 func (CapacityReservationGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CapacityReservationGroup)(nil))
+	return reflect.TypeOf((**CapacityReservationGroup)(nil)).Elem()
 }
 
 func (o CapacityReservationGroupOutput) ToCapacityReservationGroupOutput() CapacityReservationGroupOutput {

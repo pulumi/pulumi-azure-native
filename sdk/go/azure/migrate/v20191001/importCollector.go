@@ -99,7 +99,7 @@ type ImportCollectorInput interface {
 }
 
 func (*ImportCollector) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImportCollector)(nil))
+	return reflect.TypeOf((**ImportCollector)(nil)).Elem()
 }
 
 func (i *ImportCollector) ToImportCollectorOutput() ImportCollectorOutput {
@@ -113,7 +113,7 @@ func (i *ImportCollector) ToImportCollectorOutputWithContext(ctx context.Context
 type ImportCollectorOutput struct{ *pulumi.OutputState }
 
 func (ImportCollectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImportCollector)(nil))
+	return reflect.TypeOf((**ImportCollector)(nil)).Elem()
 }
 
 func (o ImportCollectorOutput) ToImportCollectorOutput() ImportCollectorOutput {

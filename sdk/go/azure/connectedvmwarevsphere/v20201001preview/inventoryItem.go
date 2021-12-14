@@ -113,7 +113,7 @@ type InventoryItemInput interface {
 }
 
 func (*InventoryItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*InventoryItem)(nil))
+	return reflect.TypeOf((**InventoryItem)(nil)).Elem()
 }
 
 func (i *InventoryItem) ToInventoryItemOutput() InventoryItemOutput {
@@ -127,7 +127,7 @@ func (i *InventoryItem) ToInventoryItemOutputWithContext(ctx context.Context) In
 type InventoryItemOutput struct{ *pulumi.OutputState }
 
 func (InventoryItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InventoryItem)(nil))
+	return reflect.TypeOf((**InventoryItem)(nil)).Elem()
 }
 
 func (o InventoryItemOutput) ToInventoryItemOutput() InventoryItemOutput {

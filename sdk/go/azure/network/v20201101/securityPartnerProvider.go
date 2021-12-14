@@ -132,7 +132,7 @@ type SecurityPartnerProviderInput interface {
 }
 
 func (*SecurityPartnerProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityPartnerProvider)(nil))
+	return reflect.TypeOf((**SecurityPartnerProvider)(nil)).Elem()
 }
 
 func (i *SecurityPartnerProvider) ToSecurityPartnerProviderOutput() SecurityPartnerProviderOutput {
@@ -146,7 +146,7 @@ func (i *SecurityPartnerProvider) ToSecurityPartnerProviderOutputWithContext(ctx
 type SecurityPartnerProviderOutput struct{ *pulumi.OutputState }
 
 func (SecurityPartnerProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityPartnerProvider)(nil))
+	return reflect.TypeOf((**SecurityPartnerProvider)(nil)).Elem()
 }
 
 func (o SecurityPartnerProviderOutput) ToSecurityPartnerProviderOutput() SecurityPartnerProviderOutput {

@@ -44,7 +44,7 @@ func NewCluster(ctx *pulumi.Context,
 	if args.Sku == nil {
 		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
-	if args.EnableStreamingIngest == nil {
+	if isZero(args.EnableStreamingIngest) {
 		args.EnableStreamingIngest = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -155,7 +155,7 @@ type ClusterInput interface {
 }
 
 func (*Cluster) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cluster)(nil))
+	return reflect.TypeOf((**Cluster)(nil)).Elem()
 }
 
 func (i *Cluster) ToClusterOutput() ClusterOutput {
@@ -169,7 +169,7 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cluster)(nil))
+	return reflect.TypeOf((**Cluster)(nil)).Elem()
 }
 
 func (o ClusterOutput) ToClusterOutput() ClusterOutput {

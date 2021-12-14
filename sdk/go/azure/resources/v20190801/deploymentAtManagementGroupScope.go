@@ -124,7 +124,7 @@ type DeploymentAtManagementGroupScopeInput interface {
 }
 
 func (*DeploymentAtManagementGroupScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtManagementGroupScope)(nil))
+	return reflect.TypeOf((**DeploymentAtManagementGroupScope)(nil)).Elem()
 }
 
 func (i *DeploymentAtManagementGroupScope) ToDeploymentAtManagementGroupScopeOutput() DeploymentAtManagementGroupScopeOutput {
@@ -138,7 +138,7 @@ func (i *DeploymentAtManagementGroupScope) ToDeploymentAtManagementGroupScopeOut
 type DeploymentAtManagementGroupScopeOutput struct{ *pulumi.OutputState }
 
 func (DeploymentAtManagementGroupScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtManagementGroupScope)(nil))
+	return reflect.TypeOf((**DeploymentAtManagementGroupScope)(nil)).Elem()
 }
 
 func (o DeploymentAtManagementGroupScopeOutput) ToDeploymentAtManagementGroupScopeOutput() DeploymentAtManagementGroupScopeOutput {

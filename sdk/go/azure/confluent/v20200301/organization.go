@@ -113,7 +113,7 @@ type OrganizationInput interface {
 }
 
 func (*Organization) ElementType() reflect.Type {
-	return reflect.TypeOf((*Organization)(nil))
+	return reflect.TypeOf((**Organization)(nil)).Elem()
 }
 
 func (i *Organization) ToOrganizationOutput() OrganizationOutput {
@@ -127,7 +127,7 @@ func (i *Organization) ToOrganizationOutputWithContext(ctx context.Context) Orga
 type OrganizationOutput struct{ *pulumi.OutputState }
 
 func (OrganizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Organization)(nil))
+	return reflect.TypeOf((**Organization)(nil)).Elem()
 }
 
 func (o OrganizationOutput) ToOrganizationOutput() OrganizationOutput {

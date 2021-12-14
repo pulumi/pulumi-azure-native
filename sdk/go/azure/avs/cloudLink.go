@@ -100,7 +100,7 @@ type CloudLinkInput interface {
 }
 
 func (*CloudLink) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudLink)(nil))
+	return reflect.TypeOf((**CloudLink)(nil)).Elem()
 }
 
 func (i *CloudLink) ToCloudLinkOutput() CloudLinkOutput {
@@ -114,7 +114,7 @@ func (i *CloudLink) ToCloudLinkOutputWithContext(ctx context.Context) CloudLinkO
 type CloudLinkOutput struct{ *pulumi.OutputState }
 
 func (CloudLinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudLink)(nil))
+	return reflect.TypeOf((**CloudLink)(nil)).Elem()
 }
 
 func (o CloudLinkOutput) ToCloudLinkOutput() CloudLinkOutput {

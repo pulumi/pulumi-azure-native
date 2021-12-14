@@ -100,7 +100,7 @@ type TagRuleInput interface {
 }
 
 func (*TagRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagRule)(nil))
+	return reflect.TypeOf((**TagRule)(nil)).Elem()
 }
 
 func (i *TagRule) ToTagRuleOutput() TagRuleOutput {
@@ -114,7 +114,7 @@ func (i *TagRule) ToTagRuleOutputWithContext(ctx context.Context) TagRuleOutput 
 type TagRuleOutput struct{ *pulumi.OutputState }
 
 func (TagRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagRule)(nil))
+	return reflect.TypeOf((**TagRule)(nil)).Elem()
 }
 
 func (o TagRuleOutput) ToTagRuleOutput() TagRuleOutput {

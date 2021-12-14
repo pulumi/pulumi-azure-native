@@ -1293,6 +1293,19 @@ type TaskProperties struct {
 }
 
 
+func (val *TaskProperties) Defaults() *TaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.TaskScope) {
+		taskScope_ := "Global"
+		tmp.TaskScope = &taskScope_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1396,6 +1409,19 @@ type TaskPropertiesResponse struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	Source     *string           `pulumi:"source"`
 	TaskScope  *string           `pulumi:"taskScope"`
+}
+
+
+func (val *TaskPropertiesResponse) Defaults() *TaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.TaskScope) {
+		taskScope_ := "Global"
+		tmp.TaskScope = &taskScope_
+	}
+	return &tmp
 }
 
 

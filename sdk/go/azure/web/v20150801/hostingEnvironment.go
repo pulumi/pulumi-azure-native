@@ -224,7 +224,7 @@ type HostingEnvironmentInput interface {
 }
 
 func (*HostingEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostingEnvironment)(nil))
+	return reflect.TypeOf((**HostingEnvironment)(nil)).Elem()
 }
 
 func (i *HostingEnvironment) ToHostingEnvironmentOutput() HostingEnvironmentOutput {
@@ -238,7 +238,7 @@ func (i *HostingEnvironment) ToHostingEnvironmentOutputWithContext(ctx context.C
 type HostingEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (HostingEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostingEnvironment)(nil))
+	return reflect.TypeOf((**HostingEnvironment)(nil)).Elem()
 }
 
 func (o HostingEnvironmentOutput) ToHostingEnvironmentOutput() HostingEnvironmentOutput {

@@ -132,7 +132,7 @@ type GalleryApplicationInput interface {
 }
 
 func (*GalleryApplication) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryApplication)(nil))
+	return reflect.TypeOf((**GalleryApplication)(nil)).Elem()
 }
 
 func (i *GalleryApplication) ToGalleryApplicationOutput() GalleryApplicationOutput {
@@ -146,7 +146,7 @@ func (i *GalleryApplication) ToGalleryApplicationOutputWithContext(ctx context.C
 type GalleryApplicationOutput struct{ *pulumi.OutputState }
 
 func (GalleryApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GalleryApplication)(nil))
+	return reflect.TypeOf((**GalleryApplication)(nil)).Elem()
 }
 
 func (o GalleryApplicationOutput) ToGalleryApplicationOutput() GalleryApplicationOutput {

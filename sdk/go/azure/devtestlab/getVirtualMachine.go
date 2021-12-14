@@ -13,7 +13,7 @@ func LookupVirtualMachine(ctx *pulumi.Context, args *LookupVirtualMachineArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupVirtualMachineArgs struct {
@@ -65,4 +65,31 @@ type LookupVirtualMachineResult struct {
 	UniqueIdentifier             string                                     `pulumi:"uniqueIdentifier"`
 	UserName                     *string                                    `pulumi:"userName"`
 	VirtualMachineCreationSource string                                     `pulumi:"virtualMachineCreationSource"`
+}
+
+
+func (val *LookupVirtualMachineResult) Defaults() *LookupVirtualMachineResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AllowClaim) {
+		allowClaim_ := false
+		tmp.AllowClaim = &allowClaim_
+	}
+	tmp.ApplicableSchedule = *tmp.ApplicableSchedule.Defaults()
+
+	if isZero(tmp.DisallowPublicIpAddress) {
+		disallowPublicIpAddress_ := false
+		tmp.DisallowPublicIpAddress = &disallowPublicIpAddress_
+	}
+	if isZero(tmp.OwnerObjectId) {
+		ownerObjectId_ := "dynamicValue"
+		tmp.OwnerObjectId = &ownerObjectId_
+	}
+	if isZero(tmp.StorageType) {
+		storageType_ := "labStorageType"
+		tmp.StorageType = &storageType_
+	}
+	return &tmp
 }

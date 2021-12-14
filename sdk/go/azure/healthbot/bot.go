@@ -117,7 +117,7 @@ type BotInput interface {
 }
 
 func (*Bot) ElementType() reflect.Type {
-	return reflect.TypeOf((*Bot)(nil))
+	return reflect.TypeOf((**Bot)(nil)).Elem()
 }
 
 func (i *Bot) ToBotOutput() BotOutput {
@@ -131,7 +131,7 @@ func (i *Bot) ToBotOutputWithContext(ctx context.Context) BotOutput {
 type BotOutput struct{ *pulumi.OutputState }
 
 func (BotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Bot)(nil))
+	return reflect.TypeOf((**Bot)(nil)).Elem()
 }
 
 func (o BotOutput) ToBotOutput() BotOutput {

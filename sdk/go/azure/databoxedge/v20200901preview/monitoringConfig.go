@@ -120,7 +120,7 @@ type MonitoringConfigInput interface {
 }
 
 func (*MonitoringConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringConfig)(nil))
+	return reflect.TypeOf((**MonitoringConfig)(nil)).Elem()
 }
 
 func (i *MonitoringConfig) ToMonitoringConfigOutput() MonitoringConfigOutput {
@@ -134,7 +134,7 @@ func (i *MonitoringConfig) ToMonitoringConfigOutputWithContext(ctx context.Conte
 type MonitoringConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitoringConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MonitoringConfig)(nil))
+	return reflect.TypeOf((**MonitoringConfig)(nil)).Elem()
 }
 
 func (o MonitoringConfigOutput) ToMonitoringConfigOutput() MonitoringConfigOutput {

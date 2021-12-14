@@ -127,7 +127,7 @@ type WebAppSwiftVirtualNetworkConnectionSlotInput interface {
 }
 
 func (*WebAppSwiftVirtualNetworkConnectionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnectionSlot)(nil))
+	return reflect.TypeOf((**WebAppSwiftVirtualNetworkConnectionSlot)(nil)).Elem()
 }
 
 func (i *WebAppSwiftVirtualNetworkConnectionSlot) ToWebAppSwiftVirtualNetworkConnectionSlotOutput() WebAppSwiftVirtualNetworkConnectionSlotOutput {
@@ -141,7 +141,7 @@ func (i *WebAppSwiftVirtualNetworkConnectionSlot) ToWebAppSwiftVirtualNetworkCon
 type WebAppSwiftVirtualNetworkConnectionSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppSwiftVirtualNetworkConnectionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSwiftVirtualNetworkConnectionSlot)(nil))
+	return reflect.TypeOf((**WebAppSwiftVirtualNetworkConnectionSlot)(nil)).Elem()
 }
 
 func (o WebAppSwiftVirtualNetworkConnectionSlotOutput) ToWebAppSwiftVirtualNetworkConnectionSlotOutput() WebAppSwiftVirtualNetworkConnectionSlotOutput {

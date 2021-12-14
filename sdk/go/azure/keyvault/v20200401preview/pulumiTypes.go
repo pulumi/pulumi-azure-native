@@ -996,6 +996,27 @@ type ManagedHsmProperties struct {
 }
 
 
+func (val *ManagedHsmProperties) Defaults() *ManagedHsmProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnablePurgeProtection) {
+		enablePurgeProtection_ := true
+		tmp.EnablePurgeProtection = &enablePurgeProtection_
+	}
+	if isZero(tmp.EnableSoftDelete) {
+		enableSoftDelete_ := true
+		tmp.EnableSoftDelete = &enableSoftDelete_
+	}
+	if isZero(tmp.SoftDeleteRetentionInDays) {
+		softDeleteRetentionInDays_ := 90
+		tmp.SoftDeleteRetentionInDays = &softDeleteRetentionInDays_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1204,6 +1225,27 @@ type ManagedHsmPropertiesResponse struct {
 	SoftDeleteRetentionInDays *int     `pulumi:"softDeleteRetentionInDays"`
 	StatusMessage             string   `pulumi:"statusMessage"`
 	TenantId                  *string  `pulumi:"tenantId"`
+}
+
+
+func (val *ManagedHsmPropertiesResponse) Defaults() *ManagedHsmPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnablePurgeProtection) {
+		enablePurgeProtection_ := true
+		tmp.EnablePurgeProtection = &enablePurgeProtection_
+	}
+	if isZero(tmp.EnableSoftDelete) {
+		enableSoftDelete_ := true
+		tmp.EnableSoftDelete = &enableSoftDelete_
+	}
+	if isZero(tmp.SoftDeleteRetentionInDays) {
+		softDeleteRetentionInDays_ := 90
+		tmp.SoftDeleteRetentionInDays = &softDeleteRetentionInDays_
+	}
+	return &tmp
 }
 
 
@@ -4046,6 +4088,27 @@ type VaultProperties struct {
 }
 
 
+func (val *VaultProperties) Defaults() *VaultProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableRbacAuthorization) {
+		enableRbacAuthorization_ := false
+		tmp.EnableRbacAuthorization = &enableRbacAuthorization_
+	}
+	if isZero(tmp.EnableSoftDelete) {
+		enableSoftDelete_ := true
+		tmp.EnableSoftDelete = &enableSoftDelete_
+	}
+	if isZero(tmp.SoftDeleteRetentionInDays) {
+		softDeleteRetentionInDays_ := 90
+		tmp.SoftDeleteRetentionInDays = &softDeleteRetentionInDays_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4372,6 +4435,27 @@ type VaultPropertiesResponse struct {
 	SoftDeleteRetentionInDays    *int                                    `pulumi:"softDeleteRetentionInDays"`
 	TenantId                     string                                  `pulumi:"tenantId"`
 	VaultUri                     *string                                 `pulumi:"vaultUri"`
+}
+
+
+func (val *VaultPropertiesResponse) Defaults() *VaultPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnableRbacAuthorization) {
+		enableRbacAuthorization_ := false
+		tmp.EnableRbacAuthorization = &enableRbacAuthorization_
+	}
+	if isZero(tmp.EnableSoftDelete) {
+		enableSoftDelete_ := true
+		tmp.EnableSoftDelete = &enableSoftDelete_
+	}
+	if isZero(tmp.SoftDeleteRetentionInDays) {
+		softDeleteRetentionInDays_ := 90
+		tmp.SoftDeleteRetentionInDays = &softDeleteRetentionInDays_
+	}
+	return &tmp
 }
 
 

@@ -173,7 +173,7 @@ type PrivateEndpointInput interface {
 }
 
 func (*PrivateEndpoint) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpoint)(nil))
+	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
 }
 
 func (i *PrivateEndpoint) ToPrivateEndpointOutput() PrivateEndpointOutput {
@@ -187,7 +187,7 @@ func (i *PrivateEndpoint) ToPrivateEndpointOutputWithContext(ctx context.Context
 type PrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpoint)(nil))
+	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
 }
 
 func (o PrivateEndpointOutput) ToPrivateEndpointOutput() PrivateEndpointOutput {

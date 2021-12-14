@@ -13,7 +13,7 @@ func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulum
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupRegistryArgs struct {
@@ -46,4 +46,37 @@ type LookupRegistryResult struct {
 	Tags                       map[string]string                   `pulumi:"tags"`
 	Type                       string                              `pulumi:"type"`
 	ZoneRedundancy             *string                             `pulumi:"zoneRedundancy"`
+}
+
+
+func (val *LookupRegistryResult) Defaults() *LookupRegistryResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AdminUserEnabled) {
+		adminUserEnabled_ := false
+		tmp.AdminUserEnabled = &adminUserEnabled_
+	}
+	if isZero(tmp.AnonymousPullEnabled) {
+		anonymousPullEnabled_ := false
+		tmp.AnonymousPullEnabled = &anonymousPullEnabled_
+	}
+	if isZero(tmp.NetworkRuleBypassOptions) {
+		networkRuleBypassOptions_ := "AzureServices"
+		tmp.NetworkRuleBypassOptions = &networkRuleBypassOptions_
+	}
+	tmp.NetworkRuleSet = tmp.NetworkRuleSet.Defaults()
+
+	tmp.Policies = tmp.Policies.Defaults()
+
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "Enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	if isZero(tmp.ZoneRedundancy) {
+		zoneRedundancy_ := "Disabled"
+		tmp.ZoneRedundancy = &zoneRedundancy_
+	}
+	return &tmp
 }

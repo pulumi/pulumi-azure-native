@@ -120,7 +120,7 @@ type NotificationChannelInput interface {
 }
 
 func (*NotificationChannel) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationChannel)(nil))
+	return reflect.TypeOf((**NotificationChannel)(nil)).Elem()
 }
 
 func (i *NotificationChannel) ToNotificationChannelOutput() NotificationChannelOutput {
@@ -134,7 +134,7 @@ func (i *NotificationChannel) ToNotificationChannelOutputWithContext(ctx context
 type NotificationChannelOutput struct{ *pulumi.OutputState }
 
 func (NotificationChannelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationChannel)(nil))
+	return reflect.TypeOf((**NotificationChannel)(nil)).Elem()
 }
 
 func (o NotificationChannelOutput) ToNotificationChannelOutput() NotificationChannelOutput {

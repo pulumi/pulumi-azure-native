@@ -144,7 +144,7 @@ type WebAppSitePushSettingsSlotInput interface {
 }
 
 func (*WebAppSitePushSettingsSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSitePushSettingsSlot)(nil))
+	return reflect.TypeOf((**WebAppSitePushSettingsSlot)(nil)).Elem()
 }
 
 func (i *WebAppSitePushSettingsSlot) ToWebAppSitePushSettingsSlotOutput() WebAppSitePushSettingsSlotOutput {
@@ -158,7 +158,7 @@ func (i *WebAppSitePushSettingsSlot) ToWebAppSitePushSettingsSlotOutputWithConte
 type WebAppSitePushSettingsSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppSitePushSettingsSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppSitePushSettingsSlot)(nil))
+	return reflect.TypeOf((**WebAppSitePushSettingsSlot)(nil)).Elem()
 }
 
 func (o WebAppSitePushSettingsSlotOutput) ToWebAppSitePushSettingsSlotOutput() WebAppSitePushSettingsSlotOutput {

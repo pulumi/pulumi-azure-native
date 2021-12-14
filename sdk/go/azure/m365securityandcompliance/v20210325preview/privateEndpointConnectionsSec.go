@@ -102,7 +102,7 @@ type PrivateEndpointConnectionsSecInput interface {
 }
 
 func (*PrivateEndpointConnectionsSec) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionsSec)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionsSec)(nil)).Elem()
 }
 
 func (i *PrivateEndpointConnectionsSec) ToPrivateEndpointConnectionsSecOutput() PrivateEndpointConnectionsSecOutput {
@@ -116,7 +116,7 @@ func (i *PrivateEndpointConnectionsSec) ToPrivateEndpointConnectionsSecOutputWit
 type PrivateEndpointConnectionsSecOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionsSecOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionsSec)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionsSec)(nil)).Elem()
 }
 
 func (o PrivateEndpointConnectionsSecOutput) ToPrivateEndpointConnectionsSecOutput() PrivateEndpointConnectionsSecOutput {

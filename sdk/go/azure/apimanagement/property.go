@@ -126,7 +126,7 @@ type PropertyInput interface {
 }
 
 func (*Property) ElementType() reflect.Type {
-	return reflect.TypeOf((*Property)(nil))
+	return reflect.TypeOf((**Property)(nil)).Elem()
 }
 
 func (i *Property) ToPropertyOutput() PropertyOutput {
@@ -140,7 +140,7 @@ func (i *Property) ToPropertyOutputWithContext(ctx context.Context) PropertyOutp
 type PropertyOutput struct{ *pulumi.OutputState }
 
 func (PropertyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Property)(nil))
+	return reflect.TypeOf((**Property)(nil)).Elem()
 }
 
 func (o PropertyOutput) ToPropertyOutput() PropertyOutput {

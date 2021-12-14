@@ -111,7 +111,7 @@ type NetworkManagerInput interface {
 }
 
 func (*NetworkManager) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkManager)(nil))
+	return reflect.TypeOf((**NetworkManager)(nil)).Elem()
 }
 
 func (i *NetworkManager) ToNetworkManagerOutput() NetworkManagerOutput {
@@ -125,7 +125,7 @@ func (i *NetworkManager) ToNetworkManagerOutputWithContext(ctx context.Context) 
 type NetworkManagerOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkManager)(nil))
+	return reflect.TypeOf((**NetworkManager)(nil)).Elem()
 }
 
 func (o NetworkManagerOutput) ToNetworkManagerOutput() NetworkManagerOutput {

@@ -270,7 +270,7 @@ type SecurityRuleInput interface {
 }
 
 func (*SecurityRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityRule)(nil))
+	return reflect.TypeOf((**SecurityRule)(nil)).Elem()
 }
 
 func (i *SecurityRule) ToSecurityRuleOutput() SecurityRuleOutput {
@@ -284,7 +284,7 @@ func (i *SecurityRule) ToSecurityRuleOutputWithContext(ctx context.Context) Secu
 type SecurityRuleOutput struct{ *pulumi.OutputState }
 
 func (SecurityRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityRule)(nil))
+	return reflect.TypeOf((**SecurityRule)(nil)).Elem()
 }
 
 func (o SecurityRuleOutput) ToSecurityRuleOutput() SecurityRuleOutput {

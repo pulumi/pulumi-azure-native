@@ -99,7 +99,7 @@ type LinkerInput interface {
 }
 
 func (*Linker) ElementType() reflect.Type {
-	return reflect.TypeOf((*Linker)(nil))
+	return reflect.TypeOf((**Linker)(nil)).Elem()
 }
 
 func (i *Linker) ToLinkerOutput() LinkerOutput {
@@ -113,7 +113,7 @@ func (i *Linker) ToLinkerOutputWithContext(ctx context.Context) LinkerOutput {
 type LinkerOutput struct{ *pulumi.OutputState }
 
 func (LinkerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Linker)(nil))
+	return reflect.TypeOf((**Linker)(nil)).Elem()
 }
 
 func (o LinkerOutput) ToLinkerOutput() LinkerOutput {

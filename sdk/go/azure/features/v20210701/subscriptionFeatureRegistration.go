@@ -29,6 +29,12 @@ func NewSubscriptionFeatureRegistration(ctx *pulumi.Context,
 	if args.ProviderNamespace == nil {
 		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
+	propertiesApplier := func(v SubscriptionFeatureRegistrationProperties) *SubscriptionFeatureRegistrationProperties {
+		return v.Defaults()
+	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToSubscriptionFeatureRegistrationPropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(SubscriptionFeatureRegistrationPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:features:SubscriptionFeatureRegistration"),
@@ -91,7 +97,7 @@ type SubscriptionFeatureRegistrationInput interface {
 }
 
 func (*SubscriptionFeatureRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionFeatureRegistration)(nil))
+	return reflect.TypeOf((**SubscriptionFeatureRegistration)(nil)).Elem()
 }
 
 func (i *SubscriptionFeatureRegistration) ToSubscriptionFeatureRegistrationOutput() SubscriptionFeatureRegistrationOutput {
@@ -105,7 +111,7 @@ func (i *SubscriptionFeatureRegistration) ToSubscriptionFeatureRegistrationOutpu
 type SubscriptionFeatureRegistrationOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionFeatureRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubscriptionFeatureRegistration)(nil))
+	return reflect.TypeOf((**SubscriptionFeatureRegistration)(nil)).Elem()
 }
 
 func (o SubscriptionFeatureRegistrationOutput) ToSubscriptionFeatureRegistrationOutput() SubscriptionFeatureRegistrationOutput {

@@ -129,7 +129,7 @@ type ReplicationRecoveryServicesProviderInput interface {
 }
 
 func (*ReplicationRecoveryServicesProvider) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationRecoveryServicesProvider)(nil))
+	return reflect.TypeOf((**ReplicationRecoveryServicesProvider)(nil)).Elem()
 }
 
 func (i *ReplicationRecoveryServicesProvider) ToReplicationRecoveryServicesProviderOutput() ReplicationRecoveryServicesProviderOutput {
@@ -143,7 +143,7 @@ func (i *ReplicationRecoveryServicesProvider) ToReplicationRecoveryServicesProvi
 type ReplicationRecoveryServicesProviderOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryServicesProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationRecoveryServicesProvider)(nil))
+	return reflect.TypeOf((**ReplicationRecoveryServicesProvider)(nil)).Elem()
 }
 
 func (o ReplicationRecoveryServicesProviderOutput) ToReplicationRecoveryServicesProviderOutput() ReplicationRecoveryServicesProviderOutput {

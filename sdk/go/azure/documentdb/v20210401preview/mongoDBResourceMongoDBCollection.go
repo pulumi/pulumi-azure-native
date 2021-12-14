@@ -176,7 +176,7 @@ type MongoDBResourceMongoDBCollectionInput interface {
 }
 
 func (*MongoDBResourceMongoDBCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBCollection)(nil))
+	return reflect.TypeOf((**MongoDBResourceMongoDBCollection)(nil)).Elem()
 }
 
 func (i *MongoDBResourceMongoDBCollection) ToMongoDBResourceMongoDBCollectionOutput() MongoDBResourceMongoDBCollectionOutput {
@@ -190,7 +190,7 @@ func (i *MongoDBResourceMongoDBCollection) ToMongoDBResourceMongoDBCollectionOut
 type MongoDBResourceMongoDBCollectionOutput struct{ *pulumi.OutputState }
 
 func (MongoDBResourceMongoDBCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBCollection)(nil))
+	return reflect.TypeOf((**MongoDBResourceMongoDBCollection)(nil)).Elem()
 }
 
 func (o MongoDBResourceMongoDBCollectionOutput) ToMongoDBResourceMongoDBCollectionOutput() MongoDBResourceMongoDBCollectionOutput {

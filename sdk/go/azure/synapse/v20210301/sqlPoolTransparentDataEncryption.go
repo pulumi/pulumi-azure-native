@@ -120,7 +120,7 @@ type SqlPoolTransparentDataEncryptionInput interface {
 }
 
 func (*SqlPoolTransparentDataEncryption) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolTransparentDataEncryption)(nil))
+	return reflect.TypeOf((**SqlPoolTransparentDataEncryption)(nil)).Elem()
 }
 
 func (i *SqlPoolTransparentDataEncryption) ToSqlPoolTransparentDataEncryptionOutput() SqlPoolTransparentDataEncryptionOutput {
@@ -134,7 +134,7 @@ func (i *SqlPoolTransparentDataEncryption) ToSqlPoolTransparentDataEncryptionOut
 type SqlPoolTransparentDataEncryptionOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolTransparentDataEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlPoolTransparentDataEncryption)(nil))
+	return reflect.TypeOf((**SqlPoolTransparentDataEncryption)(nil)).Elem()
 }
 
 func (o SqlPoolTransparentDataEncryptionOutput) ToSqlPoolTransparentDataEncryptionOutput() SqlPoolTransparentDataEncryptionOutput {

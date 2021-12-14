@@ -92,7 +92,7 @@ type SupportPlanTypeInput interface {
 }
 
 func (*SupportPlanType) ElementType() reflect.Type {
-	return reflect.TypeOf((*SupportPlanType)(nil))
+	return reflect.TypeOf((**SupportPlanType)(nil)).Elem()
 }
 
 func (i *SupportPlanType) ToSupportPlanTypeOutput() SupportPlanTypeOutput {
@@ -106,7 +106,7 @@ func (i *SupportPlanType) ToSupportPlanTypeOutputWithContext(ctx context.Context
 type SupportPlanTypeOutput struct{ *pulumi.OutputState }
 
 func (SupportPlanTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SupportPlanType)(nil))
+	return reflect.TypeOf((**SupportPlanType)(nil)).Elem()
 }
 
 func (o SupportPlanTypeOutput) ToSupportPlanTypeOutput() SupportPlanTypeOutput {

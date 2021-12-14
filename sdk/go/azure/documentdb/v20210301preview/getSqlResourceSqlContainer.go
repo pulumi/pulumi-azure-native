@@ -13,7 +13,7 @@ func LookupSqlResourceSqlContainer(ctx *pulumi.Context, args *LookupSqlResourceS
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupSqlResourceSqlContainerArgs struct {
@@ -33,4 +33,15 @@ type LookupSqlResourceSqlContainerResult struct {
 	Resource *SqlContainerGetPropertiesResponseResource `pulumi:"resource"`
 	Tags     map[string]string                          `pulumi:"tags"`
 	Type     string                                     `pulumi:"type"`
+}
+
+
+func (val *LookupSqlResourceSqlContainerResult) Defaults() *LookupSqlResourceSqlContainerResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Resource = tmp.Resource.Defaults()
+
+	return &tmp
 }

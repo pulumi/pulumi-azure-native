@@ -13,7 +13,7 @@ func LookupActivityLogAlert(ctx *pulumi.Context, args *LookupActivityLogAlertArg
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupActivityLogAlertArgs struct {
@@ -33,4 +33,21 @@ type LookupActivityLogAlertResult struct {
 	Scopes      []string                        `pulumi:"scopes"`
 	Tags        map[string]string               `pulumi:"tags"`
 	Type        string                          `pulumi:"type"`
+}
+
+
+func (val *LookupActivityLogAlertResult) Defaults() *LookupActivityLogAlertResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		enabled_ := true
+		tmp.Enabled = &enabled_
+	}
+	if isZero(tmp.Location) {
+		location_ := "global"
+		tmp.Location = &location_
+	}
+	return &tmp
 }

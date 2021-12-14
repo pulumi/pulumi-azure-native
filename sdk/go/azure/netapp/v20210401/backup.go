@@ -48,7 +48,7 @@ func NewBackup(ctx *pulumi.Context,
 	if args.VolumeName == nil {
 		return nil, errors.New("invalid value for required argument 'VolumeName'")
 	}
-	if args.UseExistingSnapshot == nil {
+	if isZero(args.UseExistingSnapshot) {
 		args.UseExistingSnapshot = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -156,7 +156,7 @@ type BackupInput interface {
 }
 
 func (*Backup) ElementType() reflect.Type {
-	return reflect.TypeOf((*Backup)(nil))
+	return reflect.TypeOf((**Backup)(nil)).Elem()
 }
 
 func (i *Backup) ToBackupOutput() BackupOutput {
@@ -170,7 +170,7 @@ func (i *Backup) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
 type BackupOutput struct{ *pulumi.OutputState }
 
 func (BackupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Backup)(nil))
+	return reflect.TypeOf((**Backup)(nil)).Elem()
 }
 
 func (o BackupOutput) ToBackupOutput() BackupOutput {

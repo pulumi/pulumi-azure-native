@@ -143,7 +143,7 @@ type RosettaNetProcessConfigurationInput interface {
 }
 
 func (*RosettaNetProcessConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*RosettaNetProcessConfiguration)(nil))
+	return reflect.TypeOf((**RosettaNetProcessConfiguration)(nil)).Elem()
 }
 
 func (i *RosettaNetProcessConfiguration) ToRosettaNetProcessConfigurationOutput() RosettaNetProcessConfigurationOutput {
@@ -157,7 +157,7 @@ func (i *RosettaNetProcessConfiguration) ToRosettaNetProcessConfigurationOutputW
 type RosettaNetProcessConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RosettaNetProcessConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RosettaNetProcessConfiguration)(nil))
+	return reflect.TypeOf((**RosettaNetProcessConfiguration)(nil)).Elem()
 }
 
 func (o RosettaNetProcessConfigurationOutput) ToRosettaNetProcessConfigurationOutput() RosettaNetProcessConfigurationOutput {

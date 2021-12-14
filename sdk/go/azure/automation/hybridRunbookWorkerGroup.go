@@ -99,7 +99,7 @@ type HybridRunbookWorkerGroupInput interface {
 }
 
 func (*HybridRunbookWorkerGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridRunbookWorkerGroup)(nil))
+	return reflect.TypeOf((**HybridRunbookWorkerGroup)(nil)).Elem()
 }
 
 func (i *HybridRunbookWorkerGroup) ToHybridRunbookWorkerGroupOutput() HybridRunbookWorkerGroupOutput {
@@ -113,7 +113,7 @@ func (i *HybridRunbookWorkerGroup) ToHybridRunbookWorkerGroupOutputWithContext(c
 type HybridRunbookWorkerGroupOutput struct{ *pulumi.OutputState }
 
 func (HybridRunbookWorkerGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridRunbookWorkerGroup)(nil))
+	return reflect.TypeOf((**HybridRunbookWorkerGroup)(nil)).Elem()
 }
 
 func (o HybridRunbookWorkerGroupOutput) ToHybridRunbookWorkerGroupOutput() HybridRunbookWorkerGroupOutput {

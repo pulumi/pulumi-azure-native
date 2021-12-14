@@ -133,7 +133,7 @@ type KustoClusterDataSetMappingInput interface {
 }
 
 func (*KustoClusterDataSetMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoClusterDataSetMapping)(nil))
+	return reflect.TypeOf((**KustoClusterDataSetMapping)(nil)).Elem()
 }
 
 func (i *KustoClusterDataSetMapping) ToKustoClusterDataSetMappingOutput() KustoClusterDataSetMappingOutput {
@@ -147,7 +147,7 @@ func (i *KustoClusterDataSetMapping) ToKustoClusterDataSetMappingOutputWithConte
 type KustoClusterDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (KustoClusterDataSetMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoClusterDataSetMapping)(nil))
+	return reflect.TypeOf((**KustoClusterDataSetMapping)(nil)).Elem()
 }
 
 func (o KustoClusterDataSetMappingOutput) ToKustoClusterDataSetMappingOutput() KustoClusterDataSetMappingOutput {

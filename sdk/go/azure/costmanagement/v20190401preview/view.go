@@ -135,7 +135,7 @@ type ViewInput interface {
 }
 
 func (*View) ElementType() reflect.Type {
-	return reflect.TypeOf((*View)(nil))
+	return reflect.TypeOf((**View)(nil)).Elem()
 }
 
 func (i *View) ToViewOutput() ViewOutput {
@@ -149,7 +149,7 @@ func (i *View) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 type ViewOutput struct{ *pulumi.OutputState }
 
 func (ViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*View)(nil))
+	return reflect.TypeOf((**View)(nil)).Elem()
 }
 
 func (o ViewOutput) ToViewOutput() ViewOutput {

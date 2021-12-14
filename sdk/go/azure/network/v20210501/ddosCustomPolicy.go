@@ -160,7 +160,7 @@ type DdosCustomPolicyInput interface {
 }
 
 func (*DdosCustomPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*DdosCustomPolicy)(nil))
+	return reflect.TypeOf((**DdosCustomPolicy)(nil)).Elem()
 }
 
 func (i *DdosCustomPolicy) ToDdosCustomPolicyOutput() DdosCustomPolicyOutput {
@@ -174,7 +174,7 @@ func (i *DdosCustomPolicy) ToDdosCustomPolicyOutputWithContext(ctx context.Conte
 type DdosCustomPolicyOutput struct{ *pulumi.OutputState }
 
 func (DdosCustomPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DdosCustomPolicy)(nil))
+	return reflect.TypeOf((**DdosCustomPolicy)(nil)).Elem()
 }
 
 func (o DdosCustomPolicyOutput) ToDdosCustomPolicyOutput() DdosCustomPolicyOutput {

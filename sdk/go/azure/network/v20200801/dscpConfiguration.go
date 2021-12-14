@@ -137,7 +137,7 @@ type DscpConfigurationInput interface {
 }
 
 func (*DscpConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscpConfiguration)(nil))
+	return reflect.TypeOf((**DscpConfiguration)(nil)).Elem()
 }
 
 func (i *DscpConfiguration) ToDscpConfigurationOutput() DscpConfigurationOutput {
@@ -151,7 +151,7 @@ func (i *DscpConfiguration) ToDscpConfigurationOutputWithContext(ctx context.Con
 type DscpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DscpConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscpConfiguration)(nil))
+	return reflect.TypeOf((**DscpConfiguration)(nil)).Elem()
 }
 
 func (o DscpConfigurationOutput) ToDscpConfigurationOutput() DscpConfigurationOutput {

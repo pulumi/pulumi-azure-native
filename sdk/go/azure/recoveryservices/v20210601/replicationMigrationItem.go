@@ -134,7 +134,7 @@ type ReplicationMigrationItemInput interface {
 }
 
 func (*ReplicationMigrationItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationMigrationItem)(nil))
+	return reflect.TypeOf((**ReplicationMigrationItem)(nil)).Elem()
 }
 
 func (i *ReplicationMigrationItem) ToReplicationMigrationItemOutput() ReplicationMigrationItemOutput {
@@ -148,7 +148,7 @@ func (i *ReplicationMigrationItem) ToReplicationMigrationItemOutputWithContext(c
 type ReplicationMigrationItemOutput struct{ *pulumi.OutputState }
 
 func (ReplicationMigrationItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationMigrationItem)(nil))
+	return reflect.TypeOf((**ReplicationMigrationItem)(nil)).Elem()
 }
 
 func (o ReplicationMigrationItemOutput) ToReplicationMigrationItemOutput() ReplicationMigrationItemOutput {

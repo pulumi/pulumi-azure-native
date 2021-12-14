@@ -111,7 +111,7 @@ type IntegrationAccountBatchConfigurationInput interface {
 }
 
 func (*IntegrationAccountBatchConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountBatchConfiguration)(nil))
+	return reflect.TypeOf((**IntegrationAccountBatchConfiguration)(nil)).Elem()
 }
 
 func (i *IntegrationAccountBatchConfiguration) ToIntegrationAccountBatchConfigurationOutput() IntegrationAccountBatchConfigurationOutput {
@@ -125,7 +125,7 @@ func (i *IntegrationAccountBatchConfiguration) ToIntegrationAccountBatchConfigur
 type IntegrationAccountBatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountBatchConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IntegrationAccountBatchConfiguration)(nil))
+	return reflect.TypeOf((**IntegrationAccountBatchConfiguration)(nil)).Elem()
 }
 
 func (o IntegrationAccountBatchConfigurationOutput) ToIntegrationAccountBatchConfigurationOutput() IntegrationAccountBatchConfigurationOutput {

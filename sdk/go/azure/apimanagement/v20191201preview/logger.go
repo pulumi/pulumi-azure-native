@@ -150,7 +150,7 @@ type LoggerInput interface {
 }
 
 func (*Logger) ElementType() reflect.Type {
-	return reflect.TypeOf((*Logger)(nil))
+	return reflect.TypeOf((**Logger)(nil)).Elem()
 }
 
 func (i *Logger) ToLoggerOutput() LoggerOutput {
@@ -164,7 +164,7 @@ func (i *Logger) ToLoggerOutputWithContext(ctx context.Context) LoggerOutput {
 type LoggerOutput struct{ *pulumi.OutputState }
 
 func (LoggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Logger)(nil))
+	return reflect.TypeOf((**Logger)(nil)).Elem()
 }
 
 func (o LoggerOutput) ToLoggerOutput() LoggerOutput {

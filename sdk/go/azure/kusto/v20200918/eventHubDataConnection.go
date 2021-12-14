@@ -160,7 +160,7 @@ type EventHubDataConnectionInput interface {
 }
 
 func (*EventHubDataConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubDataConnection)(nil))
+	return reflect.TypeOf((**EventHubDataConnection)(nil)).Elem()
 }
 
 func (i *EventHubDataConnection) ToEventHubDataConnectionOutput() EventHubDataConnectionOutput {
@@ -174,7 +174,7 @@ func (i *EventHubDataConnection) ToEventHubDataConnectionOutputWithContext(ctx c
 type EventHubDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventHubDataConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventHubDataConnection)(nil))
+	return reflect.TypeOf((**EventHubDataConnection)(nil)).Elem()
 }
 
 func (o EventHubDataConnectionOutput) ToEventHubDataConnectionOutput() EventHubDataConnectionOutput {

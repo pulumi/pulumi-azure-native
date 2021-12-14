@@ -297,6 +297,19 @@ type ActiveDirectory struct {
 }
 
 
+func (val *ActiveDirectory) Defaults() *ActiveDirectory {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.OrganizationalUnit) {
+		organizationalUnit_ := "CN=Computers"
+		tmp.OrganizationalUnit = &organizationalUnit_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -486,6 +499,19 @@ type ActiveDirectoryResponse struct {
 	Status                     string   `pulumi:"status"`
 	StatusDetails              string   `pulumi:"statusDetails"`
 	Username                   *string  `pulumi:"username"`
+}
+
+
+func (val *ActiveDirectoryResponse) Defaults() *ActiveDirectoryResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.OrganizationalUnit) {
+		organizationalUnit_ := "CN=Computers"
+		tmp.OrganizationalUnit = &organizationalUnit_
+	}
+	return &tmp
 }
 
 
@@ -1042,6 +1068,43 @@ type ExportPolicyRule struct {
 }
 
 
+func (val *ExportPolicyRule) Defaults() *ExportPolicyRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HasRootAccess) {
+		hasRootAccess_ := true
+		tmp.HasRootAccess = &hasRootAccess_
+	}
+	if isZero(tmp.Kerberos5ReadOnly) {
+		kerberos5ReadOnly_ := false
+		tmp.Kerberos5ReadOnly = &kerberos5ReadOnly_
+	}
+	if isZero(tmp.Kerberos5ReadWrite) {
+		kerberos5ReadWrite_ := false
+		tmp.Kerberos5ReadWrite = &kerberos5ReadWrite_
+	}
+	if isZero(tmp.Kerberos5iReadOnly) {
+		kerberos5iReadOnly_ := false
+		tmp.Kerberos5iReadOnly = &kerberos5iReadOnly_
+	}
+	if isZero(tmp.Kerberos5iReadWrite) {
+		kerberos5iReadWrite_ := false
+		tmp.Kerberos5iReadWrite = &kerberos5iReadWrite_
+	}
+	if isZero(tmp.Kerberos5pReadOnly) {
+		kerberos5pReadOnly_ := false
+		tmp.Kerberos5pReadOnly = &kerberos5pReadOnly_
+	}
+	if isZero(tmp.Kerberos5pReadWrite) {
+		kerberos5pReadWrite_ := false
+		tmp.Kerberos5pReadWrite = &kerberos5pReadWrite_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1211,6 +1274,43 @@ type ExportPolicyRuleResponse struct {
 	RuleIndex           *int    `pulumi:"ruleIndex"`
 	UnixReadOnly        *bool   `pulumi:"unixReadOnly"`
 	UnixReadWrite       *bool   `pulumi:"unixReadWrite"`
+}
+
+
+func (val *ExportPolicyRuleResponse) Defaults() *ExportPolicyRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HasRootAccess) {
+		hasRootAccess_ := true
+		tmp.HasRootAccess = &hasRootAccess_
+	}
+	if isZero(tmp.Kerberos5ReadOnly) {
+		kerberos5ReadOnly_ := false
+		tmp.Kerberos5ReadOnly = &kerberos5ReadOnly_
+	}
+	if isZero(tmp.Kerberos5ReadWrite) {
+		kerberos5ReadWrite_ := false
+		tmp.Kerberos5ReadWrite = &kerberos5ReadWrite_
+	}
+	if isZero(tmp.Kerberos5iReadOnly) {
+		kerberos5iReadOnly_ := false
+		tmp.Kerberos5iReadOnly = &kerberos5iReadOnly_
+	}
+	if isZero(tmp.Kerberos5iReadWrite) {
+		kerberos5iReadWrite_ := false
+		tmp.Kerberos5iReadWrite = &kerberos5iReadWrite_
+	}
+	if isZero(tmp.Kerberos5pReadOnly) {
+		kerberos5pReadOnly_ := false
+		tmp.Kerberos5pReadOnly = &kerberos5pReadOnly_
+	}
+	if isZero(tmp.Kerberos5pReadWrite) {
+		kerberos5pReadWrite_ := false
+		tmp.Kerberos5pReadWrite = &kerberos5pReadWrite_
+	}
+	return &tmp
 }
 
 

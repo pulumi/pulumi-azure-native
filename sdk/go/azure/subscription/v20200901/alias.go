@@ -95,7 +95,7 @@ type AliasInput interface {
 }
 
 func (*Alias) ElementType() reflect.Type {
-	return reflect.TypeOf((*Alias)(nil))
+	return reflect.TypeOf((**Alias)(nil)).Elem()
 }
 
 func (i *Alias) ToAliasOutput() AliasOutput {
@@ -109,7 +109,7 @@ func (i *Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 type AliasOutput struct{ *pulumi.OutputState }
 
 func (AliasOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Alias)(nil))
+	return reflect.TypeOf((**Alias)(nil)).Elem()
 }
 
 func (o AliasOutput) ToAliasOutput() AliasOutput {

@@ -139,7 +139,7 @@ type WorkloadClassifierInput interface {
 }
 
 func (*WorkloadClassifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadClassifier)(nil))
+	return reflect.TypeOf((**WorkloadClassifier)(nil)).Elem()
 }
 
 func (i *WorkloadClassifier) ToWorkloadClassifierOutput() WorkloadClassifierOutput {
@@ -153,7 +153,7 @@ func (i *WorkloadClassifier) ToWorkloadClassifierOutputWithContext(ctx context.C
 type WorkloadClassifierOutput struct{ *pulumi.OutputState }
 
 func (WorkloadClassifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadClassifier)(nil))
+	return reflect.TypeOf((**WorkloadClassifier)(nil)).Elem()
 }
 
 func (o WorkloadClassifierOutput) ToWorkloadClassifierOutput() WorkloadClassifierOutput {

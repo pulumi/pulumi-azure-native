@@ -134,7 +134,7 @@ type NotificationHubInput interface {
 }
 
 func (*NotificationHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationHub)(nil))
+	return reflect.TypeOf((**NotificationHub)(nil)).Elem()
 }
 
 func (i *NotificationHub) ToNotificationHubOutput() NotificationHubOutput {
@@ -148,7 +148,7 @@ func (i *NotificationHub) ToNotificationHubOutputWithContext(ctx context.Context
 type NotificationHubOutput struct{ *pulumi.OutputState }
 
 func (NotificationHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationHub)(nil))
+	return reflect.TypeOf((**NotificationHub)(nil)).Elem()
 }
 
 func (o NotificationHubOutput) ToNotificationHubOutput() NotificationHubOutput {

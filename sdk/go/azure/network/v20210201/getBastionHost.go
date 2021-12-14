@@ -13,7 +13,7 @@ func LookupBastionHost(ctx *pulumi.Context, args *LookupBastionHostArgs, opts ..
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBastionHostArgs struct {
@@ -33,4 +33,15 @@ type LookupBastionHostResult struct {
 	Sku               *SkuResponse                         `pulumi:"sku"`
 	Tags              map[string]string                    `pulumi:"tags"`
 	Type              string                               `pulumi:"type"`
+}
+
+
+func (val *LookupBastionHostResult) Defaults() *LookupBastionHostResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Sku = tmp.Sku.Defaults()
+
+	return &tmp
 }

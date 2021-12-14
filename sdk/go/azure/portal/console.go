@@ -87,7 +87,7 @@ type ConsoleInput interface {
 }
 
 func (*Console) ElementType() reflect.Type {
-	return reflect.TypeOf((*Console)(nil))
+	return reflect.TypeOf((**Console)(nil)).Elem()
 }
 
 func (i *Console) ToConsoleOutput() ConsoleOutput {
@@ -101,7 +101,7 @@ func (i *Console) ToConsoleOutputWithContext(ctx context.Context) ConsoleOutput 
 type ConsoleOutput struct{ *pulumi.OutputState }
 
 func (ConsoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Console)(nil))
+	return reflect.TypeOf((**Console)(nil)).Elem()
 }
 
 func (o ConsoleOutput) ToConsoleOutput() ConsoleOutput {

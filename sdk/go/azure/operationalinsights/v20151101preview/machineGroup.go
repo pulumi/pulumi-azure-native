@@ -118,7 +118,7 @@ type MachineGroupInput interface {
 }
 
 func (*MachineGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineGroup)(nil))
+	return reflect.TypeOf((**MachineGroup)(nil)).Elem()
 }
 
 func (i *MachineGroup) ToMachineGroupOutput() MachineGroupOutput {
@@ -132,7 +132,7 @@ func (i *MachineGroup) ToMachineGroupOutputWithContext(ctx context.Context) Mach
 type MachineGroupOutput struct{ *pulumi.OutputState }
 
 func (MachineGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineGroup)(nil))
+	return reflect.TypeOf((**MachineGroup)(nil)).Elem()
 }
 
 func (o MachineGroupOutput) ToMachineGroupOutput() MachineGroupOutput {

@@ -13,7 +13,7 @@ func LookupZone(ctx *pulumi.Context, args *LookupZoneArgs, opts ...pulumi.Invoke
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupZoneArgs struct {
@@ -34,4 +34,17 @@ type LookupZoneResult struct {
 	Tags                           map[string]string `pulumi:"tags"`
 	Type                           string            `pulumi:"type"`
 	ZoneType                       *string           `pulumi:"zoneType"`
+}
+
+
+func (val *LookupZoneResult) Defaults() *LookupZoneResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ZoneType) {
+		zoneType_ := "Public"
+		tmp.ZoneType = &zoneType_
+	}
+	return &tmp
 }

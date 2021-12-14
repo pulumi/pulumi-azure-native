@@ -106,7 +106,7 @@ type HubInput interface {
 }
 
 func (*Hub) ElementType() reflect.Type {
-	return reflect.TypeOf((*Hub)(nil))
+	return reflect.TypeOf((**Hub)(nil)).Elem()
 }
 
 func (i *Hub) ToHubOutput() HubOutput {
@@ -120,7 +120,7 @@ func (i *Hub) ToHubOutputWithContext(ctx context.Context) HubOutput {
 type HubOutput struct{ *pulumi.OutputState }
 
 func (HubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Hub)(nil))
+	return reflect.TypeOf((**Hub)(nil)).Elem()
 }
 
 func (o HubOutput) ToHubOutput() HubOutput {

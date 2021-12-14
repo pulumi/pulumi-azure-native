@@ -13,7 +13,7 @@ func LookupFormula(ctx *pulumi.Context, args *LookupFormulaArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupFormulaArgs struct {
@@ -38,4 +38,15 @@ type LookupFormulaResult struct {
 	Type              string                                      `pulumi:"type"`
 	UniqueIdentifier  string                                      `pulumi:"uniqueIdentifier"`
 	Vm                *FormulaPropertiesFromVmResponse            `pulumi:"vm"`
+}
+
+
+func (val *LookupFormulaResult) Defaults() *LookupFormulaResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.FormulaContent = tmp.FormulaContent.Defaults()
+
+	return &tmp
 }

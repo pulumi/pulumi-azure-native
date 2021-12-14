@@ -114,7 +114,7 @@ type MHSMPrivateEndpointConnectionInput interface {
 }
 
 func (*MHSMPrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*MHSMPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**MHSMPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (i *MHSMPrivateEndpointConnection) ToMHSMPrivateEndpointConnectionOutput() MHSMPrivateEndpointConnectionOutput {
@@ -128,7 +128,7 @@ func (i *MHSMPrivateEndpointConnection) ToMHSMPrivateEndpointConnectionOutputWit
 type MHSMPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (MHSMPrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MHSMPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**MHSMPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (o MHSMPrivateEndpointConnectionOutput) ToMHSMPrivateEndpointConnectionOutput() MHSMPrivateEndpointConnectionOutput {

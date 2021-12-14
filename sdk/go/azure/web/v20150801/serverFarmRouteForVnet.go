@@ -150,7 +150,7 @@ type ServerFarmRouteForVnetInput interface {
 }
 
 func (*ServerFarmRouteForVnet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFarmRouteForVnet)(nil))
+	return reflect.TypeOf((**ServerFarmRouteForVnet)(nil)).Elem()
 }
 
 func (i *ServerFarmRouteForVnet) ToServerFarmRouteForVnetOutput() ServerFarmRouteForVnetOutput {
@@ -164,7 +164,7 @@ func (i *ServerFarmRouteForVnet) ToServerFarmRouteForVnetOutputWithContext(ctx c
 type ServerFarmRouteForVnetOutput struct{ *pulumi.OutputState }
 
 func (ServerFarmRouteForVnetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFarmRouteForVnet)(nil))
+	return reflect.TypeOf((**ServerFarmRouteForVnet)(nil)).Elem()
 }
 
 func (o ServerFarmRouteForVnetOutput) ToServerFarmRouteForVnetOutput() ServerFarmRouteForVnetOutput {

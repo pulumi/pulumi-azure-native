@@ -113,7 +113,7 @@ type WorkloadNetworkVMGroupInput interface {
 }
 
 func (*WorkloadNetworkVMGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkVMGroup)(nil))
+	return reflect.TypeOf((**WorkloadNetworkVMGroup)(nil)).Elem()
 }
 
 func (i *WorkloadNetworkVMGroup) ToWorkloadNetworkVMGroupOutput() WorkloadNetworkVMGroupOutput {
@@ -127,7 +127,7 @@ func (i *WorkloadNetworkVMGroup) ToWorkloadNetworkVMGroupOutputWithContext(ctx c
 type WorkloadNetworkVMGroupOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkVMGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkVMGroup)(nil))
+	return reflect.TypeOf((**WorkloadNetworkVMGroup)(nil)).Elem()
 }
 
 func (o WorkloadNetworkVMGroupOutput) ToWorkloadNetworkVMGroupOutput() WorkloadNetworkVMGroupOutput {

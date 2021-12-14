@@ -113,7 +113,7 @@ type UebaInput interface {
 }
 
 func (*Ueba) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ueba)(nil))
+	return reflect.TypeOf((**Ueba)(nil)).Elem()
 }
 
 func (i *Ueba) ToUebaOutput() UebaOutput {
@@ -127,7 +127,7 @@ func (i *Ueba) ToUebaOutputWithContext(ctx context.Context) UebaOutput {
 type UebaOutput struct{ *pulumi.OutputState }
 
 func (UebaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ueba)(nil))
+	return reflect.TypeOf((**Ueba)(nil)).Elem()
 }
 
 func (o UebaOutput) ToUebaOutput() UebaOutput {

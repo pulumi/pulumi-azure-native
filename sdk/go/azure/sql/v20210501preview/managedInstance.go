@@ -188,7 +188,7 @@ type ManagedInstanceInput interface {
 }
 
 func (*ManagedInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstance)(nil))
+	return reflect.TypeOf((**ManagedInstance)(nil)).Elem()
 }
 
 func (i *ManagedInstance) ToManagedInstanceOutput() ManagedInstanceOutput {
@@ -202,7 +202,7 @@ func (i *ManagedInstance) ToManagedInstanceOutputWithContext(ctx context.Context
 type ManagedInstanceOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstance)(nil))
+	return reflect.TypeOf((**ManagedInstance)(nil)).Elem()
 }
 
 func (o ManagedInstanceOutput) ToManagedInstanceOutput() ManagedInstanceOutput {

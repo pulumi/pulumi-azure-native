@@ -13,7 +13,7 @@ func LookupFluxConfiguration(ctx *pulumi.Context, args *LookupFluxConfigurationA
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupFluxConfigurationArgs struct {
@@ -44,4 +44,23 @@ type LookupFluxConfigurationResult struct {
 	Suspend                        *bool                                      `pulumi:"suspend"`
 	SystemData                     SystemDataResponse                         `pulumi:"systemData"`
 	Type                           string                                     `pulumi:"type"`
+}
+
+
+func (val *LookupFluxConfigurationResult) Defaults() *LookupFluxConfigurationResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.GitRepository = tmp.GitRepository.Defaults()
+
+	if isZero(tmp.Namespace) {
+		namespace_ := "default"
+		tmp.Namespace = &namespace_
+	}
+	if isZero(tmp.Suspend) {
+		suspend_ := false
+		tmp.Suspend = &suspend_
+	}
+	return &tmp
 }

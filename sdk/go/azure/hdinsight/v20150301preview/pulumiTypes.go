@@ -2703,6 +2703,23 @@ type ClusterCreateProperties struct {
 }
 
 
+func (val *ClusterCreateProperties) Defaults() *ClusterCreateProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DiskEncryptionProperties = tmp.DiskEncryptionProperties.Defaults()
+
+	tmp.EncryptionInTransitProperties = tmp.EncryptionInTransitProperties.Defaults()
+
+	if isZero(tmp.Tier) {
+		tier_ := Tier("Standard")
+		tmp.Tier = &tier_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3378,6 +3395,19 @@ type ClusterGetPropertiesResponse struct {
 	SecurityProfile               *SecurityProfileResponse               `pulumi:"securityProfile"`
 	StorageProfile                *StorageProfileResponse                `pulumi:"storageProfile"`
 	Tier                          *string                                `pulumi:"tier"`
+}
+
+
+func (val *ClusterGetPropertiesResponse) Defaults() *ClusterGetPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DiskEncryptionProperties = tmp.DiskEncryptionProperties.Defaults()
+
+	tmp.EncryptionInTransitProperties = tmp.EncryptionInTransitProperties.Defaults()
+
+	return &tmp
 }
 
 
@@ -5229,6 +5259,19 @@ type DiskEncryptionProperties struct {
 }
 
 
+func (val *DiskEncryptionProperties) Defaults() *DiskEncryptionProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptionAtHost) {
+		encryptionAtHost_ := false
+		tmp.EncryptionAtHost = &encryptionAtHost_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -5437,6 +5480,19 @@ type DiskEncryptionPropertiesResponse struct {
 }
 
 
+func (val *DiskEncryptionPropertiesResponse) Defaults() *DiskEncryptionPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptionAtHost) {
+		encryptionAtHost_ := false
+		tmp.EncryptionAtHost = &encryptionAtHost_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -5640,6 +5696,19 @@ type EncryptionInTransitProperties struct {
 }
 
 
+func (val *EncryptionInTransitProperties) Defaults() *EncryptionInTransitProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEncryptionInTransitEnabled) {
+		isEncryptionInTransitEnabled_ := false
+		tmp.IsEncryptionInTransitEnabled = &isEncryptionInTransitEnabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -5770,6 +5839,19 @@ func (o EncryptionInTransitPropertiesPtrOutput) IsEncryptionInTransitEnabled() p
 
 type EncryptionInTransitPropertiesResponse struct {
 	IsEncryptionInTransitEnabled *bool `pulumi:"isEncryptionInTransitEnabled"`
+}
+
+
+func (val *EncryptionInTransitPropertiesResponse) Defaults() *EncryptionInTransitPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsEncryptionInTransitEnabled) {
+		isEncryptionInTransitEnabled_ := false
+		tmp.IsEncryptionInTransitEnabled = &isEncryptionInTransitEnabled_
+	}
+	return &tmp
 }
 
 
@@ -7847,6 +7929,19 @@ type Role struct {
 }
 
 
+func (val *Role) Defaults() *Role {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptDataDisks) {
+		encryptDataDisks_ := false
+		tmp.EncryptDataDisks = &encryptDataDisks_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -7998,6 +8093,19 @@ type RoleResponse struct {
 	TargetInstanceCount    *int                           `pulumi:"targetInstanceCount"`
 	VMGroupName            *string                        `pulumi:"vMGroupName"`
 	VirtualNetworkProfile  *VirtualNetworkProfileResponse `pulumi:"virtualNetworkProfile"`
+}
+
+
+func (val *RoleResponse) Defaults() *RoleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptDataDisks) {
+		encryptDataDisks_ := false
+		tmp.EncryptDataDisks = &encryptDataDisks_
+	}
+	return &tmp
 }
 
 

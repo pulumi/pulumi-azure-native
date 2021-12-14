@@ -52,7 +52,7 @@ func NewJobDefinition(ctx *pulumi.Context,
 	if args.State == nil {
 		return nil, errors.New("invalid value for required argument 'State'")
 	}
-	if args.UserConfirmation == nil {
+	if isZero(args.UserConfirmation) {
 		args.UserConfirmation = UserConfirmation("NotRequired")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -140,7 +140,7 @@ type JobDefinitionInput interface {
 }
 
 func (*JobDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinition)(nil))
+	return reflect.TypeOf((**JobDefinition)(nil)).Elem()
 }
 
 func (i *JobDefinition) ToJobDefinitionOutput() JobDefinitionOutput {
@@ -154,7 +154,7 @@ func (i *JobDefinition) ToJobDefinitionOutputWithContext(ctx context.Context) Jo
 type JobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (JobDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinition)(nil))
+	return reflect.TypeOf((**JobDefinition)(nil)).Elem()
 }
 
 func (o JobDefinitionOutput) ToJobDefinitionOutput() JobDefinitionOutput {

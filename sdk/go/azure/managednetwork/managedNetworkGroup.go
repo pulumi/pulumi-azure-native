@@ -113,7 +113,7 @@ type ManagedNetworkGroupInput interface {
 }
 
 func (*ManagedNetworkGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetworkGroup)(nil))
+	return reflect.TypeOf((**ManagedNetworkGroup)(nil)).Elem()
 }
 
 func (i *ManagedNetworkGroup) ToManagedNetworkGroupOutput() ManagedNetworkGroupOutput {
@@ -127,7 +127,7 @@ func (i *ManagedNetworkGroup) ToManagedNetworkGroupOutputWithContext(ctx context
 type ManagedNetworkGroupOutput struct{ *pulumi.OutputState }
 
 func (ManagedNetworkGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedNetworkGroup)(nil))
+	return reflect.TypeOf((**ManagedNetworkGroup)(nil)).Elem()
 }
 
 func (o ManagedNetworkGroupOutput) ToManagedNetworkGroupOutput() ManagedNetworkGroupOutput {

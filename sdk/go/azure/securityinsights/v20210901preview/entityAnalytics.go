@@ -111,7 +111,7 @@ type EntityAnalyticsInput interface {
 }
 
 func (*EntityAnalytics) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityAnalytics)(nil))
+	return reflect.TypeOf((**EntityAnalytics)(nil)).Elem()
 }
 
 func (i *EntityAnalytics) ToEntityAnalyticsOutput() EntityAnalyticsOutput {
@@ -125,7 +125,7 @@ func (i *EntityAnalytics) ToEntityAnalyticsOutputWithContext(ctx context.Context
 type EntityAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (EntityAnalyticsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityAnalytics)(nil))
+	return reflect.TypeOf((**EntityAnalytics)(nil)).Elem()
 }
 
 func (o EntityAnalyticsOutput) ToEntityAnalyticsOutput() EntityAnalyticsOutput {

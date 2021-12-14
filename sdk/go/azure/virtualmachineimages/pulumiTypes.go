@@ -19,6 +19,19 @@ type ImageTemplateFileCustomizer struct {
 }
 
 
+func (val *ImageTemplateFileCustomizer) Defaults() *ImageTemplateFileCustomizer {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Sha256Checksum) {
+		sha256Checksum_ := ""
+		tmp.Sha256Checksum = &sha256Checksum_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -89,6 +102,19 @@ type ImageTemplateFileCustomizerResponse struct {
 	Sha256Checksum *string `pulumi:"sha256Checksum"`
 	SourceUri      *string `pulumi:"sourceUri"`
 	Type           string  `pulumi:"type"`
+}
+
+
+func (val *ImageTemplateFileCustomizerResponse) Defaults() *ImageTemplateFileCustomizerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Sha256Checksum) {
+		sha256Checksum_ := ""
+		tmp.Sha256Checksum = &sha256Checksum_
+	}
+	return &tmp
 }
 
 
@@ -1173,6 +1199,27 @@ type ImageTemplatePowerShellCustomizer struct {
 }
 
 
+func (val *ImageTemplatePowerShellCustomizer) Defaults() *ImageTemplatePowerShellCustomizer {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RunAsSystem) {
+		runAsSystem_ := false
+		tmp.RunAsSystem = &runAsSystem_
+	}
+	if isZero(tmp.RunElevated) {
+		runElevated_ := false
+		tmp.RunElevated = &runElevated_
+	}
+	if isZero(tmp.Sha256Checksum) {
+		sha256Checksum_ := ""
+		tmp.Sha256Checksum = &sha256Checksum_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1261,6 +1308,27 @@ type ImageTemplatePowerShellCustomizerResponse struct {
 	Sha256Checksum *string  `pulumi:"sha256Checksum"`
 	Type           string   `pulumi:"type"`
 	ValidExitCodes []int    `pulumi:"validExitCodes"`
+}
+
+
+func (val *ImageTemplatePowerShellCustomizerResponse) Defaults() *ImageTemplatePowerShellCustomizerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.RunAsSystem) {
+		runAsSystem_ := false
+		tmp.RunAsSystem = &runAsSystem_
+	}
+	if isZero(tmp.RunElevated) {
+		runElevated_ := false
+		tmp.RunElevated = &runElevated_
+	}
+	if isZero(tmp.Sha256Checksum) {
+		sha256Checksum_ := ""
+		tmp.Sha256Checksum = &sha256Checksum_
+	}
+	return &tmp
 }
 
 
@@ -1500,6 +1568,19 @@ type ImageTemplateSharedImageDistributor struct {
 }
 
 
+func (val *ImageTemplateSharedImageDistributor) Defaults() *ImageTemplateSharedImageDistributor {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExcludeFromLatest) {
+		excludeFromLatest_ := false
+		tmp.ExcludeFromLatest = &excludeFromLatest_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1582,6 +1663,19 @@ type ImageTemplateSharedImageDistributorResponse struct {
 	RunOutputName      string            `pulumi:"runOutputName"`
 	StorageAccountType *string           `pulumi:"storageAccountType"`
 	Type               string            `pulumi:"type"`
+}
+
+
+func (val *ImageTemplateSharedImageDistributorResponse) Defaults() *ImageTemplateSharedImageDistributorResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ExcludeFromLatest) {
+		excludeFromLatest_ := false
+		tmp.ExcludeFromLatest = &excludeFromLatest_
+	}
+	return &tmp
 }
 
 
@@ -1778,6 +1872,19 @@ type ImageTemplateShellCustomizer struct {
 }
 
 
+func (val *ImageTemplateShellCustomizer) Defaults() *ImageTemplateShellCustomizer {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Sha256Checksum) {
+		sha256Checksum_ := ""
+		tmp.Sha256Checksum = &sha256Checksum_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1848,6 +1955,19 @@ type ImageTemplateShellCustomizerResponse struct {
 	ScriptUri      *string  `pulumi:"scriptUri"`
 	Sha256Checksum *string  `pulumi:"sha256Checksum"`
 	Type           string   `pulumi:"type"`
+}
+
+
+func (val *ImageTemplateShellCustomizerResponse) Defaults() *ImageTemplateShellCustomizerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Sha256Checksum) {
+		sha256Checksum_ := ""
+		tmp.Sha256Checksum = &sha256Checksum_
+	}
+	return &tmp
 }
 
 
@@ -2044,6 +2164,23 @@ type ImageTemplateVmProfile struct {
 }
 
 
+func (val *ImageTemplateVmProfile) Defaults() *ImageTemplateVmProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.OsDiskSizeGB) {
+		osDiskSizeGB_ := 0
+		tmp.OsDiskSizeGB = &osDiskSizeGB_
+	}
+	if isZero(tmp.VmSize) {
+		vmSize_ := ""
+		tmp.VmSize = &vmSize_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2204,6 +2341,23 @@ type ImageTemplateVmProfileResponse struct {
 	OsDiskSizeGB *int                          `pulumi:"osDiskSizeGB"`
 	VmSize       *string                       `pulumi:"vmSize"`
 	VnetConfig   *VirtualNetworkConfigResponse `pulumi:"vnetConfig"`
+}
+
+
+func (val *ImageTemplateVmProfileResponse) Defaults() *ImageTemplateVmProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.OsDiskSizeGB) {
+		osDiskSizeGB_ := 0
+		tmp.OsDiskSizeGB = &osDiskSizeGB_
+	}
+	if isZero(tmp.VmSize) {
+		vmSize_ := ""
+		tmp.VmSize = &vmSize_
+	}
+	return &tmp
 }
 
 

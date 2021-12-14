@@ -96,7 +96,7 @@ type ComponentLinkedStorageAccountInput interface {
 }
 
 func (*ComponentLinkedStorageAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentLinkedStorageAccount)(nil))
+	return reflect.TypeOf((**ComponentLinkedStorageAccount)(nil)).Elem()
 }
 
 func (i *ComponentLinkedStorageAccount) ToComponentLinkedStorageAccountOutput() ComponentLinkedStorageAccountOutput {
@@ -110,7 +110,7 @@ func (i *ComponentLinkedStorageAccount) ToComponentLinkedStorageAccountOutputWit
 type ComponentLinkedStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (ComponentLinkedStorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComponentLinkedStorageAccount)(nil))
+	return reflect.TypeOf((**ComponentLinkedStorageAccount)(nil)).Elem()
 }
 
 func (o ComponentLinkedStorageAccountOutput) ToComponentLinkedStorageAccountOutput() ComponentLinkedStorageAccountOutput {

@@ -127,7 +127,7 @@ type RemediationAtManagementGroupInput interface {
 }
 
 func (*RemediationAtManagementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtManagementGroup)(nil))
+	return reflect.TypeOf((**RemediationAtManagementGroup)(nil)).Elem()
 }
 
 func (i *RemediationAtManagementGroup) ToRemediationAtManagementGroupOutput() RemediationAtManagementGroupOutput {
@@ -141,7 +141,7 @@ func (i *RemediationAtManagementGroup) ToRemediationAtManagementGroupOutputWithC
 type RemediationAtManagementGroupOutput struct{ *pulumi.OutputState }
 
 func (RemediationAtManagementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationAtManagementGroup)(nil))
+	return reflect.TypeOf((**RemediationAtManagementGroup)(nil)).Elem()
 }
 
 func (o RemediationAtManagementGroupOutput) ToRemediationAtManagementGroupOutput() RemediationAtManagementGroupOutput {

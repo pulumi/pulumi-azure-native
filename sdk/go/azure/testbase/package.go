@@ -143,7 +143,7 @@ type PackageInput interface {
 }
 
 func (*Package) ElementType() reflect.Type {
-	return reflect.TypeOf((*Package)(nil))
+	return reflect.TypeOf((**Package)(nil)).Elem()
 }
 
 func (i *Package) ToPackageOutput() PackageOutput {
@@ -157,7 +157,7 @@ func (i *Package) ToPackageOutputWithContext(ctx context.Context) PackageOutput 
 type PackageOutput struct{ *pulumi.OutputState }
 
 func (PackageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Package)(nil))
+	return reflect.TypeOf((**Package)(nil)).Elem()
 }
 
 func (o PackageOutput) ToPackageOutput() PackageOutput {

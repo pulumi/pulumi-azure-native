@@ -161,7 +161,7 @@ type WebAppDeploymentSlotInput interface {
 }
 
 func (*WebAppDeploymentSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDeploymentSlot)(nil))
+	return reflect.TypeOf((**WebAppDeploymentSlot)(nil)).Elem()
 }
 
 func (i *WebAppDeploymentSlot) ToWebAppDeploymentSlotOutput() WebAppDeploymentSlotOutput {
@@ -175,7 +175,7 @@ func (i *WebAppDeploymentSlot) ToWebAppDeploymentSlotOutputWithContext(ctx conte
 type WebAppDeploymentSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppDeploymentSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDeploymentSlot)(nil))
+	return reflect.TypeOf((**WebAppDeploymentSlot)(nil)).Elem()
 }
 
 func (o WebAppDeploymentSlotOutput) ToWebAppDeploymentSlotOutput() WebAppDeploymentSlotOutput {

@@ -103,7 +103,7 @@ type BandwidthSettingInput interface {
 }
 
 func (*BandwidthSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*BandwidthSetting)(nil))
+	return reflect.TypeOf((**BandwidthSetting)(nil)).Elem()
 }
 
 func (i *BandwidthSetting) ToBandwidthSettingOutput() BandwidthSettingOutput {
@@ -117,7 +117,7 @@ func (i *BandwidthSetting) ToBandwidthSettingOutputWithContext(ctx context.Conte
 type BandwidthSettingOutput struct{ *pulumi.OutputState }
 
 func (BandwidthSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BandwidthSetting)(nil))
+	return reflect.TypeOf((**BandwidthSetting)(nil)).Elem()
 }
 
 func (o BandwidthSettingOutput) ToBandwidthSettingOutput() BandwidthSettingOutput {

@@ -13,7 +13,7 @@ func LookupIoMAMPolicyByName(ctx *pulumi.Context, args *LookupIoMAMPolicyByNameA
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupIoMAMPolicyByNameArgs struct {
@@ -49,4 +49,60 @@ type LookupIoMAMPolicyByNameResult struct {
 	Tags                        map[string]string `pulumi:"tags"`
 	TouchId                     *string           `pulumi:"touchId"`
 	Type                        string            `pulumi:"type"`
+}
+
+
+func (val *LookupIoMAMPolicyByNameResult) Defaults() *LookupIoMAMPolicyByNameResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AppSharingFromLevel) {
+		appSharingFromLevel_ := "none"
+		tmp.AppSharingFromLevel = &appSharingFromLevel_
+	}
+	if isZero(tmp.AppSharingToLevel) {
+		appSharingToLevel_ := "none"
+		tmp.AppSharingToLevel = &appSharingToLevel_
+	}
+	if isZero(tmp.Authentication) {
+		authentication_ := "required"
+		tmp.Authentication = &authentication_
+	}
+	if isZero(tmp.ClipboardSharingLevel) {
+		clipboardSharingLevel_ := "blocked"
+		tmp.ClipboardSharingLevel = &clipboardSharingLevel_
+	}
+	if isZero(tmp.DataBackup) {
+		dataBackup_ := "allow"
+		tmp.DataBackup = &dataBackup_
+	}
+	if isZero(tmp.DeviceCompliance) {
+		deviceCompliance_ := "enable"
+		tmp.DeviceCompliance = &deviceCompliance_
+	}
+	if isZero(tmp.FileEncryptionLevel) {
+		fileEncryptionLevel_ := "deviceLocked"
+		tmp.FileEncryptionLevel = &fileEncryptionLevel_
+	}
+	if isZero(tmp.FileSharingSaveAs) {
+		fileSharingSaveAs_ := "allow"
+		tmp.FileSharingSaveAs = &fileSharingSaveAs_
+	}
+	if isZero(tmp.GroupStatus) {
+		tmp.GroupStatus = "notTargeted"
+	}
+	if isZero(tmp.ManagedBrowser) {
+		managedBrowser_ := "required"
+		tmp.ManagedBrowser = &managedBrowser_
+	}
+	if isZero(tmp.Pin) {
+		pin_ := "required"
+		tmp.Pin = &pin_
+	}
+	if isZero(tmp.TouchId) {
+		touchId_ := "enable"
+		tmp.TouchId = &touchId_
+	}
+	return &tmp
 }

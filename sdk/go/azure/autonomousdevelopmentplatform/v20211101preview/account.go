@@ -103,7 +103,7 @@ type AccountInput interface {
 }
 
 func (*Account) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (i *Account) ToAccountOutput() AccountOutput {
@@ -117,7 +117,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (o AccountOutput) ToAccountOutput() AccountOutput {

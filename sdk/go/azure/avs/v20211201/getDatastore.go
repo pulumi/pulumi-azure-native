@@ -13,7 +13,7 @@ func LookupDatastore(ctx *pulumi.Context, args *LookupDatastoreArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupDatastoreArgs struct {
@@ -32,4 +32,15 @@ type LookupDatastoreResult struct {
 	ProvisioningState string                  `pulumi:"provisioningState"`
 	Status            string                  `pulumi:"status"`
 	Type              string                  `pulumi:"type"`
+}
+
+
+func (val *LookupDatastoreResult) Defaults() *LookupDatastoreResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DiskPoolVolume = tmp.DiskPoolVolume.Defaults()
+
+	return &tmp
 }

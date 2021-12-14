@@ -13,7 +13,7 @@ func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.Invoke
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPoolArgs struct {
@@ -33,4 +33,21 @@ type LookupPoolResult struct {
 	Size              *float64    `pulumi:"size"`
 	Tags              interface{} `pulumi:"tags"`
 	Type              string      `pulumi:"type"`
+}
+
+
+func (val *LookupPoolResult) Defaults() *LookupPoolResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ServiceLevel) {
+		serviceLevel_ := "Premium"
+		tmp.ServiceLevel = &serviceLevel_
+	}
+	if isZero(tmp.Size) {
+		size_ := 4398046511104.0
+		tmp.Size = &size_
+	}
+	return &tmp
 }

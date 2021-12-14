@@ -3912,6 +3912,18 @@ type Encryption struct {
 }
 
 
+func (val *Encryption) Defaults() *Encryption {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		tmp.KeySource = "Microsoft.Storage"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4087,6 +4099,18 @@ type EncryptionResponse struct {
 	KeyVaultProperties              *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
 	RequireInfrastructureEncryption *bool                       `pulumi:"requireInfrastructureEncryption"`
 	Services                        *EncryptionServicesResponse `pulumi:"services"`
+}
+
+
+func (val *EncryptionResponse) Defaults() *EncryptionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.KeySource) {
+		tmp.KeySource = "Microsoft.Storage"
+	}
+	return &tmp
 }
 
 
@@ -5896,6 +5920,19 @@ type IPRule struct {
 }
 
 
+func (val *IPRule) Defaults() *IPRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := Action("Allow")
+		tmp.Action = &action_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -5993,6 +6030,19 @@ func (o IPRuleArrayOutput) Index(i pulumi.IntInput) IPRuleOutput {
 type IPRuleResponse struct {
 	Action           *string `pulumi:"action"`
 	IPAddressOrRange string  `pulumi:"iPAddressOrRange"`
+}
+
+
+func (val *IPRuleResponse) Defaults() *IPRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
 }
 
 
@@ -9770,6 +9820,22 @@ type NetworkRuleSet struct {
 }
 
 
+func (val *NetworkRuleSet) Defaults() *NetworkRuleSet {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Bypass) {
+		bypass_ := "AzureServices"
+		tmp.Bypass = &bypass_
+	}
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = DefaultAction("Allow")
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -9960,6 +10026,22 @@ type NetworkRuleSetResponse struct {
 	IpRules             []IPRuleResponse             `pulumi:"ipRules"`
 	ResourceAccessRules []ResourceAccessRuleResponse `pulumi:"resourceAccessRules"`
 	VirtualNetworkRules []VirtualNetworkRuleResponse `pulumi:"virtualNetworkRules"`
+}
+
+
+func (val *NetworkRuleSetResponse) Defaults() *NetworkRuleSetResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Bypass) {
+		bypass_ := "AzureServices"
+		tmp.Bypass = &bypass_
+	}
+	if isZero(tmp.DefaultAction) {
+		tmp.DefaultAction = "Allow"
+	}
+	return &tmp
 }
 
 
@@ -14078,6 +14160,19 @@ type VirtualNetworkRule struct {
 }
 
 
+func (val *VirtualNetworkRule) Defaults() *VirtualNetworkRule {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := Action("Allow")
+		tmp.Action = &action_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -14181,6 +14276,19 @@ type VirtualNetworkRuleResponse struct {
 	Action                   *string `pulumi:"action"`
 	State                    *string `pulumi:"state"`
 	VirtualNetworkResourceId string  `pulumi:"virtualNetworkResourceId"`
+}
+
+
+func (val *VirtualNetworkRuleResponse) Defaults() *VirtualNetworkRuleResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Action) {
+		action_ := "Allow"
+		tmp.Action = &action_
+	}
+	return &tmp
 }
 
 

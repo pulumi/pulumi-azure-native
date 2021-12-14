@@ -12902,6 +12902,19 @@ type BackendPoolsSettings struct {
 }
 
 
+func (val *BackendPoolsSettings) Defaults() *BackendPoolsSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnforceCertificateNameCheck) {
+		enforceCertificateNameCheck_ := "Enabled"
+		tmp.EnforceCertificateNameCheck = &enforceCertificateNameCheck_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -13032,6 +13045,19 @@ func (o BackendPoolsSettingsPtrOutput) EnforceCertificateNameCheck() pulumi.Stri
 
 type BackendPoolsSettingsResponse struct {
 	EnforceCertificateNameCheck *string `pulumi:"enforceCertificateNameCheck"`
+}
+
+
+func (val *BackendPoolsSettingsResponse) Defaults() *BackendPoolsSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnforceCertificateNameCheck) {
+		enforceCertificateNameCheck_ := "Enabled"
+		tmp.EnforceCertificateNameCheck = &enforceCertificateNameCheck_
+	}
+	return &tmp
 }
 
 
@@ -31575,6 +31601,19 @@ type PacketCaptureFilter struct {
 }
 
 
+func (val *PacketCaptureFilter) Defaults() *PacketCaptureFilter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		protocol_ := "Any"
+		tmp.Protocol = &protocol_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -31690,6 +31729,19 @@ type PacketCaptureFilterResponse struct {
 	Protocol        *string `pulumi:"protocol"`
 	RemoteIPAddress *string `pulumi:"remoteIPAddress"`
 	RemotePort      *string `pulumi:"remotePort"`
+}
+
+
+func (val *PacketCaptureFilterResponse) Defaults() *PacketCaptureFilterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		protocol_ := "Any"
+		tmp.Protocol = &protocol_
+	}
+	return &tmp
 }
 
 

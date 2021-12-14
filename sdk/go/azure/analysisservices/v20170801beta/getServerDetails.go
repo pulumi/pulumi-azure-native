@@ -13,7 +13,7 @@ func LookupServerDetails(ctx *pulumi.Context, args *LookupServerDetailsArgs, opt
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupServerDetailsArgs struct {
@@ -39,4 +39,27 @@ type LookupServerDetailsResult struct {
 	State                   string                        `pulumi:"state"`
 	Tags                    map[string]string             `pulumi:"tags"`
 	Type                    string                        `pulumi:"type"`
+}
+
+
+func (val *LookupServerDetailsResult) Defaults() *LookupServerDetailsResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ManagedMode) {
+		managedMode_ := 1
+		tmp.ManagedMode = &managedMode_
+	}
+	if isZero(tmp.QuerypoolConnectionMode) {
+		querypoolConnectionMode_ := "All"
+		tmp.QuerypoolConnectionMode = &querypoolConnectionMode_
+	}
+	if isZero(tmp.ServerMonitorMode) {
+		serverMonitorMode_ := 1
+		tmp.ServerMonitorMode = &serverMonitorMode_
+	}
+	tmp.Sku = *tmp.Sku.Defaults()
+
+	return &tmp
 }

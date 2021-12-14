@@ -128,7 +128,7 @@ type DscConfigurationInput interface {
 }
 
 func (*DscConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscConfiguration)(nil))
+	return reflect.TypeOf((**DscConfiguration)(nil)).Elem()
 }
 
 func (i *DscConfiguration) ToDscConfigurationOutput() DscConfigurationOutput {
@@ -142,7 +142,7 @@ func (i *DscConfiguration) ToDscConfigurationOutputWithContext(ctx context.Conte
 type DscConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DscConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DscConfiguration)(nil))
+	return reflect.TypeOf((**DscConfiguration)(nil)).Elem()
 }
 
 func (o DscConfigurationOutput) ToDscConfigurationOutput() DscConfigurationOutput {

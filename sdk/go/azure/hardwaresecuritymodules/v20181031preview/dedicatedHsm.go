@@ -111,7 +111,7 @@ type DedicatedHsmInput interface {
 }
 
 func (*DedicatedHsm) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHsm)(nil))
+	return reflect.TypeOf((**DedicatedHsm)(nil)).Elem()
 }
 
 func (i *DedicatedHsm) ToDedicatedHsmOutput() DedicatedHsmOutput {
@@ -125,7 +125,7 @@ func (i *DedicatedHsm) ToDedicatedHsmOutputWithContext(ctx context.Context) Dedi
 type DedicatedHsmOutput struct{ *pulumi.OutputState }
 
 func (DedicatedHsmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DedicatedHsm)(nil))
+	return reflect.TypeOf((**DedicatedHsm)(nil)).Elem()
 }
 
 func (o DedicatedHsmOutput) ToDedicatedHsmOutput() DedicatedHsmOutput {

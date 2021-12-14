@@ -64,10 +64,10 @@ func NewNodeType(ctx *pulumi.Context,
 	if args.VmInstanceCount == nil {
 		return nil, errors.New("invalid value for required argument 'VmInstanceCount'")
 	}
-	if args.IsStateless == nil {
+	if isZero(args.IsStateless) {
 		args.IsStateless = pulumi.BoolPtr(false)
 	}
-	if args.MultiplePlacementGroups == nil {
+	if isZero(args.MultiplePlacementGroups) {
 		args.MultiplePlacementGroups = pulumi.BoolPtr(false)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -191,7 +191,7 @@ type NodeTypeInput interface {
 }
 
 func (*NodeType) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeType)(nil))
+	return reflect.TypeOf((**NodeType)(nil)).Elem()
 }
 
 func (i *NodeType) ToNodeTypeOutput() NodeTypeOutput {
@@ -205,7 +205,7 @@ func (i *NodeType) ToNodeTypeOutputWithContext(ctx context.Context) NodeTypeOutp
 type NodeTypeOutput struct{ *pulumi.OutputState }
 
 func (NodeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeType)(nil))
+	return reflect.TypeOf((**NodeType)(nil)).Elem()
 }
 
 func (o NodeTypeOutput) ToNodeTypeOutput() NodeTypeOutput {

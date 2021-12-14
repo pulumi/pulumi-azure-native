@@ -203,7 +203,7 @@ type SiteSlotInput interface {
 }
 
 func (*SiteSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSlot)(nil))
+	return reflect.TypeOf((**SiteSlot)(nil)).Elem()
 }
 
 func (i *SiteSlot) ToSiteSlotOutput() SiteSlotOutput {
@@ -217,7 +217,7 @@ func (i *SiteSlot) ToSiteSlotOutputWithContext(ctx context.Context) SiteSlotOutp
 type SiteSlotOutput struct{ *pulumi.OutputState }
 
 func (SiteSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSlot)(nil))
+	return reflect.TypeOf((**SiteSlot)(nil)).Elem()
 }
 
 func (o SiteSlotOutput) ToSiteSlotOutput() SiteSlotOutput {

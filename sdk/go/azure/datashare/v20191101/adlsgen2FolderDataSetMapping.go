@@ -155,7 +155,7 @@ type ADLSGen2FolderDataSetMappingInput interface {
 }
 
 func (*ADLSGen2FolderDataSetMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADLSGen2FolderDataSetMapping)(nil))
+	return reflect.TypeOf((**ADLSGen2FolderDataSetMapping)(nil)).Elem()
 }
 
 func (i *ADLSGen2FolderDataSetMapping) ToADLSGen2FolderDataSetMappingOutput() ADLSGen2FolderDataSetMappingOutput {
@@ -169,7 +169,7 @@ func (i *ADLSGen2FolderDataSetMapping) ToADLSGen2FolderDataSetMappingOutputWithC
 type ADLSGen2FolderDataSetMappingOutput struct{ *pulumi.OutputState }
 
 func (ADLSGen2FolderDataSetMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ADLSGen2FolderDataSetMapping)(nil))
+	return reflect.TypeOf((**ADLSGen2FolderDataSetMapping)(nil)).Elem()
 }
 
 func (o ADLSGen2FolderDataSetMappingOutput) ToADLSGen2FolderDataSetMappingOutput() ADLSGen2FolderDataSetMappingOutput {

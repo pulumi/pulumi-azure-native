@@ -13,7 +13,7 @@ func LookupTopic(ctx *pulumi.Context, args *LookupTopicArgs, opts ...pulumi.Invo
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupTopicArgs struct {
@@ -32,4 +32,17 @@ type LookupTopicResult struct {
 	ProvisioningState  string                          `pulumi:"provisioningState"`
 	Tags               map[string]string               `pulumi:"tags"`
 	Type               string                          `pulumi:"type"`
+}
+
+
+func (val *LookupTopicResult) Defaults() *LookupTopicResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.InputSchema) {
+		inputSchema_ := "EventGridSchema"
+		tmp.InputSchema = &inputSchema_
+	}
+	return &tmp
 }

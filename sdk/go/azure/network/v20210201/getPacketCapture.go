@@ -13,7 +13,7 @@ func LookupPacketCapture(ctx *pulumi.Context, args *LookupPacketCaptureArgs, opt
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPacketCaptureArgs struct {
@@ -34,4 +34,25 @@ type LookupPacketCaptureResult struct {
 	Target                  string                               `pulumi:"target"`
 	TimeLimitInSeconds      *int                                 `pulumi:"timeLimitInSeconds"`
 	TotalBytesPerSession    *float64                             `pulumi:"totalBytesPerSession"`
+}
+
+
+func (val *LookupPacketCaptureResult) Defaults() *LookupPacketCaptureResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.BytesToCapturePerPacket) {
+		bytesToCapturePerPacket_ := 0.0
+		tmp.BytesToCapturePerPacket = &bytesToCapturePerPacket_
+	}
+	if isZero(tmp.TimeLimitInSeconds) {
+		timeLimitInSeconds_ := 18000
+		tmp.TimeLimitInSeconds = &timeLimitInSeconds_
+	}
+	if isZero(tmp.TotalBytesPerSession) {
+		totalBytesPerSession_ := 1073741824.0
+		tmp.TotalBytesPerSession = &totalBytesPerSession_
+	}
+	return &tmp
 }

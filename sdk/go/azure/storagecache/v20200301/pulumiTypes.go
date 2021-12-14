@@ -725,6 +725,19 @@ type CacheNetworkSettings struct {
 }
 
 
+func (val *CacheNetworkSettings) Defaults() *CacheNetworkSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mtu) {
+		mtu_ := 1500
+		tmp.Mtu = &mtu_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -856,6 +869,19 @@ func (o CacheNetworkSettingsPtrOutput) Mtu() pulumi.IntPtrOutput {
 type CacheNetworkSettingsResponse struct {
 	Mtu              *int     `pulumi:"mtu"`
 	UtilityAddresses []string `pulumi:"utilityAddresses"`
+}
+
+
+func (val *CacheNetworkSettingsResponse) Defaults() *CacheNetworkSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mtu) {
+		mtu_ := 1500
+		tmp.Mtu = &mtu_
+	}
+	return &tmp
 }
 
 

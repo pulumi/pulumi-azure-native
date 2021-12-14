@@ -38558,6 +38558,23 @@ type VMNicDetailsResponse struct {
 }
 
 
+func (val *VMNicDetailsResponse) Defaults() *VMNicDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ReuseExistingNic) {
+		reuseExistingNic_ := false
+		tmp.ReuseExistingNic = &reuseExistingNic_
+	}
+	if isZero(tmp.TfoReuseExistingNic) {
+		tfoReuseExistingNic_ := false
+		tmp.TfoReuseExistingNic = &tfoReuseExistingNic_
+	}
+	return &tmp
+}
+
+
 
 
 

@@ -111,7 +111,7 @@ type DeploymentScriptInput interface {
 }
 
 func (*DeploymentScript) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentScript)(nil))
+	return reflect.TypeOf((**DeploymentScript)(nil)).Elem()
 }
 
 func (i *DeploymentScript) ToDeploymentScriptOutput() DeploymentScriptOutput {
@@ -125,7 +125,7 @@ func (i *DeploymentScript) ToDeploymentScriptOutputWithContext(ctx context.Conte
 type DeploymentScriptOutput struct{ *pulumi.OutputState }
 
 func (DeploymentScriptOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentScript)(nil))
+	return reflect.TypeOf((**DeploymentScript)(nil)).Elem()
 }
 
 func (o DeploymentScriptOutput) ToDeploymentScriptOutput() DeploymentScriptOutput {

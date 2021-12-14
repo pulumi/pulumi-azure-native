@@ -132,7 +132,7 @@ type ApplicationInput interface {
 }
 
 func (*Application) ElementType() reflect.Type {
-	return reflect.TypeOf((*Application)(nil))
+	return reflect.TypeOf((**Application)(nil)).Elem()
 }
 
 func (i *Application) ToApplicationOutput() ApplicationOutput {
@@ -146,7 +146,7 @@ func (i *Application) ToApplicationOutputWithContext(ctx context.Context) Applic
 type ApplicationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Application)(nil))
+	return reflect.TypeOf((**Application)(nil)).Elem()
 }
 
 func (o ApplicationOutput) ToApplicationOutput() ApplicationOutput {

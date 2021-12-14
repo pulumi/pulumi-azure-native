@@ -126,7 +126,7 @@ type SqlResourceSqlRoleAssignmentInput interface {
 }
 
 func (*SqlResourceSqlRoleAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlRoleAssignment)(nil))
+	return reflect.TypeOf((**SqlResourceSqlRoleAssignment)(nil)).Elem()
 }
 
 func (i *SqlResourceSqlRoleAssignment) ToSqlResourceSqlRoleAssignmentOutput() SqlResourceSqlRoleAssignmentOutput {
@@ -140,7 +140,7 @@ func (i *SqlResourceSqlRoleAssignment) ToSqlResourceSqlRoleAssignmentOutputWithC
 type SqlResourceSqlRoleAssignmentOutput struct{ *pulumi.OutputState }
 
 func (SqlResourceSqlRoleAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlRoleAssignment)(nil))
+	return reflect.TypeOf((**SqlResourceSqlRoleAssignment)(nil)).Elem()
 }
 
 func (o SqlResourceSqlRoleAssignmentOutput) ToSqlResourceSqlRoleAssignmentOutput() SqlResourceSqlRoleAssignmentOutput {

@@ -118,7 +118,7 @@ type ServerAdministratorInput interface {
 }
 
 func (*ServerAdministrator) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAdministrator)(nil))
+	return reflect.TypeOf((**ServerAdministrator)(nil)).Elem()
 }
 
 func (i *ServerAdministrator) ToServerAdministratorOutput() ServerAdministratorOutput {
@@ -132,7 +132,7 @@ func (i *ServerAdministrator) ToServerAdministratorOutputWithContext(ctx context
 type ServerAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ServerAdministratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerAdministrator)(nil))
+	return reflect.TypeOf((**ServerAdministrator)(nil)).Elem()
 }
 
 func (o ServerAdministratorOutput) ToServerAdministratorOutput() ServerAdministratorOutput {

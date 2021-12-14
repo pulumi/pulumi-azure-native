@@ -127,7 +127,7 @@ type BlockchainMemberInput interface {
 }
 
 func (*BlockchainMember) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlockchainMember)(nil))
+	return reflect.TypeOf((**BlockchainMember)(nil)).Elem()
 }
 
 func (i *BlockchainMember) ToBlockchainMemberOutput() BlockchainMemberOutput {
@@ -141,7 +141,7 @@ func (i *BlockchainMember) ToBlockchainMemberOutputWithContext(ctx context.Conte
 type BlockchainMemberOutput struct{ *pulumi.OutputState }
 
 func (BlockchainMemberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlockchainMember)(nil))
+	return reflect.TypeOf((**BlockchainMember)(nil)).Elem()
 }
 
 func (o BlockchainMemberOutput) ToBlockchainMemberOutput() BlockchainMemberOutput {

@@ -18,6 +18,19 @@ type A2AContainerMappingInput struct {
 }
 
 
+func (val *A2AContainerMappingInput) Defaults() *A2AContainerMappingInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AutomationAccountAuthenticationType) {
+		automationAccountAuthenticationType_ := "RunAsAccount"
+		tmp.AutomationAccountAuthenticationType = &automationAccountAuthenticationType_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1068,6 +1081,19 @@ type A2AProtectionContainerMappingDetailsResponse struct {
 	InstanceType                        string  `pulumi:"instanceType"`
 	JobScheduleName                     *string `pulumi:"jobScheduleName"`
 	ScheduleName                        *string `pulumi:"scheduleName"`
+}
+
+
+func (val *A2AProtectionContainerMappingDetailsResponse) Defaults() *A2AProtectionContainerMappingDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AutomationAccountAuthenticationType) {
+		automationAccountAuthenticationType_ := "RunAsAccount"
+		tmp.AutomationAccountAuthenticationType = &automationAccountAuthenticationType_
+	}
+	return &tmp
 }
 
 
@@ -41688,6 +41714,23 @@ type VMNicDetailsResponse struct {
 	TfoReuseExistingNic                   *bool                     `pulumi:"tfoReuseExistingNic"`
 	TfoVMNetworkId                        *string                   `pulumi:"tfoVMNetworkId"`
 	VMNetworkName                         *string                   `pulumi:"vMNetworkName"`
+}
+
+
+func (val *VMNicDetailsResponse) Defaults() *VMNicDetailsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ReuseExistingNic) {
+		reuseExistingNic_ := false
+		tmp.ReuseExistingNic = &reuseExistingNic_
+	}
+	if isZero(tmp.TfoReuseExistingNic) {
+		tfoReuseExistingNic_ := false
+		tmp.TfoReuseExistingNic = &tfoReuseExistingNic_
+	}
+	return &tmp
 }
 
 

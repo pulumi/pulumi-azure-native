@@ -117,7 +117,7 @@ type TransparentDataEncryptionInput interface {
 }
 
 func (*TransparentDataEncryption) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransparentDataEncryption)(nil))
+	return reflect.TypeOf((**TransparentDataEncryption)(nil)).Elem()
 }
 
 func (i *TransparentDataEncryption) ToTransparentDataEncryptionOutput() TransparentDataEncryptionOutput {
@@ -131,7 +131,7 @@ func (i *TransparentDataEncryption) ToTransparentDataEncryptionOutputWithContext
 type TransparentDataEncryptionOutput struct{ *pulumi.OutputState }
 
 func (TransparentDataEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransparentDataEncryption)(nil))
+	return reflect.TypeOf((**TransparentDataEncryption)(nil)).Elem()
 }
 
 func (o TransparentDataEncryptionOutput) ToTransparentDataEncryptionOutput() TransparentDataEncryptionOutput {

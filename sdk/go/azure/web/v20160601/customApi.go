@@ -102,7 +102,7 @@ type CustomApiInput interface {
 }
 
 func (*CustomApi) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomApi)(nil))
+	return reflect.TypeOf((**CustomApi)(nil)).Elem()
 }
 
 func (i *CustomApi) ToCustomApiOutput() CustomApiOutput {
@@ -116,7 +116,7 @@ func (i *CustomApi) ToCustomApiOutputWithContext(ctx context.Context) CustomApiO
 type CustomApiOutput struct{ *pulumi.OutputState }
 
 func (CustomApiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomApi)(nil))
+	return reflect.TypeOf((**CustomApi)(nil)).Elem()
 }
 
 func (o CustomApiOutput) ToCustomApiOutput() CustomApiOutput {

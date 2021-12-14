@@ -32,7 +32,7 @@ func NewPolicyDefinition(ctx *pulumi.Context,
 		args = &PolicyDefinitionArgs{}
 	}
 
-	if args.Mode == nil {
+	if isZero(args.Mode) {
 		args.Mode = pulumi.StringPtr("Indexed")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -137,7 +137,7 @@ type PolicyDefinitionInput interface {
 }
 
 func (*PolicyDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinition)(nil))
+	return reflect.TypeOf((**PolicyDefinition)(nil)).Elem()
 }
 
 func (i *PolicyDefinition) ToPolicyDefinitionOutput() PolicyDefinitionOutput {
@@ -151,7 +151,7 @@ func (i *PolicyDefinition) ToPolicyDefinitionOutputWithContext(ctx context.Conte
 type PolicyDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinition)(nil))
+	return reflect.TypeOf((**PolicyDefinition)(nil)).Elem()
 }
 
 func (o PolicyDefinitionOutput) ToPolicyDefinitionOutput() PolicyDefinitionOutput {

@@ -13,7 +13,7 @@ func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ..
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupActionGroupArgs struct {
@@ -36,4 +36,16 @@ type LookupActionGroupResult struct {
 	Tags                       map[string]string                   `pulumi:"tags"`
 	Type                       string                              `pulumi:"type"`
 	WebhookReceivers           []WebhookReceiverResponse           `pulumi:"webhookReceivers"`
+}
+
+
+func (val *LookupActionGroupResult) Defaults() *LookupActionGroupResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		tmp.Enabled = true
+	}
+	return &tmp
 }

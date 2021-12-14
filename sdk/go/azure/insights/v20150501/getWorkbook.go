@@ -13,7 +13,7 @@ func LookupWorkbook(ctx *pulumi.Context, args *LookupWorkbookArgs, opts ...pulum
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupWorkbookArgs struct {
@@ -37,4 +37,16 @@ type LookupWorkbookResult struct {
 	UserId           string            `pulumi:"userId"`
 	Version          *string           `pulumi:"version"`
 	WorkbookId       string            `pulumi:"workbookId"`
+}
+
+
+func (val *LookupWorkbookResult) Defaults() *LookupWorkbookResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SharedTypeKind) {
+		tmp.SharedTypeKind = "shared"
+	}
+	return &tmp
 }

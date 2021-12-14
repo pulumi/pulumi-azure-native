@@ -220,7 +220,7 @@ type NetworkSecurityGroupInput interface {
 }
 
 func (*NetworkSecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSecurityGroup)(nil))
+	return reflect.TypeOf((**NetworkSecurityGroup)(nil)).Elem()
 }
 
 func (i *NetworkSecurityGroup) ToNetworkSecurityGroupOutput() NetworkSecurityGroupOutput {
@@ -234,7 +234,7 @@ func (i *NetworkSecurityGroup) ToNetworkSecurityGroupOutputWithContext(ctx conte
 type NetworkSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (NetworkSecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetworkSecurityGroup)(nil))
+	return reflect.TypeOf((**NetworkSecurityGroup)(nil)).Elem()
 }
 
 func (o NetworkSecurityGroupOutput) ToNetworkSecurityGroupOutput() NetworkSecurityGroupOutput {

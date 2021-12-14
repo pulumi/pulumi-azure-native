@@ -222,7 +222,7 @@ type ExpressRouteCircuitAuthorizationInput interface {
 }
 
 func (*ExpressRouteCircuitAuthorization) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitAuthorization)(nil))
+	return reflect.TypeOf((**ExpressRouteCircuitAuthorization)(nil)).Elem()
 }
 
 func (i *ExpressRouteCircuitAuthorization) ToExpressRouteCircuitAuthorizationOutput() ExpressRouteCircuitAuthorizationOutput {
@@ -236,7 +236,7 @@ func (i *ExpressRouteCircuitAuthorization) ToExpressRouteCircuitAuthorizationOut
 type ExpressRouteCircuitAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitAuthorizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteCircuitAuthorization)(nil))
+	return reflect.TypeOf((**ExpressRouteCircuitAuthorization)(nil)).Elem()
 }
 
 func (o ExpressRouteCircuitAuthorizationOutput) ToExpressRouteCircuitAuthorizationOutput() ExpressRouteCircuitAuthorizationOutput {

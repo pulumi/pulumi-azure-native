@@ -20,6 +20,27 @@ type AcsClusterProperties struct {
 }
 
 
+func (val *AcsClusterProperties) Defaults() *AcsClusterProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AgentCount) {
+		agentCount_ := 2
+		tmp.AgentCount = &agentCount_
+	}
+	if isZero(tmp.AgentVmSize) {
+		agentVmSize_ := "Standard_D3_v2"
+		tmp.AgentVmSize = &agentVmSize_
+	}
+	if isZero(tmp.MasterCount) {
+		masterCount_ := 1
+		tmp.MasterCount = &masterCount_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -226,6 +247,27 @@ type AcsClusterPropertiesResponse struct {
 	OrchestratorProperties *KubernetesClusterPropertiesResponse `pulumi:"orchestratorProperties"`
 	OrchestratorType       string                               `pulumi:"orchestratorType"`
 	SystemServices         []SystemServiceResponse              `pulumi:"systemServices"`
+}
+
+
+func (val *AcsClusterPropertiesResponse) Defaults() *AcsClusterPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AgentCount) {
+		agentCount_ := 2
+		tmp.AgentCount = &agentCount_
+	}
+	if isZero(tmp.AgentVmSize) {
+		agentVmSize_ := "Standard_D3_v2"
+		tmp.AgentVmSize = &agentVmSize_
+	}
+	if isZero(tmp.MasterCount) {
+		masterCount_ := 1
+		tmp.MasterCount = &masterCount_
+	}
+	return &tmp
 }
 
 
@@ -866,6 +908,27 @@ type AutoScaleConfiguration struct {
 }
 
 
+func (val *AutoScaleConfiguration) Defaults() *AutoScaleConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxReplicas) {
+		maxReplicas_ := 100
+		tmp.MaxReplicas = &maxReplicas_
+	}
+	if isZero(tmp.MinReplicas) {
+		minReplicas_ := 1
+		tmp.MinReplicas = &minReplicas_
+	}
+	if isZero(tmp.Status) {
+		status_ := "Disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1056,6 +1119,27 @@ type AutoScaleConfigurationResponse struct {
 	RefreshPeriodInSeconds *int     `pulumi:"refreshPeriodInSeconds"`
 	Status                 *string  `pulumi:"status"`
 	TargetUtilization      *float64 `pulumi:"targetUtilization"`
+}
+
+
+func (val *AutoScaleConfigurationResponse) Defaults() *AutoScaleConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxReplicas) {
+		maxReplicas_ := 100
+		tmp.MaxReplicas = &maxReplicas_
+	}
+	if isZero(tmp.MinReplicas) {
+		minReplicas_ := 1
+		tmp.MinReplicas = &minReplicas_
+	}
+	if isZero(tmp.Status) {
+		status_ := "Disabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -2217,6 +2301,19 @@ type GlobalServiceConfiguration struct {
 }
 
 
+func (val *GlobalServiceConfiguration) Defaults() *GlobalServiceConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.AutoScale = tmp.AutoScale.Defaults()
+
+	tmp.Ssl = tmp.Ssl.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -2392,6 +2489,19 @@ type GlobalServiceConfigurationResponse struct {
 	Etag        *string                           `pulumi:"etag"`
 	ServiceAuth *ServiceAuthConfigurationResponse `pulumi:"serviceAuth"`
 	Ssl         *SslConfigurationResponse         `pulumi:"ssl"`
+}
+
+
+func (val *GlobalServiceConfigurationResponse) Defaults() *GlobalServiceConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.AutoScale = tmp.AutoScale.Defaults()
+
+	tmp.Ssl = tmp.Ssl.Defaults()
+
+	return &tmp
 }
 
 
@@ -3433,6 +3543,19 @@ type SslConfiguration struct {
 }
 
 
+func (val *SslConfiguration) Defaults() *SslConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3608,6 +3731,19 @@ type SslConfigurationResponse struct {
 	Cname  *string `pulumi:"cname"`
 	Key    *string `pulumi:"key"`
 	Status *string `pulumi:"status"`
+}
+
+
+func (val *SslConfigurationResponse) Defaults() *SslConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 

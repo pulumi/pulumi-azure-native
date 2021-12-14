@@ -117,7 +117,7 @@ type DataConnectionInput interface {
 }
 
 func (*DataConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnection)(nil))
+	return reflect.TypeOf((**DataConnection)(nil)).Elem()
 }
 
 func (i *DataConnection) ToDataConnectionOutput() DataConnectionOutput {
@@ -131,7 +131,7 @@ func (i *DataConnection) ToDataConnectionOutputWithContext(ctx context.Context) 
 type DataConnectionOutput struct{ *pulumi.OutputState }
 
 func (DataConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnection)(nil))
+	return reflect.TypeOf((**DataConnection)(nil)).Elem()
 }
 
 func (o DataConnectionOutput) ToDataConnectionOutput() DataConnectionOutput {

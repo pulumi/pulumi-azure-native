@@ -983,6 +983,23 @@ type ConfigurationSetting struct {
 }
 
 
+func (val *ConfigurationSetting) Defaults() *ConfigurationSetting {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ConfigurationModeFrequencyMins) {
+		configurationModeFrequencyMins_ := 15.0
+		tmp.ConfigurationModeFrequencyMins = &configurationModeFrequencyMins_
+	}
+	if isZero(tmp.RefreshFrequencyMins) {
+		refreshFrequencyMins_ := 30.0
+		tmp.RefreshFrequencyMins = &refreshFrequencyMins_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1191,6 +1208,23 @@ type ConfigurationSettingResponse struct {
 }
 
 
+func (val *ConfigurationSettingResponse) Defaults() *ConfigurationSettingResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ConfigurationModeFrequencyMins) {
+		configurationModeFrequencyMins_ := 15.0
+		tmp.ConfigurationModeFrequencyMins = &configurationModeFrequencyMins_
+	}
+	if isZero(tmp.RefreshFrequencyMins) {
+		refreshFrequencyMins_ := 30.0
+		tmp.RefreshFrequencyMins = &refreshFrequencyMins_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1395,6 +1429,17 @@ type GuestConfigurationAssignmentProperties struct {
 }
 
 
+func (val *GuestConfigurationAssignmentProperties) Defaults() *GuestConfigurationAssignmentProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.GuestConfiguration = tmp.GuestConfiguration.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1552,6 +1597,17 @@ type GuestConfigurationAssignmentPropertiesResponse struct {
 	ResourceType                string                                `pulumi:"resourceType"`
 	TargetResourceId            string                                `pulumi:"targetResourceId"`
 	VmssVMList                  []VMSSVMInfoResponse                  `pulumi:"vmssVMList"`
+}
+
+
+func (val *GuestConfigurationAssignmentPropertiesResponse) Defaults() *GuestConfigurationAssignmentPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.GuestConfiguration = tmp.GuestConfiguration.Defaults()
+
+	return &tmp
 }
 
 
@@ -1854,6 +1910,17 @@ type GuestConfigurationNavigation struct {
 }
 
 
+func (val *GuestConfigurationNavigation) Defaults() *GuestConfigurationNavigation {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConfigurationSetting = tmp.ConfigurationSetting.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -2107,6 +2174,17 @@ type GuestConfigurationNavigationResponse struct {
 	Kind                            *string                          `pulumi:"kind"`
 	Name                            *string                          `pulumi:"name"`
 	Version                         *string                          `pulumi:"version"`
+}
+
+
+func (val *GuestConfigurationNavigationResponse) Defaults() *GuestConfigurationNavigationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConfigurationSetting = tmp.ConfigurationSetting.Defaults()
+
+	return &tmp
 }
 
 

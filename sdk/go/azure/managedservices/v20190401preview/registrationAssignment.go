@@ -103,7 +103,7 @@ type RegistrationAssignmentInput interface {
 }
 
 func (*RegistrationAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationAssignment)(nil))
+	return reflect.TypeOf((**RegistrationAssignment)(nil)).Elem()
 }
 
 func (i *RegistrationAssignment) ToRegistrationAssignmentOutput() RegistrationAssignmentOutput {
@@ -117,7 +117,7 @@ func (i *RegistrationAssignment) ToRegistrationAssignmentOutputWithContext(ctx c
 type RegistrationAssignmentOutput struct{ *pulumi.OutputState }
 
 func (RegistrationAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistrationAssignment)(nil))
+	return reflect.TypeOf((**RegistrationAssignment)(nil)).Elem()
 }
 
 func (o RegistrationAssignmentOutput) ToRegistrationAssignmentOutput() RegistrationAssignmentOutput {

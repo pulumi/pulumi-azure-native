@@ -49,8 +49,12 @@ func NewTask(ctx *pulumi.Context,
 	if args.Step == nil {
 		return nil, errors.New("invalid value for required argument 'Step'")
 	}
-	if args.Timeout == nil {
+	if isZero(args.Timeout) {
 		args.Timeout = pulumi.IntPtr(3600)
+	}
+	triggerApplier := func(v TriggerProperties) *TriggerProperties { return v.Defaults() }
+	if args.Trigger != nil {
+		args.Trigger = args.Trigger.ToTriggerPropertiesPtrOutput().Elem().ApplyT(triggerApplier).(TriggerPropertiesPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -143,7 +147,7 @@ type TaskInput interface {
 }
 
 func (*Task) ElementType() reflect.Type {
-	return reflect.TypeOf((*Task)(nil))
+	return reflect.TypeOf((**Task)(nil)).Elem()
 }
 
 func (i *Task) ToTaskOutput() TaskOutput {
@@ -157,7 +161,7 @@ func (i *Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 type TaskOutput struct{ *pulumi.OutputState }
 
 func (TaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Task)(nil))
+	return reflect.TypeOf((**Task)(nil)).Elem()
 }
 
 func (o TaskOutput) ToTaskOutput() TaskOutput {

@@ -171,7 +171,7 @@ type ExpressRouteGatewayInput interface {
 }
 
 func (*ExpressRouteGateway) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteGateway)(nil))
+	return reflect.TypeOf((**ExpressRouteGateway)(nil)).Elem()
 }
 
 func (i *ExpressRouteGateway) ToExpressRouteGatewayOutput() ExpressRouteGatewayOutput {
@@ -185,7 +185,7 @@ func (i *ExpressRouteGateway) ToExpressRouteGatewayOutputWithContext(ctx context
 type ExpressRouteGatewayOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteGatewayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteGateway)(nil))
+	return reflect.TypeOf((**ExpressRouteGateway)(nil)).Elem()
 }
 
 func (o ExpressRouteGatewayOutput) ToExpressRouteGatewayOutput() ExpressRouteGatewayOutput {

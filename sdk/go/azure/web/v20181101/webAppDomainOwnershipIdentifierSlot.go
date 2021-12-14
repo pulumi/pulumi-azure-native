@@ -133,7 +133,7 @@ type WebAppDomainOwnershipIdentifierSlotInput interface {
 }
 
 func (*WebAppDomainOwnershipIdentifierSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDomainOwnershipIdentifierSlot)(nil))
+	return reflect.TypeOf((**WebAppDomainOwnershipIdentifierSlot)(nil)).Elem()
 }
 
 func (i *WebAppDomainOwnershipIdentifierSlot) ToWebAppDomainOwnershipIdentifierSlotOutput() WebAppDomainOwnershipIdentifierSlotOutput {
@@ -147,7 +147,7 @@ func (i *WebAppDomainOwnershipIdentifierSlot) ToWebAppDomainOwnershipIdentifierS
 type WebAppDomainOwnershipIdentifierSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppDomainOwnershipIdentifierSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDomainOwnershipIdentifierSlot)(nil))
+	return reflect.TypeOf((**WebAppDomainOwnershipIdentifierSlot)(nil)).Elem()
 }
 
 func (o WebAppDomainOwnershipIdentifierSlotOutput) ToWebAppDomainOwnershipIdentifierSlotOutput() WebAppDomainOwnershipIdentifierSlotOutput {

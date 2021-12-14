@@ -134,7 +134,7 @@ type HubVirtualNetworkConnectionInput interface {
 }
 
 func (*HubVirtualNetworkConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubVirtualNetworkConnection)(nil))
+	return reflect.TypeOf((**HubVirtualNetworkConnection)(nil)).Elem()
 }
 
 func (i *HubVirtualNetworkConnection) ToHubVirtualNetworkConnectionOutput() HubVirtualNetworkConnectionOutput {
@@ -148,7 +148,7 @@ func (i *HubVirtualNetworkConnection) ToHubVirtualNetworkConnectionOutputWithCon
 type HubVirtualNetworkConnectionOutput struct{ *pulumi.OutputState }
 
 func (HubVirtualNetworkConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HubVirtualNetworkConnection)(nil))
+	return reflect.TypeOf((**HubVirtualNetworkConnection)(nil)).Elem()
 }
 
 func (o HubVirtualNetworkConnectionOutput) ToHubVirtualNetworkConnectionOutput() HubVirtualNetworkConnectionOutput {

@@ -145,7 +145,7 @@ type ApplianceDefinitionInput interface {
 }
 
 func (*ApplianceDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplianceDefinition)(nil))
+	return reflect.TypeOf((**ApplianceDefinition)(nil)).Elem()
 }
 
 func (i *ApplianceDefinition) ToApplianceDefinitionOutput() ApplianceDefinitionOutput {
@@ -159,7 +159,7 @@ func (i *ApplianceDefinition) ToApplianceDefinitionOutputWithContext(ctx context
 type ApplianceDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ApplianceDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplianceDefinition)(nil))
+	return reflect.TypeOf((**ApplianceDefinition)(nil)).Elem()
 }
 
 func (o ApplianceDefinitionOutput) ToApplianceDefinitionOutput() ApplianceDefinitionOutput {

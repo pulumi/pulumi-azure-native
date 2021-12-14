@@ -37,6 +37,10 @@ func NewVirtualHubIpConfiguration(ctx *pulumi.Context,
 	if args.VirtualHubName == nil {
 		return nil, errors.New("invalid value for required argument 'VirtualHubName'")
 	}
+	subnetApplier := func(v SubnetType) *SubnetType { return v.Defaults() }
+	if args.Subnet != nil {
+		args.Subnet = args.Subnet.ToSubnetTypePtrOutput().Elem().ApplyT(subnetApplier).(SubnetTypePtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:network:VirtualHubIpConfiguration"),
@@ -132,7 +136,7 @@ type VirtualHubIpConfigurationInput interface {
 }
 
 func (*VirtualHubIpConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubIpConfiguration)(nil))
+	return reflect.TypeOf((**VirtualHubIpConfiguration)(nil)).Elem()
 }
 
 func (i *VirtualHubIpConfiguration) ToVirtualHubIpConfigurationOutput() VirtualHubIpConfigurationOutput {
@@ -146,7 +150,7 @@ func (i *VirtualHubIpConfiguration) ToVirtualHubIpConfigurationOutputWithContext
 type VirtualHubIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubIpConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualHubIpConfiguration)(nil))
+	return reflect.TypeOf((**VirtualHubIpConfiguration)(nil)).Elem()
 }
 
 func (o VirtualHubIpConfigurationOutput) ToVirtualHubIpConfigurationOutput() VirtualHubIpConfigurationOutput {

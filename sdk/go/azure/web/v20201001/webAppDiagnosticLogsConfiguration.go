@@ -37,6 +37,10 @@ func NewWebAppDiagnosticLogsConfiguration(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	applicationLogsApplier := func(v ApplicationLogsConfig) *ApplicationLogsConfig { return v.Defaults() }
+	if args.ApplicationLogs != nil {
+		args.ApplicationLogs = args.ApplicationLogs.ToApplicationLogsConfigPtrOutput().Elem().ApplyT(applicationLogsApplier).(ApplicationLogsConfigPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:web:WebAppDiagnosticLogsConfiguration"),
@@ -140,7 +144,7 @@ type WebAppDiagnosticLogsConfigurationInput interface {
 }
 
 func (*WebAppDiagnosticLogsConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDiagnosticLogsConfiguration)(nil))
+	return reflect.TypeOf((**WebAppDiagnosticLogsConfiguration)(nil)).Elem()
 }
 
 func (i *WebAppDiagnosticLogsConfiguration) ToWebAppDiagnosticLogsConfigurationOutput() WebAppDiagnosticLogsConfigurationOutput {
@@ -154,7 +158,7 @@ func (i *WebAppDiagnosticLogsConfiguration) ToWebAppDiagnosticLogsConfigurationO
 type WebAppDiagnosticLogsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebAppDiagnosticLogsConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDiagnosticLogsConfiguration)(nil))
+	return reflect.TypeOf((**WebAppDiagnosticLogsConfiguration)(nil)).Elem()
 }
 
 func (o WebAppDiagnosticLogsConfigurationOutput) ToWebAppDiagnosticLogsConfigurationOutput() WebAppDiagnosticLogsConfigurationOutput {

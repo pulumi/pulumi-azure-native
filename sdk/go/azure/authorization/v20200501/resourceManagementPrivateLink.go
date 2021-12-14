@@ -92,7 +92,7 @@ type ResourceManagementPrivateLinkInput interface {
 }
 
 func (*ResourceManagementPrivateLink) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceManagementPrivateLink)(nil))
+	return reflect.TypeOf((**ResourceManagementPrivateLink)(nil)).Elem()
 }
 
 func (i *ResourceManagementPrivateLink) ToResourceManagementPrivateLinkOutput() ResourceManagementPrivateLinkOutput {
@@ -106,7 +106,7 @@ func (i *ResourceManagementPrivateLink) ToResourceManagementPrivateLinkOutputWit
 type ResourceManagementPrivateLinkOutput struct{ *pulumi.OutputState }
 
 func (ResourceManagementPrivateLinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceManagementPrivateLink)(nil))
+	return reflect.TypeOf((**ResourceManagementPrivateLink)(nil)).Elem()
 }
 
 func (o ResourceManagementPrivateLinkOutput) ToResourceManagementPrivateLinkOutput() ResourceManagementPrivateLinkOutput {

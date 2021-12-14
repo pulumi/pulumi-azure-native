@@ -130,7 +130,7 @@ type ContactInput interface {
 }
 
 func (*Contact) ElementType() reflect.Type {
-	return reflect.TypeOf((*Contact)(nil))
+	return reflect.TypeOf((**Contact)(nil)).Elem()
 }
 
 func (i *Contact) ToContactOutput() ContactOutput {
@@ -144,7 +144,7 @@ func (i *Contact) ToContactOutputWithContext(ctx context.Context) ContactOutput 
 type ContactOutput struct{ *pulumi.OutputState }
 
 func (ContactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Contact)(nil))
+	return reflect.TypeOf((**Contact)(nil)).Elem()
 }
 
 func (o ContactOutput) ToContactOutput() ContactOutput {

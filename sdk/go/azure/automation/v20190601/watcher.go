@@ -127,7 +127,7 @@ type WatcherInput interface {
 }
 
 func (*Watcher) ElementType() reflect.Type {
-	return reflect.TypeOf((*Watcher)(nil))
+	return reflect.TypeOf((**Watcher)(nil)).Elem()
 }
 
 func (i *Watcher) ToWatcherOutput() WatcherOutput {
@@ -141,7 +141,7 @@ func (i *Watcher) ToWatcherOutputWithContext(ctx context.Context) WatcherOutput 
 type WatcherOutput struct{ *pulumi.OutputState }
 
 func (WatcherOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Watcher)(nil))
+	return reflect.TypeOf((**Watcher)(nil)).Elem()
 }
 
 func (o WatcherOutput) ToWatcherOutput() WatcherOutput {

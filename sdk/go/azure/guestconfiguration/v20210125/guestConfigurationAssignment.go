@@ -34,6 +34,12 @@ func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 	if args.VmName == nil {
 		return nil, errors.New("invalid value for required argument 'VmName'")
 	}
+	propertiesApplier := func(v GuestConfigurationAssignmentProperties) *GuestConfigurationAssignmentProperties {
+		return v.Defaults()
+	}
+	if args.Properties != nil {
+		args.Properties = args.Properties.ToGuestConfigurationAssignmentPropertiesPtrOutput().Elem().ApplyT(propertiesApplier).(GuestConfigurationAssignmentPropertiesPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:guestconfiguration:GuestConfigurationAssignment"),
@@ -111,7 +117,7 @@ type GuestConfigurationAssignmentInput interface {
 }
 
 func (*GuestConfigurationAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestConfigurationAssignment)(nil))
+	return reflect.TypeOf((**GuestConfigurationAssignment)(nil)).Elem()
 }
 
 func (i *GuestConfigurationAssignment) ToGuestConfigurationAssignmentOutput() GuestConfigurationAssignmentOutput {
@@ -125,7 +131,7 @@ func (i *GuestConfigurationAssignment) ToGuestConfigurationAssignmentOutputWithC
 type GuestConfigurationAssignmentOutput struct{ *pulumi.OutputState }
 
 func (GuestConfigurationAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestConfigurationAssignment)(nil))
+	return reflect.TypeOf((**GuestConfigurationAssignment)(nil)).Elem()
 }
 
 func (o GuestConfigurationAssignmentOutput) ToGuestConfigurationAssignmentOutput() GuestConfigurationAssignmentOutput {

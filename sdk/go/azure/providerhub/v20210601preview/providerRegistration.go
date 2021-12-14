@@ -95,7 +95,7 @@ type ProviderRegistrationInput interface {
 }
 
 func (*ProviderRegistration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderRegistration)(nil))
+	return reflect.TypeOf((**ProviderRegistration)(nil)).Elem()
 }
 
 func (i *ProviderRegistration) ToProviderRegistrationOutput() ProviderRegistrationOutput {
@@ -109,7 +109,7 @@ func (i *ProviderRegistration) ToProviderRegistrationOutputWithContext(ctx conte
 type ProviderRegistrationOutput struct{ *pulumi.OutputState }
 
 func (ProviderRegistrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProviderRegistration)(nil))
+	return reflect.TypeOf((**ProviderRegistration)(nil)).Elem()
 }
 
 func (o ProviderRegistrationOutput) ToProviderRegistrationOutput() ProviderRegistrationOutput {

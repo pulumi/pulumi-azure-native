@@ -134,7 +134,7 @@ type AttachedDatabaseConfigurationInput interface {
 }
 
 func (*AttachedDatabaseConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachedDatabaseConfiguration)(nil))
+	return reflect.TypeOf((**AttachedDatabaseConfiguration)(nil)).Elem()
 }
 
 func (i *AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {
@@ -148,7 +148,7 @@ func (i *AttachedDatabaseConfiguration) ToAttachedDatabaseConfigurationOutputWit
 type AttachedDatabaseConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AttachedDatabaseConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachedDatabaseConfiguration)(nil))
+	return reflect.TypeOf((**AttachedDatabaseConfiguration)(nil)).Elem()
 }
 
 func (o AttachedDatabaseConfigurationOutput) ToAttachedDatabaseConfigurationOutput() AttachedDatabaseConfigurationOutput {

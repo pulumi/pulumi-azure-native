@@ -164,7 +164,7 @@ type SiteDeploymentInput interface {
 }
 
 func (*SiteDeployment) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteDeployment)(nil))
+	return reflect.TypeOf((**SiteDeployment)(nil)).Elem()
 }
 
 func (i *SiteDeployment) ToSiteDeploymentOutput() SiteDeploymentOutput {
@@ -178,7 +178,7 @@ func (i *SiteDeployment) ToSiteDeploymentOutputWithContext(ctx context.Context) 
 type SiteDeploymentOutput struct{ *pulumi.OutputState }
 
 func (SiteDeploymentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteDeployment)(nil))
+	return reflect.TypeOf((**SiteDeployment)(nil)).Elem()
 }
 
 func (o SiteDeploymentOutput) ToSiteDeploymentOutput() SiteDeploymentOutput {

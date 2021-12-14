@@ -184,7 +184,7 @@ type WatchlistInput interface {
 }
 
 func (*Watchlist) ElementType() reflect.Type {
-	return reflect.TypeOf((*Watchlist)(nil))
+	return reflect.TypeOf((**Watchlist)(nil)).Elem()
 }
 
 func (i *Watchlist) ToWatchlistOutput() WatchlistOutput {
@@ -198,7 +198,7 @@ func (i *Watchlist) ToWatchlistOutputWithContext(ctx context.Context) WatchlistO
 type WatchlistOutput struct{ *pulumi.OutputState }
 
 func (WatchlistOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Watchlist)(nil))
+	return reflect.TypeOf((**Watchlist)(nil)).Elem()
 }
 
 func (o WatchlistOutput) ToWatchlistOutput() WatchlistOutput {

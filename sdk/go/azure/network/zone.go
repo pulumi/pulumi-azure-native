@@ -38,7 +38,7 @@ func NewZone(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ZoneType == nil {
+	if isZero(args.ZoneType) {
 		args.ZoneType = ZoneType("Public")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -128,7 +128,7 @@ type ZoneInput interface {
 }
 
 func (*Zone) ElementType() reflect.Type {
-	return reflect.TypeOf((*Zone)(nil))
+	return reflect.TypeOf((**Zone)(nil)).Elem()
 }
 
 func (i *Zone) ToZoneOutput() ZoneOutput {
@@ -142,7 +142,7 @@ func (i *Zone) ToZoneOutputWithContext(ctx context.Context) ZoneOutput {
 type ZoneOutput struct{ *pulumi.OutputState }
 
 func (ZoneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Zone)(nil))
+	return reflect.TypeOf((**Zone)(nil)).Elem()
 }
 
 func (o ZoneOutput) ToZoneOutput() ZoneOutput {

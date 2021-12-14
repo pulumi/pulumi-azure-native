@@ -13,7 +13,7 @@ func LookupLab(ctx *pulumi.Context, args *LookupLabArgs, opts ...pulumi.InvokeOp
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupLabArgs struct {
@@ -49,4 +49,17 @@ type LookupLabResult struct {
 	UniqueIdentifier                     string                             `pulumi:"uniqueIdentifier"`
 	VaultName                            string                             `pulumi:"vaultName"`
 	VmCreationResourceGroup              string                             `pulumi:"vmCreationResourceGroup"`
+}
+
+
+func (val *LookupLabResult) Defaults() *LookupLabResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LabStorageType) {
+		labStorageType_ := "Premium"
+		tmp.LabStorageType = &labStorageType_
+	}
+	return &tmp
 }

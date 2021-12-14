@@ -13,7 +13,7 @@ func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOp
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBotArgs struct {
@@ -33,4 +33,15 @@ type LookupBotResult struct {
 	Tags       map[string]string     `pulumi:"tags"`
 	Type       string                `pulumi:"type"`
 	Zones      []string              `pulumi:"zones"`
+}
+
+
+func (val *LookupBotResult) Defaults() *LookupBotResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

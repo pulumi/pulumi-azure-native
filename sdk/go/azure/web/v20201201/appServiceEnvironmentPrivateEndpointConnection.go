@@ -111,7 +111,7 @@ type AppServiceEnvironmentPrivateEndpointConnectionInput interface {
 }
 
 func (*AppServiceEnvironmentPrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceEnvironmentPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**AppServiceEnvironmentPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (i *AppServiceEnvironmentPrivateEndpointConnection) ToAppServiceEnvironmentPrivateEndpointConnectionOutput() AppServiceEnvironmentPrivateEndpointConnectionOutput {
@@ -125,7 +125,7 @@ func (i *AppServiceEnvironmentPrivateEndpointConnection) ToAppServiceEnvironment
 type AppServiceEnvironmentPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (AppServiceEnvironmentPrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceEnvironmentPrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**AppServiceEnvironmentPrivateEndpointConnection)(nil)).Elem()
 }
 
 func (o AppServiceEnvironmentPrivateEndpointConnectionOutput) ToAppServiceEnvironmentPrivateEndpointConnectionOutput() AppServiceEnvironmentPrivateEndpointConnectionOutput {

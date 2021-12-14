@@ -109,7 +109,7 @@ type PrivateStoreOfferInput interface {
 }
 
 func (*PrivateStoreOffer) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateStoreOffer)(nil))
+	return reflect.TypeOf((**PrivateStoreOffer)(nil)).Elem()
 }
 
 func (i *PrivateStoreOffer) ToPrivateStoreOfferOutput() PrivateStoreOfferOutput {
@@ -123,7 +123,7 @@ func (i *PrivateStoreOffer) ToPrivateStoreOfferOutputWithContext(ctx context.Con
 type PrivateStoreOfferOutput struct{ *pulumi.OutputState }
 
 func (PrivateStoreOfferOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateStoreOffer)(nil))
+	return reflect.TypeOf((**PrivateStoreOffer)(nil)).Elem()
 }
 
 func (o PrivateStoreOfferOutput) ToPrivateStoreOfferOutput() PrivateStoreOfferOutput {

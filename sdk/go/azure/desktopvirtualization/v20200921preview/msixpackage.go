@@ -153,7 +153,7 @@ type MSIXPackageInput interface {
 }
 
 func (*MSIXPackage) ElementType() reflect.Type {
-	return reflect.TypeOf((*MSIXPackage)(nil))
+	return reflect.TypeOf((**MSIXPackage)(nil)).Elem()
 }
 
 func (i *MSIXPackage) ToMSIXPackageOutput() MSIXPackageOutput {
@@ -167,7 +167,7 @@ func (i *MSIXPackage) ToMSIXPackageOutputWithContext(ctx context.Context) MSIXPa
 type MSIXPackageOutput struct{ *pulumi.OutputState }
 
 func (MSIXPackageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MSIXPackage)(nil))
+	return reflect.TypeOf((**MSIXPackage)(nil)).Elem()
 }
 
 func (o MSIXPackageOutput) ToMSIXPackageOutput() MSIXPackageOutput {

@@ -114,7 +114,7 @@ type GlobalReachConnectionInput interface {
 }
 
 func (*GlobalReachConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalReachConnection)(nil))
+	return reflect.TypeOf((**GlobalReachConnection)(nil)).Elem()
 }
 
 func (i *GlobalReachConnection) ToGlobalReachConnectionOutput() GlobalReachConnectionOutput {
@@ -128,7 +128,7 @@ func (i *GlobalReachConnection) ToGlobalReachConnectionOutputWithContext(ctx con
 type GlobalReachConnectionOutput struct{ *pulumi.OutputState }
 
 func (GlobalReachConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalReachConnection)(nil))
+	return reflect.TypeOf((**GlobalReachConnection)(nil)).Elem()
 }
 
 func (o GlobalReachConnectionOutput) ToGlobalReachConnectionOutput() GlobalReachConnectionOutput {

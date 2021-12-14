@@ -36,6 +36,8 @@ func NewWebPubSubHub(ctx *pulumi.Context,
 	if args.ResourceName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
+	propertiesApplier := func(v WebPubSubHubProperties) *WebPubSubHubProperties { return v.Defaults() }
+	args.Properties = args.Properties.ToWebPubSubHubPropertiesOutput().ApplyT(propertiesApplier).(WebPubSubHubPropertiesPtrOutput).Elem()
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:webpubsub/v20211001:WebPubSubHub"),
@@ -100,7 +102,7 @@ type WebPubSubHubInput interface {
 }
 
 func (*WebPubSubHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSubHub)(nil))
+	return reflect.TypeOf((**WebPubSubHub)(nil)).Elem()
 }
 
 func (i *WebPubSubHub) ToWebPubSubHubOutput() WebPubSubHubOutput {
@@ -114,7 +116,7 @@ func (i *WebPubSubHub) ToWebPubSubHubOutputWithContext(ctx context.Context) WebP
 type WebPubSubHubOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSubHub)(nil))
+	return reflect.TypeOf((**WebPubSubHub)(nil)).Elem()
 }
 
 func (o WebPubSubHubOutput) ToWebPubSubHubOutput() WebPubSubHubOutput {

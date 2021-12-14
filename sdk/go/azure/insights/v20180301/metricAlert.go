@@ -147,7 +147,7 @@ type MetricAlertInput interface {
 }
 
 func (*MetricAlert) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlert)(nil))
+	return reflect.TypeOf((**MetricAlert)(nil)).Elem()
 }
 
 func (i *MetricAlert) ToMetricAlertOutput() MetricAlertOutput {
@@ -161,7 +161,7 @@ func (i *MetricAlert) ToMetricAlertOutputWithContext(ctx context.Context) Metric
 type MetricAlertOutput struct{ *pulumi.OutputState }
 
 func (MetricAlertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MetricAlert)(nil))
+	return reflect.TypeOf((**MetricAlert)(nil)).Elem()
 }
 
 func (o MetricAlertOutput) ToMetricAlertOutput() MetricAlertOutput {

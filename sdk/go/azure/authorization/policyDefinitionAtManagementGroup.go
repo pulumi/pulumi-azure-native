@@ -35,7 +35,7 @@ func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 	if args.ManagementGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
 	}
-	if args.Mode == nil {
+	if isZero(args.Mode) {
 		args.Mode = pulumi.StringPtr("Indexed")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -136,7 +136,7 @@ type PolicyDefinitionAtManagementGroupInput interface {
 }
 
 func (*PolicyDefinitionAtManagementGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionAtManagementGroup)(nil))
+	return reflect.TypeOf((**PolicyDefinitionAtManagementGroup)(nil)).Elem()
 }
 
 func (i *PolicyDefinitionAtManagementGroup) ToPolicyDefinitionAtManagementGroupOutput() PolicyDefinitionAtManagementGroupOutput {
@@ -150,7 +150,7 @@ func (i *PolicyDefinitionAtManagementGroup) ToPolicyDefinitionAtManagementGroupO
 type PolicyDefinitionAtManagementGroupOutput struct{ *pulumi.OutputState }
 
 func (PolicyDefinitionAtManagementGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionAtManagementGroup)(nil))
+	return reflect.TypeOf((**PolicyDefinitionAtManagementGroup)(nil)).Elem()
 }
 
 func (o PolicyDefinitionAtManagementGroupOutput) ToPolicyDefinitionAtManagementGroupOutput() PolicyDefinitionAtManagementGroupOutput {

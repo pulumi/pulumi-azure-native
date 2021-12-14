@@ -129,7 +129,7 @@ type MachineLearningServiceInput interface {
 }
 
 func (*MachineLearningService) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningService)(nil))
+	return reflect.TypeOf((**MachineLearningService)(nil)).Elem()
 }
 
 func (i *MachineLearningService) ToMachineLearningServiceOutput() MachineLearningServiceOutput {
@@ -143,7 +143,7 @@ func (i *MachineLearningService) ToMachineLearningServiceOutputWithContext(ctx c
 type MachineLearningServiceOutput struct{ *pulumi.OutputState }
 
 func (MachineLearningServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineLearningService)(nil))
+	return reflect.TypeOf((**MachineLearningService)(nil)).Elem()
 }
 
 func (o MachineLearningServiceOutput) ToMachineLearningServiceOutput() MachineLearningServiceOutput {

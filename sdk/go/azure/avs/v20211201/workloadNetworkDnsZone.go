@@ -121,7 +121,7 @@ type WorkloadNetworkDnsZoneInput interface {
 }
 
 func (*WorkloadNetworkDnsZone) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDnsZone)(nil))
+	return reflect.TypeOf((**WorkloadNetworkDnsZone)(nil)).Elem()
 }
 
 func (i *WorkloadNetworkDnsZone) ToWorkloadNetworkDnsZoneOutput() WorkloadNetworkDnsZoneOutput {
@@ -135,7 +135,7 @@ func (i *WorkloadNetworkDnsZone) ToWorkloadNetworkDnsZoneOutputWithContext(ctx c
 type WorkloadNetworkDnsZoneOutput struct{ *pulumi.OutputState }
 
 func (WorkloadNetworkDnsZoneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkloadNetworkDnsZone)(nil))
+	return reflect.TypeOf((**WorkloadNetworkDnsZone)(nil)).Elem()
 }
 
 func (o WorkloadNetworkDnsZoneOutput) ToWorkloadNetworkDnsZoneOutput() WorkloadNetworkDnsZoneOutput {

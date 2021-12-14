@@ -2863,6 +2863,19 @@ type ConflictResolutionPolicy struct {
 }
 
 
+func (val *ConflictResolutionPolicy) Defaults() *ConflictResolutionPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "LastWriterWins"
+		tmp.Mode = &mode_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3023,6 +3036,19 @@ type ConflictResolutionPolicyResponse struct {
 	ConflictResolutionPath      *string `pulumi:"conflictResolutionPath"`
 	ConflictResolutionProcedure *string `pulumi:"conflictResolutionProcedure"`
 	Mode                        *string `pulumi:"mode"`
+}
+
+
+func (val *ConflictResolutionPolicyResponse) Defaults() *ConflictResolutionPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "LastWriterWins"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }
 
 
@@ -3515,6 +3541,19 @@ type ContainerPartitionKey struct {
 }
 
 
+func (val *ContainerPartitionKey) Defaults() *ContainerPartitionKey {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Kind) {
+		kind_ := "Hash"
+		tmp.Kind = &kind_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3675,6 +3714,19 @@ type ContainerPartitionKeyResponse struct {
 	Kind    *string  `pulumi:"kind"`
 	Paths   []string `pulumi:"paths"`
 	Version *int     `pulumi:"version"`
+}
+
+
+func (val *ContainerPartitionKeyResponse) Defaults() *ContainerPartitionKeyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Kind) {
+		kind_ := "Hash"
+		tmp.Kind = &kind_
+	}
+	return &tmp
 }
 
 
@@ -5334,6 +5386,21 @@ type GremlinGraphGetPropertiesResponseResource struct {
 }
 
 
+func (val *GremlinGraphGetPropertiesResponseResource) Defaults() *GremlinGraphGetPropertiesResponseResource {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConflictResolutionPolicy = tmp.ConflictResolutionPolicy.Defaults()
+
+	tmp.IndexingPolicy = tmp.IndexingPolicy.Defaults()
+
+	tmp.PartitionKey = tmp.PartitionKey.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -5585,6 +5652,21 @@ type GremlinGraphResource struct {
 	IndexingPolicy           *IndexingPolicy           `pulumi:"indexingPolicy"`
 	PartitionKey             *ContainerPartitionKey    `pulumi:"partitionKey"`
 	UniqueKeyPolicy          *UniqueKeyPolicy          `pulumi:"uniqueKeyPolicy"`
+}
+
+
+func (val *GremlinGraphResource) Defaults() *GremlinGraphResource {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConflictResolutionPolicy = tmp.ConflictResolutionPolicy.Defaults()
+
+	tmp.IndexingPolicy = tmp.IndexingPolicy.Defaults()
+
+	tmp.PartitionKey = tmp.PartitionKey.Defaults()
+
+	return &tmp
 }
 
 
@@ -5993,6 +6075,23 @@ type Indexes struct {
 }
 
 
+func (val *Indexes) Defaults() *Indexes {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DataType) {
+		dataType_ := "String"
+		tmp.DataType = &dataType_
+	}
+	if isZero(tmp.Kind) {
+		kind_ := "Hash"
+		tmp.Kind = &kind_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6096,6 +6195,23 @@ type IndexesResponse struct {
 	DataType  *string `pulumi:"dataType"`
 	Kind      *string `pulumi:"kind"`
 	Precision *int    `pulumi:"precision"`
+}
+
+
+func (val *IndexesResponse) Defaults() *IndexesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DataType) {
+		dataType_ := "String"
+		tmp.DataType = &dataType_
+	}
+	if isZero(tmp.Kind) {
+		kind_ := "Hash"
+		tmp.Kind = &kind_
+	}
+	return &tmp
 }
 
 
@@ -6205,6 +6321,19 @@ type IndexingPolicy struct {
 	IncludedPaths    []IncludedPath    `pulumi:"includedPaths"`
 	IndexingMode     *string           `pulumi:"indexingMode"`
 	SpatialIndexes   []SpatialSpec     `pulumi:"spatialIndexes"`
+}
+
+
+func (val *IndexingPolicy) Defaults() *IndexingPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IndexingMode) {
+		indexingMode_ := "Consistent"
+		tmp.IndexingMode = &indexingMode_
+	}
+	return &tmp
 }
 
 
@@ -6413,6 +6542,19 @@ type IndexingPolicyResponse struct {
 	IncludedPaths    []IncludedPathResponse    `pulumi:"includedPaths"`
 	IndexingMode     *string                   `pulumi:"indexingMode"`
 	SpatialIndexes   []SpatialSpecResponse     `pulumi:"spatialIndexes"`
+}
+
+
+func (val *IndexingPolicyResponse) Defaults() *IndexingPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IndexingMode) {
+		indexingMode_ := "Consistent"
+		tmp.IndexingMode = &indexingMode_
+	}
+	return &tmp
 }
 
 
@@ -9979,6 +10121,21 @@ type SqlContainerGetPropertiesResponseResource struct {
 }
 
 
+func (val *SqlContainerGetPropertiesResponseResource) Defaults() *SqlContainerGetPropertiesResponseResource {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConflictResolutionPolicy = tmp.ConflictResolutionPolicy.Defaults()
+
+	tmp.IndexingPolicy = tmp.IndexingPolicy.Defaults()
+
+	tmp.PartitionKey = tmp.PartitionKey.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -10245,6 +10402,21 @@ type SqlContainerResource struct {
 	IndexingPolicy           *IndexingPolicy           `pulumi:"indexingPolicy"`
 	PartitionKey             *ContainerPartitionKey    `pulumi:"partitionKey"`
 	UniqueKeyPolicy          *UniqueKeyPolicy          `pulumi:"uniqueKeyPolicy"`
+}
+
+
+func (val *SqlContainerResource) Defaults() *SqlContainerResource {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConflictResolutionPolicy = tmp.ConflictResolutionPolicy.Defaults()
+
+	tmp.IndexingPolicy = tmp.IndexingPolicy.Defaults()
+
+	tmp.PartitionKey = tmp.PartitionKey.Defaults()
+
+	return &tmp
 }
 
 

@@ -37,6 +37,10 @@ func NewSqlManagedInstance(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	skuApplier := func(v SqlManagedInstanceSku) *SqlManagedInstanceSku { return v.Defaults() }
+	if args.Sku != nil {
+		args.Sku = args.Sku.ToSqlManagedInstanceSkuPtrOutput().Elem().ApplyT(skuApplier).(SqlManagedInstanceSkuPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:azurearcdata:SqlManagedInstance"),
@@ -116,7 +120,7 @@ type SqlManagedInstanceInput interface {
 }
 
 func (*SqlManagedInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlManagedInstance)(nil))
+	return reflect.TypeOf((**SqlManagedInstance)(nil)).Elem()
 }
 
 func (i *SqlManagedInstance) ToSqlManagedInstanceOutput() SqlManagedInstanceOutput {
@@ -130,7 +134,7 @@ func (i *SqlManagedInstance) ToSqlManagedInstanceOutputWithContext(ctx context.C
 type SqlManagedInstanceOutput struct{ *pulumi.OutputState }
 
 func (SqlManagedInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlManagedInstance)(nil))
+	return reflect.TypeOf((**SqlManagedInstance)(nil)).Elem()
 }
 
 func (o SqlManagedInstanceOutput) ToSqlManagedInstanceOutput() SqlManagedInstanceOutput {

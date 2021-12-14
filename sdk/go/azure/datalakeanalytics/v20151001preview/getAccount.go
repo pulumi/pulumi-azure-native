@@ -13,7 +13,7 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAccountArgs struct {
@@ -55,4 +55,17 @@ type LookupAccountResult struct {
 	Tags                         map[string]string                         `pulumi:"tags"`
 	Type                         string                                    `pulumi:"type"`
 	VirtualNetworkRules          []VirtualNetworkRuleResponse              `pulumi:"virtualNetworkRules"`
+}
+
+
+func (val *LookupAccountResult) Defaults() *LookupAccountResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.QueryStoreRetention) {
+		queryStoreRetention_ := 30
+		tmp.QueryStoreRetention = &queryStoreRetention_
+	}
+	return &tmp
 }

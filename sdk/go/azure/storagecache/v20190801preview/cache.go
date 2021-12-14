@@ -127,7 +127,7 @@ type CacheInput interface {
 }
 
 func (*Cache) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cache)(nil))
+	return reflect.TypeOf((**Cache)(nil)).Elem()
 }
 
 func (i *Cache) ToCacheOutput() CacheOutput {
@@ -141,7 +141,7 @@ func (i *Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 type CacheOutput struct{ *pulumi.OutputState }
 
 func (CacheOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Cache)(nil))
+	return reflect.TypeOf((**Cache)(nil)).Elem()
 }
 
 func (o CacheOutput) ToCacheOutput() CacheOutput {

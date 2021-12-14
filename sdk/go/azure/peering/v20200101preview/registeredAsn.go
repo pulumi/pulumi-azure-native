@@ -110,7 +110,7 @@ type RegisteredAsnInput interface {
 }
 
 func (*RegisteredAsn) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegisteredAsn)(nil))
+	return reflect.TypeOf((**RegisteredAsn)(nil)).Elem()
 }
 
 func (i *RegisteredAsn) ToRegisteredAsnOutput() RegisteredAsnOutput {
@@ -124,7 +124,7 @@ func (i *RegisteredAsn) ToRegisteredAsnOutputWithContext(ctx context.Context) Re
 type RegisteredAsnOutput struct{ *pulumi.OutputState }
 
 func (RegisteredAsnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegisteredAsn)(nil))
+	return reflect.TypeOf((**RegisteredAsn)(nil)).Elem()
 }
 
 func (o RegisteredAsnOutput) ToRegisteredAsnOutput() RegisteredAsnOutput {

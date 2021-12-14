@@ -107,7 +107,7 @@ type MongoDBResourceMongoRoleDefinitionInput interface {
 }
 
 func (*MongoDBResourceMongoRoleDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoRoleDefinition)(nil))
+	return reflect.TypeOf((**MongoDBResourceMongoRoleDefinition)(nil)).Elem()
 }
 
 func (i *MongoDBResourceMongoRoleDefinition) ToMongoDBResourceMongoRoleDefinitionOutput() MongoDBResourceMongoRoleDefinitionOutput {
@@ -121,7 +121,7 @@ func (i *MongoDBResourceMongoRoleDefinition) ToMongoDBResourceMongoRoleDefinitio
 type MongoDBResourceMongoRoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (MongoDBResourceMongoRoleDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoRoleDefinition)(nil))
+	return reflect.TypeOf((**MongoDBResourceMongoRoleDefinition)(nil)).Elem()
 }
 
 func (o MongoDBResourceMongoRoleDefinitionOutput) ToMongoDBResourceMongoRoleDefinitionOutput() MongoDBResourceMongoRoleDefinitionOutput {

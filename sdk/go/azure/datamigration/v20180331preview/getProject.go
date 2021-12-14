@@ -13,7 +13,7 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupProjectArgs struct {
@@ -36,4 +36,17 @@ type LookupProjectResult struct {
 	TargetConnectionInfo *SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
 	TargetPlatform       string                     `pulumi:"targetPlatform"`
 	Type                 string                     `pulumi:"type"`
+}
+
+
+func (val *LookupProjectResult) Defaults() *LookupProjectResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }

@@ -135,7 +135,7 @@ type CustomImageInput interface {
 }
 
 func (*CustomImage) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomImage)(nil))
+	return reflect.TypeOf((**CustomImage)(nil)).Elem()
 }
 
 func (i *CustomImage) ToCustomImageOutput() CustomImageOutput {
@@ -149,7 +149,7 @@ func (i *CustomImage) ToCustomImageOutputWithContext(ctx context.Context) Custom
 type CustomImageOutput struct{ *pulumi.OutputState }
 
 func (CustomImageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomImage)(nil))
+	return reflect.TypeOf((**CustomImage)(nil)).Elem()
 }
 
 func (o CustomImageOutput) ToCustomImageOutput() CustomImageOutput {

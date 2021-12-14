@@ -131,7 +131,7 @@ type KustoPoolDatabasePrincipalAssignmentInput interface {
 }
 
 func (*KustoPoolDatabasePrincipalAssignment) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoPoolDatabasePrincipalAssignment)(nil))
+	return reflect.TypeOf((**KustoPoolDatabasePrincipalAssignment)(nil)).Elem()
 }
 
 func (i *KustoPoolDatabasePrincipalAssignment) ToKustoPoolDatabasePrincipalAssignmentOutput() KustoPoolDatabasePrincipalAssignmentOutput {
@@ -145,7 +145,7 @@ func (i *KustoPoolDatabasePrincipalAssignment) ToKustoPoolDatabasePrincipalAssig
 type KustoPoolDatabasePrincipalAssignmentOutput struct{ *pulumi.OutputState }
 
 func (KustoPoolDatabasePrincipalAssignmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoPoolDatabasePrincipalAssignment)(nil))
+	return reflect.TypeOf((**KustoPoolDatabasePrincipalAssignment)(nil)).Elem()
 }
 
 func (o KustoPoolDatabasePrincipalAssignmentOutput) ToKustoPoolDatabasePrincipalAssignmentOutput() KustoPoolDatabasePrincipalAssignmentOutput {

@@ -143,7 +143,7 @@ type ViewByScopeInput interface {
 }
 
 func (*ViewByScope) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewByScope)(nil))
+	return reflect.TypeOf((**ViewByScope)(nil)).Elem()
 }
 
 func (i *ViewByScope) ToViewByScopeOutput() ViewByScopeOutput {
@@ -157,7 +157,7 @@ func (i *ViewByScope) ToViewByScopeOutputWithContext(ctx context.Context) ViewBy
 type ViewByScopeOutput struct{ *pulumi.OutputState }
 
 func (ViewByScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewByScope)(nil))
+	return reflect.TypeOf((**ViewByScope)(nil)).Elem()
 }
 
 func (o ViewByScopeOutput) ToViewByScopeOutput() ViewByScopeOutput {

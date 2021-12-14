@@ -44,7 +44,7 @@ func NewAccount(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.PublicNetworkAccess == nil {
+	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -120,7 +120,7 @@ type AccountInput interface {
 }
 
 func (*Account) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (i *Account) ToAccountOutput() AccountOutput {
@@ -134,7 +134,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 type AccountOutput struct{ *pulumi.OutputState }
 
 func (AccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Account)(nil))
+	return reflect.TypeOf((**Account)(nil)).Elem()
 }
 
 func (o AccountOutput) ToAccountOutput() AccountOutput {

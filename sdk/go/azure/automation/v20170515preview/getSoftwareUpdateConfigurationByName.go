@@ -13,7 +13,7 @@ func LookupSoftwareUpdateConfigurationByName(ctx *pulumi.Context, args *LookupSo
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupSoftwareUpdateConfigurationByNameArgs struct {
@@ -36,4 +36,15 @@ type LookupSoftwareUpdateConfigurationByNameResult struct {
 	Tasks               *SoftwareUpdateConfigurationTasksResponse `pulumi:"tasks"`
 	Type                string                                    `pulumi:"type"`
 	UpdateConfiguration UpdateConfigurationResponse               `pulumi:"updateConfiguration"`
+}
+
+
+func (val *LookupSoftwareUpdateConfigurationByNameResult) Defaults() *LookupSoftwareUpdateConfigurationByNameResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ScheduleInfo = *tmp.ScheduleInfo.Defaults()
+
+	return &tmp
 }

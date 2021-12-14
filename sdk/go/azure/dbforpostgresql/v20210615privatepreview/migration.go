@@ -136,7 +136,7 @@ type MigrationInput interface {
 }
 
 func (*Migration) ElementType() reflect.Type {
-	return reflect.TypeOf((*Migration)(nil))
+	return reflect.TypeOf((**Migration)(nil)).Elem()
 }
 
 func (i *Migration) ToMigrationOutput() MigrationOutput {
@@ -150,7 +150,7 @@ func (i *Migration) ToMigrationOutputWithContext(ctx context.Context) MigrationO
 type MigrationOutput struct{ *pulumi.OutputState }
 
 func (MigrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Migration)(nil))
+	return reflect.TypeOf((**Migration)(nil)).Elem()
 }
 
 func (o MigrationOutput) ToMigrationOutput() MigrationOutput {

@@ -105,7 +105,7 @@ type JobCollectionInput interface {
 }
 
 func (*JobCollection) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobCollection)(nil))
+	return reflect.TypeOf((**JobCollection)(nil)).Elem()
 }
 
 func (i *JobCollection) ToJobCollectionOutput() JobCollectionOutput {
@@ -119,7 +119,7 @@ func (i *JobCollection) ToJobCollectionOutputWithContext(ctx context.Context) Jo
 type JobCollectionOutput struct{ *pulumi.OutputState }
 
 func (JobCollectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobCollection)(nil))
+	return reflect.TypeOf((**JobCollection)(nil)).Elem()
 }
 
 func (o JobCollectionOutput) ToJobCollectionOutput() JobCollectionOutput {

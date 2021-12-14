@@ -107,7 +107,7 @@ type AddressByNameInput interface {
 }
 
 func (*AddressByName) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddressByName)(nil))
+	return reflect.TypeOf((**AddressByName)(nil)).Elem()
 }
 
 func (i *AddressByName) ToAddressByNameOutput() AddressByNameOutput {
@@ -121,7 +121,7 @@ func (i *AddressByName) ToAddressByNameOutputWithContext(ctx context.Context) Ad
 type AddressByNameOutput struct{ *pulumi.OutputState }
 
 func (AddressByNameOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddressByName)(nil))
+	return reflect.TypeOf((**AddressByName)(nil)).Elem()
 }
 
 func (o AddressByNameOutput) ToAddressByNameOutput() AddressByNameOutput {

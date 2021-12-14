@@ -127,7 +127,7 @@ type KustoDatabaseDataSetInput interface {
 }
 
 func (*KustoDatabaseDataSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoDatabaseDataSet)(nil))
+	return reflect.TypeOf((**KustoDatabaseDataSet)(nil)).Elem()
 }
 
 func (i *KustoDatabaseDataSet) ToKustoDatabaseDataSetOutput() KustoDatabaseDataSetOutput {
@@ -141,7 +141,7 @@ func (i *KustoDatabaseDataSet) ToKustoDatabaseDataSetOutputWithContext(ctx conte
 type KustoDatabaseDataSetOutput struct{ *pulumi.OutputState }
 
 func (KustoDatabaseDataSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoDatabaseDataSet)(nil))
+	return reflect.TypeOf((**KustoDatabaseDataSet)(nil)).Elem()
 }
 
 func (o KustoDatabaseDataSetOutput) ToKustoDatabaseDataSetOutput() KustoDatabaseDataSetOutput {

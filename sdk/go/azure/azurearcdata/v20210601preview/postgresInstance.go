@@ -37,6 +37,10 @@ func NewPostgresInstance(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	skuApplier := func(v PostgresInstanceSku) *PostgresInstanceSku { return v.Defaults() }
+	if args.Sku != nil {
+		args.Sku = args.Sku.ToPostgresInstanceSkuPtrOutput().Elem().ApplyT(skuApplier).(PostgresInstanceSkuPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:azurearcdata:PostgresInstance"),
@@ -110,7 +114,7 @@ type PostgresInstanceInput interface {
 }
 
 func (*PostgresInstance) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstance)(nil))
+	return reflect.TypeOf((**PostgresInstance)(nil)).Elem()
 }
 
 func (i *PostgresInstance) ToPostgresInstanceOutput() PostgresInstanceOutput {
@@ -124,7 +128,7 @@ func (i *PostgresInstance) ToPostgresInstanceOutputWithContext(ctx context.Conte
 type PostgresInstanceOutput struct{ *pulumi.OutputState }
 
 func (PostgresInstanceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PostgresInstance)(nil))
+	return reflect.TypeOf((**PostgresInstance)(nil)).Elem()
 }
 
 func (o PostgresInstanceOutput) ToPostgresInstanceOutput() PostgresInstanceOutput {

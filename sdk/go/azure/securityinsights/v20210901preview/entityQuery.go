@@ -107,7 +107,7 @@ type EntityQueryInput interface {
 }
 
 func (*EntityQuery) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityQuery)(nil))
+	return reflect.TypeOf((**EntityQuery)(nil)).Elem()
 }
 
 func (i *EntityQuery) ToEntityQueryOutput() EntityQueryOutput {
@@ -121,7 +121,7 @@ func (i *EntityQuery) ToEntityQueryOutputWithContext(ctx context.Context) Entity
 type EntityQueryOutput struct{ *pulumi.OutputState }
 
 func (EntityQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EntityQuery)(nil))
+	return reflect.TypeOf((**EntityQuery)(nil)).Elem()
 }
 
 func (o EntityQueryOutput) ToEntityQueryOutput() EntityQueryOutput {

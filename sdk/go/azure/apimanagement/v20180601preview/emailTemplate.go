@@ -139,7 +139,7 @@ type EmailTemplateInput interface {
 }
 
 func (*EmailTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailTemplate)(nil))
+	return reflect.TypeOf((**EmailTemplate)(nil)).Elem()
 }
 
 func (i *EmailTemplate) ToEmailTemplateOutput() EmailTemplateOutput {
@@ -153,7 +153,7 @@ func (i *EmailTemplate) ToEmailTemplateOutputWithContext(ctx context.Context) Em
 type EmailTemplateOutput struct{ *pulumi.OutputState }
 
 func (EmailTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmailTemplate)(nil))
+	return reflect.TypeOf((**EmailTemplate)(nil)).Elem()
 }
 
 func (o EmailTemplateOutput) ToEmailTemplateOutput() EmailTemplateOutput {

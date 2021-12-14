@@ -134,7 +134,7 @@ type ReplicationProtectedItemInput interface {
 }
 
 func (*ReplicationProtectedItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProtectedItem)(nil))
+	return reflect.TypeOf((**ReplicationProtectedItem)(nil)).Elem()
 }
 
 func (i *ReplicationProtectedItem) ToReplicationProtectedItemOutput() ReplicationProtectedItemOutput {
@@ -148,7 +148,7 @@ func (i *ReplicationProtectedItem) ToReplicationProtectedItemOutputWithContext(c
 type ReplicationProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (ReplicationProtectedItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationProtectedItem)(nil))
+	return reflect.TypeOf((**ReplicationProtectedItem)(nil)).Elem()
 }
 
 func (o ReplicationProtectedItemOutput) ToReplicationProtectedItemOutput() ReplicationProtectedItemOutput {

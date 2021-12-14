@@ -121,7 +121,7 @@ type FileServicePropertiesInput interface {
 }
 
 func (*FileServiceProperties) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileServiceProperties)(nil))
+	return reflect.TypeOf((**FileServiceProperties)(nil)).Elem()
 }
 
 func (i *FileServiceProperties) ToFileServicePropertiesOutput() FileServicePropertiesOutput {
@@ -135,7 +135,7 @@ func (i *FileServiceProperties) ToFileServicePropertiesOutputWithContext(ctx con
 type FileServicePropertiesOutput struct{ *pulumi.OutputState }
 
 func (FileServicePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileServiceProperties)(nil))
+	return reflect.TypeOf((**FileServiceProperties)(nil)).Elem()
 }
 
 func (o FileServicePropertiesOutput) ToFileServicePropertiesOutput() FileServicePropertiesOutput {

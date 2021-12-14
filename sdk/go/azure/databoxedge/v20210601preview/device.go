@@ -158,7 +158,7 @@ type DeviceInput interface {
 }
 
 func (*Device) ElementType() reflect.Type {
-	return reflect.TypeOf((*Device)(nil))
+	return reflect.TypeOf((**Device)(nil)).Elem()
 }
 
 func (i *Device) ToDeviceOutput() DeviceOutput {
@@ -172,7 +172,7 @@ func (i *Device) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
 type DeviceOutput struct{ *pulumi.OutputState }
 
 func (DeviceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Device)(nil))
+	return reflect.TypeOf((**Device)(nil)).Elem()
 }
 
 func (o DeviceOutput) ToDeviceOutput() DeviceOutput {

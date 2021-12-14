@@ -103,7 +103,7 @@ type RulesEngineInput interface {
 }
 
 func (*RulesEngine) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulesEngine)(nil))
+	return reflect.TypeOf((**RulesEngine)(nil)).Elem()
 }
 
 func (i *RulesEngine) ToRulesEngineOutput() RulesEngineOutput {
@@ -117,7 +117,7 @@ func (i *RulesEngine) ToRulesEngineOutputWithContext(ctx context.Context) RulesE
 type RulesEngineOutput struct{ *pulumi.OutputState }
 
 func (RulesEngineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RulesEngine)(nil))
+	return reflect.TypeOf((**RulesEngine)(nil)).Elem()
 }
 
 func (o RulesEngineOutput) ToRulesEngineOutput() RulesEngineOutput {

@@ -180,7 +180,7 @@ type VirtualMachineScaleSetInput interface {
 }
 
 func (*VirtualMachineScaleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSet)(nil))
+	return reflect.TypeOf((**VirtualMachineScaleSet)(nil)).Elem()
 }
 
 func (i *VirtualMachineScaleSet) ToVirtualMachineScaleSetOutput() VirtualMachineScaleSetOutput {
@@ -194,7 +194,7 @@ func (i *VirtualMachineScaleSet) ToVirtualMachineScaleSetOutputWithContext(ctx c
 type VirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSet)(nil))
+	return reflect.TypeOf((**VirtualMachineScaleSet)(nil)).Elem()
 }
 
 func (o VirtualMachineScaleSetOutput) ToVirtualMachineScaleSetOutput() VirtualMachineScaleSetOutput {

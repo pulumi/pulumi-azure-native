@@ -13,7 +13,7 @@ func ListOperationalizationClusterKeys(ctx *pulumi.Context, args *ListOperationa
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type ListOperationalizationClusterKeysArgs struct {
@@ -29,4 +29,15 @@ type ListOperationalizationClusterKeysResult struct {
 	ServiceAuthConfiguration *ServiceAuthConfigurationResponse     `pulumi:"serviceAuthConfiguration"`
 	SslConfiguration         *SslConfigurationResponse             `pulumi:"sslConfiguration"`
 	StorageAccount           *StorageAccountCredentialsResponse    `pulumi:"storageAccount"`
+}
+
+
+func (val *ListOperationalizationClusterKeysResult) Defaults() *ListOperationalizationClusterKeysResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SslConfiguration = tmp.SslConfiguration.Defaults()
+
+	return &tmp
 }

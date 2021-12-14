@@ -62,7 +62,7 @@ func NewDomain(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.AutoRenew == nil {
+	if isZero(args.AutoRenew) {
 		args.AutoRenew = pulumi.BoolPtr(true)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -180,7 +180,7 @@ type DomainInput interface {
 }
 
 func (*Domain) ElementType() reflect.Type {
-	return reflect.TypeOf((*Domain)(nil))
+	return reflect.TypeOf((**Domain)(nil)).Elem()
 }
 
 func (i *Domain) ToDomainOutput() DomainOutput {
@@ -194,7 +194,7 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 type DomainOutput struct{ *pulumi.OutputState }
 
 func (DomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Domain)(nil))
+	return reflect.TypeOf((**Domain)(nil)).Elem()
 }
 
 func (o DomainOutput) ToDomainOutput() DomainOutput {

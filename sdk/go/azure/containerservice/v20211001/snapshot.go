@@ -113,7 +113,7 @@ type SnapshotInput interface {
 }
 
 func (*Snapshot) ElementType() reflect.Type {
-	return reflect.TypeOf((*Snapshot)(nil))
+	return reflect.TypeOf((**Snapshot)(nil)).Elem()
 }
 
 func (i *Snapshot) ToSnapshotOutput() SnapshotOutput {
@@ -127,7 +127,7 @@ func (i *Snapshot) ToSnapshotOutputWithContext(ctx context.Context) SnapshotOutp
 type SnapshotOutput struct{ *pulumi.OutputState }
 
 func (SnapshotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Snapshot)(nil))
+	return reflect.TypeOf((**Snapshot)(nil)).Elem()
 }
 
 func (o SnapshotOutput) ToSnapshotOutput() SnapshotOutput {

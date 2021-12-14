@@ -118,7 +118,7 @@ type IpFirewallRuleInput interface {
 }
 
 func (*IpFirewallRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpFirewallRule)(nil))
+	return reflect.TypeOf((**IpFirewallRule)(nil)).Elem()
 }
 
 func (i *IpFirewallRule) ToIpFirewallRuleOutput() IpFirewallRuleOutput {
@@ -132,7 +132,7 @@ func (i *IpFirewallRule) ToIpFirewallRuleOutputWithContext(ctx context.Context) 
 type IpFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (IpFirewallRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IpFirewallRule)(nil))
+	return reflect.TypeOf((**IpFirewallRule)(nil)).Elem()
 }
 
 func (o IpFirewallRuleOutput) ToIpFirewallRuleOutput() IpFirewallRuleOutput {

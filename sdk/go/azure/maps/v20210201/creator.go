@@ -114,7 +114,7 @@ type CreatorInput interface {
 }
 
 func (*Creator) ElementType() reflect.Type {
-	return reflect.TypeOf((*Creator)(nil))
+	return reflect.TypeOf((**Creator)(nil)).Elem()
 }
 
 func (i *Creator) ToCreatorOutput() CreatorOutput {
@@ -128,7 +128,7 @@ func (i *Creator) ToCreatorOutputWithContext(ctx context.Context) CreatorOutput 
 type CreatorOutput struct{ *pulumi.OutputState }
 
 func (CreatorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Creator)(nil))
+	return reflect.TypeOf((**Creator)(nil)).Elem()
 }
 
 func (o CreatorOutput) ToCreatorOutput() CreatorOutput {

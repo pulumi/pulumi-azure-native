@@ -13,7 +13,7 @@ func LookupBuildTask(ctx *pulumi.Context, args *LookupBuildTaskArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBuildTaskArgs struct {
@@ -36,4 +36,19 @@ type LookupBuildTaskResult struct {
 	Tags              map[string]string                  `pulumi:"tags"`
 	Timeout           *int                               `pulumi:"timeout"`
 	Type              string                             `pulumi:"type"`
+}
+
+
+func (val *LookupBuildTaskResult) Defaults() *LookupBuildTaskResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceRepository = *tmp.SourceRepository.Defaults()
+
+	if isZero(tmp.Timeout) {
+		timeout_ := 3600
+		tmp.Timeout = &timeout_
+	}
+	return &tmp
 }

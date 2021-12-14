@@ -251,6 +251,19 @@ type EventSubscriptionFilter struct {
 }
 
 
+func (val *EventSubscriptionFilter) Defaults() *EventSubscriptionFilter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSubjectCaseSensitive) {
+		isSubjectCaseSensitive_ := false
+		tmp.IsSubjectCaseSensitive = &isSubjectCaseSensitive_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -441,6 +454,19 @@ type EventSubscriptionFilterResponse struct {
 	IsSubjectCaseSensitive *bool         `pulumi:"isSubjectCaseSensitive"`
 	SubjectBeginsWith      *string       `pulumi:"subjectBeginsWith"`
 	SubjectEndsWith        *string       `pulumi:"subjectEndsWith"`
+}
+
+
+func (val *EventSubscriptionFilterResponse) Defaults() *EventSubscriptionFilterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSubjectCaseSensitive) {
+		isSubjectCaseSensitive_ := false
+		tmp.IsSubjectCaseSensitive = &isSubjectCaseSensitive_
+	}
+	return &tmp
 }
 
 

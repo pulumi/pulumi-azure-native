@@ -508,6 +508,19 @@ type BotProperties struct {
 }
 
 
+func (val *BotProperties) Defaults() *BotProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "Enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1048,6 +1061,19 @@ type BotPropertiesResponse struct {
 	PublishingCredentials             *string           `pulumi:"publishingCredentials"`
 	SchemaTransformationVersion       *string           `pulumi:"schemaTransformationVersion"`
 	StorageResourceId                 *string           `pulumi:"storageResourceId"`
+}
+
+
+func (val *BotPropertiesResponse) Defaults() *BotPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.PublicNetworkAccess) {
+		publicNetworkAccess_ := "Enabled"
+		tmp.PublicNetworkAccess = &publicNetworkAccess_
+	}
+	return &tmp
 }
 
 
@@ -7392,6 +7418,18 @@ type SiteResponse struct {
 }
 
 
+func (val *SiteResponse) Defaults() *SiteResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsWebchatPreviewEnabled) {
+		tmp.IsWebchatPreviewEnabled = false
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -10534,6 +10572,18 @@ type WebChatSite struct {
 }
 
 
+func (val *WebChatSite) Defaults() *WebChatSite {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsWebchatPreviewEnabled) {
+		tmp.IsWebchatPreviewEnabled = false
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -10640,6 +10690,18 @@ type WebChatSiteResponse struct {
 	Key2                    string `pulumi:"key2"`
 	SiteId                  string `pulumi:"siteId"`
 	SiteName                string `pulumi:"siteName"`
+}
+
+
+func (val *WebChatSiteResponse) Defaults() *WebChatSiteResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsWebchatPreviewEnabled) {
+		tmp.IsWebchatPreviewEnabled = false
+	}
+	return &tmp
 }
 
 

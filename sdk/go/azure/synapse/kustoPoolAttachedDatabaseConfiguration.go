@@ -125,7 +125,7 @@ type KustoPoolAttachedDatabaseConfigurationInput interface {
 }
 
 func (*KustoPoolAttachedDatabaseConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoPoolAttachedDatabaseConfiguration)(nil))
+	return reflect.TypeOf((**KustoPoolAttachedDatabaseConfiguration)(nil)).Elem()
 }
 
 func (i *KustoPoolAttachedDatabaseConfiguration) ToKustoPoolAttachedDatabaseConfigurationOutput() KustoPoolAttachedDatabaseConfigurationOutput {
@@ -139,7 +139,7 @@ func (i *KustoPoolAttachedDatabaseConfiguration) ToKustoPoolAttachedDatabaseConf
 type KustoPoolAttachedDatabaseConfigurationOutput struct{ *pulumi.OutputState }
 
 func (KustoPoolAttachedDatabaseConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoPoolAttachedDatabaseConfiguration)(nil))
+	return reflect.TypeOf((**KustoPoolAttachedDatabaseConfiguration)(nil)).Elem()
 }
 
 func (o KustoPoolAttachedDatabaseConfigurationOutput) ToKustoPoolAttachedDatabaseConfigurationOutput() KustoPoolAttachedDatabaseConfigurationOutput {

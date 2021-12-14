@@ -13,7 +13,7 @@ func LookupSqlManagedInstance(ctx *pulumi.Context, args *LookupSqlManagedInstanc
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupSqlManagedInstanceArgs struct {
@@ -32,4 +32,17 @@ type LookupSqlManagedInstanceResult struct {
 	SystemData       SystemDataResponse                   `pulumi:"systemData"`
 	Tags             map[string]string                    `pulumi:"tags"`
 	Type             string                               `pulumi:"type"`
+}
+
+
+func (val *LookupSqlManagedInstanceResult) Defaults() *LookupSqlManagedInstanceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	tmp.Sku = tmp.Sku.Defaults()
+
+	return &tmp
 }

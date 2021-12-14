@@ -108,7 +108,7 @@ type AdaptiveApplicationControlInput interface {
 }
 
 func (*AdaptiveApplicationControl) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdaptiveApplicationControl)(nil))
+	return reflect.TypeOf((**AdaptiveApplicationControl)(nil)).Elem()
 }
 
 func (i *AdaptiveApplicationControl) ToAdaptiveApplicationControlOutput() AdaptiveApplicationControlOutput {
@@ -122,7 +122,7 @@ func (i *AdaptiveApplicationControl) ToAdaptiveApplicationControlOutputWithConte
 type AdaptiveApplicationControlOutput struct{ *pulumi.OutputState }
 
 func (AdaptiveApplicationControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AdaptiveApplicationControl)(nil))
+	return reflect.TypeOf((**AdaptiveApplicationControl)(nil)).Elem()
 }
 
 func (o AdaptiveApplicationControlOutput) ToAdaptiveApplicationControlOutput() AdaptiveApplicationControlOutput {

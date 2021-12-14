@@ -96,7 +96,7 @@ type ReportConfigInput interface {
 }
 
 func (*ReportConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfig)(nil))
+	return reflect.TypeOf((**ReportConfig)(nil)).Elem()
 }
 
 func (i *ReportConfig) ToReportConfigOutput() ReportConfigOutput {
@@ -110,7 +110,7 @@ func (i *ReportConfig) ToReportConfigOutputWithContext(ctx context.Context) Repo
 type ReportConfigOutput struct{ *pulumi.OutputState }
 
 func (ReportConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfig)(nil))
+	return reflect.TypeOf((**ReportConfig)(nil)).Elem()
 }
 
 func (o ReportConfigOutput) ToReportConfigOutput() ReportConfigOutput {

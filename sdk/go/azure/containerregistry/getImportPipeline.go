@@ -13,7 +13,7 @@ func LookupImportPipeline(ctx *pulumi.Context, args *LookupImportPipelineArgs, o
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupImportPipelineArgs struct {
@@ -34,4 +34,17 @@ type LookupImportPipelineResult struct {
 	SystemData        SystemDataResponse                     `pulumi:"systemData"`
 	Trigger           *PipelineTriggerPropertiesResponse     `pulumi:"trigger"`
 	Type              string                                 `pulumi:"type"`
+}
+
+
+func (val *LookupImportPipelineResult) Defaults() *LookupImportPipelineResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Source = *tmp.Source.Defaults()
+
+	tmp.Trigger = tmp.Trigger.Defaults()
+
+	return &tmp
 }

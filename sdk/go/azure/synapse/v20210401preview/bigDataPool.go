@@ -171,7 +171,7 @@ type BigDataPoolInput interface {
 }
 
 func (*BigDataPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigDataPool)(nil))
+	return reflect.TypeOf((**BigDataPool)(nil)).Elem()
 }
 
 func (i *BigDataPool) ToBigDataPoolOutput() BigDataPoolOutput {
@@ -185,7 +185,7 @@ func (i *BigDataPool) ToBigDataPoolOutputWithContext(ctx context.Context) BigDat
 type BigDataPoolOutput struct{ *pulumi.OutputState }
 
 func (BigDataPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigDataPool)(nil))
+	return reflect.TypeOf((**BigDataPool)(nil)).Elem()
 }
 
 func (o BigDataPoolOutput) ToBigDataPoolOutput() BigDataPoolOutput {

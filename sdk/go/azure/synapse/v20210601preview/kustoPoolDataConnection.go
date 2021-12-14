@@ -117,7 +117,7 @@ type KustoPoolDataConnectionInput interface {
 }
 
 func (*KustoPoolDataConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoPoolDataConnection)(nil))
+	return reflect.TypeOf((**KustoPoolDataConnection)(nil)).Elem()
 }
 
 func (i *KustoPoolDataConnection) ToKustoPoolDataConnectionOutput() KustoPoolDataConnectionOutput {
@@ -131,7 +131,7 @@ func (i *KustoPoolDataConnection) ToKustoPoolDataConnectionOutputWithContext(ctx
 type KustoPoolDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (KustoPoolDataConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KustoPoolDataConnection)(nil))
+	return reflect.TypeOf((**KustoPoolDataConnection)(nil)).Elem()
 }
 
 func (o KustoPoolDataConnectionOutput) ToKustoPoolDataConnectionOutput() KustoPoolDataConnectionOutput {

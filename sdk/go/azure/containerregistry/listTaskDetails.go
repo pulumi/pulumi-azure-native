@@ -13,7 +13,7 @@ func ListTaskDetails(ctx *pulumi.Context, args *ListTaskDetailsArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type ListTaskDetailsArgs struct {
@@ -44,4 +44,23 @@ type ListTaskDetailsResult struct {
 	Timeout            *int                        `pulumi:"timeout"`
 	Trigger            *TriggerPropertiesResponse  `pulumi:"trigger"`
 	Type               string                      `pulumi:"type"`
+}
+
+
+func (val *ListTaskDetailsResult) Defaults() *ListTaskDetailsResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSystemTask) {
+		isSystemTask_ := false
+		tmp.IsSystemTask = &isSystemTask_
+	}
+	if isZero(tmp.Timeout) {
+		timeout_ := 3600
+		tmp.Timeout = &timeout_
+	}
+	tmp.Trigger = tmp.Trigger.Defaults()
+
+	return &tmp
 }

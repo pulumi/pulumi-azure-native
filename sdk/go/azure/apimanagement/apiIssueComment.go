@@ -148,7 +148,7 @@ type ApiIssueCommentInput interface {
 }
 
 func (*ApiIssueComment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiIssueComment)(nil))
+	return reflect.TypeOf((**ApiIssueComment)(nil)).Elem()
 }
 
 func (i *ApiIssueComment) ToApiIssueCommentOutput() ApiIssueCommentOutput {
@@ -162,7 +162,7 @@ func (i *ApiIssueComment) ToApiIssueCommentOutputWithContext(ctx context.Context
 type ApiIssueCommentOutput struct{ *pulumi.OutputState }
 
 func (ApiIssueCommentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiIssueComment)(nil))
+	return reflect.TypeOf((**ApiIssueComment)(nil)).Elem()
 }
 
 func (o ApiIssueCommentOutput) ToApiIssueCommentOutput() ApiIssueCommentOutput {

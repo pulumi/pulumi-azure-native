@@ -111,7 +111,7 @@ type PeerAsnInput interface {
 }
 
 func (*PeerAsn) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeerAsn)(nil))
+	return reflect.TypeOf((**PeerAsn)(nil)).Elem()
 }
 
 func (i *PeerAsn) ToPeerAsnOutput() PeerAsnOutput {
@@ -125,7 +125,7 @@ func (i *PeerAsn) ToPeerAsnOutputWithContext(ctx context.Context) PeerAsnOutput 
 type PeerAsnOutput struct{ *pulumi.OutputState }
 
 func (PeerAsnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PeerAsn)(nil))
+	return reflect.TypeOf((**PeerAsn)(nil)).Elem()
 }
 
 func (o PeerAsnOutput) ToPeerAsnOutput() PeerAsnOutput {

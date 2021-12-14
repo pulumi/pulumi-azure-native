@@ -102,7 +102,7 @@ type MoveResourceInput interface {
 }
 
 func (*MoveResource) ElementType() reflect.Type {
-	return reflect.TypeOf((*MoveResource)(nil))
+	return reflect.TypeOf((**MoveResource)(nil)).Elem()
 }
 
 func (i *MoveResource) ToMoveResourceOutput() MoveResourceOutput {
@@ -116,7 +116,7 @@ func (i *MoveResource) ToMoveResourceOutputWithContext(ctx context.Context) Move
 type MoveResourceOutput struct{ *pulumi.OutputState }
 
 func (MoveResourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MoveResource)(nil))
+	return reflect.TypeOf((**MoveResource)(nil)).Elem()
 }
 
 func (o MoveResourceOutput) ToMoveResourceOutput() MoveResourceOutput {

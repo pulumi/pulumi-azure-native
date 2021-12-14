@@ -100,7 +100,7 @@ type VolumeGroupInput interface {
 }
 
 func (*VolumeGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeGroup)(nil))
+	return reflect.TypeOf((**VolumeGroup)(nil)).Elem()
 }
 
 func (i *VolumeGroup) ToVolumeGroupOutput() VolumeGroupOutput {
@@ -114,7 +114,7 @@ func (i *VolumeGroup) ToVolumeGroupOutputWithContext(ctx context.Context) Volume
 type VolumeGroupOutput struct{ *pulumi.OutputState }
 
 func (VolumeGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeGroup)(nil))
+	return reflect.TypeOf((**VolumeGroup)(nil)).Elem()
 }
 
 func (o VolumeGroupOutput) ToVolumeGroupOutput() VolumeGroupOutput {

@@ -121,7 +121,7 @@ type WorkspaceAadAdminInput interface {
 }
 
 func (*WorkspaceAadAdmin) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceAadAdmin)(nil))
+	return reflect.TypeOf((**WorkspaceAadAdmin)(nil)).Elem()
 }
 
 func (i *WorkspaceAadAdmin) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {
@@ -135,7 +135,7 @@ func (i *WorkspaceAadAdmin) ToWorkspaceAadAdminOutputWithContext(ctx context.Con
 type WorkspaceAadAdminOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceAadAdminOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkspaceAadAdmin)(nil))
+	return reflect.TypeOf((**WorkspaceAadAdmin)(nil)).Elem()
 }
 
 func (o WorkspaceAadAdminOutput) ToWorkspaceAadAdminOutput() WorkspaceAadAdminOutput {

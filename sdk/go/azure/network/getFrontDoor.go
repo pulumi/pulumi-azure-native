@@ -13,7 +13,7 @@ func LookupFrontDoor(ctx *pulumi.Context, args *LookupFrontDoorArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupFrontDoorArgs struct {
@@ -41,4 +41,15 @@ type LookupFrontDoorResult struct {
 	RulesEngines          []RulesEngineResponse                `pulumi:"rulesEngines"`
 	Tags                  map[string]string                    `pulumi:"tags"`
 	Type                  string                               `pulumi:"type"`
+}
+
+
+func (val *LookupFrontDoorResult) Defaults() *LookupFrontDoorResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.BackendPoolsSettings = tmp.BackendPoolsSettings.Defaults()
+
+	return &tmp
 }

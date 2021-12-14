@@ -130,7 +130,7 @@ type WebAppAzureStorageAccountsSlotInput interface {
 }
 
 func (*WebAppAzureStorageAccountsSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppAzureStorageAccountsSlot)(nil))
+	return reflect.TypeOf((**WebAppAzureStorageAccountsSlot)(nil)).Elem()
 }
 
 func (i *WebAppAzureStorageAccountsSlot) ToWebAppAzureStorageAccountsSlotOutput() WebAppAzureStorageAccountsSlotOutput {
@@ -144,7 +144,7 @@ func (i *WebAppAzureStorageAccountsSlot) ToWebAppAzureStorageAccountsSlotOutputW
 type WebAppAzureStorageAccountsSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppAzureStorageAccountsSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppAzureStorageAccountsSlot)(nil))
+	return reflect.TypeOf((**WebAppAzureStorageAccountsSlot)(nil)).Elem()
 }
 
 func (o WebAppAzureStorageAccountsSlotOutput) ToWebAppAzureStorageAccountsSlotOutput() WebAppAzureStorageAccountsSlotOutput {

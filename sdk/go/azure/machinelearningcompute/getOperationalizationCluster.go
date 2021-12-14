@@ -13,7 +13,7 @@ func LookupOperationalizationCluster(ctx *pulumi.Context, args *LookupOperationa
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupOperationalizationClusterArgs struct {
@@ -39,4 +39,17 @@ type LookupOperationalizationClusterResult struct {
 	StorageAccount             *StorageAccountPropertiesResponse    `pulumi:"storageAccount"`
 	Tags                       map[string]string                    `pulumi:"tags"`
 	Type                       string                               `pulumi:"type"`
+}
+
+
+func (val *LookupOperationalizationClusterResult) Defaults() *LookupOperationalizationClusterResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ContainerService = tmp.ContainerService.Defaults()
+
+	tmp.GlobalServiceConfiguration = tmp.GlobalServiceConfiguration.Defaults()
+
+	return &tmp
 }

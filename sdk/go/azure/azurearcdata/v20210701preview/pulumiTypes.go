@@ -303,6 +303,19 @@ type DataControllerProperties struct {
 }
 
 
+func (val *DataControllerProperties) Defaults() *DataControllerProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Infrastructure) {
+		infrastructure_ := Infrastructure("other")
+		tmp.Infrastructure = &infrastructure_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -539,6 +552,19 @@ type DataControllerPropertiesResponse struct {
 	ProvisioningState           string                               `pulumi:"provisioningState"`
 	UploadServicePrincipal      *UploadServicePrincipalResponse      `pulumi:"uploadServicePrincipal"`
 	UploadWatermark             *UploadWatermarkResponse             `pulumi:"uploadWatermark"`
+}
+
+
+func (val *DataControllerPropertiesResponse) Defaults() *DataControllerPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Infrastructure) {
+		infrastructure_ := "other"
+		tmp.Infrastructure = &infrastructure_
+	}
+	return &tmp
 }
 
 
@@ -2104,6 +2130,23 @@ type PostgresInstanceSku struct {
 }
 
 
+func (val *PostgresInstanceSku) Defaults() *PostgresInstanceSku {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := PostgresInstanceSkuTier("Hyperscale")
+		tmp.Tier = &tier_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2309,6 +2352,23 @@ type PostgresInstanceSkuResponse struct {
 	Name     string  `pulumi:"name"`
 	Size     *string `pulumi:"size"`
 	Tier     *string `pulumi:"tier"`
+}
+
+
+func (val *PostgresInstanceSkuResponse) Defaults() *PostgresInstanceSkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := "Hyperscale"
+		tmp.Tier = &tier_
+	}
+	return &tmp
 }
 
 
@@ -2519,6 +2579,19 @@ type SqlManagedInstanceProperties struct {
 	LastUploadedDate      *string                `pulumi:"lastUploadedDate"`
 	LicenseType           *LicenseType           `pulumi:"licenseType"`
 	StartTime             *string                `pulumi:"startTime"`
+}
+
+
+func (val *SqlManagedInstanceProperties) Defaults() *SqlManagedInstanceProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LicenseType) {
+		licenseType_ := LicenseType("BasePrice")
+		tmp.LicenseType = &licenseType_
+	}
+	return &tmp
 }
 
 
@@ -2758,6 +2831,19 @@ type SqlManagedInstancePropertiesResponse struct {
 	LicenseType           *string                        `pulumi:"licenseType"`
 	ProvisioningState     string                         `pulumi:"provisioningState"`
 	StartTime             *string                        `pulumi:"startTime"`
+}
+
+
+func (val *SqlManagedInstancePropertiesResponse) Defaults() *SqlManagedInstancePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.LicenseType) {
+		licenseType_ := "BasePrice"
+		tmp.LicenseType = &licenseType_
+	}
+	return &tmp
 }
 
 
@@ -3013,6 +3099,23 @@ type SqlManagedInstanceSku struct {
 }
 
 
+func (val *SqlManagedInstanceSku) Defaults() *SqlManagedInstanceSku {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := SqlManagedInstanceSkuTier("GeneralPurpose")
+		tmp.Tier = &tier_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3218,6 +3321,23 @@ type SqlManagedInstanceSkuResponse struct {
 	Name     string  `pulumi:"name"`
 	Size     *string `pulumi:"size"`
 	Tier     *string `pulumi:"tier"`
+}
+
+
+func (val *SqlManagedInstanceSkuResponse) Defaults() *SqlManagedInstanceSkuResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Dev) {
+		dev_ := true
+		tmp.Dev = &dev_
+	}
+	if isZero(tmp.Tier) {
+		tier_ := "GeneralPurpose"
+		tmp.Tier = &tier_
+	}
+	return &tmp
 }
 
 

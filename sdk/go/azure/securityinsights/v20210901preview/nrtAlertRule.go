@@ -168,7 +168,7 @@ type NrtAlertRuleInput interface {
 }
 
 func (*NrtAlertRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NrtAlertRule)(nil))
+	return reflect.TypeOf((**NrtAlertRule)(nil)).Elem()
 }
 
 func (i *NrtAlertRule) ToNrtAlertRuleOutput() NrtAlertRuleOutput {
@@ -182,7 +182,7 @@ func (i *NrtAlertRule) ToNrtAlertRuleOutputWithContext(ctx context.Context) NrtA
 type NrtAlertRuleOutput struct{ *pulumi.OutputState }
 
 func (NrtAlertRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NrtAlertRule)(nil))
+	return reflect.TypeOf((**NrtAlertRule)(nil)).Elem()
 }
 
 func (o NrtAlertRuleOutput) ToNrtAlertRuleOutput() NrtAlertRuleOutput {

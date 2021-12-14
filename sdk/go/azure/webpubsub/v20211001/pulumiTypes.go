@@ -440,6 +440,19 @@ type LiveTraceConfiguration struct {
 }
 
 
+func (val *LiveTraceConfiguration) Defaults() *LiveTraceConfiguration {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		enabled_ := "false"
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -585,6 +598,19 @@ func (o LiveTraceConfigurationPtrOutput) Enabled() pulumi.StringPtrOutput {
 type LiveTraceConfigurationResponse struct {
 	Categories []LiveTraceCategoryResponse `pulumi:"categories"`
 	Enabled    *string                     `pulumi:"enabled"`
+}
+
+
+func (val *LiveTraceConfigurationResponse) Defaults() *LiveTraceConfigurationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Enabled) {
+		enabled_ := "false"
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
 }
 
 
@@ -4136,6 +4162,19 @@ type WebPubSubHubProperties struct {
 }
 
 
+func (val *WebPubSubHubProperties) Defaults() *WebPubSubHubProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AnonymousConnectPolicy) {
+		anonymousConnectPolicy_ := "deny"
+		tmp.AnonymousConnectPolicy = &anonymousConnectPolicy_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4281,6 +4320,19 @@ func (o WebPubSubHubPropertiesPtrOutput) EventHandlers() EventHandlerArrayOutput
 type WebPubSubHubPropertiesResponse struct {
 	AnonymousConnectPolicy *string                `pulumi:"anonymousConnectPolicy"`
 	EventHandlers          []EventHandlerResponse `pulumi:"eventHandlers"`
+}
+
+
+func (val *WebPubSubHubPropertiesResponse) Defaults() *WebPubSubHubPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AnonymousConnectPolicy) {
+		anonymousConnectPolicy_ := "deny"
+		tmp.AnonymousConnectPolicy = &anonymousConnectPolicy_
+	}
+	return &tmp
 }
 
 
@@ -4430,6 +4482,19 @@ type WebPubSubNetworkACLs struct {
 	DefaultAction    *string              `pulumi:"defaultAction"`
 	PrivateEndpoints []PrivateEndpointACL `pulumi:"privateEndpoints"`
 	PublicNetwork    *NetworkACL          `pulumi:"publicNetwork"`
+}
+
+
+func (val *WebPubSubNetworkACLs) Defaults() *WebPubSubNetworkACLs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		defaultAction_ := "Deny"
+		tmp.DefaultAction = &defaultAction_
+	}
+	return &tmp
 }
 
 
@@ -4596,6 +4661,19 @@ type WebPubSubNetworkACLsResponse struct {
 }
 
 
+func (val *WebPubSubNetworkACLsResponse) Defaults() *WebPubSubNetworkACLsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.DefaultAction) {
+		defaultAction_ := "Deny"
+		tmp.DefaultAction = &defaultAction_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4757,6 +4835,19 @@ type WebPubSubTlsSettings struct {
 }
 
 
+func (val *WebPubSubTlsSettings) Defaults() *WebPubSubTlsSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertEnabled) {
+		clientCertEnabled_ := true
+		tmp.ClientCertEnabled = &clientCertEnabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4887,6 +4978,19 @@ func (o WebPubSubTlsSettingsPtrOutput) ClientCertEnabled() pulumi.BoolPtrOutput 
 
 type WebPubSubTlsSettingsResponse struct {
 	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
+}
+
+
+func (val *WebPubSubTlsSettingsResponse) Defaults() *WebPubSubTlsSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientCertEnabled) {
+		clientCertEnabled_ := true
+		tmp.ClientCertEnabled = &clientCertEnabled_
+	}
+	return &tmp
 }
 
 

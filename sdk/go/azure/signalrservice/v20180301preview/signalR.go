@@ -127,7 +127,7 @@ type SignalRInput interface {
 }
 
 func (*SignalR) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalR)(nil))
+	return reflect.TypeOf((**SignalR)(nil)).Elem()
 }
 
 func (i *SignalR) ToSignalROutput() SignalROutput {
@@ -141,7 +141,7 @@ func (i *SignalR) ToSignalROutputWithContext(ctx context.Context) SignalROutput 
 type SignalROutput struct{ *pulumi.OutputState }
 
 func (SignalROutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SignalR)(nil))
+	return reflect.TypeOf((**SignalR)(nil)).Elem()
 }
 
 func (o SignalROutput) ToSignalROutput() SignalROutput {

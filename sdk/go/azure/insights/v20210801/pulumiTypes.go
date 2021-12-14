@@ -319,6 +319,17 @@ type Condition struct {
 }
 
 
+func (val *Condition) Defaults() *Condition {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.FailingPeriods = tmp.FailingPeriods.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -451,6 +462,23 @@ func (o ConditionArrayOutput) Index(i pulumi.IntInput) ConditionOutput {
 type ConditionFailingPeriods struct {
 	MinFailingPeriodsToAlert  *float64 `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods *float64 `pulumi:"numberOfEvaluationPeriods"`
+}
+
+
+func (val *ConditionFailingPeriods) Defaults() *ConditionFailingPeriods {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MinFailingPeriodsToAlert) {
+		minFailingPeriodsToAlert_ := 1.0
+		tmp.MinFailingPeriodsToAlert = &minFailingPeriodsToAlert_
+	}
+	if isZero(tmp.NumberOfEvaluationPeriods) {
+		numberOfEvaluationPeriods_ := 1.0
+		tmp.NumberOfEvaluationPeriods = &numberOfEvaluationPeriods_
+	}
+	return &tmp
 }
 
 
@@ -609,6 +637,17 @@ type ConditionResponse struct {
 }
 
 
+func (val *ConditionResponse) Defaults() *ConditionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.FailingPeriods = tmp.FailingPeriods.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -741,6 +780,23 @@ func (o ConditionResponseArrayOutput) Index(i pulumi.IntInput) ConditionResponse
 type ConditionResponseFailingPeriods struct {
 	MinFailingPeriodsToAlert  *float64 `pulumi:"minFailingPeriodsToAlert"`
 	NumberOfEvaluationPeriods *float64 `pulumi:"numberOfEvaluationPeriods"`
+}
+
+
+func (val *ConditionResponseFailingPeriods) Defaults() *ConditionResponseFailingPeriods {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MinFailingPeriodsToAlert) {
+		minFailingPeriodsToAlert_ := 1.0
+		tmp.MinFailingPeriodsToAlert = &minFailingPeriodsToAlert_
+	}
+	if isZero(tmp.NumberOfEvaluationPeriods) {
+		numberOfEvaluationPeriods_ := 1.0
+		tmp.NumberOfEvaluationPeriods = &numberOfEvaluationPeriods_
+	}
+	return &tmp
 }
 
 

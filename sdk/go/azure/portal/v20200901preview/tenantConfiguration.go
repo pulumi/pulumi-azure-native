@@ -88,7 +88,7 @@ type TenantConfigurationInput interface {
 }
 
 func (*TenantConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*TenantConfiguration)(nil))
+	return reflect.TypeOf((**TenantConfiguration)(nil)).Elem()
 }
 
 func (i *TenantConfiguration) ToTenantConfigurationOutput() TenantConfigurationOutput {
@@ -102,7 +102,7 @@ func (i *TenantConfiguration) ToTenantConfigurationOutputWithContext(ctx context
 type TenantConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TenantConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TenantConfiguration)(nil))
+	return reflect.TypeOf((**TenantConfiguration)(nil)).Elem()
 }
 
 func (o TenantConfigurationOutput) ToTenantConfigurationOutput() TenantConfigurationOutput {

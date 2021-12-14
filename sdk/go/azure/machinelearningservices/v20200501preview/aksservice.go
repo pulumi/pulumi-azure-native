@@ -160,7 +160,7 @@ type AKSServiceInput interface {
 }
 
 func (*AKSService) ElementType() reflect.Type {
-	return reflect.TypeOf((*AKSService)(nil))
+	return reflect.TypeOf((**AKSService)(nil)).Elem()
 }
 
 func (i *AKSService) ToAKSServiceOutput() AKSServiceOutput {
@@ -174,7 +174,7 @@ func (i *AKSService) ToAKSServiceOutputWithContext(ctx context.Context) AKSServi
 type AKSServiceOutput struct{ *pulumi.OutputState }
 
 func (AKSServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AKSService)(nil))
+	return reflect.TypeOf((**AKSService)(nil)).Elem()
 }
 
 func (o AKSServiceOutput) ToAKSServiceOutput() AKSServiceOutput {

@@ -13,7 +13,7 @@ func LookupBuildStep(ctx *pulumi.Context, args *LookupBuildStepArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupBuildStepArgs struct {
@@ -29,4 +29,15 @@ type LookupBuildStepResult struct {
 	Name       string                  `pulumi:"name"`
 	Properties DockerBuildStepResponse `pulumi:"properties"`
 	Type       string                  `pulumi:"type"`
+}
+
+
+func (val *LookupBuildStepResult) Defaults() *LookupBuildStepResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

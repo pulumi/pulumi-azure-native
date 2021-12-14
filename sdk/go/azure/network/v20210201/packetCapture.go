@@ -44,13 +44,13 @@ func NewPacketCapture(ctx *pulumi.Context,
 	if args.Target == nil {
 		return nil, errors.New("invalid value for required argument 'Target'")
 	}
-	if args.BytesToCapturePerPacket == nil {
+	if isZero(args.BytesToCapturePerPacket) {
 		args.BytesToCapturePerPacket = pulumi.Float64Ptr(0.0)
 	}
-	if args.TimeLimitInSeconds == nil {
+	if isZero(args.TimeLimitInSeconds) {
 		args.TimeLimitInSeconds = pulumi.IntPtr(18000)
 	}
-	if args.TotalBytesPerSession == nil {
+	if isZero(args.TotalBytesPerSession) {
 		args.TotalBytesPerSession = pulumi.Float64Ptr(1073741824.0)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -229,7 +229,7 @@ type PacketCaptureInput interface {
 }
 
 func (*PacketCapture) ElementType() reflect.Type {
-	return reflect.TypeOf((*PacketCapture)(nil))
+	return reflect.TypeOf((**PacketCapture)(nil)).Elem()
 }
 
 func (i *PacketCapture) ToPacketCaptureOutput() PacketCaptureOutput {
@@ -243,7 +243,7 @@ func (i *PacketCapture) ToPacketCaptureOutputWithContext(ctx context.Context) Pa
 type PacketCaptureOutput struct{ *pulumi.OutputState }
 
 func (PacketCaptureOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PacketCapture)(nil))
+	return reflect.TypeOf((**PacketCapture)(nil)).Elem()
 }
 
 func (o PacketCaptureOutput) ToPacketCaptureOutput() PacketCaptureOutput {

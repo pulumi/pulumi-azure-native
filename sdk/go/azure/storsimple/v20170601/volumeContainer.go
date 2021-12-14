@@ -120,7 +120,7 @@ type VolumeContainerInput interface {
 }
 
 func (*VolumeContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeContainer)(nil))
+	return reflect.TypeOf((**VolumeContainer)(nil)).Elem()
 }
 
 func (i *VolumeContainer) ToVolumeContainerOutput() VolumeContainerOutput {
@@ -134,7 +134,7 @@ func (i *VolumeContainer) ToVolumeContainerOutputWithContext(ctx context.Context
 type VolumeContainerOutput struct{ *pulumi.OutputState }
 
 func (VolumeContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeContainer)(nil))
+	return reflect.TypeOf((**VolumeContainer)(nil)).Elem()
 }
 
 func (o VolumeContainerOutput) ToVolumeContainerOutput() VolumeContainerOutput {

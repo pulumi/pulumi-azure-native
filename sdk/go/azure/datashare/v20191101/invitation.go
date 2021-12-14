@@ -125,7 +125,7 @@ type InvitationInput interface {
 }
 
 func (*Invitation) ElementType() reflect.Type {
-	return reflect.TypeOf((*Invitation)(nil))
+	return reflect.TypeOf((**Invitation)(nil)).Elem()
 }
 
 func (i *Invitation) ToInvitationOutput() InvitationOutput {
@@ -139,7 +139,7 @@ func (i *Invitation) ToInvitationOutputWithContext(ctx context.Context) Invitati
 type InvitationOutput struct{ *pulumi.OutputState }
 
 func (InvitationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Invitation)(nil))
+	return reflect.TypeOf((**Invitation)(nil)).Elem()
 }
 
 func (o InvitationOutput) ToInvitationOutput() InvitationOutput {

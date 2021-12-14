@@ -158,7 +158,7 @@ type SiteRelayServiceConnectionInput interface {
 }
 
 func (*SiteRelayServiceConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteRelayServiceConnection)(nil))
+	return reflect.TypeOf((**SiteRelayServiceConnection)(nil)).Elem()
 }
 
 func (i *SiteRelayServiceConnection) ToSiteRelayServiceConnectionOutput() SiteRelayServiceConnectionOutput {
@@ -172,7 +172,7 @@ func (i *SiteRelayServiceConnection) ToSiteRelayServiceConnectionOutputWithConte
 type SiteRelayServiceConnectionOutput struct{ *pulumi.OutputState }
 
 func (SiteRelayServiceConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteRelayServiceConnection)(nil))
+	return reflect.TypeOf((**SiteRelayServiceConnection)(nil)).Elem()
 }
 
 func (o SiteRelayServiceConnectionOutput) ToSiteRelayServiceConnectionOutput() SiteRelayServiceConnectionOutput {

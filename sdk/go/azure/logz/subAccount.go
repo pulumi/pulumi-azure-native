@@ -109,7 +109,7 @@ type SubAccountInput interface {
 }
 
 func (*SubAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubAccount)(nil))
+	return reflect.TypeOf((**SubAccount)(nil)).Elem()
 }
 
 func (i *SubAccount) ToSubAccountOutput() SubAccountOutput {
@@ -123,7 +123,7 @@ func (i *SubAccount) ToSubAccountOutputWithContext(ctx context.Context) SubAccou
 type SubAccountOutput struct{ *pulumi.OutputState }
 
 func (SubAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SubAccount)(nil))
+	return reflect.TypeOf((**SubAccount)(nil)).Elem()
 }
 
 func (o SubAccountOutput) ToSubAccountOutput() SubAccountOutput {

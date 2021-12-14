@@ -157,7 +157,7 @@ type ProtectedItemInput interface {
 }
 
 func (*ProtectedItem) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItem)(nil))
+	return reflect.TypeOf((**ProtectedItem)(nil)).Elem()
 }
 
 func (i *ProtectedItem) ToProtectedItemOutput() ProtectedItemOutput {
@@ -171,7 +171,7 @@ func (i *ProtectedItem) ToProtectedItemOutputWithContext(ctx context.Context) Pr
 type ProtectedItemOutput struct{ *pulumi.OutputState }
 
 func (ProtectedItemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProtectedItem)(nil))
+	return reflect.TypeOf((**ProtectedItem)(nil)).Elem()
 }
 
 func (o ProtectedItemOutput) ToProtectedItemOutput() ProtectedItemOutput {

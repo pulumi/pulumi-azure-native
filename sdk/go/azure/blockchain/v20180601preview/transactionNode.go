@@ -106,7 +106,7 @@ type TransactionNodeInput interface {
 }
 
 func (*TransactionNode) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransactionNode)(nil))
+	return reflect.TypeOf((**TransactionNode)(nil)).Elem()
 }
 
 func (i *TransactionNode) ToTransactionNodeOutput() TransactionNodeOutput {
@@ -120,7 +120,7 @@ func (i *TransactionNode) ToTransactionNodeOutputWithContext(ctx context.Context
 type TransactionNodeOutput struct{ *pulumi.OutputState }
 
 func (TransactionNodeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransactionNode)(nil))
+	return reflect.TypeOf((**TransactionNode)(nil)).Elem()
 }
 
 func (o TransactionNodeOutput) ToTransactionNodeOutput() TransactionNodeOutput {

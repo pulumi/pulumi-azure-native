@@ -20,6 +20,21 @@ type AppResourceProperties struct {
 }
 
 
+func (val *AppResourceProperties) Defaults() *AppResourceProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HttpsOnly) {
+		httpsOnly_ := false
+		tmp.HttpsOnly = &httpsOnly_
+	}
+	tmp.TemporaryDisk = tmp.TemporaryDisk.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -228,6 +243,21 @@ type AppResourcePropertiesResponse struct {
 	Public               *bool                   `pulumi:"public"`
 	TemporaryDisk        *TemporaryDiskResponse  `pulumi:"temporaryDisk"`
 	Url                  string                  `pulumi:"url"`
+}
+
+
+func (val *AppResourcePropertiesResponse) Defaults() *AppResourcePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HttpsOnly) {
+		httpsOnly_ := false
+		tmp.HttpsOnly = &httpsOnly_
+	}
+	tmp.TemporaryDisk = tmp.TemporaryDisk.Defaults()
+
+	return &tmp
 }
 
 
@@ -2049,6 +2079,17 @@ type DeploymentResourceProperties struct {
 }
 
 
+func (val *DeploymentResourceProperties) Defaults() *DeploymentResourceProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DeploymentSettings = tmp.DeploymentSettings.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -2200,6 +2241,17 @@ type DeploymentResourcePropertiesResponse struct {
 	ProvisioningState  string                       `pulumi:"provisioningState"`
 	Source             *UserSourceInfoResponse      `pulumi:"source"`
 	Status             string                       `pulumi:"status"`
+}
+
+
+func (val *DeploymentResourcePropertiesResponse) Defaults() *DeploymentResourcePropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.DeploymentSettings = tmp.DeploymentSettings.Defaults()
+
+	return &tmp
 }
 
 
@@ -2439,6 +2491,27 @@ type DeploymentSettings struct {
 }
 
 
+func (val *DeploymentSettings) Defaults() *DeploymentSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Cpu) {
+		cpu_ := 1
+		tmp.Cpu = &cpu_
+	}
+	if isZero(tmp.MemoryInGB) {
+		memoryInGB_ := 1
+		tmp.MemoryInGB = &memoryInGB_
+	}
+	if isZero(tmp.RuntimeVersion) {
+		runtimeVersion_ := "Java_8"
+		tmp.RuntimeVersion = &runtimeVersion_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2644,6 +2717,27 @@ type DeploymentSettingsResponse struct {
 	MemoryInGB           *int              `pulumi:"memoryInGB"`
 	NetCoreMainEntryPath *string           `pulumi:"netCoreMainEntryPath"`
 	RuntimeVersion       *string           `pulumi:"runtimeVersion"`
+}
+
+
+func (val *DeploymentSettingsResponse) Defaults() *DeploymentSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Cpu) {
+		cpu_ := 1
+		tmp.Cpu = &cpu_
+	}
+	if isZero(tmp.MemoryInGB) {
+		memoryInGB_ := 1
+		tmp.MemoryInGB = &memoryInGB_
+	}
+	if isZero(tmp.RuntimeVersion) {
+		runtimeVersion_ := "Java_8"
+		tmp.RuntimeVersion = &runtimeVersion_
+	}
+	return &tmp
 }
 
 
@@ -4481,6 +4575,19 @@ type TemporaryDisk struct {
 }
 
 
+func (val *TemporaryDisk) Defaults() *TemporaryDisk {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountPath) {
+		mountPath_ := "/tmp"
+		tmp.MountPath = &mountPath_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4626,6 +4733,19 @@ func (o TemporaryDiskPtrOutput) SizeInGB() pulumi.IntPtrOutput {
 type TemporaryDiskResponse struct {
 	MountPath *string `pulumi:"mountPath"`
 	SizeInGB  *int    `pulumi:"sizeInGB"`
+}
+
+
+func (val *TemporaryDiskResponse) Defaults() *TemporaryDiskResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MountPath) {
+		mountPath_ := "/tmp"
+		tmp.MountPath = &mountPath_
+	}
+	return &tmp
 }
 
 

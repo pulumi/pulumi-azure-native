@@ -110,7 +110,7 @@ type PrivateLinkServicesForO365ManagementActivityAPIInput interface {
 }
 
 func (*PrivateLinkServicesForO365ManagementActivityAPI) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicesForO365ManagementActivityAPI)(nil))
+	return reflect.TypeOf((**PrivateLinkServicesForO365ManagementActivityAPI)(nil)).Elem()
 }
 
 func (i *PrivateLinkServicesForO365ManagementActivityAPI) ToPrivateLinkServicesForO365ManagementActivityAPIOutput() PrivateLinkServicesForO365ManagementActivityAPIOutput {
@@ -124,7 +124,7 @@ func (i *PrivateLinkServicesForO365ManagementActivityAPI) ToPrivateLinkServicesF
 type PrivateLinkServicesForO365ManagementActivityAPIOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServicesForO365ManagementActivityAPIOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicesForO365ManagementActivityAPI)(nil))
+	return reflect.TypeOf((**PrivateLinkServicesForO365ManagementActivityAPI)(nil)).Elem()
 }
 
 func (o PrivateLinkServicesForO365ManagementActivityAPIOutput) ToPrivateLinkServicesForO365ManagementActivityAPIOutput() PrivateLinkServicesForO365ManagementActivityAPIOutput {

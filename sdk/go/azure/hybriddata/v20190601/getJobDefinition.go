@@ -13,7 +13,7 @@ func LookupJobDefinition(ctx *pulumi.Context, args *LookupJobDefinitionArgs, opt
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupJobDefinitionArgs struct {
@@ -37,4 +37,17 @@ type LookupJobDefinitionResult struct {
 	State            string                   `pulumi:"state"`
 	Type             string                   `pulumi:"type"`
 	UserConfirmation *string                  `pulumi:"userConfirmation"`
+}
+
+
+func (val *LookupJobDefinitionResult) Defaults() *LookupJobDefinitionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.UserConfirmation) {
+		userConfirmation_ := "NotRequired"
+		tmp.UserConfirmation = &userConfirmation_
+	}
+	return &tmp
 }

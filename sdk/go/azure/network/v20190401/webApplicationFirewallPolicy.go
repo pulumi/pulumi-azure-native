@@ -162,7 +162,7 @@ type WebApplicationFirewallPolicyInput interface {
 }
 
 func (*WebApplicationFirewallPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebApplicationFirewallPolicy)(nil))
+	return reflect.TypeOf((**WebApplicationFirewallPolicy)(nil)).Elem()
 }
 
 func (i *WebApplicationFirewallPolicy) ToWebApplicationFirewallPolicyOutput() WebApplicationFirewallPolicyOutput {
@@ -176,7 +176,7 @@ func (i *WebApplicationFirewallPolicy) ToWebApplicationFirewallPolicyOutputWithC
 type WebApplicationFirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (WebApplicationFirewallPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebApplicationFirewallPolicy)(nil))
+	return reflect.TypeOf((**WebApplicationFirewallPolicy)(nil)).Elem()
 }
 
 func (o WebApplicationFirewallPolicyOutput) ToWebApplicationFirewallPolicyOutput() WebApplicationFirewallPolicyOutput {

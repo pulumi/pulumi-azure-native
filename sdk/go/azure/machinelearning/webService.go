@@ -34,6 +34,8 @@ func NewWebService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	propertiesApplier := func(v WebServicePropertiesForGraph) *WebServicePropertiesForGraph { return v.Defaults() }
+	args.Properties = args.Properties.ToWebServicePropertiesForGraphOutput().ApplyT(propertiesApplier).(WebServicePropertiesForGraphPtrOutput).Elem()
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:machinelearning/v20160501preview:WebService"),
@@ -103,7 +105,7 @@ type WebServiceInput interface {
 }
 
 func (*WebService) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebService)(nil))
+	return reflect.TypeOf((**WebService)(nil)).Elem()
 }
 
 func (i *WebService) ToWebServiceOutput() WebServiceOutput {
@@ -117,7 +119,7 @@ func (i *WebService) ToWebServiceOutputWithContext(ctx context.Context) WebServi
 type WebServiceOutput struct{ *pulumi.OutputState }
 
 func (WebServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebService)(nil))
+	return reflect.TypeOf((**WebService)(nil)).Elem()
 }
 
 func (o WebServiceOutput) ToWebServiceOutput() WebServiceOutput {

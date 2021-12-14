@@ -197,7 +197,7 @@ type SiteAuthSettingsInput interface {
 }
 
 func (*SiteAuthSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteAuthSettings)(nil))
+	return reflect.TypeOf((**SiteAuthSettings)(nil)).Elem()
 }
 
 func (i *SiteAuthSettings) ToSiteAuthSettingsOutput() SiteAuthSettingsOutput {
@@ -211,7 +211,7 @@ func (i *SiteAuthSettings) ToSiteAuthSettingsOutputWithContext(ctx context.Conte
 type SiteAuthSettingsOutput struct{ *pulumi.OutputState }
 
 func (SiteAuthSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteAuthSettings)(nil))
+	return reflect.TypeOf((**SiteAuthSettings)(nil)).Elem()
 }
 
 func (o SiteAuthSettingsOutput) ToSiteAuthSettingsOutput() SiteAuthSettingsOutput {

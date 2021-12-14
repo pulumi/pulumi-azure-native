@@ -110,7 +110,7 @@ type ManagementLockAtResourceGroupLevelInput interface {
 }
 
 func (*ManagementLockAtResourceGroupLevel) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockAtResourceGroupLevel)(nil))
+	return reflect.TypeOf((**ManagementLockAtResourceGroupLevel)(nil)).Elem()
 }
 
 func (i *ManagementLockAtResourceGroupLevel) ToManagementLockAtResourceGroupLevelOutput() ManagementLockAtResourceGroupLevelOutput {
@@ -124,7 +124,7 @@ func (i *ManagementLockAtResourceGroupLevel) ToManagementLockAtResourceGroupLeve
 type ManagementLockAtResourceGroupLevelOutput struct{ *pulumi.OutputState }
 
 func (ManagementLockAtResourceGroupLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementLockAtResourceGroupLevel)(nil))
+	return reflect.TypeOf((**ManagementLockAtResourceGroupLevel)(nil)).Elem()
 }
 
 func (o ManagementLockAtResourceGroupLevelOutput) ToManagementLockAtResourceGroupLevelOutput() ManagementLockAtResourceGroupLevelOutput {

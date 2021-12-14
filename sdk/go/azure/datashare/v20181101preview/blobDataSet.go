@@ -148,7 +148,7 @@ type BlobDataSetInput interface {
 }
 
 func (*BlobDataSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobDataSet)(nil))
+	return reflect.TypeOf((**BlobDataSet)(nil)).Elem()
 }
 
 func (i *BlobDataSet) ToBlobDataSetOutput() BlobDataSetOutput {
@@ -162,7 +162,7 @@ func (i *BlobDataSet) ToBlobDataSetOutputWithContext(ctx context.Context) BlobDa
 type BlobDataSetOutput struct{ *pulumi.OutputState }
 
 func (BlobDataSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BlobDataSet)(nil))
+	return reflect.TypeOf((**BlobDataSet)(nil)).Elem()
 }
 
 func (o BlobDataSetOutput) ToBlobDataSetOutput() BlobDataSetOutput {

@@ -167,7 +167,7 @@ type ApiOperationInput interface {
 }
 
 func (*ApiOperation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperation)(nil))
+	return reflect.TypeOf((**ApiOperation)(nil)).Elem()
 }
 
 func (i *ApiOperation) ToApiOperationOutput() ApiOperationOutput {
@@ -181,7 +181,7 @@ func (i *ApiOperation) ToApiOperationOutputWithContext(ctx context.Context) ApiO
 type ApiOperationOutput struct{ *pulumi.OutputState }
 
 func (ApiOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiOperation)(nil))
+	return reflect.TypeOf((**ApiOperation)(nil)).Elem()
 }
 
 func (o ApiOperationOutput) ToApiOperationOutput() ApiOperationOutput {

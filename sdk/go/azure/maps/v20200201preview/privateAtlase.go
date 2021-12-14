@@ -100,7 +100,7 @@ type PrivateAtlaseInput interface {
 }
 
 func (*PrivateAtlase) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateAtlase)(nil))
+	return reflect.TypeOf((**PrivateAtlase)(nil)).Elem()
 }
 
 func (i *PrivateAtlase) ToPrivateAtlaseOutput() PrivateAtlaseOutput {
@@ -114,7 +114,7 @@ func (i *PrivateAtlase) ToPrivateAtlaseOutputWithContext(ctx context.Context) Pr
 type PrivateAtlaseOutput struct{ *pulumi.OutputState }
 
 func (PrivateAtlaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateAtlase)(nil))
+	return reflect.TypeOf((**PrivateAtlase)(nil)).Elem()
 }
 
 func (o PrivateAtlaseOutput) ToPrivateAtlaseOutput() PrivateAtlaseOutput {

@@ -13,7 +13,7 @@ func LookupAppliance(ctx *pulumi.Context, args *LookupApplianceArgs, opts ...pul
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupApplianceArgs struct {
@@ -36,4 +36,17 @@ type LookupApplianceResult struct {
 	Tags                 map[string]string                                `pulumi:"tags"`
 	Type                 string                                           `pulumi:"type"`
 	Version              string                                           `pulumi:"version"`
+}
+
+
+func (val *LookupApplianceResult) Defaults() *LookupApplianceResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Distro) {
+		distro_ := "AKSEdge"
+		tmp.Distro = &distro_
+	}
+	return &tmp
 }

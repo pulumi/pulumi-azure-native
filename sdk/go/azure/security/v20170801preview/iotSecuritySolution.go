@@ -48,7 +48,7 @@ func NewIotSecuritySolution(ctx *pulumi.Context,
 	if args.Workspace == nil {
 		return nil, errors.New("invalid value for required argument 'Workspace'")
 	}
-	if args.Status == nil {
+	if isZero(args.Status) {
 		args.Status = pulumi.StringPtr("Enabled")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -134,7 +134,7 @@ type IotSecuritySolutionInput interface {
 }
 
 func (*IotSecuritySolution) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotSecuritySolution)(nil))
+	return reflect.TypeOf((**IotSecuritySolution)(nil)).Elem()
 }
 
 func (i *IotSecuritySolution) ToIotSecuritySolutionOutput() IotSecuritySolutionOutput {
@@ -148,7 +148,7 @@ func (i *IotSecuritySolution) ToIotSecuritySolutionOutputWithContext(ctx context
 type IotSecuritySolutionOutput struct{ *pulumi.OutputState }
 
 func (IotSecuritySolutionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotSecuritySolution)(nil))
+	return reflect.TypeOf((**IotSecuritySolution)(nil)).Elem()
 }
 
 func (o IotSecuritySolutionOutput) ToIotSecuritySolutionOutput() IotSecuritySolutionOutput {

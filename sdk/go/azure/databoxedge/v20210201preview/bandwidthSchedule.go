@@ -148,7 +148,7 @@ type BandwidthScheduleInput interface {
 }
 
 func (*BandwidthSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*BandwidthSchedule)(nil))
+	return reflect.TypeOf((**BandwidthSchedule)(nil)).Elem()
 }
 
 func (i *BandwidthSchedule) ToBandwidthScheduleOutput() BandwidthScheduleOutput {
@@ -162,7 +162,7 @@ func (i *BandwidthSchedule) ToBandwidthScheduleOutputWithContext(ctx context.Con
 type BandwidthScheduleOutput struct{ *pulumi.OutputState }
 
 func (BandwidthScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BandwidthSchedule)(nil))
+	return reflect.TypeOf((**BandwidthSchedule)(nil)).Elem()
 }
 
 func (o BandwidthScheduleOutput) ToBandwidthScheduleOutput() BandwidthScheduleOutput {

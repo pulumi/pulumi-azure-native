@@ -14425,6 +14425,19 @@ type BackendPoolsSettings struct {
 }
 
 
+func (val *BackendPoolsSettings) Defaults() *BackendPoolsSettings {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnforceCertificateNameCheck) {
+		enforceCertificateNameCheck_ := "Enabled"
+		tmp.EnforceCertificateNameCheck = &enforceCertificateNameCheck_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -14570,6 +14583,19 @@ func (o BackendPoolsSettingsPtrOutput) SendRecvTimeoutSeconds() pulumi.IntPtrOut
 type BackendPoolsSettingsResponse struct {
 	EnforceCertificateNameCheck *string `pulumi:"enforceCertificateNameCheck"`
 	SendRecvTimeoutSeconds      *int    `pulumi:"sendRecvTimeoutSeconds"`
+}
+
+
+func (val *BackendPoolsSettingsResponse) Defaults() *BackendPoolsSettingsResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EnforceCertificateNameCheck) {
+		enforceCertificateNameCheck_ := "Enabled"
+		tmp.EnforceCertificateNameCheck = &enforceCertificateNameCheck_
+	}
+	return &tmp
 }
 
 
@@ -27969,6 +27995,19 @@ type FlowLogFormatParameters struct {
 }
 
 
+func (val *FlowLogFormatParameters) Defaults() *FlowLogFormatParameters {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Version) {
+		version_ := 0
+		tmp.Version = &version_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -28114,6 +28153,19 @@ func (o FlowLogFormatParametersPtrOutput) Version() pulumi.IntPtrOutput {
 type FlowLogFormatParametersResponse struct {
 	Type    *string `pulumi:"type"`
 	Version *int    `pulumi:"version"`
+}
+
+
+func (val *FlowLogFormatParametersResponse) Defaults() *FlowLogFormatParametersResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Version) {
+		version_ := 0
+		tmp.Version = &version_
+	}
+	return &tmp
 }
 
 
@@ -28274,6 +28326,19 @@ type FlowLogResponse struct {
 	TargetResourceGuid         string                              `pulumi:"targetResourceGuid"`
 	TargetResourceId           string                              `pulumi:"targetResourceId"`
 	Type                       string                              `pulumi:"type"`
+}
+
+
+func (val *FlowLogResponse) Defaults() *FlowLogResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Format = tmp.Format.Defaults()
+
+	tmp.RetentionPolicy = tmp.RetentionPolicy.Defaults()
+
+	return &tmp
 }
 
 
@@ -31771,6 +31836,19 @@ type HealthProbeSettingsModel struct {
 }
 
 
+func (val *HealthProbeSettingsModel) Defaults() *HealthProbeSettingsModel {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HealthProbeMethod) {
+		healthProbeMethod_ := "HEAD"
+		tmp.HealthProbeMethod = &healthProbeMethod_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -31900,6 +31978,19 @@ type HealthProbeSettingsModelResponse struct {
 	Protocol          *string `pulumi:"protocol"`
 	ResourceState     string  `pulumi:"resourceState"`
 	Type              string  `pulumi:"type"`
+}
+
+
+func (val *HealthProbeSettingsModelResponse) Defaults() *HealthProbeSettingsModelResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.HealthProbeMethod) {
+		healthProbeMethod_ := "HEAD"
+		tmp.HealthProbeMethod = &healthProbeMethod_
+	}
+	return &tmp
 }
 
 
@@ -42831,6 +42922,19 @@ type PacketCaptureFilter struct {
 }
 
 
+func (val *PacketCaptureFilter) Defaults() *PacketCaptureFilter {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		protocol_ := "Any"
+		tmp.Protocol = &protocol_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -42946,6 +43050,19 @@ type PacketCaptureFilterResponse struct {
 	Protocol        *string `pulumi:"protocol"`
 	RemoteIPAddress *string `pulumi:"remoteIPAddress"`
 	RemotePort      *string `pulumi:"remotePort"`
+}
+
+
+func (val *PacketCaptureFilterResponse) Defaults() *PacketCaptureFilterResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Protocol) {
+		protocol_ := "Any"
+		tmp.Protocol = &protocol_
+	}
+	return &tmp
 }
 
 
@@ -49139,6 +49256,23 @@ type RetentionPolicyParameters struct {
 }
 
 
+func (val *RetentionPolicyParameters) Defaults() *RetentionPolicyParameters {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		days_ := 0
+		tmp.Days = &days_
+	}
+	if isZero(tmp.Enabled) {
+		enabled_ := false
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -49284,6 +49418,23 @@ func (o RetentionPolicyParametersPtrOutput) Enabled() pulumi.BoolPtrOutput {
 type RetentionPolicyParametersResponse struct {
 	Days    *int  `pulumi:"days"`
 	Enabled *bool `pulumi:"enabled"`
+}
+
+
+func (val *RetentionPolicyParametersResponse) Defaults() *RetentionPolicyParametersResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Days) {
+		days_ := 0
+		tmp.Days = &days_
+	}
+	if isZero(tmp.Enabled) {
+		enabled_ := false
+		tmp.Enabled = &enabled_
+	}
+	return &tmp
 }
 
 

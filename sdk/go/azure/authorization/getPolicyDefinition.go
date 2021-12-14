@@ -13,7 +13,7 @@ func LookupPolicyDefinition(ctx *pulumi.Context, args *LookupPolicyDefinitionArg
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupPolicyDefinitionArgs struct {
@@ -32,4 +32,17 @@ type LookupPolicyDefinitionResult struct {
 	PolicyRule  interface{}                                  `pulumi:"policyRule"`
 	PolicyType  *string                                      `pulumi:"policyType"`
 	Type        string                                       `pulumi:"type"`
+}
+
+
+func (val *LookupPolicyDefinitionResult) Defaults() *LookupPolicyDefinitionResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Mode) {
+		mode_ := "Indexed"
+		tmp.Mode = &mode_
+	}
+	return &tmp
 }

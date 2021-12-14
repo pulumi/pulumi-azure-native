@@ -37,8 +37,12 @@ func NewJob(ctx *pulumi.Context,
 	if args.ServerName == nil {
 		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
-	if args.Description == nil {
+	if isZero(args.Description) {
 		args.Description = pulumi.StringPtr("")
+	}
+	scheduleApplier := func(v JobSchedule) *JobSchedule { return v.Defaults() }
+	if args.Schedule != nil {
+		args.Schedule = args.Schedule.ToJobSchedulePtrOutput().Elem().ApplyT(scheduleApplier).(JobSchedulePtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -123,7 +127,7 @@ type JobInput interface {
 }
 
 func (*Job) ElementType() reflect.Type {
-	return reflect.TypeOf((*Job)(nil))
+	return reflect.TypeOf((**Job)(nil)).Elem()
 }
 
 func (i *Job) ToJobOutput() JobOutput {
@@ -137,7 +141,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 type JobOutput struct{ *pulumi.OutputState }
 
 func (JobOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Job)(nil))
+	return reflect.TypeOf((**Job)(nil)).Elem()
 }
 
 func (o JobOutput) ToJobOutput() JobOutput {

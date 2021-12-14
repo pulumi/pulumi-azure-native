@@ -103,7 +103,7 @@ type CustomerSubscriptionInput interface {
 }
 
 func (*CustomerSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerSubscription)(nil))
+	return reflect.TypeOf((**CustomerSubscription)(nil)).Elem()
 }
 
 func (i *CustomerSubscription) ToCustomerSubscriptionOutput() CustomerSubscriptionOutput {
@@ -117,7 +117,7 @@ func (i *CustomerSubscription) ToCustomerSubscriptionOutputWithContext(ctx conte
 type CustomerSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (CustomerSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomerSubscription)(nil))
+	return reflect.TypeOf((**CustomerSubscription)(nil)).Elem()
 }
 
 func (o CustomerSubscriptionOutput) ToCustomerSubscriptionOutput() CustomerSubscriptionOutput {

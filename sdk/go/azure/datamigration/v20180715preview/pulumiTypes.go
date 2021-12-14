@@ -1539,6 +1539,17 @@ type ConnectToSourcePostgreSqlSyncTaskInput struct {
 }
 
 
+func (val *ConnectToSourcePostgreSqlSyncTaskInput) Defaults() *ConnectToSourcePostgreSqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1669,6 +1680,17 @@ func (o ConnectToSourcePostgreSqlSyncTaskInputPtrOutput) SourceConnectionInfo() 
 
 type ConnectToSourcePostgreSqlSyncTaskInputResponse struct {
 	SourceConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+}
+
+
+func (val *ConnectToSourcePostgreSqlSyncTaskInputResponse) Defaults() *ConnectToSourcePostgreSqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -1929,6 +1951,17 @@ type ConnectToSourcePostgreSqlSyncTaskProperties struct {
 }
 
 
+func (val *ConnectToSourcePostgreSqlSyncTaskProperties) Defaults() *ConnectToSourcePostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1993,6 +2026,17 @@ type ConnectToSourcePostgreSqlSyncTaskPropertiesResponse struct {
 	Output     []ConnectToSourcePostgreSqlSyncTaskOutputResponse `pulumi:"output"`
 	State      string                                            `pulumi:"state"`
 	TaskType   string                                            `pulumi:"taskType"`
+}
+
+
+func (val *ConnectToSourcePostgreSqlSyncTaskPropertiesResponse) Defaults() *ConnectToSourcePostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -2081,6 +2125,17 @@ type ConnectToSourceSqlServerSyncTaskProperties struct {
 }
 
 
+func (val *ConnectToSourceSqlServerSyncTaskProperties) Defaults() *ConnectToSourceSqlServerSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -2143,6 +2198,17 @@ type ConnectToSourceSqlServerSyncTaskPropertiesResponse struct {
 	Output     []interface{}                              `pulumi:"output"`
 	State      string                                     `pulumi:"state"`
 	TaskType   string                                     `pulumi:"taskType"`
+}
+
+
+func (val *ConnectToSourceSqlServerSyncTaskPropertiesResponse) Defaults() *ConnectToSourceSqlServerSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -2230,6 +2296,37 @@ type ConnectToSourceSqlServerTaskInput struct {
 	CollectTdeCertificateInfo *bool             `pulumi:"collectTdeCertificateInfo"`
 	SourceConnectionInfo      SqlConnectionInfo `pulumi:"sourceConnectionInfo"`
 	ValidateSsisCatalogOnly   *bool             `pulumi:"validateSsisCatalogOnly"`
+}
+
+
+func (val *ConnectToSourceSqlServerTaskInput) Defaults() *ConnectToSourceSqlServerTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CollectAgentJobs) {
+		collectAgentJobs_ := false
+		tmp.CollectAgentJobs = &collectAgentJobs_
+	}
+	if isZero(tmp.CollectDatabases) {
+		collectDatabases_ := true
+		tmp.CollectDatabases = &collectDatabases_
+	}
+	if isZero(tmp.CollectLogins) {
+		collectLogins_ := false
+		tmp.CollectLogins = &collectLogins_
+	}
+	if isZero(tmp.CollectTdeCertificateInfo) {
+		collectTdeCertificateInfo_ := false
+		tmp.CollectTdeCertificateInfo = &collectTdeCertificateInfo_
+	}
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	if isZero(tmp.ValidateSsisCatalogOnly) {
+		validateSsisCatalogOnly_ := false
+		tmp.ValidateSsisCatalogOnly = &validateSsisCatalogOnly_
+	}
+	return &tmp
 }
 
 
@@ -2453,6 +2550,37 @@ type ConnectToSourceSqlServerTaskInputResponse struct {
 	CollectTdeCertificateInfo *bool                     `pulumi:"collectTdeCertificateInfo"`
 	SourceConnectionInfo      SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	ValidateSsisCatalogOnly   *bool                     `pulumi:"validateSsisCatalogOnly"`
+}
+
+
+func (val *ConnectToSourceSqlServerTaskInputResponse) Defaults() *ConnectToSourceSqlServerTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CollectAgentJobs) {
+		collectAgentJobs_ := false
+		tmp.CollectAgentJobs = &collectAgentJobs_
+	}
+	if isZero(tmp.CollectDatabases) {
+		collectDatabases_ := true
+		tmp.CollectDatabases = &collectDatabases_
+	}
+	if isZero(tmp.CollectLogins) {
+		collectLogins_ := false
+		tmp.CollectLogins = &collectLogins_
+	}
+	if isZero(tmp.CollectTdeCertificateInfo) {
+		collectTdeCertificateInfo_ := false
+		tmp.CollectTdeCertificateInfo = &collectTdeCertificateInfo_
+	}
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	if isZero(tmp.ValidateSsisCatalogOnly) {
+		validateSsisCatalogOnly_ := false
+		tmp.ValidateSsisCatalogOnly = &validateSsisCatalogOnly_
+	}
+	return &tmp
 }
 
 
@@ -3053,6 +3181,17 @@ type ConnectToSourceSqlServerTaskProperties struct {
 }
 
 
+func (val *ConnectToSourceSqlServerTaskProperties) Defaults() *ConnectToSourceSqlServerTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3115,6 +3254,17 @@ type ConnectToSourceSqlServerTaskPropertiesResponse struct {
 	Output     []interface{}                              `pulumi:"output"`
 	State      string                                     `pulumi:"state"`
 	TaskType   string                                     `pulumi:"taskType"`
+}
+
+
+func (val *ConnectToSourceSqlServerTaskPropertiesResponse) Defaults() *ConnectToSourceSqlServerTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -3772,6 +3922,19 @@ type ConnectToTargetAzureDbForPostgreSqlSyncTaskInput struct {
 }
 
 
+func (val *ConnectToTargetAzureDbForPostgreSqlSyncTaskInput) Defaults() *ConnectToTargetAzureDbForPostgreSqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3921,6 +4084,19 @@ func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskInputPtrOutput) TargetConnect
 type ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse struct {
 	SourceConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse) Defaults() *ConnectToTargetAzureDbForPostgreSqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -4199,6 +4375,17 @@ type ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties struct {
 }
 
 
+func (val *ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties) Defaults() *ConnectToTargetAzureDbForPostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -4263,6 +4450,17 @@ type ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
 	Output     []ConnectToTargetAzureDbForPostgreSqlSyncTaskOutputResponse `pulumi:"output"`
 	State      string                                                      `pulumi:"state"`
 	TaskType   string                                                      `pulumi:"taskType"`
+}
+
+
+func (val *ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse) Defaults() *ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -4350,6 +4548,17 @@ func (o ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponseOutput) Tas
 
 type ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInput struct {
 	TargetConnectionInfo PostgreSqlConnectionInfo `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInput) Defaults() *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -4485,6 +4694,17 @@ func (o ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputPtrOutput) TargetC
 
 type ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse struct {
 	TargetConnectionInfo PostgreSqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse) Defaults() *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -4855,6 +5075,17 @@ type ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskProperties struct {
 }
 
 
+func (val *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskProperties) Defaults() *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -4921,6 +5152,17 @@ type ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse struct 
 	Output     []ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputResponse `pulumi:"output"`
 	State      string                                                            `pulumi:"state"`
 	TaskType   string                                                            `pulumi:"taskType"`
+}
+
+
+func (val *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse) Defaults() *ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -5010,6 +5252,17 @@ func (o ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponseOutpu
 
 type ConnectToTargetSqlDbTaskInput struct {
 	TargetConnectionInfo SqlConnectionInfo `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ConnectToTargetSqlDbTaskInput) Defaults() *ConnectToTargetSqlDbTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -5143,6 +5396,17 @@ func (o ConnectToTargetSqlDbTaskInputPtrOutput) TargetConnectionInfo() SqlConnec
 
 type ConnectToTargetSqlDbTaskInputResponse struct {
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ConnectToTargetSqlDbTaskInputResponse) Defaults() *ConnectToTargetSqlDbTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -5393,6 +5657,17 @@ type ConnectToTargetSqlDbTaskProperties struct {
 }
 
 
+func (val *ConnectToTargetSqlDbTaskProperties) Defaults() *ConnectToTargetSqlDbTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -5455,6 +5730,17 @@ type ConnectToTargetSqlDbTaskPropertiesResponse struct {
 	Output     []ConnectToTargetSqlDbTaskOutputResponse `pulumi:"output"`
 	State      string                                   `pulumi:"state"`
 	TaskType   string                                   `pulumi:"taskType"`
+}
+
+
+func (val *ConnectToTargetSqlDbTaskPropertiesResponse) Defaults() *ConnectToTargetSqlDbTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -6100,6 +6386,29 @@ type ConnectToTargetSqlMITaskInput struct {
 }
 
 
+func (val *ConnectToTargetSqlMITaskInput) Defaults() *ConnectToTargetSqlMITaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CollectAgentJobs) {
+		collectAgentJobs_ := true
+		tmp.CollectAgentJobs = &collectAgentJobs_
+	}
+	if isZero(tmp.CollectLogins) {
+		collectLogins_ := true
+		tmp.CollectLogins = &collectLogins_
+	}
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	if isZero(tmp.ValidateSsisCatalogOnly) {
+		validateSsisCatalogOnly_ := false
+		tmp.ValidateSsisCatalogOnly = &validateSsisCatalogOnly_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -6275,6 +6584,29 @@ type ConnectToTargetSqlMITaskInputResponse struct {
 	CollectLogins           *bool                     `pulumi:"collectLogins"`
 	TargetConnectionInfo    SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
 	ValidateSsisCatalogOnly *bool                     `pulumi:"validateSsisCatalogOnly"`
+}
+
+
+func (val *ConnectToTargetSqlMITaskInputResponse) Defaults() *ConnectToTargetSqlMITaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CollectAgentJobs) {
+		collectAgentJobs_ := true
+		tmp.CollectAgentJobs = &collectAgentJobs_
+	}
+	if isZero(tmp.CollectLogins) {
+		collectLogins_ := true
+		tmp.CollectLogins = &collectLogins_
+	}
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	if isZero(tmp.ValidateSsisCatalogOnly) {
+		validateSsisCatalogOnly_ := false
+		tmp.ValidateSsisCatalogOnly = &validateSsisCatalogOnly_
+	}
+	return &tmp
 }
 
 
@@ -6581,6 +6913,17 @@ type ConnectToTargetSqlMITaskProperties struct {
 }
 
 
+func (val *ConnectToTargetSqlMITaskProperties) Defaults() *ConnectToTargetSqlMITaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -6643,6 +6986,17 @@ type ConnectToTargetSqlMITaskPropertiesResponse struct {
 	Output     []ConnectToTargetSqlMITaskOutputResponse `pulumi:"output"`
 	State      string                                   `pulumi:"state"`
 	TaskType   string                                   `pulumi:"taskType"`
+}
+
+
+func (val *ConnectToTargetSqlMITaskPropertiesResponse) Defaults() *ConnectToTargetSqlMITaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -6727,6 +7081,19 @@ func (o ConnectToTargetSqlMITaskPropertiesResponseOutput) TaskType() pulumi.Stri
 type ConnectToTargetSqlSqlDbSyncTaskInput struct {
 	SourceConnectionInfo SqlConnectionInfo `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfo `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ConnectToTargetSqlSqlDbSyncTaskInput) Defaults() *ConnectToTargetSqlSqlDbSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -6875,6 +7242,19 @@ func (o ConnectToTargetSqlSqlDbSyncTaskInputPtrOutput) TargetConnectionInfo() Sq
 type ConnectToTargetSqlSqlDbSyncTaskInputResponse struct {
 	SourceConnectionInfo SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ConnectToTargetSqlSqlDbSyncTaskInputResponse) Defaults() *ConnectToTargetSqlSqlDbSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -7031,6 +7411,17 @@ type ConnectToTargetSqlSqlDbSyncTaskProperties struct {
 }
 
 
+func (val *ConnectToTargetSqlSqlDbSyncTaskProperties) Defaults() *ConnectToTargetSqlSqlDbSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -7095,6 +7486,17 @@ type ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse struct {
 	Output     []ConnectToTargetSqlDbTaskOutputResponse      `pulumi:"output"`
 	State      string                                        `pulumi:"state"`
 	TaskType   string                                        `pulumi:"taskType"`
+}
+
+
+func (val *ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse) Defaults() *ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -8455,6 +8857,17 @@ type GetTdeCertificatesSqlTaskInput struct {
 }
 
 
+func (val *GetTdeCertificatesSqlTaskInput) Defaults() *GetTdeCertificatesSqlTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -8615,6 +9028,17 @@ type GetTdeCertificatesSqlTaskInputResponse struct {
 	BackupFileShare      FileShareResponse                  `pulumi:"backupFileShare"`
 	ConnectionInfo       SqlConnectionInfoResponse          `pulumi:"connectionInfo"`
 	SelectedCertificates []SelectedCertificateInputResponse `pulumi:"selectedCertificates"`
+}
+
+
+func (val *GetTdeCertificatesSqlTaskInputResponse) Defaults() *GetTdeCertificatesSqlTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -8887,6 +9311,17 @@ type GetTdeCertificatesSqlTaskProperties struct {
 }
 
 
+func (val *GetTdeCertificatesSqlTaskProperties) Defaults() *GetTdeCertificatesSqlTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -8949,6 +9384,17 @@ type GetTdeCertificatesSqlTaskPropertiesResponse struct {
 	Output     []GetTdeCertificatesSqlTaskOutputResponse `pulumi:"output"`
 	State      string                                    `pulumi:"state"`
 	TaskType   string                                    `pulumi:"taskType"`
+}
+
+
+func (val *GetTdeCertificatesSqlTaskPropertiesResponse) Defaults() *GetTdeCertificatesSqlTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -9588,6 +10034,17 @@ type GetUserTablesPostgreSqlTaskInput struct {
 }
 
 
+func (val *GetUserTablesPostgreSqlTaskInput) Defaults() *GetUserTablesPostgreSqlTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -9733,6 +10190,17 @@ func (o GetUserTablesPostgreSqlTaskInputPtrOutput) SelectedDatabases() pulumi.St
 type GetUserTablesPostgreSqlTaskInputResponse struct {
 	ConnectionInfo    PostgreSqlConnectionInfoResponse `pulumi:"connectionInfo"`
 	SelectedDatabases []string                         `pulumi:"selectedDatabases"`
+}
+
+
+func (val *GetUserTablesPostgreSqlTaskInputResponse) Defaults() *GetUserTablesPostgreSqlTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -9995,6 +10463,17 @@ type GetUserTablesPostgreSqlTaskProperties struct {
 }
 
 
+func (val *GetUserTablesPostgreSqlTaskProperties) Defaults() *GetUserTablesPostgreSqlTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -10057,6 +10536,17 @@ type GetUserTablesPostgreSqlTaskPropertiesResponse struct {
 	Output     []GetUserTablesPostgreSqlTaskOutputResponse `pulumi:"output"`
 	State      string                                      `pulumi:"state"`
 	TaskType   string                                      `pulumi:"taskType"`
+}
+
+
+func (val *GetUserTablesPostgreSqlTaskPropertiesResponse) Defaults() *GetUserTablesPostgreSqlTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -10143,6 +10633,19 @@ type GetUserTablesSqlSyncTaskInput struct {
 	SelectedTargetDatabases []string          `pulumi:"selectedTargetDatabases"`
 	SourceConnectionInfo    SqlConnectionInfo `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo    SqlConnectionInfo `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *GetUserTablesSqlSyncTaskInput) Defaults() *GetUserTablesSqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -10321,6 +10824,19 @@ type GetUserTablesSqlSyncTaskInputResponse struct {
 	SelectedTargetDatabases []string                  `pulumi:"selectedTargetDatabases"`
 	SourceConnectionInfo    SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo    SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *GetUserTablesSqlSyncTaskInputResponse) Defaults() *GetUserTablesSqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -10619,6 +11135,17 @@ type GetUserTablesSqlSyncTaskProperties struct {
 }
 
 
+func (val *GetUserTablesSqlSyncTaskProperties) Defaults() *GetUserTablesSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -10681,6 +11208,17 @@ type GetUserTablesSqlSyncTaskPropertiesResponse struct {
 	Output     []GetUserTablesSqlSyncTaskOutputResponse `pulumi:"output"`
 	State      string                                   `pulumi:"state"`
 	TaskType   string                                   `pulumi:"taskType"`
+}
+
+
+func (val *GetUserTablesSqlSyncTaskPropertiesResponse) Defaults() *GetUserTablesSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -10765,6 +11303,17 @@ func (o GetUserTablesSqlSyncTaskPropertiesResponseOutput) TaskType() pulumi.Stri
 type GetUserTablesSqlTaskInput struct {
 	ConnectionInfo    SqlConnectionInfo `pulumi:"connectionInfo"`
 	SelectedDatabases []string          `pulumi:"selectedDatabases"`
+}
+
+
+func (val *GetUserTablesSqlTaskInput) Defaults() *GetUserTablesSqlTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -10913,6 +11462,17 @@ func (o GetUserTablesSqlTaskInputPtrOutput) SelectedDatabases() pulumi.StringArr
 type GetUserTablesSqlTaskInputResponse struct {
 	ConnectionInfo    SqlConnectionInfoResponse `pulumi:"connectionInfo"`
 	SelectedDatabases []string                  `pulumi:"selectedDatabases"`
+}
+
+
+func (val *GetUserTablesSqlTaskInputResponse) Defaults() *GetUserTablesSqlTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -11173,6 +11733,17 @@ type GetUserTablesSqlTaskProperties struct {
 }
 
 
+func (val *GetUserTablesSqlTaskProperties) Defaults() *GetUserTablesSqlTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -11235,6 +11806,17 @@ type GetUserTablesSqlTaskPropertiesResponse struct {
 	Output     []GetUserTablesSqlTaskOutputResponse `pulumi:"output"`
 	State      string                               `pulumi:"state"`
 	TaskType   string                               `pulumi:"taskType"`
+}
+
+
+func (val *GetUserTablesSqlTaskPropertiesResponse) Defaults() *GetUserTablesSqlTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -13347,6 +13929,17 @@ type MigrateOracleAzureDbForPostgreSqlSyncTaskProperties struct {
 }
 
 
+func (val *MigrateOracleAzureDbForPostgreSqlSyncTaskProperties) Defaults() *MigrateOracleAzureDbForPostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -13411,6 +14004,17 @@ type MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
 	Output     []interface{}                                        `pulumi:"output"`
 	State      string                                               `pulumi:"state"`
 	TaskType   string                                               `pulumi:"taskType"`
+}
+
+
+func (val *MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse) Defaults() *MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -13779,6 +14383,17 @@ type MigrateOracleAzureDbPostgreSqlSyncTaskInput struct {
 }
 
 
+func (val *MigrateOracleAzureDbPostgreSqlSyncTaskInput) Defaults() *MigrateOracleAzureDbPostgreSqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -13945,6 +14560,17 @@ type MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse struct {
 	SelectedDatabases    []MigrateOracleAzureDbPostgreSqlSyncDatabaseInputResponse `pulumi:"selectedDatabases"`
 	SourceConnectionInfo OracleConnectionInfoResponse                              `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo PostgreSqlConnectionInfoResponse                          `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse) Defaults() *MigrateOracleAzureDbPostgreSqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -15126,6 +15752,19 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput struct {
 }
 
 
+func (val *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput) Defaults() *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -15292,6 +15931,19 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse struct {
 	SelectedDatabases    []MigratePostgreSqlAzureDbForPostgreSqlSyncDatabaseInputResponse `pulumi:"selectedDatabases"`
 	SourceConnectionInfo PostgreSqlConnectionInfoResponse                                 `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo PostgreSqlConnectionInfoResponse                                 `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse) Defaults() *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -16065,6 +16717,17 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties struct {
 }
 
 
+func (val *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties) Defaults() *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -16129,6 +16792,17 @@ type MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
 	Output     []interface{}                                               `pulumi:"output"`
 	State      string                                                      `pulumi:"state"`
 	TaskType   string                                                      `pulumi:"taskType"`
+}
+
+
+func (val *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse) Defaults() *MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -16718,6 +17392,19 @@ type MigrateSqlServerSqlDbSyncTaskInput struct {
 }
 
 
+func (val *MigrateSqlServerSqlDbSyncTaskInput) Defaults() *MigrateSqlServerSqlDbSyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -16895,6 +17582,19 @@ type MigrateSqlServerSqlDbSyncTaskInputResponse struct {
 	SourceConnectionInfo SqlConnectionInfoResponse                        `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfoResponse                        `pulumi:"targetConnectionInfo"`
 	ValidationOptions    *MigrationValidationOptionsResponse              `pulumi:"validationOptions"`
+}
+
+
+func (val *MigrateSqlServerSqlDbSyncTaskInputResponse) Defaults() *MigrateSqlServerSqlDbSyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -17598,6 +18298,17 @@ type MigrateSqlServerSqlDbSyncTaskProperties struct {
 }
 
 
+func (val *MigrateSqlServerSqlDbSyncTaskProperties) Defaults() *MigrateSqlServerSqlDbSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -17660,6 +18371,17 @@ type MigrateSqlServerSqlDbSyncTaskPropertiesResponse struct {
 	Output     []interface{}                               `pulumi:"output"`
 	State      string                                      `pulumi:"state"`
 	TaskType   string                                      `pulumi:"taskType"`
+}
+
+
+func (val *MigrateSqlServerSqlDbSyncTaskPropertiesResponse) Defaults() *MigrateSqlServerSqlDbSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -17744,6 +18466,19 @@ type MigrateSqlServerSqlDbTaskInput struct {
 	SourceConnectionInfo SqlConnectionInfo                    `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfo                    `pulumi:"targetConnectionInfo"`
 	ValidationOptions    *MigrationValidationOptions          `pulumi:"validationOptions"`
+}
+
+
+func (val *MigrateSqlServerSqlDbTaskInput) Defaults() *MigrateSqlServerSqlDbTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -17924,6 +18659,19 @@ type MigrateSqlServerSqlDbTaskInputResponse struct {
 	SourceConnectionInfo SqlConnectionInfoResponse                    `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfoResponse                    `pulumi:"targetConnectionInfo"`
 	ValidationOptions    *MigrationValidationOptionsResponse          `pulumi:"validationOptions"`
+}
+
+
+func (val *MigrateSqlServerSqlDbTaskInputResponse) Defaults() *MigrateSqlServerSqlDbTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -18696,6 +19444,17 @@ type MigrateSqlServerSqlDbTaskProperties struct {
 }
 
 
+func (val *MigrateSqlServerSqlDbTaskProperties) Defaults() *MigrateSqlServerSqlDbTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -18758,6 +19517,17 @@ type MigrateSqlServerSqlDbTaskPropertiesResponse struct {
 	Output     []interface{}                           `pulumi:"output"`
 	State      string                                  `pulumi:"state"`
 	TaskType   string                                  `pulumi:"taskType"`
+}
+
+
+func (val *MigrateSqlServerSqlDbTaskPropertiesResponse) Defaults() *MigrateSqlServerSqlDbTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -19071,6 +19841,17 @@ type MigrateSqlServerSqlMISyncTaskInput struct {
 }
 
 
+func (val *MigrateSqlServerSqlMISyncTaskInput) Defaults() *MigrateSqlServerSqlMISyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -19278,6 +20059,17 @@ type MigrateSqlServerSqlMISyncTaskInputResponse struct {
 	SourceConnectionInfo SqlConnectionInfoResponse                    `pulumi:"sourceConnectionInfo"`
 	StorageResourceId    string                                       `pulumi:"storageResourceId"`
 	TargetConnectionInfo MiSqlConnectionInfoResponse                  `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *MigrateSqlServerSqlMISyncTaskInputResponse) Defaults() *MigrateSqlServerSqlMISyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -19807,6 +20599,17 @@ type MigrateSqlServerSqlMISyncTaskProperties struct {
 }
 
 
+func (val *MigrateSqlServerSqlMISyncTaskProperties) Defaults() *MigrateSqlServerSqlMISyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -19869,6 +20672,17 @@ type MigrateSqlServerSqlMISyncTaskPropertiesResponse struct {
 	Output     []interface{}                               `pulumi:"output"`
 	State      string                                      `pulumi:"state"`
 	TaskType   string                                      `pulumi:"taskType"`
+}
+
+
+func (val *MigrateSqlServerSqlMISyncTaskPropertiesResponse) Defaults() *MigrateSqlServerSqlMISyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -19958,6 +20772,19 @@ type MigrateSqlServerSqlMITaskInput struct {
 	SelectedLogins       []string                             `pulumi:"selectedLogins"`
 	SourceConnectionInfo SqlConnectionInfo                    `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfo                    `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *MigrateSqlServerSqlMITaskInput) Defaults() *MigrateSqlServerSqlMITaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -20213,6 +21040,19 @@ type MigrateSqlServerSqlMITaskInputResponse struct {
 	SelectedLogins       []string                                     `pulumi:"selectedLogins"`
 	SourceConnectionInfo SqlConnectionInfoResponse                    `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfoResponse                    `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *MigrateSqlServerSqlMITaskInputResponse) Defaults() *MigrateSqlServerSqlMITaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -20988,6 +21828,17 @@ type MigrateSqlServerSqlMITaskProperties struct {
 }
 
 
+func (val *MigrateSqlServerSqlMITaskProperties) Defaults() *MigrateSqlServerSqlMITaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -21050,6 +21901,17 @@ type MigrateSqlServerSqlMITaskPropertiesResponse struct {
 	Output     []interface{}                           `pulumi:"output"`
 	State      string                                  `pulumi:"state"`
 	TaskType   string                                  `pulumi:"taskType"`
+}
+
+
+func (val *MigrateSqlServerSqlMITaskPropertiesResponse) Defaults() *MigrateSqlServerSqlMITaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -21133,6 +21995,19 @@ type MigrateSsisTaskInput struct {
 	SourceConnectionInfo SqlConnectionInfo `pulumi:"sourceConnectionInfo"`
 	SsisMigrationInfo    SsisMigrationInfo `pulumi:"ssisMigrationInfo"`
 	TargetConnectionInfo SqlConnectionInfo `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *MigrateSsisTaskInput) Defaults() *MigrateSsisTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -21296,6 +22171,19 @@ type MigrateSsisTaskInputResponse struct {
 	SourceConnectionInfo SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
 	SsisMigrationInfo    SsisMigrationInfoResponse `pulumi:"ssisMigrationInfo"`
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *MigrateSsisTaskInputResponse) Defaults() *MigrateSsisTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -21684,6 +22572,17 @@ type MigrateSsisTaskProperties struct {
 }
 
 
+func (val *MigrateSsisTaskProperties) Defaults() *MigrateSsisTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -21746,6 +22645,17 @@ type MigrateSsisTaskPropertiesResponse struct {
 	Output     []interface{}                 `pulumi:"output"`
 	State      string                        `pulumi:"state"`
 	TaskType   string                        `pulumi:"taskType"`
+}
+
+
+func (val *MigrateSsisTaskPropertiesResponse) Defaults() *MigrateSsisTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -27106,6 +28016,23 @@ type PostgreSqlConnectionInfo struct {
 }
 
 
+func (val *PostgreSqlConnectionInfo) Defaults() *PostgreSqlConnectionInfo {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptConnection) {
+		encryptConnection_ := true
+		tmp.EncryptConnection = &encryptConnection_
+	}
+	if isZero(tmp.TrustServerCertificate) {
+		trustServerCertificate_ := false
+		tmp.TrustServerCertificate = &trustServerCertificate_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -27341,6 +28268,23 @@ type PostgreSqlConnectionInfoResponse struct {
 	TrustServerCertificate *bool   `pulumi:"trustServerCertificate"`
 	Type                   string  `pulumi:"type"`
 	UserName               *string `pulumi:"userName"`
+}
+
+
+func (val *PostgreSqlConnectionInfoResponse) Defaults() *PostgreSqlConnectionInfoResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptConnection) {
+		encryptConnection_ := true
+		tmp.EncryptConnection = &encryptConnection_
+	}
+	if isZero(tmp.TrustServerCertificate) {
+		trustServerCertificate_ := false
+		tmp.TrustServerCertificate = &trustServerCertificate_
+	}
+	return &tmp
 }
 
 
@@ -28649,6 +29593,23 @@ type SqlConnectionInfo struct {
 }
 
 
+func (val *SqlConnectionInfo) Defaults() *SqlConnectionInfo {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptConnection) {
+		encryptConnection_ := true
+		tmp.EncryptConnection = &encryptConnection_
+	}
+	if isZero(tmp.TrustServerCertificate) {
+		trustServerCertificate_ := false
+		tmp.TrustServerCertificate = &trustServerCertificate_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -28899,6 +29860,23 @@ type SqlConnectionInfoResponse struct {
 	TrustServerCertificate *bool   `pulumi:"trustServerCertificate"`
 	Type                   string  `pulumi:"type"`
 	UserName               *string `pulumi:"userName"`
+}
+
+
+func (val *SqlConnectionInfoResponse) Defaults() *SqlConnectionInfoResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptConnection) {
+		encryptConnection_ := true
+		tmp.EncryptConnection = &encryptConnection_
+	}
+	if isZero(tmp.TrustServerCertificate) {
+		trustServerCertificate_ := false
+		tmp.TrustServerCertificate = &trustServerCertificate_
+	}
+	return &tmp
 }
 
 
@@ -29689,6 +30667,17 @@ type ValidateMigrationInputSqlServerSqlDbSyncTaskProperties struct {
 }
 
 
+func (val *ValidateMigrationInputSqlServerSqlDbSyncTaskProperties) Defaults() *ValidateMigrationInputSqlServerSqlDbSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -29753,6 +30742,17 @@ type ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse struct {
 	Output     []ValidateSyncMigrationInputSqlServerTaskOutputResponse `pulumi:"output"`
 	State      string                                                  `pulumi:"state"`
 	TaskType   string                                                  `pulumi:"taskType"`
+}
+
+
+func (val *ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse) Defaults() *ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -29847,6 +30847,17 @@ type ValidateMigrationInputSqlServerSqlMISyncTaskInput struct {
 	SourceConnectionInfo SqlConnectionInfo                    `pulumi:"sourceConnectionInfo"`
 	StorageResourceId    string                               `pulumi:"storageResourceId"`
 	TargetConnectionInfo MiSqlConnectionInfo                  `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ValidateMigrationInputSqlServerSqlMISyncTaskInput) Defaults() *ValidateMigrationInputSqlServerSqlMISyncTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -30061,6 +31072,17 @@ type ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse struct {
 	SourceConnectionInfo SqlConnectionInfoResponse                    `pulumi:"sourceConnectionInfo"`
 	StorageResourceId    string                                       `pulumi:"storageResourceId"`
 	TargetConnectionInfo MiSqlConnectionInfoResponse                  `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse) Defaults() *ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -30387,6 +31409,17 @@ type ValidateMigrationInputSqlServerSqlMISyncTaskProperties struct {
 }
 
 
+func (val *ValidateMigrationInputSqlServerSqlMISyncTaskProperties) Defaults() *ValidateMigrationInputSqlServerSqlMISyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -30451,6 +31484,17 @@ type ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse struct {
 	Output     []ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse `pulumi:"output"`
 	State      string                                                       `pulumi:"state"`
 	TaskType   string                                                       `pulumi:"taskType"`
+}
+
+
+func (val *ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse) Defaults() *ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -30546,6 +31590,19 @@ type ValidateMigrationInputSqlServerSqlMITaskInput struct {
 	SelectedLogins       []string                             `pulumi:"selectedLogins"`
 	SourceConnectionInfo SqlConnectionInfo                    `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfo                    `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ValidateMigrationInputSqlServerSqlMITaskInput) Defaults() *ValidateMigrationInputSqlServerSqlMITaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -30771,6 +31828,19 @@ type ValidateMigrationInputSqlServerSqlMITaskInputResponse struct {
 	SelectedLogins       []string                                     `pulumi:"selectedLogins"`
 	SourceConnectionInfo SqlConnectionInfoResponse                    `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfoResponse                    `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ValidateMigrationInputSqlServerSqlMITaskInputResponse) Defaults() *ValidateMigrationInputSqlServerSqlMITaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -31151,6 +32221,17 @@ type ValidateMigrationInputSqlServerSqlMITaskProperties struct {
 }
 
 
+func (val *ValidateMigrationInputSqlServerSqlMITaskProperties) Defaults() *ValidateMigrationInputSqlServerSqlMITaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -31215,6 +32296,17 @@ type ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse struct {
 	Output     []ValidateMigrationInputSqlServerSqlMITaskOutputResponse `pulumi:"output"`
 	State      string                                                   `pulumi:"state"`
 	TaskType   string                                                   `pulumi:"taskType"`
+}
+
+
+func (val *ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse) Defaults() *ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -31453,6 +32545,17 @@ type ValidateOracleAzureDbForPostgreSqlSyncTaskProperties struct {
 }
 
 
+func (val *ValidateOracleAzureDbForPostgreSqlSyncTaskProperties) Defaults() *ValidateOracleAzureDbForPostgreSqlSyncTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -31517,6 +32620,17 @@ type ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse struct {
 	Output     []ValidateOracleAzureDbPostgreSqlSyncTaskOutputResponse `pulumi:"output"`
 	State      string                                                  `pulumi:"state"`
 	TaskType   string                                                  `pulumi:"taskType"`
+}
+
+
+func (val *ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse) Defaults() *ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -31705,6 +32819,19 @@ type ValidateSyncMigrationInputSqlServerTaskInput struct {
 }
 
 
+func (val *ValidateSyncMigrationInputSqlServerTaskInput) Defaults() *ValidateSyncMigrationInputSqlServerTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -31867,6 +32994,19 @@ type ValidateSyncMigrationInputSqlServerTaskInputResponse struct {
 	SelectedDatabases    []MigrateSqlServerSqlDbSyncDatabaseInputResponse `pulumi:"selectedDatabases"`
 	SourceConnectionInfo SqlConnectionInfoResponse                        `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfoResponse                        `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ValidateSyncMigrationInputSqlServerTaskInputResponse) Defaults() *ValidateSyncMigrationInputSqlServerTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 

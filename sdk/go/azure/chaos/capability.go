@@ -110,7 +110,7 @@ type CapabilityInput interface {
 }
 
 func (*Capability) ElementType() reflect.Type {
-	return reflect.TypeOf((*Capability)(nil))
+	return reflect.TypeOf((**Capability)(nil)).Elem()
 }
 
 func (i *Capability) ToCapabilityOutput() CapabilityOutput {
@@ -124,7 +124,7 @@ func (i *Capability) ToCapabilityOutputWithContext(ctx context.Context) Capabili
 type CapabilityOutput struct{ *pulumi.OutputState }
 
 func (CapabilityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Capability)(nil))
+	return reflect.TypeOf((**Capability)(nil)).Elem()
 }
 
 func (o CapabilityOutput) ToCapabilityOutput() CapabilityOutput {

@@ -163,7 +163,7 @@ type IotHubDataConnectionInput interface {
 }
 
 func (*IotHubDataConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubDataConnection)(nil))
+	return reflect.TypeOf((**IotHubDataConnection)(nil)).Elem()
 }
 
 func (i *IotHubDataConnection) ToIotHubDataConnectionOutput() IotHubDataConnectionOutput {
@@ -177,7 +177,7 @@ func (i *IotHubDataConnection) ToIotHubDataConnectionOutputWithContext(ctx conte
 type IotHubDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (IotHubDataConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubDataConnection)(nil))
+	return reflect.TypeOf((**IotHubDataConnection)(nil)).Elem()
 }
 
 func (o IotHubDataConnectionOutput) ToIotHubDataConnectionOutput() IotHubDataConnectionOutput {

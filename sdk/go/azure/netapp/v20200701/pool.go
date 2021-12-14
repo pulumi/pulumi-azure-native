@@ -43,10 +43,10 @@ func NewPool(ctx *pulumi.Context,
 	if args.Size == nil {
 		return nil, errors.New("invalid value for required argument 'Size'")
 	}
-	if args.QosType == nil {
+	if isZero(args.QosType) {
 		args.QosType = pulumi.StringPtr("Auto")
 	}
-	if args.ServiceLevel == nil {
+	if isZero(args.ServiceLevel) {
 		args.ServiceLevel = pulumi.String("Premium")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -181,7 +181,7 @@ type PoolInput interface {
 }
 
 func (*Pool) ElementType() reflect.Type {
-	return reflect.TypeOf((*Pool)(nil))
+	return reflect.TypeOf((**Pool)(nil)).Elem()
 }
 
 func (i *Pool) ToPoolOutput() PoolOutput {
@@ -195,7 +195,7 @@ func (i *Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 type PoolOutput struct{ *pulumi.OutputState }
 
 func (PoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Pool)(nil))
+	return reflect.TypeOf((**Pool)(nil)).Elem()
 }
 
 func (o PoolOutput) ToPoolOutput() PoolOutput {

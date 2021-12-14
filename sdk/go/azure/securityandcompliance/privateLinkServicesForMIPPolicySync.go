@@ -110,7 +110,7 @@ type PrivateLinkServicesForMIPPolicySyncInput interface {
 }
 
 func (*PrivateLinkServicesForMIPPolicySync) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicesForMIPPolicySync)(nil))
+	return reflect.TypeOf((**PrivateLinkServicesForMIPPolicySync)(nil)).Elem()
 }
 
 func (i *PrivateLinkServicesForMIPPolicySync) ToPrivateLinkServicesForMIPPolicySyncOutput() PrivateLinkServicesForMIPPolicySyncOutput {
@@ -124,7 +124,7 @@ func (i *PrivateLinkServicesForMIPPolicySync) ToPrivateLinkServicesForMIPPolicyS
 type PrivateLinkServicesForMIPPolicySyncOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkServicesForMIPPolicySyncOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateLinkServicesForMIPPolicySync)(nil))
+	return reflect.TypeOf((**PrivateLinkServicesForMIPPolicySync)(nil)).Elem()
 }
 
 func (o PrivateLinkServicesForMIPPolicySyncOutput) ToPrivateLinkServicesForMIPPolicySyncOutput() PrivateLinkServicesForMIPPolicySyncOutput {

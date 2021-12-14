@@ -112,7 +112,7 @@ type UserRuleInput interface {
 }
 
 func (*UserRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserRule)(nil))
+	return reflect.TypeOf((**UserRule)(nil)).Elem()
 }
 
 func (i *UserRule) ToUserRuleOutput() UserRuleOutput {
@@ -126,7 +126,7 @@ func (i *UserRule) ToUserRuleOutputWithContext(ctx context.Context) UserRuleOutp
 type UserRuleOutput struct{ *pulumi.OutputState }
 
 func (UserRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserRule)(nil))
+	return reflect.TypeOf((**UserRule)(nil)).Elem()
 }
 
 func (o UserRuleOutput) ToUserRuleOutput() UserRuleOutput {

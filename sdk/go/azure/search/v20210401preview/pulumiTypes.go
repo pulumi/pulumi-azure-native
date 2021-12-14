@@ -1671,6 +1671,17 @@ type PrivateEndpointConnectionProperties struct {
 }
 
 
+func (val *PrivateEndpointConnectionProperties) Defaults() *PrivateEndpointConnectionProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.PrivateLinkServiceConnectionState = tmp.PrivateLinkServiceConnectionState.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1957,6 +1968,19 @@ type PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState struct
 }
 
 
+func (val *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState) Defaults() *PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ActionsRequired) {
+		actionsRequired_ := "None"
+		tmp.ActionsRequired = &actionsRequired_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2122,6 +2146,17 @@ func (o PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStatePtrO
 type PrivateEndpointConnectionPropertiesResponse struct {
 	PrivateEndpoint                   *PrivateEndpointConnectionPropertiesResponsePrivateEndpoint                   `pulumi:"privateEndpoint"`
 	PrivateLinkServiceConnectionState *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
+}
+
+
+func (val *PrivateEndpointConnectionPropertiesResponse) Defaults() *PrivateEndpointConnectionPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.PrivateLinkServiceConnectionState = tmp.PrivateLinkServiceConnectionState.Defaults()
+
+	return &tmp
 }
 
 
@@ -2411,6 +2446,19 @@ type PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionStat
 }
 
 
+func (val *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState) Defaults() *PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ActionsRequired) {
+		actionsRequired_ := "None"
+		tmp.ActionsRequired = &actionsRequired_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2578,6 +2626,17 @@ type PrivateEndpointConnectionResponse struct {
 	Name       string                                       `pulumi:"name"`
 	Properties *PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
 	Type       string                                       `pulumi:"type"`
+}
+
+
+func (val *PrivateEndpointConnectionResponse) Defaults() *PrivateEndpointConnectionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = tmp.Properties.Defaults()
+
+	return &tmp
 }
 
 

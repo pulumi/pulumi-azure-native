@@ -50,6 +50,8 @@ func NewDatabaseAccountSqlContainer(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	resourceApplier := func(v SqlContainerResource) *SqlContainerResource { return v.Defaults() }
+	args.Resource = args.Resource.ToSqlContainerResourceOutput().ApplyT(resourceApplier).(SqlContainerResourcePtrOutput).Elem()
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:documentdb:DatabaseAccountSqlContainer"),
@@ -178,7 +180,7 @@ type DatabaseAccountSqlContainerInput interface {
 }
 
 func (*DatabaseAccountSqlContainer) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlContainer)(nil))
+	return reflect.TypeOf((**DatabaseAccountSqlContainer)(nil)).Elem()
 }
 
 func (i *DatabaseAccountSqlContainer) ToDatabaseAccountSqlContainerOutput() DatabaseAccountSqlContainerOutput {
@@ -192,7 +194,7 @@ func (i *DatabaseAccountSqlContainer) ToDatabaseAccountSqlContainerOutputWithCon
 type DatabaseAccountSqlContainerOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountSqlContainerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountSqlContainer)(nil))
+	return reflect.TypeOf((**DatabaseAccountSqlContainer)(nil)).Elem()
 }
 
 func (o DatabaseAccountSqlContainerOutput) ToDatabaseAccountSqlContainerOutput() DatabaseAccountSqlContainerOutput {

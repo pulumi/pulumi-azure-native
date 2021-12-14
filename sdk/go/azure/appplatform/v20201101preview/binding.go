@@ -113,7 +113,7 @@ type BindingInput interface {
 }
 
 func (*Binding) ElementType() reflect.Type {
-	return reflect.TypeOf((*Binding)(nil))
+	return reflect.TypeOf((**Binding)(nil)).Elem()
 }
 
 func (i *Binding) ToBindingOutput() BindingOutput {
@@ -127,7 +127,7 @@ func (i *Binding) ToBindingOutputWithContext(ctx context.Context) BindingOutput 
 type BindingOutput struct{ *pulumi.OutputState }
 
 func (BindingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Binding)(nil))
+	return reflect.TypeOf((**Binding)(nil)).Elem()
 }
 
 func (o BindingOutput) ToBindingOutput() BindingOutput {

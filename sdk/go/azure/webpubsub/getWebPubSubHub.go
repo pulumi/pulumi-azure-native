@@ -13,7 +13,7 @@ func LookupWebPubSubHub(ctx *pulumi.Context, args *LookupWebPubSubHubArgs, opts 
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupWebPubSubHubArgs struct {
@@ -29,4 +29,15 @@ type LookupWebPubSubHubResult struct {
 	Properties WebPubSubHubPropertiesResponse `pulumi:"properties"`
 	SystemData SystemDataResponse             `pulumi:"systemData"`
 	Type       string                         `pulumi:"type"`
+}
+
+
+func (val *LookupWebPubSubHubResult) Defaults() *LookupWebPubSubHubResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

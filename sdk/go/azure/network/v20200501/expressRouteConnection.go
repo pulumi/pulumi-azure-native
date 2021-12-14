@@ -181,7 +181,7 @@ type ExpressRouteConnectionInput interface {
 }
 
 func (*ExpressRouteConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteConnection)(nil))
+	return reflect.TypeOf((**ExpressRouteConnection)(nil)).Elem()
 }
 
 func (i *ExpressRouteConnection) ToExpressRouteConnectionOutput() ExpressRouteConnectionOutput {
@@ -195,7 +195,7 @@ func (i *ExpressRouteConnection) ToExpressRouteConnectionOutputWithContext(ctx c
 type ExpressRouteConnectionOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExpressRouteConnection)(nil))
+	return reflect.TypeOf((**ExpressRouteConnection)(nil)).Elem()
 }
 
 func (o ExpressRouteConnectionOutput) ToExpressRouteConnectionOutput() ExpressRouteConnectionOutput {

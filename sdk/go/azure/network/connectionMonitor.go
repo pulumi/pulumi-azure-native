@@ -47,10 +47,10 @@ func NewConnectionMonitor(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.AutoStart == nil {
+	if isZero(args.AutoStart) {
 		args.AutoStart = pulumi.BoolPtr(true)
 	}
-	if args.MonitoringIntervalInSeconds == nil {
+	if isZero(args.MonitoringIntervalInSeconds) {
 		args.MonitoringIntervalInSeconds = pulumi.IntPtr(60)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
@@ -223,7 +223,7 @@ type ConnectionMonitorInput interface {
 }
 
 func (*ConnectionMonitor) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionMonitor)(nil))
+	return reflect.TypeOf((**ConnectionMonitor)(nil)).Elem()
 }
 
 func (i *ConnectionMonitor) ToConnectionMonitorOutput() ConnectionMonitorOutput {
@@ -237,7 +237,7 @@ func (i *ConnectionMonitor) ToConnectionMonitorOutputWithContext(ctx context.Con
 type ConnectionMonitorOutput struct{ *pulumi.OutputState }
 
 func (ConnectionMonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectionMonitor)(nil))
+	return reflect.TypeOf((**ConnectionMonitor)(nil)).Elem()
 }
 
 func (o ConnectionMonitorOutput) ToConnectionMonitorOutput() ConnectionMonitorOutput {

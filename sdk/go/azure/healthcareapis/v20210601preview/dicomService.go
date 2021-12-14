@@ -106,7 +106,7 @@ type DicomServiceInput interface {
 }
 
 func (*DicomService) ElementType() reflect.Type {
-	return reflect.TypeOf((*DicomService)(nil))
+	return reflect.TypeOf((**DicomService)(nil)).Elem()
 }
 
 func (i *DicomService) ToDicomServiceOutput() DicomServiceOutput {
@@ -120,7 +120,7 @@ func (i *DicomService) ToDicomServiceOutputWithContext(ctx context.Context) Dico
 type DicomServiceOutput struct{ *pulumi.OutputState }
 
 func (DicomServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DicomService)(nil))
+	return reflect.TypeOf((**DicomService)(nil)).Elem()
 }
 
 func (o DicomServiceOutput) ToDicomServiceOutput() DicomServiceOutput {

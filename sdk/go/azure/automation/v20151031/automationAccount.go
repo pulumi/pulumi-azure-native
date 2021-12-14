@@ -114,7 +114,7 @@ type AutomationAccountInput interface {
 }
 
 func (*AutomationAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationAccount)(nil))
+	return reflect.TypeOf((**AutomationAccount)(nil)).Elem()
 }
 
 func (i *AutomationAccount) ToAutomationAccountOutput() AutomationAccountOutput {
@@ -128,7 +128,7 @@ func (i *AutomationAccount) ToAutomationAccountOutputWithContext(ctx context.Con
 type AutomationAccountOutput struct{ *pulumi.OutputState }
 
 func (AutomationAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AutomationAccount)(nil))
+	return reflect.TypeOf((**AutomationAccount)(nil)).Elem()
 }
 
 func (o AutomationAccountOutput) ToAutomationAccountOutput() AutomationAccountOutput {

@@ -112,7 +112,7 @@ type ManagedInstancePrivateEndpointConnectionInput interface {
 }
 
 func (*ManagedInstancePrivateEndpointConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstancePrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**ManagedInstancePrivateEndpointConnection)(nil)).Elem()
 }
 
 func (i *ManagedInstancePrivateEndpointConnection) ToManagedInstancePrivateEndpointConnectionOutput() ManagedInstancePrivateEndpointConnectionOutput {
@@ -126,7 +126,7 @@ func (i *ManagedInstancePrivateEndpointConnection) ToManagedInstancePrivateEndpo
 type ManagedInstancePrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
 
 func (ManagedInstancePrivateEndpointConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedInstancePrivateEndpointConnection)(nil))
+	return reflect.TypeOf((**ManagedInstancePrivateEndpointConnection)(nil)).Elem()
 }
 
 func (o ManagedInstancePrivateEndpointConnectionOutput) ToManagedInstancePrivateEndpointConnectionOutput() ManagedInstancePrivateEndpointConnectionOutput {

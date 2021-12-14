@@ -122,7 +122,7 @@ type ActionInput interface {
 }
 
 func (*Action) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil))
+	return reflect.TypeOf((**Action)(nil)).Elem()
 }
 
 func (i *Action) ToActionOutput() ActionOutput {
@@ -136,7 +136,7 @@ func (i *Action) ToActionOutputWithContext(ctx context.Context) ActionOutput {
 type ActionOutput struct{ *pulumi.OutputState }
 
 func (ActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Action)(nil))
+	return reflect.TypeOf((**Action)(nil)).Elem()
 }
 
 func (o ActionOutput) ToActionOutput() ActionOutput {

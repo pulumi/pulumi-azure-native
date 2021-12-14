@@ -46,8 +46,16 @@ func NewWebPubSub(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.PublicNetworkAccess == nil {
+	networkACLsApplier := func(v WebPubSubNetworkACLs) *WebPubSubNetworkACLs { return v.Defaults() }
+	if args.NetworkACLs != nil {
+		args.NetworkACLs = args.NetworkACLs.ToWebPubSubNetworkACLsPtrOutput().Elem().ApplyT(networkACLsApplier).(WebPubSubNetworkACLsPtrOutput)
+	}
+	if isZero(args.PublicNetworkAccess) {
 		args.PublicNetworkAccess = pulumi.StringPtr("Enabled")
+	}
+	tlsApplier := func(v WebPubSubTlsSettings) *WebPubSubTlsSettings { return v.Defaults() }
+	if args.Tls != nil {
+		args.Tls = args.Tls.ToWebPubSubTlsSettingsPtrOutput().Elem().ApplyT(tlsApplier).(WebPubSubTlsSettingsPtrOutput)
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -136,7 +144,7 @@ type WebPubSubInput interface {
 }
 
 func (*WebPubSub) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSub)(nil))
+	return reflect.TypeOf((**WebPubSub)(nil)).Elem()
 }
 
 func (i *WebPubSub) ToWebPubSubOutput() WebPubSubOutput {
@@ -150,7 +158,7 @@ func (i *WebPubSub) ToWebPubSubOutputWithContext(ctx context.Context) WebPubSubO
 type WebPubSubOutput struct{ *pulumi.OutputState }
 
 func (WebPubSubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebPubSub)(nil))
+	return reflect.TypeOf((**WebPubSub)(nil)).Elem()
 }
 
 func (o WebPubSubOutput) ToWebPubSubOutput() WebPubSubOutput {

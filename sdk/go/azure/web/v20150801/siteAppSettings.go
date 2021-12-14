@@ -140,7 +140,7 @@ type SiteAppSettingsInput interface {
 }
 
 func (*SiteAppSettings) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteAppSettings)(nil))
+	return reflect.TypeOf((**SiteAppSettings)(nil)).Elem()
 }
 
 func (i *SiteAppSettings) ToSiteAppSettingsOutput() SiteAppSettingsOutput {
@@ -154,7 +154,7 @@ func (i *SiteAppSettings) ToSiteAppSettingsOutputWithContext(ctx context.Context
 type SiteAppSettingsOutput struct{ *pulumi.OutputState }
 
 func (SiteAppSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteAppSettings)(nil))
+	return reflect.TypeOf((**SiteAppSettings)(nil)).Elem()
 }
 
 func (o SiteAppSettingsOutput) ToSiteAppSettingsOutput() SiteAppSettingsOutput {

@@ -37,6 +37,14 @@ func NewVirtualNetworkTap(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	destinationLoadBalancerFrontEndIPConfigurationApplier := func(v FrontendIPConfiguration) *FrontendIPConfiguration { return v.Defaults() }
+	if args.DestinationLoadBalancerFrontEndIPConfiguration != nil {
+		args.DestinationLoadBalancerFrontEndIPConfiguration = args.DestinationLoadBalancerFrontEndIPConfiguration.ToFrontendIPConfigurationPtrOutput().Elem().ApplyT(destinationLoadBalancerFrontEndIPConfigurationApplier).(FrontendIPConfigurationPtrOutput)
+	}
+	destinationNetworkInterfaceIPConfigurationApplier := func(v NetworkInterfaceIPConfiguration) *NetworkInterfaceIPConfiguration { return v.Defaults() }
+	if args.DestinationNetworkInterfaceIPConfiguration != nil {
+		args.DestinationNetworkInterfaceIPConfiguration = args.DestinationNetworkInterfaceIPConfiguration.ToNetworkInterfaceIPConfigurationPtrOutput().Elem().ApplyT(destinationNetworkInterfaceIPConfigurationApplier).(NetworkInterfaceIPConfigurationPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:network/v20180801:VirtualNetworkTap"),
@@ -172,7 +180,7 @@ type VirtualNetworkTapInput interface {
 }
 
 func (*VirtualNetworkTap) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkTap)(nil))
+	return reflect.TypeOf((**VirtualNetworkTap)(nil)).Elem()
 }
 
 func (i *VirtualNetworkTap) ToVirtualNetworkTapOutput() VirtualNetworkTapOutput {
@@ -186,7 +194,7 @@ func (i *VirtualNetworkTap) ToVirtualNetworkTapOutputWithContext(ctx context.Con
 type VirtualNetworkTapOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkTapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkTap)(nil))
+	return reflect.TypeOf((**VirtualNetworkTap)(nil)).Elem()
 }
 
 func (o VirtualNetworkTapOutput) ToVirtualNetworkTapOutput() VirtualNetworkTapOutput {

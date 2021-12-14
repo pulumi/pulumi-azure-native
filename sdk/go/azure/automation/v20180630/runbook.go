@@ -140,7 +140,7 @@ type RunbookInput interface {
 }
 
 func (*Runbook) ElementType() reflect.Type {
-	return reflect.TypeOf((*Runbook)(nil))
+	return reflect.TypeOf((**Runbook)(nil)).Elem()
 }
 
 func (i *Runbook) ToRunbookOutput() RunbookOutput {
@@ -154,7 +154,7 @@ func (i *Runbook) ToRunbookOutputWithContext(ctx context.Context) RunbookOutput 
 type RunbookOutput struct{ *pulumi.OutputState }
 
 func (RunbookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Runbook)(nil))
+	return reflect.TypeOf((**Runbook)(nil)).Elem()
 }
 
 func (o RunbookOutput) ToRunbookOutput() RunbookOutput {

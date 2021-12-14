@@ -98,7 +98,7 @@ type CommitmentPlanInput interface {
 }
 
 func (*CommitmentPlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommitmentPlan)(nil))
+	return reflect.TypeOf((**CommitmentPlan)(nil)).Elem()
 }
 
 func (i *CommitmentPlan) ToCommitmentPlanOutput() CommitmentPlanOutput {
@@ -112,7 +112,7 @@ func (i *CommitmentPlan) ToCommitmentPlanOutputWithContext(ctx context.Context) 
 type CommitmentPlanOutput struct{ *pulumi.OutputState }
 
 func (CommitmentPlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommitmentPlan)(nil))
+	return reflect.TypeOf((**CommitmentPlan)(nil)).Elem()
 }
 
 func (o CommitmentPlanOutput) ToCommitmentPlanOutput() CommitmentPlanOutput {

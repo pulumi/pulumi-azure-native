@@ -201,7 +201,7 @@ type AppServiceEnvironmentInput interface {
 }
 
 func (*AppServiceEnvironment) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceEnvironment)(nil))
+	return reflect.TypeOf((**AppServiceEnvironment)(nil)).Elem()
 }
 
 func (i *AppServiceEnvironment) ToAppServiceEnvironmentOutput() AppServiceEnvironmentOutput {
@@ -215,7 +215,7 @@ func (i *AppServiceEnvironment) ToAppServiceEnvironmentOutputWithContext(ctx con
 type AppServiceEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (AppServiceEnvironmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppServiceEnvironment)(nil))
+	return reflect.TypeOf((**AppServiceEnvironment)(nil)).Elem()
 }
 
 func (o AppServiceEnvironmentOutput) ToAppServiceEnvironmentOutput() AppServiceEnvironmentOutput {

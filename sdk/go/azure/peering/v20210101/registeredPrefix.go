@@ -112,7 +112,7 @@ type RegisteredPrefixInput interface {
 }
 
 func (*RegisteredPrefix) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegisteredPrefix)(nil))
+	return reflect.TypeOf((**RegisteredPrefix)(nil)).Elem()
 }
 
 func (i *RegisteredPrefix) ToRegisteredPrefixOutput() RegisteredPrefixOutput {
@@ -126,7 +126,7 @@ func (i *RegisteredPrefix) ToRegisteredPrefixOutputWithContext(ctx context.Conte
 type RegisteredPrefixOutput struct{ *pulumi.OutputState }
 
 func (RegisteredPrefixOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegisteredPrefix)(nil))
+	return reflect.TypeOf((**RegisteredPrefix)(nil)).Elem()
 }
 
 func (o RegisteredPrefixOutput) ToRegisteredPrefixOutput() RegisteredPrefixOutput {

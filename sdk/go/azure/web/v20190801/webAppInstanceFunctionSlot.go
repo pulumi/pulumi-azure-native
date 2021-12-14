@@ -170,7 +170,7 @@ type WebAppInstanceFunctionSlotInput interface {
 }
 
 func (*WebAppInstanceFunctionSlot) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppInstanceFunctionSlot)(nil))
+	return reflect.TypeOf((**WebAppInstanceFunctionSlot)(nil)).Elem()
 }
 
 func (i *WebAppInstanceFunctionSlot) ToWebAppInstanceFunctionSlotOutput() WebAppInstanceFunctionSlotOutput {
@@ -184,7 +184,7 @@ func (i *WebAppInstanceFunctionSlot) ToWebAppInstanceFunctionSlotOutputWithConte
 type WebAppInstanceFunctionSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppInstanceFunctionSlotOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppInstanceFunctionSlot)(nil))
+	return reflect.TypeOf((**WebAppInstanceFunctionSlot)(nil)).Elem()
 }
 
 func (o WebAppInstanceFunctionSlotOutput) ToWebAppInstanceFunctionSlotOutput() WebAppInstanceFunctionSlotOutput {

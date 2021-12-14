@@ -106,7 +106,7 @@ type NamespaceInput interface {
 }
 
 func (*Namespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*Namespace)(nil))
+	return reflect.TypeOf((**Namespace)(nil)).Elem()
 }
 
 func (i *Namespace) ToNamespaceOutput() NamespaceOutput {
@@ -120,7 +120,7 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 type NamespaceOutput struct{ *pulumi.OutputState }
 
 func (NamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Namespace)(nil))
+	return reflect.TypeOf((**Namespace)(nil)).Elem()
 }
 
 func (o NamespaceOutput) ToNamespaceOutput() NamespaceOutput {

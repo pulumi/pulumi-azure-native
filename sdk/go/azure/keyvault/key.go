@@ -118,7 +118,7 @@ type KeyInput interface {
 }
 
 func (*Key) ElementType() reflect.Type {
-	return reflect.TypeOf((*Key)(nil))
+	return reflect.TypeOf((**Key)(nil)).Elem()
 }
 
 func (i *Key) ToKeyOutput() KeyOutput {
@@ -132,7 +132,7 @@ func (i *Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 type KeyOutput struct{ *pulumi.OutputState }
 
 func (KeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Key)(nil))
+	return reflect.TypeOf((**Key)(nil)).Elem()
 }
 
 func (o KeyOutput) ToKeyOutput() KeyOutput {

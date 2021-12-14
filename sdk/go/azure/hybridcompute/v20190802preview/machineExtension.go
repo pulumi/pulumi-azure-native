@@ -155,7 +155,7 @@ type MachineExtensionInput interface {
 }
 
 func (*MachineExtension) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtension)(nil))
+	return reflect.TypeOf((**MachineExtension)(nil)).Elem()
 }
 
 func (i *MachineExtension) ToMachineExtensionOutput() MachineExtensionOutput {
@@ -169,7 +169,7 @@ func (i *MachineExtension) ToMachineExtensionOutputWithContext(ctx context.Conte
 type MachineExtensionOutput struct{ *pulumi.OutputState }
 
 func (MachineExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MachineExtension)(nil))
+	return reflect.TypeOf((**MachineExtension)(nil)).Elem()
 }
 
 func (o MachineExtensionOutput) ToMachineExtensionOutput() MachineExtensionOutput {

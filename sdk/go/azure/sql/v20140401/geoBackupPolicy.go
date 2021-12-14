@@ -107,7 +107,7 @@ type GeoBackupPolicyInput interface {
 }
 
 func (*GeoBackupPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeoBackupPolicy)(nil))
+	return reflect.TypeOf((**GeoBackupPolicy)(nil)).Elem()
 }
 
 func (i *GeoBackupPolicy) ToGeoBackupPolicyOutput() GeoBackupPolicyOutput {
@@ -121,7 +121,7 @@ func (i *GeoBackupPolicy) ToGeoBackupPolicyOutputWithContext(ctx context.Context
 type GeoBackupPolicyOutput struct{ *pulumi.OutputState }
 
 func (GeoBackupPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GeoBackupPolicy)(nil))
+	return reflect.TypeOf((**GeoBackupPolicy)(nil)).Elem()
 }
 
 func (o GeoBackupPolicyOutput) ToGeoBackupPolicyOutput() GeoBackupPolicyOutput {

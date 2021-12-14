@@ -90,7 +90,7 @@ type StorageAccountStaticWebsiteInput interface {
 }
 
 func (*StorageAccountStaticWebsite) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountStaticWebsite)(nil))
+	return reflect.TypeOf((**StorageAccountStaticWebsite)(nil)).Elem()
 }
 
 func (i *StorageAccountStaticWebsite) ToStorageAccountStaticWebsiteOutput() StorageAccountStaticWebsiteOutput {
@@ -104,7 +104,7 @@ func (i *StorageAccountStaticWebsite) ToStorageAccountStaticWebsiteOutputWithCon
 type StorageAccountStaticWebsiteOutput struct{ *pulumi.OutputState }
 
 func (StorageAccountStaticWebsiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountStaticWebsite)(nil))
+	return reflect.TypeOf((**StorageAccountStaticWebsite)(nil)).Elem()
 }
 
 func (o StorageAccountStaticWebsiteOutput) ToStorageAccountStaticWebsiteOutput() StorageAccountStaticWebsiteOutput {

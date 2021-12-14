@@ -166,7 +166,7 @@ type EventGridDataConnectionInput interface {
 }
 
 func (*EventGridDataConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventGridDataConnection)(nil))
+	return reflect.TypeOf((**EventGridDataConnection)(nil)).Elem()
 }
 
 func (i *EventGridDataConnection) ToEventGridDataConnectionOutput() EventGridDataConnectionOutput {
@@ -180,7 +180,7 @@ func (i *EventGridDataConnection) ToEventGridDataConnectionOutputWithContext(ctx
 type EventGridDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventGridDataConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventGridDataConnection)(nil))
+	return reflect.TypeOf((**EventGridDataConnection)(nil)).Elem()
 }
 
 func (o EventGridDataConnectionOutput) ToEventGridDataConnectionOutput() EventGridDataConnectionOutput {

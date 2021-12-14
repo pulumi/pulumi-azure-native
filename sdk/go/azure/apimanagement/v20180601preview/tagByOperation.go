@@ -134,7 +134,7 @@ type TagByOperationInput interface {
 }
 
 func (*TagByOperation) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagByOperation)(nil))
+	return reflect.TypeOf((**TagByOperation)(nil)).Elem()
 }
 
 func (i *TagByOperation) ToTagByOperationOutput() TagByOperationOutput {
@@ -148,7 +148,7 @@ func (i *TagByOperation) ToTagByOperationOutputWithContext(ctx context.Context) 
 type TagByOperationOutput struct{ *pulumi.OutputState }
 
 func (TagByOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagByOperation)(nil))
+	return reflect.TypeOf((**TagByOperation)(nil)).Elem()
 }
 
 func (o TagByOperationOutput) ToTagByOperationOutput() TagByOperationOutput {

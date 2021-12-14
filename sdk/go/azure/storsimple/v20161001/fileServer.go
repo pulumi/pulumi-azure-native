@@ -113,7 +113,7 @@ type FileServerInput interface {
 }
 
 func (*FileServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileServer)(nil))
+	return reflect.TypeOf((**FileServer)(nil)).Elem()
 }
 
 func (i *FileServer) ToFileServerOutput() FileServerOutput {
@@ -127,7 +127,7 @@ func (i *FileServer) ToFileServerOutputWithContext(ctx context.Context) FileServ
 type FileServerOutput struct{ *pulumi.OutputState }
 
 func (FileServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileServer)(nil))
+	return reflect.TypeOf((**FileServer)(nil)).Elem()
 }
 
 func (o FileServerOutput) ToFileServerOutput() FileServerOutput {

@@ -103,7 +103,7 @@ type GuestDiagnosticsSettingInput interface {
 }
 
 func (*GuestDiagnosticsSetting) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestDiagnosticsSetting)(nil))
+	return reflect.TypeOf((**GuestDiagnosticsSetting)(nil)).Elem()
 }
 
 func (i *GuestDiagnosticsSetting) ToGuestDiagnosticsSettingOutput() GuestDiagnosticsSettingOutput {
@@ -117,7 +117,7 @@ func (i *GuestDiagnosticsSetting) ToGuestDiagnosticsSettingOutputWithContext(ctx
 type GuestDiagnosticsSettingOutput struct{ *pulumi.OutputState }
 
 func (GuestDiagnosticsSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestDiagnosticsSetting)(nil))
+	return reflect.TypeOf((**GuestDiagnosticsSetting)(nil)).Elem()
 }
 
 func (o GuestDiagnosticsSettingOutput) ToGuestDiagnosticsSettingOutput() GuestDiagnosticsSettingOutput {

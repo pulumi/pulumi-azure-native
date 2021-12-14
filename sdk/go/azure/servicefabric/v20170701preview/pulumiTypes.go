@@ -242,6 +242,17 @@ type ApplicationUpgradePolicy struct {
 }
 
 
+func (val *ApplicationUpgradePolicy) Defaults() *ApplicationUpgradePolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ApplicationHealthPolicy = tmp.ApplicationHealthPolicy.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -419,6 +430,17 @@ type ApplicationUpgradePolicyResponse struct {
 	ForceRestart                   *bool                                      `pulumi:"forceRestart"`
 	RollingUpgradeMonitoringPolicy *ArmRollingUpgradeMonitoringPolicyResponse `pulumi:"rollingUpgradeMonitoringPolicy"`
 	UpgradeReplicaSetCheckTimeout  *string                                    `pulumi:"upgradeReplicaSetCheckTimeout"`
+}
+
+
+func (val *ApplicationUpgradePolicyResponse) Defaults() *ApplicationUpgradePolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ApplicationHealthPolicy = tmp.ApplicationHealthPolicy.Defaults()
+
+	return &tmp
 }
 
 
@@ -604,6 +626,25 @@ type ArmApplicationHealthPolicy struct {
 }
 
 
+func (val *ArmApplicationHealthPolicy) Defaults() *ArmApplicationHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ConsiderWarningAsError) {
+		considerWarningAsError_ := false
+		tmp.ConsiderWarningAsError = &considerWarningAsError_
+	}
+	tmp.DefaultServiceTypeHealthPolicy = tmp.DefaultServiceTypeHealthPolicy.Defaults()
+
+	if isZero(tmp.MaxPercentUnhealthyDeployedApplications) {
+		maxPercentUnhealthyDeployedApplications_ := 0
+		tmp.MaxPercentUnhealthyDeployedApplications = &maxPercentUnhealthyDeployedApplications_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -783,6 +824,25 @@ type ArmApplicationHealthPolicyResponse struct {
 	DefaultServiceTypeHealthPolicy          *ArmServiceTypeHealthPolicyResponse           `pulumi:"defaultServiceTypeHealthPolicy"`
 	MaxPercentUnhealthyDeployedApplications *int                                          `pulumi:"maxPercentUnhealthyDeployedApplications"`
 	ServiceTypeHealthPolicyMap              map[string]ArmServiceTypeHealthPolicyResponse `pulumi:"serviceTypeHealthPolicyMap"`
+}
+
+
+func (val *ArmApplicationHealthPolicyResponse) Defaults() *ArmApplicationHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ConsiderWarningAsError) {
+		considerWarningAsError_ := false
+		tmp.ConsiderWarningAsError = &considerWarningAsError_
+	}
+	tmp.DefaultServiceTypeHealthPolicy = tmp.DefaultServiceTypeHealthPolicy.Defaults()
+
+	if isZero(tmp.MaxPercentUnhealthyDeployedApplications) {
+		maxPercentUnhealthyDeployedApplications_ := 0
+		tmp.MaxPercentUnhealthyDeployedApplications = &maxPercentUnhealthyDeployedApplications_
+	}
+	return &tmp
 }
 
 
@@ -1383,6 +1443,27 @@ type ArmServiceTypeHealthPolicy struct {
 }
 
 
+func (val *ArmServiceTypeHealthPolicy) Defaults() *ArmServiceTypeHealthPolicy {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyPartitionsPerService) {
+		maxPercentUnhealthyPartitionsPerService_ := 0
+		tmp.MaxPercentUnhealthyPartitionsPerService = &maxPercentUnhealthyPartitionsPerService_
+	}
+	if isZero(tmp.MaxPercentUnhealthyReplicasPerPartition) {
+		maxPercentUnhealthyReplicasPerPartition_ := 0
+		tmp.MaxPercentUnhealthyReplicasPerPartition = &maxPercentUnhealthyReplicasPerPartition_
+	}
+	if isZero(tmp.MaxPercentUnhealthyServices) {
+		maxPercentUnhealthyServices_ := 0
+		tmp.MaxPercentUnhealthyServices = &maxPercentUnhealthyServices_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1588,6 +1669,27 @@ type ArmServiceTypeHealthPolicyResponse struct {
 	MaxPercentUnhealthyPartitionsPerService *int `pulumi:"maxPercentUnhealthyPartitionsPerService"`
 	MaxPercentUnhealthyReplicasPerPartition *int `pulumi:"maxPercentUnhealthyReplicasPerPartition"`
 	MaxPercentUnhealthyServices             *int `pulumi:"maxPercentUnhealthyServices"`
+}
+
+
+func (val *ArmServiceTypeHealthPolicyResponse) Defaults() *ArmServiceTypeHealthPolicyResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.MaxPercentUnhealthyPartitionsPerService) {
+		maxPercentUnhealthyPartitionsPerService_ := 0
+		tmp.MaxPercentUnhealthyPartitionsPerService = &maxPercentUnhealthyPartitionsPerService_
+	}
+	if isZero(tmp.MaxPercentUnhealthyReplicasPerPartition) {
+		maxPercentUnhealthyReplicasPerPartition_ := 0
+		tmp.MaxPercentUnhealthyReplicasPerPartition = &maxPercentUnhealthyReplicasPerPartition_
+	}
+	if isZero(tmp.MaxPercentUnhealthyServices) {
+		maxPercentUnhealthyServices_ := 0
+		tmp.MaxPercentUnhealthyServices = &maxPercentUnhealthyServices_
+	}
+	return &tmp
 }
 
 

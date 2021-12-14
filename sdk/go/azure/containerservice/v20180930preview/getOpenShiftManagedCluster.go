@@ -13,7 +13,7 @@ func LookupOpenShiftManagedCluster(ctx *pulumi.Context, args *LookupOpenShiftMan
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupOpenShiftManagedClusterArgs struct {
@@ -38,4 +38,15 @@ type LookupOpenShiftManagedClusterResult struct {
 	RouterProfiles    []OpenShiftRouterProfileResponse                  `pulumi:"routerProfiles"`
 	Tags              map[string]string                                 `pulumi:"tags"`
 	Type              string                                            `pulumi:"type"`
+}
+
+
+func (val *LookupOpenShiftManagedClusterResult) Defaults() *LookupOpenShiftManagedClusterResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.NetworkProfile = tmp.NetworkProfile.Defaults()
+
+	return &tmp
 }

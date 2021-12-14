@@ -130,7 +130,7 @@ type WebAppDomainOwnershipIdentifierInput interface {
 }
 
 func (*WebAppDomainOwnershipIdentifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDomainOwnershipIdentifier)(nil))
+	return reflect.TypeOf((**WebAppDomainOwnershipIdentifier)(nil)).Elem()
 }
 
 func (i *WebAppDomainOwnershipIdentifier) ToWebAppDomainOwnershipIdentifierOutput() WebAppDomainOwnershipIdentifierOutput {
@@ -144,7 +144,7 @@ func (i *WebAppDomainOwnershipIdentifier) ToWebAppDomainOwnershipIdentifierOutpu
 type WebAppDomainOwnershipIdentifierOutput struct{ *pulumi.OutputState }
 
 func (WebAppDomainOwnershipIdentifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAppDomainOwnershipIdentifier)(nil))
+	return reflect.TypeOf((**WebAppDomainOwnershipIdentifier)(nil)).Elem()
 }
 
 func (o WebAppDomainOwnershipIdentifierOutput) ToWebAppDomainOwnershipIdentifierOutput() WebAppDomainOwnershipIdentifierOutput {

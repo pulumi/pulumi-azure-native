@@ -1019,6 +1019,19 @@ type ExtensionStatus struct {
 }
 
 
+func (val *ExtensionStatus) Defaults() *ExtensionStatus {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Level) {
+		level_ := "Information"
+		tmp.Level = &level_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1134,6 +1147,19 @@ type ExtensionStatusResponse struct {
 	Level         *string `pulumi:"level"`
 	Message       *string `pulumi:"message"`
 	Time          *string `pulumi:"time"`
+}
+
+
+func (val *ExtensionStatusResponse) Defaults() *ExtensionStatusResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Level) {
+		level_ := "Information"
+		tmp.Level = &level_
+	}
+	return &tmp
 }
 
 
@@ -1255,6 +1281,23 @@ type GitRepositoryDefinition struct {
 	SyncIntervalInSeconds *float64                 `pulumi:"syncIntervalInSeconds"`
 	TimeoutInSeconds      *float64                 `pulumi:"timeoutInSeconds"`
 	Url                   *string                  `pulumi:"url"`
+}
+
+
+func (val *GitRepositoryDefinition) Defaults() *GitRepositoryDefinition {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SyncIntervalInSeconds) {
+		syncIntervalInSeconds_ := 600.0
+		tmp.SyncIntervalInSeconds = &syncIntervalInSeconds_
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		timeoutInSeconds_ := 600.0
+		tmp.TimeoutInSeconds = &timeoutInSeconds_
+	}
+	return &tmp
 }
 
 
@@ -1493,6 +1536,23 @@ type GitRepositoryDefinitionResponse struct {
 	SyncIntervalInSeconds *float64                         `pulumi:"syncIntervalInSeconds"`
 	TimeoutInSeconds      *float64                         `pulumi:"timeoutInSeconds"`
 	Url                   *string                          `pulumi:"url"`
+}
+
+
+func (val *GitRepositoryDefinitionResponse) Defaults() *GitRepositoryDefinitionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.SyncIntervalInSeconds) {
+		syncIntervalInSeconds_ := 600.0
+		tmp.SyncIntervalInSeconds = &syncIntervalInSeconds_
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		timeoutInSeconds_ := 600.0
+		tmp.TimeoutInSeconds = &timeoutInSeconds_
+	}
+	return &tmp
 }
 
 
@@ -2521,6 +2581,35 @@ type KustomizationDefinition struct {
 }
 
 
+func (val *KustomizationDefinition) Defaults() *KustomizationDefinition {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Force) {
+		force_ := false
+		tmp.Force = &force_
+	}
+	if isZero(tmp.Path) {
+		path_ := ""
+		tmp.Path = &path_
+	}
+	if isZero(tmp.Prune) {
+		prune_ := false
+		tmp.Prune = &prune_
+	}
+	if isZero(tmp.SyncIntervalInSeconds) {
+		syncIntervalInSeconds_ := 600.0
+		tmp.SyncIntervalInSeconds = &syncIntervalInSeconds_
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		timeoutInSeconds_ := 600.0
+		tmp.TimeoutInSeconds = &timeoutInSeconds_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2654,6 +2743,35 @@ type KustomizationDefinitionResponse struct {
 	SyncIntervalInSeconds  *float64                      `pulumi:"syncIntervalInSeconds"`
 	TimeoutInSeconds       *float64                      `pulumi:"timeoutInSeconds"`
 	Validation             *string                       `pulumi:"validation"`
+}
+
+
+func (val *KustomizationDefinitionResponse) Defaults() *KustomizationDefinitionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Force) {
+		force_ := false
+		tmp.Force = &force_
+	}
+	if isZero(tmp.Path) {
+		path_ := ""
+		tmp.Path = &path_
+	}
+	if isZero(tmp.Prune) {
+		prune_ := false
+		tmp.Prune = &prune_
+	}
+	if isZero(tmp.SyncIntervalInSeconds) {
+		syncIntervalInSeconds_ := 600.0
+		tmp.SyncIntervalInSeconds = &syncIntervalInSeconds_
+	}
+	if isZero(tmp.TimeoutInSeconds) {
+		timeoutInSeconds_ := 600.0
+		tmp.TimeoutInSeconds = &timeoutInSeconds_
+	}
+	return &tmp
 }
 
 

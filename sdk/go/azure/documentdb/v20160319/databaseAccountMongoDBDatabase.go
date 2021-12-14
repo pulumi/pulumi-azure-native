@@ -165,7 +165,7 @@ type DatabaseAccountMongoDBDatabaseInput interface {
 }
 
 func (*DatabaseAccountMongoDBDatabase) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongoDBDatabase)(nil))
+	return reflect.TypeOf((**DatabaseAccountMongoDBDatabase)(nil)).Elem()
 }
 
 func (i *DatabaseAccountMongoDBDatabase) ToDatabaseAccountMongoDBDatabaseOutput() DatabaseAccountMongoDBDatabaseOutput {
@@ -179,7 +179,7 @@ func (i *DatabaseAccountMongoDBDatabase) ToDatabaseAccountMongoDBDatabaseOutputW
 type DatabaseAccountMongoDBDatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseAccountMongoDBDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountMongoDBDatabase)(nil))
+	return reflect.TypeOf((**DatabaseAccountMongoDBDatabase)(nil)).Elem()
 }
 
 func (o DatabaseAccountMongoDBDatabaseOutput) ToDatabaseAccountMongoDBDatabaseOutput() DatabaseAccountMongoDBDatabaseOutput {

@@ -2863,6 +2863,19 @@ type InputPort struct {
 }
 
 
+func (val *InputPort) Defaults() *InputPort {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "Dataset"
+		tmp.Type = &type_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -2954,6 +2967,19 @@ func (o InputPortMapOutput) MapIndex(k pulumi.StringInput) InputPortOutput {
 
 type InputPortResponse struct {
 	Type *string `pulumi:"type"`
+}
+
+
+func (val *InputPortResponse) Defaults() *InputPortResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "Dataset"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 
@@ -3729,6 +3755,19 @@ type OutputPort struct {
 }
 
 
+func (val *OutputPort) Defaults() *OutputPort {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "Dataset"
+		tmp.Type = &type_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3820,6 +3859,19 @@ func (o OutputPortMapOutput) MapIndex(k pulumi.StringInput) OutputPortOutput {
 
 type OutputPortResponse struct {
 	Type *string `pulumi:"type"`
+}
+
+
+func (val *OutputPortResponse) Defaults() *OutputPortResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		type_ := "Dataset"
+		tmp.Type = &type_
+	}
+	return &tmp
 }
 
 
@@ -4186,6 +4238,18 @@ type ServiceInputOutputSpecification struct {
 }
 
 
+func (val *ServiceInputOutputSpecification) Defaults() *ServiceInputOutputSpecification {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = "object"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4361,6 +4425,18 @@ type ServiceInputOutputSpecificationResponse struct {
 	Properties  map[string]TableSpecificationResponse `pulumi:"properties"`
 	Title       *string                               `pulumi:"title"`
 	Type        string                                `pulumi:"type"`
+}
+
+
+func (val *ServiceInputOutputSpecificationResponse) Defaults() *ServiceInputOutputSpecificationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = "object"
+	}
+	return &tmp
 }
 
 
@@ -4841,6 +4917,18 @@ type TableSpecification struct {
 }
 
 
+func (val *TableSpecification) Defaults() *TableSpecification {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = "object"
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -4956,6 +5044,18 @@ type TableSpecificationResponse struct {
 	Properties  map[string]ColumnSpecificationResponse `pulumi:"properties"`
 	Title       *string                                `pulumi:"title"`
 	Type        string                                 `pulumi:"type"`
+}
+
+
+func (val *TableSpecificationResponse) Defaults() *TableSpecificationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Type) {
+		tmp.Type = "object"
+	}
+	return &tmp
 }
 
 
@@ -5587,6 +5687,19 @@ type WebServicePropertiesForGraph struct {
 }
 
 
+func (val *WebServicePropertiesForGraph) Defaults() *WebServicePropertiesForGraph {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	tmp.Output = tmp.Output.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -5991,6 +6104,19 @@ type WebServicePropertiesForGraphResponse struct {
 	StorageAccount           *StorageAccountResponse                  `pulumi:"storageAccount"`
 	SwaggerLocation          string                                   `pulumi:"swaggerLocation"`
 	Title                    *string                                  `pulumi:"title"`
+}
+
+
+func (val *WebServicePropertiesForGraphResponse) Defaults() *WebServicePropertiesForGraphResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	tmp.Output = tmp.Output.Defaults()
+
+	return &tmp
 }
 
 

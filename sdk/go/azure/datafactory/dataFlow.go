@@ -100,7 +100,7 @@ type DataFlowInput interface {
 }
 
 func (*DataFlow) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFlow)(nil))
+	return reflect.TypeOf((**DataFlow)(nil)).Elem()
 }
 
 func (i *DataFlow) ToDataFlowOutput() DataFlowOutput {
@@ -114,7 +114,7 @@ func (i *DataFlow) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutp
 type DataFlowOutput struct{ *pulumi.OutputState }
 
 func (DataFlowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataFlow)(nil))
+	return reflect.TypeOf((**DataFlow)(nil)).Elem()
 }
 
 func (o DataFlowOutput) ToDataFlowOutput() DataFlowOutput {

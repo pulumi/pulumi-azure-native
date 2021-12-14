@@ -13,7 +13,7 @@ func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.Invo
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupVaultArgs struct {
@@ -30,4 +30,15 @@ type LookupVaultResult struct {
 	SystemData SystemDataResponse      `pulumi:"systemData"`
 	Tags       map[string]string       `pulumi:"tags"`
 	Type       string                  `pulumi:"type"`
+}
+
+
+func (val *LookupVaultResult) Defaults() *LookupVaultResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Properties = *tmp.Properties.Defaults()
+
+	return &tmp
 }

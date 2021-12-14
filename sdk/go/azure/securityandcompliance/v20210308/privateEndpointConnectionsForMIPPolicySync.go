@@ -102,7 +102,7 @@ type PrivateEndpointConnectionsForMIPPolicySyncInput interface {
 }
 
 func (*PrivateEndpointConnectionsForMIPPolicySync) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionsForMIPPolicySync)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionsForMIPPolicySync)(nil)).Elem()
 }
 
 func (i *PrivateEndpointConnectionsForMIPPolicySync) ToPrivateEndpointConnectionsForMIPPolicySyncOutput() PrivateEndpointConnectionsForMIPPolicySyncOutput {
@@ -116,7 +116,7 @@ func (i *PrivateEndpointConnectionsForMIPPolicySync) ToPrivateEndpointConnection
 type PrivateEndpointConnectionsForMIPPolicySyncOutput struct{ *pulumi.OutputState }
 
 func (PrivateEndpointConnectionsForMIPPolicySyncOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionsForMIPPolicySync)(nil))
+	return reflect.TypeOf((**PrivateEndpointConnectionsForMIPPolicySync)(nil)).Elem()
 }
 
 func (o PrivateEndpointConnectionsForMIPPolicySyncOutput) ToPrivateEndpointConnectionsForMIPPolicySyncOutput() PrivateEndpointConnectionsForMIPPolicySyncOutput {

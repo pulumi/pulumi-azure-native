@@ -171,7 +171,7 @@ type ApplicationGroupInput interface {
 }
 
 func (*ApplicationGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGroup)(nil))
+	return reflect.TypeOf((**ApplicationGroup)(nil)).Elem()
 }
 
 func (i *ApplicationGroup) ToApplicationGroupOutput() ApplicationGroupOutput {
@@ -185,7 +185,7 @@ func (i *ApplicationGroup) ToApplicationGroupOutputWithContext(ctx context.Conte
 type ApplicationGroupOutput struct{ *pulumi.OutputState }
 
 func (ApplicationGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGroup)(nil))
+	return reflect.TypeOf((**ApplicationGroup)(nil)).Elem()
 }
 
 func (o ApplicationGroupOutput) ToApplicationGroupOutput() ApplicationGroupOutput {

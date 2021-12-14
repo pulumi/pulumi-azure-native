@@ -126,7 +126,7 @@ type VirtualApplianceSiteInput interface {
 }
 
 func (*VirtualApplianceSite) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualApplianceSite)(nil))
+	return reflect.TypeOf((**VirtualApplianceSite)(nil)).Elem()
 }
 
 func (i *VirtualApplianceSite) ToVirtualApplianceSiteOutput() VirtualApplianceSiteOutput {
@@ -140,7 +140,7 @@ func (i *VirtualApplianceSite) ToVirtualApplianceSiteOutputWithContext(ctx conte
 type VirtualApplianceSiteOutput struct{ *pulumi.OutputState }
 
 func (VirtualApplianceSiteOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualApplianceSite)(nil))
+	return reflect.TypeOf((**VirtualApplianceSite)(nil)).Elem()
 }
 
 func (o VirtualApplianceSiteOutput) ToVirtualApplianceSiteOutput() VirtualApplianceSiteOutput {

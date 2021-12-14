@@ -23,6 +23,19 @@ type ActiveDirectory struct {
 }
 
 
+func (val *ActiveDirectory) Defaults() *ActiveDirectory {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ActiveDirectoryId) {
+		activeDirectoryId_ := "guid id"
+		tmp.ActiveDirectoryId = &activeDirectoryId_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -162,6 +175,19 @@ type ActiveDirectoryResponse struct {
 	SmbServerName      *string `pulumi:"smbServerName"`
 	Status             *string `pulumi:"status"`
 	Username           *string `pulumi:"username"`
+}
+
+
+func (val *ActiveDirectoryResponse) Defaults() *ActiveDirectoryResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ActiveDirectoryId) {
+		activeDirectoryId_ := "guid id"
+		tmp.ActiveDirectoryId = &activeDirectoryId_
+	}
+	return &tmp
 }
 
 

@@ -13,7 +13,7 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupServerArgs struct {
@@ -41,4 +41,25 @@ type LookupServerResult struct {
 	Tags                     map[string]string          `pulumi:"tags"`
 	Type                     string                     `pulumi:"type"`
 	Version                  *string                    `pulumi:"version"`
+}
+
+
+func (val *LookupServerResult) Defaults() *LookupServerResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AvailabilityZone) {
+		availabilityZone_ := ""
+		tmp.AvailabilityZone = &availabilityZone_
+	}
+	tmp.Backup = tmp.Backup.Defaults()
+
+	tmp.HighAvailability = tmp.HighAvailability.Defaults()
+
+	tmp.MaintenanceWindow = tmp.MaintenanceWindow.Defaults()
+
+	tmp.Network = tmp.Network.Defaults()
+
+	return &tmp
 }

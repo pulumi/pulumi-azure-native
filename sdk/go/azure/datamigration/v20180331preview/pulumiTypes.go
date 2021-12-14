@@ -284,6 +284,25 @@ type ConnectToSourceSqlServerTaskInput struct {
 }
 
 
+func (val *ConnectToSourceSqlServerTaskInput) Defaults() *ConnectToSourceSqlServerTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CollectAgentJobs) {
+		collectAgentJobs_ := false
+		tmp.CollectAgentJobs = &collectAgentJobs_
+	}
+	if isZero(tmp.CollectLogins) {
+		collectLogins_ := false
+		tmp.CollectLogins = &collectLogins_
+	}
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -459,6 +478,25 @@ type ConnectToSourceSqlServerTaskInputResponse struct {
 	CollectAgentJobs      *bool                     `pulumi:"collectAgentJobs"`
 	CollectLogins         *bool                     `pulumi:"collectLogins"`
 	SourceConnectionInfo  SqlConnectionInfoResponse `pulumi:"sourceConnectionInfo"`
+}
+
+
+func (val *ConnectToSourceSqlServerTaskInputResponse) Defaults() *ConnectToSourceSqlServerTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.CollectAgentJobs) {
+		collectAgentJobs_ := false
+		tmp.CollectAgentJobs = &collectAgentJobs_
+	}
+	if isZero(tmp.CollectLogins) {
+		collectLogins_ := false
+		tmp.CollectLogins = &collectLogins_
+	}
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -1000,6 +1038,17 @@ type ConnectToSourceSqlServerTaskProperties struct {
 }
 
 
+func (val *ConnectToSourceSqlServerTaskProperties) Defaults() *ConnectToSourceSqlServerTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1055,6 +1104,17 @@ type ConnectToSourceSqlServerTaskPropertiesResponse struct {
 	Output   []interface{}                              `pulumi:"output"`
 	State    string                                     `pulumi:"state"`
 	TaskType string                                     `pulumi:"taskType"`
+}
+
+
+func (val *ConnectToSourceSqlServerTaskPropertiesResponse) Defaults() *ConnectToSourceSqlServerTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -1126,6 +1186,17 @@ func (o ConnectToSourceSqlServerTaskPropertiesResponseOutput) TaskType() pulumi.
 
 type ConnectToTargetSqlDbTaskInput struct {
 	TargetConnectionInfo SqlConnectionInfo `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ConnectToTargetSqlDbTaskInput) Defaults() *ConnectToTargetSqlDbTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -1259,6 +1330,17 @@ func (o ConnectToTargetSqlDbTaskInputPtrOutput) TargetConnectionInfo() SqlConnec
 
 type ConnectToTargetSqlDbTaskInputResponse struct {
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ConnectToTargetSqlDbTaskInputResponse) Defaults() *ConnectToTargetSqlDbTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -1508,6 +1590,17 @@ type ConnectToTargetSqlDbTaskProperties struct {
 }
 
 
+func (val *ConnectToTargetSqlDbTaskProperties) Defaults() *ConnectToTargetSqlDbTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -1563,6 +1656,17 @@ type ConnectToTargetSqlDbTaskPropertiesResponse struct {
 	Output   []ConnectToTargetSqlDbTaskOutputResponse `pulumi:"output"`
 	State    string                                   `pulumi:"state"`
 	TaskType string                                   `pulumi:"taskType"`
+}
+
+
+func (val *ConnectToTargetSqlDbTaskPropertiesResponse) Defaults() *ConnectToTargetSqlDbTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -1636,6 +1740,17 @@ func (o ConnectToTargetSqlDbTaskPropertiesResponseOutput) TaskType() pulumi.Stri
 
 type ConnectToTargetSqlMITaskInput struct {
 	TargetConnectionInfo SqlConnectionInfo `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ConnectToTargetSqlMITaskInput) Defaults() *ConnectToTargetSqlMITaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -1769,6 +1884,17 @@ func (o ConnectToTargetSqlMITaskInputPtrOutput) TargetConnectionInfo() SqlConnec
 
 type ConnectToTargetSqlMITaskInputResponse struct {
 	TargetConnectionInfo SqlConnectionInfoResponse `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ConnectToTargetSqlMITaskInputResponse) Defaults() *ConnectToTargetSqlMITaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -2032,6 +2158,17 @@ type ConnectToTargetSqlMITaskProperties struct {
 }
 
 
+func (val *ConnectToTargetSqlMITaskProperties) Defaults() *ConnectToTargetSqlMITaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -2087,6 +2224,17 @@ type ConnectToTargetSqlMITaskPropertiesResponse struct {
 	Output   []ConnectToTargetSqlMITaskOutputResponse `pulumi:"output"`
 	State    string                                   `pulumi:"state"`
 	TaskType string                                   `pulumi:"taskType"`
+}
+
+
+func (val *ConnectToTargetSqlMITaskPropertiesResponse) Defaults() *ConnectToTargetSqlMITaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -3198,6 +3346,17 @@ type GetUserTablesSqlTaskInput struct {
 }
 
 
+func (val *GetUserTablesSqlTaskInput) Defaults() *GetUserTablesSqlTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3343,6 +3502,17 @@ func (o GetUserTablesSqlTaskInputPtrOutput) SelectedDatabases() pulumi.StringArr
 type GetUserTablesSqlTaskInputResponse struct {
 	ConnectionInfo    SqlConnectionInfoResponse `pulumi:"connectionInfo"`
 	SelectedDatabases []string                  `pulumi:"selectedDatabases"`
+}
+
+
+func (val *GetUserTablesSqlTaskInputResponse) Defaults() *GetUserTablesSqlTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.ConnectionInfo = *tmp.ConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -3602,6 +3772,17 @@ type GetUserTablesSqlTaskProperties struct {
 }
 
 
+func (val *GetUserTablesSqlTaskProperties) Defaults() *GetUserTablesSqlTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3657,6 +3838,17 @@ type GetUserTablesSqlTaskPropertiesResponse struct {
 	Output   []GetUserTablesSqlTaskOutputResponse `pulumi:"output"`
 	State    string                               `pulumi:"state"`
 	TaskType string                               `pulumi:"taskType"`
+}
+
+
+func (val *GetUserTablesSqlTaskPropertiesResponse) Defaults() *GetUserTablesSqlTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -3956,6 +4148,19 @@ type MigrateSqlServerSqlDbTaskInput struct {
 }
 
 
+func (val *MigrateSqlServerSqlDbTaskInput) Defaults() *MigrateSqlServerSqlDbTaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -4133,6 +4338,19 @@ type MigrateSqlServerSqlDbTaskInputResponse struct {
 	SourceConnectionInfo SqlConnectionInfoResponse                    `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfoResponse                    `pulumi:"targetConnectionInfo"`
 	ValidationOptions    *MigrationValidationOptionsResponse          `pulumi:"validationOptions"`
+}
+
+
+func (val *MigrateSqlServerSqlDbTaskInputResponse) Defaults() *MigrateSqlServerSqlDbTaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -4896,6 +5114,17 @@ type MigrateSqlServerSqlDbTaskProperties struct {
 }
 
 
+func (val *MigrateSqlServerSqlDbTaskProperties) Defaults() *MigrateSqlServerSqlDbTaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -4951,6 +5180,17 @@ type MigrateSqlServerSqlDbTaskPropertiesResponse struct {
 	Output   []interface{}                           `pulumi:"output"`
 	State    string                                  `pulumi:"state"`
 	TaskType string                                  `pulumi:"taskType"`
+}
+
+
+func (val *MigrateSqlServerSqlDbTaskPropertiesResponse) Defaults() *MigrateSqlServerSqlDbTaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -5243,6 +5483,19 @@ type MigrateSqlServerSqlMITaskInput struct {
 }
 
 
+func (val *MigrateSqlServerSqlMITaskInput) Defaults() *MigrateSqlServerSqlMITaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -5465,6 +5718,19 @@ type MigrateSqlServerSqlMITaskInputResponse struct {
 	SelectedLogins       []string                                     `pulumi:"selectedLogins"`
 	SourceConnectionInfo SqlConnectionInfoResponse                    `pulumi:"sourceConnectionInfo"`
 	TargetConnectionInfo SqlConnectionInfoResponse                    `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *MigrateSqlServerSqlMITaskInputResponse) Defaults() *MigrateSqlServerSqlMITaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.SourceConnectionInfo = *tmp.SourceConnectionInfo.Defaults()
+
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -6211,6 +6477,17 @@ type MigrateSqlServerSqlMITaskProperties struct {
 }
 
 
+func (val *MigrateSqlServerSqlMITaskProperties) Defaults() *MigrateSqlServerSqlMITaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -6266,6 +6543,17 @@ type MigrateSqlServerSqlMITaskPropertiesResponse struct {
 	Output   []interface{}                           `pulumi:"output"`
 	State    string                                  `pulumi:"state"`
 	TaskType string                                  `pulumi:"taskType"`
+}
+
+
+func (val *MigrateSqlServerSqlMITaskPropertiesResponse) Defaults() *MigrateSqlServerSqlMITaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 
@@ -7486,6 +7774,23 @@ type SqlConnectionInfo struct {
 }
 
 
+func (val *SqlConnectionInfo) Defaults() *SqlConnectionInfo {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptConnection) {
+		encryptConnection_ := true
+		tmp.EncryptConnection = &encryptConnection_
+	}
+	if isZero(tmp.TrustServerCertificate) {
+		trustServerCertificate_ := false
+		tmp.TrustServerCertificate = &trustServerCertificate_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -7721,6 +8026,23 @@ type SqlConnectionInfoResponse struct {
 	TrustServerCertificate *bool   `pulumi:"trustServerCertificate"`
 	Type                   string  `pulumi:"type"`
 	UserName               *string `pulumi:"userName"`
+}
+
+
+func (val *SqlConnectionInfoResponse) Defaults() *SqlConnectionInfoResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.EncryptConnection) {
+		encryptConnection_ := true
+		tmp.EncryptConnection = &encryptConnection_
+	}
+	if isZero(tmp.TrustServerCertificate) {
+		trustServerCertificate_ := false
+		tmp.TrustServerCertificate = &trustServerCertificate_
+	}
+	return &tmp
 }
 
 
@@ -8066,6 +8388,17 @@ type ValidateMigrationInputSqlServerSqlMITaskInput struct {
 }
 
 
+func (val *ValidateMigrationInputSqlServerSqlMITaskInput) Defaults() *ValidateMigrationInputSqlServerSqlMITaskInput {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -8243,6 +8576,17 @@ type ValidateMigrationInputSqlServerSqlMITaskInputResponse struct {
 	BackupFileShare      *FileShareResponse                           `pulumi:"backupFileShare"`
 	SelectedDatabases    []MigrateSqlServerSqlMIDatabaseInputResponse `pulumi:"selectedDatabases"`
 	TargetConnectionInfo SqlConnectionInfoResponse                    `pulumi:"targetConnectionInfo"`
+}
+
+
+func (val *ValidateMigrationInputSqlServerSqlMITaskInputResponse) Defaults() *ValidateMigrationInputSqlServerSqlMITaskInputResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.TargetConnectionInfo = *tmp.TargetConnectionInfo.Defaults()
+
+	return &tmp
 }
 
 
@@ -8562,6 +8906,17 @@ type ValidateMigrationInputSqlServerSqlMITaskProperties struct {
 }
 
 
+func (val *ValidateMigrationInputSqlServerSqlMITaskProperties) Defaults() *ValidateMigrationInputSqlServerSqlMITaskProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -8619,6 +8974,17 @@ type ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse struct {
 	Output   []ValidateMigrationInputSqlServerSqlMITaskOutputResponse `pulumi:"output"`
 	State    string                                                   `pulumi:"state"`
 	TaskType string                                                   `pulumi:"taskType"`
+}
+
+
+func (val *ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse) Defaults() *ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Input = tmp.Input.Defaults()
+
+	return &tmp
 }
 
 

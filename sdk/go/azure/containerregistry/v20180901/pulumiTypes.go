@@ -283,6 +283,19 @@ type ArgumentResponse struct {
 }
 
 
+func (val *ArgumentResponse) Defaults() *ArgumentResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSecret) {
+		isSecret_ := false
+		tmp.IsSecret = &isSecret_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -893,6 +906,19 @@ type BaseImageTrigger struct {
 }
 
 
+func (val *BaseImageTrigger) Defaults() *BaseImageTrigger {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -1053,6 +1079,19 @@ type BaseImageTriggerResponse struct {
 	BaseImageTriggerType string  `pulumi:"baseImageTriggerType"`
 	Name                 string  `pulumi:"name"`
 	Status               *string `pulumi:"status"`
+}
+
+
+func (val *BaseImageTriggerResponse) Defaults() *BaseImageTriggerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -1719,6 +1758,23 @@ type DockerBuildStepResponse struct {
 	NoCache               *bool                         `pulumi:"noCache"`
 	Target                *string                       `pulumi:"target"`
 	Type                  string                        `pulumi:"type"`
+}
+
+
+func (val *DockerBuildStepResponse) Defaults() *DockerBuildStepResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsPushEnabled) {
+		isPushEnabled_ := true
+		tmp.IsPushEnabled = &isPushEnabled_
+	}
+	if isZero(tmp.NoCache) {
+		noCache_ := false
+		tmp.NoCache = &noCache_
+	}
+	return &tmp
 }
 
 
@@ -2610,6 +2666,19 @@ type SetValueResponse struct {
 }
 
 
+func (val *SetValueResponse) Defaults() *SetValueResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsSecret) {
+		isSecret_ := false
+		tmp.IsSecret = &isSecret_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3117,6 +3186,19 @@ type SourceTrigger struct {
 }
 
 
+func (val *SourceTrigger) Defaults() *SourceTrigger {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -3226,6 +3308,19 @@ type SourceTriggerResponse struct {
 	SourceRepository    SourcePropertiesResponse `pulumi:"sourceRepository"`
 	SourceTriggerEvents []string                 `pulumi:"sourceTriggerEvents"`
 	Status              *string                  `pulumi:"status"`
+}
+
+
+func (val *SourceTriggerResponse) Defaults() *SourceTriggerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.Status) {
+		status_ := "Enabled"
+		tmp.Status = &status_
+	}
+	return &tmp
 }
 
 
@@ -3487,6 +3582,17 @@ type TriggerProperties struct {
 }
 
 
+func (val *TriggerProperties) Defaults() *TriggerProperties {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.BaseImageTrigger = tmp.BaseImageTrigger.Defaults()
+
+	return &tmp
+}
+
+
 
 
 
@@ -3632,6 +3738,17 @@ func (o TriggerPropertiesPtrOutput) SourceTriggers() SourceTriggerArrayOutput {
 type TriggerPropertiesResponse struct {
 	BaseImageTrigger *BaseImageTriggerResponse `pulumi:"baseImageTrigger"`
 	SourceTriggers   []SourceTriggerResponse   `pulumi:"sourceTriggers"`
+}
+
+
+func (val *TriggerPropertiesResponse) Defaults() *TriggerPropertiesResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.BaseImageTrigger = tmp.BaseImageTrigger.Defaults()
+
+	return &tmp
 }
 
 

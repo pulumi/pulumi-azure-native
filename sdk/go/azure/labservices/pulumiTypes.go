@@ -20,6 +20,27 @@ type AutoShutdownProfile struct {
 }
 
 
+func (val *AutoShutdownProfile) Defaults() *AutoShutdownProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ShutdownOnDisconnect) {
+		shutdownOnDisconnect_ := EnableState("Disabled")
+		tmp.ShutdownOnDisconnect = &shutdownOnDisconnect_
+	}
+	if isZero(tmp.ShutdownOnIdle) {
+		shutdownOnIdle_ := ShutdownOnIdleMode("None")
+		tmp.ShutdownOnIdle = &shutdownOnIdle_
+	}
+	if isZero(tmp.ShutdownWhenNotConnected) {
+		shutdownWhenNotConnected_ := EnableState("Disabled")
+		tmp.ShutdownWhenNotConnected = &shutdownWhenNotConnected_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -225,6 +246,27 @@ type AutoShutdownProfileResponse struct {
 	ShutdownOnDisconnect     *string `pulumi:"shutdownOnDisconnect"`
 	ShutdownOnIdle           *string `pulumi:"shutdownOnIdle"`
 	ShutdownWhenNotConnected *string `pulumi:"shutdownWhenNotConnected"`
+}
+
+
+func (val *AutoShutdownProfileResponse) Defaults() *AutoShutdownProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ShutdownOnDisconnect) {
+		shutdownOnDisconnect_ := "Disabled"
+		tmp.ShutdownOnDisconnect = &shutdownOnDisconnect_
+	}
+	if isZero(tmp.ShutdownOnIdle) {
+		shutdownOnIdle_ := "None"
+		tmp.ShutdownOnIdle = &shutdownOnIdle_
+	}
+	if isZero(tmp.ShutdownWhenNotConnected) {
+		shutdownWhenNotConnected_ := "Disabled"
+		tmp.ShutdownWhenNotConnected = &shutdownWhenNotConnected_
+	}
+	return &tmp
 }
 
 
@@ -434,6 +476,31 @@ type ConnectionProfile struct {
 }
 
 
+func (val *ConnectionProfile) Defaults() *ConnectionProfile {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientRdpAccess) {
+		clientRdpAccess_ := ConnectionType("None")
+		tmp.ClientRdpAccess = &clientRdpAccess_
+	}
+	if isZero(tmp.ClientSshAccess) {
+		clientSshAccess_ := ConnectionType("None")
+		tmp.ClientSshAccess = &clientSshAccess_
+	}
+	if isZero(tmp.WebRdpAccess) {
+		webRdpAccess_ := ConnectionType("None")
+		tmp.WebRdpAccess = &webRdpAccess_
+	}
+	if isZero(tmp.WebSshAccess) {
+		webSshAccess_ := ConnectionType("None")
+		tmp.WebSshAccess = &webSshAccess_
+	}
+	return &tmp
+}
+
+
 
 
 
@@ -609,6 +676,31 @@ type ConnectionProfileResponse struct {
 	ClientSshAccess *string `pulumi:"clientSshAccess"`
 	WebRdpAccess    *string `pulumi:"webRdpAccess"`
 	WebSshAccess    *string `pulumi:"webSshAccess"`
+}
+
+
+func (val *ConnectionProfileResponse) Defaults() *ConnectionProfileResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.ClientRdpAccess) {
+		clientRdpAccess_ := "None"
+		tmp.ClientRdpAccess = &clientRdpAccess_
+	}
+	if isZero(tmp.ClientSshAccess) {
+		clientSshAccess_ := "None"
+		tmp.ClientSshAccess = &clientSshAccess_
+	}
+	if isZero(tmp.WebRdpAccess) {
+		webRdpAccess_ := "None"
+		tmp.WebRdpAccess = &webRdpAccess_
+	}
+	if isZero(tmp.WebSshAccess) {
+		webSshAccess_ := "None"
+		tmp.WebSshAccess = &webSshAccess_
+	}
+	return &tmp
 }
 
 
