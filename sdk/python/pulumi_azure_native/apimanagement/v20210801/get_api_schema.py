@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class GetApiSchemaResult:
     """
-    Schema Contract details.
+    API Schema Contract details.
     """
     def __init__(__self__, components=None, content_type=None, definitions=None, id=None, name=None, type=None, value=None):
         if components and not isinstance(components, dict):
@@ -47,7 +47,7 @@ class GetApiSchemaResult:
     @pulumi.getter
     def components(self) -> Optional[Any]:
         """
-        Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
+        Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
         """
         return pulumi.get(self, "components")
 
@@ -63,7 +63,7 @@ class GetApiSchemaResult:
     @pulumi.getter
     def definitions(self) -> Optional[Any]:
         """
-        Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+        Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
         """
         return pulumi.get(self, "definitions")
 
@@ -121,12 +121,12 @@ def get_api_schema(api_id: Optional[str] = None,
                    service_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiSchemaResult:
     """
-    Schema Contract details.
+    API Schema Contract details.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param str resource_group_name: The name of the resource group.
-    :param str schema_id: Schema identifier within an API. Must be unique in the current API Management service instance.
+    :param str schema_id: Schema id identifier. Must be unique in the current API Management service instance.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -157,12 +157,12 @@ def get_api_schema_output(api_id: Optional[pulumi.Input[str]] = None,
                           service_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiSchemaResult]:
     """
-    Schema Contract details.
+    API Schema Contract details.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param str resource_group_name: The name of the resource group.
-    :param str schema_id: Schema identifier within an API. Must be unique in the current API Management service instance.
+    :param str schema_id: Schema id identifier. Must be unique in the current API Management service instance.
     :param str service_name: The name of the API Management service.
     """
     ...

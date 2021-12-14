@@ -40,7 +40,7 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
 
 class PublicNetworkAccess(str, Enum):
     """
-    Whether or not public network access is allowed for the container registry.
+    Whether or not public network access is allowed for the account.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

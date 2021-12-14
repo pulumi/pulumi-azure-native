@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 /**
- * Schema Contract details.
+ * API Schema Contract details.
  */
 export function getApiSchema(args: GetApiSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetApiSchemaResult> {
     if (!opts) {
@@ -33,7 +33,7 @@ export interface GetApiSchemaArgs {
      */
     resourceGroupName: string;
     /**
-     * Schema identifier within an API. Must be unique in the current API Management service instance.
+     * Schema id identifier. Must be unique in the current API Management service instance.
      */
     schemaId: string;
     /**
@@ -43,11 +43,11 @@ export interface GetApiSchemaArgs {
 }
 
 /**
- * Schema Contract details.
+ * API Schema Contract details.
  */
 export interface GetApiSchemaResult {
     /**
-     * Types definitions. Used for OpenAPI v3 schemas only, null otherwise.
+     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
      */
     readonly components?: any;
     /**
@@ -55,7 +55,7 @@ export interface GetApiSchemaResult {
      */
     readonly contentType: string;
     /**
-     * Types definitions. Used for OpenAPI v2 (Swagger) schemas only, null otherwise.
+     * Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
      */
     readonly definitions?: any;
     /**
@@ -90,7 +90,7 @@ export interface GetApiSchemaOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Schema identifier within an API. Must be unique in the current API Management service instance.
+     * Schema id identifier. Must be unique in the current API Management service instance.
      */
     schemaId: pulumi.Input<string>;
     /**

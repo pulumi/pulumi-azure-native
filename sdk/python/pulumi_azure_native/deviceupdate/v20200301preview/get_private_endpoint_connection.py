@@ -21,7 +21,10 @@ class GetPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
     """
-    def __init__(__self__, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+        if group_ids and not isinstance(group_ids, list):
+            raise TypeError("Expected argument 'group_ids' to be a list")
+        pulumi.set(__self__, "group_ids", group_ids)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +46,14 @@ class GetPrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Array of group IDs.
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
         if False:
             yield self
         return GetPrivateEndpointConnectionResult(
+            group_ids=self.group_ids,
             id=self.id,
             name=self.name,
             private_endpoint=self.private_endpoint,
@@ -139,6 +151,7 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deviceupdate/v20200301preview:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
+        group_ids=__ret__.group_ids,
         id=__ret__.id,
         name=__ret__.name,
         private_endpoint=__ret__.private_endpoint,

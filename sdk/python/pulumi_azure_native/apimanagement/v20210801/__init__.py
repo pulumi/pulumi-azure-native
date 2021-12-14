@@ -57,6 +57,7 @@ from .get_email_template import *
 from .get_gateway import *
 from .get_gateway_certificate_authority import *
 from .get_gateway_hostname_configuration import *
+from .get_global_schema import *
 from .get_group import *
 from .get_identity_provider import *
 from .get_logger import *
@@ -73,6 +74,7 @@ from .get_tag_by_operation import *
 from .get_tag_by_product import *
 from .get_user import *
 from .get_user_shared_access_token import *
+from .global_schema import *
 from .group import *
 from .group_user import *
 from .identity_provider import *

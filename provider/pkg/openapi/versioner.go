@@ -144,6 +144,7 @@ var cutoffProviderVersions = map[string]string{
 	"management":                    "v20200501",
 	"maps":                          "v20200201preview",
 	"media":                         "v20200501",
+	"migrate":                       "v20210101",
 	"netapp":                        "v20201201",
 	"operationalinsights":           "v20201001",
 	"peering":                       "v20210101",

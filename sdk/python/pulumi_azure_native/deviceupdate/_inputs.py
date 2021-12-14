@@ -14,6 +14,7 @@ __all__ = [
     'GroupConnectivityInformationArgs',
     'IotHubSettingsArgs',
     'ManagedServiceIdentityArgs',
+    'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionArgs',
     'PrivateLinkServiceProxyArgs',
@@ -222,6 +223,45 @@ class ManagedServiceIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class PrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The Private Endpoint Connection resource.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: Array of group IDs.
+        """
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of group IDs.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @group_ids.setter
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_ids", value)
 
 
 @pulumi.input_type

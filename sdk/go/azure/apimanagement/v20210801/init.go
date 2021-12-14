@@ -71,6 +71,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GatewayCertificateAuthority{}
 	case "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration":
 		r = &GatewayHostnameConfiguration{}
+	case "azure-native:apimanagement/v20210801:GlobalSchema":
+		r = &GlobalSchema{}
 	case "azure-native:apimanagement/v20210801:Group":
 		r = &Group{}
 	case "azure-native:apimanagement/v20210801:GroupUser":

@@ -17,6 +17,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Array of group IDs.
+        /// </summary>
+        [Output("groupIds")]
+        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -106,6 +112,18 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
+
+        [Input("groupIds")]
+        private InputList<string>? _groupIds;
+
+        /// <summary>
+        /// Array of group IDs.
+        /// </summary>
+        public InputList<string> GroupIds
+        {
+            get => _groupIds ?? (_groupIds = new InputList<string>());
+            set => _groupIds = value;
+        }
 
         /// <summary>
         /// The name of the private endpoint connection associated with the Azure resource

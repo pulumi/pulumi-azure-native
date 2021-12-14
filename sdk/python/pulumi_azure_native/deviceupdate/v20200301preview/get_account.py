@@ -21,7 +21,7 @@ class GetAccountResult:
     """
     Device Update account details.
     """
-    def __init__(__self__, host_name=None, id=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, host_name=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
@@ -37,6 +37,9 @@ class GetAccountResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -94,6 +97,14 @@ class GetAccountResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connections associated with the account.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -105,7 +116,7 @@ class GetAccountResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[str]:
         """
-        Whether or not public network access is allowed for the container registry.
+        Whether or not public network access is allowed for the account.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -145,6 +156,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             identity=self.identity,
             location=self.location,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             system_data=self.system_data,
@@ -177,6 +189,7 @@ def get_account(account_name: Optional[str] = None,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
         system_data=__ret__.system_data,

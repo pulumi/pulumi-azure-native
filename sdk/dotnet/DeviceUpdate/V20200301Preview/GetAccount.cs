@@ -89,11 +89,15 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// List of private endpoint connections associated with the account.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// Provisioning state.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Whether or not public network access is allowed for the container registry.
+        /// Whether or not public network access is allowed for the account.
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
@@ -121,6 +125,8 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
 
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
 
             string? publicNetworkAccess,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
             Identity = identity;
             Location = location;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             SystemData = systemData;

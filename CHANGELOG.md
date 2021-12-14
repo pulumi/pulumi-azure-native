@@ -11,6 +11,8 @@ CHANGELOG
 
 - `provisioningState` property removed from a new types in `botservice`: `MsTeamsChannel`, `DirectLineChannel`, `WebChatChannel`
   ([source](https://github.com/Azure/azure-rest-api-specs/pull/16882))
+- `alertsmanagement.PrometheusRuleGroup` resource removed
+  ([source](https://github.com/Azure/azure-rest-api-specs/pull/17060))
 
 ---
 

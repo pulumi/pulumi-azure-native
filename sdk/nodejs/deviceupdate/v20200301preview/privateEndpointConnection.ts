@@ -36,6 +36,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Array of group IDs.
+     */
+    public readonly groupIds!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -81,6 +85,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["groupIds"] = args ? args.groupIds : undefined;
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -90,6 +95,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["systemData"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["groupIds"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["privateEndpoint"] = undefined /*out*/;
             inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
@@ -114,6 +120,10 @@ export interface PrivateEndpointConnectionArgs {
      * Account name.
      */
     accountName: pulumi.Input<string>;
+    /**
+     * Array of group IDs.
+     */
+    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */

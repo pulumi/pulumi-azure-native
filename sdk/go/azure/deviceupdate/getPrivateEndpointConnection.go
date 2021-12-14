@@ -24,6 +24,7 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 
 type LookupPrivateEndpointConnectionResult struct {
+	GroupIds                          []string                                  `pulumi:"groupIds"`
 	Id                                string                                    `pulumi:"id"`
 	Name                              string                                    `pulumi:"name"`
 	PrivateEndpoint                   *PrivateEndpointResponse                  `pulumi:"privateEndpoint"`

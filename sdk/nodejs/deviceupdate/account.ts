@@ -53,11 +53,15 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * List of private endpoint connections associated with the account.
+     */
+    public readonly privateEndpointConnections!: pulumi.Output<outputs.deviceupdate.PrivateEndpointConnectionResponse[] | undefined>;
+    /**
      * Provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Whether or not public network access is allowed for the container registry.
+     * Whether or not public network access is allowed for the account.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
@@ -90,6 +94,7 @@ export class Account extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -103,6 +108,7 @@ export class Account extends pulumi.CustomResource {
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["publicNetworkAccess"] = undefined /*out*/;
             inputs["systemData"] = undefined /*out*/;
@@ -135,7 +141,11 @@ export interface AccountArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Whether or not public network access is allowed for the container registry.
+     * List of private endpoint connections associated with the account.
+     */
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.deviceupdate.PrivateEndpointConnectionArgs>[]>;
+    /**
+     * Whether or not public network access is allowed for the account.
      */
     publicNetworkAccess?: pulumi.Input<string | enums.deviceupdate.PublicNetworkAccess>;
     /**

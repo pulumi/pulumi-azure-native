@@ -23,14 +23,15 @@ type LookupAccountArgs struct {
 
 
 type LookupAccountResult struct {
-	HostName            string                          `pulumi:"hostName"`
-	Id                  string                          `pulumi:"id"`
-	Identity            *ManagedServiceIdentityResponse `pulumi:"identity"`
-	Location            string                          `pulumi:"location"`
-	Name                string                          `pulumi:"name"`
-	ProvisioningState   string                          `pulumi:"provisioningState"`
-	PublicNetworkAccess *string                         `pulumi:"publicNetworkAccess"`
-	SystemData          SystemDataResponse              `pulumi:"systemData"`
-	Tags                map[string]string               `pulumi:"tags"`
-	Type                string                          `pulumi:"type"`
+	HostName                   string                              `pulumi:"hostName"`
+	Id                         string                              `pulumi:"id"`
+	Identity                   *ManagedServiceIdentityResponse     `pulumi:"identity"`
+	Location                   string                              `pulumi:"location"`
+	Name                       string                              `pulumi:"name"`
+	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
+	ProvisioningState          string                              `pulumi:"provisioningState"`
+	PublicNetworkAccess        *string                             `pulumi:"publicNetworkAccess"`
+	SystemData                 SystemDataResponse                  `pulumi:"systemData"`
+	Tags                       map[string]string                   `pulumi:"tags"`
+	Type                       string                              `pulumi:"type"`
 }

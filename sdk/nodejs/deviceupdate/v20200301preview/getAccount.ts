@@ -58,11 +58,15 @@ export interface GetAccountResult {
      */
     readonly name: string;
     /**
+     * List of private endpoint connections associated with the account.
+     */
+    readonly privateEndpointConnections?: outputs.deviceupdate.v20200301preview.PrivateEndpointConnectionResponse[];
+    /**
      * Provisioning state.
      */
     readonly provisioningState: string;
     /**
-     * Whether or not public network access is allowed for the container registry.
+     * Whether or not public network access is allowed for the account.
      */
     readonly publicNetworkAccess?: string;
     /**

@@ -40,6 +40,6 @@ export const PublicNetworkAccess = {
 } as const;
 
 /**
- * Whether or not public network access is allowed for the container registry.
+ * Whether or not public network access is allowed for the account.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];

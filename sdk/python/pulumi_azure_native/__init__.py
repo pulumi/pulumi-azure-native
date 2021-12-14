@@ -739,7 +739,6 @@ _utilities.register(
   "classes": {
    "azure-native:alertsmanagement:ActionRuleByName": "ActionRuleByName",
    "azure-native:alertsmanagement:HealthAlert": "HealthAlert",
-   "azure-native:alertsmanagement:PrometheusRuleGroup": "PrometheusRuleGroup",
    "azure-native:alertsmanagement:SmartDetectorAlertRule": "SmartDetectorAlertRule"
   }
  },
@@ -789,14 +788,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.alertsmanagement.v20210401",
   "classes": {
    "azure-native:alertsmanagement/v20210401:SmartDetectorAlertRule": "SmartDetectorAlertRule"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "alertsmanagement/v20210722preview",
-  "fqn": "pulumi_azure_native.alertsmanagement.v20210722preview",
-  "classes": {
-   "azure-native:alertsmanagement/v20210722preview:PrometheusRuleGroup": "PrometheusRuleGroup"
   }
  },
  {
@@ -1435,6 +1426,7 @@ _utilities.register(
    "azure-native:apimanagement/v20210801:GatewayApiEntityTag": "GatewayApiEntityTag",
    "azure-native:apimanagement/v20210801:GatewayCertificateAuthority": "GatewayCertificateAuthority",
    "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration": "GatewayHostnameConfiguration",
+   "azure-native:apimanagement/v20210801:GlobalSchema": "GlobalSchema",
    "azure-native:apimanagement/v20210801:Group": "Group",
    "azure-native:apimanagement/v20210801:GroupUser": "GroupUser",
    "azure-native:apimanagement/v20210801:IdentityProvider": "IdentityProvider",
@@ -10327,6 +10319,15 @@ _utilities.register(
   "classes": {
    "azure-native:migrate/v20210101:MoveCollection": "MoveCollection",
    "azure-native:migrate/v20210101:MoveResource": "MoveResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "migrate/v20210801",
+  "fqn": "pulumi_azure_native.migrate.v20210801",
+  "classes": {
+   "azure-native:migrate/v20210801:MoveCollection": "MoveCollection",
+   "azure-native:migrate/v20210801:MoveResource": "MoveResource"
   }
  },
  {

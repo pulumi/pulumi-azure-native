@@ -56,6 +56,7 @@ export * from "./getEmailTemplate";
 export * from "./getGateway";
 export * from "./getGatewayCertificateAuthority";
 export * from "./getGatewayHostnameConfiguration";
+export * from "./getGlobalSchema";
 export * from "./getGroup";
 export * from "./getIdentityProvider";
 export * from "./getLogger";
@@ -72,6 +73,7 @@ export * from "./getTagByOperation";
 export * from "./getTagByProduct";
 export * from "./getUser";
 export * from "./getUserSharedAccessToken";
+export * from "./globalSchema";
 export * from "./group";
 export * from "./groupUser";
 export * from "./identityProvider";
@@ -130,6 +132,7 @@ import { Gateway } from "./gateway";
 import { GatewayApiEntityTag } from "./gatewayApiEntityTag";
 import { GatewayCertificateAuthority } from "./gatewayCertificateAuthority";
 import { GatewayHostnameConfiguration } from "./gatewayHostnameConfiguration";
+import { GlobalSchema } from "./globalSchema";
 import { Group } from "./group";
 import { GroupUser } from "./groupUser";
 import { IdentityProvider } from "./identityProvider";
@@ -205,6 +208,8 @@ const _module = {
                 return new GatewayCertificateAuthority(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration":
                 return new GatewayHostnameConfiguration(name, <any>undefined, { urn })
+            case "azure-native:apimanagement/v20210801:GlobalSchema":
+                return new GlobalSchema(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20210801:Group":
                 return new Group(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20210801:GroupUser":

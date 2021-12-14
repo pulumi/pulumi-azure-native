@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
     }
 
     /// <summary>
-    /// Whether or not public network access is allowed for the container registry.
+    /// Whether or not public network access is allowed for the account.
     /// </summary>
     [EnumType]
     public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>

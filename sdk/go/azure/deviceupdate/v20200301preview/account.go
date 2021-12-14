@@ -14,15 +14,16 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	HostName            pulumi.StringOutput                     `pulumi:"hostName"`
-	Identity            ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
-	Location            pulumi.StringOutput                     `pulumi:"location"`
-	Name                pulumi.StringOutput                     `pulumi:"name"`
-	ProvisioningState   pulumi.StringOutput                     `pulumi:"provisioningState"`
-	PublicNetworkAccess pulumi.StringPtrOutput                  `pulumi:"publicNetworkAccess"`
-	SystemData          SystemDataResponseOutput                `pulumi:"systemData"`
-	Tags                pulumi.StringMapOutput                  `pulumi:"tags"`
-	Type                pulumi.StringOutput                     `pulumi:"type"`
+	HostName                   pulumi.StringOutput                          `pulumi:"hostName"`
+	Identity                   ManagedServiceIdentityResponsePtrOutput      `pulumi:"identity"`
+	Location                   pulumi.StringOutput                          `pulumi:"location"`
+	Name                       pulumi.StringOutput                          `pulumi:"name"`
+	PrivateEndpointConnections PrivateEndpointConnectionResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	ProvisioningState          pulumi.StringOutput                          `pulumi:"provisioningState"`
+	PublicNetworkAccess        pulumi.StringPtrOutput                       `pulumi:"publicNetworkAccess"`
+	SystemData                 SystemDataResponseOutput                     `pulumi:"systemData"`
+	Tags                       pulumi.StringMapOutput                       `pulumi:"tags"`
+	Type                       pulumi.StringOutput                          `pulumi:"type"`
 }
 
 
@@ -76,22 +77,24 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	AccountName         *string                 `pulumi:"accountName"`
-	Identity            *ManagedServiceIdentity `pulumi:"identity"`
-	Location            *string                 `pulumi:"location"`
-	PublicNetworkAccess *string                 `pulumi:"publicNetworkAccess"`
-	ResourceGroupName   string                  `pulumi:"resourceGroupName"`
-	Tags                map[string]string       `pulumi:"tags"`
+	AccountName                *string                         `pulumi:"accountName"`
+	Identity                   *ManagedServiceIdentity         `pulumi:"identity"`
+	Location                   *string                         `pulumi:"location"`
+	PrivateEndpointConnections []PrivateEndpointConnectionType `pulumi:"privateEndpointConnections"`
+	PublicNetworkAccess        *string                         `pulumi:"publicNetworkAccess"`
+	ResourceGroupName          string                          `pulumi:"resourceGroupName"`
+	Tags                       map[string]string               `pulumi:"tags"`
 }
 
 
 type AccountArgs struct {
-	AccountName         pulumi.StringPtrInput
-	Identity            ManagedServiceIdentityPtrInput
-	Location            pulumi.StringPtrInput
-	PublicNetworkAccess pulumi.StringPtrInput
-	ResourceGroupName   pulumi.StringInput
-	Tags                pulumi.StringMapInput
+	AccountName                pulumi.StringPtrInput
+	Identity                   ManagedServiceIdentityPtrInput
+	Location                   pulumi.StringPtrInput
+	PrivateEndpointConnections PrivateEndpointConnectionTypeArrayInput
+	PublicNetworkAccess        pulumi.StringPtrInput
+	ResourceGroupName          pulumi.StringInput
+	Tags                       pulumi.StringMapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

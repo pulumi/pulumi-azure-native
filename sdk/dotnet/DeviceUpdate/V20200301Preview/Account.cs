@@ -40,13 +40,19 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// List of private endpoint connections associated with the account.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not public network access is allowed for the container registry.
+        /// Whether or not public network access is allowed for the account.
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
@@ -136,8 +142,20 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("privateEndpointConnections")]
+        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+
         /// <summary>
-        /// Whether or not public network access is allowed for the container registry.
+        /// List of private endpoint connections associated with the account.
+        /// </summary>
+        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
+            set => _privateEndpointConnections = value;
+        }
+
+        /// <summary>
+        /// Whether or not public network access is allowed for the account.
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.DeviceUpdate.V20200301Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
