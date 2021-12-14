@@ -76,7 +76,7 @@ export class Registration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RegistrationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.registrationToken === undefined) && !opts.urn) {
@@ -85,33 +85,33 @@ export class Registration extends pulumi.CustomResource {
             if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["registrationName"] = args ? args.registrationName : undefined;
-            inputs["registrationToken"] = args ? args.registrationToken : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["billingModel"] = undefined /*out*/;
-            inputs["cloudId"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["objectId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["registrationName"] = args ? args.registrationName : undefined;
+            resourceInputs["registrationToken"] = args ? args.registrationToken : undefined;
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["billingModel"] = undefined /*out*/;
+            resourceInputs["cloudId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["billingModel"] = undefined /*out*/;
-            inputs["cloudId"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["objectId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["billingModel"] = undefined /*out*/;
+            resourceInputs["cloudId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azurestack:Registration" }, { type: "azure-native:azurestack/v20170601:Registration" }, { type: "azure-native:azurestack/v20200601preview:Registration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Registration.__pulumiType, name, inputs, opts);
+        super(Registration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

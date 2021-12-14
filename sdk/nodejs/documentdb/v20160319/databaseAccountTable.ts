@@ -60,7 +60,7 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseAccountTableArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -75,27 +75,27 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountTable" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountTable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabaseAccountTable.__pulumiType, name, inputs, opts);
+        super(DatabaseAccountTable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

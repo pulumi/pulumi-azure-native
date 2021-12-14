@@ -100,50 +100,50 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MaintenanceConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["duration"] = args ? args.duration : undefined;
-            inputs["expirationDateTime"] = args ? args.expirationDateTime : undefined;
-            inputs["extensionProperties"] = args ? args.extensionProperties : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maintenanceScope"] = args ? args.maintenanceScope : undefined;
-            inputs["namespace"] = args ? args.namespace : undefined;
-            inputs["recurEvery"] = args ? args.recurEvery : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["startDateTime"] = args ? args.startDateTime : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeZone"] = args ? args.timeZone : undefined;
-            inputs["visibility"] = args ? args.visibility : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["duration"] = args ? args.duration : undefined;
+            resourceInputs["expirationDateTime"] = args ? args.expirationDateTime : undefined;
+            resourceInputs["extensionProperties"] = args ? args.extensionProperties : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maintenanceScope"] = args ? args.maintenanceScope : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["recurEvery"] = args ? args.recurEvery : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["startDateTime"] = args ? args.startDateTime : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["duration"] = undefined /*out*/;
-            inputs["expirationDateTime"] = undefined /*out*/;
-            inputs["extensionProperties"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maintenanceScope"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["namespace"] = undefined /*out*/;
-            inputs["recurEvery"] = undefined /*out*/;
-            inputs["startDateTime"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeZone"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["visibility"] = undefined /*out*/;
+            resourceInputs["duration"] = undefined /*out*/;
+            resourceInputs["expirationDateTime"] = undefined /*out*/;
+            resourceInputs["extensionProperties"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maintenanceScope"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["namespace"] = undefined /*out*/;
+            resourceInputs["recurEvery"] = undefined /*out*/;
+            resourceInputs["startDateTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeZone"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["visibility"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:maintenance:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20180601preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200401:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20200701preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210401preview:MaintenanceConfiguration" }, { type: "azure-native:maintenance/v20210901preview:MaintenanceConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MaintenanceConfiguration.__pulumiType, name, inputs, opts);
+        super(MaintenanceConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

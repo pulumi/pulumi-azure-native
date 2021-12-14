@@ -81,7 +81,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AutoscaleSettingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.profiles === undefined) && !opts.urn) {
@@ -90,34 +90,34 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoscaleSettingName"] = args ? args.autoscaleSettingName : undefined;
-            inputs["enabled"] = (args ? args.enabled : undefined) ?? true;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
-            inputs["profiles"] = args ? args.profiles : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetResourceLocation"] = args ? args.targetResourceLocation : undefined;
-            inputs["targetResourceUri"] = args ? args.targetResourceUri : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoscaleSettingName"] = args ? args.autoscaleSettingName : undefined;
+            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["profiles"] = args ? args.profiles : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetResourceLocation"] = args ? args.targetResourceLocation : undefined;
+            resourceInputs["targetResourceUri"] = args ? args.targetResourceUri : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["enabled"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notifications"] = undefined /*out*/;
-            inputs["profiles"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetResourceLocation"] = undefined /*out*/;
-            inputs["targetResourceUri"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notifications"] = undefined /*out*/;
+            resourceInputs["profiles"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetResourceLocation"] = undefined /*out*/;
+            resourceInputs["targetResourceUri"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights/v20140401:AutoscaleSetting" }, { type: "azure-native:insights/v20150401:AutoscaleSetting" }, { type: "azure-native:insights/v20210501preview:AutoscaleSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AutoscaleSetting.__pulumiType, name, inputs, opts);
+        super(AutoscaleSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

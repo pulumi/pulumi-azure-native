@@ -60,7 +60,7 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TransparentDataEncryptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -72,26 +72,26 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["transparentDataEncryptionName"] = args ? args.transparentDataEncryptionName : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["transparentDataEncryptionName"] = args ? args.transparentDataEncryptionName : undefined;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:TransparentDataEncryption" }, { type: "azure-native:sql/v20200202preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20200801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20201101preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210201preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210501preview:TransparentDataEncryption" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(TransparentDataEncryption.__pulumiType, name, inputs, opts);
+        super(TransparentDataEncryption.__pulumiType, name, resourceInputs, opts);
     }
 }
 

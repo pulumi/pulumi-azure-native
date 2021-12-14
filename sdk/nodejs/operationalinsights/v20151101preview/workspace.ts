@@ -88,44 +88,44 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["customerId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["portalUrl"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["customerId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["customerId"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["portalUrl"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["retentionInDays"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customerId"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["portalUrl"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["retentionInDays"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:Workspace" }, { type: "azure-native:operationalinsights/v20200301preview:Workspace" }, { type: "azure-native:operationalinsights/v20200801:Workspace" }, { type: "azure-native:operationalinsights/v20201001:Workspace" }, { type: "azure-native:operationalinsights/v20210601:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

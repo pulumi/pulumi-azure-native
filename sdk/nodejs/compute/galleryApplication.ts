@@ -85,7 +85,7 @@ export class GalleryApplication extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GalleryApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.galleryName === undefined) && !opts.urn) {
@@ -97,37 +97,37 @@ export class GalleryApplication extends pulumi.CustomResource {
             if ((!args || args.supportedOSType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'supportedOSType'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
-            inputs["eula"] = args ? args.eula : undefined;
-            inputs["galleryApplicationName"] = args ? args.galleryApplicationName : undefined;
-            inputs["galleryName"] = args ? args.galleryName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
-            inputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["supportedOSType"] = args ? args.supportedOSType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
+            resourceInputs["eula"] = args ? args.eula : undefined;
+            resourceInputs["galleryApplicationName"] = args ? args.galleryApplicationName : undefined;
+            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
+            resourceInputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["supportedOSType"] = args ? args.supportedOSType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["endOfLifeDate"] = undefined /*out*/;
-            inputs["eula"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privacyStatementUri"] = undefined /*out*/;
-            inputs["releaseNoteUri"] = undefined /*out*/;
-            inputs["supportedOSType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["endOfLifeDate"] = undefined /*out*/;
+            resourceInputs["eula"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privacyStatementUri"] = undefined /*out*/;
+            resourceInputs["releaseNoteUri"] = undefined /*out*/;
+            resourceInputs["supportedOSType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190301:GalleryApplication" }, { type: "azure-native:compute/v20190701:GalleryApplication" }, { type: "azure-native:compute/v20191201:GalleryApplication" }, { type: "azure-native:compute/v20200930:GalleryApplication" }, { type: "azure-native:compute/v20210701:GalleryApplication" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GalleryApplication.__pulumiType, name, inputs, opts);
+        super(GalleryApplication.__pulumiType, name, resourceInputs, opts);
     }
 }
 

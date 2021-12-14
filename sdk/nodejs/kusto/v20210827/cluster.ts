@@ -164,7 +164,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -173,76 +173,76 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["acceptedAudiences"] = args ? args.acceptedAudiences : undefined;
-            inputs["allowedFqdnList"] = args ? args.allowedFqdnList : undefined;
-            inputs["allowedIpRangeList"] = args ? args.allowedIpRangeList : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["enableAutoStop"] = (args ? args.enableAutoStop : undefined) ?? true;
-            inputs["enableDiskEncryption"] = (args ? args.enableDiskEncryption : undefined) ?? false;
-            inputs["enableDoubleEncryption"] = (args ? args.enableDoubleEncryption : undefined) ?? false;
-            inputs["enablePurge"] = (args ? args.enablePurge : undefined) ?? false;
-            inputs["enableStreamingIngest"] = (args ? args.enableStreamingIngest : undefined) ?? false;
-            inputs["engineType"] = (args ? args.engineType : undefined) ?? "V3";
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["optimizedAutoscale"] = args ? args.optimizedAutoscale : undefined;
-            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restrictOutboundNetworkAccess"] = args ? args.restrictOutboundNetworkAccess : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
-            inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["dataIngestionUri"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["languageExtensions"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["stateReason"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            resourceInputs["acceptedAudiences"] = args ? args.acceptedAudiences : undefined;
+            resourceInputs["allowedFqdnList"] = args ? args.allowedFqdnList : undefined;
+            resourceInputs["allowedIpRangeList"] = args ? args.allowedIpRangeList : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["enableAutoStop"] = (args ? args.enableAutoStop : undefined) ?? true;
+            resourceInputs["enableDiskEncryption"] = (args ? args.enableDiskEncryption : undefined) ?? false;
+            resourceInputs["enableDoubleEncryption"] = (args ? args.enableDoubleEncryption : undefined) ?? false;
+            resourceInputs["enablePurge"] = (args ? args.enablePurge : undefined) ?? false;
+            resourceInputs["enableStreamingIngest"] = (args ? args.enableStreamingIngest : undefined) ?? false;
+            resourceInputs["engineType"] = (args ? args.engineType : undefined) ?? "V3";
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["optimizedAutoscale"] = args ? args.optimizedAutoscale : undefined;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restrictOutboundNetworkAccess"] = args ? args.restrictOutboundNetworkAccess : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
+            resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["dataIngestionUri"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["languageExtensions"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["stateReason"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
         } else {
-            inputs["acceptedAudiences"] = undefined /*out*/;
-            inputs["allowedFqdnList"] = undefined /*out*/;
-            inputs["allowedIpRangeList"] = undefined /*out*/;
-            inputs["dataIngestionUri"] = undefined /*out*/;
-            inputs["enableAutoStop"] = undefined /*out*/;
-            inputs["enableDiskEncryption"] = undefined /*out*/;
-            inputs["enableDoubleEncryption"] = undefined /*out*/;
-            inputs["enablePurge"] = undefined /*out*/;
-            inputs["enableStreamingIngest"] = undefined /*out*/;
-            inputs["engineType"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["keyVaultProperties"] = undefined /*out*/;
-            inputs["languageExtensions"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["optimizedAutoscale"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["restrictOutboundNetworkAccess"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["stateReason"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["trustedExternalTenants"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
-            inputs["virtualNetworkConfiguration"] = undefined /*out*/;
-            inputs["zones"] = undefined /*out*/;
+            resourceInputs["acceptedAudiences"] = undefined /*out*/;
+            resourceInputs["allowedFqdnList"] = undefined /*out*/;
+            resourceInputs["allowedIpRangeList"] = undefined /*out*/;
+            resourceInputs["dataIngestionUri"] = undefined /*out*/;
+            resourceInputs["enableAutoStop"] = undefined /*out*/;
+            resourceInputs["enableDiskEncryption"] = undefined /*out*/;
+            resourceInputs["enableDoubleEncryption"] = undefined /*out*/;
+            resourceInputs["enablePurge"] = undefined /*out*/;
+            resourceInputs["enableStreamingIngest"] = undefined /*out*/;
+            resourceInputs["engineType"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["keyVaultProperties"] = undefined /*out*/;
+            resourceInputs["languageExtensions"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["optimizedAutoscale"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["restrictOutboundNetworkAccess"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["stateReason"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trustedExternalTenants"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
+            resourceInputs["virtualNetworkConfiguration"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:Cluster" }, { type: "azure-native:kusto/v20170907privatepreview:Cluster" }, { type: "azure-native:kusto/v20180907preview:Cluster" }, { type: "azure-native:kusto/v20190121:Cluster" }, { type: "azure-native:kusto/v20190515:Cluster" }, { type: "azure-native:kusto/v20190907:Cluster" }, { type: "azure-native:kusto/v20191109:Cluster" }, { type: "azure-native:kusto/v20200215:Cluster" }, { type: "azure-native:kusto/v20200614:Cluster" }, { type: "azure-native:kusto/v20200918:Cluster" }, { type: "azure-native:kusto/v20210101:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Cluster.__pulumiType, name, inputs, opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

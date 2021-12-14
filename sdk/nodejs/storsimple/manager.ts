@@ -77,38 +77,38 @@ export class Manager extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["cisIntrinsicSettings"] = args ? args.cisIntrinsicSettings : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cisIntrinsicSettings"] = args ? args.cisIntrinsicSettings : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["cisIntrinsicSettings"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cisIntrinsicSettings"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple/v20161001:Manager" }, { type: "azure-native:storsimple/v20170601:Manager" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Manager.__pulumiType, name, inputs, opts);
+        super(Manager.__pulumiType, name, resourceInputs, opts);
     }
 }
 

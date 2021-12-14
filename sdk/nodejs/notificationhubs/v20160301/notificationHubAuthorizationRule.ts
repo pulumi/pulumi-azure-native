@@ -68,7 +68,7 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NotificationHubAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -83,31 +83,31 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["notificationHubName"] = args ? args.notificationHubName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["rights"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["notificationHubName"] = args ? args.notificationHubName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rights"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rights"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rights"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs:NotificationHubAuthorizationRule" }, { type: "azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NotificationHubAuthorizationRule.__pulumiType, name, inputs, opts);
+        super(NotificationHubAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

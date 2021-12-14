@@ -93,7 +93,7 @@ export class LiveOutput extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LiveOutputArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -111,42 +111,42 @@ export class LiveOutput extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["archiveWindowLength"] = args ? args.archiveWindowLength : undefined;
-            inputs["assetName"] = args ? args.assetName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["hls"] = args ? args.hls : undefined;
-            inputs["liveEventName"] = args ? args.liveEventName : undefined;
-            inputs["liveOutputName"] = args ? args.liveOutputName : undefined;
-            inputs["manifestName"] = args ? args.manifestName : undefined;
-            inputs["outputSnapTime"] = args ? args.outputSnapTime : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["created"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["archiveWindowLength"] = args ? args.archiveWindowLength : undefined;
+            resourceInputs["assetName"] = args ? args.assetName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["hls"] = args ? args.hls : undefined;
+            resourceInputs["liveEventName"] = args ? args.liveEventName : undefined;
+            resourceInputs["liveOutputName"] = args ? args.liveOutputName : undefined;
+            resourceInputs["manifestName"] = args ? args.manifestName : undefined;
+            resourceInputs["outputSnapTime"] = args ? args.outputSnapTime : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["archiveWindowLength"] = undefined /*out*/;
-            inputs["assetName"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["hls"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["manifestName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["outputSnapTime"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["archiveWindowLength"] = undefined /*out*/;
+            resourceInputs["assetName"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["hls"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["manifestName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputSnapTime"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media/v20180330preview:LiveOutput" }, { type: "azure-native:media/v20180601preview:LiveOutput" }, { type: "azure-native:media/v20180701:LiveOutput" }, { type: "azure-native:media/v20190501preview:LiveOutput" }, { type: "azure-native:media/v20200501:LiveOutput" }, { type: "azure-native:media/v20210601:LiveOutput" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LiveOutput.__pulumiType, name, inputs, opts);
+        super(LiveOutput.__pulumiType, name, resourceInputs, opts);
     }
 }
 

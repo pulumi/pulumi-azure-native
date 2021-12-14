@@ -108,54 +108,54 @@ export class Namespace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["metricId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceBusEndpoint"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.servicebus.v20210101preview.encryptionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["metricId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["metricId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceBusEndpoint"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
-            inputs["zoneRedundant"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["metricId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Namespace" }, { type: "azure-native:servicebus/v20140901:Namespace" }, { type: "azure-native:servicebus/v20150801:Namespace" }, { type: "azure-native:servicebus/v20170401:Namespace" }, { type: "azure-native:servicebus/v20180101preview:Namespace" }, { type: "azure-native:servicebus/v20210601preview:Namespace" }, { type: "azure-native:servicebus/v20211101:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Namespace.__pulumiType, name, inputs, opts);
+        super(Namespace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

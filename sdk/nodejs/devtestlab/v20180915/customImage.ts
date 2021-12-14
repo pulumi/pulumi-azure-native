@@ -108,7 +108,7 @@ export class CustomImage extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CustomImageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labName === undefined) && !opts.urn) {
@@ -117,48 +117,48 @@ export class CustomImage extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["author"] = args ? args.author : undefined;
-            inputs["customImagePlan"] = args ? args.customImagePlan : undefined;
-            inputs["dataDiskStorageInfo"] = args ? args.dataDiskStorageInfo : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["isPlanAuthorized"] = args ? args.isPlanAuthorized : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedImageId"] = args ? args.managedImageId : undefined;
-            inputs["managedSnapshotId"] = args ? args.managedSnapshotId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vhd"] = args ? args.vhd : undefined;
-            inputs["vm"] = args ? args.vm : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["author"] = args ? args.author : undefined;
+            resourceInputs["customImagePlan"] = args ? args.customImagePlan : undefined;
+            resourceInputs["dataDiskStorageInfo"] = args ? args.dataDiskStorageInfo : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["isPlanAuthorized"] = args ? args.isPlanAuthorized : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedImageId"] = args ? args.managedImageId : undefined;
+            resourceInputs["managedSnapshotId"] = args ? args.managedSnapshotId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vhd"] = args ? args.vhd : undefined;
+            resourceInputs["vm"] = args ? args.vm : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
-            inputs["author"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["customImagePlan"] = undefined /*out*/;
-            inputs["dataDiskStorageInfo"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["isPlanAuthorized"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedImageId"] = undefined /*out*/;
-            inputs["managedSnapshotId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
-            inputs["vhd"] = undefined /*out*/;
-            inputs["vm"] = undefined /*out*/;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["customImagePlan"] = undefined /*out*/;
+            resourceInputs["dataDiskStorageInfo"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["isPlanAuthorized"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedImageId"] = undefined /*out*/;
+            resourceInputs["managedSnapshotId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["vhd"] = undefined /*out*/;
+            resourceInputs["vm"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:CustomImage" }, { type: "azure-native:devtestlab/v20150521preview:CustomImage" }, { type: "azure-native:devtestlab/v20160515:CustomImage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CustomImage.__pulumiType, name, inputs, opts);
+        super(CustomImage.__pulumiType, name, resourceInputs, opts);
     }
 }
 

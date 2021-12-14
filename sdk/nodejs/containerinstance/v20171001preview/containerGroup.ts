@@ -95,7 +95,7 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.containers === undefined) && !opts.urn) {
@@ -107,40 +107,40 @@ export class ContainerGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["containerGroupName"] = args ? args.containerGroupName : undefined;
-            inputs["containers"] = args ? args.containers : undefined;
-            inputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restartPolicy"] = args ? args.restartPolicy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["volumes"] = args ? args.volumes : undefined;
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["containerGroupName"] = args ? args.containerGroupName : undefined;
+            resourceInputs["containers"] = args ? args.containers : undefined;
+            resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["containers"] = undefined /*out*/;
-            inputs["imageRegistryCredentials"] = undefined /*out*/;
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["osType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["restartPolicy"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["volumes"] = undefined /*out*/;
+            resourceInputs["containers"] = undefined /*out*/;
+            resourceInputs["imageRegistryCredentials"] = undefined /*out*/;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["restartPolicy"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["volumes"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerinstance:ContainerGroup" }, { type: "azure-native:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180401:ContainerGroup" }, { type: "azure-native:containerinstance/v20180601:ContainerGroup" }, { type: "azure-native:containerinstance/v20180901:ContainerGroup" }, { type: "azure-native:containerinstance/v20181001:ContainerGroup" }, { type: "azure-native:containerinstance/v20191201:ContainerGroup" }, { type: "azure-native:containerinstance/v20201101:ContainerGroup" }, { type: "azure-native:containerinstance/v20210301:ContainerGroup" }, { type: "azure-native:containerinstance/v20210701:ContainerGroup" }, { type: "azure-native:containerinstance/v20210901:ContainerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ContainerGroup.__pulumiType, name, inputs, opts);
+        super(ContainerGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

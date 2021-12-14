@@ -64,32 +64,32 @@ export class ActionRuleByName extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ActionRuleByNameArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            inputs["actionRuleName"] = args ? args.actionRuleName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actionRuleName"] = args ? args.actionRuleName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20190505preview:ActionRuleByName" }, { type: "azure-native:alertsmanagement/v20210808preview:ActionRuleByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ActionRuleByName.__pulumiType, name, inputs, opts);
+        super(ActionRuleByName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

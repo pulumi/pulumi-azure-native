@@ -93,7 +93,7 @@ export class IoTRole extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IoTRoleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -117,40 +117,40 @@ export class IoTRole extends pulumi.CustomResource {
             if ((!args || args.roleStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleStatus'");
             }
-            inputs["computeResource"] = args ? args.computeResource : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["hostPlatform"] = args ? args.hostPlatform : undefined;
-            inputs["ioTDeviceDetails"] = args ? args.ioTDeviceDetails : undefined;
-            inputs["ioTEdgeAgentInfo"] = args ? args.ioTEdgeAgentInfo : undefined;
-            inputs["ioTEdgeDeviceDetails"] = args ? args.ioTEdgeDeviceDetails : undefined;
-            inputs["kind"] = "IOT";
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["roleStatus"] = args ? args.roleStatus : undefined;
-            inputs["shareMappings"] = args ? args.shareMappings : undefined;
-            inputs["hostPlatformType"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["computeResource"] = args ? args.computeResource : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["hostPlatform"] = args ? args.hostPlatform : undefined;
+            resourceInputs["ioTDeviceDetails"] = args ? args.ioTDeviceDetails : undefined;
+            resourceInputs["ioTEdgeAgentInfo"] = args ? args.ioTEdgeAgentInfo : undefined;
+            resourceInputs["ioTEdgeDeviceDetails"] = args ? args.ioTEdgeDeviceDetails : undefined;
+            resourceInputs["kind"] = "IOT";
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["roleStatus"] = args ? args.roleStatus : undefined;
+            resourceInputs["shareMappings"] = args ? args.shareMappings : undefined;
+            resourceInputs["hostPlatformType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["computeResource"] = undefined /*out*/;
-            inputs["hostPlatform"] = undefined /*out*/;
-            inputs["hostPlatformType"] = undefined /*out*/;
-            inputs["ioTDeviceDetails"] = undefined /*out*/;
-            inputs["ioTEdgeAgentInfo"] = undefined /*out*/;
-            inputs["ioTEdgeDeviceDetails"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roleStatus"] = undefined /*out*/;
-            inputs["shareMappings"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["computeResource"] = undefined /*out*/;
+            resourceInputs["hostPlatform"] = undefined /*out*/;
+            resourceInputs["hostPlatformType"] = undefined /*out*/;
+            resourceInputs["ioTDeviceDetails"] = undefined /*out*/;
+            resourceInputs["ioTEdgeAgentInfo"] = undefined /*out*/;
+            resourceInputs["ioTEdgeDeviceDetails"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roleStatus"] = undefined /*out*/;
+            resourceInputs["shareMappings"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:IoTRole" }, { type: "azure-native:databoxedge/v20190301:IoTRole" }, { type: "azure-native:databoxedge/v20190701:IoTRole" }, { type: "azure-native:databoxedge/v20190801:IoTRole" }, { type: "azure-native:databoxedge/v20200501preview:IoTRole" }, { type: "azure-native:databoxedge/v20200901:IoTRole" }, { type: "azure-native:databoxedge/v20200901preview:IoTRole" }, { type: "azure-native:databoxedge/v20201201:IoTRole" }, { type: "azure-native:databoxedge/v20210201:IoTRole" }, { type: "azure-native:databoxedge/v20210601:IoTRole" }, { type: "azure-native:databoxedge/v20210601preview:IoTRole" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IoTRole.__pulumiType, name, inputs, opts);
+        super(IoTRole.__pulumiType, name, resourceInputs, opts);
     }
 }
 

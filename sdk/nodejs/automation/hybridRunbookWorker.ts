@@ -81,7 +81,7 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HybridRunbookWorkerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -93,36 +93,36 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["hybridRunbookWorkerGroupName"] = args ? args.hybridRunbookWorkerGroupName : undefined;
-            inputs["hybridRunbookWorkerId"] = args ? args.hybridRunbookWorkerId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["vmResourceId"] = args ? args.vmResourceId : undefined;
-            inputs["ip"] = undefined /*out*/;
-            inputs["lastSeenDateTime"] = undefined /*out*/;
-            inputs["registeredDateTime"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workerName"] = undefined /*out*/;
-            inputs["workerType"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["hybridRunbookWorkerGroupName"] = args ? args.hybridRunbookWorkerGroupName : undefined;
+            resourceInputs["hybridRunbookWorkerId"] = args ? args.hybridRunbookWorkerId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["vmResourceId"] = args ? args.vmResourceId : undefined;
+            resourceInputs["ip"] = undefined /*out*/;
+            resourceInputs["lastSeenDateTime"] = undefined /*out*/;
+            resourceInputs["registeredDateTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workerName"] = undefined /*out*/;
+            resourceInputs["workerType"] = undefined /*out*/;
         } else {
-            inputs["ip"] = undefined /*out*/;
-            inputs["lastSeenDateTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["registeredDateTime"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vmResourceId"] = undefined /*out*/;
-            inputs["workerName"] = undefined /*out*/;
-            inputs["workerType"] = undefined /*out*/;
+            resourceInputs["ip"] = undefined /*out*/;
+            resourceInputs["lastSeenDateTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["registeredDateTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmResourceId"] = undefined /*out*/;
+            resourceInputs["workerName"] = undefined /*out*/;
+            resourceInputs["workerType"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation/v20210622:HybridRunbookWorker" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(HybridRunbookWorker.__pulumiType, name, inputs, opts);
+        super(HybridRunbookWorker.__pulumiType, name, resourceInputs, opts);
     }
 }
 

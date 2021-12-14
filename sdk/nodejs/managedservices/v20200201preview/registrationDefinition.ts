@@ -60,30 +60,30 @@ export class RegistrationDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RegistrationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["registrationDefinitionId"] = args ? args.registrationDefinitionId : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["registrationDefinitionId"] = args ? args.registrationDefinitionId : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["plan"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:managedservices:RegistrationDefinition" }, { type: "azure-native:managedservices/v20180601preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190401preview:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190601:RegistrationDefinition" }, { type: "azure-native:managedservices/v20190901:RegistrationDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RegistrationDefinition.__pulumiType, name, inputs, opts);
+        super(RegistrationDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -108,7 +108,7 @@ export class Bookmark extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BookmarkArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -123,49 +123,49 @@ export class Bookmark extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["bookmarkId"] = args ? args.bookmarkId : undefined;
-            inputs["created"] = args ? args.created : undefined;
-            inputs["createdBy"] = args ? args.createdBy : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["eventTime"] = args ? args.eventTime : undefined;
-            inputs["incidentInfo"] = args ? args.incidentInfo : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["query"] = args ? args.query : undefined;
-            inputs["queryEndTime"] = args ? args.queryEndTime : undefined;
-            inputs["queryResult"] = args ? args.queryResult : undefined;
-            inputs["queryStartTime"] = args ? args.queryStartTime : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["updated"] = args ? args.updated : undefined;
-            inputs["updatedBy"] = args ? args.updatedBy : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bookmarkId"] = args ? args.bookmarkId : undefined;
+            resourceInputs["created"] = args ? args.created : undefined;
+            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["eventTime"] = args ? args.eventTime : undefined;
+            resourceInputs["incidentInfo"] = args ? args.incidentInfo : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["queryEndTime"] = args ? args.queryEndTime : undefined;
+            resourceInputs["queryResult"] = args ? args.queryResult : undefined;
+            resourceInputs["queryStartTime"] = args ? args.queryStartTime : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["updated"] = args ? args.updated : undefined;
+            resourceInputs["updatedBy"] = args ? args.updatedBy : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["created"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["eventTime"] = undefined /*out*/;
-            inputs["incidentInfo"] = undefined /*out*/;
-            inputs["labels"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notes"] = undefined /*out*/;
-            inputs["query"] = undefined /*out*/;
-            inputs["queryEndTime"] = undefined /*out*/;
-            inputs["queryResult"] = undefined /*out*/;
-            inputs["queryStartTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updated"] = undefined /*out*/;
-            inputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["eventTime"] = undefined /*out*/;
+            resourceInputs["incidentInfo"] = undefined /*out*/;
+            resourceInputs["labels"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notes"] = undefined /*out*/;
+            resourceInputs["query"] = undefined /*out*/;
+            resourceInputs["queryEndTime"] = undefined /*out*/;
+            resourceInputs["queryResult"] = undefined /*out*/;
+            resourceInputs["queryStartTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updated"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Bookmark" }, { type: "azure-native:securityinsights/v20190101preview:Bookmark" }, { type: "azure-native:securityinsights/v20210901preview:Bookmark" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Bookmark.__pulumiType, name, inputs, opts);
+        super(Bookmark.__pulumiType, name, resourceInputs, opts);
     }
 }
 

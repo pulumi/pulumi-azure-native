@@ -104,7 +104,7 @@ export class Subscription extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -119,49 +119,49 @@ export class Subscription extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["allowTracing"] = args ? args.allowTracing : undefined;
-            inputs["appType"] = args ? args.appType : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["notify"] = args ? args.notify : undefined;
-            inputs["ownerId"] = args ? args.ownerId : undefined;
-            inputs["primaryKey"] = args ? args.primaryKey : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["secondaryKey"] = args ? args.secondaryKey : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["sid"] = args ? args.sid : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["endDate"] = undefined /*out*/;
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notificationDate"] = undefined /*out*/;
-            inputs["startDate"] = undefined /*out*/;
-            inputs["stateComment"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowTracing"] = args ? args.allowTracing : undefined;
+            resourceInputs["appType"] = args ? args.appType : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["notify"] = args ? args.notify : undefined;
+            resourceInputs["ownerId"] = args ? args.ownerId : undefined;
+            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["secondaryKey"] = args ? args.secondaryKey : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["sid"] = args ? args.sid : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["endDate"] = undefined /*out*/;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notificationDate"] = undefined /*out*/;
+            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["stateComment"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["allowTracing"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["endDate"] = undefined /*out*/;
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notificationDate"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["primaryKey"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["secondaryKey"] = undefined /*out*/;
-            inputs["startDate"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["stateComment"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowTracing"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["endDate"] = undefined /*out*/;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notificationDate"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["primaryKey"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["secondaryKey"] = undefined /*out*/;
+            resourceInputs["startDate"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["stateComment"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Subscription" }, { type: "azure-native:apimanagement/v20160707:Subscription" }, { type: "azure-native:apimanagement/v20161010:Subscription" }, { type: "azure-native:apimanagement/v20170301:Subscription" }, { type: "azure-native:apimanagement/v20180101:Subscription" }, { type: "azure-native:apimanagement/v20180601preview:Subscription" }, { type: "azure-native:apimanagement/v20190101:Subscription" }, { type: "azure-native:apimanagement/v20191201:Subscription" }, { type: "azure-native:apimanagement/v20191201preview:Subscription" }, { type: "azure-native:apimanagement/v20200601preview:Subscription" }, { type: "azure-native:apimanagement/v20210101preview:Subscription" }, { type: "azure-native:apimanagement/v20210401preview:Subscription" }, { type: "azure-native:apimanagement/v20210801:Subscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Subscription.__pulumiType, name, inputs, opts);
+        super(Subscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

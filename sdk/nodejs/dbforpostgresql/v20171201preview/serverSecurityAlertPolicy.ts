@@ -80,7 +80,7 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerSecurityAlertPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -92,35 +92,35 @@ export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
             if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            inputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
-            inputs["emailAccountAdmins"] = args ? args.emailAccountAdmins : undefined;
-            inputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionDays"] = args ? args.retentionDays : undefined;
-            inputs["securityAlertPolicyName"] = args ? args.securityAlertPolicyName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            inputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
+            resourceInputs["emailAccountAdmins"] = args ? args.emailAccountAdmins : undefined;
+            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
+            resourceInputs["securityAlertPolicyName"] = args ? args.securityAlertPolicyName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
+            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["disabledAlerts"] = undefined /*out*/;
-            inputs["emailAccountAdmins"] = undefined /*out*/;
-            inputs["emailAddresses"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["retentionDays"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["storageAccountAccessKey"] = undefined /*out*/;
-            inputs["storageEndpoint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["disabledAlerts"] = undefined /*out*/;
+            resourceInputs["emailAccountAdmins"] = undefined /*out*/;
+            resourceInputs["emailAddresses"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["retentionDays"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["storageAccountAccessKey"] = undefined /*out*/;
+            resourceInputs["storageEndpoint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:ServerSecurityAlertPolicy" }, { type: "azure-native:dbforpostgresql/v20171201:ServerSecurityAlertPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServerSecurityAlertPolicy.__pulumiType, name, inputs, opts);
+        super(ServerSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

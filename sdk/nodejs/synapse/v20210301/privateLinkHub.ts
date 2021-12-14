@@ -68,34 +68,34 @@ export class PrivateLinkHub extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateLinkHubArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["privateLinkHubName"] = args ? args.privateLinkHubName : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["privateLinkHubName"] = args ? args.privateLinkHubName : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:PrivateLinkHub" }, { type: "azure-native:synapse/v20190601preview:PrivateLinkHub" }, { type: "azure-native:synapse/v20201201:PrivateLinkHub" }, { type: "azure-native:synapse/v20210401preview:PrivateLinkHub" }, { type: "azure-native:synapse/v20210501:PrivateLinkHub" }, { type: "azure-native:synapse/v20210601:PrivateLinkHub" }, { type: "azure-native:synapse/v20210601preview:PrivateLinkHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PrivateLinkHub.__pulumiType, name, inputs, opts);
+        super(PrivateLinkHub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

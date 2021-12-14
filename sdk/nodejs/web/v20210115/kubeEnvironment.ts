@@ -101,49 +101,49 @@ export class KubeEnvironment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KubeEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["aksResourceID"] = args ? args.aksResourceID : undefined;
-            inputs["appLogsConfiguration"] = args ? args.appLogsConfiguration : undefined;
-            inputs["arcConfiguration"] = args ? args.arcConfiguration : undefined;
-            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            inputs["internalLoadBalancerEnabled"] = args ? args.internalLoadBalancerEnabled : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["staticIp"] = args ? args.staticIp : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["defaultDomain"] = undefined /*out*/;
-            inputs["deploymentErrors"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aksResourceID"] = args ? args.aksResourceID : undefined;
+            resourceInputs["appLogsConfiguration"] = args ? args.appLogsConfiguration : undefined;
+            resourceInputs["arcConfiguration"] = args ? args.arcConfiguration : undefined;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["internalLoadBalancerEnabled"] = args ? args.internalLoadBalancerEnabled : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["staticIp"] = args ? args.staticIp : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["defaultDomain"] = undefined /*out*/;
+            resourceInputs["deploymentErrors"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["aksResourceID"] = undefined /*out*/;
-            inputs["appLogsConfiguration"] = undefined /*out*/;
-            inputs["arcConfiguration"] = undefined /*out*/;
-            inputs["defaultDomain"] = undefined /*out*/;
-            inputs["deploymentErrors"] = undefined /*out*/;
-            inputs["extendedLocation"] = undefined /*out*/;
-            inputs["internalLoadBalancerEnabled"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["staticIp"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aksResourceID"] = undefined /*out*/;
+            resourceInputs["appLogsConfiguration"] = undefined /*out*/;
+            resourceInputs["arcConfiguration"] = undefined /*out*/;
+            resourceInputs["defaultDomain"] = undefined /*out*/;
+            resourceInputs["deploymentErrors"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["internalLoadBalancerEnabled"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["staticIp"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:KubeEnvironment" }, { type: "azure-native:web/v20210101:KubeEnvironment" }, { type: "azure-native:web/v20210201:KubeEnvironment" }, { type: "azure-native:web/v20210301:KubeEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(KubeEnvironment.__pulumiType, name, inputs, opts);
+        super(KubeEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

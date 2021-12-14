@@ -64,7 +64,7 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkInterfaceTapConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.networkInterfaceName === undefined) && !opts.urn) {
@@ -73,28 +73,28 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tapConfigurationName"] = args ? args.tapConfigurationName : undefined;
-            inputs["virtualNetworkTap"] = args ? args.virtualNetworkTap : undefined;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tapConfigurationName"] = args ? args.tapConfigurationName : undefined;
+            resourceInputs["virtualNetworkTap"] = args ? args.virtualNetworkTap : undefined;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkTap"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetworkTap"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20180801:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20181001:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20181201:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20190201:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20190401:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20190601:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20190701:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20190801:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20190901:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20191101:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20191201:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20200301:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20200401:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20200501:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20200601:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20200701:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20200801:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20201101:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20210201:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20210301:NetworkInterfaceTapConfiguration" }, { type: "azure-native:network/v20210501:NetworkInterfaceTapConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NetworkInterfaceTapConfiguration.__pulumiType, name, inputs, opts);
+        super(NetworkInterfaceTapConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

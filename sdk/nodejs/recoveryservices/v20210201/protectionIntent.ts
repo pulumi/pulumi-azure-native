@@ -68,7 +68,7 @@ export class ProtectionIntent extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProtectionIntentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.fabricName === undefined) && !opts.urn) {
@@ -80,30 +80,30 @@ export class ProtectionIntent extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["intentObjectName"] = args ? args.intentObjectName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["fabricName"] = args ? args.fabricName : undefined;
+            resourceInputs["intentObjectName"] = args ? args.intentObjectName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["eTag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20170701:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210201preview:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210210:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210301:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210401:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210601:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210701:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20210801:ProtectionIntent" }, { type: "azure-native:recoveryservices/v20211001:ProtectionIntent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ProtectionIntent.__pulumiType, name, inputs, opts);
+        super(ProtectionIntent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

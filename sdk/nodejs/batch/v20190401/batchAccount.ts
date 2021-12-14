@@ -98,52 +98,52 @@ export class BatchAccount extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BatchAccountArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["autoStorage"] = args ? args.autoStorage : undefined;
-            inputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["accountEndpoint"] = undefined /*out*/;
-            inputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
-            inputs["dedicatedCoreQuota"] = undefined /*out*/;
-            inputs["dedicatedCoreQuotaPerVMFamily"] = undefined /*out*/;
-            inputs["dedicatedCoreQuotaPerVMFamilyEnforced"] = undefined /*out*/;
-            inputs["lowPriorityCoreQuota"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["poolQuota"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["autoStorage"] = args ? args.autoStorage : undefined;
+            resourceInputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountEndpoint"] = undefined /*out*/;
+            resourceInputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
+            resourceInputs["dedicatedCoreQuota"] = undefined /*out*/;
+            resourceInputs["dedicatedCoreQuotaPerVMFamily"] = undefined /*out*/;
+            resourceInputs["dedicatedCoreQuotaPerVMFamilyEnforced"] = undefined /*out*/;
+            resourceInputs["lowPriorityCoreQuota"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["poolQuota"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accountEndpoint"] = undefined /*out*/;
-            inputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
-            inputs["autoStorage"] = undefined /*out*/;
-            inputs["dedicatedCoreQuota"] = undefined /*out*/;
-            inputs["dedicatedCoreQuotaPerVMFamily"] = undefined /*out*/;
-            inputs["dedicatedCoreQuotaPerVMFamilyEnforced"] = undefined /*out*/;
-            inputs["keyVaultReference"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["lowPriorityCoreQuota"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["poolAllocationMode"] = undefined /*out*/;
-            inputs["poolQuota"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountEndpoint"] = undefined /*out*/;
+            resourceInputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
+            resourceInputs["autoStorage"] = undefined /*out*/;
+            resourceInputs["dedicatedCoreQuota"] = undefined /*out*/;
+            resourceInputs["dedicatedCoreQuotaPerVMFamily"] = undefined /*out*/;
+            resourceInputs["dedicatedCoreQuotaPerVMFamilyEnforced"] = undefined /*out*/;
+            resourceInputs["keyVaultReference"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["lowPriorityCoreQuota"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["poolAllocationMode"] = undefined /*out*/;
+            resourceInputs["poolQuota"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:batch:BatchAccount" }, { type: "azure-native:batch/v20151201:BatchAccount" }, { type: "azure-native:batch/v20170101:BatchAccount" }, { type: "azure-native:batch/v20170501:BatchAccount" }, { type: "azure-native:batch/v20170901:BatchAccount" }, { type: "azure-native:batch/v20181201:BatchAccount" }, { type: "azure-native:batch/v20190801:BatchAccount" }, { type: "azure-native:batch/v20200301:BatchAccount" }, { type: "azure-native:batch/v20200501:BatchAccount" }, { type: "azure-native:batch/v20200901:BatchAccount" }, { type: "azure-native:batch/v20210101:BatchAccount" }, { type: "azure-native:batch/v20210601:BatchAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BatchAccount.__pulumiType, name, inputs, opts);
+        super(BatchAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

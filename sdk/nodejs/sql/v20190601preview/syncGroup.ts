@@ -88,7 +88,7 @@ export class SyncGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SyncGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -100,41 +100,41 @@ export class SyncGroup extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["hubDatabasePassword"] = args ? args.hubDatabasePassword : undefined;
-            inputs["hubDatabaseUserName"] = args ? args.hubDatabaseUserName : undefined;
-            inputs["interval"] = args ? args.interval : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["syncDatabaseId"] = args ? args.syncDatabaseId : undefined;
-            inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            inputs["usePrivateLinkConnection"] = args ? args.usePrivateLinkConnection : undefined;
-            inputs["lastSyncTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointName"] = undefined /*out*/;
-            inputs["syncState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["hubDatabasePassword"] = args ? args.hubDatabasePassword : undefined;
+            resourceInputs["hubDatabaseUserName"] = args ? args.hubDatabaseUserName : undefined;
+            resourceInputs["interval"] = args ? args.interval : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["syncDatabaseId"] = args ? args.syncDatabaseId : undefined;
+            resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
+            resourceInputs["usePrivateLinkConnection"] = args ? args.usePrivateLinkConnection : undefined;
+            resourceInputs["lastSyncTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointName"] = undefined /*out*/;
+            resourceInputs["syncState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["conflictResolutionPolicy"] = undefined /*out*/;
-            inputs["hubDatabaseUserName"] = undefined /*out*/;
-            inputs["interval"] = undefined /*out*/;
-            inputs["lastSyncTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointName"] = undefined /*out*/;
-            inputs["schema"] = undefined /*out*/;
-            inputs["syncDatabaseId"] = undefined /*out*/;
-            inputs["syncState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["usePrivateLinkConnection"] = undefined /*out*/;
+            resourceInputs["conflictResolutionPolicy"] = undefined /*out*/;
+            resourceInputs["hubDatabaseUserName"] = undefined /*out*/;
+            resourceInputs["interval"] = undefined /*out*/;
+            resourceInputs["lastSyncTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointName"] = undefined /*out*/;
+            resourceInputs["schema"] = undefined /*out*/;
+            resourceInputs["syncDatabaseId"] = undefined /*out*/;
+            resourceInputs["syncState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["usePrivateLinkConnection"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncGroup" }, { type: "azure-native:sql/v20150501preview:SyncGroup" }, { type: "azure-native:sql/v20200202preview:SyncGroup" }, { type: "azure-native:sql/v20200801preview:SyncGroup" }, { type: "azure-native:sql/v20201101preview:SyncGroup" }, { type: "azure-native:sql/v20210201preview:SyncGroup" }, { type: "azure-native:sql/v20210501preview:SyncGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SyncGroup.__pulumiType, name, inputs, opts);
+        super(SyncGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

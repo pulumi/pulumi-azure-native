@@ -104,7 +104,7 @@ export class Endpoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.endpointType === undefined) && !opts.urn) {
@@ -116,49 +116,49 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customHeaders"] = args ? args.customHeaders : undefined;
-            inputs["endpointLocation"] = args ? args.endpointLocation : undefined;
-            inputs["endpointMonitorStatus"] = args ? args.endpointMonitorStatus : undefined;
-            inputs["endpointName"] = args ? args.endpointName : undefined;
-            inputs["endpointStatus"] = args ? args.endpointStatus : undefined;
-            inputs["endpointType"] = args ? args.endpointType : undefined;
-            inputs["geoMapping"] = args ? args.geoMapping : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["minChildEndpoints"] = args ? args.minChildEndpoints : undefined;
-            inputs["minChildEndpointsIPv4"] = args ? args.minChildEndpointsIPv4 : undefined;
-            inputs["minChildEndpointsIPv6"] = args ? args.minChildEndpointsIPv6 : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["target"] = args ? args.target : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
+            resourceInputs["endpointLocation"] = args ? args.endpointLocation : undefined;
+            resourceInputs["endpointMonitorStatus"] = args ? args.endpointMonitorStatus : undefined;
+            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["endpointStatus"] = args ? args.endpointStatus : undefined;
+            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
+            resourceInputs["geoMapping"] = args ? args.geoMapping : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["minChildEndpoints"] = args ? args.minChildEndpoints : undefined;
+            resourceInputs["minChildEndpointsIPv4"] = args ? args.minChildEndpointsIPv4 : undefined;
+            resourceInputs["minChildEndpointsIPv6"] = args ? args.minChildEndpointsIPv6 : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnets"] = args ? args.subnets : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["weight"] = args ? args.weight : undefined;
         } else {
-            inputs["customHeaders"] = undefined /*out*/;
-            inputs["endpointLocation"] = undefined /*out*/;
-            inputs["endpointMonitorStatus"] = undefined /*out*/;
-            inputs["endpointStatus"] = undefined /*out*/;
-            inputs["geoMapping"] = undefined /*out*/;
-            inputs["minChildEndpoints"] = undefined /*out*/;
-            inputs["minChildEndpointsIPv4"] = undefined /*out*/;
-            inputs["minChildEndpointsIPv6"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["subnets"] = undefined /*out*/;
-            inputs["target"] = undefined /*out*/;
-            inputs["targetResourceId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["weight"] = undefined /*out*/;
+            resourceInputs["customHeaders"] = undefined /*out*/;
+            resourceInputs["endpointLocation"] = undefined /*out*/;
+            resourceInputs["endpointMonitorStatus"] = undefined /*out*/;
+            resourceInputs["endpointStatus"] = undefined /*out*/;
+            resourceInputs["geoMapping"] = undefined /*out*/;
+            resourceInputs["minChildEndpoints"] = undefined /*out*/;
+            resourceInputs["minChildEndpointsIPv4"] = undefined /*out*/;
+            resourceInputs["minChildEndpointsIPv6"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["subnets"] = undefined /*out*/;
+            resourceInputs["target"] = undefined /*out*/;
+            resourceInputs["targetResourceId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["weight"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Endpoint" }, { type: "azure-native:network/v20151101:Endpoint" }, { type: "azure-native:network/v20170301:Endpoint" }, { type: "azure-native:network/v20170501:Endpoint" }, { type: "azure-native:network/v20180201:Endpoint" }, { type: "azure-native:network/v20180301:Endpoint" }, { type: "azure-native:network/v20180401:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -84,7 +84,7 @@ export class Order extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OrderArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.contactInformation === undefined) && !opts.urn) {
@@ -96,36 +96,36 @@ export class Order extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["contactInformation"] = args ? args.contactInformation : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shipmentType"] = args ? args.shipmentType : undefined;
-            inputs["shippingAddress"] = args ? args.shippingAddress : undefined;
-            inputs["currentStatus"] = undefined /*out*/;
-            inputs["deliveryTrackingInfo"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["orderHistory"] = undefined /*out*/;
-            inputs["returnTrackingInfo"] = undefined /*out*/;
-            inputs["serialNumber"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["contactInformation"] = args ? args.contactInformation : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shipmentType"] = args ? args.shipmentType : undefined;
+            resourceInputs["shippingAddress"] = args ? args.shippingAddress : undefined;
+            resourceInputs["currentStatus"] = undefined /*out*/;
+            resourceInputs["deliveryTrackingInfo"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["orderHistory"] = undefined /*out*/;
+            resourceInputs["returnTrackingInfo"] = undefined /*out*/;
+            resourceInputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["contactInformation"] = undefined /*out*/;
-            inputs["currentStatus"] = undefined /*out*/;
-            inputs["deliveryTrackingInfo"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["orderHistory"] = undefined /*out*/;
-            inputs["returnTrackingInfo"] = undefined /*out*/;
-            inputs["serialNumber"] = undefined /*out*/;
-            inputs["shipmentType"] = undefined /*out*/;
-            inputs["shippingAddress"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["contactInformation"] = undefined /*out*/;
+            resourceInputs["currentStatus"] = undefined /*out*/;
+            resourceInputs["deliveryTrackingInfo"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["orderHistory"] = undefined /*out*/;
+            resourceInputs["returnTrackingInfo"] = undefined /*out*/;
+            resourceInputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["shipmentType"] = undefined /*out*/;
+            resourceInputs["shippingAddress"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Order" }, { type: "azure-native:databoxedge/v20190301:Order" }, { type: "azure-native:databoxedge/v20190701:Order" }, { type: "azure-native:databoxedge/v20190801:Order" }, { type: "azure-native:databoxedge/v20200501preview:Order" }, { type: "azure-native:databoxedge/v20200901:Order" }, { type: "azure-native:databoxedge/v20200901preview:Order" }, { type: "azure-native:databoxedge/v20210201:Order" }, { type: "azure-native:databoxedge/v20210201preview:Order" }, { type: "azure-native:databoxedge/v20210601:Order" }, { type: "azure-native:databoxedge/v20210601preview:Order" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Order.__pulumiType, name, inputs, opts);
+        super(Order.__pulumiType, name, resourceInputs, opts);
     }
 }
 

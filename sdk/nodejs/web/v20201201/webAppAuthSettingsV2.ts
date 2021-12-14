@@ -76,7 +76,7 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppAuthSettingsV2Args, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -85,31 +85,31 @@ export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["globalValidation"] = args ? args.globalValidation : undefined;
-            inputs["httpSettings"] = args ? args.httpSettings : undefined;
-            inputs["identityProviders"] = args ? args.identityProviders : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["login"] = args ? args.login : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platform"] = args ? args.platform : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["globalValidation"] = args ? args.globalValidation : undefined;
+            resourceInputs["httpSettings"] = args ? args.httpSettings : undefined;
+            resourceInputs["identityProviders"] = args ? args.identityProviders : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["login"] = args ? args.login : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["globalValidation"] = undefined /*out*/;
-            inputs["httpSettings"] = undefined /*out*/;
-            inputs["identityProviders"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["login"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["platform"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["globalValidation"] = undefined /*out*/;
+            resourceInputs["httpSettings"] = undefined /*out*/;
+            resourceInputs["identityProviders"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["login"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["platform"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20200601:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20200901:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20201001:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20210101:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20210115:WebAppAuthSettingsV2" }, { type: "azure-native:web/v20210201:WebAppAuthSettingsV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppAuthSettingsV2.__pulumiType, name, inputs, opts);
+        super(WebAppAuthSettingsV2.__pulumiType, name, resourceInputs, opts);
     }
 }
 

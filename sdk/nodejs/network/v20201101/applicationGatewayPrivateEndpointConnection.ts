@@ -72,7 +72,7 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationGatewayPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationGatewayName === undefined) && !opts.urn) {
@@ -81,32 +81,32 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationGatewayName"] = args ? args.applicationGatewayName : undefined;
-            inputs["connectionName"] = args ? args.connectionName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["linkIdentifier"] = undefined /*out*/;
-            inputs["privateEndpoint"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationGatewayName"] = args ? args.applicationGatewayName : undefined;
+            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["linkIdentifier"] = undefined /*out*/;
+            resourceInputs["privateEndpoint"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["linkIdentifier"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpoint"] = undefined /*out*/;
-            inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["linkIdentifier"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpoint"] = undefined /*out*/;
+            resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200501:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200601:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200701:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20200801:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20210201:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20210301:ApplicationGatewayPrivateEndpointConnection" }, { type: "azure-native:network/v20210501:ApplicationGatewayPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApplicationGatewayPrivateEndpointConnection.__pulumiType, name, inputs, opts);
+        super(ApplicationGatewayPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -66,7 +66,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: JitNetworkAccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ascLocation === undefined) && !opts.urn) {
@@ -78,31 +78,31 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
             if ((!args || args.virtualMachines === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachines'");
             }
-            inputs["ascLocation"] = args ? args.ascLocation : undefined;
-            inputs["jitNetworkAccessPolicyName"] = args ? args.jitNetworkAccessPolicyName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["requests"] = args ? args.requests : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["virtualMachines"] = args ? args.virtualMachines : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["ascLocation"] = args ? args.ascLocation : undefined;
+            resourceInputs["jitNetworkAccessPolicyName"] = args ? args.jitNetworkAccessPolicyName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["requests"] = args ? args.requests : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["virtualMachines"] = args ? args.virtualMachines : undefined;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["requests"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualMachines"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["requests"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachines"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:JitNetworkAccessPolicy" }, { type: "azure-native:security/v20150601preview:JitNetworkAccessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(JitNetworkAccessPolicy.__pulumiType, name, inputs, opts);
+        super(JitNetworkAccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -76,7 +76,7 @@ export class SyncAgent extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SyncAgentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -85,33 +85,33 @@ export class SyncAgent extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["syncAgentName"] = args ? args.syncAgentName : undefined;
-            inputs["syncDatabaseId"] = args ? args.syncDatabaseId : undefined;
-            inputs["expiryTime"] = undefined /*out*/;
-            inputs["isUpToDate"] = undefined /*out*/;
-            inputs["lastAliveTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["syncAgentName"] = args ? args.syncAgentName : undefined;
+            resourceInputs["syncDatabaseId"] = args ? args.syncDatabaseId : undefined;
+            resourceInputs["expiryTime"] = undefined /*out*/;
+            resourceInputs["isUpToDate"] = undefined /*out*/;
+            resourceInputs["lastAliveTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["expiryTime"] = undefined /*out*/;
-            inputs["isUpToDate"] = undefined /*out*/;
-            inputs["lastAliveTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["syncDatabaseId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["expiryTime"] = undefined /*out*/;
+            resourceInputs["isUpToDate"] = undefined /*out*/;
+            resourceInputs["lastAliveTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["syncDatabaseId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:SyncAgent" }, { type: "azure-native:sql/v20200202preview:SyncAgent" }, { type: "azure-native:sql/v20200801preview:SyncAgent" }, { type: "azure-native:sql/v20201101preview:SyncAgent" }, { type: "azure-native:sql/v20210201preview:SyncAgent" }, { type: "azure-native:sql/v20210501preview:SyncAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SyncAgent.__pulumiType, name, inputs, opts);
+        super(SyncAgent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

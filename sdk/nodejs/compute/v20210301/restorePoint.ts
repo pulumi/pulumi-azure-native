@@ -72,7 +72,7 @@ export class RestorePoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RestorePointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -81,31 +81,31 @@ export class RestorePoint extends pulumi.CustomResource {
             if ((!args || args.restorePointCollectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restorePointCollectionName'");
             }
-            inputs["excludeDisks"] = args ? args.excludeDisks : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restorePointCollectionName"] = args ? args.restorePointCollectionName : undefined;
-            inputs["restorePointName"] = args ? args.restorePointName : undefined;
-            inputs["timeCreated"] = args ? args.timeCreated : undefined;
-            inputs["consistencyMode"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sourceMetadata"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["excludeDisks"] = args ? args.excludeDisks : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restorePointCollectionName"] = args ? args.restorePointCollectionName : undefined;
+            resourceInputs["restorePointName"] = args ? args.restorePointName : undefined;
+            resourceInputs["timeCreated"] = args ? args.timeCreated : undefined;
+            resourceInputs["consistencyMode"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourceMetadata"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["consistencyMode"] = undefined /*out*/;
-            inputs["excludeDisks"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sourceMetadata"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["consistencyMode"] = undefined /*out*/;
+            resourceInputs["excludeDisks"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourceMetadata"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:RestorePoint" }, { type: "azure-native:compute/v20210401:RestorePoint" }, { type: "azure-native:compute/v20210701:RestorePoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RestorePoint.__pulumiType, name, inputs, opts);
+        super(RestorePoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

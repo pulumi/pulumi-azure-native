@@ -72,7 +72,7 @@ export class PipelineRun extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PipelineRunArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.registryName === undefined) && !opts.urn) {
@@ -81,31 +81,31 @@ export class PipelineRun extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            inputs["pipelineRunName"] = args ? args.pipelineRunName : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["request"] = args ? args.request : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["response"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
+            resourceInputs["pipelineRunName"] = args ? args.pipelineRunName : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["request"] = args ? (args.request ? pulumi.output(args.request).apply(inputs.containerregistry.v20201101preview.pipelineRunRequestArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["response"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["forceUpdateTag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["request"] = undefined /*out*/;
-            inputs["response"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["forceUpdateTag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["request"] = undefined /*out*/;
+            resourceInputs["response"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:PipelineRun" }, { type: "azure-native:containerregistry/v20191201preview:PipelineRun" }, { type: "azure-native:containerregistry/v20210601preview:PipelineRun" }, { type: "azure-native:containerregistry/v20210801preview:PipelineRun" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PipelineRun.__pulumiType, name, inputs, opts);
+        super(PipelineRun.__pulumiType, name, resourceInputs, opts);
     }
 }
 

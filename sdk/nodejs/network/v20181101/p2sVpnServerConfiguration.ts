@@ -89,7 +89,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: P2sVpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -98,42 +98,42 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
             if ((!args || args.virtualWanName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualWanName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["p2SVpnServerConfigRadiusClientRootCertificates"] = args ? args.p2SVpnServerConfigRadiusClientRootCertificates : undefined;
-            inputs["p2SVpnServerConfigRadiusServerRootCertificates"] = args ? args.p2SVpnServerConfigRadiusServerRootCertificates : undefined;
-            inputs["p2SVpnServerConfigVpnClientRevokedCertificates"] = args ? args.p2SVpnServerConfigVpnClientRevokedCertificates : undefined;
-            inputs["p2SVpnServerConfigVpnClientRootCertificates"] = args ? args.p2SVpnServerConfigVpnClientRootCertificates : undefined;
-            inputs["p2SVpnServerConfigurationName"] = args ? args.p2SVpnServerConfigurationName : undefined;
-            inputs["radiusServerAddress"] = args ? args.radiusServerAddress : undefined;
-            inputs["radiusServerSecret"] = args ? args.radiusServerSecret : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["virtualWanName"] = args ? args.virtualWanName : undefined;
-            inputs["vpnClientIpsecPolicies"] = args ? args.vpnClientIpsecPolicies : undefined;
-            inputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
-            inputs["p2SVpnGateways"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["p2SVpnServerConfigRadiusClientRootCertificates"] = args ? args.p2SVpnServerConfigRadiusClientRootCertificates : undefined;
+            resourceInputs["p2SVpnServerConfigRadiusServerRootCertificates"] = args ? args.p2SVpnServerConfigRadiusServerRootCertificates : undefined;
+            resourceInputs["p2SVpnServerConfigVpnClientRevokedCertificates"] = args ? args.p2SVpnServerConfigVpnClientRevokedCertificates : undefined;
+            resourceInputs["p2SVpnServerConfigVpnClientRootCertificates"] = args ? args.p2SVpnServerConfigVpnClientRootCertificates : undefined;
+            resourceInputs["p2SVpnServerConfigurationName"] = args ? args.p2SVpnServerConfigurationName : undefined;
+            resourceInputs["radiusServerAddress"] = args ? args.radiusServerAddress : undefined;
+            resourceInputs["radiusServerSecret"] = args ? args.radiusServerSecret : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["virtualWanName"] = args ? args.virtualWanName : undefined;
+            resourceInputs["vpnClientIpsecPolicies"] = args ? args.vpnClientIpsecPolicies : undefined;
+            resourceInputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
+            resourceInputs["p2SVpnGateways"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["p2SVpnGateways"] = undefined /*out*/;
-            inputs["p2SVpnServerConfigRadiusClientRootCertificates"] = undefined /*out*/;
-            inputs["p2SVpnServerConfigRadiusServerRootCertificates"] = undefined /*out*/;
-            inputs["p2SVpnServerConfigVpnClientRevokedCertificates"] = undefined /*out*/;
-            inputs["p2SVpnServerConfigVpnClientRootCertificates"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["radiusServerAddress"] = undefined /*out*/;
-            inputs["radiusServerSecret"] = undefined /*out*/;
-            inputs["vpnClientIpsecPolicies"] = undefined /*out*/;
-            inputs["vpnProtocols"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["p2SVpnGateways"] = undefined /*out*/;
+            resourceInputs["p2SVpnServerConfigRadiusClientRootCertificates"] = undefined /*out*/;
+            resourceInputs["p2SVpnServerConfigRadiusServerRootCertificates"] = undefined /*out*/;
+            resourceInputs["p2SVpnServerConfigVpnClientRevokedCertificates"] = undefined /*out*/;
+            resourceInputs["p2SVpnServerConfigVpnClientRootCertificates"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["radiusServerAddress"] = undefined /*out*/;
+            resourceInputs["radiusServerSecret"] = undefined /*out*/;
+            resourceInputs["vpnClientIpsecPolicies"] = undefined /*out*/;
+            resourceInputs["vpnProtocols"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20180801:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20181001:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20181201:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190201:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190401:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190601:P2sVpnServerConfiguration" }, { type: "azure-native:network/v20190701:P2sVpnServerConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(P2sVpnServerConfiguration.__pulumiType, name, inputs, opts);
+        super(P2sVpnServerConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

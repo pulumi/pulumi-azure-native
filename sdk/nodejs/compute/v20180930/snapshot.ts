@@ -96,7 +96,7 @@ export class Snapshot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.creationData === undefined) && !opts.urn) {
@@ -105,42 +105,42 @@ export class Snapshot extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["creationData"] = args ? args.creationData : undefined;
-            inputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
-            inputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
-            inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["snapshotName"] = args ? args.snapshotName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["creationData"] = args ? args.creationData : undefined;
+            resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
+            resourceInputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
+            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationData"] = undefined /*out*/;
-            inputs["diskSizeGB"] = undefined /*out*/;
-            inputs["encryptionSettingsCollection"] = undefined /*out*/;
-            inputs["hyperVGeneration"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["osType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["creationData"] = undefined /*out*/;
+            resourceInputs["diskSizeGB"] = undefined /*out*/;
+            resourceInputs["encryptionSettingsCollection"] = undefined /*out*/;
+            resourceInputs["hyperVGeneration"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:Snapshot" }, { type: "azure-native:compute/v20160430preview:Snapshot" }, { type: "azure-native:compute/v20170330:Snapshot" }, { type: "azure-native:compute/v20180401:Snapshot" }, { type: "azure-native:compute/v20180601:Snapshot" }, { type: "azure-native:compute/v20190301:Snapshot" }, { type: "azure-native:compute/v20190701:Snapshot" }, { type: "azure-native:compute/v20191101:Snapshot" }, { type: "azure-native:compute/v20200501:Snapshot" }, { type: "azure-native:compute/v20200630:Snapshot" }, { type: "azure-native:compute/v20200930:Snapshot" }, { type: "azure-native:compute/v20201201:Snapshot" }, { type: "azure-native:compute/v20210401:Snapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Snapshot.__pulumiType, name, inputs, opts);
+        super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

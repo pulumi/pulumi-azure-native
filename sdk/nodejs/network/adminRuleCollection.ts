@@ -77,7 +77,7 @@ export class AdminRuleCollection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AdminRuleCollectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.configurationName === undefined) && !opts.urn) {
@@ -89,34 +89,34 @@ export class AdminRuleCollection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["appliesToGroups"] = args ? args.appliesToGroups : undefined;
-            inputs["configurationName"] = args ? args.configurationName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appliesToGroups"] = args ? args.appliesToGroups : undefined;
+            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["appliesToGroups"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appliesToGroups"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:AdminRuleCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AdminRuleCollection.__pulumiType, name, inputs, opts);
+        super(AdminRuleCollection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -104,7 +104,7 @@ export class OperationalizationCluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OperationalizationClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterType === undefined) && !opts.urn) {
@@ -113,46 +113,46 @@ export class OperationalizationCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["appInsights"] = args ? args.appInsights : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["clusterType"] = args ? args.clusterType : undefined;
-            inputs["containerRegistry"] = args ? args.containerRegistry : undefined;
-            inputs["containerService"] = args ? args.containerService : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["globalServiceConfiguration"] = args ? args.globalServiceConfiguration : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccount"] = args ? args.storageAccount : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["modifiedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningErrors"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appInsights"] = args ? args.appInsights : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["clusterType"] = args ? args.clusterType : undefined;
+            resourceInputs["containerRegistry"] = args ? args.containerRegistry : undefined;
+            resourceInputs["containerService"] = args ? (args.containerService ? pulumi.output(args.containerService).apply(inputs.machinelearningcompute.v20170801preview.acsClusterPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["globalServiceConfiguration"] = args ? (args.globalServiceConfiguration ? pulumi.output(args.globalServiceConfiguration).apply(inputs.machinelearningcompute.v20170801preview.globalServiceConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["modifiedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningErrors"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["appInsights"] = undefined /*out*/;
-            inputs["clusterType"] = undefined /*out*/;
-            inputs["containerRegistry"] = undefined /*out*/;
-            inputs["containerService"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["globalServiceConfiguration"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["modifiedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningErrors"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["storageAccount"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appInsights"] = undefined /*out*/;
+            resourceInputs["clusterType"] = undefined /*out*/;
+            resourceInputs["containerRegistry"] = undefined /*out*/;
+            resourceInputs["containerService"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["globalServiceConfiguration"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["modifiedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningErrors"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageAccount"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningcompute:OperationalizationCluster" }, { type: "azure-native:machinelearningcompute/v20170601preview:OperationalizationCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(OperationalizationCluster.__pulumiType, name, inputs, opts);
+        super(OperationalizationCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -105,7 +105,7 @@ export class DscConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DscConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -117,48 +117,48 @@ export class DscConfiguration extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["configurationName"] = args ? args.configurationName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["logProgress"] = args ? args.logProgress : undefined;
-            inputs["logVerbose"] = args ? args.logVerbose : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["jobCount"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["nodeConfigurationCount"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["logProgress"] = args ? args.logProgress : undefined;
+            resourceInputs["logVerbose"] = args ? args.logVerbose : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["jobCount"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["nodeConfigurationCount"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["jobCount"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["logVerbose"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nodeConfigurationCount"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["jobCount"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["logVerbose"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodeConfigurationCount"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:DscConfiguration" }, { type: "azure-native:automation/v20190601:DscConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DscConfiguration.__pulumiType, name, inputs, opts);
+        super(DscConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

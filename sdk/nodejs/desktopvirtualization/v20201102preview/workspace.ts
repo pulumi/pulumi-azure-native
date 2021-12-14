@@ -71,36 +71,36 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationGroupReferences"] = args ? args.applicationGroupReferences : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationGroupReferences"] = args ? args.applicationGroupReferences : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["applicationGroupReferences"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationGroupReferences"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:Workspace" }, { type: "azure-native:desktopvirtualization/v20190123preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20190924preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20191210preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20200921preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20201019preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20201110preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210114preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210201preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210309preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210401preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210712:Workspace" }, { type: "azure-native:desktopvirtualization/v20210903preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

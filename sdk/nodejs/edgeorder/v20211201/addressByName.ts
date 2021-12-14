@@ -76,7 +76,7 @@ export class AddressByName extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AddressByNameArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.contactDetails === undefined) && !opts.urn) {
@@ -85,32 +85,32 @@ export class AddressByName extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["addressName"] = args ? args.addressName : undefined;
-            inputs["contactDetails"] = args ? args.contactDetails : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shippingAddress"] = args ? args.shippingAddress : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["addressValidationStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addressName"] = args ? args.addressName : undefined;
+            resourceInputs["contactDetails"] = args ? args.contactDetails : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shippingAddress"] = args ? args.shippingAddress : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressValidationStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["addressValidationStatus"] = undefined /*out*/;
-            inputs["contactDetails"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["shippingAddress"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["addressValidationStatus"] = undefined /*out*/;
+            resourceInputs["contactDetails"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["shippingAddress"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:edgeorder:AddressByName" }, { type: "azure-native:edgeorder/v20201201preview:AddressByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AddressByName.__pulumiType, name, inputs, opts);
+        super(AddressByName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

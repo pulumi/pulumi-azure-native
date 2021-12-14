@@ -56,7 +56,7 @@ export class JobTargetGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: JobTargetGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.jobAgentName === undefined) && !opts.urn) {
@@ -71,24 +71,24 @@ export class JobTargetGroup extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["jobAgentName"] = args ? args.jobAgentName : undefined;
-            inputs["members"] = args ? args.members : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["targetGroupName"] = args ? args.targetGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["jobAgentName"] = args ? args.jobAgentName : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["targetGroupName"] = args ? args.targetGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["members"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["members"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:JobTargetGroup" }, { type: "azure-native:sql/v20170301preview:JobTargetGroup" }, { type: "azure-native:sql/v20200202preview:JobTargetGroup" }, { type: "azure-native:sql/v20200801preview:JobTargetGroup" }, { type: "azure-native:sql/v20201101preview:JobTargetGroup" }, { type: "azure-native:sql/v20210201preview:JobTargetGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(JobTargetGroup.__pulumiType, name, inputs, opts);
+        super(JobTargetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -80,40 +80,40 @@ export class RemediationAtResource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RemediationAtResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["deploymentStatus"] = args ? args.deploymentStatus : undefined;
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            inputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
-            inputs["remediationName"] = args ? args.remediationName : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["lastUpdatedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deploymentStatus"] = args ? args.deploymentStatus : undefined;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
+            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
+            resourceInputs["remediationName"] = args ? args.remediationName : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["lastUpdatedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["filters"] = undefined /*out*/;
-            inputs["lastUpdatedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["policyAssignmentId"] = undefined /*out*/;
-            inputs["policyDefinitionReferenceId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["filters"] = undefined /*out*/;
+            resourceInputs["lastUpdatedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policyAssignmentId"] = undefined /*out*/;
+            resourceInputs["policyDefinitionReferenceId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:policyinsights:RemediationAtResource" }, { type: "azure-native:policyinsights/v20190701:RemediationAtResource" }, { type: "azure-native:policyinsights/v20211001:RemediationAtResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RemediationAtResource.__pulumiType, name, inputs, opts);
+        super(RemediationAtResource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -76,7 +76,7 @@ export class Pipeline extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.bootstrapConfiguration === undefined) && !opts.urn) {
@@ -91,32 +91,32 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["bootstrapConfiguration"] = args ? args.bootstrapConfiguration : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["organization"] = args ? args.organization : undefined;
-            inputs["pipelineName"] = args ? args.pipelineName : undefined;
-            inputs["project"] = args ? args.project : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["pipelineId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bootstrapConfiguration"] = args ? args.bootstrapConfiguration : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["organization"] = args ? args.organization : undefined;
+            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["project"] = args ? args.project : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pipelineId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["bootstrapConfiguration"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["organization"] = undefined /*out*/;
-            inputs["pipelineId"] = undefined /*out*/;
-            inputs["project"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bootstrapConfiguration"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["organization"] = undefined /*out*/;
+            resourceInputs["pipelineId"] = undefined /*out*/;
+            resourceInputs["project"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devops:Pipeline" }, { type: "azure-native:devops/v20200713preview:Pipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Pipeline.__pulumiType, name, inputs, opts);
+        super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

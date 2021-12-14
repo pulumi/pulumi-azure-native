@@ -80,7 +80,7 @@ export class App extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -89,34 +89,34 @@ export class App extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["subdomain"] = args ? args.subdomain : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["template"] = args ? args.template : undefined;
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["subdomain"] = args ? args.subdomain : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["applicationId"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["subdomain"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["template"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["subdomain"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["template"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:iotcentral:App" }, { type: "azure-native:iotcentral/v20180901:App" }, { type: "azure-native:iotcentral/v20210601:App" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(App.__pulumiType, name, inputs, opts);
+        super(App.__pulumiType, name, resourceInputs, opts);
     }
 }
 

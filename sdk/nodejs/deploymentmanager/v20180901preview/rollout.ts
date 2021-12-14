@@ -80,7 +80,7 @@ export class Rollout extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RolloutArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.buildVersion === undefined) && !opts.urn) {
@@ -98,34 +98,34 @@ export class Rollout extends pulumi.CustomResource {
             if ((!args || args.targetServiceTopologyId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetServiceTopologyId'");
             }
-            inputs["artifactSourceId"] = args ? args.artifactSourceId : undefined;
-            inputs["buildVersion"] = args ? args.buildVersion : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rolloutName"] = args ? args.rolloutName : undefined;
-            inputs["stepGroups"] = args ? args.stepGroups : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetServiceTopologyId"] = args ? args.targetServiceTopologyId : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["artifactSourceId"] = args ? args.artifactSourceId : undefined;
+            resourceInputs["buildVersion"] = args ? args.buildVersion : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rolloutName"] = args ? args.rolloutName : undefined;
+            resourceInputs["stepGroups"] = args ? args.stepGroups : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetServiceTopologyId"] = args ? args.targetServiceTopologyId : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["artifactSourceId"] = undefined /*out*/;
-            inputs["buildVersion"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["stepGroups"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetServiceTopologyId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["artifactSourceId"] = undefined /*out*/;
+            resourceInputs["buildVersion"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["stepGroups"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetServiceTopologyId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:Rollout" }, { type: "azure-native:deploymentmanager/v20191101preview:Rollout" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Rollout.__pulumiType, name, inputs, opts);
+        super(Rollout.__pulumiType, name, resourceInputs, opts);
     }
 }
 

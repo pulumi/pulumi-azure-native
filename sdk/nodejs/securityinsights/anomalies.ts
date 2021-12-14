@@ -70,7 +70,7 @@ export class Anomalies extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AnomaliesArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -85,30 +85,30 @@ export class Anomalies extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["kind"] = "Anomalies";
-            inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["settingsName"] = args ? args.settingsName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["isEnabled"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["kind"] = "Anomalies";
+            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["settingsName"] = args ? args.settingsName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["isEnabled"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["isEnabled"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Anomalies" }, { type: "azure-native:securityinsights/v20210301preview:Anomalies" }, { type: "azure-native:securityinsights/v20210901preview:Anomalies" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Anomalies.__pulumiType, name, inputs, opts);
+        super(Anomalies.__pulumiType, name, resourceInputs, opts);
     }
 }
 

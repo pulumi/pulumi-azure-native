@@ -59,7 +59,7 @@ export class CloudLink extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CloudLinkArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
@@ -68,25 +68,25 @@ export class CloudLink extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["cloudLinkName"] = args ? args.cloudLinkName : undefined;
-            inputs["linkedCloud"] = args ? args.linkedCloud : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cloudLinkName"] = args ? args.cloudLinkName : undefined;
+            resourceInputs["linkedCloud"] = args ? args.linkedCloud : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["linkedCloud"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["linkedCloud"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:CloudLink" }, { type: "azure-native:avs/v20210601:CloudLink" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CloudLink.__pulumiType, name, inputs, opts);
+        super(CloudLink.__pulumiType, name, resourceInputs, opts);
     }
 }
 

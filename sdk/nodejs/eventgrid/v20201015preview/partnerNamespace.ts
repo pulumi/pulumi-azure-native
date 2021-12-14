@@ -77,38 +77,38 @@ export class PartnerNamespace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PartnerNamespaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["partnerNamespaceName"] = args ? args.partnerNamespaceName : undefined;
-            inputs["partnerRegistrationFullyQualifiedId"] = args ? args.partnerRegistrationFullyQualifiedId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["partnerNamespaceName"] = args ? args.partnerNamespaceName : undefined;
+            resourceInputs["partnerRegistrationFullyQualifiedId"] = args ? args.partnerRegistrationFullyQualifiedId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnerRegistrationFullyQualifiedId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnerRegistrationFullyQualifiedId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:PartnerNamespace" }, { type: "azure-native:eventgrid/v20200401preview:PartnerNamespace" }, { type: "azure-native:eventgrid/v20210601preview:PartnerNamespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PartnerNamespace.__pulumiType, name, inputs, opts);
+        super(PartnerNamespace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

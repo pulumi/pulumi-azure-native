@@ -113,7 +113,7 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IntegrationServiceEnvironmentManagedApiArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.integrationServiceEnvironmentName === undefined) && !opts.urn) {
@@ -122,51 +122,51 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
             if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            inputs["apiName"] = args ? args.apiName : undefined;
-            inputs["deploymentParameters"] = args ? args.deploymentParameters : undefined;
-            inputs["integrationServiceEnvironment"] = args ? args.integrationServiceEnvironment : undefined;
-            inputs["integrationServiceEnvironmentName"] = args ? args.integrationServiceEnvironmentName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["apiDefinitionUrl"] = undefined /*out*/;
-            inputs["apiDefinitions"] = undefined /*out*/;
-            inputs["backendService"] = undefined /*out*/;
-            inputs["capabilities"] = undefined /*out*/;
-            inputs["category"] = undefined /*out*/;
-            inputs["connectionParameters"] = undefined /*out*/;
-            inputs["generalInformation"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["policies"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["runtimeUrls"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiName"] = args ? args.apiName : undefined;
+            resourceInputs["deploymentParameters"] = args ? args.deploymentParameters : undefined;
+            resourceInputs["integrationServiceEnvironment"] = args ? args.integrationServiceEnvironment : undefined;
+            resourceInputs["integrationServiceEnvironmentName"] = args ? args.integrationServiceEnvironmentName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiDefinitionUrl"] = undefined /*out*/;
+            resourceInputs["apiDefinitions"] = undefined /*out*/;
+            resourceInputs["backendService"] = undefined /*out*/;
+            resourceInputs["capabilities"] = undefined /*out*/;
+            resourceInputs["category"] = undefined /*out*/;
+            resourceInputs["connectionParameters"] = undefined /*out*/;
+            resourceInputs["generalInformation"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policies"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["runtimeUrls"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["apiDefinitionUrl"] = undefined /*out*/;
-            inputs["apiDefinitions"] = undefined /*out*/;
-            inputs["backendService"] = undefined /*out*/;
-            inputs["capabilities"] = undefined /*out*/;
-            inputs["category"] = undefined /*out*/;
-            inputs["connectionParameters"] = undefined /*out*/;
-            inputs["deploymentParameters"] = undefined /*out*/;
-            inputs["generalInformation"] = undefined /*out*/;
-            inputs["integrationServiceEnvironment"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["policies"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["runtimeUrls"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiDefinitionUrl"] = undefined /*out*/;
+            resourceInputs["apiDefinitions"] = undefined /*out*/;
+            resourceInputs["backendService"] = undefined /*out*/;
+            resourceInputs["capabilities"] = undefined /*out*/;
+            resourceInputs["category"] = undefined /*out*/;
+            resourceInputs["connectionParameters"] = undefined /*out*/;
+            resourceInputs["deploymentParameters"] = undefined /*out*/;
+            resourceInputs["generalInformation"] = undefined /*out*/;
+            resourceInputs["integrationServiceEnvironment"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policies"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["runtimeUrls"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IntegrationServiceEnvironmentManagedApi.__pulumiType, name, inputs, opts);
+        super(IntegrationServiceEnvironmentManagedApi.__pulumiType, name, resourceInputs, opts);
     }
 }
 

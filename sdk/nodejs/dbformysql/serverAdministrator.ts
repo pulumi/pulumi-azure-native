@@ -69,7 +69,7 @@ export class ServerAdministrator extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.administratorType === undefined) && !opts.urn) {
@@ -90,28 +90,28 @@ export class ServerAdministrator extends pulumi.CustomResource {
             if ((!args || args.tenantId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            inputs["administratorType"] = args ? args.administratorType : undefined;
-            inputs["login"] = args ? args.login : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["sid"] = args ? args.sid : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["administratorType"] = args ? args.administratorType : undefined;
+            resourceInputs["login"] = args ? args.login : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["sid"] = args ? args.sid : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["administratorType"] = undefined /*out*/;
-            inputs["login"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sid"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["administratorType"] = undefined /*out*/;
+            resourceInputs["login"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sid"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:ServerAdministrator" }, { type: "azure-native:dbformysql/v20171201preview:ServerAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServerAdministrator.__pulumiType, name, inputs, opts);
+        super(ServerAdministrator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

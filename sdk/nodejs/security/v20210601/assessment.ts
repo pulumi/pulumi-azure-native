@@ -80,7 +80,7 @@ export class Assessment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceDetails === undefined) && !opts.urn) {
@@ -92,34 +92,34 @@ export class Assessment extends pulumi.CustomResource {
             if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            inputs["additionalData"] = args ? args.additionalData : undefined;
-            inputs["assessmentName"] = args ? args.assessmentName : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["partnersData"] = args ? args.partnersData : undefined;
-            inputs["resourceDetails"] = args ? args.resourceDetails : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["links"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["additionalData"] = args ? args.additionalData : undefined;
+            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["partnersData"] = args ? args.partnersData : undefined;
+            resourceInputs["resourceDetails"] = args ? args.resourceDetails : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["links"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["additionalData"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["links"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnersData"] = undefined /*out*/;
-            inputs["resourceDetails"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["additionalData"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["links"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnersData"] = undefined /*out*/;
+            resourceInputs["resourceDetails"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:Assessment" }, { type: "azure-native:security/v20190101preview:Assessment" }, { type: "azure-native:security/v20200101:Assessment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Assessment.__pulumiType, name, inputs, opts);
+        super(Assessment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

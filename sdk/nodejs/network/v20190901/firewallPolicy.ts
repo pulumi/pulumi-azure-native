@@ -88,45 +88,45 @@ export class FirewallPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FirewallPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["basePolicy"] = args ? args.basePolicy : undefined;
-            inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
-            inputs["childPolicies"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["firewalls"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["ruleGroups"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["basePolicy"] = args ? args.basePolicy : undefined;
+            resourceInputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
+            resourceInputs["childPolicies"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["firewalls"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["ruleGroups"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["basePolicy"] = undefined /*out*/;
-            inputs["childPolicies"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["firewalls"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["ruleGroups"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["threatIntelMode"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["basePolicy"] = undefined /*out*/;
+            resourceInputs["childPolicies"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["firewalls"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["ruleGroups"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["threatIntelMode"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:FirewallPolicy" }, { type: "azure-native:network/v20190601:FirewallPolicy" }, { type: "azure-native:network/v20190701:FirewallPolicy" }, { type: "azure-native:network/v20190801:FirewallPolicy" }, { type: "azure-native:network/v20191101:FirewallPolicy" }, { type: "azure-native:network/v20191201:FirewallPolicy" }, { type: "azure-native:network/v20200301:FirewallPolicy" }, { type: "azure-native:network/v20200401:FirewallPolicy" }, { type: "azure-native:network/v20200501:FirewallPolicy" }, { type: "azure-native:network/v20200601:FirewallPolicy" }, { type: "azure-native:network/v20200701:FirewallPolicy" }, { type: "azure-native:network/v20200801:FirewallPolicy" }, { type: "azure-native:network/v20201101:FirewallPolicy" }, { type: "azure-native:network/v20210201:FirewallPolicy" }, { type: "azure-native:network/v20210301:FirewallPolicy" }, { type: "azure-native:network/v20210501:FirewallPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FirewallPolicy.__pulumiType, name, inputs, opts);
+        super(FirewallPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

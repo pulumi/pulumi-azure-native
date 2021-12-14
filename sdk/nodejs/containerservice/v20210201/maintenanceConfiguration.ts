@@ -64,7 +64,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MaintenanceConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -73,27 +73,27 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["configName"] = args ? args.configName : undefined;
-            inputs["notAllowedTime"] = args ? args.notAllowedTime : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["timeInWeek"] = args ? args.timeInWeek : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configName"] = args ? args.configName : undefined;
+            resourceInputs["notAllowedTime"] = args ? args.notAllowedTime : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["timeInWeek"] = args ? args.timeInWeek : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["notAllowedTime"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["timeInWeek"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notAllowedTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["timeInWeek"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20201201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210301:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210501:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210701:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210801:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210901:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20211001:MaintenanceConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MaintenanceConfiguration.__pulumiType, name, inputs, opts);
+        super(MaintenanceConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -112,7 +112,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -124,50 +124,50 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["autoMitigate"] = (args ? args.autoMitigate : undefined) ?? false;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["createdWithApiVersion"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["autoMitigate"] = (args ? args.autoMitigate : undefined) ?? false;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdWithApiVersion"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["action"] = undefined /*out*/;
-            inputs["autoMitigate"] = undefined /*out*/;
-            inputs["createdWithApiVersion"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["action"] = undefined /*out*/;
+            resourceInputs["autoMitigate"] = undefined /*out*/;
+            resourceInputs["createdWithApiVersion"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-native:insights/v20200501preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20210201preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20210801:ScheduledQueryRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ScheduledQueryRule.__pulumiType, name, inputs, opts);
+        super(ScheduledQueryRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

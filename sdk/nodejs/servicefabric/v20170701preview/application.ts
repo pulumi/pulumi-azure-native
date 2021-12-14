@@ -92,7 +92,7 @@ export class Application extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -101,41 +101,41 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maximumNodes"] = (args ? args.maximumNodes : undefined) ?? 0;
-            inputs["metrics"] = args ? args.metrics : undefined;
-            inputs["minimumNodes"] = args ? args.minimumNodes : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["removeApplicationCapacity"] = args ? args.removeApplicationCapacity : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["typeName"] = args ? args.typeName : undefined;
-            inputs["typeVersion"] = args ? args.typeVersion : undefined;
-            inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maximumNodes"] = (args ? args.maximumNodes : undefined) ?? 0;
+            resourceInputs["metrics"] = args ? args.metrics : undefined;
+            resourceInputs["minimumNodes"] = args ? args.minimumNodes : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["removeApplicationCapacity"] = args ? args.removeApplicationCapacity : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["typeVersion"] = args ? args.typeVersion : undefined;
+            resourceInputs["upgradePolicy"] = args ? (args.upgradePolicy ? pulumi.output(args.upgradePolicy).apply(inputs.servicefabric.v20170701preview.applicationUpgradePolicyArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["maximumNodes"] = undefined /*out*/;
-            inputs["metrics"] = undefined /*out*/;
-            inputs["minimumNodes"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["removeApplicationCapacity"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["typeName"] = undefined /*out*/;
-            inputs["typeVersion"] = undefined /*out*/;
-            inputs["upgradePolicy"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maximumNodes"] = undefined /*out*/;
+            resourceInputs["metrics"] = undefined /*out*/;
+            resourceInputs["minimumNodes"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["removeApplicationCapacity"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["typeName"] = undefined /*out*/;
+            resourceInputs["typeVersion"] = undefined /*out*/;
+            resourceInputs["upgradePolicy"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicefabric:Application" }, { type: "azure-native:servicefabric/v20190301:Application" }, { type: "azure-native:servicefabric/v20190301preview:Application" }, { type: "azure-native:servicefabric/v20190601preview:Application" }, { type: "azure-native:servicefabric/v20191101preview:Application" }, { type: "azure-native:servicefabric/v20200301:Application" }, { type: "azure-native:servicefabric/v20201201preview:Application" }, { type: "azure-native:servicefabric/v20210601:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Application.__pulumiType, name, inputs, opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

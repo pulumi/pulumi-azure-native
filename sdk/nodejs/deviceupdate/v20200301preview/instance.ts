@@ -84,7 +84,7 @@ export class Instance extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -93,36 +93,36 @@ export class Instance extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["diagnosticStorageProperties"] = args ? args.diagnosticStorageProperties : undefined;
-            inputs["enableDiagnostics"] = args ? args.enableDiagnostics : undefined;
-            inputs["instanceName"] = args ? args.instanceName : undefined;
-            inputs["iotHubs"] = args ? args.iotHubs : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["diagnosticStorageProperties"] = args ? args.diagnosticStorageProperties : undefined;
+            resourceInputs["enableDiagnostics"] = args ? args.enableDiagnostics : undefined;
+            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
+            resourceInputs["iotHubs"] = args ? args.iotHubs : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accountName"] = undefined /*out*/;
-            inputs["diagnosticStorageProperties"] = undefined /*out*/;
-            inputs["enableDiagnostics"] = undefined /*out*/;
-            inputs["iotHubs"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = undefined /*out*/;
+            resourceInputs["diagnosticStorageProperties"] = undefined /*out*/;
+            resourceInputs["enableDiagnostics"] = undefined /*out*/;
+            resourceInputs["iotHubs"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate:Instance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Instance.__pulumiType, name, inputs, opts);
+        super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -99,7 +99,7 @@ export class Migration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MigrationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.targetDBServerName === undefined) && !opts.urn) {
@@ -111,59 +111,59 @@ export class Migration extends pulumi.CustomResource {
             if ((!args || args.targetDBServerSubscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetDBServerSubscriptionId'");
             }
-            inputs["dBsToMigrate"] = args ? args.dBsToMigrate : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["migrationName"] = args ? args.migrationName : undefined;
-            inputs["migrationResourceGroup"] = args ? args.migrationResourceGroup : undefined;
-            inputs["migrationWindowStartTimeInUtc"] = args ? args.migrationWindowStartTimeInUtc : undefined;
-            inputs["overwriteDBsInTarget"] = args ? args.overwriteDBsInTarget : undefined;
-            inputs["secretParameters"] = args ? args.secretParameters : undefined;
-            inputs["setupLogicalReplicationOnSourceDBIfNeeded"] = args ? args.setupLogicalReplicationOnSourceDBIfNeeded : undefined;
-            inputs["sourceDBServerResourceId"] = args ? args.sourceDBServerResourceId : undefined;
-            inputs["startDataMigration"] = args ? args.startDataMigration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetDBServerName"] = args ? args.targetDBServerName : undefined;
-            inputs["targetDBServerResourceGroupName"] = args ? args.targetDBServerResourceGroupName : undefined;
-            inputs["targetDBServerSubscriptionId"] = args ? args.targetDBServerSubscriptionId : undefined;
-            inputs["triggerCutover"] = args ? args.triggerCutover : undefined;
-            inputs["userAssignedIdentityResourceId"] = args ? args.userAssignedIdentityResourceId : undefined;
-            inputs["currentStatus"] = undefined /*out*/;
-            inputs["migrationDetailsLevel"] = undefined /*out*/;
-            inputs["migrationId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sourceDBServerMetadata"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["targetDBServerMetadata"] = undefined /*out*/;
-            inputs["targetDBServerResourceId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dBsToMigrate"] = args ? args.dBsToMigrate : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["migrationName"] = args ? args.migrationName : undefined;
+            resourceInputs["migrationResourceGroup"] = args ? args.migrationResourceGroup : undefined;
+            resourceInputs["migrationWindowStartTimeInUtc"] = args ? args.migrationWindowStartTimeInUtc : undefined;
+            resourceInputs["overwriteDBsInTarget"] = args ? args.overwriteDBsInTarget : undefined;
+            resourceInputs["secretParameters"] = args ? args.secretParameters : undefined;
+            resourceInputs["setupLogicalReplicationOnSourceDBIfNeeded"] = args ? args.setupLogicalReplicationOnSourceDBIfNeeded : undefined;
+            resourceInputs["sourceDBServerResourceId"] = args ? args.sourceDBServerResourceId : undefined;
+            resourceInputs["startDataMigration"] = args ? args.startDataMigration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetDBServerName"] = args ? args.targetDBServerName : undefined;
+            resourceInputs["targetDBServerResourceGroupName"] = args ? args.targetDBServerResourceGroupName : undefined;
+            resourceInputs["targetDBServerSubscriptionId"] = args ? args.targetDBServerSubscriptionId : undefined;
+            resourceInputs["triggerCutover"] = args ? args.triggerCutover : undefined;
+            resourceInputs["userAssignedIdentityResourceId"] = args ? args.userAssignedIdentityResourceId : undefined;
+            resourceInputs["currentStatus"] = undefined /*out*/;
+            resourceInputs["migrationDetailsLevel"] = undefined /*out*/;
+            resourceInputs["migrationId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sourceDBServerMetadata"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["targetDBServerMetadata"] = undefined /*out*/;
+            resourceInputs["targetDBServerResourceId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["currentStatus"] = undefined /*out*/;
-            inputs["dBsToMigrate"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["migrationDetailsLevel"] = undefined /*out*/;
-            inputs["migrationId"] = undefined /*out*/;
-            inputs["migrationName"] = undefined /*out*/;
-            inputs["migrationResourceGroup"] = undefined /*out*/;
-            inputs["migrationWindowStartTimeInUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["overwriteDBsInTarget"] = undefined /*out*/;
-            inputs["secretParameters"] = undefined /*out*/;
-            inputs["setupLogicalReplicationOnSourceDBIfNeeded"] = undefined /*out*/;
-            inputs["sourceDBServerMetadata"] = undefined /*out*/;
-            inputs["sourceDBServerResourceId"] = undefined /*out*/;
-            inputs["startDataMigration"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetDBServerMetadata"] = undefined /*out*/;
-            inputs["targetDBServerResourceId"] = undefined /*out*/;
-            inputs["triggerCutover"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userAssignedIdentityResourceId"] = undefined /*out*/;
+            resourceInputs["currentStatus"] = undefined /*out*/;
+            resourceInputs["dBsToMigrate"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["migrationDetailsLevel"] = undefined /*out*/;
+            resourceInputs["migrationId"] = undefined /*out*/;
+            resourceInputs["migrationName"] = undefined /*out*/;
+            resourceInputs["migrationResourceGroup"] = undefined /*out*/;
+            resourceInputs["migrationWindowStartTimeInUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["overwriteDBsInTarget"] = undefined /*out*/;
+            resourceInputs["secretParameters"] = undefined /*out*/;
+            resourceInputs["setupLogicalReplicationOnSourceDBIfNeeded"] = undefined /*out*/;
+            resourceInputs["sourceDBServerMetadata"] = undefined /*out*/;
+            resourceInputs["sourceDBServerResourceId"] = undefined /*out*/;
+            resourceInputs["startDataMigration"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetDBServerMetadata"] = undefined /*out*/;
+            resourceInputs["targetDBServerResourceId"] = undefined /*out*/;
+            resourceInputs["triggerCutover"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userAssignedIdentityResourceId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Migration.__pulumiType, name, inputs, opts);
+        super(Migration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

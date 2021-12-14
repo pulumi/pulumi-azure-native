@@ -108,7 +108,7 @@ export class Lab extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.autoShutdownProfile === undefined) && !opts.urn) {
@@ -126,48 +126,48 @@ export class Lab extends pulumi.CustomResource {
             if ((!args || args.virtualMachineProfile === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineProfile'");
             }
-            inputs["autoShutdownProfile"] = args ? args.autoShutdownProfile : undefined;
-            inputs["connectionProfile"] = args ? args.connectionProfile : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["labPlanId"] = args ? args.labPlanId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkProfile"] = args ? args.networkProfile : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rosterProfile"] = args ? args.rosterProfile : undefined;
-            inputs["securityProfile"] = args ? args.securityProfile : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoShutdownProfile"] = args ? (args.autoShutdownProfile ? pulumi.output(args.autoShutdownProfile).apply(inputs.labservices.v20211001preview.autoShutdownProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["connectionProfile"] = args ? (args.connectionProfile ? pulumi.output(args.connectionProfile).apply(inputs.labservices.v20211001preview.connectionProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["labPlanId"] = args ? args.labPlanId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rosterProfile"] = args ? args.rosterProfile : undefined;
+            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["virtualMachineProfile"] = args ? (args.virtualMachineProfile ? pulumi.output(args.virtualMachineProfile).apply(inputs.labservices.v20211001preview.virtualMachineProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["autoShutdownProfile"] = undefined /*out*/;
-            inputs["connectionProfile"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["labPlanId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkProfile"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["rosterProfile"] = undefined /*out*/;
-            inputs["securityProfile"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["title"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualMachineProfile"] = undefined /*out*/;
+            resourceInputs["autoShutdownProfile"] = undefined /*out*/;
+            resourceInputs["connectionProfile"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["labPlanId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["rosterProfile"] = undefined /*out*/;
+            resourceInputs["securityProfile"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachineProfile"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211115preview:Lab" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Lab.__pulumiType, name, inputs, opts);
+        super(Lab.__pulumiType, name, resourceInputs, opts);
     }
 }
 

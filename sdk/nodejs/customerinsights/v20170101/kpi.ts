@@ -128,7 +128,7 @@ export class Kpi extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KpiArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.calculationWindow === undefined) && !opts.urn) {
@@ -152,58 +152,58 @@ export class Kpi extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["aliases"] = args ? args.aliases : undefined;
-            inputs["calculationWindow"] = args ? args.calculationWindow : undefined;
-            inputs["calculationWindowFieldName"] = args ? args.calculationWindowFieldName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["entityType"] = args ? args.entityType : undefined;
-            inputs["entityTypeName"] = args ? args.entityTypeName : undefined;
-            inputs["expression"] = args ? args.expression : undefined;
-            inputs["extracts"] = args ? args.extracts : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["function"] = args ? args.function : undefined;
-            inputs["groupBy"] = args ? args.groupBy : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["kpiName"] = args ? args.kpiName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["thresHolds"] = args ? args.thresHolds : undefined;
-            inputs["unit"] = args ? args.unit : undefined;
-            inputs["groupByMetadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["participantProfilesMetadata"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aliases"] = args ? args.aliases : undefined;
+            resourceInputs["calculationWindow"] = args ? args.calculationWindow : undefined;
+            resourceInputs["calculationWindowFieldName"] = args ? args.calculationWindowFieldName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["entityType"] = args ? args.entityType : undefined;
+            resourceInputs["entityTypeName"] = args ? args.entityTypeName : undefined;
+            resourceInputs["expression"] = args ? args.expression : undefined;
+            resourceInputs["extracts"] = args ? args.extracts : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["function"] = args ? args.function : undefined;
+            resourceInputs["groupBy"] = args ? args.groupBy : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["kpiName"] = args ? args.kpiName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["thresHolds"] = args ? args.thresHolds : undefined;
+            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["groupByMetadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["participantProfilesMetadata"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["aliases"] = undefined /*out*/;
-            inputs["calculationWindow"] = undefined /*out*/;
-            inputs["calculationWindowFieldName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["entityType"] = undefined /*out*/;
-            inputs["entityTypeName"] = undefined /*out*/;
-            inputs["expression"] = undefined /*out*/;
-            inputs["extracts"] = undefined /*out*/;
-            inputs["filter"] = undefined /*out*/;
-            inputs["function"] = undefined /*out*/;
-            inputs["groupBy"] = undefined /*out*/;
-            inputs["groupByMetadata"] = undefined /*out*/;
-            inputs["kpiName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["participantProfilesMetadata"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["thresHolds"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["unit"] = undefined /*out*/;
+            resourceInputs["aliases"] = undefined /*out*/;
+            resourceInputs["calculationWindow"] = undefined /*out*/;
+            resourceInputs["calculationWindowFieldName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["entityType"] = undefined /*out*/;
+            resourceInputs["entityTypeName"] = undefined /*out*/;
+            resourceInputs["expression"] = undefined /*out*/;
+            resourceInputs["extracts"] = undefined /*out*/;
+            resourceInputs["filter"] = undefined /*out*/;
+            resourceInputs["function"] = undefined /*out*/;
+            resourceInputs["groupBy"] = undefined /*out*/;
+            resourceInputs["groupByMetadata"] = undefined /*out*/;
+            resourceInputs["kpiName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["participantProfilesMetadata"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["thresHolds"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["unit"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Kpi" }, { type: "azure-native:customerinsights/v20170426:Kpi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Kpi.__pulumiType, name, inputs, opts);
+        super(Kpi.__pulumiType, name, resourceInputs, opts);
     }
 }
 

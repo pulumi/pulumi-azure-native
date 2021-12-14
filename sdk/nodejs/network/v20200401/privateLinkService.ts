@@ -104,53 +104,53 @@ export class PrivateLinkService extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateLinkServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoApproval"] = args ? args.autoApproval : undefined;
-            inputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
-            inputs["fqdns"] = args ? args.fqdns : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            inputs["loadBalancerFrontendIpConfigurations"] = args ? args.loadBalancerFrontendIpConfigurations : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["visibility"] = args ? args.visibility : undefined;
-            inputs["alias"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoApproval"] = args ? args.autoApproval : undefined;
+            resourceInputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
+            resourceInputs["fqdns"] = args ? args.fqdns : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
+            resourceInputs["loadBalancerFrontendIpConfigurations"] = args ? args.loadBalancerFrontendIpConfigurations : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["alias"] = undefined /*out*/;
-            inputs["autoApproval"] = undefined /*out*/;
-            inputs["enableProxyProtocol"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["fqdns"] = undefined /*out*/;
-            inputs["ipConfigurations"] = undefined /*out*/;
-            inputs["loadBalancerFrontendIpConfigurations"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkInterfaces"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["visibility"] = undefined /*out*/;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["autoApproval"] = undefined /*out*/;
+            resourceInputs["enableProxyProtocol"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["fqdns"] = undefined /*out*/;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["loadBalancerFrontendIpConfigurations"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkInterfaces"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["visibility"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:PrivateLinkService" }, { type: "azure-native:network/v20190401:PrivateLinkService" }, { type: "azure-native:network/v20190601:PrivateLinkService" }, { type: "azure-native:network/v20190701:PrivateLinkService" }, { type: "azure-native:network/v20190801:PrivateLinkService" }, { type: "azure-native:network/v20190901:PrivateLinkService" }, { type: "azure-native:network/v20191101:PrivateLinkService" }, { type: "azure-native:network/v20191201:PrivateLinkService" }, { type: "azure-native:network/v20200301:PrivateLinkService" }, { type: "azure-native:network/v20200501:PrivateLinkService" }, { type: "azure-native:network/v20200601:PrivateLinkService" }, { type: "azure-native:network/v20200701:PrivateLinkService" }, { type: "azure-native:network/v20200801:PrivateLinkService" }, { type: "azure-native:network/v20201101:PrivateLinkService" }, { type: "azure-native:network/v20210201:PrivateLinkService" }, { type: "azure-native:network/v20210301:PrivateLinkService" }, { type: "azure-native:network/v20210501:PrivateLinkService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PrivateLinkService.__pulumiType, name, inputs, opts);
+        super(PrivateLinkService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

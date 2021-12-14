@@ -96,48 +96,48 @@ export class Sensor extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SensorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["sensorName"] = args ? args.sensorName : undefined;
-            inputs["sensorType"] = args ? args.sensorType : undefined;
-            inputs["tiAutomaticUpdates"] = args ? args.tiAutomaticUpdates : undefined;
-            inputs["zone"] = args ? args.zone : undefined;
-            inputs["connectivityTime"] = undefined /*out*/;
-            inputs["dynamicLearning"] = undefined /*out*/;
-            inputs["learningMode"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sensorStatus"] = undefined /*out*/;
-            inputs["sensorVersion"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tiStatus"] = undefined /*out*/;
-            inputs["tiVersion"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["sensorName"] = args ? args.sensorName : undefined;
+            resourceInputs["sensorType"] = args ? args.sensorType : undefined;
+            resourceInputs["tiAutomaticUpdates"] = args ? args.tiAutomaticUpdates : undefined;
+            resourceInputs["zone"] = args ? args.zone : undefined;
+            resourceInputs["connectivityTime"] = undefined /*out*/;
+            resourceInputs["dynamicLearning"] = undefined /*out*/;
+            resourceInputs["learningMode"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sensorStatus"] = undefined /*out*/;
+            resourceInputs["sensorVersion"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tiStatus"] = undefined /*out*/;
+            resourceInputs["tiVersion"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["connectivityTime"] = undefined /*out*/;
-            inputs["dynamicLearning"] = undefined /*out*/;
-            inputs["learningMode"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sensorStatus"] = undefined /*out*/;
-            inputs["sensorType"] = undefined /*out*/;
-            inputs["sensorVersion"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tiAutomaticUpdates"] = undefined /*out*/;
-            inputs["tiStatus"] = undefined /*out*/;
-            inputs["tiVersion"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["zone"] = undefined /*out*/;
+            resourceInputs["connectivityTime"] = undefined /*out*/;
+            resourceInputs["dynamicLearning"] = undefined /*out*/;
+            resourceInputs["learningMode"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sensorStatus"] = undefined /*out*/;
+            resourceInputs["sensorType"] = undefined /*out*/;
+            resourceInputs["sensorVersion"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tiAutomaticUpdates"] = undefined /*out*/;
+            resourceInputs["tiStatus"] = undefined /*out*/;
+            resourceInputs["tiVersion"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zone"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:iotsecurity:Sensor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Sensor.__pulumiType, name, inputs, opts);
+        super(Sensor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -92,7 +92,7 @@ export class Query extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: QueryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.body === undefined) && !opts.urn) {
@@ -107,41 +107,41 @@ export class Query extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["body"] = args ? args.body : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["queryPackName"] = args ? args.queryPackName : undefined;
-            inputs["related"] = args ? args.related : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["author"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["timeModified"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["queryPackName"] = args ? args.queryPackName : undefined;
+            resourceInputs["related"] = args ? args.related : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["author"] = undefined /*out*/;
-            inputs["body"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["related"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["timeModified"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["body"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["related"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:Query" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Query.__pulumiType, name, inputs, opts);
+        super(Query.__pulumiType, name, resourceInputs, opts);
     }
 }
 

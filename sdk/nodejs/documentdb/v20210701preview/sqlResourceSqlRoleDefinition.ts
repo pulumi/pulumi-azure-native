@@ -64,7 +64,7 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlResourceSqlRoleDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -73,27 +73,27 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["assignableScopes"] = args ? args.assignableScopes : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            inputs["roleName"] = args ? args.roleName : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["assignableScopes"] = args ? args.assignableScopes : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = undefined /*out*/;
         } else {
-            inputs["assignableScopes"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["permissions"] = undefined /*out*/;
-            inputs["roleName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["assignableScopes"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["permissions"] = undefined /*out*/;
+            resourceInputs["roleName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210415:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210515:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20210615:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20211015:SqlResourceSqlRoleDefinition" }, { type: "azure-native:documentdb/v20211015preview:SqlResourceSqlRoleDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlResourceSqlRoleDefinition.__pulumiType, name, inputs, opts);
+        super(SqlResourceSqlRoleDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

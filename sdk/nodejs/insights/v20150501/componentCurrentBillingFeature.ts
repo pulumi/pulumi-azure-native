@@ -52,7 +52,7 @@ export class ComponentCurrentBillingFeature extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ComponentCurrentBillingFeatureArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -61,20 +61,20 @@ export class ComponentCurrentBillingFeature extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["currentBillingFeatures"] = args ? args.currentBillingFeatures : undefined;
-            inputs["dataVolumeCap"] = args ? args.dataVolumeCap : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["currentBillingFeatures"] = args ? args.currentBillingFeatures : undefined;
+            resourceInputs["dataVolumeCap"] = args ? args.dataVolumeCap : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
         } else {
-            inputs["currentBillingFeatures"] = undefined /*out*/;
-            inputs["dataVolumeCap"] = undefined /*out*/;
+            resourceInputs["currentBillingFeatures"] = undefined /*out*/;
+            resourceInputs["dataVolumeCap"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ComponentCurrentBillingFeature" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ComponentCurrentBillingFeature.__pulumiType, name, inputs, opts);
+        super(ComponentCurrentBillingFeature.__pulumiType, name, resourceInputs, opts);
     }
 }
 

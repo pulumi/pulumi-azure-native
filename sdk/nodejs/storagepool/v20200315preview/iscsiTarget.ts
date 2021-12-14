@@ -68,7 +68,7 @@ export class IscsiTarget extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IscsiTargetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.diskPoolName === undefined) && !opts.urn) {
@@ -80,29 +80,29 @@ export class IscsiTarget extends pulumi.CustomResource {
             if ((!args || args.tpgs === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tpgs'");
             }
-            inputs["diskPoolName"] = args ? args.diskPoolName : undefined;
-            inputs["iscsiTargetName"] = args ? args.iscsiTargetName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["targetIqn"] = args ? args.targetIqn : undefined;
-            inputs["tpgs"] = args ? args.tpgs : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["diskPoolName"] = args ? args.diskPoolName : undefined;
+            resourceInputs["iscsiTargetName"] = args ? args.iscsiTargetName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["targetIqn"] = args ? args.targetIqn : undefined;
+            resourceInputs["tpgs"] = args ? args.tpgs : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["targetIqn"] = undefined /*out*/;
-            inputs["tpgs"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["targetIqn"] = undefined /*out*/;
+            resourceInputs["tpgs"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagepool:IscsiTarget" }, { type: "azure-native:storagepool/v20210401preview:IscsiTarget" }, { type: "azure-native:storagepool/v20210801:IscsiTarget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IscsiTarget.__pulumiType, name, inputs, opts);
+        super(IscsiTarget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

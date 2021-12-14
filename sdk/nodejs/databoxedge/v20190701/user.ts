@@ -60,7 +60,7 @@ export class User extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -69,24 +69,24 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["encryptedPassword"] = args ? args.encryptedPassword : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareAccessRights"] = args ? args.shareAccessRights : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["encryptedPassword"] = args ? args.encryptedPassword : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareAccessRights"] = args ? args.shareAccessRights : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["encryptedPassword"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["shareAccessRights"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["encryptedPassword"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["shareAccessRights"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:User" }, { type: "azure-native:databoxedge/v20190301:User" }, { type: "azure-native:databoxedge/v20190801:User" }, { type: "azure-native:databoxedge/v20200501preview:User" }, { type: "azure-native:databoxedge/v20200901:User" }, { type: "azure-native:databoxedge/v20200901preview:User" }, { type: "azure-native:databoxedge/v20201201:User" }, { type: "azure-native:databoxedge/v20210201:User" }, { type: "azure-native:databoxedge/v20210201preview:User" }, { type: "azure-native:databoxedge/v20210601:User" }, { type: "azure-native:databoxedge/v20210601preview:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(User.__pulumiType, name, inputs, opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -101,7 +101,7 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MicrosoftSecurityIncidentCreationAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -122,45 +122,45 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["displayNamesExcludeFilter"] = args ? args.displayNamesExcludeFilter : undefined;
-            inputs["displayNamesFilter"] = args ? args.displayNamesFilter : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["kind"] = "MicrosoftSecurityIncidentCreation";
-            inputs["productFilter"] = args ? args.productFilter : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleId"] = args ? args.ruleId : undefined;
-            inputs["severitiesFilter"] = args ? args.severitiesFilter : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["lastModifiedUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["displayNamesExcludeFilter"] = args ? args.displayNamesExcludeFilter : undefined;
+            resourceInputs["displayNamesFilter"] = args ? args.displayNamesFilter : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["kind"] = "MicrosoftSecurityIncidentCreation";
+            resourceInputs["productFilter"] = args ? args.productFilter : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleId"] = args ? args.ruleId : undefined;
+            resourceInputs["severitiesFilter"] = args ? args.severitiesFilter : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["lastModifiedUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["alertRuleTemplateName"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["displayNamesExcludeFilter"] = undefined /*out*/;
-            inputs["displayNamesFilter"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastModifiedUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["productFilter"] = undefined /*out*/;
-            inputs["severitiesFilter"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alertRuleTemplateName"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["displayNamesExcludeFilter"] = undefined /*out*/;
+            resourceInputs["displayNamesFilter"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastModifiedUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["productFilter"] = undefined /*out*/;
+            resourceInputs["severitiesFilter"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MicrosoftSecurityIncidentCreationAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:MicrosoftSecurityIncidentCreationAlertRule" }, { type: "azure-native:securityinsights/v20200101:MicrosoftSecurityIncidentCreationAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:MicrosoftSecurityIncidentCreationAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MicrosoftSecurityIncidentCreationAlertRule.__pulumiType, name, inputs, opts);
+        super(MicrosoftSecurityIncidentCreationAlertRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

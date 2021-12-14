@@ -61,7 +61,7 @@ export class BackupInstance extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BackupInstanceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -70,25 +70,25 @@ export class BackupInstance extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            inputs["backupInstanceName"] = args ? args.backupInstanceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backupInstanceName"] = args ? args.backupInstanceName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dataprotection/v20210101:BackupInstance" }, { type: "azure-native:dataprotection/v20210201preview:BackupInstance" }, { type: "azure-native:dataprotection/v20210601preview:BackupInstance" }, { type: "azure-native:dataprotection/v20210701:BackupInstance" }, { type: "azure-native:dataprotection/v20211001preview:BackupInstance" }, { type: "azure-native:dataprotection/v20211201preview:BackupInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BackupInstance.__pulumiType, name, inputs, opts);
+        super(BackupInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

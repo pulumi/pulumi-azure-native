@@ -59,7 +59,7 @@ export class SyncGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SyncGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -68,25 +68,25 @@ export class SyncGroup extends pulumi.CustomResource {
             if ((!args || args.storageSyncServiceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["syncGroupStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["syncGroupStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueId"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["syncGroupStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["syncGroupStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagesync:SyncGroup" }, { type: "azure-native:storagesync/v20170605preview:SyncGroup" }, { type: "azure-native:storagesync/v20180402:SyncGroup" }, { type: "azure-native:storagesync/v20180701:SyncGroup" }, { type: "azure-native:storagesync/v20181001:SyncGroup" }, { type: "azure-native:storagesync/v20190201:SyncGroup" }, { type: "azure-native:storagesync/v20190301:SyncGroup" }, { type: "azure-native:storagesync/v20190601:SyncGroup" }, { type: "azure-native:storagesync/v20191001:SyncGroup" }, { type: "azure-native:storagesync/v20200301:SyncGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SyncGroup.__pulumiType, name, inputs, opts);
+        super(SyncGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

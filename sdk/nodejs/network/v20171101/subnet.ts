@@ -80,7 +80,7 @@ export class Subnet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -89,36 +89,36 @@ export class Subnet extends pulumi.CustomResource {
             if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceNavigationLinks"] = args ? args.resourceNavigationLinks : undefined;
-            inputs["routeTable"] = args ? args.routeTable : undefined;
-            inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
-            inputs["subnetName"] = args ? args.subnetName : undefined;
-            inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            inputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceNavigationLinks"] = args ? args.resourceNavigationLinks : undefined;
+            resourceInputs["routeTable"] = args ? args.routeTable : undefined;
+            resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
+            resourceInputs["subnetName"] = args ? args.subnetName : undefined;
+            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
         } else {
-            inputs["addressPrefix"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ipConfigurations"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkSecurityGroup"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceNavigationLinks"] = undefined /*out*/;
-            inputs["routeTable"] = undefined /*out*/;
-            inputs["serviceEndpoints"] = undefined /*out*/;
+            resourceInputs["addressPrefix"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkSecurityGroup"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceNavigationLinks"] = undefined /*out*/;
+            resourceInputs["routeTable"] = undefined /*out*/;
+            resourceInputs["serviceEndpoints"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:Subnet" }, { type: "azure-native:network/v20150501preview:Subnet" }, { type: "azure-native:network/v20150615:Subnet" }, { type: "azure-native:network/v20160330:Subnet" }, { type: "azure-native:network/v20160601:Subnet" }, { type: "azure-native:network/v20160901:Subnet" }, { type: "azure-native:network/v20161201:Subnet" }, { type: "azure-native:network/v20170301:Subnet" }, { type: "azure-native:network/v20170601:Subnet" }, { type: "azure-native:network/v20170801:Subnet" }, { type: "azure-native:network/v20170901:Subnet" }, { type: "azure-native:network/v20171001:Subnet" }, { type: "azure-native:network/v20180101:Subnet" }, { type: "azure-native:network/v20180201:Subnet" }, { type: "azure-native:network/v20180401:Subnet" }, { type: "azure-native:network/v20180601:Subnet" }, { type: "azure-native:network/v20180701:Subnet" }, { type: "azure-native:network/v20180801:Subnet" }, { type: "azure-native:network/v20181001:Subnet" }, { type: "azure-native:network/v20181101:Subnet" }, { type: "azure-native:network/v20181201:Subnet" }, { type: "azure-native:network/v20190201:Subnet" }, { type: "azure-native:network/v20190401:Subnet" }, { type: "azure-native:network/v20190601:Subnet" }, { type: "azure-native:network/v20190701:Subnet" }, { type: "azure-native:network/v20190801:Subnet" }, { type: "azure-native:network/v20190901:Subnet" }, { type: "azure-native:network/v20191101:Subnet" }, { type: "azure-native:network/v20191201:Subnet" }, { type: "azure-native:network/v20200301:Subnet" }, { type: "azure-native:network/v20200401:Subnet" }, { type: "azure-native:network/v20200501:Subnet" }, { type: "azure-native:network/v20200601:Subnet" }, { type: "azure-native:network/v20200701:Subnet" }, { type: "azure-native:network/v20200801:Subnet" }, { type: "azure-native:network/v20201101:Subnet" }, { type: "azure-native:network/v20210201:Subnet" }, { type: "azure-native:network/v20210301:Subnet" }, { type: "azure-native:network/v20210501:Subnet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Subnet.__pulumiType, name, inputs, opts);
+        super(Subnet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

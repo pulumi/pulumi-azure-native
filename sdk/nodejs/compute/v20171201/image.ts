@@ -72,36 +72,36 @@ export class Image extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["imageName"] = args ? args.imageName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceVirtualMachine"] = args ? args.sourceVirtualMachine : undefined;
-            inputs["storageProfile"] = args ? args.storageProfile : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceVirtualMachine"] = args ? args.sourceVirtualMachine : undefined;
+            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sourceVirtualMachine"] = undefined /*out*/;
-            inputs["storageProfile"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourceVirtualMachine"] = undefined /*out*/;
+            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:Image" }, { type: "azure-native:compute/v20160430preview:Image" }, { type: "azure-native:compute/v20170330:Image" }, { type: "azure-native:compute/v20180401:Image" }, { type: "azure-native:compute/v20180601:Image" }, { type: "azure-native:compute/v20181001:Image" }, { type: "azure-native:compute/v20190301:Image" }, { type: "azure-native:compute/v20190701:Image" }, { type: "azure-native:compute/v20191201:Image" }, { type: "azure-native:compute/v20200601:Image" }, { type: "azure-native:compute/v20201201:Image" }, { type: "azure-native:compute/v20210301:Image" }, { type: "azure-native:compute/v20210401:Image" }, { type: "azure-native:compute/v20210701:Image" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Image.__pulumiType, name, inputs, opts);
+        super(Image.__pulumiType, name, resourceInputs, opts);
     }
 }
 

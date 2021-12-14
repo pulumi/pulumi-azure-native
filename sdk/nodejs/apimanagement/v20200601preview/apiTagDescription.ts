@@ -71,7 +71,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiTagDescriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -83,32 +83,32 @@ export class ApiTagDescription extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["externalDocsDescription"] = args ? args.externalDocsDescription : undefined;
-            inputs["externalDocsUrl"] = args ? args.externalDocsUrl : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["tagDescriptionId"] = args ? args.tagDescriptionId : undefined;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tagId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["externalDocsDescription"] = args ? args.externalDocsDescription : undefined;
+            resourceInputs["externalDocsUrl"] = args ? args.externalDocsUrl : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["tagDescriptionId"] = args ? args.tagDescriptionId : undefined;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tagId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["externalDocsDescription"] = undefined /*out*/;
-            inputs["externalDocsUrl"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tagId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["externalDocsDescription"] = undefined /*out*/;
+            resourceInputs["externalDocsUrl"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tagId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiTagDescription" }, { type: "azure-native:apimanagement/v20170301:ApiTagDescription" }, { type: "azure-native:apimanagement/v20180101:ApiTagDescription" }, { type: "azure-native:apimanagement/v20180601preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20190101:ApiTagDescription" }, { type: "azure-native:apimanagement/v20191201:ApiTagDescription" }, { type: "azure-native:apimanagement/v20191201preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20201201:ApiTagDescription" }, { type: "azure-native:apimanagement/v20210101preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20210401preview:ApiTagDescription" }, { type: "azure-native:apimanagement/v20210801:ApiTagDescription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApiTagDescription.__pulumiType, name, inputs, opts);
+        super(ApiTagDescription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

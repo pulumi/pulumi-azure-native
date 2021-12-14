@@ -100,7 +100,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NamespaceAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -112,46 +112,46 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["claimType"] = undefined /*out*/;
-            inputs["claimValue"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["keyName"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["modifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["primaryKey"] = undefined /*out*/;
-            inputs["revision"] = undefined /*out*/;
-            inputs["rights"] = undefined /*out*/;
-            inputs["secondaryKey"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["claimType"] = undefined /*out*/;
+            resourceInputs["claimValue"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["keyName"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["modifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["primaryKey"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["rights"] = undefined /*out*/;
+            resourceInputs["secondaryKey"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["claimType"] = undefined /*out*/;
-            inputs["claimValue"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["keyName"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["modifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["primaryKey"] = undefined /*out*/;
-            inputs["revision"] = undefined /*out*/;
-            inputs["rights"] = undefined /*out*/;
-            inputs["secondaryKey"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["claimType"] = undefined /*out*/;
+            resourceInputs["claimValue"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["keyName"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["modifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["primaryKey"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["rights"] = undefined /*out*/;
+            resourceInputs["secondaryKey"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs:NamespaceAuthorizationRule" }, { type: "azure-native:notificationhubs/v20160301:NamespaceAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NamespaceAuthorizationRule.__pulumiType, name, inputs, opts);
+        super(NamespaceAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

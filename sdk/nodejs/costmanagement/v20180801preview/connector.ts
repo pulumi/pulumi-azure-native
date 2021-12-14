@@ -96,49 +96,49 @@ export class Connector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["connectorName"] = args ? args.connectorName : undefined;
-            inputs["credentialsKey"] = args ? args.credentialsKey : undefined;
-            inputs["credentialsSecret"] = args ? args.credentialsSecret : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["reportId"] = args ? args.reportId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["collection"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["modifiedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["providerAccountId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
+            resourceInputs["credentialsKey"] = args ? args.credentialsKey : undefined;
+            resourceInputs["credentialsSecret"] = args ? args.credentialsSecret : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["reportId"] = args ? args.reportId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["collection"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["modifiedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["providerAccountId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["collection"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["credentialsKey"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["modifiedOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["providerAccountId"] = undefined /*out*/;
-            inputs["reportId"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["collection"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["credentialsKey"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["modifiedOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["providerAccountId"] = undefined /*out*/;
+            resourceInputs["reportId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:Connector" }, { type: "azure-native:costmanagement/v20190301preview:Connector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Connector.__pulumiType, name, inputs, opts);
+        super(Connector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

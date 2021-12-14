@@ -64,7 +64,7 @@ export class AccessPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -73,27 +73,27 @@ export class AccessPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["authentication"] = args ? args.authentication : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["authentication"] = args ? args.authentication : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authentication"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authentication"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer:AccessPolicy" }, { type: "azure-native:videoanalyzer/v20211101preview:AccessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AccessPolicy.__pulumiType, name, inputs, opts);
+        super(AccessPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

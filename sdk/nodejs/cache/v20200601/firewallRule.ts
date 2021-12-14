@@ -59,7 +59,7 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.cacheName === undefined) && !opts.urn) {
@@ -74,25 +74,25 @@ export class FirewallRule extends pulumi.CustomResource {
             if ((!args || args.startIP === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startIP'");
             }
-            inputs["cacheName"] = args ? args.cacheName : undefined;
-            inputs["endIP"] = args ? args.endIP : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["startIP"] = args ? args.startIP : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
+            resourceInputs["endIP"] = args ? args.endIP : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["startIP"] = args ? args.startIP : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["endIP"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["startIP"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["endIP"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["startIP"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cache:FirewallRule" }, { type: "azure-native:cache/v20160401:FirewallRule" }, { type: "azure-native:cache/v20170201:FirewallRule" }, { type: "azure-native:cache/v20171001:FirewallRule" }, { type: "azure-native:cache/v20180301:FirewallRule" }, { type: "azure-native:cache/v20190701:FirewallRule" }, { type: "azure-native:cache/v20201201:FirewallRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FirewallRule.__pulumiType, name, inputs, opts);
+        super(FirewallRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

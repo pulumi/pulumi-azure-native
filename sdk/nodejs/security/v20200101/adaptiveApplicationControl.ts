@@ -76,44 +76,44 @@ export class AdaptiveApplicationControl extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AdaptiveApplicationControlArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ascLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ascLocation'");
             }
-            inputs["ascLocation"] = args ? args.ascLocation : undefined;
-            inputs["enforcementMode"] = args ? args.enforcementMode : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["pathRecommendations"] = args ? args.pathRecommendations : undefined;
-            inputs["protectionMode"] = args ? args.protectionMode : undefined;
-            inputs["vmRecommendations"] = args ? args.vmRecommendations : undefined;
-            inputs["configurationStatus"] = undefined /*out*/;
-            inputs["issues"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["recommendationStatus"] = undefined /*out*/;
-            inputs["sourceSystem"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["ascLocation"] = args ? args.ascLocation : undefined;
+            resourceInputs["enforcementMode"] = args ? args.enforcementMode : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["pathRecommendations"] = args ? args.pathRecommendations : undefined;
+            resourceInputs["protectionMode"] = args ? args.protectionMode : undefined;
+            resourceInputs["vmRecommendations"] = args ? args.vmRecommendations : undefined;
+            resourceInputs["configurationStatus"] = undefined /*out*/;
+            resourceInputs["issues"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["recommendationStatus"] = undefined /*out*/;
+            resourceInputs["sourceSystem"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["configurationStatus"] = undefined /*out*/;
-            inputs["enforcementMode"] = undefined /*out*/;
-            inputs["issues"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["pathRecommendations"] = undefined /*out*/;
-            inputs["protectionMode"] = undefined /*out*/;
-            inputs["recommendationStatus"] = undefined /*out*/;
-            inputs["sourceSystem"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vmRecommendations"] = undefined /*out*/;
+            resourceInputs["configurationStatus"] = undefined /*out*/;
+            resourceInputs["enforcementMode"] = undefined /*out*/;
+            resourceInputs["issues"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pathRecommendations"] = undefined /*out*/;
+            resourceInputs["protectionMode"] = undefined /*out*/;
+            resourceInputs["recommendationStatus"] = undefined /*out*/;
+            resourceInputs["sourceSystem"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vmRecommendations"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:AdaptiveApplicationControl" }, { type: "azure-native:security/v20150601preview:AdaptiveApplicationControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AdaptiveApplicationControl.__pulumiType, name, inputs, opts);
+        super(AdaptiveApplicationControl.__pulumiType, name, resourceInputs, opts);
     }
 }
 

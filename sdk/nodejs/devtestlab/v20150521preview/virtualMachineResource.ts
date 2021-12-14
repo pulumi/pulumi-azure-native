@@ -140,7 +140,7 @@ export class VirtualMachineResource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualMachineResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labName === undefined) && !opts.urn) {
@@ -149,65 +149,65 @@ export class VirtualMachineResource extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["artifactDeploymentStatus"] = args ? args.artifactDeploymentStatus : undefined;
-            inputs["artifacts"] = args ? args.artifacts : undefined;
-            inputs["computeId"] = args ? args.computeId : undefined;
-            inputs["createdByUser"] = args ? args.createdByUser : undefined;
-            inputs["createdByUserId"] = args ? args.createdByUserId : undefined;
-            inputs["customImageId"] = args ? args.customImageId : undefined;
-            inputs["disallowPublicIpAddress"] = args ? args.disallowPublicIpAddress : undefined;
-            inputs["fqdn"] = args ? args.fqdn : undefined;
-            inputs["galleryImageReference"] = args ? args.galleryImageReference : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["isAuthenticationWithSshKey"] = args ? args.isAuthenticationWithSshKey : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["labSubnetName"] = args ? args.labSubnetName : undefined;
-            inputs["labVirtualNetworkId"] = args ? args.labVirtualNetworkId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["ownerObjectId"] = args ? args.ownerObjectId : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["size"] = args ? args.size : undefined;
-            inputs["sshKey"] = args ? args.sshKey : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["artifactDeploymentStatus"] = args ? args.artifactDeploymentStatus : undefined;
+            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
+            resourceInputs["computeId"] = args ? args.computeId : undefined;
+            resourceInputs["createdByUser"] = args ? args.createdByUser : undefined;
+            resourceInputs["createdByUserId"] = args ? args.createdByUserId : undefined;
+            resourceInputs["customImageId"] = args ? args.customImageId : undefined;
+            resourceInputs["disallowPublicIpAddress"] = args ? args.disallowPublicIpAddress : undefined;
+            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
+            resourceInputs["galleryImageReference"] = args ? args.galleryImageReference : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["isAuthenticationWithSshKey"] = args ? args.isAuthenticationWithSshKey : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["labSubnetName"] = args ? args.labSubnetName : undefined;
+            resourceInputs["labVirtualNetworkId"] = args ? args.labVirtualNetworkId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["ownerObjectId"] = args ? args.ownerObjectId : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["sshKey"] = args ? args.sshKey : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
         } else {
-            inputs["artifactDeploymentStatus"] = undefined /*out*/;
-            inputs["artifacts"] = undefined /*out*/;
-            inputs["computeId"] = undefined /*out*/;
-            inputs["createdByUser"] = undefined /*out*/;
-            inputs["createdByUserId"] = undefined /*out*/;
-            inputs["customImageId"] = undefined /*out*/;
-            inputs["disallowPublicIpAddress"] = undefined /*out*/;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["galleryImageReference"] = undefined /*out*/;
-            inputs["isAuthenticationWithSshKey"] = undefined /*out*/;
-            inputs["labSubnetName"] = undefined /*out*/;
-            inputs["labVirtualNetworkId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notes"] = undefined /*out*/;
-            inputs["osType"] = undefined /*out*/;
-            inputs["ownerObjectId"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["size"] = undefined /*out*/;
-            inputs["sshKey"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["artifactDeploymentStatus"] = undefined /*out*/;
+            resourceInputs["artifacts"] = undefined /*out*/;
+            resourceInputs["computeId"] = undefined /*out*/;
+            resourceInputs["createdByUser"] = undefined /*out*/;
+            resourceInputs["createdByUserId"] = undefined /*out*/;
+            resourceInputs["customImageId"] = undefined /*out*/;
+            resourceInputs["disallowPublicIpAddress"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["galleryImageReference"] = undefined /*out*/;
+            resourceInputs["isAuthenticationWithSshKey"] = undefined /*out*/;
+            resourceInputs["labSubnetName"] = undefined /*out*/;
+            resourceInputs["labVirtualNetworkId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notes"] = undefined /*out*/;
+            resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["ownerObjectId"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["sshKey"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:VirtualMachineResource" }, { type: "azure-native:devtestlab/v20160515:VirtualMachineResource" }, { type: "azure-native:devtestlab/v20180915:VirtualMachineResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualMachineResource.__pulumiType, name, inputs, opts);
+        super(VirtualMachineResource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

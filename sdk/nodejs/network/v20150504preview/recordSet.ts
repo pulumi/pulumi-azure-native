@@ -100,7 +100,7 @@ export class RecordSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RecordSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.recordType === undefined) && !opts.urn) {
@@ -112,46 +112,46 @@ export class RecordSet extends pulumi.CustomResource {
             if ((!args || args.zoneName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'zoneName'");
             }
-            inputs["aAAARecords"] = args ? args.aAAARecords : undefined;
-            inputs["aRecords"] = args ? args.aRecords : undefined;
-            inputs["cNAMERecord"] = args ? args.cNAMERecord : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["mXRecords"] = args ? args.mXRecords : undefined;
-            inputs["nSRecords"] = args ? args.nSRecords : undefined;
-            inputs["pTRRecords"] = args ? args.pTRRecords : undefined;
-            inputs["recordType"] = args ? args.recordType : undefined;
-            inputs["relativeRecordSetName"] = args ? args.relativeRecordSetName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sOARecord"] = args ? args.sOARecord : undefined;
-            inputs["sRVRecords"] = args ? args.sRVRecords : undefined;
-            inputs["tXTRecords"] = args ? args.tXTRecords : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["zoneName"] = args ? args.zoneName : undefined;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aAAARecords"] = args ? args.aAAARecords : undefined;
+            resourceInputs["aRecords"] = args ? args.aRecords : undefined;
+            resourceInputs["cNAMERecord"] = args ? args.cNAMERecord : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["mXRecords"] = args ? args.mXRecords : undefined;
+            resourceInputs["nSRecords"] = args ? args.nSRecords : undefined;
+            resourceInputs["pTRRecords"] = args ? args.pTRRecords : undefined;
+            resourceInputs["recordType"] = args ? args.recordType : undefined;
+            resourceInputs["relativeRecordSetName"] = args ? args.relativeRecordSetName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sOARecord"] = args ? args.sOARecord : undefined;
+            resourceInputs["sRVRecords"] = args ? args.sRVRecords : undefined;
+            resourceInputs["tXTRecords"] = args ? args.tXTRecords : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["zoneName"] = args ? args.zoneName : undefined;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["aAAARecords"] = undefined /*out*/;
-            inputs["aRecords"] = undefined /*out*/;
-            inputs["cNAMERecord"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["mXRecords"] = undefined /*out*/;
-            inputs["nSRecords"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["pTRRecords"] = undefined /*out*/;
-            inputs["sOARecord"] = undefined /*out*/;
-            inputs["sRVRecords"] = undefined /*out*/;
-            inputs["tXTRecords"] = undefined /*out*/;
-            inputs["ttl"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aAAARecords"] = undefined /*out*/;
+            resourceInputs["aRecords"] = undefined /*out*/;
+            resourceInputs["cNAMERecord"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["mXRecords"] = undefined /*out*/;
+            resourceInputs["nSRecords"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pTRRecords"] = undefined /*out*/;
+            resourceInputs["sOARecord"] = undefined /*out*/;
+            resourceInputs["sRVRecords"] = undefined /*out*/;
+            resourceInputs["tXTRecords"] = undefined /*out*/;
+            resourceInputs["ttl"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:RecordSet" }, { type: "azure-native:network/v20160401:RecordSet" }, { type: "azure-native:network/v20170901:RecordSet" }, { type: "azure-native:network/v20171001:RecordSet" }, { type: "azure-native:network/v20180301preview:RecordSet" }, { type: "azure-native:network/v20180501:RecordSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RecordSet.__pulumiType, name, inputs, opts);
+        super(RecordSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

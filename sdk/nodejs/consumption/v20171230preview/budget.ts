@@ -80,7 +80,7 @@ export class Budget extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BudgetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.amount === undefined) && !opts.urn) {
@@ -95,32 +95,32 @@ export class Budget extends pulumi.CustomResource {
             if ((!args || args.timePeriod === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timePeriod'");
             }
-            inputs["amount"] = args ? args.amount : undefined;
-            inputs["category"] = args ? args.category : undefined;
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
-            inputs["timeGrain"] = args ? args.timeGrain : undefined;
-            inputs["timePeriod"] = args ? args.timePeriod : undefined;
-            inputs["currentSpend"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["amount"] = args ? args.amount : undefined;
+            resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["timeGrain"] = args ? args.timeGrain : undefined;
+            resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["currentSpend"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["amount"] = undefined /*out*/;
-            inputs["category"] = undefined /*out*/;
-            inputs["currentSpend"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notifications"] = undefined /*out*/;
-            inputs["timeGrain"] = undefined /*out*/;
-            inputs["timePeriod"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["amount"] = undefined /*out*/;
+            resourceInputs["category"] = undefined /*out*/;
+            resourceInputs["currentSpend"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notifications"] = undefined /*out*/;
+            resourceInputs["timeGrain"] = undefined /*out*/;
+            resourceInputs["timePeriod"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:consumption/v20180131:Budget" }, { type: "azure-native:consumption/v20180331:Budget" }, { type: "azure-native:consumption/v20180630:Budget" }, { type: "azure-native:consumption/v20180831:Budget" }, { type: "azure-native:consumption/v20181001:Budget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Budget.__pulumiType, name, inputs, opts);
+        super(Budget.__pulumiType, name, resourceInputs, opts);
     }
 }
 

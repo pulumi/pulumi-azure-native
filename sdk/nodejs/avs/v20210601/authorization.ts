@@ -63,7 +63,7 @@ export class Authorization extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
@@ -72,27 +72,27 @@ export class Authorization extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizationName"] = args ? args.authorizationName : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["expressRouteAuthorizationId"] = undefined /*out*/;
-            inputs["expressRouteAuthorizationKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationName"] = args ? args.authorizationName : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["expressRouteAuthorizationId"] = undefined /*out*/;
+            resourceInputs["expressRouteAuthorizationKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["expressRouteAuthorizationId"] = undefined /*out*/;
-            inputs["expressRouteAuthorizationKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["expressRouteAuthorizationId"] = undefined /*out*/;
+            resourceInputs["expressRouteAuthorizationKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:Authorization" }, { type: "azure-native:avs/v20200320:Authorization" }, { type: "azure-native:avs/v20200717preview:Authorization" }, { type: "azure-native:avs/v20210101preview:Authorization" }, { type: "azure-native:avs/v20211201:Authorization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Authorization.__pulumiType, name, inputs, opts);
+        super(Authorization.__pulumiType, name, resourceInputs, opts);
     }
 }
 

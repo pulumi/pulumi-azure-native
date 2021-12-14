@@ -68,7 +68,7 @@ export class Datastore extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatastoreArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -80,30 +80,30 @@ export class Datastore extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["datastoreName"] = args ? args.datastoreName : undefined;
-            inputs["diskPoolVolume"] = args ? args.diskPoolVolume : undefined;
-            inputs["netAppVolume"] = args ? args.netAppVolume : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
+            resourceInputs["diskPoolVolume"] = args ? (args.diskPoolVolume ? pulumi.output(args.diskPoolVolume).apply(inputs.avs.v20211201.diskPoolVolumeArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["netAppVolume"] = args ? args.netAppVolume : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["diskPoolVolume"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["netAppVolume"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["diskPoolVolume"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["netAppVolume"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:Datastore" }, { type: "azure-native:avs/v20210101preview:Datastore" }, { type: "azure-native:avs/v20210601:Datastore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Datastore.__pulumiType, name, inputs, opts);
+        super(Datastore.__pulumiType, name, resourceInputs, opts);
     }
 }
 

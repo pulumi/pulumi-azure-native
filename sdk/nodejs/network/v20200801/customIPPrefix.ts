@@ -92,47 +92,47 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CustomIPPrefixArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["cidr"] = args ? args.cidr : undefined;
-            inputs["commissionedState"] = args ? args.commissionedState : undefined;
-            inputs["customIpPrefixName"] = args ? args.customIpPrefixName : undefined;
-            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicIpPrefixes"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cidr"] = args ? args.cidr : undefined;
+            resourceInputs["commissionedState"] = args ? args.commissionedState : undefined;
+            resourceInputs["customIpPrefixName"] = args ? args.customIpPrefixName : undefined;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIpPrefixes"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["cidr"] = undefined /*out*/;
-            inputs["commissionedState"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["extendedLocation"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicIpPrefixes"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["zones"] = undefined /*out*/;
+            resourceInputs["cidr"] = undefined /*out*/;
+            resourceInputs["commissionedState"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIpPrefixes"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:CustomIPPrefix" }, { type: "azure-native:network/v20200601:CustomIPPrefix" }, { type: "azure-native:network/v20200701:CustomIPPrefix" }, { type: "azure-native:network/v20201101:CustomIPPrefix" }, { type: "azure-native:network/v20210201:CustomIPPrefix" }, { type: "azure-native:network/v20210301:CustomIPPrefix" }, { type: "azure-native:network/v20210501:CustomIPPrefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CustomIPPrefix.__pulumiType, name, inputs, opts);
+        super(CustomIPPrefix.__pulumiType, name, resourceInputs, opts);
     }
 }
 

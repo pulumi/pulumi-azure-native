@@ -140,7 +140,7 @@ export class Redis extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RedisArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -149,63 +149,63 @@ export class Redis extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["enableNonSslPort"] = (args ? args.enableNonSslPort : undefined) ?? false;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            inputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
-            inputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shardCount"] = args ? args.shardCount : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["staticIP"] = args ? args.staticIP : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenantSettings"] = args ? args.tenantSettings : undefined;
-            inputs["zones"] = args ? args.zones : undefined;
-            inputs["accessKeys"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["instances"] = undefined /*out*/;
-            inputs["linkedServers"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["redisVersion"] = undefined /*out*/;
-            inputs["sslPort"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["enableNonSslPort"] = (args ? args.enableNonSslPort : undefined) ?? false;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
+            resourceInputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
+            resourceInputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["staticIP"] = args ? args.staticIP : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenantSettings"] = args ? args.tenantSettings : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["accessKeys"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["instances"] = undefined /*out*/;
+            resourceInputs["linkedServers"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["redisVersion"] = undefined /*out*/;
+            resourceInputs["sslPort"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accessKeys"] = undefined /*out*/;
-            inputs["enableNonSslPort"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["instances"] = undefined /*out*/;
-            inputs["linkedServers"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["minimumTlsVersion"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["redisConfiguration"] = undefined /*out*/;
-            inputs["redisVersion"] = undefined /*out*/;
-            inputs["replicasPerMaster"] = undefined /*out*/;
-            inputs["shardCount"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["sslPort"] = undefined /*out*/;
-            inputs["staticIP"] = undefined /*out*/;
-            inputs["subnetId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tenantSettings"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["zones"] = undefined /*out*/;
+            resourceInputs["accessKeys"] = undefined /*out*/;
+            resourceInputs["enableNonSslPort"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["instances"] = undefined /*out*/;
+            resourceInputs["linkedServers"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["minimumTlsVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["redisConfiguration"] = undefined /*out*/;
+            resourceInputs["redisVersion"] = undefined /*out*/;
+            resourceInputs["replicasPerMaster"] = undefined /*out*/;
+            resourceInputs["shardCount"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["sslPort"] = undefined /*out*/;
+            resourceInputs["staticIP"] = undefined /*out*/;
+            resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantSettings"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cache:Redis" }, { type: "azure-native:cache/v20150801:Redis" }, { type: "azure-native:cache/v20160401:Redis" }, { type: "azure-native:cache/v20170201:Redis" }, { type: "azure-native:cache/v20171001:Redis" }, { type: "azure-native:cache/v20180301:Redis" }, { type: "azure-native:cache/v20190701:Redis" }, { type: "azure-native:cache/v20201201:Redis" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Redis.__pulumiType, name, inputs, opts);
+        super(Redis.__pulumiType, name, resourceInputs, opts);
     }
 }
 

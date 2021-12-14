@@ -80,40 +80,40 @@ export class Domain extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
-            inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["metricResourceId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
+            resourceInputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["metricResourceId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["inputSchema"] = undefined /*out*/;
-            inputs["inputSchemaMapping"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["metricResourceId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["inputSchema"] = undefined /*out*/;
+            resourceInputs["inputSchemaMapping"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["metricResourceId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:Domain" }, { type: "azure-native:eventgrid/v20180915preview:Domain" }, { type: "azure-native:eventgrid/v20190201preview:Domain" }, { type: "azure-native:eventgrid/v20190601:Domain" }, { type: "azure-native:eventgrid/v20200401preview:Domain" }, { type: "azure-native:eventgrid/v20200601:Domain" }, { type: "azure-native:eventgrid/v20201015preview:Domain" }, { type: "azure-native:eventgrid/v20210601preview:Domain" }, { type: "azure-native:eventgrid/v20211201:Domain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Domain.__pulumiType, name, inputs, opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

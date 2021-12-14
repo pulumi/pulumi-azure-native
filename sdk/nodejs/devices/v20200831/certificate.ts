@@ -60,7 +60,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -69,25 +69,25 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devices:Certificate" }, { type: "azure-native:devices/v20170701:Certificate" }, { type: "azure-native:devices/v20180122:Certificate" }, { type: "azure-native:devices/v20180401:Certificate" }, { type: "azure-native:devices/v20181201preview:Certificate" }, { type: "azure-native:devices/v20190322:Certificate" }, { type: "azure-native:devices/v20190322preview:Certificate" }, { type: "azure-native:devices/v20190701preview:Certificate" }, { type: "azure-native:devices/v20191104:Certificate" }, { type: "azure-native:devices/v20200301:Certificate" }, { type: "azure-native:devices/v20200401:Certificate" }, { type: "azure-native:devices/v20200615:Certificate" }, { type: "azure-native:devices/v20200710preview:Certificate" }, { type: "azure-native:devices/v20200801:Certificate" }, { type: "azure-native:devices/v20200831preview:Certificate" }, { type: "azure-native:devices/v20210201preview:Certificate" }, { type: "azure-native:devices/v20210303preview:Certificate" }, { type: "azure-native:devices/v20210331:Certificate" }, { type: "azure-native:devices/v20210701:Certificate" }, { type: "azure-native:devices/v20210701preview:Certificate" }, { type: "azure-native:devices/v20210702:Certificate" }, { type: "azure-native:devices/v20210702preview:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Certificate.__pulumiType, name, inputs, opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

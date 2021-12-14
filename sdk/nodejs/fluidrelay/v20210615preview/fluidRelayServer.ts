@@ -80,39 +80,39 @@ export class FluidRelayServer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FluidRelayServerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroup === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["fluidRelayEndpoints"] = undefined /*out*/;
-            inputs["frsTenantId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["fluidRelayEndpoints"] = undefined /*out*/;
+            resourceInputs["frsTenantId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["fluidRelayEndpoints"] = undefined /*out*/;
-            inputs["frsTenantId"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["fluidRelayEndpoints"] = undefined /*out*/;
+            resourceInputs["frsTenantId"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:fluidrelay:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20210312preview:FluidRelayServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FluidRelayServer.__pulumiType, name, inputs, opts);
+        super(FluidRelayServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

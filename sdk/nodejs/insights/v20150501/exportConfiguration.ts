@@ -119,7 +119,7 @@ export class ExportConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExportConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -128,57 +128,57 @@ export class ExportConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["destinationAccountId"] = args ? args.destinationAccountId : undefined;
-            inputs["destinationAddress"] = args ? args.destinationAddress : undefined;
-            inputs["destinationStorageLocationId"] = args ? args.destinationStorageLocationId : undefined;
-            inputs["destinationStorageSubscriptionId"] = args ? args.destinationStorageSubscriptionId : undefined;
-            inputs["destinationType"] = args ? args.destinationType : undefined;
-            inputs["exportId"] = args ? args.exportId : undefined;
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["notificationQueueEnabled"] = args ? args.notificationQueueEnabled : undefined;
-            inputs["notificationQueueUri"] = args ? args.notificationQueueUri : undefined;
-            inputs["recordTypes"] = args ? args.recordTypes : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["containerName"] = undefined /*out*/;
-            inputs["exportStatus"] = undefined /*out*/;
-            inputs["instrumentationKey"] = undefined /*out*/;
-            inputs["isUserEnabled"] = undefined /*out*/;
-            inputs["lastGapTime"] = undefined /*out*/;
-            inputs["lastSuccessTime"] = undefined /*out*/;
-            inputs["lastUserUpdate"] = undefined /*out*/;
-            inputs["permanentErrorReason"] = undefined /*out*/;
-            inputs["resourceGroup"] = undefined /*out*/;
-            inputs["storageName"] = undefined /*out*/;
-            inputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["destinationAccountId"] = args ? args.destinationAccountId : undefined;
+            resourceInputs["destinationAddress"] = args ? args.destinationAddress : undefined;
+            resourceInputs["destinationStorageLocationId"] = args ? args.destinationStorageLocationId : undefined;
+            resourceInputs["destinationStorageSubscriptionId"] = args ? args.destinationStorageSubscriptionId : undefined;
+            resourceInputs["destinationType"] = args ? args.destinationType : undefined;
+            resourceInputs["exportId"] = args ? args.exportId : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["notificationQueueEnabled"] = args ? args.notificationQueueEnabled : undefined;
+            resourceInputs["notificationQueueUri"] = args ? args.notificationQueueUri : undefined;
+            resourceInputs["recordTypes"] = args ? args.recordTypes : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["containerName"] = undefined /*out*/;
+            resourceInputs["exportStatus"] = undefined /*out*/;
+            resourceInputs["instrumentationKey"] = undefined /*out*/;
+            resourceInputs["isUserEnabled"] = undefined /*out*/;
+            resourceInputs["lastGapTime"] = undefined /*out*/;
+            resourceInputs["lastSuccessTime"] = undefined /*out*/;
+            resourceInputs["lastUserUpdate"] = undefined /*out*/;
+            resourceInputs["permanentErrorReason"] = undefined /*out*/;
+            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["storageName"] = undefined /*out*/;
+            resourceInputs["subscriptionId"] = undefined /*out*/;
         } else {
-            inputs["applicationName"] = undefined /*out*/;
-            inputs["containerName"] = undefined /*out*/;
-            inputs["destinationAccountId"] = undefined /*out*/;
-            inputs["destinationStorageLocationId"] = undefined /*out*/;
-            inputs["destinationStorageSubscriptionId"] = undefined /*out*/;
-            inputs["destinationType"] = undefined /*out*/;
-            inputs["exportId"] = undefined /*out*/;
-            inputs["exportStatus"] = undefined /*out*/;
-            inputs["instrumentationKey"] = undefined /*out*/;
-            inputs["isUserEnabled"] = undefined /*out*/;
-            inputs["lastGapTime"] = undefined /*out*/;
-            inputs["lastSuccessTime"] = undefined /*out*/;
-            inputs["lastUserUpdate"] = undefined /*out*/;
-            inputs["notificationQueueEnabled"] = undefined /*out*/;
-            inputs["permanentErrorReason"] = undefined /*out*/;
-            inputs["recordTypes"] = undefined /*out*/;
-            inputs["resourceGroup"] = undefined /*out*/;
-            inputs["storageName"] = undefined /*out*/;
-            inputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["containerName"] = undefined /*out*/;
+            resourceInputs["destinationAccountId"] = undefined /*out*/;
+            resourceInputs["destinationStorageLocationId"] = undefined /*out*/;
+            resourceInputs["destinationStorageSubscriptionId"] = undefined /*out*/;
+            resourceInputs["destinationType"] = undefined /*out*/;
+            resourceInputs["exportId"] = undefined /*out*/;
+            resourceInputs["exportStatus"] = undefined /*out*/;
+            resourceInputs["instrumentationKey"] = undefined /*out*/;
+            resourceInputs["isUserEnabled"] = undefined /*out*/;
+            resourceInputs["lastGapTime"] = undefined /*out*/;
+            resourceInputs["lastSuccessTime"] = undefined /*out*/;
+            resourceInputs["lastUserUpdate"] = undefined /*out*/;
+            resourceInputs["notificationQueueEnabled"] = undefined /*out*/;
+            resourceInputs["permanentErrorReason"] = undefined /*out*/;
+            resourceInputs["recordTypes"] = undefined /*out*/;
+            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["storageName"] = undefined /*out*/;
+            resourceInputs["subscriptionId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ExportConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ExportConfiguration.__pulumiType, name, inputs, opts);
+        super(ExportConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

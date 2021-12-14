@@ -72,7 +72,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clientId === undefined) && !opts.urn) {
@@ -90,31 +90,31 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["metadataEndpoint"] = args ? args.metadataEndpoint : undefined;
-            inputs["opid"] = args ? args.opid : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["metadataEndpoint"] = args ? args.metadataEndpoint : undefined;
+            resourceInputs["opid"] = args ? args.opid : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["clientId"] = undefined /*out*/;
-            inputs["clientSecret"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["metadataEndpoint"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clientId"] = undefined /*out*/;
+            resourceInputs["clientSecret"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["metadataEndpoint"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20170301:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20180101:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20180601preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20190101:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20200601preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20201201:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210101preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210401preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210801:OpenIdConnectProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(OpenIdConnectProvider.__pulumiType, name, inputs, opts);
+        super(OpenIdConnectProvider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

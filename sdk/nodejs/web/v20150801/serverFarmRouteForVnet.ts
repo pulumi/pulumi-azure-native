@@ -81,7 +81,7 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerFarmRouteForVnetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -93,34 +93,34 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
             if ((!args || args.vnetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vnetName'");
             }
-            inputs["endAddress"] = args ? args.endAddress : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeName"] = args ? args.routeName : undefined;
-            inputs["routeType"] = args ? args.routeType : undefined;
-            inputs["startAddress"] = args ? args.startAddress : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vnetName"] = args ? args.vnetName : undefined;
+            resourceInputs["endAddress"] = args ? args.endAddress : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routeName"] = args ? args.routeName : undefined;
+            resourceInputs["routeType"] = args ? args.routeType : undefined;
+            resourceInputs["startAddress"] = args ? args.startAddress : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vnetName"] = args ? args.vnetName : undefined;
         } else {
-            inputs["endAddress"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["routeType"] = undefined /*out*/;
-            inputs["startAddress"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["endAddress"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["routeType"] = undefined /*out*/;
+            resourceInputs["startAddress"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20160901:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20180201:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20190801:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20200601:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20200901:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20201001:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20201201:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20210101:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20210115:ServerFarmRouteForVnet" }, { type: "azure-native:web/v20210201:ServerFarmRouteForVnet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServerFarmRouteForVnet.__pulumiType, name, inputs, opts);
+        super(ServerFarmRouteForVnet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

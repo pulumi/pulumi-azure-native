@@ -81,7 +81,7 @@ export class KustoTableDataSetMapping extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KustoTableDataSetMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -102,36 +102,36 @@ export class KustoTableDataSetMapping extends pulumi.CustomResource {
             if ((!args || args.shareSubscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["dataSetId"] = args ? args.dataSetId : undefined;
-            inputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
-            inputs["kind"] = "KustoTable";
-            inputs["kustoClusterResourceId"] = args ? args.kustoClusterResourceId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            inputs["dataSetMappingStatus"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
+            resourceInputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
+            resourceInputs["kind"] = "KustoTable";
+            resourceInputs["kustoClusterResourceId"] = args ? args.kustoClusterResourceId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+            resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["dataSetMappingStatus"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["kustoClusterResourceId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["kustoClusterResourceId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:KustoTableDataSetMapping" }, { type: "azure-native:datashare/v20181101preview:KustoTableDataSetMapping" }, { type: "azure-native:datashare/v20191101:KustoTableDataSetMapping" }, { type: "azure-native:datashare/v20200901:KustoTableDataSetMapping" }, { type: "azure-native:datashare/v20201001preview:KustoTableDataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(KustoTableDataSetMapping.__pulumiType, name, inputs, opts);
+        super(KustoTableDataSetMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -104,53 +104,53 @@ export class NetworkInterface extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            inputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
-            inputs["enableIPForwarding"] = args ? args.enableIPForwarding : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["macAddress"] = args ? args.macAddress : undefined;
-            inputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
-            inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            inputs["primary"] = args ? args.primary : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualMachine"] = args ? args.virtualMachine : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
+            resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
+            resourceInputs["enableIPForwarding"] = args ? args.enableIPForwarding : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["macAddress"] = args ? args.macAddress : undefined;
+            resourceInputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
+            resourceInputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
+            resourceInputs["primary"] = args ? args.primary : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGuid"] = args ? args.resourceGuid : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualMachine"] = args ? args.virtualMachine : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dnsSettings"] = undefined /*out*/;
-            inputs["enableAcceleratedNetworking"] = undefined /*out*/;
-            inputs["enableIPForwarding"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ipConfigurations"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["macAddress"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkSecurityGroup"] = undefined /*out*/;
-            inputs["primary"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualMachine"] = undefined /*out*/;
+            resourceInputs["dnsSettings"] = undefined /*out*/;
+            resourceInputs["enableAcceleratedNetworking"] = undefined /*out*/;
+            resourceInputs["enableIPForwarding"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ipConfigurations"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["macAddress"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkSecurityGroup"] = undefined /*out*/;
+            resourceInputs["primary"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachine"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkInterface" }, { type: "azure-native:network/v20150501preview:NetworkInterface" }, { type: "azure-native:network/v20150615:NetworkInterface" }, { type: "azure-native:network/v20160330:NetworkInterface" }, { type: "azure-native:network/v20160601:NetworkInterface" }, { type: "azure-native:network/v20160901:NetworkInterface" }, { type: "azure-native:network/v20161201:NetworkInterface" }, { type: "azure-native:network/v20170301:NetworkInterface" }, { type: "azure-native:network/v20170601:NetworkInterface" }, { type: "azure-native:network/v20170901:NetworkInterface" }, { type: "azure-native:network/v20171001:NetworkInterface" }, { type: "azure-native:network/v20171101:NetworkInterface" }, { type: "azure-native:network/v20180101:NetworkInterface" }, { type: "azure-native:network/v20180201:NetworkInterface" }, { type: "azure-native:network/v20180401:NetworkInterface" }, { type: "azure-native:network/v20180601:NetworkInterface" }, { type: "azure-native:network/v20180701:NetworkInterface" }, { type: "azure-native:network/v20180801:NetworkInterface" }, { type: "azure-native:network/v20181001:NetworkInterface" }, { type: "azure-native:network/v20181101:NetworkInterface" }, { type: "azure-native:network/v20181201:NetworkInterface" }, { type: "azure-native:network/v20190201:NetworkInterface" }, { type: "azure-native:network/v20190401:NetworkInterface" }, { type: "azure-native:network/v20190601:NetworkInterface" }, { type: "azure-native:network/v20190701:NetworkInterface" }, { type: "azure-native:network/v20190801:NetworkInterface" }, { type: "azure-native:network/v20190901:NetworkInterface" }, { type: "azure-native:network/v20191101:NetworkInterface" }, { type: "azure-native:network/v20191201:NetworkInterface" }, { type: "azure-native:network/v20200301:NetworkInterface" }, { type: "azure-native:network/v20200401:NetworkInterface" }, { type: "azure-native:network/v20200501:NetworkInterface" }, { type: "azure-native:network/v20200601:NetworkInterface" }, { type: "azure-native:network/v20200701:NetworkInterface" }, { type: "azure-native:network/v20200801:NetworkInterface" }, { type: "azure-native:network/v20201101:NetworkInterface" }, { type: "azure-native:network/v20210201:NetworkInterface" }, { type: "azure-native:network/v20210301:NetworkInterface" }, { type: "azure-native:network/v20210501:NetworkInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NetworkInterface.__pulumiType, name, inputs, opts);
+        super(NetworkInterface.__pulumiType, name, resourceInputs, opts);
     }
 }
 

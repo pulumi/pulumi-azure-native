@@ -176,7 +176,7 @@ export class AgentPool extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AgentPoolArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -185,83 +185,83 @@ export class AgentPool extends pulumi.CustomResource {
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            inputs["count"] = args ? args.count : undefined;
-            inputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
-            inputs["enableEncryptionAtHost"] = args ? args.enableEncryptionAtHost : undefined;
-            inputs["enableNodePublicIP"] = args ? args.enableNodePublicIP : undefined;
-            inputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
-            inputs["kubeletDiskType"] = args ? args.kubeletDiskType : undefined;
-            inputs["linuxOSConfig"] = args ? args.linuxOSConfig : undefined;
-            inputs["maxCount"] = args ? args.maxCount : undefined;
-            inputs["maxPods"] = args ? args.maxPods : undefined;
-            inputs["minCount"] = args ? args.minCount : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["nodeLabels"] = args ? args.nodeLabels : undefined;
-            inputs["nodePublicIPPrefixID"] = args ? args.nodePublicIPPrefixID : undefined;
-            inputs["nodeTaints"] = args ? args.nodeTaints : undefined;
-            inputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
-            inputs["osDiskSizeGB"] = args ? args.osDiskSizeGB : undefined;
-            inputs["osDiskType"] = args ? args.osDiskType : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["podSubnetID"] = args ? args.podSubnetID : undefined;
-            inputs["proximityPlacementGroupID"] = args ? args.proximityPlacementGroupID : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["scaleSetEvictionPolicy"] = args ? args.scaleSetEvictionPolicy : undefined;
-            inputs["scaleSetPriority"] = args ? args.scaleSetPriority : undefined;
-            inputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
-            inputs["vmSize"] = args ? args.vmSize : undefined;
-            inputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["nodeImageVersion"] = undefined /*out*/;
-            inputs["powerState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
+            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
+            resourceInputs["count"] = args ? args.count : undefined;
+            resourceInputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
+            resourceInputs["enableEncryptionAtHost"] = args ? args.enableEncryptionAtHost : undefined;
+            resourceInputs["enableNodePublicIP"] = args ? args.enableNodePublicIP : undefined;
+            resourceInputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
+            resourceInputs["kubeletDiskType"] = args ? args.kubeletDiskType : undefined;
+            resourceInputs["linuxOSConfig"] = args ? args.linuxOSConfig : undefined;
+            resourceInputs["maxCount"] = args ? args.maxCount : undefined;
+            resourceInputs["maxPods"] = args ? args.maxPods : undefined;
+            resourceInputs["minCount"] = args ? args.minCount : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["nodeLabels"] = args ? args.nodeLabels : undefined;
+            resourceInputs["nodePublicIPPrefixID"] = args ? args.nodePublicIPPrefixID : undefined;
+            resourceInputs["nodeTaints"] = args ? args.nodeTaints : undefined;
+            resourceInputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
+            resourceInputs["osDiskSizeGB"] = args ? args.osDiskSizeGB : undefined;
+            resourceInputs["osDiskType"] = args ? args.osDiskType : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["podSubnetID"] = args ? args.podSubnetID : undefined;
+            resourceInputs["proximityPlacementGroupID"] = args ? args.proximityPlacementGroupID : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["scaleSetEvictionPolicy"] = args ? args.scaleSetEvictionPolicy : undefined;
+            resourceInputs["scaleSetPriority"] = args ? args.scaleSetPriority : undefined;
+            resourceInputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
+            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodeImageVersion"] = undefined /*out*/;
+            resourceInputs["powerState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["availabilityZones"] = undefined /*out*/;
-            inputs["count"] = undefined /*out*/;
-            inputs["enableAutoScaling"] = undefined /*out*/;
-            inputs["enableEncryptionAtHost"] = undefined /*out*/;
-            inputs["enableNodePublicIP"] = undefined /*out*/;
-            inputs["kubeletConfig"] = undefined /*out*/;
-            inputs["kubeletDiskType"] = undefined /*out*/;
-            inputs["linuxOSConfig"] = undefined /*out*/;
-            inputs["maxCount"] = undefined /*out*/;
-            inputs["maxPods"] = undefined /*out*/;
-            inputs["minCount"] = undefined /*out*/;
-            inputs["mode"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nodeImageVersion"] = undefined /*out*/;
-            inputs["nodeLabels"] = undefined /*out*/;
-            inputs["nodePublicIPPrefixID"] = undefined /*out*/;
-            inputs["nodeTaints"] = undefined /*out*/;
-            inputs["orchestratorVersion"] = undefined /*out*/;
-            inputs["osDiskSizeGB"] = undefined /*out*/;
-            inputs["osDiskType"] = undefined /*out*/;
-            inputs["osType"] = undefined /*out*/;
-            inputs["podSubnetID"] = undefined /*out*/;
-            inputs["powerState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["proximityPlacementGroupID"] = undefined /*out*/;
-            inputs["scaleSetEvictionPolicy"] = undefined /*out*/;
-            inputs["scaleSetPriority"] = undefined /*out*/;
-            inputs["spotMaxPrice"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["upgradeSettings"] = undefined /*out*/;
-            inputs["vmSize"] = undefined /*out*/;
-            inputs["vnetSubnetID"] = undefined /*out*/;
+            resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["count"] = undefined /*out*/;
+            resourceInputs["enableAutoScaling"] = undefined /*out*/;
+            resourceInputs["enableEncryptionAtHost"] = undefined /*out*/;
+            resourceInputs["enableNodePublicIP"] = undefined /*out*/;
+            resourceInputs["kubeletConfig"] = undefined /*out*/;
+            resourceInputs["kubeletDiskType"] = undefined /*out*/;
+            resourceInputs["linuxOSConfig"] = undefined /*out*/;
+            resourceInputs["maxCount"] = undefined /*out*/;
+            resourceInputs["maxPods"] = undefined /*out*/;
+            resourceInputs["minCount"] = undefined /*out*/;
+            resourceInputs["mode"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodeImageVersion"] = undefined /*out*/;
+            resourceInputs["nodeLabels"] = undefined /*out*/;
+            resourceInputs["nodePublicIPPrefixID"] = undefined /*out*/;
+            resourceInputs["nodeTaints"] = undefined /*out*/;
+            resourceInputs["orchestratorVersion"] = undefined /*out*/;
+            resourceInputs["osDiskSizeGB"] = undefined /*out*/;
+            resourceInputs["osDiskType"] = undefined /*out*/;
+            resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["podSubnetID"] = undefined /*out*/;
+            resourceInputs["powerState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["proximityPlacementGroupID"] = undefined /*out*/;
+            resourceInputs["scaleSetEvictionPolicy"] = undefined /*out*/;
+            resourceInputs["scaleSetPriority"] = undefined /*out*/;
+            resourceInputs["spotMaxPrice"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["upgradeSettings"] = undefined /*out*/;
+            resourceInputs["vmSize"] = undefined /*out*/;
+            resourceInputs["vnetSubnetID"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice:AgentPool" }, { type: "azure-native:containerservice/v20190201:AgentPool" }, { type: "azure-native:containerservice/v20190401:AgentPool" }, { type: "azure-native:containerservice/v20190601:AgentPool" }, { type: "azure-native:containerservice/v20190801:AgentPool" }, { type: "azure-native:containerservice/v20191001:AgentPool" }, { type: "azure-native:containerservice/v20191101:AgentPool" }, { type: "azure-native:containerservice/v20200101:AgentPool" }, { type: "azure-native:containerservice/v20200201:AgentPool" }, { type: "azure-native:containerservice/v20200301:AgentPool" }, { type: "azure-native:containerservice/v20200401:AgentPool" }, { type: "azure-native:containerservice/v20200601:AgentPool" }, { type: "azure-native:containerservice/v20200701:AgentPool" }, { type: "azure-native:containerservice/v20200901:AgentPool" }, { type: "azure-native:containerservice/v20201101:AgentPool" }, { type: "azure-native:containerservice/v20201201:AgentPool" }, { type: "azure-native:containerservice/v20210301:AgentPool" }, { type: "azure-native:containerservice/v20210501:AgentPool" }, { type: "azure-native:containerservice/v20210701:AgentPool" }, { type: "azure-native:containerservice/v20210801:AgentPool" }, { type: "azure-native:containerservice/v20210901:AgentPool" }, { type: "azure-native:containerservice/v20211001:AgentPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AgentPool.__pulumiType, name, inputs, opts);
+        super(AgentPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

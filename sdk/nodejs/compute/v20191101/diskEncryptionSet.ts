@@ -76,38 +76,38 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["activeKey"] = args ? args.activeKey : undefined;
-            inputs["diskEncryptionSetName"] = args ? args.diskEncryptionSetName : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["previousKeys"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["activeKey"] = args ? args.activeKey : undefined;
+            resourceInputs["diskEncryptionSetName"] = args ? args.diskEncryptionSetName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["previousKeys"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["activeKey"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["previousKeys"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["activeKey"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["previousKeys"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:DiskEncryptionSet" }, { type: "azure-native:compute/v20190701:DiskEncryptionSet" }, { type: "azure-native:compute/v20200501:DiskEncryptionSet" }, { type: "azure-native:compute/v20200630:DiskEncryptionSet" }, { type: "azure-native:compute/v20200930:DiskEncryptionSet" }, { type: "azure-native:compute/v20201201:DiskEncryptionSet" }, { type: "azure-native:compute/v20210401:DiskEncryptionSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DiskEncryptionSet.__pulumiType, name, inputs, opts);
+        super(DiskEncryptionSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

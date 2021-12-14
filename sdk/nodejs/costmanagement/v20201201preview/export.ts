@@ -80,7 +80,7 @@ export class Export extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExportArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.definition === undefined) && !opts.urn) {
@@ -92,34 +92,34 @@ export class Export extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["definition"] = args ? args.definition : undefined;
-            inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["exportName"] = args ? args.exportName : undefined;
-            inputs["format"] = args ? args.format : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["nextRunTimeEstimate"] = undefined /*out*/;
-            inputs["runHistory"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["exportName"] = args ? args.exportName : undefined;
+            resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextRunTimeEstimate"] = undefined /*out*/;
+            resourceInputs["runHistory"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["definition"] = undefined /*out*/;
-            inputs["deliveryInfo"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["format"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nextRunTimeEstimate"] = undefined /*out*/;
-            inputs["runHistory"] = undefined /*out*/;
-            inputs["schedule"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["definition"] = undefined /*out*/;
+            resourceInputs["deliveryInfo"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["format"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextRunTimeEstimate"] = undefined /*out*/;
+            resourceInputs["runHistory"] = undefined /*out*/;
+            resourceInputs["schedule"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:Export" }, { type: "azure-native:costmanagement/v20190101:Export" }, { type: "azure-native:costmanagement/v20190901:Export" }, { type: "azure-native:costmanagement/v20191001:Export" }, { type: "azure-native:costmanagement/v20191101:Export" }, { type: "azure-native:costmanagement/v20200601:Export" }, { type: "azure-native:costmanagement/v20210101:Export" }, { type: "azure-native:costmanagement/v20211001:Export" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Export.__pulumiType, name, inputs, opts);
+        super(Export.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -96,7 +96,7 @@ export class FlowLog extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
@@ -111,44 +111,44 @@ export class FlowLog extends pulumi.CustomResource {
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["flowAnalyticsConfiguration"] = args ? args.flowAnalyticsConfiguration : undefined;
-            inputs["flowLogName"] = args ? args.flowLogName : undefined;
-            inputs["format"] = args ? args.format : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
-            inputs["storageId"] = args ? args.storageId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["targetResourceGuid"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["flowAnalyticsConfiguration"] = args ? args.flowAnalyticsConfiguration : undefined;
+            resourceInputs["flowLogName"] = args ? args.flowLogName : undefined;
+            resourceInputs["format"] = args ? (args.format ? pulumi.output(args.format).apply(inputs.network.v20210201.flowLogFormatParametersArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionPolicy"] = args ? (args.retentionPolicy ? pulumi.output(args.retentionPolicy).apply(inputs.network.v20210201.retentionPolicyParametersArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["storageId"] = args ? args.storageId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["targetResourceGuid"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["enabled"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["flowAnalyticsConfiguration"] = undefined /*out*/;
-            inputs["format"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["retentionPolicy"] = undefined /*out*/;
-            inputs["storageId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetResourceGuid"] = undefined /*out*/;
-            inputs["targetResourceId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["flowAnalyticsConfiguration"] = undefined /*out*/;
+            resourceInputs["format"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["retentionPolicy"] = undefined /*out*/;
+            resourceInputs["storageId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetResourceGuid"] = undefined /*out*/;
+            resourceInputs["targetResourceId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:FlowLog" }, { type: "azure-native:network/v20191101:FlowLog" }, { type: "azure-native:network/v20191201:FlowLog" }, { type: "azure-native:network/v20200301:FlowLog" }, { type: "azure-native:network/v20200401:FlowLog" }, { type: "azure-native:network/v20200501:FlowLog" }, { type: "azure-native:network/v20200601:FlowLog" }, { type: "azure-native:network/v20200701:FlowLog" }, { type: "azure-native:network/v20200801:FlowLog" }, { type: "azure-native:network/v20201101:FlowLog" }, { type: "azure-native:network/v20210301:FlowLog" }, { type: "azure-native:network/v20210501:FlowLog" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FlowLog.__pulumiType, name, inputs, opts);
+        super(FlowLog.__pulumiType, name, resourceInputs, opts);
     }
 }
 

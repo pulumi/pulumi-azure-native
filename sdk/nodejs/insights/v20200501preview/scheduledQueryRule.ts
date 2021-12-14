@@ -121,7 +121,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.criteria === undefined) && !opts.urn) {
@@ -145,56 +145,56 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
             if ((!args || args.windowSize === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'windowSize'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["criteria"] = args ? args.criteria : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["muteActionsDuration"] = args ? args.muteActionsDuration : undefined;
-            inputs["overrideQueryTimeRange"] = args ? args.overrideQueryTimeRange : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetResourceTypes"] = args ? args.targetResourceTypes : undefined;
-            inputs["windowSize"] = args ? args.windowSize : undefined;
-            inputs["createdWithApiVersion"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["criteria"] = args ? args.criteria : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["muteActionsDuration"] = args ? args.muteActionsDuration : undefined;
+            resourceInputs["overrideQueryTimeRange"] = args ? args.overrideQueryTimeRange : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetResourceTypes"] = args ? args.targetResourceTypes : undefined;
+            resourceInputs["windowSize"] = args ? args.windowSize : undefined;
+            resourceInputs["createdWithApiVersion"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["createdWithApiVersion"] = undefined /*out*/;
-            inputs["criteria"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["evaluationFrequency"] = undefined /*out*/;
-            inputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["muteActionsDuration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["overrideQueryTimeRange"] = undefined /*out*/;
-            inputs["scopes"] = undefined /*out*/;
-            inputs["severity"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetResourceTypes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["windowSize"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["createdWithApiVersion"] = undefined /*out*/;
+            resourceInputs["criteria"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["evaluationFrequency"] = undefined /*out*/;
+            resourceInputs["isLegacyLogAnalyticsRule"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["muteActionsDuration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["overrideQueryTimeRange"] = undefined /*out*/;
+            resourceInputs["scopes"] = undefined /*out*/;
+            resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetResourceTypes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["windowSize"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ScheduledQueryRule" }, { type: "azure-native:insights/v20180416:ScheduledQueryRule" }, { type: "azure-native:insights/v20210201preview:ScheduledQueryRule" }, { type: "azure-native:insights/v20210801:ScheduledQueryRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ScheduledQueryRule.__pulumiType, name, inputs, opts);
+        super(ScheduledQueryRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

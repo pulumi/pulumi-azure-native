@@ -60,7 +60,7 @@ export class Capability extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CapabilityArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.parentProviderNamespace === undefined) && !opts.urn) {
@@ -78,28 +78,28 @@ export class Capability extends pulumi.CustomResource {
             if ((!args || args.targetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetName'");
             }
-            inputs["capabilityName"] = args ? args.capabilityName : undefined;
-            inputs["parentProviderNamespace"] = args ? args.parentProviderNamespace : undefined;
-            inputs["parentResourceName"] = args ? args.parentResourceName : undefined;
-            inputs["parentResourceType"] = args ? args.parentResourceType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["targetName"] = args ? args.targetName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["capabilityName"] = args ? args.capabilityName : undefined;
+            resourceInputs["parentProviderNamespace"] = args ? args.parentProviderNamespace : undefined;
+            resourceInputs["parentResourceName"] = args ? args.parentResourceName : undefined;
+            resourceInputs["parentResourceType"] = args ? args.parentResourceType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["targetName"] = args ? args.targetName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:chaos:Capability" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Capability.__pulumiType, name, inputs, opts);
+        super(Capability.__pulumiType, name, resourceInputs, opts);
     }
 }
 

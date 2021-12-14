@@ -69,7 +69,7 @@ export class ComputePolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ComputePolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -84,29 +84,29 @@ export class ComputePolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["computePolicyName"] = args ? args.computePolicyName : undefined;
-            inputs["maxDegreeOfParallelismPerJob"] = args ? args.maxDegreeOfParallelismPerJob : undefined;
-            inputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
-            inputs["objectId"] = args ? args.objectId : undefined;
-            inputs["objectType"] = args ? args.objectType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["computePolicyName"] = args ? args.computePolicyName : undefined;
+            resourceInputs["maxDegreeOfParallelismPerJob"] = args ? args.maxDegreeOfParallelismPerJob : undefined;
+            resourceInputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
+            resourceInputs["objectId"] = args ? args.objectId : undefined;
+            resourceInputs["objectType"] = args ? args.objectType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["maxDegreeOfParallelismPerJob"] = undefined /*out*/;
-            inputs["minPriorityPerJob"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["objectId"] = undefined /*out*/;
-            inputs["objectType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["maxDegreeOfParallelismPerJob"] = undefined /*out*/;
+            resourceInputs["minPriorityPerJob"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["objectType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datalakeanalytics/v20151001preview:ComputePolicy" }, { type: "azure-native:datalakeanalytics/v20161101:ComputePolicy" }, { type: "azure-native:datalakeanalytics/v20191101preview:ComputePolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ComputePolicy.__pulumiType, name, inputs, opts);
+        super(ComputePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

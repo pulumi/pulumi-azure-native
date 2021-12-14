@@ -144,7 +144,7 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AppServiceCertificateOrderArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.productType === undefined) && !opts.urn) {
@@ -153,66 +153,66 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoRenew"] = (args ? args.autoRenew : undefined) ?? true;
-            inputs["certificateOrderName"] = args ? args.certificateOrderName : undefined;
-            inputs["certificates"] = args ? args.certificates : undefined;
-            inputs["csr"] = args ? args.csr : undefined;
-            inputs["distinguishedName"] = args ? args.distinguishedName : undefined;
-            inputs["keySize"] = (args ? args.keySize : undefined) ?? 2048;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["productType"] = args ? args.productType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validityInYears"] = (args ? args.validityInYears : undefined) ?? 1;
-            inputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
-            inputs["contact"] = undefined /*out*/;
-            inputs["domainVerificationToken"] = undefined /*out*/;
-            inputs["expirationTime"] = undefined /*out*/;
-            inputs["intermediate"] = undefined /*out*/;
-            inputs["isPrivateKeyExternal"] = undefined /*out*/;
-            inputs["lastCertificateIssuanceTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nextAutoRenewalTimeStamp"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["root"] = undefined /*out*/;
-            inputs["serialNumber"] = undefined /*out*/;
-            inputs["signedCertificate"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoRenew"] = (args ? args.autoRenew : undefined) ?? true;
+            resourceInputs["certificateOrderName"] = args ? args.certificateOrderName : undefined;
+            resourceInputs["certificates"] = args ? args.certificates : undefined;
+            resourceInputs["csr"] = args ? args.csr : undefined;
+            resourceInputs["distinguishedName"] = args ? args.distinguishedName : undefined;
+            resourceInputs["keySize"] = (args ? args.keySize : undefined) ?? 2048;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["productType"] = args ? args.productType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validityInYears"] = (args ? args.validityInYears : undefined) ?? 1;
+            resourceInputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
+            resourceInputs["contact"] = undefined /*out*/;
+            resourceInputs["domainVerificationToken"] = undefined /*out*/;
+            resourceInputs["expirationTime"] = undefined /*out*/;
+            resourceInputs["intermediate"] = undefined /*out*/;
+            resourceInputs["isPrivateKeyExternal"] = undefined /*out*/;
+            resourceInputs["lastCertificateIssuanceTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextAutoRenewalTimeStamp"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["root"] = undefined /*out*/;
+            resourceInputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["signedCertificate"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
-            inputs["autoRenew"] = undefined /*out*/;
-            inputs["certificates"] = undefined /*out*/;
-            inputs["contact"] = undefined /*out*/;
-            inputs["csr"] = undefined /*out*/;
-            inputs["distinguishedName"] = undefined /*out*/;
-            inputs["domainVerificationToken"] = undefined /*out*/;
-            inputs["expirationTime"] = undefined /*out*/;
-            inputs["intermediate"] = undefined /*out*/;
-            inputs["isPrivateKeyExternal"] = undefined /*out*/;
-            inputs["keySize"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastCertificateIssuanceTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nextAutoRenewalTimeStamp"] = undefined /*out*/;
-            inputs["productType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["root"] = undefined /*out*/;
-            inputs["serialNumber"] = undefined /*out*/;
-            inputs["signedCertificate"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validityInYears"] = undefined /*out*/;
+            resourceInputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
+            resourceInputs["autoRenew"] = undefined /*out*/;
+            resourceInputs["certificates"] = undefined /*out*/;
+            resourceInputs["contact"] = undefined /*out*/;
+            resourceInputs["csr"] = undefined /*out*/;
+            resourceInputs["distinguishedName"] = undefined /*out*/;
+            resourceInputs["domainVerificationToken"] = undefined /*out*/;
+            resourceInputs["expirationTime"] = undefined /*out*/;
+            resourceInputs["intermediate"] = undefined /*out*/;
+            resourceInputs["isPrivateKeyExternal"] = undefined /*out*/;
+            resourceInputs["keySize"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastCertificateIssuanceTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextAutoRenewalTimeStamp"] = undefined /*out*/;
+            resourceInputs["productType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["root"] = undefined /*out*/;
+            resourceInputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["signedCertificate"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validityInYears"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:certificateregistration:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20150801:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20180201:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20190801:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20200601:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20200901:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20201001:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210101:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210115:AppServiceCertificateOrder" }, { type: "azure-native:certificateregistration/v20210201:AppServiceCertificateOrder" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AppServiceCertificateOrder.__pulumiType, name, inputs, opts);
+        super(AppServiceCertificateOrder.__pulumiType, name, resourceInputs, opts);
     }
 }
 

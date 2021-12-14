@@ -96,7 +96,7 @@ export class ApplianceDefinition extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplianceDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authorizations === undefined) && !opts.urn) {
@@ -111,42 +111,42 @@ export class ApplianceDefinition extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applianceDefinitionName"] = args ? args.applianceDefinitionName : undefined;
-            inputs["artifacts"] = args ? args.artifacts : undefined;
-            inputs["authorizations"] = args ? args.authorizations : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["lockLevel"] = args ? args.lockLevel : undefined;
-            inputs["managedBy"] = args ? args.managedBy : undefined;
-            inputs["packageFileUri"] = args ? args.packageFileUri : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applianceDefinitionName"] = args ? args.applianceDefinitionName : undefined;
+            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
+            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
+            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
+            resourceInputs["packageFileUri"] = args ? args.packageFileUri : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["artifacts"] = undefined /*out*/;
-            inputs["authorizations"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["lockLevel"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["packageFileUri"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["artifacts"] = undefined /*out*/;
+            resourceInputs["authorizations"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["lockLevel"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["packageFileUri"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:solutions:ApplianceDefinition" }, { type: "azure-native:solutions/v20170901:ApplianceDefinition" }, { type: "azure-native:solutions/v20180601:ApplianceDefinition" }, { type: "azure-native:solutions/v20190701:ApplianceDefinition" }, { type: "azure-native:solutions/v20200821preview:ApplianceDefinition" }, { type: "azure-native:solutions/v20210701:ApplianceDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApplianceDefinition.__pulumiType, name, inputs, opts);
+        super(ApplianceDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

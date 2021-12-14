@@ -81,7 +81,7 @@ export class Schedule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labName === undefined) && !opts.urn) {
@@ -96,35 +96,35 @@ export class Schedule extends pulumi.CustomResource {
             if ((!args || args.timeZoneId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeZoneId'");
             }
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["recurrencePattern"] = args ? args.recurrencePattern : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scheduleName"] = args ? args.scheduleName : undefined;
-            inputs["startAt"] = args ? args.startAt : undefined;
-            inputs["stopAt"] = args ? args.stopAt : undefined;
-            inputs["timeZoneId"] = args ? args.timeZoneId : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["recurrencePattern"] = args ? args.recurrencePattern : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scheduleName"] = args ? args.scheduleName : undefined;
+            resourceInputs["startAt"] = args ? args.startAt : undefined;
+            resourceInputs["stopAt"] = args ? args.stopAt : undefined;
+            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["notes"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["recurrencePattern"] = undefined /*out*/;
-            inputs["startAt"] = undefined /*out*/;
-            inputs["stopAt"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["timeZoneId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notes"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["recurrencePattern"] = undefined /*out*/;
+            resourceInputs["startAt"] = undefined /*out*/;
+            resourceInputs["stopAt"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["timeZoneId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211001preview:Schedule" }, { type: "azure-native:labservices/v20211115preview:Schedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Schedule.__pulumiType, name, inputs, opts);
+        super(Schedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

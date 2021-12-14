@@ -93,46 +93,46 @@ export class CustomLocation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CustomLocationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authentication"] = args ? args.authentication : undefined;
-            inputs["clusterExtensionIds"] = args ? args.clusterExtensionIds : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["hostResourceId"] = args ? args.hostResourceId : undefined;
-            inputs["hostType"] = args ? args.hostType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["namespace"] = args ? args.namespace : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authentication"] = args ? args.authentication : undefined;
+            resourceInputs["clusterExtensionIds"] = args ? args.clusterExtensionIds : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["hostResourceId"] = args ? args.hostResourceId : undefined;
+            resourceInputs["hostType"] = args ? args.hostType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authentication"] = undefined /*out*/;
-            inputs["clusterExtensionIds"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["hostResourceId"] = undefined /*out*/;
-            inputs["hostType"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["namespace"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authentication"] = undefined /*out*/;
+            resourceInputs["clusterExtensionIds"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["hostResourceId"] = undefined /*out*/;
+            resourceInputs["hostType"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["namespace"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:extendedlocation/v20210315preview:CustomLocation" }, { type: "azure-native:extendedlocation/v20210815:CustomLocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CustomLocation.__pulumiType, name, inputs, opts);
+        super(CustomLocation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

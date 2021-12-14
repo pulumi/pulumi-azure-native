@@ -100,7 +100,7 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IntegrationAccountSchemaArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
@@ -112,45 +112,45 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
             if ((!args || args.schemaType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaType'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["documentName"] = args ? args.documentName : undefined;
-            inputs["fileName"] = args ? args.fileName : undefined;
-            inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schemaName"] = args ? args.schemaName : undefined;
-            inputs["schemaType"] = args ? args.schemaType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetNamespace"] = args ? args.targetNamespace : undefined;
-            inputs["changedTime"] = undefined /*out*/;
-            inputs["contentLink"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["documentName"] = args ? args.documentName : undefined;
+            resourceInputs["fileName"] = args ? args.fileName : undefined;
+            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["schemaType"] = args ? args.schemaType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetNamespace"] = args ? args.targetNamespace : undefined;
+            resourceInputs["changedTime"] = undefined /*out*/;
+            resourceInputs["contentLink"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["changedTime"] = undefined /*out*/;
-            inputs["content"] = undefined /*out*/;
-            inputs["contentLink"] = undefined /*out*/;
-            inputs["contentType"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["documentName"] = undefined /*out*/;
-            inputs["fileName"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["schemaType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetNamespace"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["changedTime"] = undefined /*out*/;
+            resourceInputs["content"] = undefined /*out*/;
+            resourceInputs["contentLink"] = undefined /*out*/;
+            resourceInputs["contentType"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["documentName"] = undefined /*out*/;
+            resourceInputs["fileName"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["schemaType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetNamespace"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic:IntegrationAccountSchema" }, { type: "azure-native:logic/v20150801preview:IntegrationAccountSchema" }, { type: "azure-native:logic/v20160601:IntegrationAccountSchema" }, { type: "azure-native:logic/v20190501:IntegrationAccountSchema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IntegrationAccountSchema.__pulumiType, name, inputs, opts);
+        super(IntegrationAccountSchema.__pulumiType, name, resourceInputs, opts);
     }
 }
 

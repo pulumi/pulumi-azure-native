@@ -80,7 +80,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExpressRouteGatewayArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -89,35 +89,35 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             if ((!args || args.virtualHub === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHub'");
             }
-            inputs["autoScaleConfiguration"] = args ? args.autoScaleConfiguration : undefined;
-            inputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualHub"] = args ? args.virtualHub : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["expressRouteConnections"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoScaleConfiguration"] = args ? args.autoScaleConfiguration : undefined;
+            resourceInputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["expressRouteConnections"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["autoScaleConfiguration"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["expressRouteConnections"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualHub"] = undefined /*out*/;
+            resourceInputs["autoScaleConfiguration"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["expressRouteConnections"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualHub"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteGateway" }, { type: "azure-native:network/v20180801:ExpressRouteGateway" }, { type: "azure-native:network/v20181001:ExpressRouteGateway" }, { type: "azure-native:network/v20181101:ExpressRouteGateway" }, { type: "azure-native:network/v20181201:ExpressRouteGateway" }, { type: "azure-native:network/v20190201:ExpressRouteGateway" }, { type: "azure-native:network/v20190401:ExpressRouteGateway" }, { type: "azure-native:network/v20190601:ExpressRouteGateway" }, { type: "azure-native:network/v20190701:ExpressRouteGateway" }, { type: "azure-native:network/v20190801:ExpressRouteGateway" }, { type: "azure-native:network/v20190901:ExpressRouteGateway" }, { type: "azure-native:network/v20191101:ExpressRouteGateway" }, { type: "azure-native:network/v20200301:ExpressRouteGateway" }, { type: "azure-native:network/v20200401:ExpressRouteGateway" }, { type: "azure-native:network/v20200501:ExpressRouteGateway" }, { type: "azure-native:network/v20200601:ExpressRouteGateway" }, { type: "azure-native:network/v20200701:ExpressRouteGateway" }, { type: "azure-native:network/v20200801:ExpressRouteGateway" }, { type: "azure-native:network/v20201101:ExpressRouteGateway" }, { type: "azure-native:network/v20210201:ExpressRouteGateway" }, { type: "azure-native:network/v20210301:ExpressRouteGateway" }, { type: "azure-native:network/v20210501:ExpressRouteGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ExpressRouteGateway.__pulumiType, name, inputs, opts);
+        super(ExpressRouteGateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

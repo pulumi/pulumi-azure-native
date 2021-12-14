@@ -124,7 +124,7 @@ export class Profile extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hubName === undefined) && !opts.urn) {
@@ -133,57 +133,57 @@ export class Profile extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiEntitySetName"] = args ? args.apiEntitySetName : undefined;
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["entityType"] = args ? args.entityType : undefined;
-            inputs["fields"] = args ? args.fields : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["instancesCount"] = args ? args.instancesCount : undefined;
-            inputs["largeImage"] = args ? args.largeImage : undefined;
-            inputs["localizedAttributes"] = args ? args.localizedAttributes : undefined;
-            inputs["mediumImage"] = args ? args.mediumImage : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["schemaItemTypeLink"] = args ? args.schemaItemTypeLink : undefined;
-            inputs["smallImage"] = args ? args.smallImage : undefined;
-            inputs["strongIds"] = args ? args.strongIds : undefined;
-            inputs["timestampFieldName"] = args ? args.timestampFieldName : undefined;
-            inputs["typeName"] = args ? args.typeName : undefined;
-            inputs["lastChangedUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiEntitySetName"] = args ? args.apiEntitySetName : undefined;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["entityType"] = args ? args.entityType : undefined;
+            resourceInputs["fields"] = args ? args.fields : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["instancesCount"] = args ? args.instancesCount : undefined;
+            resourceInputs["largeImage"] = args ? args.largeImage : undefined;
+            resourceInputs["localizedAttributes"] = args ? args.localizedAttributes : undefined;
+            resourceInputs["mediumImage"] = args ? args.mediumImage : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["schemaItemTypeLink"] = args ? args.schemaItemTypeLink : undefined;
+            resourceInputs["smallImage"] = args ? args.smallImage : undefined;
+            resourceInputs["strongIds"] = args ? args.strongIds : undefined;
+            resourceInputs["timestampFieldName"] = args ? args.timestampFieldName : undefined;
+            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["lastChangedUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["apiEntitySetName"] = undefined /*out*/;
-            inputs["attributes"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["entityType"] = undefined /*out*/;
-            inputs["fields"] = undefined /*out*/;
-            inputs["instancesCount"] = undefined /*out*/;
-            inputs["largeImage"] = undefined /*out*/;
-            inputs["lastChangedUtc"] = undefined /*out*/;
-            inputs["localizedAttributes"] = undefined /*out*/;
-            inputs["mediumImage"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["schemaItemTypeLink"] = undefined /*out*/;
-            inputs["smallImage"] = undefined /*out*/;
-            inputs["strongIds"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["timestampFieldName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["typeName"] = undefined /*out*/;
+            resourceInputs["apiEntitySetName"] = undefined /*out*/;
+            resourceInputs["attributes"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["entityType"] = undefined /*out*/;
+            resourceInputs["fields"] = undefined /*out*/;
+            resourceInputs["instancesCount"] = undefined /*out*/;
+            resourceInputs["largeImage"] = undefined /*out*/;
+            resourceInputs["lastChangedUtc"] = undefined /*out*/;
+            resourceInputs["localizedAttributes"] = undefined /*out*/;
+            resourceInputs["mediumImage"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["schemaItemTypeLink"] = undefined /*out*/;
+            resourceInputs["smallImage"] = undefined /*out*/;
+            resourceInputs["strongIds"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["timestampFieldName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["typeName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Profile" }, { type: "azure-native:customerinsights/v20170101:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Profile.__pulumiType, name, inputs, opts);
+        super(Profile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

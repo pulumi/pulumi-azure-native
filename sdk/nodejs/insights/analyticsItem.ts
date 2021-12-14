@@ -77,7 +77,7 @@ export class AnalyticsItem extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AnalyticsItemArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -89,35 +89,35 @@ export class AnalyticsItem extends pulumi.CustomResource {
             if ((!args || args.scopePath === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopePath'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["overrideItem"] = args ? args.overrideItem : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["scopePath"] = args ? args.scopePath : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["timeModified"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["overrideItem"] = args ? args.overrideItem : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["scopePath"] = args ? args.scopePath : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["content"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["timeCreated"] = undefined /*out*/;
-            inputs["timeModified"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["content"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
+            resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights/v20150501:AnalyticsItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AnalyticsItem.__pulumiType, name, inputs, opts);
+        super(AnalyticsItem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

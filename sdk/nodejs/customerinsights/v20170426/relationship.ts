@@ -100,7 +100,7 @@ export class Relationship extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RelationshipArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hubName === undefined) && !opts.urn) {
@@ -115,44 +115,44 @@ export class Relationship extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["cardinality"] = args ? args.cardinality : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["expiryDateTimeUtc"] = args ? args.expiryDateTimeUtc : undefined;
-            inputs["fields"] = args ? args.fields : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["lookupMappings"] = args ? args.lookupMappings : undefined;
-            inputs["profileType"] = args ? args.profileType : undefined;
-            inputs["relatedProfileType"] = args ? args.relatedProfileType : undefined;
-            inputs["relationshipName"] = args ? args.relationshipName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["relationshipGuidId"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cardinality"] = args ? args.cardinality : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["expiryDateTimeUtc"] = args ? args.expiryDateTimeUtc : undefined;
+            resourceInputs["fields"] = args ? args.fields : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["lookupMappings"] = args ? args.lookupMappings : undefined;
+            resourceInputs["profileType"] = args ? args.profileType : undefined;
+            resourceInputs["relatedProfileType"] = args ? args.relatedProfileType : undefined;
+            resourceInputs["relationshipName"] = args ? args.relationshipName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["relationshipGuidId"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["cardinality"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["expiryDateTimeUtc"] = undefined /*out*/;
-            inputs["fields"] = undefined /*out*/;
-            inputs["lookupMappings"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["profileType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["relatedProfileType"] = undefined /*out*/;
-            inputs["relationshipGuidId"] = undefined /*out*/;
-            inputs["relationshipName"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cardinality"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["expiryDateTimeUtc"] = undefined /*out*/;
+            resourceInputs["fields"] = undefined /*out*/;
+            resourceInputs["lookupMappings"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["profileType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["relatedProfileType"] = undefined /*out*/;
+            resourceInputs["relationshipGuidId"] = undefined /*out*/;
+            resourceInputs["relationshipName"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Relationship" }, { type: "azure-native:customerinsights/v20170101:Relationship" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Relationship.__pulumiType, name, inputs, opts);
+        super(Relationship.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -72,36 +72,36 @@ export class Machine extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MachineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["machineName"] = args ? args.machineName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["machineName"] = args ? args.machineName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:Machine" }, { type: "azure-native:hybridcompute/v20190318preview:Machine" }, { type: "azure-native:hybridcompute/v20190802preview:Machine" }, { type: "azure-native:hybridcompute/v20191212:Machine" }, { type: "azure-native:hybridcompute/v20200730preview:Machine" }, { type: "azure-native:hybridcompute/v20200802:Machine" }, { type: "azure-native:hybridcompute/v20200815preview:Machine" }, { type: "azure-native:hybridcompute/v20210128preview:Machine" }, { type: "azure-native:hybridcompute/v20210325preview:Machine" }, { type: "azure-native:hybridcompute/v20210422preview:Machine" }, { type: "azure-native:hybridcompute/v20210517preview:Machine" }, { type: "azure-native:hybridcompute/v20210520:Machine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Machine.__pulumiType, name, inputs, opts);
+        super(Machine.__pulumiType, name, resourceInputs, opts);
     }
 }
 

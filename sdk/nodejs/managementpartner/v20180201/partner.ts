@@ -83,37 +83,37 @@ export class Partner extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: PartnerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["partnerId"] = args ? args.partnerId : undefined;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["objectId"] = undefined /*out*/;
-            inputs["partnerName"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedTime"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["partnerId"] = args ? args.partnerId : undefined;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["partnerName"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedTime"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["objectId"] = undefined /*out*/;
-            inputs["partnerId"] = undefined /*out*/;
-            inputs["partnerName"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedTime"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["partnerId"] = undefined /*out*/;
+            resourceInputs["partnerName"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedTime"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:managementpartner:Partner" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Partner.__pulumiType, name, inputs, opts);
+        super(Partner.__pulumiType, name, resourceInputs, opts);
     }
 }
 

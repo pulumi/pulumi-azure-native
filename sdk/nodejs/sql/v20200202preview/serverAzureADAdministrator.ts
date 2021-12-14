@@ -72,7 +72,7 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerAzureADAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.administratorType === undefined) && !opts.urn) {
@@ -90,31 +90,31 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
             if ((!args || args.sid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sid'");
             }
-            inputs["administratorName"] = args ? args.administratorName : undefined;
-            inputs["administratorType"] = args ? args.administratorType : undefined;
-            inputs["login"] = args ? args.login : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["sid"] = args ? args.sid : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["azureADOnlyAuthentication"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["administratorName"] = args ? args.administratorName : undefined;
+            resourceInputs["administratorType"] = args ? args.administratorType : undefined;
+            resourceInputs["login"] = args ? args.login : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["sid"] = args ? args.sid : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["azureADOnlyAuthentication"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["administratorType"] = undefined /*out*/;
-            inputs["azureADOnlyAuthentication"] = undefined /*out*/;
-            inputs["login"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sid"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["administratorType"] = undefined /*out*/;
+            resourceInputs["azureADOnlyAuthentication"] = undefined /*out*/;
+            resourceInputs["login"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sid"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20140401:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20180601preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20190601preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20200801preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20201101preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20210201preview:ServerAzureADAdministrator" }, { type: "azure-native:sql/v20210501preview:ServerAzureADAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServerAzureADAdministrator.__pulumiType, name, inputs, opts);
+        super(ServerAzureADAdministrator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

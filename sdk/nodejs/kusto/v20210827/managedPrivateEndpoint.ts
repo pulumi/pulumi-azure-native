@@ -76,7 +76,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagedPrivateEndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -91,33 +91,33 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["managedPrivateEndpointName"] = args ? args.managedPrivateEndpointName : undefined;
-            inputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            inputs["privateLinkResourceRegion"] = args ? args.privateLinkResourceRegion : undefined;
-            inputs["requestMessage"] = args ? args.requestMessage : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["managedPrivateEndpointName"] = args ? args.managedPrivateEndpointName : undefined;
+            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
+            resourceInputs["privateLinkResourceRegion"] = args ? args.privateLinkResourceRegion : undefined;
+            resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["groupId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateLinkResourceId"] = undefined /*out*/;
-            inputs["privateLinkResourceRegion"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["requestMessage"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["groupId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateLinkResourceId"] = undefined /*out*/;
+            resourceInputs["privateLinkResourceRegion"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["requestMessage"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:ManagedPrivateEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagedPrivateEndpoint.__pulumiType, name, inputs, opts);
+        super(ManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

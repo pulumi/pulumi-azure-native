@@ -68,34 +68,34 @@ export class Account extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["activeDirectories"] = args ? args.activeDirectories : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["activeDirectories"] = args ? args.activeDirectories : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["activeDirectories"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["activeDirectories"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:Account" }, { type: "azure-native:netapp/v20170815:Account" }, { type: "azure-native:netapp/v20190501:Account" }, { type: "azure-native:netapp/v20190601:Account" }, { type: "azure-native:netapp/v20190701:Account" }, { type: "azure-native:netapp/v20190801:Account" }, { type: "azure-native:netapp/v20191001:Account" }, { type: "azure-native:netapp/v20191101:Account" }, { type: "azure-native:netapp/v20200201:Account" }, { type: "azure-native:netapp/v20200301:Account" }, { type: "azure-native:netapp/v20200501:Account" }, { type: "azure-native:netapp/v20200601:Account" }, { type: "azure-native:netapp/v20200701:Account" }, { type: "azure-native:netapp/v20200801:Account" }, { type: "azure-native:netapp/v20201101:Account" }, { type: "azure-native:netapp/v20201201:Account" }, { type: "azure-native:netapp/v20210201:Account" }, { type: "azure-native:netapp/v20210401:Account" }, { type: "azure-native:netapp/v20210401preview:Account" }, { type: "azure-native:netapp/v20210601:Account" }, { type: "azure-native:netapp/v20210801:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Account.__pulumiType, name, inputs, opts);
+        super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }
 

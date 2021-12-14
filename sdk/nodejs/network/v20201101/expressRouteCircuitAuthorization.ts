@@ -68,7 +68,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExpressRouteCircuitAuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.circuitName === undefined) && !opts.urn) {
@@ -77,30 +77,30 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            inputs["authorizationName"] = args ? args.authorizationName : undefined;
-            inputs["authorizationUseStatus"] = args ? args.authorizationUseStatus : undefined;
-            inputs["circuitName"] = args ? args.circuitName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            resourceInputs["authorizationName"] = args ? args.authorizationName : undefined;
+            resourceInputs["authorizationUseStatus"] = args ? args.authorizationUseStatus : undefined;
+            resourceInputs["circuitName"] = args ? args.circuitName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authorizationKey"] = undefined /*out*/;
-            inputs["authorizationUseStatus"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationKey"] = undefined /*out*/;
+            resourceInputs["authorizationUseStatus"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20150501preview:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20150615:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20160330:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20160601:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20160901:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20161201:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20170301:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20170601:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20170801:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20170901:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20171001:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20171101:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20180101:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20180201:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20180401:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20180601:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20180701:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20180801:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20181001:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20181101:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20181201:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20190201:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20190401:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20190601:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20190701:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20190801:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20190901:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20191101:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20191201:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20200301:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20200401:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20200501:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20200601:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20200701:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20200801:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20210201:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20210301:ExpressRouteCircuitAuthorization" }, { type: "azure-native:network/v20210501:ExpressRouteCircuitAuthorization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ExpressRouteCircuitAuthorization.__pulumiType, name, inputs, opts);
+        super(ExpressRouteCircuitAuthorization.__pulumiType, name, resourceInputs, opts);
     }
 }
 

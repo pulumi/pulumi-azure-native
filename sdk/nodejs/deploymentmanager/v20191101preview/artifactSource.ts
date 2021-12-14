@@ -72,7 +72,7 @@ export class ArtifactSource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ArtifactSourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.authentication === undefined) && !opts.urn) {
@@ -84,30 +84,30 @@ export class ArtifactSource extends pulumi.CustomResource {
             if ((!args || args.sourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceType'");
             }
-            inputs["artifactRoot"] = args ? args.artifactRoot : undefined;
-            inputs["artifactSourceName"] = args ? args.artifactSourceName : undefined;
-            inputs["authentication"] = args ? args.authentication : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceType"] = args ? args.sourceType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["artifactRoot"] = args ? args.artifactRoot : undefined;
+            resourceInputs["artifactSourceName"] = args ? args.artifactSourceName : undefined;
+            resourceInputs["authentication"] = args ? args.authentication : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["artifactRoot"] = undefined /*out*/;
-            inputs["authentication"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sourceType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["artifactRoot"] = undefined /*out*/;
+            resourceInputs["authentication"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:ArtifactSource" }, { type: "azure-native:deploymentmanager/v20180901preview:ArtifactSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ArtifactSource.__pulumiType, name, inputs, opts);
+        super(ArtifactSource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

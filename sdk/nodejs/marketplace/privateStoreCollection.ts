@@ -85,41 +85,41 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateStoreCollectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateStoreId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateStoreId'");
             }
-            inputs["allSubscriptions"] = args ? args.allSubscriptions : undefined;
-            inputs["claim"] = args ? args.claim : undefined;
-            inputs["collectionId"] = args ? args.collectionId : undefined;
-            inputs["collectionName"] = args ? args.collectionName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["privateStoreId"] = args ? args.privateStoreId : undefined;
-            inputs["subscriptionsList"] = args ? args.subscriptionsList : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfOffers"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allSubscriptions"] = args ? args.allSubscriptions : undefined;
+            resourceInputs["claim"] = args ? args.claim : undefined;
+            resourceInputs["collectionId"] = args ? args.collectionId : undefined;
+            resourceInputs["collectionName"] = args ? args.collectionName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["privateStoreId"] = args ? args.privateStoreId : undefined;
+            resourceInputs["subscriptionsList"] = args ? args.subscriptionsList : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfOffers"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["allSubscriptions"] = undefined /*out*/;
-            inputs["claim"] = undefined /*out*/;
-            inputs["collectionId"] = undefined /*out*/;
-            inputs["collectionName"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfOffers"] = undefined /*out*/;
-            inputs["subscriptionsList"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allSubscriptions"] = undefined /*out*/;
+            resourceInputs["claim"] = undefined /*out*/;
+            resourceInputs["collectionId"] = undefined /*out*/;
+            resourceInputs["collectionName"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfOffers"] = undefined /*out*/;
+            resourceInputs["subscriptionsList"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:marketplace/v20210601:PrivateStoreCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PrivateStoreCollection.__pulumiType, name, inputs, opts);
+        super(PrivateStoreCollection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

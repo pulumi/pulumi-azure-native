@@ -89,7 +89,7 @@ export class SiteVNETConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SiteVNETConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -98,39 +98,39 @@ export class SiteVNETConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["certBlob"] = args ? args.certBlob : undefined;
-            inputs["certThumbprint"] = args ? args.certThumbprint : undefined;
-            inputs["dnsServers"] = args ? args.dnsServers : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resyncRequired"] = args ? args.resyncRequired : undefined;
-            inputs["routes"] = args ? args.routes : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vnetName"] = args ? args.vnetName : undefined;
-            inputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
+            resourceInputs["certBlob"] = args ? args.certBlob : undefined;
+            resourceInputs["certThumbprint"] = args ? args.certThumbprint : undefined;
+            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resyncRequired"] = args ? args.resyncRequired : undefined;
+            resourceInputs["routes"] = args ? args.routes : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vnetName"] = args ? args.vnetName : undefined;
+            resourceInputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
         } else {
-            inputs["certBlob"] = undefined /*out*/;
-            inputs["certThumbprint"] = undefined /*out*/;
-            inputs["dnsServers"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resyncRequired"] = undefined /*out*/;
-            inputs["routes"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vnetResourceId"] = undefined /*out*/;
+            resourceInputs["certBlob"] = undefined /*out*/;
+            resourceInputs["certThumbprint"] = undefined /*out*/;
+            resourceInputs["dnsServers"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resyncRequired"] = undefined /*out*/;
+            resourceInputs["routes"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vnetResourceId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteVNETConnection" }, { type: "azure-native:web/v20160801:SiteVNETConnection" }, { type: "azure-native:web/v20180201:SiteVNETConnection" }, { type: "azure-native:web/v20181101:SiteVNETConnection" }, { type: "azure-native:web/v20190801:SiteVNETConnection" }, { type: "azure-native:web/v20200601:SiteVNETConnection" }, { type: "azure-native:web/v20200901:SiteVNETConnection" }, { type: "azure-native:web/v20201001:SiteVNETConnection" }, { type: "azure-native:web/v20201201:SiteVNETConnection" }, { type: "azure-native:web/v20210101:SiteVNETConnection" }, { type: "azure-native:web/v20210115:SiteVNETConnection" }, { type: "azure-native:web/v20210201:SiteVNETConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SiteVNETConnection.__pulumiType, name, inputs, opts);
+        super(SiteVNETConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

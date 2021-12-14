@@ -61,7 +61,7 @@ export class Trigger extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger. */
     constructor(name: string, args: TriggerArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Trigger is deprecated: Please use one of the variants: FileEventTrigger, PeriodicTimerEventTrigger.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -73,22 +73,22 @@ export class Trigger extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Trigger" }, { type: "azure-native:databoxedge/v20190301:Trigger" }, { type: "azure-native:databoxedge/v20190801:Trigger" }, { type: "azure-native:databoxedge/v20200501preview:Trigger" }, { type: "azure-native:databoxedge/v20200901:Trigger" }, { type: "azure-native:databoxedge/v20200901preview:Trigger" }, { type: "azure-native:databoxedge/v20201201:Trigger" }, { type: "azure-native:databoxedge/v20210201:Trigger" }, { type: "azure-native:databoxedge/v20210201preview:Trigger" }, { type: "azure-native:databoxedge/v20210601:Trigger" }, { type: "azure-native:databoxedge/v20210601preview:Trigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Trigger.__pulumiType, name, inputs, opts);
+        super(Trigger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -72,7 +72,7 @@ export class Container extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataFormat === undefined) && !opts.urn) {
@@ -87,32 +87,32 @@ export class Container extends pulumi.CustomResource {
             if ((!args || args.storageAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["dataFormat"] = args ? args.dataFormat : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["containerStatus"] = undefined /*out*/;
-            inputs["createdDateTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["refreshDetails"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["containerStatus"] = undefined /*out*/;
+            resourceInputs["createdDateTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["refreshDetails"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["containerStatus"] = undefined /*out*/;
-            inputs["createdDateTime"] = undefined /*out*/;
-            inputs["dataFormat"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["refreshDetails"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["containerStatus"] = undefined /*out*/;
+            resourceInputs["createdDateTime"] = undefined /*out*/;
+            resourceInputs["dataFormat"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["refreshDetails"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Container" }, { type: "azure-native:databoxedge/v20190801:Container" }, { type: "azure-native:databoxedge/v20200501preview:Container" }, { type: "azure-native:databoxedge/v20200901:Container" }, { type: "azure-native:databoxedge/v20200901preview:Container" }, { type: "azure-native:databoxedge/v20210201:Container" }, { type: "azure-native:databoxedge/v20210201preview:Container" }, { type: "azure-native:databoxedge/v20210601:Container" }, { type: "azure-native:databoxedge/v20210601preview:Container" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Container.__pulumiType, name, inputs, opts);
+        super(Container.__pulumiType, name, resourceInputs, opts);
     }
 }
 

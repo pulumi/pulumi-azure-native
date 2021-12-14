@@ -92,7 +92,7 @@ export class BlobServiceProperties extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BlobServicePropertiesArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -101,41 +101,41 @@ export class BlobServiceProperties extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["automaticSnapshotPolicyEnabled"] = args ? args.automaticSnapshotPolicyEnabled : undefined;
-            inputs["blobServicesName"] = args ? args.blobServicesName : undefined;
-            inputs["changeFeed"] = args ? args.changeFeed : undefined;
-            inputs["containerDeleteRetentionPolicy"] = args ? args.containerDeleteRetentionPolicy : undefined;
-            inputs["cors"] = args ? args.cors : undefined;
-            inputs["defaultServiceVersion"] = args ? args.defaultServiceVersion : undefined;
-            inputs["deleteRetentionPolicy"] = args ? args.deleteRetentionPolicy : undefined;
-            inputs["isVersioningEnabled"] = args ? args.isVersioningEnabled : undefined;
-            inputs["lastAccessTimeTrackingPolicy"] = args ? args.lastAccessTimeTrackingPolicy : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restorePolicy"] = args ? args.restorePolicy : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["automaticSnapshotPolicyEnabled"] = args ? args.automaticSnapshotPolicyEnabled : undefined;
+            resourceInputs["blobServicesName"] = args ? args.blobServicesName : undefined;
+            resourceInputs["changeFeed"] = args ? args.changeFeed : undefined;
+            resourceInputs["containerDeleteRetentionPolicy"] = args ? args.containerDeleteRetentionPolicy : undefined;
+            resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["defaultServiceVersion"] = args ? args.defaultServiceVersion : undefined;
+            resourceInputs["deleteRetentionPolicy"] = args ? args.deleteRetentionPolicy : undefined;
+            resourceInputs["isVersioningEnabled"] = args ? args.isVersioningEnabled : undefined;
+            resourceInputs["lastAccessTimeTrackingPolicy"] = args ? args.lastAccessTimeTrackingPolicy : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restorePolicy"] = args ? args.restorePolicy : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["automaticSnapshotPolicyEnabled"] = undefined /*out*/;
-            inputs["changeFeed"] = undefined /*out*/;
-            inputs["containerDeleteRetentionPolicy"] = undefined /*out*/;
-            inputs["cors"] = undefined /*out*/;
-            inputs["defaultServiceVersion"] = undefined /*out*/;
-            inputs["deleteRetentionPolicy"] = undefined /*out*/;
-            inputs["isVersioningEnabled"] = undefined /*out*/;
-            inputs["lastAccessTimeTrackingPolicy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["restorePolicy"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["automaticSnapshotPolicyEnabled"] = undefined /*out*/;
+            resourceInputs["changeFeed"] = undefined /*out*/;
+            resourceInputs["containerDeleteRetentionPolicy"] = undefined /*out*/;
+            resourceInputs["cors"] = undefined /*out*/;
+            resourceInputs["defaultServiceVersion"] = undefined /*out*/;
+            resourceInputs["deleteRetentionPolicy"] = undefined /*out*/;
+            resourceInputs["isVersioningEnabled"] = undefined /*out*/;
+            resourceInputs["lastAccessTimeTrackingPolicy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["restorePolicy"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:BlobServiceProperties" }, { type: "azure-native:storage/v20180701:BlobServiceProperties" }, { type: "azure-native:storage/v20181101:BlobServiceProperties" }, { type: "azure-native:storage/v20190401:BlobServiceProperties" }, { type: "azure-native:storage/v20190601:BlobServiceProperties" }, { type: "azure-native:storage/v20200801preview:BlobServiceProperties" }, { type: "azure-native:storage/v20210101:BlobServiceProperties" }, { type: "azure-native:storage/v20210201:BlobServiceProperties" }, { type: "azure-native:storage/v20210601:BlobServiceProperties" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BlobServiceProperties.__pulumiType, name, inputs, opts);
+        super(BlobServiceProperties.__pulumiType, name, resourceInputs, opts);
     }
 }
 

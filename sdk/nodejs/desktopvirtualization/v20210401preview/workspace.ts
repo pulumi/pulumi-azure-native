@@ -99,54 +99,54 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationGroupReferences"] = args ? args.applicationGroupReferences : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedBy"] = args ? args.managedBy : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["cloudPcResource"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["objectId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationGroupReferences"] = args ? args.applicationGroupReferences : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["cloudPcResource"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["applicationGroupReferences"] = undefined /*out*/;
-            inputs["cloudPcResource"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["objectId"] = undefined /*out*/;
-            inputs["plan"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["applicationGroupReferences"] = undefined /*out*/;
+            resourceInputs["cloudPcResource"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:Workspace" }, { type: "azure-native:desktopvirtualization/v20190123preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20190924preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20191210preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20200921preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20201019preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20201102preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20201110preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210114preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210201preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210309preview:Workspace" }, { type: "azure-native:desktopvirtualization/v20210712:Workspace" }, { type: "azure-native:desktopvirtualization/v20210903preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

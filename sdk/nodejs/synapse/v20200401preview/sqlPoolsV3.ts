@@ -100,7 +100,7 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlPoolsV3Args, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -109,45 +109,45 @@ export class SqlPoolsV3 extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["autoPauseTimer"] = args ? args.autoPauseTimer : undefined;
-            inputs["autoResume"] = args ? args.autoResume : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxServiceObjectiveName"] = args ? args.maxServiceObjectiveName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["currentServiceObjectiveName"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["requestedServiceObjectiveName"] = undefined /*out*/;
-            inputs["sqlPoolGuid"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoPauseTimer"] = args ? args.autoPauseTimer : undefined;
+            resourceInputs["autoResume"] = args ? args.autoResume : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxServiceObjectiveName"] = args ? args.maxServiceObjectiveName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["currentServiceObjectiveName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["requestedServiceObjectiveName"] = undefined /*out*/;
+            resourceInputs["sqlPoolGuid"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["autoPauseTimer"] = undefined /*out*/;
-            inputs["autoResume"] = undefined /*out*/;
-            inputs["currentServiceObjectiveName"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maxServiceObjectiveName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["requestedServiceObjectiveName"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["sqlPoolGuid"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoPauseTimer"] = undefined /*out*/;
+            resourceInputs["autoResume"] = undefined /*out*/;
+            resourceInputs["currentServiceObjectiveName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxServiceObjectiveName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["requestedServiceObjectiveName"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["sqlPoolGuid"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolsV3" }, { type: "azure-native:synapse/v20190601preview:SqlPoolsV3" }, { type: "azure-native:synapse/v20201201:SqlPoolsV3" }, { type: "azure-native:synapse/v20210301:SqlPoolsV3" }, { type: "azure-native:synapse/v20210401preview:SqlPoolsV3" }, { type: "azure-native:synapse/v20210501:SqlPoolsV3" }, { type: "azure-native:synapse/v20210601:SqlPoolsV3" }, { type: "azure-native:synapse/v20210601preview:SqlPoolsV3" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlPoolsV3.__pulumiType, name, inputs, opts);
+        super(SqlPoolsV3.__pulumiType, name, resourceInputs, opts);
     }
 }
 

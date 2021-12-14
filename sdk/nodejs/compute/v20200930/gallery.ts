@@ -76,38 +76,38 @@ export class Gallery extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GalleryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["galleryName"] = args ? args.galleryName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sharingProfile"] = args ? args.sharingProfile : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["identifier"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sharingProfile"] = args ? args.sharingProfile : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identifier"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["identifier"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sharingProfile"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["identifier"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sharingProfile"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:Gallery" }, { type: "azure-native:compute/v20180601:Gallery" }, { type: "azure-native:compute/v20190301:Gallery" }, { type: "azure-native:compute/v20190701:Gallery" }, { type: "azure-native:compute/v20191201:Gallery" }, { type: "azure-native:compute/v20210701:Gallery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Gallery.__pulumiType, name, inputs, opts);
+        super(Gallery.__pulumiType, name, resourceInputs, opts);
     }
 }
 

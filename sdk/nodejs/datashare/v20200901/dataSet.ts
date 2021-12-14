@@ -65,7 +65,7 @@ export class DataSet extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet. */
     constructor(name: string, args: DataSetArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DataSet is deprecated: Please use one of the variants: ADLSGen1FileDataSet, ADLSGen1FolderDataSet, ADLSGen2FileDataSet, ADLSGen2FileSystemDataSet, ADLSGen2FolderDataSet, BlobContainerDataSet, BlobDataSet, BlobFolderDataSet, KustoClusterDataSet, KustoDatabaseDataSet, SqlDBTableDataSet, SqlDWTableDataSet, SynapseWorkspaceSqlPoolTableDataSet.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -80,26 +80,26 @@ export class DataSet extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["dataSetName"] = args ? args.dataSetName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:DataSet" }, { type: "azure-native:datashare/v20181101preview:DataSet" }, { type: "azure-native:datashare/v20191101:DataSet" }, { type: "azure-native:datashare/v20201001preview:DataSet" }, { type: "azure-native:datashare/v20210801:DataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DataSet.__pulumiType, name, inputs, opts);
+        super(DataSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

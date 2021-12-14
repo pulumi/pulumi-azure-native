@@ -116,7 +116,7 @@ export class LiveEvent extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LiveEventArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -128,54 +128,54 @@ export class LiveEvent extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["autoStart"] = args ? args.autoStart : undefined;
-            inputs["crossSiteAccessPolicies"] = args ? args.crossSiteAccessPolicies : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["encoding"] = args ? args.encoding : undefined;
-            inputs["hostnamePrefix"] = args ? args.hostnamePrefix : undefined;
-            inputs["input"] = args ? args.input : undefined;
-            inputs["liveEventName"] = args ? args.liveEventName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["preview"] = args ? args.preview : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["streamOptions"] = args ? args.streamOptions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transcriptions"] = args ? args.transcriptions : undefined;
-            inputs["useStaticHostname"] = args ? args.useStaticHostname : undefined;
-            inputs["created"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["autoStart"] = args ? args.autoStart : undefined;
+            resourceInputs["crossSiteAccessPolicies"] = args ? args.crossSiteAccessPolicies : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encoding"] = args ? args.encoding : undefined;
+            resourceInputs["hostnamePrefix"] = args ? args.hostnamePrefix : undefined;
+            resourceInputs["input"] = args ? args.input : undefined;
+            resourceInputs["liveEventName"] = args ? args.liveEventName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["preview"] = args ? args.preview : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["streamOptions"] = args ? args.streamOptions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transcriptions"] = args ? args.transcriptions : undefined;
+            resourceInputs["useStaticHostname"] = args ? args.useStaticHostname : undefined;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["created"] = undefined /*out*/;
-            inputs["crossSiteAccessPolicies"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["encoding"] = undefined /*out*/;
-            inputs["hostnamePrefix"] = undefined /*out*/;
-            inputs["input"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["preview"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceState"] = undefined /*out*/;
-            inputs["streamOptions"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["transcriptions"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["useStaticHostname"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["crossSiteAccessPolicies"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["encoding"] = undefined /*out*/;
+            resourceInputs["hostnamePrefix"] = undefined /*out*/;
+            resourceInputs["input"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["preview"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["streamOptions"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["transcriptions"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["useStaticHostname"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:LiveEvent" }, { type: "azure-native:media/v20180330preview:LiveEvent" }, { type: "azure-native:media/v20180601preview:LiveEvent" }, { type: "azure-native:media/v20180701:LiveEvent" }, { type: "azure-native:media/v20190501preview:LiveEvent" }, { type: "azure-native:media/v20200501:LiveEvent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LiveEvent.__pulumiType, name, inputs, opts);
+        super(LiveEvent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

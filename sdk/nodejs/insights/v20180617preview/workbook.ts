@@ -92,7 +92,7 @@ export class Workbook extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkbookArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.category === undefined) && !opts.urn) {
@@ -110,40 +110,40 @@ export class Workbook extends pulumi.CustomResource {
             if ((!args || args.sourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceId'");
             }
-            inputs["category"] = args ? args.category : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["serializedData"] = args ? args.serializedData : undefined;
-            inputs["sourceId"] = args ? args.sourceId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["timeModified"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userId"] = undefined /*out*/;
+            resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["serializedData"] = args ? args.serializedData : undefined;
+            resourceInputs["sourceId"] = args ? args.sourceId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userId"] = undefined /*out*/;
         } else {
-            inputs["category"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["serializedData"] = undefined /*out*/;
-            inputs["sourceId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeModified"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userId"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["category"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["serializedData"] = undefined /*out*/;
+            resourceInputs["sourceId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userId"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:Workbook" }, { type: "azure-native:insights/v20150501:Workbook" }, { type: "azure-native:insights/v20201020:Workbook" }, { type: "azure-native:insights/v20210308:Workbook" }, { type: "azure-native:insights/v20210801:Workbook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Workbook.__pulumiType, name, inputs, opts);
+        super(Workbook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

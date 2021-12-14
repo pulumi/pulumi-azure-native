@@ -62,7 +62,7 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppRelayServiceConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -74,36 +74,36 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["biztalkUri"] = args ? args.biztalkUri : undefined;
-            inputs["entityConnectionString"] = args ? args.entityConnectionString : undefined;
-            inputs["entityName"] = args ? args.entityName : undefined;
-            inputs["hostname"] = args ? args.hostname : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["resourceConnectionString"] = args ? args.resourceConnectionString : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["biztalkUri"] = args ? args.biztalkUri : undefined;
+            resourceInputs["entityConnectionString"] = args ? args.entityConnectionString : undefined;
+            resourceInputs["entityName"] = args ? args.entityName : undefined;
+            resourceInputs["hostname"] = args ? args.hostname : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["resourceConnectionString"] = args ? args.resourceConnectionString : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["biztalkUri"] = undefined /*out*/;
-            inputs["entityConnectionString"] = undefined /*out*/;
-            inputs["entityName"] = undefined /*out*/;
-            inputs["hostname"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["resourceConnectionString"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["biztalkUri"] = undefined /*out*/;
+            resourceInputs["entityConnectionString"] = undefined /*out*/;
+            resourceInputs["entityName"] = undefined /*out*/;
+            resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["resourceConnectionString"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20150801:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20160801:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20180201:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20181101:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20190801:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20200601:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20200901:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20201001:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20201201:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20210115:WebAppRelayServiceConnectionSlot" }, { type: "azure-native:web/v20210201:WebAppRelayServiceConnectionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppRelayServiceConnectionSlot.__pulumiType, name, inputs, opts);
+        super(WebAppRelayServiceConnectionSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

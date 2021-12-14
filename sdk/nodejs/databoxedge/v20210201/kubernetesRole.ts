@@ -92,7 +92,7 @@ export class KubernetesRole extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: KubernetesRoleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -116,36 +116,36 @@ export class KubernetesRole extends pulumi.CustomResource {
             if ((!args || args.roleStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleStatus'");
             }
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["hostPlatform"] = args ? args.hostPlatform : undefined;
-            inputs["kind"] = "Kubernetes";
-            inputs["kubernetesClusterInfo"] = args ? args.kubernetesClusterInfo : undefined;
-            inputs["kubernetesRoleResources"] = args ? args.kubernetesRoleResources : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["roleStatus"] = args ? args.roleStatus : undefined;
-            inputs["hostPlatformType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["hostPlatform"] = args ? args.hostPlatform : undefined;
+            resourceInputs["kind"] = "Kubernetes";
+            resourceInputs["kubernetesClusterInfo"] = args ? args.kubernetesClusterInfo : undefined;
+            resourceInputs["kubernetesRoleResources"] = args ? args.kubernetesRoleResources : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["roleStatus"] = args ? args.roleStatus : undefined;
+            resourceInputs["hostPlatformType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["hostPlatform"] = undefined /*out*/;
-            inputs["hostPlatformType"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["kubernetesClusterInfo"] = undefined /*out*/;
-            inputs["kubernetesRoleResources"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["roleStatus"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hostPlatform"] = undefined /*out*/;
+            resourceInputs["hostPlatformType"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["kubernetesClusterInfo"] = undefined /*out*/;
+            resourceInputs["kubernetesRoleResources"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["roleStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:KubernetesRole" }, { type: "azure-native:databoxedge/v20190301:KubernetesRole" }, { type: "azure-native:databoxedge/v20190701:KubernetesRole" }, { type: "azure-native:databoxedge/v20190801:KubernetesRole" }, { type: "azure-native:databoxedge/v20200501preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20200901:KubernetesRole" }, { type: "azure-native:databoxedge/v20200901preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20201201:KubernetesRole" }, { type: "azure-native:databoxedge/v20210201preview:KubernetesRole" }, { type: "azure-native:databoxedge/v20210601:KubernetesRole" }, { type: "azure-native:databoxedge/v20210601preview:KubernetesRole" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(KubernetesRole.__pulumiType, name, inputs, opts);
+        super(KubernetesRole.__pulumiType, name, resourceInputs, opts);
     }
 }
 

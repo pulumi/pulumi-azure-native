@@ -85,7 +85,7 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TemplateSpecVersionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -94,37 +94,37 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
             if ((!args || args.templateSpecName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateSpecName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["linkedTemplates"] = args ? args.linkedTemplates : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["mainTemplate"] = args ? args.mainTemplate : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateSpecName"] = args ? args.templateSpecName : undefined;
-            inputs["templateSpecVersion"] = args ? args.templateSpecVersion : undefined;
-            inputs["uiFormDefinition"] = args ? args.uiFormDefinition : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["linkedTemplates"] = args ? args.linkedTemplates : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["mainTemplate"] = args ? args.mainTemplate : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateSpecName"] = args ? args.templateSpecName : undefined;
+            resourceInputs["templateSpecVersion"] = args ? args.templateSpecVersion : undefined;
+            resourceInputs["uiFormDefinition"] = args ? args.uiFormDefinition : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["linkedTemplates"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["mainTemplate"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uiFormDefinition"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["linkedTemplates"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["mainTemplate"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uiFormDefinition"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resources/v20190601preview:TemplateSpecVersion" }, { type: "azure-native:resources/v20210301preview:TemplateSpecVersion" }, { type: "azure-native:resources/v20210501:TemplateSpecVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(TemplateSpecVersion.__pulumiType, name, inputs, opts);
+        super(TemplateSpecVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

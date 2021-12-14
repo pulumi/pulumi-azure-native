@@ -91,7 +91,7 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppDeploymentSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -103,41 +103,41 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["author"] = args ? args.author : undefined;
-            inputs["authorEmail"] = args ? args.authorEmail : undefined;
-            inputs["deployer"] = args ? args.deployer : undefined;
-            inputs["details"] = args ? args.details : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["message"] = args ? args.message : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["author"] = args ? args.author : undefined;
+            resourceInputs["authorEmail"] = args ? args.authorEmail : undefined;
+            resourceInputs["deployer"] = args ? args.deployer : undefined;
+            resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["active"] = undefined /*out*/;
-            inputs["author"] = undefined /*out*/;
-            inputs["authorEmail"] = undefined /*out*/;
-            inputs["deployer"] = undefined /*out*/;
-            inputs["details"] = undefined /*out*/;
-            inputs["endTime"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["message"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["active"] = undefined /*out*/;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["authorEmail"] = undefined /*out*/;
+            resourceInputs["deployer"] = undefined /*out*/;
+            resourceInputs["details"] = undefined /*out*/;
+            resourceInputs["endTime"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["message"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppDeploymentSlot" }, { type: "azure-native:web/v20150801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20160801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20180201:WebAppDeploymentSlot" }, { type: "azure-native:web/v20181101:WebAppDeploymentSlot" }, { type: "azure-native:web/v20190801:WebAppDeploymentSlot" }, { type: "azure-native:web/v20200601:WebAppDeploymentSlot" }, { type: "azure-native:web/v20200901:WebAppDeploymentSlot" }, { type: "azure-native:web/v20201001:WebAppDeploymentSlot" }, { type: "azure-native:web/v20210101:WebAppDeploymentSlot" }, { type: "azure-native:web/v20210115:WebAppDeploymentSlot" }, { type: "azure-native:web/v20210201:WebAppDeploymentSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppDeploymentSlot.__pulumiType, name, inputs, opts);
+        super(WebAppDeploymentSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

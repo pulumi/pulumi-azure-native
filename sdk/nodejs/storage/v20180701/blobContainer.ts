@@ -96,7 +96,7 @@ export class BlobContainer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BlobContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -105,43 +105,43 @@ export class BlobContainer extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["publicAccess"] = args ? args.publicAccess : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["hasImmutabilityPolicy"] = undefined /*out*/;
-            inputs["hasLegalHold"] = undefined /*out*/;
-            inputs["immutabilityPolicy"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["leaseDuration"] = undefined /*out*/;
-            inputs["leaseState"] = undefined /*out*/;
-            inputs["leaseStatus"] = undefined /*out*/;
-            inputs["legalHold"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["publicAccess"] = args ? args.publicAccess : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["hasImmutabilityPolicy"] = undefined /*out*/;
+            resourceInputs["hasLegalHold"] = undefined /*out*/;
+            resourceInputs["immutabilityPolicy"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["leaseDuration"] = undefined /*out*/;
+            resourceInputs["leaseState"] = undefined /*out*/;
+            resourceInputs["leaseStatus"] = undefined /*out*/;
+            resourceInputs["legalHold"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["hasImmutabilityPolicy"] = undefined /*out*/;
-            inputs["hasLegalHold"] = undefined /*out*/;
-            inputs["immutabilityPolicy"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["leaseDuration"] = undefined /*out*/;
-            inputs["leaseState"] = undefined /*out*/;
-            inputs["leaseStatus"] = undefined /*out*/;
-            inputs["legalHold"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["publicAccess"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["hasImmutabilityPolicy"] = undefined /*out*/;
+            resourceInputs["hasLegalHold"] = undefined /*out*/;
+            resourceInputs["immutabilityPolicy"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["leaseDuration"] = undefined /*out*/;
+            resourceInputs["leaseState"] = undefined /*out*/;
+            resourceInputs["leaseStatus"] = undefined /*out*/;
+            resourceInputs["legalHold"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publicAccess"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:BlobContainer" }, { type: "azure-native:storage/v20180201:BlobContainer" }, { type: "azure-native:storage/v20180301preview:BlobContainer" }, { type: "azure-native:storage/v20181101:BlobContainer" }, { type: "azure-native:storage/v20190401:BlobContainer" }, { type: "azure-native:storage/v20190601:BlobContainer" }, { type: "azure-native:storage/v20200801preview:BlobContainer" }, { type: "azure-native:storage/v20210101:BlobContainer" }, { type: "azure-native:storage/v20210201:BlobContainer" }, { type: "azure-native:storage/v20210401:BlobContainer" }, { type: "azure-native:storage/v20210601:BlobContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BlobContainer.__pulumiType, name, inputs, opts);
+        super(BlobContainer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

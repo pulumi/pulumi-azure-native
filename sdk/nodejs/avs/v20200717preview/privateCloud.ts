@@ -120,7 +120,7 @@ export class PrivateCloud extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateCloudArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managementCluster === undefined) && !opts.urn) {
@@ -135,54 +135,54 @@ export class PrivateCloud extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["identitySources"] = args ? args.identitySources : undefined;
-            inputs["internet"] = (args ? args.internet : undefined) ?? "Disabled";
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managementCluster"] = args ? args.managementCluster : undefined;
-            inputs["networkBlock"] = args ? args.networkBlock : undefined;
-            inputs["nsxtPassword"] = args ? args.nsxtPassword : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
-            inputs["circuit"] = undefined /*out*/;
-            inputs["endpoints"] = undefined /*out*/;
-            inputs["managementNetwork"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nsxtCertificateThumbprint"] = undefined /*out*/;
-            inputs["provisioningNetwork"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vcenterCertificateThumbprint"] = undefined /*out*/;
-            inputs["vmotionNetwork"] = undefined /*out*/;
+            resourceInputs["identitySources"] = args ? args.identitySources : undefined;
+            resourceInputs["internet"] = (args ? args.internet : undefined) ?? "Disabled";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managementCluster"] = args ? args.managementCluster : undefined;
+            resourceInputs["networkBlock"] = args ? args.networkBlock : undefined;
+            resourceInputs["nsxtPassword"] = args ? args.nsxtPassword : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
+            resourceInputs["circuit"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["managementNetwork"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nsxtCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["provisioningNetwork"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vcenterCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["vmotionNetwork"] = undefined /*out*/;
         } else {
-            inputs["circuit"] = undefined /*out*/;
-            inputs["endpoints"] = undefined /*out*/;
-            inputs["identitySources"] = undefined /*out*/;
-            inputs["internet"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managementCluster"] = undefined /*out*/;
-            inputs["managementNetwork"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkBlock"] = undefined /*out*/;
-            inputs["nsxtCertificateThumbprint"] = undefined /*out*/;
-            inputs["nsxtPassword"] = undefined /*out*/;
-            inputs["provisioningNetwork"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vcenterCertificateThumbprint"] = undefined /*out*/;
-            inputs["vcenterPassword"] = undefined /*out*/;
-            inputs["vmotionNetwork"] = undefined /*out*/;
+            resourceInputs["circuit"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["identitySources"] = undefined /*out*/;
+            resourceInputs["internet"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managementCluster"] = undefined /*out*/;
+            resourceInputs["managementNetwork"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkBlock"] = undefined /*out*/;
+            resourceInputs["nsxtCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["nsxtPassword"] = undefined /*out*/;
+            resourceInputs["provisioningNetwork"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vcenterCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["vcenterPassword"] = undefined /*out*/;
+            resourceInputs["vmotionNetwork"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:PrivateCloud" }, { type: "azure-native:avs/v20200320:PrivateCloud" }, { type: "azure-native:avs/v20210101preview:PrivateCloud" }, { type: "azure-native:avs/v20210601:PrivateCloud" }, { type: "azure-native:avs/v20211201:PrivateCloud" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PrivateCloud.__pulumiType, name, inputs, opts);
+        super(PrivateCloud.__pulumiType, name, resourceInputs, opts);
     }
 }
 

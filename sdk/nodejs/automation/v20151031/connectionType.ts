@@ -72,7 +72,7 @@ export class ConnectionType extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConnectionTypeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -87,31 +87,31 @@ export class ConnectionType extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["connectionTypeName"] = args ? args.connectionTypeName : undefined;
-            inputs["fieldDefinitions"] = args ? args.fieldDefinitions : undefined;
-            inputs["isGlobal"] = args ? args.isGlobal : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["connectionTypeName"] = args ? args.connectionTypeName : undefined;
+            resourceInputs["fieldDefinitions"] = args ? args.fieldDefinitions : undefined;
+            resourceInputs["isGlobal"] = args ? args.isGlobal : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["fieldDefinitions"] = undefined /*out*/;
-            inputs["isGlobal"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["fieldDefinitions"] = undefined /*out*/;
+            resourceInputs["isGlobal"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:ConnectionType" }, { type: "azure-native:automation/v20190601:ConnectionType" }, { type: "azure-native:automation/v20200113preview:ConnectionType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConnectionType.__pulumiType, name, inputs, opts);
+        super(ConnectionType.__pulumiType, name, resourceInputs, opts);
     }
 }
 

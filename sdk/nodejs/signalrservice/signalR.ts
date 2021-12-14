@@ -123,58 +123,58 @@ export class SignalR extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SignalRArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["cors"] = args ? args.cors : undefined;
-            inputs["features"] = args ? args.features : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkACLs"] = args ? args.networkACLs : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["upstream"] = args ? args.upstream : undefined;
-            inputs["externalIP"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["hostNamePrefix"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicPort"] = undefined /*out*/;
-            inputs["serverPort"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["cors"] = args ? args.cors : undefined;
+            resourceInputs["features"] = args ? args.features : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkACLs"] = args ? (args.networkACLs ? pulumi.output(args.networkACLs).apply(inputs.signalrservice.signalRNetworkACLsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upstream"] = args ? args.upstream : undefined;
+            resourceInputs["externalIP"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["hostNamePrefix"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicPort"] = undefined /*out*/;
+            resourceInputs["serverPort"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["cors"] = undefined /*out*/;
-            inputs["externalIP"] = undefined /*out*/;
-            inputs["features"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["hostNamePrefix"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkACLs"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicPort"] = undefined /*out*/;
-            inputs["serverPort"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["upstream"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["cors"] = undefined /*out*/;
+            resourceInputs["externalIP"] = undefined /*out*/;
+            resourceInputs["features"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["hostNamePrefix"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkACLs"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicPort"] = undefined /*out*/;
+            resourceInputs["serverPort"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["upstream"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20180301preview:SignalR" }, { type: "azure-native:signalrservice/v20181001:SignalR" }, { type: "azure-native:signalrservice/v20200501:SignalR" }, { type: "azure-native:signalrservice/v20200701preview:SignalR" }, { type: "azure-native:signalrservice/v20210401preview:SignalR" }, { type: "azure-native:signalrservice/v20210601preview:SignalR" }, { type: "azure-native:signalrservice/v20210901preview:SignalR" }, { type: "azure-native:signalrservice/v20211001:SignalR" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SignalR.__pulumiType, name, inputs, opts);
+        super(SignalR.__pulumiType, name, resourceInputs, opts);
     }
 }
 

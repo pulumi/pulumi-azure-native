@@ -104,7 +104,7 @@ export class ArtifactSource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ArtifactSourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labName === undefined) && !opts.urn) {
@@ -113,46 +113,46 @@ export class ArtifactSource extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["armTemplateFolderPath"] = args ? args.armTemplateFolderPath : undefined;
-            inputs["branchRef"] = args ? args.branchRef : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["folderPath"] = args ? args.folderPath : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securityToken"] = args ? args.securityToken : undefined;
-            inputs["sourceType"] = args ? args.sourceType : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uri"] = args ? args.uri : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["armTemplateFolderPath"] = args ? args.armTemplateFolderPath : undefined;
+            resourceInputs["branchRef"] = args ? args.branchRef : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securityToken"] = args ? args.securityToken : undefined;
+            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
-            inputs["armTemplateFolderPath"] = undefined /*out*/;
-            inputs["branchRef"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["folderPath"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["securityToken"] = undefined /*out*/;
-            inputs["sourceType"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            resourceInputs["armTemplateFolderPath"] = undefined /*out*/;
+            resourceInputs["branchRef"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["folderPath"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["securityToken"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:ArtifactSource" }, { type: "azure-native:devtestlab/v20150521preview:ArtifactSource" }, { type: "azure-native:devtestlab/v20160515:ArtifactSource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ArtifactSource.__pulumiType, name, inputs, opts);
+        super(ArtifactSource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -96,49 +96,49 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkVirtualApplianceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["bootStrapConfigurationBlob"] = args ? args.bootStrapConfigurationBlob : undefined;
-            inputs["cloudInitConfigurationBlob"] = args ? args.cloudInitConfigurationBlob : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualApplianceAsn"] = args ? args.virtualApplianceAsn : undefined;
-            inputs["virtualHub"] = args ? args.virtualHub : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualApplianceNics"] = undefined /*out*/;
+            resourceInputs["bootStrapConfigurationBlob"] = args ? args.bootStrapConfigurationBlob : undefined;
+            resourceInputs["cloudInitConfigurationBlob"] = args ? args.cloudInitConfigurationBlob : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualApplianceAsn"] = args ? args.virtualApplianceAsn : undefined;
+            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualApplianceNics"] = undefined /*out*/;
         } else {
-            inputs["bootStrapConfigurationBlob"] = undefined /*out*/;
-            inputs["cloudInitConfigurationBlob"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualApplianceAsn"] = undefined /*out*/;
-            inputs["virtualApplianceNics"] = undefined /*out*/;
-            inputs["virtualHub"] = undefined /*out*/;
+            resourceInputs["bootStrapConfigurationBlob"] = undefined /*out*/;
+            resourceInputs["cloudInitConfigurationBlob"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualApplianceAsn"] = undefined /*out*/;
+            resourceInputs["virtualApplianceNics"] = undefined /*out*/;
+            resourceInputs["virtualHub"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkVirtualAppliance" }, { type: "azure-native:network/v20191201:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200401:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200501:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200601:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200701:NetworkVirtualAppliance" }, { type: "azure-native:network/v20200801:NetworkVirtualAppliance" }, { type: "azure-native:network/v20201101:NetworkVirtualAppliance" }, { type: "azure-native:network/v20210201:NetworkVirtualAppliance" }, { type: "azure-native:network/v20210301:NetworkVirtualAppliance" }, { type: "azure-native:network/v20210501:NetworkVirtualAppliance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NetworkVirtualAppliance.__pulumiType, name, inputs, opts);
+        super(NetworkVirtualAppliance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -82,7 +82,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AFDCustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hostName === undefined) && !opts.urn) {
@@ -94,37 +94,37 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["azureDnsZone"] = args ? args.azureDnsZone : undefined;
-            inputs["customDomainName"] = args ? args.customDomainName : undefined;
-            inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tlsSettings"] = args ? args.tlsSettings : undefined;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["domainValidationState"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validationProperties"] = undefined /*out*/;
+            resourceInputs["azureDnsZone"] = args ? args.azureDnsZone : undefined;
+            resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
+            resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tlsSettings"] = args ? args.tlsSettings : undefined;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["domainValidationState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationProperties"] = undefined /*out*/;
         } else {
-            inputs["azureDnsZone"] = undefined /*out*/;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["domainValidationState"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tlsSettings"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validationProperties"] = undefined /*out*/;
+            resourceInputs["azureDnsZone"] = undefined /*out*/;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["domainValidationState"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tlsSettings"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationProperties"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AFDCustomDomain.__pulumiType, name, inputs, opts);
+        super(AFDCustomDomain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

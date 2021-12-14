@@ -70,7 +70,7 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SiteRelayServiceConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -82,41 +82,41 @@ export class SiteRelayServiceConnectionSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["biztalkUri"] = args ? args.biztalkUri : undefined;
-            inputs["entityConnectionString"] = args ? args.entityConnectionString : undefined;
-            inputs["entityName"] = args ? args.entityName : undefined;
-            inputs["hostname"] = args ? args.hostname : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["resourceConnectionString"] = args ? args.resourceConnectionString : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["biztalkUri"] = args ? args.biztalkUri : undefined;
+            resourceInputs["entityConnectionString"] = args ? args.entityConnectionString : undefined;
+            resourceInputs["entityName"] = args ? args.entityName : undefined;
+            resourceInputs["hostname"] = args ? args.hostname : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["resourceConnectionString"] = args ? args.resourceConnectionString : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["biztalkUri"] = undefined /*out*/;
-            inputs["entityConnectionString"] = undefined /*out*/;
-            inputs["entityName"] = undefined /*out*/;
-            inputs["hostname"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["resourceConnectionString"] = undefined /*out*/;
-            inputs["resourceType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["biztalkUri"] = undefined /*out*/;
+            resourceInputs["entityConnectionString"] = undefined /*out*/;
+            resourceInputs["entityName"] = undefined /*out*/;
+            resourceInputs["hostname"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["resourceConnectionString"] = undefined /*out*/;
+            resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20160801:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20180201:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20181101:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20190801:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20200601:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20200901:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20201001:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20201201:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20210101:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20210115:SiteRelayServiceConnectionSlot" }, { type: "azure-native:web/v20210201:SiteRelayServiceConnectionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SiteRelayServiceConnectionSlot.__pulumiType, name, inputs, opts);
+        super(SiteRelayServiceConnectionSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

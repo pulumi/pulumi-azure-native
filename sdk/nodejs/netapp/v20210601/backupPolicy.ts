@@ -96,7 +96,7 @@ export class BackupPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -105,43 +105,43 @@ export class BackupPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
-            inputs["dailyBackupsToKeep"] = args ? args.dailyBackupsToKeep : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["monthlyBackupsToKeep"] = args ? args.monthlyBackupsToKeep : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["weeklyBackupsToKeep"] = args ? args.weeklyBackupsToKeep : undefined;
-            inputs["backupPolicyId"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["volumeBackups"] = undefined /*out*/;
-            inputs["volumesAssigned"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
+            resourceInputs["dailyBackupsToKeep"] = args ? args.dailyBackupsToKeep : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["monthlyBackupsToKeep"] = args ? args.monthlyBackupsToKeep : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["weeklyBackupsToKeep"] = args ? args.weeklyBackupsToKeep : undefined;
+            resourceInputs["backupPolicyId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["volumeBackups"] = undefined /*out*/;
+            resourceInputs["volumesAssigned"] = undefined /*out*/;
         } else {
-            inputs["backupPolicyId"] = undefined /*out*/;
-            inputs["dailyBackupsToKeep"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["monthlyBackupsToKeep"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["volumeBackups"] = undefined /*out*/;
-            inputs["volumesAssigned"] = undefined /*out*/;
-            inputs["weeklyBackupsToKeep"] = undefined /*out*/;
+            resourceInputs["backupPolicyId"] = undefined /*out*/;
+            resourceInputs["dailyBackupsToKeep"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["monthlyBackupsToKeep"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["volumeBackups"] = undefined /*out*/;
+            resourceInputs["volumesAssigned"] = undefined /*out*/;
+            resourceInputs["weeklyBackupsToKeep"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:BackupPolicy" }, { type: "azure-native:netapp/v20200501:BackupPolicy" }, { type: "azure-native:netapp/v20200601:BackupPolicy" }, { type: "azure-native:netapp/v20200701:BackupPolicy" }, { type: "azure-native:netapp/v20200801:BackupPolicy" }, { type: "azure-native:netapp/v20200901:BackupPolicy" }, { type: "azure-native:netapp/v20201101:BackupPolicy" }, { type: "azure-native:netapp/v20201201:BackupPolicy" }, { type: "azure-native:netapp/v20210201:BackupPolicy" }, { type: "azure-native:netapp/v20210401:BackupPolicy" }, { type: "azure-native:netapp/v20210401preview:BackupPolicy" }, { type: "azure-native:netapp/v20210801:BackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BackupPolicy.__pulumiType, name, inputs, opts);
+        super(BackupPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

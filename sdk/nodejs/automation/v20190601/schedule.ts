@@ -108,7 +108,7 @@ export class Schedule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -126,49 +126,49 @@ export class Schedule extends pulumi.CustomResource {
             if ((!args || args.startTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            inputs["advancedSchedule"] = args ? args.advancedSchedule : undefined;
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["expiryTime"] = args ? args.expiryTime : undefined;
-            inputs["frequency"] = args ? args.frequency : undefined;
-            inputs["interval"] = args ? args.interval : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scheduleName"] = args ? args.scheduleName : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["timeZone"] = args ? args.timeZone : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["expiryTimeOffsetMinutes"] = undefined /*out*/;
-            inputs["isEnabled"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["nextRun"] = undefined /*out*/;
-            inputs["nextRunOffsetMinutes"] = undefined /*out*/;
-            inputs["startTimeOffsetMinutes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["advancedSchedule"] = args ? args.advancedSchedule : undefined;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["expiryTime"] = args ? args.expiryTime : undefined;
+            resourceInputs["frequency"] = args ? args.frequency : undefined;
+            resourceInputs["interval"] = args ? args.interval : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scheduleName"] = args ? args.scheduleName : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["expiryTimeOffsetMinutes"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["nextRun"] = undefined /*out*/;
+            resourceInputs["nextRunOffsetMinutes"] = undefined /*out*/;
+            resourceInputs["startTimeOffsetMinutes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["advancedSchedule"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["expiryTime"] = undefined /*out*/;
-            inputs["expiryTimeOffsetMinutes"] = undefined /*out*/;
-            inputs["frequency"] = undefined /*out*/;
-            inputs["interval"] = undefined /*out*/;
-            inputs["isEnabled"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nextRun"] = undefined /*out*/;
-            inputs["nextRunOffsetMinutes"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["startTimeOffsetMinutes"] = undefined /*out*/;
-            inputs["timeZone"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["advancedSchedule"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["expiryTime"] = undefined /*out*/;
+            resourceInputs["expiryTimeOffsetMinutes"] = undefined /*out*/;
+            resourceInputs["frequency"] = undefined /*out*/;
+            resourceInputs["interval"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nextRun"] = undefined /*out*/;
+            resourceInputs["nextRunOffsetMinutes"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["startTimeOffsetMinutes"] = undefined /*out*/;
+            resourceInputs["timeZone"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:Schedule" }, { type: "azure-native:automation/v20151031:Schedule" }, { type: "azure-native:automation/v20200113preview:Schedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Schedule.__pulumiType, name, inputs, opts);
+        super(Schedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

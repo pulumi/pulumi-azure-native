@@ -84,41 +84,41 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagementGroupDiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managementGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            inputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
-            inputs["eventHubName"] = args ? args.eventHubName : undefined;
-            inputs["logs"] = args ? args.logs : undefined;
-            inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            inputs["marketplacePartnerId"] = args ? args.marketplacePartnerId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
-            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            inputs["workspaceId"] = args ? args.workspaceId : undefined;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
+            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
+            resourceInputs["logs"] = args ? args.logs : undefined;
+            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
+            resourceInputs["marketplacePartnerId"] = args ? args.marketplacePartnerId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["eventHubAuthorizationRuleId"] = undefined /*out*/;
-            inputs["eventHubName"] = undefined /*out*/;
-            inputs["logs"] = undefined /*out*/;
-            inputs["marketplacePartnerId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["serviceBusRuleId"] = undefined /*out*/;
-            inputs["storageAccountId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
+            resourceInputs["eventHubAuthorizationRuleId"] = undefined /*out*/;
+            resourceInputs["eventHubName"] = undefined /*out*/;
+            resourceInputs["logs"] = undefined /*out*/;
+            resourceInputs["marketplacePartnerId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["serviceBusRuleId"] = undefined /*out*/;
+            resourceInputs["storageAccountId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:ManagementGroupDiagnosticSetting" }, { type: "azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagementGroupDiagnosticSetting.__pulumiType, name, inputs, opts);
+        super(ManagementGroupDiagnosticSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -84,7 +84,7 @@ export class HealthAlert extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HealthAlertArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.criteria === undefined) && !opts.urn) {
@@ -99,36 +99,36 @@ export class HealthAlert extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["criteria"] = args ? args.criteria : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["criteria"] = args ? args.criteria : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["criteria"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["scopes"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["criteria"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["scopes"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:alertsmanagement:HealthAlert" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(HealthAlert.__pulumiType, name, inputs, opts);
+        super(HealthAlert.__pulumiType, name, resourceInputs, opts);
     }
 }
 

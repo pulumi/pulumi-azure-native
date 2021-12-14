@@ -108,55 +108,55 @@ export class ExpressRoutePort extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExpressRoutePortArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
-            inputs["encapsulation"] = args ? args.encapsulation : undefined;
-            inputs["expressRoutePortName"] = args ? args.expressRoutePortName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["links"] = args ? args.links : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["peeringLocation"] = args ? args.peeringLocation : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["allocationDate"] = undefined /*out*/;
-            inputs["circuits"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["etherType"] = undefined /*out*/;
-            inputs["mtu"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisionedBandwidthInGbps"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
+            resourceInputs["encapsulation"] = args ? args.encapsulation : undefined;
+            resourceInputs["expressRoutePortName"] = args ? args.expressRoutePortName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["links"] = args ? args.links : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["peeringLocation"] = args ? args.peeringLocation : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGuid"] = args ? args.resourceGuid : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allocationDate"] = undefined /*out*/;
+            resourceInputs["circuits"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["etherType"] = undefined /*out*/;
+            resourceInputs["mtu"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisionedBandwidthInGbps"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["allocationDate"] = undefined /*out*/;
-            inputs["bandwidthInGbps"] = undefined /*out*/;
-            inputs["circuits"] = undefined /*out*/;
-            inputs["encapsulation"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["etherType"] = undefined /*out*/;
-            inputs["links"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["mtu"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peeringLocation"] = undefined /*out*/;
-            inputs["provisionedBandwidthInGbps"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allocationDate"] = undefined /*out*/;
+            resourceInputs["bandwidthInGbps"] = undefined /*out*/;
+            resourceInputs["circuits"] = undefined /*out*/;
+            resourceInputs["encapsulation"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["etherType"] = undefined /*out*/;
+            resourceInputs["links"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["mtu"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peeringLocation"] = undefined /*out*/;
+            resourceInputs["provisionedBandwidthInGbps"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRoutePort" }, { type: "azure-native:network/v20180801:ExpressRoutePort" }, { type: "azure-native:network/v20181001:ExpressRoutePort" }, { type: "azure-native:network/v20181101:ExpressRoutePort" }, { type: "azure-native:network/v20181201:ExpressRoutePort" }, { type: "azure-native:network/v20190201:ExpressRoutePort" }, { type: "azure-native:network/v20190601:ExpressRoutePort" }, { type: "azure-native:network/v20190701:ExpressRoutePort" }, { type: "azure-native:network/v20190801:ExpressRoutePort" }, { type: "azure-native:network/v20190901:ExpressRoutePort" }, { type: "azure-native:network/v20191101:ExpressRoutePort" }, { type: "azure-native:network/v20191201:ExpressRoutePort" }, { type: "azure-native:network/v20200301:ExpressRoutePort" }, { type: "azure-native:network/v20200401:ExpressRoutePort" }, { type: "azure-native:network/v20200501:ExpressRoutePort" }, { type: "azure-native:network/v20200601:ExpressRoutePort" }, { type: "azure-native:network/v20200701:ExpressRoutePort" }, { type: "azure-native:network/v20200801:ExpressRoutePort" }, { type: "azure-native:network/v20201101:ExpressRoutePort" }, { type: "azure-native:network/v20210201:ExpressRoutePort" }, { type: "azure-native:network/v20210301:ExpressRoutePort" }, { type: "azure-native:network/v20210501:ExpressRoutePort" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ExpressRoutePort.__pulumiType, name, inputs, opts);
+        super(ExpressRoutePort.__pulumiType, name, resourceInputs, opts);
     }
 }
 

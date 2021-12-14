@@ -116,7 +116,7 @@ export class FluxConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FluxConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -131,55 +131,55 @@ export class FluxConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
-            inputs["clusterRp"] = args ? args.clusterRp : undefined;
-            inputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
-            inputs["fluxConfigurationName"] = args ? args.fluxConfigurationName : undefined;
-            inputs["gitRepository"] = args ? args.gitRepository : undefined;
-            inputs["kustomizations"] = args ? args.kustomizations : undefined;
-            inputs["namespace"] = (args ? args.namespace : undefined) ?? "default";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["sourceKind"] = (args ? args.sourceKind : undefined) ?? "GitRepository";
-            inputs["suspend"] = (args ? args.suspend : undefined) ?? false;
-            inputs["complianceState"] = undefined /*out*/;
-            inputs["errorMessage"] = undefined /*out*/;
-            inputs["lastSourceUpdatedAt"] = undefined /*out*/;
-            inputs["lastSourceUpdatedCommitId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["repositoryPublicKey"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bucket"] = args ? (args.bucket ? pulumi.output(args.bucket).apply(inputs.kubernetesconfiguration.v20220101preview.bucketDefinitionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
+            resourceInputs["clusterRp"] = args ? args.clusterRp : undefined;
+            resourceInputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
+            resourceInputs["fluxConfigurationName"] = args ? args.fluxConfigurationName : undefined;
+            resourceInputs["gitRepository"] = args ? (args.gitRepository ? pulumi.output(args.gitRepository).apply(inputs.kubernetesconfiguration.v20220101preview.gitRepositoryDefinitionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["kustomizations"] = args ? args.kustomizations : undefined;
+            resourceInputs["namespace"] = (args ? args.namespace : undefined) ?? "default";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["sourceKind"] = (args ? args.sourceKind : undefined) ?? "GitRepository";
+            resourceInputs["suspend"] = (args ? args.suspend : undefined) ?? false;
+            resourceInputs["complianceState"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["lastSourceUpdatedAt"] = undefined /*out*/;
+            resourceInputs["lastSourceUpdatedCommitId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["repositoryPublicKey"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["bucket"] = undefined /*out*/;
-            inputs["complianceState"] = undefined /*out*/;
-            inputs["configurationProtectedSettings"] = undefined /*out*/;
-            inputs["errorMessage"] = undefined /*out*/;
-            inputs["gitRepository"] = undefined /*out*/;
-            inputs["kustomizations"] = undefined /*out*/;
-            inputs["lastSourceUpdatedAt"] = undefined /*out*/;
-            inputs["lastSourceUpdatedCommitId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["namespace"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["repositoryPublicKey"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["sourceKind"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["suspend"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bucket"] = undefined /*out*/;
+            resourceInputs["complianceState"] = undefined /*out*/;
+            resourceInputs["configurationProtectedSettings"] = undefined /*out*/;
+            resourceInputs["errorMessage"] = undefined /*out*/;
+            resourceInputs["gitRepository"] = undefined /*out*/;
+            resourceInputs["kustomizations"] = undefined /*out*/;
+            resourceInputs["lastSourceUpdatedAt"] = undefined /*out*/;
+            resourceInputs["lastSourceUpdatedCommitId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["namespace"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["repositoryPublicKey"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["sourceKind"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["suspend"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FluxConfiguration.__pulumiType, name, inputs, opts);
+        super(FluxConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

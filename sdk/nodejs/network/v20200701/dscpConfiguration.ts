@@ -104,53 +104,53 @@ export class DscpConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DscpConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["destinationIpRanges"] = args ? args.destinationIpRanges : undefined;
-            inputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
-            inputs["dscpConfigurationName"] = args ? args.dscpConfigurationName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["markings"] = args ? args.markings : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceIpRanges"] = args ? args.sourceIpRanges : undefined;
-            inputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["associatedNetworkInterfaces"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["qosCollectionId"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["destinationIpRanges"] = args ? args.destinationIpRanges : undefined;
+            resourceInputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
+            resourceInputs["dscpConfigurationName"] = args ? args.dscpConfigurationName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["markings"] = args ? args.markings : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceIpRanges"] = args ? args.sourceIpRanges : undefined;
+            resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatedNetworkInterfaces"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["qosCollectionId"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["associatedNetworkInterfaces"] = undefined /*out*/;
-            inputs["destinationIpRanges"] = undefined /*out*/;
-            inputs["destinationPortRanges"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["markings"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["qosCollectionId"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["sourceIpRanges"] = undefined /*out*/;
-            inputs["sourcePortRanges"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["associatedNetworkInterfaces"] = undefined /*out*/;
+            resourceInputs["destinationIpRanges"] = undefined /*out*/;
+            resourceInputs["destinationPortRanges"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["markings"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["qosCollectionId"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["sourceIpRanges"] = undefined /*out*/;
+            resourceInputs["sourcePortRanges"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:DscpConfiguration" }, { type: "azure-native:network/v20200601:DscpConfiguration" }, { type: "azure-native:network/v20200801:DscpConfiguration" }, { type: "azure-native:network/v20201101:DscpConfiguration" }, { type: "azure-native:network/v20210201:DscpConfiguration" }, { type: "azure-native:network/v20210301:DscpConfiguration" }, { type: "azure-native:network/v20210501:DscpConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DscpConfiguration.__pulumiType, name, inputs, opts);
+        super(DscpConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

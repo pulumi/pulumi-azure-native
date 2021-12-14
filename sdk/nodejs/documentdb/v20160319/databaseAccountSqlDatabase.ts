@@ -80,7 +80,7 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseAccountSqlDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -95,37 +95,37 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["colls"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["ts"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["users"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["colls"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["ts"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
         } else {
-            inputs["colls"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["ts"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["users"] = undefined /*out*/;
+            resourceInputs["colls"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["ts"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["users"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20150408:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountSqlDatabase" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountSqlDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabaseAccountSqlDatabase.__pulumiType, name, inputs, opts);
+        super(DatabaseAccountSqlDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

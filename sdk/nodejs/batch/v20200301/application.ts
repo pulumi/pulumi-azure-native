@@ -67,7 +67,7 @@ export class Application extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -76,29 +76,29 @@ export class Application extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["allowUpdates"] = args ? args.allowUpdates : undefined;
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["defaultVersion"] = args ? args.defaultVersion : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["allowUpdates"] = args ? args.allowUpdates : undefined;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["defaultVersion"] = args ? args.defaultVersion : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["allowUpdates"] = undefined /*out*/;
-            inputs["defaultVersion"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowUpdates"] = undefined /*out*/;
+            resourceInputs["defaultVersion"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:batch:Application" }, { type: "azure-native:batch/v20151201:Application" }, { type: "azure-native:batch/v20170101:Application" }, { type: "azure-native:batch/v20170501:Application" }, { type: "azure-native:batch/v20170901:Application" }, { type: "azure-native:batch/v20181201:Application" }, { type: "azure-native:batch/v20190401:Application" }, { type: "azure-native:batch/v20190801:Application" }, { type: "azure-native:batch/v20200501:Application" }, { type: "azure-native:batch/v20200901:Application" }, { type: "azure-native:batch/v20210101:Application" }, { type: "azure-native:batch/v20210601:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Application.__pulumiType, name, inputs, opts);
+        super(Application.__pulumiType, name, resourceInputs, opts);
     }
 }
 

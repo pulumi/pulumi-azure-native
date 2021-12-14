@@ -64,32 +64,32 @@ export class CustomEntityStoreAssignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CustomEntityStoreAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["customEntityStoreAssignmentName"] = args ? args.customEntityStoreAssignmentName : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["entityStoreDatabaseLink"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["customEntityStoreAssignmentName"] = args ? args.customEntityStoreAssignmentName : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["entityStoreDatabaseLink"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["entityStoreDatabaseLink"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["principal"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["entityStoreDatabaseLink"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principal"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:CustomEntityStoreAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(CustomEntityStoreAssignment.__pulumiType, name, inputs, opts);
+        super(CustomEntityStoreAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

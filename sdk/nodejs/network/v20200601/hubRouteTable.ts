@@ -76,7 +76,7 @@ export class HubRouteTable extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HubRouteTableArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -85,34 +85,34 @@ export class HubRouteTable extends pulumi.CustomResource {
             if ((!args || args.virtualHubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
-            inputs["id"] = args ? args.id : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeTableName"] = args ? args.routeTableName : undefined;
-            inputs["routes"] = args ? args.routes : undefined;
-            inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
-            inputs["associatedConnections"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["propagatingConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routeTableName"] = args ? args.routeTableName : undefined;
+            resourceInputs["routes"] = args ? args.routes : undefined;
+            resourceInputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+            resourceInputs["associatedConnections"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["propagatingConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["associatedConnections"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["labels"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["propagatingConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["routes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["associatedConnections"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["labels"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["propagatingConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["routes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:HubRouteTable" }, { type: "azure-native:network/v20200401:HubRouteTable" }, { type: "azure-native:network/v20200501:HubRouteTable" }, { type: "azure-native:network/v20200701:HubRouteTable" }, { type: "azure-native:network/v20200801:HubRouteTable" }, { type: "azure-native:network/v20201101:HubRouteTable" }, { type: "azure-native:network/v20210201:HubRouteTable" }, { type: "azure-native:network/v20210301:HubRouteTable" }, { type: "azure-native:network/v20210501:HubRouteTable" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(HubRouteTable.__pulumiType, name, inputs, opts);
+        super(HubRouteTable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

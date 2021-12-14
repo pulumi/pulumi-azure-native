@@ -68,34 +68,34 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DeviceSecurityGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["allowlistRules"] = args ? args.allowlistRules : undefined;
-            inputs["denylistRules"] = args ? args.denylistRules : undefined;
-            inputs["deviceSecurityGroupName"] = args ? args.deviceSecurityGroupName : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["thresholdRules"] = args ? args.thresholdRules : undefined;
-            inputs["timeWindowRules"] = args ? args.timeWindowRules : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowlistRules"] = args ? args.allowlistRules : undefined;
+            resourceInputs["denylistRules"] = args ? args.denylistRules : undefined;
+            resourceInputs["deviceSecurityGroupName"] = args ? args.deviceSecurityGroupName : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["thresholdRules"] = args ? args.thresholdRules : undefined;
+            resourceInputs["timeWindowRules"] = args ? args.timeWindowRules : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["allowlistRules"] = undefined /*out*/;
-            inputs["denylistRules"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["thresholdRules"] = undefined /*out*/;
-            inputs["timeWindowRules"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["allowlistRules"] = undefined /*out*/;
+            resourceInputs["denylistRules"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["thresholdRules"] = undefined /*out*/;
+            resourceInputs["timeWindowRules"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:DeviceSecurityGroup" }, { type: "azure-native:security/v20190801:DeviceSecurityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DeviceSecurityGroup.__pulumiType, name, inputs, opts);
+        super(DeviceSecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

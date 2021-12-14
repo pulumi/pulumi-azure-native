@@ -96,7 +96,7 @@ export class Policy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labName === undefined) && !opts.urn) {
@@ -108,43 +108,43 @@ export class Policy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["evaluatorType"] = args ? args.evaluatorType : undefined;
-            inputs["factData"] = args ? args.factData : undefined;
-            inputs["factName"] = args ? args.factName : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policySetName"] = args ? args.policySetName : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["threshold"] = args ? args.threshold : undefined;
-            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["evaluatorType"] = args ? args.evaluatorType : undefined;
+            resourceInputs["factData"] = args ? args.factData : undefined;
+            resourceInputs["factName"] = args ? args.factName : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policySetName"] = args ? args.policySetName : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["threshold"] = args ? args.threshold : undefined;
+            resourceInputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["evaluatorType"] = undefined /*out*/;
-            inputs["factData"] = undefined /*out*/;
-            inputs["factName"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["threshold"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["evaluatorType"] = undefined /*out*/;
+            resourceInputs["factData"] = undefined /*out*/;
+            resourceInputs["factName"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["threshold"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Policy" }, { type: "azure-native:devtestlab/v20150521preview:Policy" }, { type: "azure-native:devtestlab/v20180915:Policy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Policy.__pulumiType, name, inputs, opts);
+        super(Policy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

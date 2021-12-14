@@ -89,43 +89,43 @@ export class ContainerApp extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ContainerAppArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["kubeEnvironmentId"] = args ? args.kubeEnvironmentId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["template"] = args ? args.template : undefined;
-            inputs["latestRevisionFqdn"] = undefined /*out*/;
-            inputs["latestRevisionName"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configuration"] = args ? (args.configuration ? pulumi.output(args.configuration).apply(inputs.web.configurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["kubeEnvironmentId"] = args ? args.kubeEnvironmentId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["latestRevisionFqdn"] = undefined /*out*/;
+            resourceInputs["latestRevisionName"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["configuration"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["kubeEnvironmentId"] = undefined /*out*/;
-            inputs["latestRevisionFqdn"] = undefined /*out*/;
-            inputs["latestRevisionName"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["template"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["kubeEnvironmentId"] = undefined /*out*/;
+            resourceInputs["latestRevisionFqdn"] = undefined /*out*/;
+            resourceInputs["latestRevisionName"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["template"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web/v20210301:ContainerApp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ContainerApp.__pulumiType, name, inputs, opts);
+        super(ContainerApp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

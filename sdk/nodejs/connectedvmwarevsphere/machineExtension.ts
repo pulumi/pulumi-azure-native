@@ -97,7 +97,7 @@ export class MachineExtension extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MachineExtensionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -106,42 +106,42 @@ export class MachineExtension extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
-            inputs["extensionName"] = args ? args.extensionName : undefined;
-            inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
-            inputs["publisher"] = args ? args.publisher : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
+            resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            resourceInputs["extensionName"] = args ? args.extensionName : undefined;
+            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["publisher"] = args ? args.publisher : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
         } else {
-            inputs["autoUpgradeMinorVersion"] = undefined /*out*/;
-            inputs["forceUpdateTag"] = undefined /*out*/;
-            inputs["instanceView"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["protectedSettings"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publisher"] = undefined /*out*/;
-            inputs["settings"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["typeHandlerVersion"] = undefined /*out*/;
+            resourceInputs["autoUpgradeMinorVersion"] = undefined /*out*/;
+            resourceInputs["forceUpdateTag"] = undefined /*out*/;
+            resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["protectedSettings"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publisher"] = undefined /*out*/;
+            resourceInputs["settings"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:MachineExtension" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MachineExtension.__pulumiType, name, inputs, opts);
+        super(MachineExtension.__pulumiType, name, resourceInputs, opts);
     }
 }
 

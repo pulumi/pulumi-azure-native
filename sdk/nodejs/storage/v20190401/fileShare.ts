@@ -67,7 +67,7 @@ export class FileShare extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FileShareArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -76,29 +76,29 @@ export class FileShare extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["shareQuota"] = args ? args.shareQuota : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["shareQuota"] = args ? args.shareQuota : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["shareQuota"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["shareQuota"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:FileShare" }, { type: "azure-native:storage/v20190601:FileShare" }, { type: "azure-native:storage/v20200801preview:FileShare" }, { type: "azure-native:storage/v20210101:FileShare" }, { type: "azure-native:storage/v20210201:FileShare" }, { type: "azure-native:storage/v20210401:FileShare" }, { type: "azure-native:storage/v20210601:FileShare" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FileShare.__pulumiType, name, inputs, opts);
+        super(FileShare.__pulumiType, name, resourceInputs, opts);
     }
 }
 

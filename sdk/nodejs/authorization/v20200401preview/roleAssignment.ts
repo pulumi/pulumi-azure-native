@@ -104,7 +104,7 @@ export class RoleAssignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.principalId === undefined) && !opts.urn) {
@@ -116,45 +116,45 @@ export class RoleAssignment extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["canDelegate"] = args ? args.canDelegate : undefined;
-            inputs["condition"] = args ? args.condition : undefined;
-            inputs["conditionVersion"] = args ? args.conditionVersion : undefined;
-            inputs["delegatedManagedIdentityResourceId"] = args ? args.delegatedManagedIdentityResourceId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["principalId"] = args ? args.principalId : undefined;
-            inputs["principalType"] = (args ? args.principalType : undefined) ?? "User";
-            inputs["roleAssignmentName"] = args ? args.roleAssignmentName : undefined;
-            inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedBy"] = undefined /*out*/;
-            inputs["updatedOn"] = undefined /*out*/;
+            resourceInputs["canDelegate"] = args ? args.canDelegate : undefined;
+            resourceInputs["condition"] = args ? args.condition : undefined;
+            resourceInputs["conditionVersion"] = args ? args.conditionVersion : undefined;
+            resourceInputs["delegatedManagedIdentityResourceId"] = args ? args.delegatedManagedIdentityResourceId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["principalType"] = (args ? args.principalType : undefined) ?? "User";
+            resourceInputs["roleAssignmentName"] = args ? args.roleAssignmentName : undefined;
+            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["updatedOn"] = undefined /*out*/;
         } else {
-            inputs["canDelegate"] = undefined /*out*/;
-            inputs["condition"] = undefined /*out*/;
-            inputs["conditionVersion"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["createdOn"] = undefined /*out*/;
-            inputs["delegatedManagedIdentityResourceId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["principalId"] = undefined /*out*/;
-            inputs["principalType"] = undefined /*out*/;
-            inputs["roleDefinitionId"] = undefined /*out*/;
-            inputs["scope"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedBy"] = undefined /*out*/;
-            inputs["updatedOn"] = undefined /*out*/;
+            resourceInputs["canDelegate"] = undefined /*out*/;
+            resourceInputs["condition"] = undefined /*out*/;
+            resourceInputs["conditionVersion"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["delegatedManagedIdentityResourceId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
+            resourceInputs["principalType"] = undefined /*out*/;
+            resourceInputs["roleDefinitionId"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["updatedOn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:RoleAssignment" }, { type: "azure-native:authorization/v20150701:RoleAssignment" }, { type: "azure-native:authorization/v20171001preview:RoleAssignment" }, { type: "azure-native:authorization/v20180101preview:RoleAssignment" }, { type: "azure-native:authorization/v20180901preview:RoleAssignment" }, { type: "azure-native:authorization/v20200301preview:RoleAssignment" }, { type: "azure-native:authorization/v20200801preview:RoleAssignment" }, { type: "azure-native:authorization/v20201001preview:RoleAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RoleAssignment.__pulumiType, name, inputs, opts);
+        super(RoleAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -81,7 +81,7 @@ export class PolicyAssignmentArtifact extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PolicyAssignmentArtifactArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.blueprintName === undefined) && !opts.urn) {
@@ -99,35 +99,35 @@ export class PolicyAssignmentArtifact extends pulumi.CustomResource {
             if ((!args || args.resourceScope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            inputs["artifactName"] = args ? args.artifactName : undefined;
-            inputs["blueprintName"] = args ? args.blueprintName : undefined;
-            inputs["dependsOn"] = args ? args.dependsOn : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["kind"] = "policyAssignment";
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["resourceScope"] = args ? args.resourceScope : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["artifactName"] = args ? args.artifactName : undefined;
+            resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
+            resourceInputs["dependsOn"] = args ? args.dependsOn : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["kind"] = "policyAssignment";
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dependsOn"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["policyDefinitionId"] = undefined /*out*/;
-            inputs["resourceGroup"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dependsOn"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["policyDefinitionId"] = undefined /*out*/;
+            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:blueprint:PolicyAssignmentArtifact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PolicyAssignmentArtifact.__pulumiType, name, inputs, opts);
+        super(PolicyAssignmentArtifact.__pulumiType, name, resourceInputs, opts);
     }
 }
 

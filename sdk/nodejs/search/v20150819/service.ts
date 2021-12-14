@@ -92,46 +92,46 @@ export class Service extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["hostingMode"] = (args ? args.hostingMode : undefined) ?? "default";
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["partitionCount"] = (args ? args.partitionCount : undefined) ?? 1;
-            inputs["replicaCount"] = (args ? args.replicaCount : undefined) ?? 1;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["searchServiceName"] = args ? args.searchServiceName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDetails"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hostingMode"] = (args ? args.hostingMode : undefined) ?? "default";
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["partitionCount"] = (args ? args.partitionCount : undefined) ?? 1;
+            resourceInputs["replicaCount"] = (args ? args.replicaCount : undefined) ?? 1;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["searchServiceName"] = args ? args.searchServiceName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["hostingMode"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partitionCount"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["replicaCount"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statusDetails"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hostingMode"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partitionCount"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["replicaCount"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusDetails"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:search:Service" }, { type: "azure-native:search/v20191001preview:Service" }, { type: "azure-native:search/v20200313:Service" }, { type: "azure-native:search/v20200801:Service" }, { type: "azure-native:search/v20200801preview:Service" }, { type: "azure-native:search/v20210401preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Service.__pulumiType, name, inputs, opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

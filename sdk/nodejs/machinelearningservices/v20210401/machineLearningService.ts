@@ -81,7 +81,7 @@ export class MachineLearningService extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: ACIService, AKSService, EndpointVariant. */
     constructor(name: string, args: MachineLearningServiceArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("MachineLearningService is deprecated: Please use one of the variants: ACIService, AKSService, EndpointVariant.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.computeType === undefined) && !opts.urn) {
@@ -93,38 +93,38 @@ export class MachineLearningService extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["computeType"] = args ? args.computeType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["environmentImageRequest"] = args ? args.environmentImageRequest : undefined;
-            inputs["keys"] = args ? args.keys : undefined;
-            inputs["kvTags"] = args ? args.kvTags : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["identity"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["computeType"] = args ? args.computeType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environmentImageRequest"] = args ? args.environmentImageRequest : undefined;
+            resourceInputs["keys"] = args ? args.keys : undefined;
+            resourceInputs["kvTags"] = args ? args.kvTags : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200501preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200515preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20200901preview:MachineLearningService" }, { type: "azure-native:machinelearningservices/v20210101:MachineLearningService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MachineLearningService.__pulumiType, name, inputs, opts);
+        super(MachineLearningService.__pulumiType, name, resourceInputs, opts);
     }
 }
 

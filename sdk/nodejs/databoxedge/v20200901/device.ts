@@ -144,72 +144,72 @@ export class Device extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["configuredRoleTypes"] = undefined /*out*/;
-            inputs["culture"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["deviceHcsVersion"] = undefined /*out*/;
-            inputs["deviceLocalCapacity"] = undefined /*out*/;
-            inputs["deviceModel"] = undefined /*out*/;
-            inputs["deviceSoftwareVersion"] = undefined /*out*/;
-            inputs["deviceType"] = undefined /*out*/;
-            inputs["edgeProfile"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["modelDescription"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nodeCount"] = undefined /*out*/;
-            inputs["resourceMoveDetails"] = undefined /*out*/;
-            inputs["serialNumber"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["timeZone"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuredRoleTypes"] = undefined /*out*/;
+            resourceInputs["culture"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["deviceHcsVersion"] = undefined /*out*/;
+            resourceInputs["deviceLocalCapacity"] = undefined /*out*/;
+            resourceInputs["deviceModel"] = undefined /*out*/;
+            resourceInputs["deviceSoftwareVersion"] = undefined /*out*/;
+            resourceInputs["deviceType"] = undefined /*out*/;
+            resourceInputs["edgeProfile"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["modelDescription"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodeCount"] = undefined /*out*/;
+            resourceInputs["resourceMoveDetails"] = undefined /*out*/;
+            resourceInputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["timeZone"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["configuredRoleTypes"] = undefined /*out*/;
-            inputs["culture"] = undefined /*out*/;
-            inputs["dataBoxEdgeDeviceStatus"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["deviceHcsVersion"] = undefined /*out*/;
-            inputs["deviceLocalCapacity"] = undefined /*out*/;
-            inputs["deviceModel"] = undefined /*out*/;
-            inputs["deviceSoftwareVersion"] = undefined /*out*/;
-            inputs["deviceType"] = undefined /*out*/;
-            inputs["edgeProfile"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["modelDescription"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["nodeCount"] = undefined /*out*/;
-            inputs["resourceMoveDetails"] = undefined /*out*/;
-            inputs["serialNumber"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeZone"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configuredRoleTypes"] = undefined /*out*/;
+            resourceInputs["culture"] = undefined /*out*/;
+            resourceInputs["dataBoxEdgeDeviceStatus"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["deviceHcsVersion"] = undefined /*out*/;
+            resourceInputs["deviceLocalCapacity"] = undefined /*out*/;
+            resourceInputs["deviceModel"] = undefined /*out*/;
+            resourceInputs["deviceSoftwareVersion"] = undefined /*out*/;
+            resourceInputs["deviceType"] = undefined /*out*/;
+            resourceInputs["edgeProfile"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["modelDescription"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodeCount"] = undefined /*out*/;
+            resourceInputs["resourceMoveDetails"] = undefined /*out*/;
+            resourceInputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeZone"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Device" }, { type: "azure-native:databoxedge/v20190301:Device" }, { type: "azure-native:databoxedge/v20190701:Device" }, { type: "azure-native:databoxedge/v20190801:Device" }, { type: "azure-native:databoxedge/v20200501preview:Device" }, { type: "azure-native:databoxedge/v20200901preview:Device" }, { type: "azure-native:databoxedge/v20201201:Device" }, { type: "azure-native:databoxedge/v20210201:Device" }, { type: "azure-native:databoxedge/v20210201preview:Device" }, { type: "azure-native:databoxedge/v20210601:Device" }, { type: "azure-native:databoxedge/v20210601preview:Device" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Device.__pulumiType, name, inputs, opts);
+        super(Device.__pulumiType, name, resourceInputs, opts);
     }
 }
 

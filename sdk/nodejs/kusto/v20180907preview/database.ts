@@ -80,7 +80,7 @@ export class Database extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -92,35 +92,35 @@ export class Database extends pulumi.CustomResource {
             if ((!args || args.softDeletePeriodInDays === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'softDeletePeriodInDays'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["hotCachePeriodInDays"] = args ? args.hotCachePeriodInDays : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["softDeletePeriodInDays"] = args ? args.softDeletePeriodInDays : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statistics"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["hotCachePeriodInDays"] = args ? args.hotCachePeriodInDays : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["softDeletePeriodInDays"] = args ? args.softDeletePeriodInDays : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["hotCachePeriodInDays"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["softDeletePeriodInDays"] = undefined /*out*/;
-            inputs["statistics"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["hotCachePeriodInDays"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["softDeletePeriodInDays"] = undefined /*out*/;
+            resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:kusto:Database" }, { type: "azure-native:kusto/v20170907privatepreview:Database" }, { type: "azure-native:kusto/v20190121:Database" }, { type: "azure-native:kusto/v20190515:Database" }, { type: "azure-native:kusto/v20190907:Database" }, { type: "azure-native:kusto/v20191109:Database" }, { type: "azure-native:kusto/v20200215:Database" }, { type: "azure-native:kusto/v20200614:Database" }, { type: "azure-native:kusto/v20200918:Database" }, { type: "azure-native:kusto/v20210101:Database" }, { type: "azure-native:kusto/v20210827:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Database.__pulumiType, name, inputs, opts);
+        super(Database.__pulumiType, name, resourceInputs, opts);
     }
 }
 

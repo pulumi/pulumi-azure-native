@@ -97,7 +97,7 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IntegrationAccountAgreementArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.agreementType === undefined) && !opts.urn) {
@@ -124,43 +124,43 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["agreementName"] = args ? args.agreementName : undefined;
-            inputs["agreementType"] = args ? args.agreementType : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["guestIdentity"] = args ? args.guestIdentity : undefined;
-            inputs["guestPartner"] = args ? args.guestPartner : undefined;
-            inputs["hostIdentity"] = args ? args.hostIdentity : undefined;
-            inputs["hostPartner"] = args ? args.hostPartner : undefined;
-            inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["changedTime"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agreementName"] = args ? args.agreementName : undefined;
+            resourceInputs["agreementType"] = args ? args.agreementType : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["guestIdentity"] = args ? args.guestIdentity : undefined;
+            resourceInputs["guestPartner"] = args ? args.guestPartner : undefined;
+            resourceInputs["hostIdentity"] = args ? args.hostIdentity : undefined;
+            resourceInputs["hostPartner"] = args ? args.hostPartner : undefined;
+            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["changedTime"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["agreementType"] = undefined /*out*/;
-            inputs["changedTime"] = undefined /*out*/;
-            inputs["content"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["guestIdentity"] = undefined /*out*/;
-            inputs["guestPartner"] = undefined /*out*/;
-            inputs["hostIdentity"] = undefined /*out*/;
-            inputs["hostPartner"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agreementType"] = undefined /*out*/;
+            resourceInputs["changedTime"] = undefined /*out*/;
+            resourceInputs["content"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["guestIdentity"] = undefined /*out*/;
+            resourceInputs["guestPartner"] = undefined /*out*/;
+            resourceInputs["hostIdentity"] = undefined /*out*/;
+            resourceInputs["hostPartner"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:logic/v20150801preview:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20160601:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20180701preview:IntegrationAccountAgreement" }, { type: "azure-native:logic/v20190501:IntegrationAccountAgreement" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IntegrationAccountAgreement.__pulumiType, name, inputs, opts);
+        super(IntegrationAccountAgreement.__pulumiType, name, resourceInputs, opts);
     }
 }
 

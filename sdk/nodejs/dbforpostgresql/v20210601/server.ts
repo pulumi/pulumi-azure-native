@@ -112,60 +112,60 @@ export class Server extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            inputs["availabilityZone"] = (args ? args.availabilityZone : undefined) ?? "";
-            inputs["backup"] = args ? args.backup : undefined;
-            inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["highAvailability"] = args ? args.highAvailability : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            inputs["network"] = args ? args.network : undefined;
-            inputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["sourceServerResourceId"] = args ? args.sourceServerResourceId : undefined;
-            inputs["storage"] = args ? args.storage : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
-            inputs["minorVersion"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["availabilityZone"] = (args ? args.availabilityZone : undefined) ?? "";
+            resourceInputs["backup"] = args ? (args.backup ? pulumi.output(args.backup).apply(inputs.dbforpostgresql.v20210601.backupArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["highAvailability"] = args ? (args.highAvailability ? pulumi.output(args.highAvailability).apply(inputs.dbforpostgresql.v20210601.highAvailabilityArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maintenanceWindow"] = args ? (args.maintenanceWindow ? pulumi.output(args.maintenanceWindow).apply(inputs.dbforpostgresql.v20210601.maintenanceWindowArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["network"] = args ? (args.network ? pulumi.output(args.network).apply(inputs.dbforpostgresql.v20210601.networkArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sourceServerResourceId"] = args ? args.sourceServerResourceId : undefined;
+            resourceInputs["storage"] = args ? args.storage : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            resourceInputs["minorVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["administratorLogin"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["backup"] = undefined /*out*/;
-            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
-            inputs["highAvailability"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maintenanceWindow"] = undefined /*out*/;
-            inputs["minorVersion"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["network"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["storage"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["backup"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            resourceInputs["highAvailability"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maintenanceWindow"] = undefined /*out*/;
+            resourceInputs["minorVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["network"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["storage"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20200214preview:Server" }, { type: "azure-native:dbforpostgresql/v20200214privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210410privatepreview:Server" }, { type: "azure-native:dbforpostgresql/v20210601preview:Server" }, { type: "azure-native:dbforpostgresql/v20210615privatepreview:Server" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Server.__pulumiType, name, inputs, opts);
+        super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }
 

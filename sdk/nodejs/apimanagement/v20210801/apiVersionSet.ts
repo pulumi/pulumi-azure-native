@@ -72,7 +72,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiVersionSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -87,31 +87,31 @@ export class ApiVersionSet extends pulumi.CustomResource {
             if ((!args || args.versioningScheme === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'versioningScheme'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["versionHeaderName"] = args ? args.versionHeaderName : undefined;
-            inputs["versionQueryName"] = args ? args.versionQueryName : undefined;
-            inputs["versionSetId"] = args ? args.versionSetId : undefined;
-            inputs["versioningScheme"] = args ? args.versioningScheme : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["versionHeaderName"] = args ? args.versionHeaderName : undefined;
+            resourceInputs["versionQueryName"] = args ? args.versionQueryName : undefined;
+            resourceInputs["versionSetId"] = args ? args.versionSetId : undefined;
+            resourceInputs["versioningScheme"] = args ? args.versioningScheme : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["versionHeaderName"] = undefined /*out*/;
-            inputs["versionQueryName"] = undefined /*out*/;
-            inputs["versioningScheme"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["versionHeaderName"] = undefined /*out*/;
+            resourceInputs["versionQueryName"] = undefined /*out*/;
+            resourceInputs["versioningScheme"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiVersionSet" }, { type: "azure-native:apimanagement/v20170301:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20180601preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20190101:ApiVersionSet" }, { type: "azure-native:apimanagement/v20191201:ApiVersionSet" }, { type: "azure-native:apimanagement/v20191201preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20200601preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20201201:ApiVersionSet" }, { type: "azure-native:apimanagement/v20210101preview:ApiVersionSet" }, { type: "azure-native:apimanagement/v20210401preview:ApiVersionSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApiVersionSet.__pulumiType, name, inputs, opts);
+        super(ApiVersionSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

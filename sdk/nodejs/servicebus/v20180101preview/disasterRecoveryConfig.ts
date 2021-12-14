@@ -71,7 +71,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DisasterRecoveryConfigArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -80,31 +80,31 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["alternateName"] = args ? args.alternateName : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["partnerNamespace"] = args ? args.partnerNamespace : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["pendingReplicationOperationsCount"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["alternateName"] = args ? args.alternateName : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["partnerNamespace"] = args ? args.partnerNamespace : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pendingReplicationOperationsCount"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["alternateName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnerNamespace"] = undefined /*out*/;
-            inputs["pendingReplicationOperationsCount"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alternateName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnerNamespace"] = undefined /*out*/;
+            resourceInputs["pendingReplicationOperationsCount"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20170401:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20210101preview:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20210601preview:DisasterRecoveryConfig" }, { type: "azure-native:servicebus/v20211101:DisasterRecoveryConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DisasterRecoveryConfig.__pulumiType, name, inputs, opts);
+        super(DisasterRecoveryConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

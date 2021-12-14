@@ -59,7 +59,7 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DomainOwnershipIdentifierArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.domainName === undefined) && !opts.urn) {
@@ -68,24 +68,24 @@ export class DomainOwnershipIdentifier extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownershipId"] = args ? args.ownershipId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownershipId"] = args ? args.ownershipId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ownershipId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ownershipId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:domainregistration:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20150401:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20180201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20190801:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20200901:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20201001:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20201201:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210101:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210115:DomainOwnershipIdentifier" }, { type: "azure-native:domainregistration/v20210201:DomainOwnershipIdentifier" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DomainOwnershipIdentifier.__pulumiType, name, inputs, opts);
+        super(DomainOwnershipIdentifier.__pulumiType, name, resourceInputs, opts);
     }
 }
 

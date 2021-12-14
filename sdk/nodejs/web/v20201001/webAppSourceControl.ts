@@ -84,7 +84,7 @@ export class WebAppSourceControl extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppSourceControlArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -93,35 +93,35 @@ export class WebAppSourceControl extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["branch"] = args ? args.branch : undefined;
-            inputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
-            inputs["isGitHubAction"] = args ? args.isGitHubAction : undefined;
-            inputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
-            inputs["isMercurial"] = args ? args.isMercurial : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["repoUrl"] = args ? args.repoUrl : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["branch"] = args ? args.branch : undefined;
+            resourceInputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
+            resourceInputs["isGitHubAction"] = args ? args.isGitHubAction : undefined;
+            resourceInputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
+            resourceInputs["isMercurial"] = args ? args.isMercurial : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["branch"] = undefined /*out*/;
-            inputs["deploymentRollbackEnabled"] = undefined /*out*/;
-            inputs["isGitHubAction"] = undefined /*out*/;
-            inputs["isManualIntegration"] = undefined /*out*/;
-            inputs["isMercurial"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["repoUrl"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["branch"] = undefined /*out*/;
+            resourceInputs["deploymentRollbackEnabled"] = undefined /*out*/;
+            resourceInputs["isGitHubAction"] = undefined /*out*/;
+            resourceInputs["isManualIntegration"] = undefined /*out*/;
+            resourceInputs["isMercurial"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["repoUrl"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSourceControl" }, { type: "azure-native:web/v20150801:WebAppSourceControl" }, { type: "azure-native:web/v20160801:WebAppSourceControl" }, { type: "azure-native:web/v20180201:WebAppSourceControl" }, { type: "azure-native:web/v20181101:WebAppSourceControl" }, { type: "azure-native:web/v20190801:WebAppSourceControl" }, { type: "azure-native:web/v20200601:WebAppSourceControl" }, { type: "azure-native:web/v20200901:WebAppSourceControl" }, { type: "azure-native:web/v20201201:WebAppSourceControl" }, { type: "azure-native:web/v20210101:WebAppSourceControl" }, { type: "azure-native:web/v20210115:WebAppSourceControl" }, { type: "azure-native:web/v20210201:WebAppSourceControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppSourceControl.__pulumiType, name, inputs, opts);
+        super(WebAppSourceControl.__pulumiType, name, resourceInputs, opts);
     }
 }
 

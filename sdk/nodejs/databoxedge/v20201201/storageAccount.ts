@@ -80,7 +80,7 @@ export class StorageAccount extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataPolicy === undefined) && !opts.urn) {
@@ -92,35 +92,35 @@ export class StorageAccount extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dataPolicy"] = args ? args.dataPolicy : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
-            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            inputs["storageAccountStatus"] = args ? args.storageAccountStatus : undefined;
-            inputs["blobEndpoint"] = undefined /*out*/;
-            inputs["containerCount"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataPolicy"] = args ? args.dataPolicy : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
+            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["storageAccountStatus"] = args ? args.storageAccountStatus : undefined;
+            resourceInputs["blobEndpoint"] = undefined /*out*/;
+            resourceInputs["containerCount"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["blobEndpoint"] = undefined /*out*/;
-            inputs["containerCount"] = undefined /*out*/;
-            inputs["dataPolicy"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["storageAccountCredentialId"] = undefined /*out*/;
-            inputs["storageAccountStatus"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["blobEndpoint"] = undefined /*out*/;
+            resourceInputs["containerCount"] = undefined /*out*/;
+            resourceInputs["dataPolicy"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["storageAccountCredentialId"] = undefined /*out*/;
+            resourceInputs["storageAccountStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:StorageAccount" }, { type: "azure-native:databoxedge/v20190801:StorageAccount" }, { type: "azure-native:databoxedge/v20200501preview:StorageAccount" }, { type: "azure-native:databoxedge/v20200901:StorageAccount" }, { type: "azure-native:databoxedge/v20200901preview:StorageAccount" }, { type: "azure-native:databoxedge/v20210201:StorageAccount" }, { type: "azure-native:databoxedge/v20210201preview:StorageAccount" }, { type: "azure-native:databoxedge/v20210601:StorageAccount" }, { type: "azure-native:databoxedge/v20210601preview:StorageAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(StorageAccount.__pulumiType, name, inputs, opts);
+        super(StorageAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

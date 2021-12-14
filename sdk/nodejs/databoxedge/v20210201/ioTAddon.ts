@@ -85,7 +85,7 @@ export class IoTAddon extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IoTAddonArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -106,38 +106,38 @@ export class IoTAddon extends pulumi.CustomResource {
             if ((!args || args.roleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            inputs["addonName"] = args ? args.addonName : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["ioTDeviceDetails"] = args ? args.ioTDeviceDetails : undefined;
-            inputs["ioTEdgeDeviceDetails"] = args ? args.ioTEdgeDeviceDetails : undefined;
-            inputs["kind"] = "IotEdge";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["roleName"] = args ? args.roleName : undefined;
-            inputs["hostPlatform"] = undefined /*out*/;
-            inputs["hostPlatformType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["addonName"] = args ? args.addonName : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["ioTDeviceDetails"] = args ? args.ioTDeviceDetails : undefined;
+            resourceInputs["ioTEdgeDeviceDetails"] = args ? args.ioTEdgeDeviceDetails : undefined;
+            resourceInputs["kind"] = "IotEdge";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["hostPlatform"] = undefined /*out*/;
+            resourceInputs["hostPlatformType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["hostPlatform"] = undefined /*out*/;
-            inputs["hostPlatformType"] = undefined /*out*/;
-            inputs["ioTDeviceDetails"] = undefined /*out*/;
-            inputs["ioTEdgeDeviceDetails"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["hostPlatform"] = undefined /*out*/;
+            resourceInputs["hostPlatformType"] = undefined /*out*/;
+            resourceInputs["ioTDeviceDetails"] = undefined /*out*/;
+            resourceInputs["ioTEdgeDeviceDetails"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:IoTAddon" }, { type: "azure-native:databoxedge/v20200901:IoTAddon" }, { type: "azure-native:databoxedge/v20200901preview:IoTAddon" }, { type: "azure-native:databoxedge/v20201201:IoTAddon" }, { type: "azure-native:databoxedge/v20210201preview:IoTAddon" }, { type: "azure-native:databoxedge/v20210601:IoTAddon" }, { type: "azure-native:databoxedge/v20210601preview:IoTAddon" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IoTAddon.__pulumiType, name, inputs, opts);
+        super(IoTAddon.__pulumiType, name, resourceInputs, opts);
     }
 }
 

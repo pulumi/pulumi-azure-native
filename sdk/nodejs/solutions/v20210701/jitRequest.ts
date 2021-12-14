@@ -96,7 +96,7 @@ export class JitRequest extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: JitRequestArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationResourceId === undefined) && !opts.urn) {
@@ -111,42 +111,42 @@ export class JitRequest extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationResourceId"] = args ? args.applicationResourceId : undefined;
-            inputs["jitAuthorizationPolicies"] = args ? args.jitAuthorizationPolicies : undefined;
-            inputs["jitRequestName"] = args ? args.jitRequestName : undefined;
-            inputs["jitSchedulingPolicy"] = args ? args.jitSchedulingPolicy : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["jitRequestState"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publisherTenantId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["applicationResourceId"] = args ? args.applicationResourceId : undefined;
+            resourceInputs["jitAuthorizationPolicies"] = args ? args.jitAuthorizationPolicies : undefined;
+            resourceInputs["jitRequestName"] = args ? args.jitRequestName : undefined;
+            resourceInputs["jitSchedulingPolicy"] = args ? args.jitSchedulingPolicy : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["jitRequestState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publisherTenantId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
         } else {
-            inputs["applicationResourceId"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["jitAuthorizationPolicies"] = undefined /*out*/;
-            inputs["jitRequestState"] = undefined /*out*/;
-            inputs["jitSchedulingPolicy"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publisherTenantId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["applicationResourceId"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["jitAuthorizationPolicies"] = undefined /*out*/;
+            resourceInputs["jitRequestState"] = undefined /*out*/;
+            resourceInputs["jitSchedulingPolicy"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publisherTenantId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:solutions:JitRequest" }, { type: "azure-native:solutions/v20190701:JitRequest" }, { type: "azure-native:solutions/v20200821preview:JitRequest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(JitRequest.__pulumiType, name, inputs, opts);
+        super(JitRequest.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -84,7 +84,7 @@ export class SqlDatabase extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -93,35 +93,35 @@ export class SqlDatabase extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["collation"] = args ? args.collation : undefined;
-            inputs["dataRetention"] = args ? args.dataRetention : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sqlDatabaseName"] = args ? args.sqlDatabaseName : undefined;
-            inputs["storageRedundancy"] = args ? args.storageRedundancy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["databaseGuid"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["dataRetention"] = args ? args.dataRetention : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sqlDatabaseName"] = args ? args.sqlDatabaseName : undefined;
+            resourceInputs["storageRedundancy"] = args ? args.storageRedundancy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["databaseGuid"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["collation"] = undefined /*out*/;
-            inputs["dataRetention"] = undefined /*out*/;
-            inputs["databaseGuid"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["storageRedundancy"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["collation"] = undefined /*out*/;
+            resourceInputs["dataRetention"] = undefined /*out*/;
+            resourceInputs["databaseGuid"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["storageRedundancy"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SqlDatabase.__pulumiType, name, inputs, opts);
+        super(SqlDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

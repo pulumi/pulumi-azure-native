@@ -96,47 +96,47 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateStoreOfferArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateStoreId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateStoreId'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["iconFileUris"] = args ? args.iconFileUris : undefined;
-            inputs["offerId"] = args ? args.offerId : undefined;
-            inputs["plans"] = args ? args.plans : undefined;
-            inputs["privateStoreId"] = args ? args.privateStoreId : undefined;
-            inputs["specificPlanIdsLimitation"] = args ? args.specificPlanIdsLimitation : undefined;
-            inputs["updateSuppressedDueIdempotence"] = args ? args.updateSuppressedDueIdempotence : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["modifiedAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["offerDisplayName"] = undefined /*out*/;
-            inputs["publisherDisplayName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueOfferId"] = undefined /*out*/;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["iconFileUris"] = args ? args.iconFileUris : undefined;
+            resourceInputs["offerId"] = args ? args.offerId : undefined;
+            resourceInputs["plans"] = args ? args.plans : undefined;
+            resourceInputs["privateStoreId"] = args ? args.privateStoreId : undefined;
+            resourceInputs["specificPlanIdsLimitation"] = args ? args.specificPlanIdsLimitation : undefined;
+            resourceInputs["updateSuppressedDueIdempotence"] = args ? args.updateSuppressedDueIdempotence : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["modifiedAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["offerDisplayName"] = undefined /*out*/;
+            resourceInputs["publisherDisplayName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueOfferId"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["iconFileUris"] = undefined /*out*/;
-            inputs["modifiedAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["offerDisplayName"] = undefined /*out*/;
-            inputs["plans"] = undefined /*out*/;
-            inputs["privateStoreId"] = undefined /*out*/;
-            inputs["publisherDisplayName"] = undefined /*out*/;
-            inputs["specificPlanIdsLimitation"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueOfferId"] = undefined /*out*/;
-            inputs["updateSuppressedDueIdempotence"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["iconFileUris"] = undefined /*out*/;
+            resourceInputs["modifiedAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["offerDisplayName"] = undefined /*out*/;
+            resourceInputs["plans"] = undefined /*out*/;
+            resourceInputs["privateStoreId"] = undefined /*out*/;
+            resourceInputs["publisherDisplayName"] = undefined /*out*/;
+            resourceInputs["specificPlanIdsLimitation"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueOfferId"] = undefined /*out*/;
+            resourceInputs["updateSuppressedDueIdempotence"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:marketplace:PrivateStoreOffer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PrivateStoreOffer.__pulumiType, name, inputs, opts);
+        super(PrivateStoreOffer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

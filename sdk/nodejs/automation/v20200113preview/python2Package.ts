@@ -108,7 +108,7 @@ export class Python2Package extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: Python2PackageArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -120,49 +120,49 @@ export class Python2Package extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["contentLink"] = args ? args.contentLink : undefined;
-            inputs["packageName"] = args ? args.packageName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["activityCount"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["error"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["isComposite"] = undefined /*out*/;
-            inputs["isGlobal"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sizeInBytes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["contentLink"] = args ? args.contentLink : undefined;
+            resourceInputs["packageName"] = args ? args.packageName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["activityCount"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["error"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["isComposite"] = undefined /*out*/;
+            resourceInputs["isGlobal"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["activityCount"] = undefined /*out*/;
-            inputs["contentLink"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["error"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["isComposite"] = undefined /*out*/;
-            inputs["isGlobal"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sizeInBytes"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["activityCount"] = undefined /*out*/;
+            resourceInputs["contentLink"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["error"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["isComposite"] = undefined /*out*/;
+            resourceInputs["isGlobal"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:Python2Package" }, { type: "azure-native:automation/v20180630:Python2Package" }, { type: "azure-native:automation/v20190601:Python2Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Python2Package.__pulumiType, name, inputs, opts);
+        super(Python2Package.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -69,7 +69,7 @@ export class MECRole extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MECRoleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -84,28 +84,28 @@ export class MECRole extends pulumi.CustomResource {
             if ((!args || args.roleStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleStatus'");
             }
-            inputs["connectionString"] = args ? args.connectionString : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["kind"] = "MEC";
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["roleStatus"] = args ? args.roleStatus : undefined;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["kind"] = "MEC";
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["roleStatus"] = args ? args.roleStatus : undefined;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["connectionString"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roleStatus"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["connectionString"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roleStatus"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:MECRole" }, { type: "azure-native:databoxedge/v20190301:MECRole" }, { type: "azure-native:databoxedge/v20190701:MECRole" }, { type: "azure-native:databoxedge/v20190801:MECRole" }, { type: "azure-native:databoxedge/v20200501preview:MECRole" }, { type: "azure-native:databoxedge/v20200901preview:MECRole" }, { type: "azure-native:databoxedge/v20201201:MECRole" }, { type: "azure-native:databoxedge/v20210201:MECRole" }, { type: "azure-native:databoxedge/v20210201preview:MECRole" }, { type: "azure-native:databoxedge/v20210601:MECRole" }, { type: "azure-native:databoxedge/v20210601preview:MECRole" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MECRole.__pulumiType, name, inputs, opts);
+        super(MECRole.__pulumiType, name, resourceInputs, opts);
     }
 }
 

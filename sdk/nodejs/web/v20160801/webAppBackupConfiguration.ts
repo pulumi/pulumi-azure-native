@@ -76,7 +76,7 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppBackupConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.backupRequestName === undefined) && !opts.urn) {
@@ -91,31 +91,31 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
             if ((!args || args.storageAccountUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountUrl'");
             }
-            inputs["backupRequestName"] = args ? args.backupRequestName : undefined;
-            inputs["backupSchedule"] = args ? args.backupSchedule : undefined;
-            inputs["databases"] = args ? args.databases : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccountUrl"] = args ? args.storageAccountUrl : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["backupRequestName"] = args ? args.backupRequestName : undefined;
+            resourceInputs["backupSchedule"] = args ? (args.backupSchedule ? pulumi.output(args.backupSchedule).apply(inputs.web.v20160801.backupScheduleArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["databases"] = args ? args.databases : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountUrl"] = args ? args.storageAccountUrl : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["backupRequestName"] = undefined /*out*/;
-            inputs["backupSchedule"] = undefined /*out*/;
-            inputs["databases"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["storageAccountUrl"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backupRequestName"] = undefined /*out*/;
+            resourceInputs["backupSchedule"] = undefined /*out*/;
+            resourceInputs["databases"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["storageAccountUrl"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppBackupConfiguration" }, { type: "azure-native:web/v20150801:WebAppBackupConfiguration" }, { type: "azure-native:web/v20180201:WebAppBackupConfiguration" }, { type: "azure-native:web/v20181101:WebAppBackupConfiguration" }, { type: "azure-native:web/v20190801:WebAppBackupConfiguration" }, { type: "azure-native:web/v20200601:WebAppBackupConfiguration" }, { type: "azure-native:web/v20200901:WebAppBackupConfiguration" }, { type: "azure-native:web/v20201001:WebAppBackupConfiguration" }, { type: "azure-native:web/v20201201:WebAppBackupConfiguration" }, { type: "azure-native:web/v20210101:WebAppBackupConfiguration" }, { type: "azure-native:web/v20210115:WebAppBackupConfiguration" }, { type: "azure-native:web/v20210201:WebAppBackupConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppBackupConfiguration.__pulumiType, name, inputs, opts);
+        super(WebAppBackupConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

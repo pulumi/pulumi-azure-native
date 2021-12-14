@@ -61,7 +61,7 @@ export class SynchronizationSetting extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: ScheduledSynchronizationSetting. */
     constructor(name: string, args: SynchronizationSettingArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SynchronizationSetting is deprecated: Please use one of the variants: ScheduledSynchronizationSetting.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -76,24 +76,24 @@ export class SynchronizationSetting extends pulumi.CustomResource {
             if ((!args || args.shareName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["synchronizationSettingName"] = args ? args.synchronizationSettingName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["synchronizationSettingName"] = args ? args.synchronizationSettingName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:SynchronizationSetting" }, { type: "azure-native:datashare/v20191101:SynchronizationSetting" }, { type: "azure-native:datashare/v20200901:SynchronizationSetting" }, { type: "azure-native:datashare/v20201001preview:SynchronizationSetting" }, { type: "azure-native:datashare/v20210801:SynchronizationSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SynchronizationSetting.__pulumiType, name, inputs, opts);
+        super(SynchronizationSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

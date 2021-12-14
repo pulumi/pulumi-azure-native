@@ -66,7 +66,7 @@ export class DataConnector extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector. */
     constructor(name: string, args: DataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DataConnector is deprecated: Please use one of the variants: AADDataConnector, AATPDataConnector, ASCDataConnector, AwsCloudTrailDataConnector, MCASDataConnector, MDATPDataConnector, OfficeDataConnector, TIDataConnector.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.kind === undefined) && !opts.urn) {
@@ -78,25 +78,25 @@ export class DataConnector extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:DataConnector" }, { type: "azure-native:securityinsights/v20200101:DataConnector" }, { type: "azure-native:securityinsights/v20210301preview:DataConnector" }, { type: "azure-native:securityinsights/v20210901preview:DataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DataConnector.__pulumiType, name, inputs, opts);
+        super(DataConnector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

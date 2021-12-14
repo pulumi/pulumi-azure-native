@@ -72,7 +72,7 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseAccountGremlinDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -87,33 +87,33 @@ export class DatabaseAccountGremlinDatabase extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["ts"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["ts"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["ts"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["ts"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountGremlinDatabase" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountGremlinDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabaseAccountGremlinDatabase.__pulumiType, name, inputs, opts);
+        super(DatabaseAccountGremlinDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

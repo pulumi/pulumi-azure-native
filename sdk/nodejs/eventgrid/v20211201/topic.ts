@@ -102,52 +102,52 @@ export class Topic extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            inputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
-            inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["topicName"] = args ? args.topicName : undefined;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["metricResourceId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
+            resourceInputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
+            resourceInputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["metricResourceId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["disableLocalAuth"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["inboundIpRules"] = undefined /*out*/;
-            inputs["inputSchema"] = undefined /*out*/;
-            inputs["inputSchemaMapping"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["metricResourceId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["disableLocalAuth"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["inboundIpRules"] = undefined /*out*/;
+            resourceInputs["inputSchema"] = undefined /*out*/;
+            resourceInputs["inputSchemaMapping"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["metricResourceId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:Topic" }, { type: "azure-native:eventgrid/v20170615preview:Topic" }, { type: "azure-native:eventgrid/v20170915preview:Topic" }, { type: "azure-native:eventgrid/v20180101:Topic" }, { type: "azure-native:eventgrid/v20180501preview:Topic" }, { type: "azure-native:eventgrid/v20180915preview:Topic" }, { type: "azure-native:eventgrid/v20190101:Topic" }, { type: "azure-native:eventgrid/v20190201preview:Topic" }, { type: "azure-native:eventgrid/v20190601:Topic" }, { type: "azure-native:eventgrid/v20200101preview:Topic" }, { type: "azure-native:eventgrid/v20200401preview:Topic" }, { type: "azure-native:eventgrid/v20200601:Topic" }, { type: "azure-native:eventgrid/v20201015preview:Topic" }, { type: "azure-native:eventgrid/v20210601preview:Topic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Topic.__pulumiType, name, inputs, opts);
+        super(Topic.__pulumiType, name, resourceInputs, opts);
     }
 }
 

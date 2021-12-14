@@ -76,7 +76,7 @@ export class SavedSearch extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SavedSearchArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.category === undefined) && !opts.urn) {
@@ -94,33 +94,33 @@ export class SavedSearch extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["category"] = args ? args.category : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["query"] = args ? args.query : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["savedSearchId"] = args ? args.savedSearchId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["savedSearchId"] = args ? args.savedSearchId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["category"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["query"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["category"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["query"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights:SavedSearch" }, { type: "azure-native:operationalinsights/v20200301preview:SavedSearch" }, { type: "azure-native:operationalinsights/v20200801:SavedSearch" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SavedSearch.__pulumiType, name, inputs, opts);
+        super(SavedSearch.__pulumiType, name, resourceInputs, opts);
     }
 }
 

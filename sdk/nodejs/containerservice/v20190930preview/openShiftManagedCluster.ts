@@ -108,7 +108,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OpenShiftManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.openShiftVersion === undefined) && !opts.urn) {
@@ -117,48 +117,48 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
-            inputs["authProfile"] = args ? args.authProfile : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["masterPoolProfile"] = args ? args.masterPoolProfile : undefined;
-            inputs["monitorProfile"] = args ? args.monitorProfile : undefined;
-            inputs["networkProfile"] = args ? args.networkProfile : undefined;
-            inputs["openShiftVersion"] = args ? args.openShiftVersion : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["routerProfiles"] = args ? args.routerProfiles : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["clusterVersion"] = undefined /*out*/;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicHostname"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
+            resourceInputs["authProfile"] = args ? args.authProfile : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["masterPoolProfile"] = args ? args.masterPoolProfile : undefined;
+            resourceInputs["monitorProfile"] = args ? args.monitorProfile : undefined;
+            resourceInputs["networkProfile"] = args ? (args.networkProfile ? pulumi.output(args.networkProfile).apply(inputs.containerservice.v20190930preview.networkProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["openShiftVersion"] = args ? args.openShiftVersion : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["routerProfiles"] = args ? args.routerProfiles : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterVersion"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicHostname"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["agentPoolProfiles"] = undefined /*out*/;
-            inputs["authProfile"] = undefined /*out*/;
-            inputs["clusterVersion"] = undefined /*out*/;
-            inputs["fqdn"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["masterPoolProfile"] = undefined /*out*/;
-            inputs["monitorProfile"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkProfile"] = undefined /*out*/;
-            inputs["openShiftVersion"] = undefined /*out*/;
-            inputs["plan"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicHostname"] = undefined /*out*/;
-            inputs["routerProfiles"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["agentPoolProfiles"] = undefined /*out*/;
+            resourceInputs["authProfile"] = undefined /*out*/;
+            resourceInputs["clusterVersion"] = undefined /*out*/;
+            resourceInputs["fqdn"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["masterPoolProfile"] = undefined /*out*/;
+            resourceInputs["monitorProfile"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
+            resourceInputs["openShiftVersion"] = undefined /*out*/;
+            resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicHostname"] = undefined /*out*/;
+            resourceInputs["routerProfiles"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerservice:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20180930preview:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20190430:OpenShiftManagedCluster" }, { type: "azure-native:containerservice/v20191027preview:OpenShiftManagedCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(OpenShiftManagedCluster.__pulumiType, name, inputs, opts);
+        super(OpenShiftManagedCluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

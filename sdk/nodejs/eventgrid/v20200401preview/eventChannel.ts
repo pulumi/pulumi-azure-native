@@ -86,7 +86,7 @@ export class EventChannel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EventChannelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.partnerNamespaceName === undefined) && !opts.urn) {
@@ -95,37 +95,37 @@ export class EventChannel extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["eventChannelName"] = args ? args.eventChannelName : undefined;
-            inputs["expirationTimeIfNotActivatedUtc"] = args ? args.expirationTimeIfNotActivatedUtc : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["partnerNamespaceName"] = args ? args.partnerNamespaceName : undefined;
-            inputs["partnerTopicFriendlyDescription"] = args ? args.partnerTopicFriendlyDescription : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnerTopicReadinessState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["eventChannelName"] = args ? args.eventChannelName : undefined;
+            resourceInputs["expirationTimeIfNotActivatedUtc"] = args ? args.expirationTimeIfNotActivatedUtc : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["partnerNamespaceName"] = args ? args.partnerNamespaceName : undefined;
+            resourceInputs["partnerTopicFriendlyDescription"] = args ? args.partnerTopicFriendlyDescription : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnerTopicReadinessState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["destination"] = undefined /*out*/;
-            inputs["expirationTimeIfNotActivatedUtc"] = undefined /*out*/;
-            inputs["filter"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnerTopicFriendlyDescription"] = undefined /*out*/;
-            inputs["partnerTopicReadinessState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["destination"] = undefined /*out*/;
+            resourceInputs["expirationTimeIfNotActivatedUtc"] = undefined /*out*/;
+            resourceInputs["filter"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnerTopicFriendlyDescription"] = undefined /*out*/;
+            resourceInputs["partnerTopicReadinessState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:EventChannel" }, { type: "azure-native:eventgrid/v20201015preview:EventChannel" }, { type: "azure-native:eventgrid/v20210601preview:EventChannel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(EventChannel.__pulumiType, name, inputs, opts);
+        super(EventChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

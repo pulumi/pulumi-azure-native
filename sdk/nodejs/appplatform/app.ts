@@ -65,7 +65,7 @@ export class App extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -74,27 +74,27 @@ export class App extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["appName"] = args ? args.appName : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appName"] = args ? args.appName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.appResourcePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20190501preview:App" }, { type: "azure-native:appplatform/v20200701:App" }, { type: "azure-native:appplatform/v20201101preview:App" }, { type: "azure-native:appplatform/v20210601preview:App" }, { type: "azure-native:appplatform/v20210901preview:App" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(App.__pulumiType, name, inputs, opts);
+        super(App.__pulumiType, name, resourceInputs, opts);
     }
 }
 

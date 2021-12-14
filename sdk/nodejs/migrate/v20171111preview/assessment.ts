@@ -132,7 +132,7 @@ export class Assessment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.azureHybridUseBenefit === undefined) && !opts.urn) {
@@ -177,62 +177,62 @@ export class Assessment extends pulumi.CustomResource {
             if ((!args || args.timeRange === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeRange'");
             }
-            inputs["assessmentName"] = args ? args.assessmentName : undefined;
-            inputs["azureHybridUseBenefit"] = args ? args.azureHybridUseBenefit : undefined;
-            inputs["azureLocation"] = args ? args.azureLocation : undefined;
-            inputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
-            inputs["azurePricingTier"] = args ? args.azurePricingTier : undefined;
-            inputs["azureStorageRedundancy"] = args ? args.azureStorageRedundancy : undefined;
-            inputs["currency"] = args ? args.currency : undefined;
-            inputs["discountPercentage"] = args ? args.discountPercentage : undefined;
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["percentile"] = args ? args.percentile : undefined;
-            inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scalingFactor"] = args ? args.scalingFactor : undefined;
-            inputs["stage"] = args ? args.stage : undefined;
-            inputs["timeRange"] = args ? args.timeRange : undefined;
-            inputs["createdTimestamp"] = undefined /*out*/;
-            inputs["monthlyBandwidthCost"] = undefined /*out*/;
-            inputs["monthlyComputeCost"] = undefined /*out*/;
-            inputs["monthlyStorageCost"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfMachines"] = undefined /*out*/;
-            inputs["pricesTimestamp"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedTimestamp"] = undefined /*out*/;
+            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
+            resourceInputs["azureHybridUseBenefit"] = args ? args.azureHybridUseBenefit : undefined;
+            resourceInputs["azureLocation"] = args ? args.azureLocation : undefined;
+            resourceInputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
+            resourceInputs["azurePricingTier"] = args ? args.azurePricingTier : undefined;
+            resourceInputs["azureStorageRedundancy"] = args ? args.azureStorageRedundancy : undefined;
+            resourceInputs["currency"] = args ? args.currency : undefined;
+            resourceInputs["discountPercentage"] = args ? args.discountPercentage : undefined;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["percentile"] = args ? args.percentile : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scalingFactor"] = args ? args.scalingFactor : undefined;
+            resourceInputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["timeRange"] = args ? args.timeRange : undefined;
+            resourceInputs["createdTimestamp"] = undefined /*out*/;
+            resourceInputs["monthlyBandwidthCost"] = undefined /*out*/;
+            resourceInputs["monthlyComputeCost"] = undefined /*out*/;
+            resourceInputs["monthlyStorageCost"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfMachines"] = undefined /*out*/;
+            resourceInputs["pricesTimestamp"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedTimestamp"] = undefined /*out*/;
         } else {
-            inputs["azureHybridUseBenefit"] = undefined /*out*/;
-            inputs["azureLocation"] = undefined /*out*/;
-            inputs["azureOfferCode"] = undefined /*out*/;
-            inputs["azurePricingTier"] = undefined /*out*/;
-            inputs["azureStorageRedundancy"] = undefined /*out*/;
-            inputs["createdTimestamp"] = undefined /*out*/;
-            inputs["currency"] = undefined /*out*/;
-            inputs["discountPercentage"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["monthlyBandwidthCost"] = undefined /*out*/;
-            inputs["monthlyComputeCost"] = undefined /*out*/;
-            inputs["monthlyStorageCost"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfMachines"] = undefined /*out*/;
-            inputs["percentile"] = undefined /*out*/;
-            inputs["pricesTimestamp"] = undefined /*out*/;
-            inputs["scalingFactor"] = undefined /*out*/;
-            inputs["stage"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["timeRange"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedTimestamp"] = undefined /*out*/;
+            resourceInputs["azureHybridUseBenefit"] = undefined /*out*/;
+            resourceInputs["azureLocation"] = undefined /*out*/;
+            resourceInputs["azureOfferCode"] = undefined /*out*/;
+            resourceInputs["azurePricingTier"] = undefined /*out*/;
+            resourceInputs["azureStorageRedundancy"] = undefined /*out*/;
+            resourceInputs["createdTimestamp"] = undefined /*out*/;
+            resourceInputs["currency"] = undefined /*out*/;
+            resourceInputs["discountPercentage"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["monthlyBandwidthCost"] = undefined /*out*/;
+            resourceInputs["monthlyComputeCost"] = undefined /*out*/;
+            resourceInputs["monthlyStorageCost"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfMachines"] = undefined /*out*/;
+            resourceInputs["percentile"] = undefined /*out*/;
+            resourceInputs["pricesTimestamp"] = undefined /*out*/;
+            resourceInputs["scalingFactor"] = undefined /*out*/;
+            resourceInputs["stage"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["timeRange"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedTimestamp"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:migrate/v20180202:Assessment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Assessment.__pulumiType, name, inputs, opts);
+        super(Assessment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

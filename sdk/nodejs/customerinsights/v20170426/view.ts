@@ -79,7 +79,7 @@ export class View extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ViewArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.definition === undefined) && !opts.urn) {
@@ -91,34 +91,34 @@ export class View extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["definition"] = args ? args.definition : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["userId"] = args ? args.userId : undefined;
-            inputs["viewName"] = args ? args.viewName : undefined;
-            inputs["changed"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["viewName"] = args ? args.viewName : undefined;
+            resourceInputs["changed"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["changed"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["definition"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userId"] = undefined /*out*/;
-            inputs["viewName"] = undefined /*out*/;
+            resourceInputs["changed"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["definition"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userId"] = undefined /*out*/;
+            resourceInputs["viewName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:View" }, { type: "azure-native:customerinsights/v20170101:View" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(View.__pulumiType, name, inputs, opts);
+        super(View.__pulumiType, name, resourceInputs, opts);
     }
 }
 

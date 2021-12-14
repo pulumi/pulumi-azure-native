@@ -116,7 +116,7 @@ export class ShareSubscription extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ShareSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -131,53 +131,53 @@ export class ShareSubscription extends pulumi.CustomResource {
             if ((!args || args.sourceShareLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceShareLocation'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["expirationDate"] = args ? args.expirationDate : undefined;
-            inputs["invitationId"] = args ? args.invitationId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            inputs["sourceShareLocation"] = args ? args.sourceShareLocation : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["providerEmail"] = undefined /*out*/;
-            inputs["providerName"] = undefined /*out*/;
-            inputs["providerTenantName"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["shareDescription"] = undefined /*out*/;
-            inputs["shareKind"] = undefined /*out*/;
-            inputs["shareName"] = undefined /*out*/;
-            inputs["shareSubscriptionStatus"] = undefined /*out*/;
-            inputs["shareTerms"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userEmail"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
+            resourceInputs["invitationId"] = args ? args.invitationId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+            resourceInputs["sourceShareLocation"] = args ? args.sourceShareLocation : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["providerEmail"] = undefined /*out*/;
+            resourceInputs["providerName"] = undefined /*out*/;
+            resourceInputs["providerTenantName"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["shareDescription"] = undefined /*out*/;
+            resourceInputs["shareKind"] = undefined /*out*/;
+            resourceInputs["shareName"] = undefined /*out*/;
+            resourceInputs["shareSubscriptionStatus"] = undefined /*out*/;
+            resourceInputs["shareTerms"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userEmail"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["expirationDate"] = undefined /*out*/;
-            inputs["invitationId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["providerEmail"] = undefined /*out*/;
-            inputs["providerName"] = undefined /*out*/;
-            inputs["providerTenantName"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["shareDescription"] = undefined /*out*/;
-            inputs["shareKind"] = undefined /*out*/;
-            inputs["shareName"] = undefined /*out*/;
-            inputs["shareSubscriptionStatus"] = undefined /*out*/;
-            inputs["shareTerms"] = undefined /*out*/;
-            inputs["sourceShareLocation"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userEmail"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["expirationDate"] = undefined /*out*/;
+            resourceInputs["invitationId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["providerEmail"] = undefined /*out*/;
+            resourceInputs["providerName"] = undefined /*out*/;
+            resourceInputs["providerTenantName"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["shareDescription"] = undefined /*out*/;
+            resourceInputs["shareKind"] = undefined /*out*/;
+            resourceInputs["shareName"] = undefined /*out*/;
+            resourceInputs["shareSubscriptionStatus"] = undefined /*out*/;
+            resourceInputs["shareTerms"] = undefined /*out*/;
+            resourceInputs["sourceShareLocation"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userEmail"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ShareSubscription" }, { type: "azure-native:datashare/v20181101preview:ShareSubscription" }, { type: "azure-native:datashare/v20191101:ShareSubscription" }, { type: "azure-native:datashare/v20200901:ShareSubscription" }, { type: "azure-native:datashare/v20201001preview:ShareSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ShareSubscription.__pulumiType, name, inputs, opts);
+        super(ShareSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

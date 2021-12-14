@@ -70,7 +70,7 @@ export class UserRule extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */
     constructor(name: string, args: UserRuleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("UserRule is deprecated: Please use one of the variants: DefaultUserRule, UserRule.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.configurationName === undefined) && !opts.urn) {
@@ -88,29 +88,29 @@ export class UserRule extends pulumi.CustomResource {
             if ((!args || args.ruleCollectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollectionName'");
             }
-            inputs["configurationName"] = args ? args.configurationName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:UserRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(UserRule.__pulumiType, name, inputs, opts);
+        super(UserRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

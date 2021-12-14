@@ -72,36 +72,36 @@ export class EventSubscription extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["topic"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
+            resourceInputs["filter"] = args ? (args.filter ? pulumi.output(args.filter).apply(inputs.eventgrid.v20170915preview.eventSubscriptionFilterArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["topic"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["destination"] = undefined /*out*/;
-            inputs["filter"] = undefined /*out*/;
-            inputs["labels"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["topic"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["destination"] = undefined /*out*/;
+            resourceInputs["filter"] = undefined /*out*/;
+            resourceInputs["labels"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["topic"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:EventSubscription" }, { type: "azure-native:eventgrid/v20170615preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180101:EventSubscription" }, { type: "azure-native:eventgrid/v20180501preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190101:EventSubscription" }, { type: "azure-native:eventgrid/v20190201preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190601:EventSubscription" }, { type: "azure-native:eventgrid/v20200101preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200601:EventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211201:EventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(EventSubscription.__pulumiType, name, inputs, opts);
+        super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -112,56 +112,56 @@ export class Cache extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["cacheName"] = args ? args.cacheName : undefined;
-            inputs["cacheSizeGB"] = args ? args.cacheSizeGB : undefined;
-            inputs["directoryServicesSettings"] = args ? args.directoryServicesSettings : undefined;
-            inputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["networkSettings"] = args ? args.networkSettings : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securitySettings"] = args ? args.securitySettings : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["subnet"] = args ? args.subnet : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["health"] = undefined /*out*/;
-            inputs["mountAddresses"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["upgradeStatus"] = undefined /*out*/;
+            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
+            resourceInputs["cacheSizeGB"] = args ? args.cacheSizeGB : undefined;
+            resourceInputs["directoryServicesSettings"] = args ? (args.directoryServicesSettings ? pulumi.output(args.directoryServicesSettings).apply(inputs.storagecache.v20210501.cacheDirectorySettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkSettings"] = args ? (args.networkSettings ? pulumi.output(args.networkSettings).apply(inputs.storagecache.v20210501.cacheNetworkSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securitySettings"] = args ? args.securitySettings : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["subnet"] = args ? args.subnet : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["health"] = undefined /*out*/;
+            resourceInputs["mountAddresses"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["upgradeStatus"] = undefined /*out*/;
         } else {
-            inputs["cacheSizeGB"] = undefined /*out*/;
-            inputs["directoryServicesSettings"] = undefined /*out*/;
-            inputs["encryptionSettings"] = undefined /*out*/;
-            inputs["health"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["mountAddresses"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkSettings"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["securitySettings"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["subnet"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["upgradeStatus"] = undefined /*out*/;
+            resourceInputs["cacheSizeGB"] = undefined /*out*/;
+            resourceInputs["directoryServicesSettings"] = undefined /*out*/;
+            resourceInputs["encryptionSettings"] = undefined /*out*/;
+            resourceInputs["health"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["mountAddresses"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkSettings"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["securitySettings"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["subnet"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["upgradeStatus"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storagecache:Cache" }, { type: "azure-native:storagecache/v20190801preview:Cache" }, { type: "azure-native:storagecache/v20191101:Cache" }, { type: "azure-native:storagecache/v20200301:Cache" }, { type: "azure-native:storagecache/v20201001:Cache" }, { type: "azure-native:storagecache/v20210301:Cache" }, { type: "azure-native:storagecache/v20210901:Cache" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Cache.__pulumiType, name, inputs, opts);
+        super(Cache.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -116,7 +116,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConnectionMonitorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
@@ -125,54 +125,54 @@ export class ConnectionMonitor extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoStart"] = (args ? args.autoStart : undefined) ?? true;
-            inputs["connectionMonitorName"] = args ? args.connectionMonitorName : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["endpoints"] = args ? args.endpoints : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["migrate"] = args ? args.migrate : undefined;
-            inputs["monitoringIntervalInSeconds"] = (args ? args.monitoringIntervalInSeconds : undefined) ?? 60;
-            inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            inputs["notes"] = args ? args.notes : undefined;
-            inputs["outputs"] = args ? args.outputs : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["testConfigurations"] = args ? args.testConfigurations : undefined;
-            inputs["testGroups"] = args ? args.testGroups : undefined;
-            inputs["connectionMonitorType"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["monitoringStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoStart"] = (args ? args.autoStart : undefined) ?? true;
+            resourceInputs["connectionMonitorName"] = args ? args.connectionMonitorName : undefined;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["migrate"] = args ? args.migrate : undefined;
+            resourceInputs["monitoringIntervalInSeconds"] = (args ? args.monitoringIntervalInSeconds : undefined) ?? 60;
+            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
+            resourceInputs["notes"] = args ? args.notes : undefined;
+            resourceInputs["outputs"] = args ? args.outputs : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["testConfigurations"] = args ? args.testConfigurations : undefined;
+            resourceInputs["testGroups"] = args ? args.testGroups : undefined;
+            resourceInputs["connectionMonitorType"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["monitoringStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["autoStart"] = undefined /*out*/;
-            inputs["connectionMonitorType"] = undefined /*out*/;
-            inputs["destination"] = undefined /*out*/;
-            inputs["endpoints"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["monitoringIntervalInSeconds"] = undefined /*out*/;
-            inputs["monitoringStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notes"] = undefined /*out*/;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["testConfigurations"] = undefined /*out*/;
-            inputs["testGroups"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoStart"] = undefined /*out*/;
+            resourceInputs["connectionMonitorType"] = undefined /*out*/;
+            resourceInputs["destination"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["monitoringIntervalInSeconds"] = undefined /*out*/;
+            resourceInputs["monitoringStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notes"] = undefined /*out*/;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["testConfigurations"] = undefined /*out*/;
+            resourceInputs["testGroups"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ConnectionMonitor" }, { type: "azure-native:network/v20171001:ConnectionMonitor" }, { type: "azure-native:network/v20171101:ConnectionMonitor" }, { type: "azure-native:network/v20180101:ConnectionMonitor" }, { type: "azure-native:network/v20180201:ConnectionMonitor" }, { type: "azure-native:network/v20180401:ConnectionMonitor" }, { type: "azure-native:network/v20180601:ConnectionMonitor" }, { type: "azure-native:network/v20180701:ConnectionMonitor" }, { type: "azure-native:network/v20180801:ConnectionMonitor" }, { type: "azure-native:network/v20181001:ConnectionMonitor" }, { type: "azure-native:network/v20181101:ConnectionMonitor" }, { type: "azure-native:network/v20181201:ConnectionMonitor" }, { type: "azure-native:network/v20190201:ConnectionMonitor" }, { type: "azure-native:network/v20190401:ConnectionMonitor" }, { type: "azure-native:network/v20190601:ConnectionMonitor" }, { type: "azure-native:network/v20190701:ConnectionMonitor" }, { type: "azure-native:network/v20190801:ConnectionMonitor" }, { type: "azure-native:network/v20190901:ConnectionMonitor" }, { type: "azure-native:network/v20191101:ConnectionMonitor" }, { type: "azure-native:network/v20191201:ConnectionMonitor" }, { type: "azure-native:network/v20200301:ConnectionMonitor" }, { type: "azure-native:network/v20200401:ConnectionMonitor" }, { type: "azure-native:network/v20200501:ConnectionMonitor" }, { type: "azure-native:network/v20200601:ConnectionMonitor" }, { type: "azure-native:network/v20200701:ConnectionMonitor" }, { type: "azure-native:network/v20201101:ConnectionMonitor" }, { type: "azure-native:network/v20210201:ConnectionMonitor" }, { type: "azure-native:network/v20210301:ConnectionMonitor" }, { type: "azure-native:network/v20210501:ConnectionMonitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConnectionMonitor.__pulumiType, name, inputs, opts);
+        super(ConnectionMonitor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

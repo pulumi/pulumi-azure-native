@@ -89,7 +89,7 @@ export class ScheduledTrigger extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScheduledTriggerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -110,40 +110,40 @@ export class ScheduledTrigger extends pulumi.CustomResource {
             if ((!args || args.synchronizationTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synchronizationTime'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["kind"] = "ScheduleBased";
-            inputs["recurrenceInterval"] = args ? args.recurrenceInterval : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            inputs["synchronizationMode"] = args ? args.synchronizationMode : undefined;
-            inputs["synchronizationTime"] = args ? args.synchronizationTime : undefined;
-            inputs["triggerName"] = args ? args.triggerName : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["triggerStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["kind"] = "ScheduleBased";
+            resourceInputs["recurrenceInterval"] = args ? args.recurrenceInterval : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+            resourceInputs["synchronizationMode"] = args ? args.synchronizationMode : undefined;
+            resourceInputs["synchronizationTime"] = args ? args.synchronizationTime : undefined;
+            resourceInputs["triggerName"] = args ? args.triggerName : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["triggerStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["recurrenceInterval"] = undefined /*out*/;
-            inputs["synchronizationMode"] = undefined /*out*/;
-            inputs["synchronizationTime"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["triggerStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["recurrenceInterval"] = undefined /*out*/;
+            resourceInputs["synchronizationMode"] = undefined /*out*/;
+            resourceInputs["synchronizationTime"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["triggerStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ScheduledTrigger" }, { type: "azure-native:datashare/v20181101preview:ScheduledTrigger" }, { type: "azure-native:datashare/v20191101:ScheduledTrigger" }, { type: "azure-native:datashare/v20201001preview:ScheduledTrigger" }, { type: "azure-native:datashare/v20210801:ScheduledTrigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ScheduledTrigger.__pulumiType, name, inputs, opts);
+        super(ScheduledTrigger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

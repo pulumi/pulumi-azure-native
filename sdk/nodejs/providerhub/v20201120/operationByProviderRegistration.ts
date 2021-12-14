@@ -60,7 +60,7 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OperationByProviderRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.contents === undefined) && !opts.urn) {
@@ -69,30 +69,30 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
             if ((!args || args.providerNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            inputs["contents"] = args ? args.contents : undefined;
-            inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
-            inputs["actionType"] = undefined /*out*/;
-            inputs["display"] = undefined /*out*/;
-            inputs["isDataAction"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["origin"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["contents"] = args ? args.contents : undefined;
+            resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
+            resourceInputs["actionType"] = undefined /*out*/;
+            resourceInputs["display"] = undefined /*out*/;
+            resourceInputs["isDataAction"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["origin"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["actionType"] = undefined /*out*/;
-            inputs["display"] = undefined /*out*/;
-            inputs["isDataAction"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["origin"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actionType"] = undefined /*out*/;
+            resourceInputs["display"] = undefined /*out*/;
+            resourceInputs["isDataAction"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["origin"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:providerhub:OperationByProviderRegistration" }, { type: "azure-native:providerhub/v20210501preview:OperationByProviderRegistration" }, { type: "azure-native:providerhub/v20210601preview:OperationByProviderRegistration" }, { type: "azure-native:providerhub/v20210901preview:OperationByProviderRegistration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(OperationByProviderRegistration.__pulumiType, name, inputs, opts);
+        super(OperationByProviderRegistration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

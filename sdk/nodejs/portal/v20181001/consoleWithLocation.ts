@@ -48,24 +48,24 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConsoleWithLocationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            inputs["consoleName"] = args ? args.consoleName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = undefined /*out*/;
+            resourceInputs["consoleName"] = args ? args.consoleName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = undefined /*out*/;
         } else {
-            inputs["properties"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:portal:ConsoleWithLocation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConsoleWithLocation.__pulumiType, name, inputs, opts);
+        super(ConsoleWithLocation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

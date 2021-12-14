@@ -92,7 +92,7 @@ export class Pipeline extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.factoryName === undefined) && !opts.urn) {
@@ -101,41 +101,41 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["activities"] = args ? args.activities : undefined;
-            inputs["annotations"] = args ? args.annotations : undefined;
-            inputs["concurrency"] = args ? args.concurrency : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["factoryName"] = args ? args.factoryName : undefined;
-            inputs["folder"] = args ? args.folder : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["pipelineName"] = args ? args.pipelineName : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["runDimensions"] = args ? args.runDimensions : undefined;
-            inputs["variables"] = args ? args.variables : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["activities"] = args ? args.activities : undefined;
+            resourceInputs["annotations"] = args ? args.annotations : undefined;
+            resourceInputs["concurrency"] = args ? args.concurrency : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["factoryName"] = args ? args.factoryName : undefined;
+            resourceInputs["folder"] = args ? args.folder : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["runDimensions"] = args ? args.runDimensions : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["activities"] = undefined /*out*/;
-            inputs["annotations"] = undefined /*out*/;
-            inputs["concurrency"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["folder"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["policy"] = undefined /*out*/;
-            inputs["runDimensions"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["variables"] = undefined /*out*/;
+            resourceInputs["activities"] = undefined /*out*/;
+            resourceInputs["annotations"] = undefined /*out*/;
+            resourceInputs["concurrency"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["folder"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["policy"] = undefined /*out*/;
+            resourceInputs["runDimensions"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["variables"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datafactory:Pipeline" }, { type: "azure-native:datafactory/v20170901preview:Pipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Pipeline.__pulumiType, name, inputs, opts);
+        super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

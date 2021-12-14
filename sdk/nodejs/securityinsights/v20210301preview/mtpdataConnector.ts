@@ -73,7 +73,7 @@ export class MTPDataConnector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MTPDataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataTypes === undefined) && !opts.urn) {
@@ -94,32 +94,32 @@ export class MTPDataConnector extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            inputs["dataTypes"] = args ? args.dataTypes : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["kind"] = "MicrosoftThreatProtection";
-            inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
+            resourceInputs["dataTypes"] = args ? args.dataTypes : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["kind"] = "MicrosoftThreatProtection";
+            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dataTypes"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataTypes"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:MTPDataConnector" }, { type: "azure-native:securityinsights/v20190101preview:MTPDataConnector" }, { type: "azure-native:securityinsights/v20200101:MTPDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:MTPDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MTPDataConnector.__pulumiType, name, inputs, opts);
+        super(MTPDataConnector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

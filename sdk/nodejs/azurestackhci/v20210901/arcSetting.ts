@@ -92,7 +92,7 @@ export class ArcSetting extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ArcSettingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -101,41 +101,41 @@ export class ArcSetting extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["arcSettingName"] = args ? args.arcSettingName : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["createdAt"] = args ? args.createdAt : undefined;
-            inputs["createdBy"] = args ? args.createdBy : undefined;
-            inputs["createdByType"] = args ? args.createdByType : undefined;
-            inputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
-            inputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            inputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["aggregateState"] = undefined /*out*/;
-            inputs["arcInstanceResourceGroup"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["perNodeDetails"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["arcSettingName"] = args ? args.arcSettingName : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
+            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
+            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
+            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
+            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
+            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["aggregateState"] = undefined /*out*/;
+            resourceInputs["arcInstanceResourceGroup"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["perNodeDetails"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["aggregateState"] = undefined /*out*/;
-            inputs["arcInstanceResourceGroup"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["createdByType"] = undefined /*out*/;
-            inputs["lastModifiedAt"] = undefined /*out*/;
-            inputs["lastModifiedBy"] = undefined /*out*/;
-            inputs["lastModifiedByType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["perNodeDetails"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aggregateState"] = undefined /*out*/;
+            resourceInputs["arcInstanceResourceGroup"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["createdByType"] = undefined /*out*/;
+            resourceInputs["lastModifiedAt"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["lastModifiedByType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["perNodeDetails"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:ArcSetting" }, { type: "azure-native:azurestackhci/v20210101preview:ArcSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ArcSetting.__pulumiType, name, inputs, opts);
+        super(ArcSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

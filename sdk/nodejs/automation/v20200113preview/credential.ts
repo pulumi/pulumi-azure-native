@@ -67,7 +67,7 @@ export class Credential extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CredentialArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -85,30 +85,30 @@ export class Credential extends pulumi.CustomResource {
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["credentialName"] = args ? args.credentialName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["credentialName"] = args ? args.credentialName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:Credential" }, { type: "azure-native:automation/v20151031:Credential" }, { type: "azure-native:automation/v20190601:Credential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Credential.__pulumiType, name, inputs, opts);
+        super(Credential.__pulumiType, name, resourceInputs, opts);
     }
 }
 

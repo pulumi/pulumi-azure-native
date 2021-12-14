@@ -144,72 +144,72 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["allowPublicAccessWhenBehindVnet"] = (args ? args.allowPublicAccessWhenBehindVnet : undefined) ?? false;
-            inputs["applicationInsights"] = args ? args.applicationInsights : undefined;
-            inputs["containerRegistry"] = args ? args.containerRegistry : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["discoveryUrl"] = args ? args.discoveryUrl : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["hbiWorkspace"] = (args ? args.hbiWorkspace : undefined) ?? false;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["imageBuildCompute"] = args ? args.imageBuildCompute : undefined;
-            inputs["keyVault"] = args ? args.keyVault : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sharedPrivateLinkResources"] = args ? args.sharedPrivateLinkResources : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["storageAccount"] = args ? args.storageAccount : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notebookInfo"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["privateLinkCount"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceProvisionedResourceGroup"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
+            resourceInputs["allowPublicAccessWhenBehindVnet"] = (args ? args.allowPublicAccessWhenBehindVnet : undefined) ?? false;
+            resourceInputs["applicationInsights"] = args ? args.applicationInsights : undefined;
+            resourceInputs["containerRegistry"] = args ? args.containerRegistry : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["discoveryUrl"] = args ? args.discoveryUrl : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["hbiWorkspace"] = (args ? args.hbiWorkspace : undefined) ?? false;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["imageBuildCompute"] = args ? args.imageBuildCompute : undefined;
+            resourceInputs["keyVault"] = args ? args.keyVault : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sharedPrivateLinkResources"] = args ? args.sharedPrivateLinkResources : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notebookInfo"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["privateLinkCount"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceProvisionedResourceGroup"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
         } else {
-            inputs["allowPublicAccessWhenBehindVnet"] = undefined /*out*/;
-            inputs["applicationInsights"] = undefined /*out*/;
-            inputs["containerRegistry"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["discoveryUrl"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["hbiWorkspace"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["imageBuildCompute"] = undefined /*out*/;
-            inputs["keyVault"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notebookInfo"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["privateLinkCount"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["serviceProvisionedResourceGroup"] = undefined /*out*/;
-            inputs["sharedPrivateLinkResources"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["storageAccount"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
+            resourceInputs["allowPublicAccessWhenBehindVnet"] = undefined /*out*/;
+            resourceInputs["applicationInsights"] = undefined /*out*/;
+            resourceInputs["containerRegistry"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["discoveryUrl"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["hbiWorkspace"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["imageBuildCompute"] = undefined /*out*/;
+            resourceInputs["keyVault"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notebookInfo"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["privateLinkCount"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["serviceProvisionedResourceGroup"] = undefined /*out*/;
+            resourceInputs["sharedPrivateLinkResources"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["storageAccount"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:Workspace" }, { type: "azure-native:machinelearningservices/v20180301preview:Workspace" }, { type: "azure-native:machinelearningservices/v20181119:Workspace" }, { type: "azure-native:machinelearningservices/v20190501:Workspace" }, { type: "azure-native:machinelearningservices/v20190601:Workspace" }, { type: "azure-native:machinelearningservices/v20191101:Workspace" }, { type: "azure-native:machinelearningservices/v20200101:Workspace" }, { type: "azure-native:machinelearningservices/v20200218preview:Workspace" }, { type: "azure-native:machinelearningservices/v20200401:Workspace" }, { type: "azure-native:machinelearningservices/v20200501preview:Workspace" }, { type: "azure-native:machinelearningservices/v20200515preview:Workspace" }, { type: "azure-native:machinelearningservices/v20200601:Workspace" }, { type: "azure-native:machinelearningservices/v20200801:Workspace" }, { type: "azure-native:machinelearningservices/v20200901preview:Workspace" }, { type: "azure-native:machinelearningservices/v20210101:Workspace" }, { type: "azure-native:machinelearningservices/v20210301preview:Workspace" }, { type: "azure-native:machinelearningservices/v20210401:Workspace" }, { type: "azure-native:machinelearningservices/v20210701:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

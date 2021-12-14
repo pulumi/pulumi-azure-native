@@ -64,7 +64,7 @@ export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GuestDiagnosticsSettingsAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.guestDiagnosticSettingsName === undefined) && !opts.urn) {
@@ -73,26 +73,26 @@ export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            inputs["associationName"] = args ? args.associationName : undefined;
-            inputs["guestDiagnosticSettingsName"] = args ? args.guestDiagnosticSettingsName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceUri"] = args ? args.resourceUri : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["associationName"] = args ? args.associationName : undefined;
+            resourceInputs["guestDiagnosticSettingsName"] = args ? args.guestDiagnosticSettingsName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["guestDiagnosticSettingsName"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["guestDiagnosticSettingsName"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GuestDiagnosticsSettingsAssociation.__pulumiType, name, inputs, opts);
+        super(GuestDiagnosticsSettingsAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

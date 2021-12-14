@@ -85,7 +85,7 @@ export class Service extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupName === undefined) && !opts.urn) {
@@ -94,36 +94,36 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.virtualSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualSubnetId'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["publicKey"] = args ? args.publicKey : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualSubnetId"] = args ? args.virtualSubnetId : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualSubnetId"] = args ? args.virtualSubnetId : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicKey"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualSubnetId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicKey"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualSubnetId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20171115preview:Service" }, { type: "azure-native:datamigration/v20180315preview:Service" }, { type: "azure-native:datamigration/v20180331preview:Service" }, { type: "azure-native:datamigration/v20180419:Service" }, { type: "azure-native:datamigration/v20180715preview:Service" }, { type: "azure-native:datamigration/v20210630:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Service.__pulumiType, name, inputs, opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -84,7 +84,7 @@ export class PolicyExemption extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PolicyExemptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.exemptionCategory === undefined) && !opts.urn) {
@@ -96,36 +96,36 @@ export class PolicyExemption extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["exemptionCategory"] = args ? args.exemptionCategory : undefined;
-            inputs["expiresOn"] = args ? args.expiresOn : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            inputs["policyDefinitionReferenceIds"] = args ? args.policyDefinitionReferenceIds : undefined;
-            inputs["policyExemptionName"] = args ? args.policyExemptionName : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["exemptionCategory"] = args ? args.exemptionCategory : undefined;
+            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
+            resourceInputs["policyDefinitionReferenceIds"] = args ? args.policyDefinitionReferenceIds : undefined;
+            resourceInputs["policyExemptionName"] = args ? args.policyExemptionName : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["exemptionCategory"] = undefined /*out*/;
-            inputs["expiresOn"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["policyAssignmentId"] = undefined /*out*/;
-            inputs["policyDefinitionReferenceIds"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["exemptionCategory"] = undefined /*out*/;
+            resourceInputs["expiresOn"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policyAssignmentId"] = undefined /*out*/;
+            resourceInputs["policyDefinitionReferenceIds"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:authorization:PolicyExemption" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PolicyExemption.__pulumiType, name, inputs, opts);
+        super(PolicyExemption.__pulumiType, name, resourceInputs, opts);
     }
 }
 

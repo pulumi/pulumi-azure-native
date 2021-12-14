@@ -93,7 +93,7 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DistributedAvailabilityGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
@@ -102,41 +102,41 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["distributedAvailabilityGroupName"] = args ? args.distributedAvailabilityGroupName : undefined;
-            inputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            inputs["primaryAvailabilityGroupName"] = args ? args.primaryAvailabilityGroupName : undefined;
-            inputs["replicationMode"] = args ? args.replicationMode : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["secondaryAvailabilityGroupName"] = args ? args.secondaryAvailabilityGroupName : undefined;
-            inputs["sourceEndpoint"] = args ? args.sourceEndpoint : undefined;
-            inputs["targetDatabase"] = args ? args.targetDatabase : undefined;
-            inputs["distributedAvailabilityGroupId"] = undefined /*out*/;
-            inputs["lastHardenedLsn"] = undefined /*out*/;
-            inputs["linkState"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sourceReplicaId"] = undefined /*out*/;
-            inputs["targetReplicaId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["distributedAvailabilityGroupName"] = args ? args.distributedAvailabilityGroupName : undefined;
+            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
+            resourceInputs["primaryAvailabilityGroupName"] = args ? args.primaryAvailabilityGroupName : undefined;
+            resourceInputs["replicationMode"] = args ? args.replicationMode : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["secondaryAvailabilityGroupName"] = args ? args.secondaryAvailabilityGroupName : undefined;
+            resourceInputs["sourceEndpoint"] = args ? args.sourceEndpoint : undefined;
+            resourceInputs["targetDatabase"] = args ? args.targetDatabase : undefined;
+            resourceInputs["distributedAvailabilityGroupId"] = undefined /*out*/;
+            resourceInputs["lastHardenedLsn"] = undefined /*out*/;
+            resourceInputs["linkState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sourceReplicaId"] = undefined /*out*/;
+            resourceInputs["targetReplicaId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["distributedAvailabilityGroupId"] = undefined /*out*/;
-            inputs["lastHardenedLsn"] = undefined /*out*/;
-            inputs["linkState"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["primaryAvailabilityGroupName"] = undefined /*out*/;
-            inputs["replicationMode"] = undefined /*out*/;
-            inputs["secondaryAvailabilityGroupName"] = undefined /*out*/;
-            inputs["sourceEndpoint"] = undefined /*out*/;
-            inputs["sourceReplicaId"] = undefined /*out*/;
-            inputs["targetDatabase"] = undefined /*out*/;
-            inputs["targetReplicaId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["distributedAvailabilityGroupId"] = undefined /*out*/;
+            resourceInputs["lastHardenedLsn"] = undefined /*out*/;
+            resourceInputs["linkState"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["primaryAvailabilityGroupName"] = undefined /*out*/;
+            resourceInputs["replicationMode"] = undefined /*out*/;
+            resourceInputs["secondaryAvailabilityGroupName"] = undefined /*out*/;
+            resourceInputs["sourceEndpoint"] = undefined /*out*/;
+            resourceInputs["sourceReplicaId"] = undefined /*out*/;
+            resourceInputs["targetDatabase"] = undefined /*out*/;
+            resourceInputs["targetReplicaId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20210501preview:DistributedAvailabilityGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DistributedAvailabilityGroup.__pulumiType, name, inputs, opts);
+        super(DistributedAvailabilityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

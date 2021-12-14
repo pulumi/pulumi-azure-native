@@ -185,7 +185,7 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagedHostingEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -194,86 +194,86 @@ export class ManagedHostingEnvironment extends pulumi.CustomResource {
             if ((!args || args.status === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            inputs["allowedMultiSizes"] = args ? args.allowedMultiSizes : undefined;
-            inputs["allowedWorkerSizes"] = args ? args.allowedWorkerSizes : undefined;
-            inputs["apiManagementAccountId"] = args ? args.apiManagementAccountId : undefined;
-            inputs["clusterSettings"] = args ? args.clusterSettings : undefined;
-            inputs["databaseEdition"] = args ? args.databaseEdition : undefined;
-            inputs["databaseServiceObjective"] = args ? args.databaseServiceObjective : undefined;
-            inputs["dnsSuffix"] = args ? args.dnsSuffix : undefined;
-            inputs["environmentCapacities"] = args ? args.environmentCapacities : undefined;
-            inputs["environmentIsHealthy"] = args ? args.environmentIsHealthy : undefined;
-            inputs["environmentStatus"] = args ? args.environmentStatus : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
-            inputs["ipsslAddressCount"] = args ? args.ipsslAddressCount : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["lastAction"] = args ? args.lastAction : undefined;
-            inputs["lastActionResult"] = args ? args.lastActionResult : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maximumNumberOfMachines"] = args ? args.maximumNumberOfMachines : undefined;
-            inputs["multiRoleCount"] = args ? args.multiRoleCount : undefined;
-            inputs["multiSize"] = args ? args.multiSize : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkAccessControlList"] = args ? args.networkAccessControlList : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["suspended"] = args ? args.suspended : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["upgradeDomains"] = args ? args.upgradeDomains : undefined;
-            inputs["vipMappings"] = args ? args.vipMappings : undefined;
-            inputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            inputs["vnetName"] = args ? args.vnetName : undefined;
-            inputs["vnetResourceGroupName"] = args ? args.vnetResourceGroupName : undefined;
-            inputs["vnetSubnetName"] = args ? args.vnetSubnetName : undefined;
-            inputs["workerPools"] = args ? args.workerPools : undefined;
+            resourceInputs["allowedMultiSizes"] = args ? args.allowedMultiSizes : undefined;
+            resourceInputs["allowedWorkerSizes"] = args ? args.allowedWorkerSizes : undefined;
+            resourceInputs["apiManagementAccountId"] = args ? args.apiManagementAccountId : undefined;
+            resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
+            resourceInputs["databaseEdition"] = args ? args.databaseEdition : undefined;
+            resourceInputs["databaseServiceObjective"] = args ? args.databaseServiceObjective : undefined;
+            resourceInputs["dnsSuffix"] = args ? args.dnsSuffix : undefined;
+            resourceInputs["environmentCapacities"] = args ? args.environmentCapacities : undefined;
+            resourceInputs["environmentIsHealthy"] = args ? args.environmentIsHealthy : undefined;
+            resourceInputs["environmentStatus"] = args ? args.environmentStatus : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
+            resourceInputs["ipsslAddressCount"] = args ? args.ipsslAddressCount : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["lastAction"] = args ? args.lastAction : undefined;
+            resourceInputs["lastActionResult"] = args ? args.lastActionResult : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maximumNumberOfMachines"] = args ? args.maximumNumberOfMachines : undefined;
+            resourceInputs["multiRoleCount"] = args ? args.multiRoleCount : undefined;
+            resourceInputs["multiSize"] = args ? args.multiSize : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkAccessControlList"] = args ? args.networkAccessControlList : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["suspended"] = args ? args.suspended : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["upgradeDomains"] = args ? args.upgradeDomains : undefined;
+            resourceInputs["vipMappings"] = args ? args.vipMappings : undefined;
+            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
+            resourceInputs["vnetName"] = args ? args.vnetName : undefined;
+            resourceInputs["vnetResourceGroupName"] = args ? args.vnetResourceGroupName : undefined;
+            resourceInputs["vnetSubnetName"] = args ? args.vnetSubnetName : undefined;
+            resourceInputs["workerPools"] = args ? args.workerPools : undefined;
         } else {
-            inputs["allowedMultiSizes"] = undefined /*out*/;
-            inputs["allowedWorkerSizes"] = undefined /*out*/;
-            inputs["apiManagementAccountId"] = undefined /*out*/;
-            inputs["clusterSettings"] = undefined /*out*/;
-            inputs["databaseEdition"] = undefined /*out*/;
-            inputs["databaseServiceObjective"] = undefined /*out*/;
-            inputs["dnsSuffix"] = undefined /*out*/;
-            inputs["environmentCapacities"] = undefined /*out*/;
-            inputs["environmentIsHealthy"] = undefined /*out*/;
-            inputs["environmentStatus"] = undefined /*out*/;
-            inputs["internalLoadBalancingMode"] = undefined /*out*/;
-            inputs["ipsslAddressCount"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastAction"] = undefined /*out*/;
-            inputs["lastActionResult"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maximumNumberOfMachines"] = undefined /*out*/;
-            inputs["multiRoleCount"] = undefined /*out*/;
-            inputs["multiSize"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkAccessControlList"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGroup"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subscriptionId"] = undefined /*out*/;
-            inputs["suspended"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["upgradeDomains"] = undefined /*out*/;
-            inputs["vipMappings"] = undefined /*out*/;
-            inputs["virtualNetwork"] = undefined /*out*/;
-            inputs["vnetName"] = undefined /*out*/;
-            inputs["vnetResourceGroupName"] = undefined /*out*/;
-            inputs["vnetSubnetName"] = undefined /*out*/;
-            inputs["workerPools"] = undefined /*out*/;
+            resourceInputs["allowedMultiSizes"] = undefined /*out*/;
+            resourceInputs["allowedWorkerSizes"] = undefined /*out*/;
+            resourceInputs["apiManagementAccountId"] = undefined /*out*/;
+            resourceInputs["clusterSettings"] = undefined /*out*/;
+            resourceInputs["databaseEdition"] = undefined /*out*/;
+            resourceInputs["databaseServiceObjective"] = undefined /*out*/;
+            resourceInputs["dnsSuffix"] = undefined /*out*/;
+            resourceInputs["environmentCapacities"] = undefined /*out*/;
+            resourceInputs["environmentIsHealthy"] = undefined /*out*/;
+            resourceInputs["environmentStatus"] = undefined /*out*/;
+            resourceInputs["internalLoadBalancingMode"] = undefined /*out*/;
+            resourceInputs["ipsslAddressCount"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastAction"] = undefined /*out*/;
+            resourceInputs["lastActionResult"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maximumNumberOfMachines"] = undefined /*out*/;
+            resourceInputs["multiRoleCount"] = undefined /*out*/;
+            resourceInputs["multiSize"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkAccessControlList"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["suspended"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["upgradeDomains"] = undefined /*out*/;
+            resourceInputs["vipMappings"] = undefined /*out*/;
+            resourceInputs["virtualNetwork"] = undefined /*out*/;
+            resourceInputs["vnetName"] = undefined /*out*/;
+            resourceInputs["vnetResourceGroupName"] = undefined /*out*/;
+            resourceInputs["vnetSubnetName"] = undefined /*out*/;
+            resourceInputs["workerPools"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:ManagedHostingEnvironment" }, { type: "azure-native:web/v20160901:ManagedHostingEnvironment" }, { type: "azure-native:web/v20180201:ManagedHostingEnvironment" }, { type: "azure-native:web/v20190801:ManagedHostingEnvironment" }, { type: "azure-native:web/v20200601:ManagedHostingEnvironment" }, { type: "azure-native:web/v20200901:ManagedHostingEnvironment" }, { type: "azure-native:web/v20201001:ManagedHostingEnvironment" }, { type: "azure-native:web/v20201201:ManagedHostingEnvironment" }, { type: "azure-native:web/v20210101:ManagedHostingEnvironment" }, { type: "azure-native:web/v20210115:ManagedHostingEnvironment" }, { type: "azure-native:web/v20210201:ManagedHostingEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagedHostingEnvironment.__pulumiType, name, inputs, opts);
+        super(ManagedHostingEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

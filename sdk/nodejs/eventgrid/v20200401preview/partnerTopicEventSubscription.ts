@@ -104,7 +104,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PartnerTopicEventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.partnerTopicName === undefined) && !opts.urn) {
@@ -113,45 +113,45 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
-            inputs["deadLetterWithResourceIdentity"] = args ? args.deadLetterWithResourceIdentity : undefined;
-            inputs["deliveryWithResourceIdentity"] = args ? args.deliveryWithResourceIdentity : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) ?? "EventGridSchema";
-            inputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
-            inputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["partnerTopicName"] = args ? args.partnerTopicName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retryPolicy"] = args ? args.retryPolicy : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["topic"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
+            resourceInputs["deadLetterWithResourceIdentity"] = args ? args.deadLetterWithResourceIdentity : undefined;
+            resourceInputs["deliveryWithResourceIdentity"] = args ? args.deliveryWithResourceIdentity : undefined;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) ?? "EventGridSchema";
+            resourceInputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
+            resourceInputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
+            resourceInputs["filter"] = args ? (args.filter ? pulumi.output(args.filter).apply(inputs.eventgrid.v20200401preview.eventSubscriptionFilterArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["partnerTopicName"] = args ? args.partnerTopicName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retryPolicy"] = args ? args.retryPolicy : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["topic"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["deadLetterDestination"] = undefined /*out*/;
-            inputs["deadLetterWithResourceIdentity"] = undefined /*out*/;
-            inputs["deliveryWithResourceIdentity"] = undefined /*out*/;
-            inputs["destination"] = undefined /*out*/;
-            inputs["eventDeliverySchema"] = undefined /*out*/;
-            inputs["expirationTimeUtc"] = undefined /*out*/;
-            inputs["filter"] = undefined /*out*/;
-            inputs["labels"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["retryPolicy"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["topic"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deadLetterDestination"] = undefined /*out*/;
+            resourceInputs["deadLetterWithResourceIdentity"] = undefined /*out*/;
+            resourceInputs["deliveryWithResourceIdentity"] = undefined /*out*/;
+            resourceInputs["destination"] = undefined /*out*/;
+            resourceInputs["eventDeliverySchema"] = undefined /*out*/;
+            resourceInputs["expirationTimeUtc"] = undefined /*out*/;
+            resourceInputs["filter"] = undefined /*out*/;
+            resourceInputs["labels"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["retryPolicy"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["topic"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PartnerTopicEventSubscription.__pulumiType, name, inputs, opts);
+        super(PartnerTopicEventSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

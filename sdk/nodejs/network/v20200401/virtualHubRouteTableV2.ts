@@ -64,7 +64,7 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualHubRouteTableV2Args, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -73,28 +73,28 @@ export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
             if ((!args || args.virtualHubName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
-            inputs["attachedConnections"] = args ? args.attachedConnections : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeTableName"] = args ? args.routeTableName : undefined;
-            inputs["routes"] = args ? args.routes : undefined;
-            inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["attachedConnections"] = args ? args.attachedConnections : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routeTableName"] = args ? args.routeTableName : undefined;
+            resourceInputs["routes"] = args ? args.routes : undefined;
+            resourceInputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["attachedConnections"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["routes"] = undefined /*out*/;
+            resourceInputs["attachedConnections"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["routes"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20190901:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20191101:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20191201:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20200301:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20200501:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20200601:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20200701:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20200801:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20201101:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20210201:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20210301:VirtualHubRouteTableV2" }, { type: "azure-native:network/v20210501:VirtualHubRouteTableV2" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualHubRouteTableV2.__pulumiType, name, inputs, opts);
+        super(VirtualHubRouteTableV2.__pulumiType, name, resourceInputs, opts);
     }
 }
 

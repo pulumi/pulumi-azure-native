@@ -81,40 +81,40 @@ export class Hub extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HubArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["hubBillingInfo"] = args ? args.hubBillingInfo : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenantFeatures"] = args ? args.tenantFeatures : undefined;
-            inputs["apiEndpoint"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["webEndpoint"] = undefined /*out*/;
+            resourceInputs["hubBillingInfo"] = args ? args.hubBillingInfo : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenantFeatures"] = args ? args.tenantFeatures : undefined;
+            resourceInputs["apiEndpoint"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["webEndpoint"] = undefined /*out*/;
         } else {
-            inputs["apiEndpoint"] = undefined /*out*/;
-            inputs["hubBillingInfo"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["tenantFeatures"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["webEndpoint"] = undefined /*out*/;
+            resourceInputs["apiEndpoint"] = undefined /*out*/;
+            resourceInputs["hubBillingInfo"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantFeatures"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["webEndpoint"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/v20170101:Hub" }, { type: "azure-native:customerinsights/v20170426:Hub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Hub.__pulumiType, name, inputs, opts);
+        super(Hub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -67,7 +67,7 @@ export class Suppression extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SuppressionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.recommendationId === undefined) && !opts.urn) {
@@ -76,28 +76,28 @@ export class Suppression extends pulumi.CustomResource {
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recommendationId"] = args ? args.recommendationId : undefined;
-            inputs["resourceUri"] = args ? args.resourceUri : undefined;
-            inputs["suppressionId"] = args ? args.suppressionId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recommendationId"] = args ? args.recommendationId : undefined;
+            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["suppressionId"] = args ? args.suppressionId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["suppressionId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["ttl"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["suppressionId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["ttl"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:advisor:Suppression" }, { type: "azure-native:advisor/v20170331:Suppression" }, { type: "azure-native:advisor/v20170419:Suppression" }, { type: "azure-native:advisor/v20200101:Suppression" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Suppression.__pulumiType, name, inputs, opts);
+        super(Suppression.__pulumiType, name, resourceInputs, opts);
     }
 }
 

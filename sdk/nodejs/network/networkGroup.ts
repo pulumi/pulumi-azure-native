@@ -85,7 +85,7 @@ export class NetworkGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NetworkGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.networkManagerName === undefined) && !opts.urn) {
@@ -94,37 +94,37 @@ export class NetworkGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["conditionalMembership"] = args ? args.conditionalMembership : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["groupMembers"] = args ? args.groupMembers : undefined;
-            inputs["memberType"] = args ? args.memberType : undefined;
-            inputs["networkGroupName"] = args ? args.networkGroupName : undefined;
-            inputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["conditionalMembership"] = args ? args.conditionalMembership : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["groupMembers"] = args ? args.groupMembers : undefined;
+            resourceInputs["memberType"] = args ? args.memberType : undefined;
+            resourceInputs["networkGroupName"] = args ? args.networkGroupName : undefined;
+            resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["conditionalMembership"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["groupMembers"] = undefined /*out*/;
-            inputs["memberType"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["conditionalMembership"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["groupMembers"] = undefined /*out*/;
+            resourceInputs["memberType"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NetworkGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NetworkGroup.__pulumiType, name, inputs, opts);
+        super(NetworkGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

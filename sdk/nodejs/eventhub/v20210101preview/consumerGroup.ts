@@ -68,7 +68,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConsumerGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.eventHubName === undefined) && !opts.urn) {
@@ -80,30 +80,30 @@ export class ConsumerGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
-            inputs["eventHubName"] = args ? args.eventHubName : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["userMetadata"] = args ? args.userMetadata : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
+            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
-            inputs["userMetadata"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["userMetadata"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub:ConsumerGroup" }, { type: "azure-native:eventhub/v20140901:ConsumerGroup" }, { type: "azure-native:eventhub/v20150801:ConsumerGroup" }, { type: "azure-native:eventhub/v20170401:ConsumerGroup" }, { type: "azure-native:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20210601preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20211101:ConsumerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConsumerGroup.__pulumiType, name, inputs, opts);
+        super(ConsumerGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

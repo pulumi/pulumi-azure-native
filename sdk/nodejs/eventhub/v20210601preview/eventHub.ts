@@ -84,7 +84,7 @@ export class EventHub extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EventHubArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -93,37 +93,37 @@ export class EventHub extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["captureDescription"] = args ? args.captureDescription : undefined;
-            inputs["eventHubName"] = args ? args.eventHubName : undefined;
-            inputs["messageRetentionInDays"] = args ? args.messageRetentionInDays : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["partitionCount"] = args ? args.partitionCount : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partitionIds"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["captureDescription"] = args ? args.captureDescription : undefined;
+            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
+            resourceInputs["messageRetentionInDays"] = args ? args.messageRetentionInDays : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partitionIds"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
-            inputs["captureDescription"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["messageRetentionInDays"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partitionCount"] = undefined /*out*/;
-            inputs["partitionIds"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["captureDescription"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["messageRetentionInDays"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partitionCount"] = undefined /*out*/;
+            resourceInputs["partitionIds"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:eventhub:EventHub" }, { type: "azure-native:eventhub/v20140901:EventHub" }, { type: "azure-native:eventhub/v20150801:EventHub" }, { type: "azure-native:eventhub/v20170401:EventHub" }, { type: "azure-native:eventhub/v20180101preview:EventHub" }, { type: "azure-native:eventhub/v20210101preview:EventHub" }, { type: "azure-native:eventhub/v20211101:EventHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(EventHub.__pulumiType, name, inputs, opts);
+        super(EventHub.__pulumiType, name, resourceInputs, opts);
     }
 }
 

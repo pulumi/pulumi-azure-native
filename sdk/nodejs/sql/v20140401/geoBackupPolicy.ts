@@ -68,7 +68,7 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GeoBackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -83,30 +83,30 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
             if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["geoBackupPolicyName"] = args ? args.geoBackupPolicyName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["storageType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["geoBackupPolicyName"] = args ? args.geoBackupPolicyName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["storageType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["storageType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["storageType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:GeoBackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GeoBackupPolicy.__pulumiType, name, inputs, opts);
+        super(GeoBackupPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

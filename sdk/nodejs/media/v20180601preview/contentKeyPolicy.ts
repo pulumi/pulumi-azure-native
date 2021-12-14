@@ -72,7 +72,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ContentKeyPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -84,31 +84,31 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["contentKeyPolicyName"] = args ? args.contentKeyPolicyName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["created"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["policyId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["contentKeyPolicyName"] = args ? args.contentKeyPolicyName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policyId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["created"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["options"] = undefined /*out*/;
-            inputs["policyId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["options"] = undefined /*out*/;
+            resourceInputs["policyId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:media:ContentKeyPolicy" }, { type: "azure-native:media/v20180330preview:ContentKeyPolicy" }, { type: "azure-native:media/v20180701:ContentKeyPolicy" }, { type: "azure-native:media/v20200501:ContentKeyPolicy" }, { type: "azure-native:media/v20210601:ContentKeyPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ContentKeyPolicy.__pulumiType, name, inputs, opts);
+        super(ContentKeyPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

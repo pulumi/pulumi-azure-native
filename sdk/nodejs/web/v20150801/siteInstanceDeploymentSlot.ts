@@ -99,7 +99,7 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SiteInstanceDeploymentSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.instanceId === undefined) && !opts.urn) {
@@ -114,44 +114,44 @@ export class SiteInstanceDeploymentSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["author"] = args ? args.author : undefined;
-            inputs["authorEmail"] = args ? args.authorEmail : undefined;
-            inputs["deployer"] = args ? args.deployer : undefined;
-            inputs["details"] = args ? args.details : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["message"] = args ? args.message : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["author"] = args ? args.author : undefined;
+            resourceInputs["authorEmail"] = args ? args.authorEmail : undefined;
+            resourceInputs["deployer"] = args ? args.deployer : undefined;
+            resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         } else {
-            inputs["active"] = undefined /*out*/;
-            inputs["author"] = undefined /*out*/;
-            inputs["authorEmail"] = undefined /*out*/;
-            inputs["deployer"] = undefined /*out*/;
-            inputs["details"] = undefined /*out*/;
-            inputs["endTime"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["message"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["active"] = undefined /*out*/;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["authorEmail"] = undefined /*out*/;
+            resourceInputs["deployer"] = undefined /*out*/;
+            resourceInputs["details"] = undefined /*out*/;
+            resourceInputs["endTime"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["message"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SiteInstanceDeploymentSlot.__pulumiType, name, inputs, opts);
+        super(SiteInstanceDeploymentSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

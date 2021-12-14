@@ -112,7 +112,7 @@ export class Database extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -121,60 +121,60 @@ export class Database extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["catalogCollation"] = args ? args.catalogCollation : undefined;
-            inputs["collation"] = args ? args.collation : undefined;
-            inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["longTermRetentionBackupResourceId"] = args ? args.longTermRetentionBackupResourceId : undefined;
-            inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
-            inputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
-            inputs["recoveryServicesRecoveryPointId"] = args ? args.recoveryServicesRecoveryPointId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restorableDroppedDatabaseId"] = args ? args.restorableDroppedDatabaseId : undefined;
-            inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            inputs["sampleName"] = args ? args.sampleName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
-            inputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["currentServiceObjectiveName"] = undefined /*out*/;
-            inputs["databaseId"] = undefined /*out*/;
-            inputs["defaultSecondaryLocation"] = undefined /*out*/;
-            inputs["failoverGroupId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["catalogCollation"] = args ? args.catalogCollation : undefined;
+            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["longTermRetentionBackupResourceId"] = args ? args.longTermRetentionBackupResourceId : undefined;
+            resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
+            resourceInputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
+            resourceInputs["recoveryServicesRecoveryPointId"] = args ? args.recoveryServicesRecoveryPointId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restorableDroppedDatabaseId"] = args ? args.restorableDroppedDatabaseId : undefined;
+            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
+            resourceInputs["sampleName"] = args ? args.sampleName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
+            resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["currentServiceObjectiveName"] = undefined /*out*/;
+            resourceInputs["databaseId"] = undefined /*out*/;
+            resourceInputs["defaultSecondaryLocation"] = undefined /*out*/;
+            resourceInputs["failoverGroupId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["catalogCollation"] = undefined /*out*/;
-            inputs["collation"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["currentServiceObjectiveName"] = undefined /*out*/;
-            inputs["databaseId"] = undefined /*out*/;
-            inputs["defaultSecondaryLocation"] = undefined /*out*/;
-            inputs["elasticPoolId"] = undefined /*out*/;
-            inputs["failoverGroupId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maxSizeBytes"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["zoneRedundant"] = undefined /*out*/;
+            resourceInputs["catalogCollation"] = undefined /*out*/;
+            resourceInputs["collation"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["currentServiceObjectiveName"] = undefined /*out*/;
+            resourceInputs["databaseId"] = undefined /*out*/;
+            resourceInputs["defaultSecondaryLocation"] = undefined /*out*/;
+            resourceInputs["elasticPoolId"] = undefined /*out*/;
+            resourceInputs["failoverGroupId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxSizeBytes"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:Database" }, { type: "azure-native:sql/v20140401:Database" }, { type: "azure-native:sql/v20171001preview:Database" }, { type: "azure-native:sql/v20190601preview:Database" }, { type: "azure-native:sql/v20200202preview:Database" }, { type: "azure-native:sql/v20200801preview:Database" }, { type: "azure-native:sql/v20201101preview:Database" }, { type: "azure-native:sql/v20210201preview:Database" }, { type: "azure-native:sql/v20210501preview:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Database.__pulumiType, name, inputs, opts);
+        super(Database.__pulumiType, name, resourceInputs, opts);
     }
 }
 

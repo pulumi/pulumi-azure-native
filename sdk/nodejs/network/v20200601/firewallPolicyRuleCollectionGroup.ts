@@ -68,7 +68,7 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FirewallPolicyRuleCollectionGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.firewallPolicyName === undefined) && !opts.urn) {
@@ -77,30 +77,30 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleCollectionGroupName"] = args ? args.ruleCollectionGroupName : undefined;
-            inputs["ruleCollections"] = args ? args.ruleCollections : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleCollectionGroupName"] = args ? args.ruleCollectionGroupName : undefined;
+            resourceInputs["ruleCollections"] = args ? args.ruleCollections : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["ruleCollections"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["ruleCollections"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:FirewallPolicyRuleCollectionGroup" }, { type: "azure-native:network/v20200501:FirewallPolicyRuleCollectionGroup" }, { type: "azure-native:network/v20200701:FirewallPolicyRuleCollectionGroup" }, { type: "azure-native:network/v20200801:FirewallPolicyRuleCollectionGroup" }, { type: "azure-native:network/v20201101:FirewallPolicyRuleCollectionGroup" }, { type: "azure-native:network/v20210201:FirewallPolicyRuleCollectionGroup" }, { type: "azure-native:network/v20210301:FirewallPolicyRuleCollectionGroup" }, { type: "azure-native:network/v20210501:FirewallPolicyRuleCollectionGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FirewallPolicyRuleCollectionGroup.__pulumiType, name, inputs, opts);
+        super(FirewallPolicyRuleCollectionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

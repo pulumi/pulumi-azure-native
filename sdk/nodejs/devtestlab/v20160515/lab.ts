@@ -102,49 +102,49 @@ export class Lab extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["labStorageType"] = args ? args.labStorageType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["premiumDataDisks"] = args ? args.premiumDataDisks : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
-            inputs["artifactsStorageAccount"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["defaultPremiumStorageAccount"] = undefined /*out*/;
-            inputs["defaultStorageAccount"] = undefined /*out*/;
-            inputs["premiumDataDiskStorageAccount"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vaultName"] = undefined /*out*/;
+            resourceInputs["labStorageType"] = args ? args.labStorageType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["premiumDataDisks"] = args ? args.premiumDataDisks : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            resourceInputs["artifactsStorageAccount"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["defaultPremiumStorageAccount"] = undefined /*out*/;
+            resourceInputs["defaultStorageAccount"] = undefined /*out*/;
+            resourceInputs["premiumDataDiskStorageAccount"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vaultName"] = undefined /*out*/;
         } else {
-            inputs["artifactsStorageAccount"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["defaultPremiumStorageAccount"] = undefined /*out*/;
-            inputs["defaultStorageAccount"] = undefined /*out*/;
-            inputs["labStorageType"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["premiumDataDiskStorageAccount"] = undefined /*out*/;
-            inputs["premiumDataDisks"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
-            inputs["vaultName"] = undefined /*out*/;
+            resourceInputs["artifactsStorageAccount"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["defaultPremiumStorageAccount"] = undefined /*out*/;
+            resourceInputs["defaultStorageAccount"] = undefined /*out*/;
+            resourceInputs["labStorageType"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["premiumDataDiskStorageAccount"] = undefined /*out*/;
+            resourceInputs["premiumDataDisks"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["vaultName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:Lab" }, { type: "azure-native:devtestlab/v20150521preview:Lab" }, { type: "azure-native:devtestlab/v20180915:Lab" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Lab.__pulumiType, name, inputs, opts);
+        super(Lab.__pulumiType, name, resourceInputs, opts);
     }
 }
 

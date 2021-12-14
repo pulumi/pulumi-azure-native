@@ -144,7 +144,7 @@ export class Queue extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: QueueArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -153,67 +153,67 @@ export class Queue extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            inputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
-            inputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
-            inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
-            inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
-            inputs["enableExpress"] = args ? args.enableExpress : undefined;
-            inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
-            inputs["entityAvailabilityStatus"] = args ? args.entityAvailabilityStatus : undefined;
-            inputs["isAnonymousAccessible"] = args ? args.isAnonymousAccessible : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["lockDuration"] = args ? args.lockDuration : undefined;
-            inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
-            inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["queueName"] = args ? args.queueName : undefined;
-            inputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
-            inputs["requiresSession"] = args ? args.requiresSession : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
-            inputs["accessedAt"] = undefined /*out*/;
-            inputs["countDetails"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["messageCount"] = undefined /*out*/;
-            inputs["sizeInBytes"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            resourceInputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
+            resourceInputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
+            resourceInputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
+            resourceInputs["enableExpress"] = args ? args.enableExpress : undefined;
+            resourceInputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
+            resourceInputs["entityAvailabilityStatus"] = args ? args.entityAvailabilityStatus : undefined;
+            resourceInputs["isAnonymousAccessible"] = args ? args.isAnonymousAccessible : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["lockDuration"] = args ? args.lockDuration : undefined;
+            resourceInputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
+            resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["queueName"] = args ? args.queueName : undefined;
+            resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
+            resourceInputs["requiresSession"] = args ? args.requiresSession : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["supportOrdering"] = args ? args.supportOrdering : undefined;
+            resourceInputs["accessedAt"] = undefined /*out*/;
+            resourceInputs["countDetails"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["messageCount"] = undefined /*out*/;
+            resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
-            inputs["accessedAt"] = undefined /*out*/;
-            inputs["autoDeleteOnIdle"] = undefined /*out*/;
-            inputs["countDetails"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["deadLetteringOnMessageExpiration"] = undefined /*out*/;
-            inputs["defaultMessageTimeToLive"] = undefined /*out*/;
-            inputs["duplicateDetectionHistoryTimeWindow"] = undefined /*out*/;
-            inputs["enableBatchedOperations"] = undefined /*out*/;
-            inputs["enableExpress"] = undefined /*out*/;
-            inputs["enablePartitioning"] = undefined /*out*/;
-            inputs["entityAvailabilityStatus"] = undefined /*out*/;
-            inputs["isAnonymousAccessible"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["lockDuration"] = undefined /*out*/;
-            inputs["maxDeliveryCount"] = undefined /*out*/;
-            inputs["maxSizeInMegabytes"] = undefined /*out*/;
-            inputs["messageCount"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["requiresDuplicateDetection"] = undefined /*out*/;
-            inputs["requiresSession"] = undefined /*out*/;
-            inputs["sizeInBytes"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["supportOrdering"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["accessedAt"] = undefined /*out*/;
+            resourceInputs["autoDeleteOnIdle"] = undefined /*out*/;
+            resourceInputs["countDetails"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["deadLetteringOnMessageExpiration"] = undefined /*out*/;
+            resourceInputs["defaultMessageTimeToLive"] = undefined /*out*/;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = undefined /*out*/;
+            resourceInputs["enableBatchedOperations"] = undefined /*out*/;
+            resourceInputs["enableExpress"] = undefined /*out*/;
+            resourceInputs["enablePartitioning"] = undefined /*out*/;
+            resourceInputs["entityAvailabilityStatus"] = undefined /*out*/;
+            resourceInputs["isAnonymousAccessible"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["lockDuration"] = undefined /*out*/;
+            resourceInputs["maxDeliveryCount"] = undefined /*out*/;
+            resourceInputs["maxSizeInMegabytes"] = undefined /*out*/;
+            resourceInputs["messageCount"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["requiresDuplicateDetection"] = undefined /*out*/;
+            resourceInputs["requiresSession"] = undefined /*out*/;
+            resourceInputs["sizeInBytes"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["supportOrdering"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Queue" }, { type: "azure-native:servicebus/v20140901:Queue" }, { type: "azure-native:servicebus/v20170401:Queue" }, { type: "azure-native:servicebus/v20180101preview:Queue" }, { type: "azure-native:servicebus/v20210101preview:Queue" }, { type: "azure-native:servicebus/v20210601preview:Queue" }, { type: "azure-native:servicebus/v20211101:Queue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Queue.__pulumiType, name, inputs, opts);
+        super(Queue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

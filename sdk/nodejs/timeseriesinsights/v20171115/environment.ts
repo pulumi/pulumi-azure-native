@@ -96,7 +96,7 @@ export class Environment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataRetentionTime === undefined) && !opts.urn) {
@@ -108,42 +108,42 @@ export class Environment extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["dataRetentionTime"] = args ? args.dataRetentionTime : undefined;
-            inputs["environmentName"] = args ? args.environmentName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["partitionKeyProperties"] = args ? args.partitionKeyProperties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["storageLimitExceededBehavior"] = args ? args.storageLimitExceededBehavior : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["dataAccessFqdn"] = undefined /*out*/;
-            inputs["dataAccessId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataRetentionTime"] = args ? args.dataRetentionTime : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["partitionKeyProperties"] = args ? args.partitionKeyProperties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["storageLimitExceededBehavior"] = args ? args.storageLimitExceededBehavior : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["dataAccessFqdn"] = undefined /*out*/;
+            resourceInputs["dataAccessId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["dataAccessFqdn"] = undefined /*out*/;
-            inputs["dataAccessId"] = undefined /*out*/;
-            inputs["dataRetentionTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partitionKeyProperties"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["storageLimitExceededBehavior"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["dataAccessFqdn"] = undefined /*out*/;
+            resourceInputs["dataAccessId"] = undefined /*out*/;
+            resourceInputs["dataRetentionTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partitionKeyProperties"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["storageLimitExceededBehavior"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:timeseriesinsights:Environment" }, { type: "azure-native:timeseriesinsights/v20170228preview:Environment" }, { type: "azure-native:timeseriesinsights/v20180815preview:Environment" }, { type: "azure-native:timeseriesinsights/v20200515:Environment" }, { type: "azure-native:timeseriesinsights/v20210331preview:Environment" }, { type: "azure-native:timeseriesinsights/v20210630preview:Environment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Environment.__pulumiType, name, inputs, opts);
+        super(Environment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

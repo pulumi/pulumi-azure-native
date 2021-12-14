@@ -76,37 +76,37 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AvailabilitySetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
-            inputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["virtualMachines"] = args ? args.virtualMachines : undefined;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
+            resourceInputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualMachines"] = args ? args.virtualMachines : undefined;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["platformFaultDomainCount"] = undefined /*out*/;
-            inputs["platformUpdateDomainCount"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualMachines"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["platformFaultDomainCount"] = undefined /*out*/;
+            resourceInputs["platformUpdateDomainCount"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualMachines"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:AvailabilitySet" }, { type: "azure-native:compute/v20160330:AvailabilitySet" }, { type: "azure-native:compute/v20160430preview:AvailabilitySet" }, { type: "azure-native:compute/v20170330:AvailabilitySet" }, { type: "azure-native:compute/v20171201:AvailabilitySet" }, { type: "azure-native:compute/v20180401:AvailabilitySet" }, { type: "azure-native:compute/v20180601:AvailabilitySet" }, { type: "azure-native:compute/v20181001:AvailabilitySet" }, { type: "azure-native:compute/v20190301:AvailabilitySet" }, { type: "azure-native:compute/v20190701:AvailabilitySet" }, { type: "azure-native:compute/v20191201:AvailabilitySet" }, { type: "azure-native:compute/v20200601:AvailabilitySet" }, { type: "azure-native:compute/v20201201:AvailabilitySet" }, { type: "azure-native:compute/v20210301:AvailabilitySet" }, { type: "azure-native:compute/v20210401:AvailabilitySet" }, { type: "azure-native:compute/v20210701:AvailabilitySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AvailabilitySet.__pulumiType, name, inputs, opts);
+        super(AvailabilitySet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

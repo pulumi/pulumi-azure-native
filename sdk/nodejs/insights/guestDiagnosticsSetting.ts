@@ -70,36 +70,36 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GuestDiagnosticsSettingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["dataSources"] = args ? args.dataSources : undefined;
-            inputs["diagnosticSettingsName"] = args ? args.diagnosticSettingsName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["osType"] = args ? args.osType : undefined;
-            inputs["proxySetting"] = args ? args.proxySetting : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
+            resourceInputs["diagnosticSettingsName"] = args ? args.diagnosticSettingsName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["proxySetting"] = args ? args.proxySetting : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dataSources"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["osType"] = undefined /*out*/;
-            inputs["proxySetting"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataSources"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["proxySetting"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights/v20180601preview:guestDiagnosticsSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GuestDiagnosticsSetting.__pulumiType, name, inputs, opts);
+        super(GuestDiagnosticsSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

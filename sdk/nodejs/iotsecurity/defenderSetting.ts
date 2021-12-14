@@ -73,7 +73,7 @@ export class DefenderSetting extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DefenderSettingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceQuota === undefined) && !opts.urn) {
@@ -88,28 +88,28 @@ export class DefenderSetting extends pulumi.CustomResource {
             if ((!args || args.sentinelWorkspaceResourceIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sentinelWorkspaceResourceIds'");
             }
-            inputs["deviceQuota"] = args ? args.deviceQuota : undefined;
-            inputs["mdeIntegration"] = args ? args.mdeIntegration : undefined;
-            inputs["onboardingKind"] = args ? args.onboardingKind : undefined;
-            inputs["sentinelWorkspaceResourceIds"] = args ? args.sentinelWorkspaceResourceIds : undefined;
-            inputs["evaluationEndTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deviceQuota"] = args ? args.deviceQuota : undefined;
+            resourceInputs["mdeIntegration"] = args ? args.mdeIntegration : undefined;
+            resourceInputs["onboardingKind"] = args ? args.onboardingKind : undefined;
+            resourceInputs["sentinelWorkspaceResourceIds"] = args ? args.sentinelWorkspaceResourceIds : undefined;
+            resourceInputs["evaluationEndTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["deviceQuota"] = undefined /*out*/;
-            inputs["evaluationEndTime"] = undefined /*out*/;
-            inputs["mdeIntegration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["onboardingKind"] = undefined /*out*/;
-            inputs["sentinelWorkspaceResourceIds"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deviceQuota"] = undefined /*out*/;
+            resourceInputs["evaluationEndTime"] = undefined /*out*/;
+            resourceInputs["mdeIntegration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["onboardingKind"] = undefined /*out*/;
+            resourceInputs["sentinelWorkspaceResourceIds"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:iotsecurity/v20210201preview:DefenderSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DefenderSetting.__pulumiType, name, inputs, opts);
+        super(DefenderSetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

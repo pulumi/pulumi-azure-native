@@ -136,73 +136,73 @@ export class ServerGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
-            inputs["citusVersion"] = args ? args.citusVersion : undefined;
-            inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["delegatedSubnetArguments"] = args ? args.delegatedSubnetArguments : undefined;
-            inputs["enableMx"] = args ? args.enableMx : undefined;
-            inputs["enableShardsOnCoordinator"] = args ? args.enableShardsOnCoordinator : undefined;
-            inputs["enableZfs"] = args ? args.enableZfs : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            inputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
-            inputs["postgresqlVersion"] = args ? args.postgresqlVersion : undefined;
-            inputs["privateDnsZoneArguments"] = args ? args.privateDnsZoneArguments : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverGroupName"] = args ? args.serverGroupName : undefined;
-            inputs["serverRoleGroups"] = args ? args.serverRoleGroups : undefined;
-            inputs["sourceLocation"] = args ? args.sourceLocation : undefined;
-            inputs["sourceResourceGroupName"] = args ? args.sourceResourceGroupName : undefined;
-            inputs["sourceServerGroupName"] = args ? args.sourceServerGroupName : undefined;
-            inputs["sourceSubscriptionId"] = args ? args.sourceSubscriptionId : undefined;
-            inputs["standbyAvailabilityZone"] = args ? args.standbyAvailabilityZone : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["earliestRestoreTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["readReplicas"] = undefined /*out*/;
-            inputs["resourceProviderType"] = undefined /*out*/;
-            inputs["sourceServerGroup"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["backupRetentionDays"] = args ? args.backupRetentionDays : undefined;
+            resourceInputs["citusVersion"] = args ? args.citusVersion : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["delegatedSubnetArguments"] = args ? args.delegatedSubnetArguments : undefined;
+            resourceInputs["enableMx"] = args ? args.enableMx : undefined;
+            resourceInputs["enableShardsOnCoordinator"] = args ? args.enableShardsOnCoordinator : undefined;
+            resourceInputs["enableZfs"] = args ? args.enableZfs : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
+            resourceInputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
+            resourceInputs["postgresqlVersion"] = args ? args.postgresqlVersion : undefined;
+            resourceInputs["privateDnsZoneArguments"] = args ? args.privateDnsZoneArguments : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverGroupName"] = args ? args.serverGroupName : undefined;
+            resourceInputs["serverRoleGroups"] = args ? args.serverRoleGroups : undefined;
+            resourceInputs["sourceLocation"] = args ? args.sourceLocation : undefined;
+            resourceInputs["sourceResourceGroupName"] = args ? args.sourceResourceGroupName : undefined;
+            resourceInputs["sourceServerGroupName"] = args ? args.sourceServerGroupName : undefined;
+            resourceInputs["sourceSubscriptionId"] = args ? args.sourceSubscriptionId : undefined;
+            resourceInputs["standbyAvailabilityZone"] = args ? args.standbyAvailabilityZone : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["earliestRestoreTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["readReplicas"] = undefined /*out*/;
+            resourceInputs["resourceProviderType"] = undefined /*out*/;
+            resourceInputs["sourceServerGroup"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["administratorLogin"] = undefined /*out*/;
-            inputs["availabilityZone"] = undefined /*out*/;
-            inputs["backupRetentionDays"] = undefined /*out*/;
-            inputs["citusVersion"] = undefined /*out*/;
-            inputs["delegatedSubnetArguments"] = undefined /*out*/;
-            inputs["earliestRestoreTime"] = undefined /*out*/;
-            inputs["enableMx"] = undefined /*out*/;
-            inputs["enableShardsOnCoordinator"] = undefined /*out*/;
-            inputs["enableZfs"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maintenanceWindow"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["postgresqlVersion"] = undefined /*out*/;
-            inputs["privateDnsZoneArguments"] = undefined /*out*/;
-            inputs["readReplicas"] = undefined /*out*/;
-            inputs["resourceProviderType"] = undefined /*out*/;
-            inputs["serverRoleGroups"] = undefined /*out*/;
-            inputs["sourceServerGroup"] = undefined /*out*/;
-            inputs["standbyAvailabilityZone"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["backupRetentionDays"] = undefined /*out*/;
+            resourceInputs["citusVersion"] = undefined /*out*/;
+            resourceInputs["delegatedSubnetArguments"] = undefined /*out*/;
+            resourceInputs["earliestRestoreTime"] = undefined /*out*/;
+            resourceInputs["enableMx"] = undefined /*out*/;
+            resourceInputs["enableShardsOnCoordinator"] = undefined /*out*/;
+            resourceInputs["enableZfs"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maintenanceWindow"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["postgresqlVersion"] = undefined /*out*/;
+            resourceInputs["privateDnsZoneArguments"] = undefined /*out*/;
+            resourceInputs["readReplicas"] = undefined /*out*/;
+            resourceInputs["resourceProviderType"] = undefined /*out*/;
+            resourceInputs["serverRoleGroups"] = undefined /*out*/;
+            resourceInputs["sourceServerGroup"] = undefined /*out*/;
+            resourceInputs["standbyAvailabilityZone"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ServerGroup.__pulumiType, name, inputs, opts);
+        super(ServerGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

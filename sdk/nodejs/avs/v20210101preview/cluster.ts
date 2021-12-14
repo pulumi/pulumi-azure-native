@@ -72,7 +72,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
@@ -84,31 +84,31 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["clusterSize"] = args ? args.clusterSize : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["hosts"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["clusterSize"] = args ? args.clusterSize : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["hosts"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["clusterId"] = undefined /*out*/;
-            inputs["clusterSize"] = undefined /*out*/;
-            inputs["hosts"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clusterId"] = undefined /*out*/;
+            resourceInputs["clusterSize"] = undefined /*out*/;
+            resourceInputs["hosts"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:Cluster" }, { type: "azure-native:avs/v20200320:Cluster" }, { type: "azure-native:avs/v20200717preview:Cluster" }, { type: "azure-native:avs/v20210601:Cluster" }, { type: "azure-native:avs/v20211201:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Cluster.__pulumiType, name, inputs, opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

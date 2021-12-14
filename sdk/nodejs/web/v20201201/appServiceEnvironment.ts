@@ -125,7 +125,7 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AppServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -134,55 +134,55 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
             if ((!args || args.virtualNetwork === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetwork'");
             }
-            inputs["clusterSettings"] = args ? args.clusterSettings : undefined;
-            inputs["dnsSuffix"] = args ? args.dnsSuffix : undefined;
-            inputs["frontEndScaleFactor"] = args ? args.frontEndScaleFactor : undefined;
-            inputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
-            inputs["ipsslAddressCount"] = args ? args.ipsslAddressCount : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["multiSize"] = args ? args.multiSize : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userWhitelistedIpRanges"] = args ? args.userWhitelistedIpRanges : undefined;
-            inputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            inputs["dedicatedHostCount"] = undefined /*out*/;
-            inputs["hasLinuxWorkers"] = undefined /*out*/;
-            inputs["maximumNumberOfMachines"] = undefined /*out*/;
-            inputs["multiRoleCount"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["suspended"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
+            resourceInputs["dnsSuffix"] = args ? args.dnsSuffix : undefined;
+            resourceInputs["frontEndScaleFactor"] = args ? args.frontEndScaleFactor : undefined;
+            resourceInputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
+            resourceInputs["ipsslAddressCount"] = args ? args.ipsslAddressCount : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["multiSize"] = args ? args.multiSize : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userWhitelistedIpRanges"] = args ? args.userWhitelistedIpRanges : undefined;
+            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
+            resourceInputs["dedicatedHostCount"] = undefined /*out*/;
+            resourceInputs["hasLinuxWorkers"] = undefined /*out*/;
+            resourceInputs["maximumNumberOfMachines"] = undefined /*out*/;
+            resourceInputs["multiRoleCount"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["suspended"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["clusterSettings"] = undefined /*out*/;
-            inputs["dedicatedHostCount"] = undefined /*out*/;
-            inputs["dnsSuffix"] = undefined /*out*/;
-            inputs["frontEndScaleFactor"] = undefined /*out*/;
-            inputs["hasLinuxWorkers"] = undefined /*out*/;
-            inputs["internalLoadBalancingMode"] = undefined /*out*/;
-            inputs["ipsslAddressCount"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maximumNumberOfMachines"] = undefined /*out*/;
-            inputs["multiRoleCount"] = undefined /*out*/;
-            inputs["multiSize"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["suspended"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userWhitelistedIpRanges"] = undefined /*out*/;
-            inputs["virtualNetwork"] = undefined /*out*/;
+            resourceInputs["clusterSettings"] = undefined /*out*/;
+            resourceInputs["dedicatedHostCount"] = undefined /*out*/;
+            resourceInputs["dnsSuffix"] = undefined /*out*/;
+            resourceInputs["frontEndScaleFactor"] = undefined /*out*/;
+            resourceInputs["hasLinuxWorkers"] = undefined /*out*/;
+            resourceInputs["internalLoadBalancingMode"] = undefined /*out*/;
+            resourceInputs["ipsslAddressCount"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maximumNumberOfMachines"] = undefined /*out*/;
+            resourceInputs["multiRoleCount"] = undefined /*out*/;
+            resourceInputs["multiSize"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["suspended"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userWhitelistedIpRanges"] = undefined /*out*/;
+            resourceInputs["virtualNetwork"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:AppServiceEnvironment" }, { type: "azure-native:web/v20150801:AppServiceEnvironment" }, { type: "azure-native:web/v20160901:AppServiceEnvironment" }, { type: "azure-native:web/v20180201:AppServiceEnvironment" }, { type: "azure-native:web/v20190801:AppServiceEnvironment" }, { type: "azure-native:web/v20200601:AppServiceEnvironment" }, { type: "azure-native:web/v20200901:AppServiceEnvironment" }, { type: "azure-native:web/v20201001:AppServiceEnvironment" }, { type: "azure-native:web/v20210101:AppServiceEnvironment" }, { type: "azure-native:web/v20210115:AppServiceEnvironment" }, { type: "azure-native:web/v20210201:AppServiceEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AppServiceEnvironment.__pulumiType, name, inputs, opts);
+        super(AppServiceEnvironment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

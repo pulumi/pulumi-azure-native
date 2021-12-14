@@ -69,7 +69,7 @@ export class DataConnection extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection. */
     constructor(name: string, args: DataConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DataConnection is deprecated: Please use one of the variants: EventGridDataConnection, EventHubDataConnection, IotHubDataConnection.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -87,29 +87,29 @@ export class DataConnection extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:DataConnection" }, { type: "azure-native:synapse/v20210601preview:DataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DataConnection.__pulumiType, name, inputs, opts);
+        super(DataConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

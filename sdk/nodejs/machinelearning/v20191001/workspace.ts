@@ -96,7 +96,7 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.ownerEmail === undefined) && !opts.urn) {
@@ -108,42 +108,42 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.userStorageAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userStorageAccountId'");
             }
-            inputs["keyVaultIdentifierId"] = args ? args.keyVaultIdentifierId : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["ownerEmail"] = args ? args.ownerEmail : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userStorageAccountId"] = args ? args.userStorageAccountId : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["studioEndpoint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
-            inputs["workspaceState"] = undefined /*out*/;
-            inputs["workspaceType"] = undefined /*out*/;
+            resourceInputs["keyVaultIdentifierId"] = args ? args.keyVaultIdentifierId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["ownerEmail"] = args ? args.ownerEmail : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userStorageAccountId"] = args ? args.userStorageAccountId : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["studioEndpoint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
+            resourceInputs["workspaceState"] = undefined /*out*/;
+            resourceInputs["workspaceType"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["keyVaultIdentifierId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["ownerEmail"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["studioEndpoint"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userStorageAccountId"] = undefined /*out*/;
-            inputs["workspaceId"] = undefined /*out*/;
-            inputs["workspaceState"] = undefined /*out*/;
-            inputs["workspaceType"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["keyVaultIdentifierId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["ownerEmail"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["studioEndpoint"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userStorageAccountId"] = undefined /*out*/;
+            resourceInputs["workspaceId"] = undefined /*out*/;
+            resourceInputs["workspaceState"] = undefined /*out*/;
+            resourceInputs["workspaceType"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearning:Workspace" }, { type: "azure-native:machinelearning/v20160401:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

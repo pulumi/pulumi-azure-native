@@ -100,7 +100,7 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: OrchestratorInstanceServiceDetailsArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.controllerDetails === undefined) && !opts.urn) {
@@ -112,44 +112,44 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["apiServerEndpoint"] = args ? args.apiServerEndpoint : undefined;
-            inputs["clusterRootCA"] = args ? args.clusterRootCA : undefined;
-            inputs["controllerDetails"] = args ? args.controllerDetails : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["orchestratorAppId"] = args ? args.orchestratorAppId : undefined;
-            inputs["orchestratorTenantId"] = args ? args.orchestratorTenantId : undefined;
-            inputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiServerEndpoint"] = args ? args.apiServerEndpoint : undefined;
+            resourceInputs["clusterRootCA"] = args ? args.clusterRootCA : undefined;
+            resourceInputs["controllerDetails"] = args ? args.controllerDetails : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["orchestratorAppId"] = args ? args.orchestratorAppId : undefined;
+            resourceInputs["orchestratorTenantId"] = args ? args.orchestratorTenantId : undefined;
+            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["apiServerEndpoint"] = undefined /*out*/;
-            inputs["clusterRootCA"] = undefined /*out*/;
-            inputs["controllerDetails"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["orchestratorAppId"] = undefined /*out*/;
-            inputs["orchestratorTenantId"] = undefined /*out*/;
-            inputs["privateLinkResourceId"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["resourceGuid"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiServerEndpoint"] = undefined /*out*/;
+            resourceInputs["clusterRootCA"] = undefined /*out*/;
+            resourceInputs["controllerDetails"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["orchestratorAppId"] = undefined /*out*/;
+            resourceInputs["orchestratorTenantId"] = undefined /*out*/;
+            resourceInputs["privateLinkResourceId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork:OrchestratorInstanceServiceDetails" }, { type: "azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(OrchestratorInstanceServiceDetails.__pulumiType, name, inputs, opts);
+        super(OrchestratorInstanceServiceDetails.__pulumiType, name, resourceInputs, opts);
     }
 }
 

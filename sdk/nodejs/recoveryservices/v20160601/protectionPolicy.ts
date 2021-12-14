@@ -68,7 +68,7 @@ export class ProtectionPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ProtectionPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -77,30 +77,30 @@ export class ProtectionPolicy extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
         } else {
-            inputs["eTag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20201001:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20201201:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210101:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210201:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210201preview:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210210:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210301:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210401:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210601:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210701:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20210801:ProtectionPolicy" }, { type: "azure-native:recoveryservices/v20211001:ProtectionPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ProtectionPolicy.__pulumiType, name, inputs, opts);
+        super(ProtectionPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

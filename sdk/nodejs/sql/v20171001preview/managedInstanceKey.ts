@@ -64,7 +64,7 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagedInstanceKeyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
@@ -76,29 +76,29 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
             if ((!args || args.serverKeyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverKeyType'");
             }
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverKeyType"] = args ? args.serverKeyType : undefined;
-            inputs["uri"] = args ? args.uri : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverKeyType"] = args ? args.serverKeyType : undefined;
+            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedInstanceKey" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceKey" }, { type: "azure-native:sql/v20210501preview:ManagedInstanceKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagedInstanceKey.__pulumiType, name, inputs, opts);
+        super(ManagedInstanceKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

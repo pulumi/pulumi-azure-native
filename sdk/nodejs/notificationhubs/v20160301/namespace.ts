@@ -104,52 +104,52 @@ export class Namespace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["createdAt"] = args ? args.createdAt : undefined;
-            inputs["critical"] = args ? args.critical : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["namespaceType"] = args ? args.namespaceType : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["region"] = args ? args.region : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scaleUnit"] = args ? args.scaleUnit : undefined;
-            inputs["serviceBusEndpoint"] = args ? args.serviceBusEndpoint : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
+            resourceInputs["critical"] = args ? args.critical : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["namespaceType"] = args ? args.namespaceType : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
+            resourceInputs["serviceBusEndpoint"] = args ? args.serviceBusEndpoint : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["critical"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["namespaceType"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["region"] = undefined /*out*/;
-            inputs["scaleUnit"] = undefined /*out*/;
-            inputs["serviceBusEndpoint"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["subscriptionId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["critical"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["namespaceType"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["scaleUnit"] = undefined /*out*/;
+            resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs:Namespace" }, { type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Namespace.__pulumiType, name, inputs, opts);
+        super(Namespace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

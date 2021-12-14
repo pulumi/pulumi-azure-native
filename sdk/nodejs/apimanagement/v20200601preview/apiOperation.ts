@@ -84,7 +84,7 @@ export class ApiOperation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiOperationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -105,38 +105,38 @@ export class ApiOperation extends pulumi.CustomResource {
             if ((!args || args.urlTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'urlTemplate'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["method"] = args ? args.method : undefined;
-            inputs["operationId"] = args ? args.operationId : undefined;
-            inputs["policies"] = args ? args.policies : undefined;
-            inputs["request"] = args ? args.request : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["responses"] = args ? args.responses : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["templateParameters"] = args ? args.templateParameters : undefined;
-            inputs["urlTemplate"] = args ? args.urlTemplate : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["method"] = args ? args.method : undefined;
+            resourceInputs["operationId"] = args ? args.operationId : undefined;
+            resourceInputs["policies"] = args ? args.policies : undefined;
+            resourceInputs["request"] = args ? args.request : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["responses"] = args ? args.responses : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["templateParameters"] = args ? args.templateParameters : undefined;
+            resourceInputs["urlTemplate"] = args ? args.urlTemplate : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["method"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["policies"] = undefined /*out*/;
-            inputs["request"] = undefined /*out*/;
-            inputs["responses"] = undefined /*out*/;
-            inputs["templateParameters"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["urlTemplate"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["method"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policies"] = undefined /*out*/;
+            resourceInputs["request"] = undefined /*out*/;
+            resourceInputs["responses"] = undefined /*out*/;
+            resourceInputs["templateParameters"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["urlTemplate"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiOperation" }, { type: "azure-native:apimanagement/v20160707:ApiOperation" }, { type: "azure-native:apimanagement/v20161010:ApiOperation" }, { type: "azure-native:apimanagement/v20170301:ApiOperation" }, { type: "azure-native:apimanagement/v20180101:ApiOperation" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperation" }, { type: "azure-native:apimanagement/v20190101:ApiOperation" }, { type: "azure-native:apimanagement/v20191201:ApiOperation" }, { type: "azure-native:apimanagement/v20191201preview:ApiOperation" }, { type: "azure-native:apimanagement/v20201201:ApiOperation" }, { type: "azure-native:apimanagement/v20210101preview:ApiOperation" }, { type: "azure-native:apimanagement/v20210401preview:ApiOperation" }, { type: "azure-native:apimanagement/v20210801:ApiOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApiOperation.__pulumiType, name, inputs, opts);
+        super(ApiOperation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

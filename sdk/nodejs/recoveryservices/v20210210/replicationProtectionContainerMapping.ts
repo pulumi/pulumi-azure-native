@@ -60,7 +60,7 @@ export class ReplicationProtectionContainerMapping extends pulumi.CustomResource
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ReplicationProtectionContainerMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.fabricName === undefined) && !opts.urn) {
@@ -75,27 +75,27 @@ export class ReplicationProtectionContainerMapping extends pulumi.CustomResource
             if ((!args || args.resourceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            inputs["fabricName"] = args ? args.fabricName : undefined;
-            inputs["mappingName"] = args ? args.mappingName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["protectionContainerName"] = args ? args.protectionContainerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["fabricName"] = args ? args.fabricName : undefined;
+            resourceInputs["mappingName"] = args ? args.mappingName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["protectionContainerName"] = args ? args.protectionContainerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20160810:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20180110:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20180710:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20210301:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20210401:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20210601:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20210701:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20210801:ReplicationProtectionContainerMapping" }, { type: "azure-native:recoveryservices/v20211001:ReplicationProtectionContainerMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ReplicationProtectionContainerMapping.__pulumiType, name, inputs, opts);
+        super(ReplicationProtectionContainerMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

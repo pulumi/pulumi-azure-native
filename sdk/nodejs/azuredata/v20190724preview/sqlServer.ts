@@ -71,7 +71,7 @@ export class SqlServer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlServerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -80,31 +80,31 @@ export class SqlServer extends pulumi.CustomResource {
             if ((!args || args.sqlServerRegistrationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlServerRegistrationName'");
             }
-            inputs["cores"] = args ? args.cores : undefined;
-            inputs["edition"] = args ? args.edition : undefined;
-            inputs["propertyBag"] = args ? args.propertyBag : undefined;
-            inputs["registrationID"] = args ? args.registrationID : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sqlServerName"] = args ? args.sqlServerName : undefined;
-            inputs["sqlServerRegistrationName"] = args ? args.sqlServerRegistrationName : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cores"] = args ? args.cores : undefined;
+            resourceInputs["edition"] = args ? args.edition : undefined;
+            resourceInputs["propertyBag"] = args ? args.propertyBag : undefined;
+            resourceInputs["registrationID"] = args ? args.registrationID : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sqlServerName"] = args ? args.sqlServerName : undefined;
+            resourceInputs["sqlServerRegistrationName"] = args ? args.sqlServerRegistrationName : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["cores"] = undefined /*out*/;
-            inputs["edition"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["propertyBag"] = undefined /*out*/;
-            inputs["registrationID"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["cores"] = undefined /*out*/;
+            resourceInputs["edition"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["propertyBag"] = undefined /*out*/;
+            resourceInputs["registrationID"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azuredata:SqlServer" }, { type: "azure-native:azuredata/v20170301preview:SqlServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlServer.__pulumiType, name, inputs, opts);
+        super(SqlServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -107,7 +107,7 @@ export class ApplicationGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApplicationGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.applicationGroupType === undefined) && !opts.urn) {
@@ -119,52 +119,52 @@ export class ApplicationGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
-            inputs["applicationGroupType"] = args ? args.applicationGroupType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["hostPoolArmPath"] = args ? args.hostPoolArmPath : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedBy"] = args ? args.managedBy : undefined;
-            inputs["migrationRequest"] = args ? args.migrationRequest : undefined;
-            inputs["plan"] = args ? args.plan : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["cloudPcResource"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["objectId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workspaceArmPath"] = undefined /*out*/;
+            resourceInputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
+            resourceInputs["applicationGroupType"] = args ? args.applicationGroupType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["hostPoolArmPath"] = args ? args.hostPoolArmPath : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
+            resourceInputs["migrationRequest"] = args ? args.migrationRequest : undefined;
+            resourceInputs["plan"] = args ? args.plan : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cloudPcResource"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workspaceArmPath"] = undefined /*out*/;
         } else {
-            inputs["applicationGroupType"] = undefined /*out*/;
-            inputs["cloudPcResource"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["hostPoolArmPath"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedBy"] = undefined /*out*/;
-            inputs["migrationRequest"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["objectId"] = undefined /*out*/;
-            inputs["plan"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workspaceArmPath"] = undefined /*out*/;
+            resourceInputs["applicationGroupType"] = undefined /*out*/;
+            resourceInputs["cloudPcResource"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["hostPoolArmPath"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBy"] = undefined /*out*/;
+            resourceInputs["migrationRequest"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["plan"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workspaceArmPath"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:desktopvirtualization:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20190123preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20190924preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20191210preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20200921preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20201019preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20201102preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20201110preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210114preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210201preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210309preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210401preview:ApplicationGroup" }, { type: "azure-native:desktopvirtualization/v20210903preview:ApplicationGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ApplicationGroup.__pulumiType, name, inputs, opts);
+        super(ApplicationGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

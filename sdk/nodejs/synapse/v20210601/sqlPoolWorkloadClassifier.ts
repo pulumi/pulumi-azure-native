@@ -75,7 +75,7 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlPoolWorkloadClassifierArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.memberName === undefined) && !opts.urn) {
@@ -93,35 +93,35 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["context"] = args ? args.context : undefined;
-            inputs["endTime"] = args ? args.endTime : undefined;
-            inputs["importance"] = args ? args.importance : undefined;
-            inputs["label"] = args ? args.label : undefined;
-            inputs["memberName"] = args ? args.memberName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["workloadClassifierName"] = args ? args.workloadClassifierName : undefined;
-            inputs["workloadGroupName"] = args ? args.workloadGroupName : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["context"] = args ? args.context : undefined;
+            resourceInputs["endTime"] = args ? args.endTime : undefined;
+            resourceInputs["importance"] = args ? args.importance : undefined;
+            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["memberName"] = args ? args.memberName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["workloadClassifierName"] = args ? args.workloadClassifierName : undefined;
+            resourceInputs["workloadGroupName"] = args ? args.workloadGroupName : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["context"] = undefined /*out*/;
-            inputs["endTime"] = undefined /*out*/;
-            inputs["importance"] = undefined /*out*/;
-            inputs["label"] = undefined /*out*/;
-            inputs["memberName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["context"] = undefined /*out*/;
+            resourceInputs["endTime"] = undefined /*out*/;
+            resourceInputs["importance"] = undefined /*out*/;
+            resourceInputs["label"] = undefined /*out*/;
+            resourceInputs["memberName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20190601preview:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20201201:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210301:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210401preview:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210501:SqlPoolWorkloadClassifier" }, { type: "azure-native:synapse/v20210601preview:SqlPoolWorkloadClassifier" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlPoolWorkloadClassifier.__pulumiType, name, inputs, opts);
+        super(SqlPoolWorkloadClassifier.__pulumiType, name, resourceInputs, opts);
     }
 }
 

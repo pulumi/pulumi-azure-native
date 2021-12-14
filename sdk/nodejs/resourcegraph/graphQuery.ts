@@ -80,7 +80,7 @@ export class GraphQuery extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GraphQueryArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.query === undefined) && !opts.urn) {
@@ -89,34 +89,34 @@ export class GraphQuery extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["query"] = args ? args.query : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["resultKind"] = undefined /*out*/;
-            inputs["timeModified"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resultKind"] = undefined /*out*/;
+            resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["query"] = undefined /*out*/;
-            inputs["resultKind"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeModified"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["query"] = undefined /*out*/;
+            resourceInputs["resultKind"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:resourcegraph/v20180901preview:GraphQuery" }, { type: "azure-native:resourcegraph/v20200401preview:GraphQuery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GraphQuery.__pulumiType, name, inputs, opts);
+        super(GraphQuery.__pulumiType, name, resourceInputs, opts);
     }
 }
 

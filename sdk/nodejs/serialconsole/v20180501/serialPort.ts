@@ -56,7 +56,7 @@ export class SerialPort extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SerialPortArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.parentResource === undefined) && !opts.urn) {
@@ -71,25 +71,25 @@ export class SerialPort extends pulumi.CustomResource {
             if ((!args || args.resourceProviderNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceProviderNamespace'");
             }
-            inputs["parentResource"] = args ? args.parentResource : undefined;
-            inputs["parentResourceType"] = args ? args.parentResourceType : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
-            inputs["serialPort"] = args ? args.serialPort : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["parentResource"] = args ? args.parentResource : undefined;
+            resourceInputs["parentResourceType"] = args ? args.parentResourceType : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
+            resourceInputs["serialPort"] = args ? args.serialPort : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:serialconsole:SerialPort" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SerialPort.__pulumiType, name, inputs, opts);
+        super(SerialPort.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -88,44 +88,44 @@ export class SecurityConnector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SecurityConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["cloudName"] = args ? args.cloudName : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["hierarchyIdentifier"] = args ? args.hierarchyIdentifier : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["offerings"] = args ? args.offerings : undefined;
-            inputs["organizationalData"] = args ? args.organizationalData : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securityConnectorName"] = args ? args.securityConnectorName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cloudName"] = args ? args.cloudName : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["hierarchyIdentifier"] = args ? args.hierarchyIdentifier : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["offerings"] = args ? args.offerings : undefined;
+            resourceInputs["organizationalData"] = args ? args.organizationalData : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securityConnectorName"] = args ? args.securityConnectorName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["cloudName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["hierarchyIdentifier"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["offerings"] = undefined /*out*/;
-            inputs["organizationalData"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["cloudName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["hierarchyIdentifier"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["offerings"] = undefined /*out*/;
+            resourceInputs["organizationalData"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:SecurityConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SecurityConnector.__pulumiType, name, inputs, opts);
+        super(SecurityConnector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

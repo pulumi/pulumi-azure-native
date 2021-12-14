@@ -85,7 +85,7 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagedNetworkGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managedNetworkName === undefined) && !opts.urn) {
@@ -94,37 +94,37 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedNetworkGroupName"] = args ? args.managedNetworkGroupName : undefined;
-            inputs["managedNetworkName"] = args ? args.managedNetworkName : undefined;
-            inputs["managementGroups"] = args ? args.managementGroups : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["subscriptions"] = args ? args.subscriptions : undefined;
-            inputs["virtualNetworks"] = args ? args.virtualNetworks : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedNetworkGroupName"] = args ? args.managedNetworkGroupName : undefined;
+            resourceInputs["managedNetworkName"] = args ? args.managedNetworkName : undefined;
+            resourceInputs["managementGroups"] = args ? args.managementGroups : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["subnets"] = args ? args.subnets : undefined;
+            resourceInputs["subscriptions"] = args ? args.subscriptions : undefined;
+            resourceInputs["virtualNetworks"] = args ? args.virtualNetworks : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managementGroups"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["subnets"] = undefined /*out*/;
-            inputs["subscriptions"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworks"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managementGroups"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["subnets"] = undefined /*out*/;
+            resourceInputs["subscriptions"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetworks"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:managednetwork/v20190601preview:ManagedNetworkGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagedNetworkGroup.__pulumiType, name, inputs, opts);
+        super(ManagedNetworkGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

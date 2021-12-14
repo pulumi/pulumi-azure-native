@@ -92,7 +92,7 @@ export class NotificationChannel extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NotificationChannelArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.labName === undefined) && !opts.urn) {
@@ -101,40 +101,40 @@ export class NotificationChannel extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["emailRecipient"] = args ? args.emailRecipient : undefined;
-            inputs["events"] = args ? args.events : undefined;
-            inputs["labName"] = args ? args.labName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationLocale"] = args ? args.notificationLocale : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["webHookUrl"] = args ? args.webHookUrl : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["emailRecipient"] = args ? args.emailRecipient : undefined;
+            resourceInputs["events"] = args ? args.events : undefined;
+            resourceInputs["labName"] = args ? args.labName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationLocale"] = args ? args.notificationLocale : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["webHookUrl"] = args ? args.webHookUrl : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         } else {
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["emailRecipient"] = undefined /*out*/;
-            inputs["events"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["notificationLocale"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uniqueIdentifier"] = undefined /*out*/;
-            inputs["webHookUrl"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["emailRecipient"] = undefined /*out*/;
+            resourceInputs["events"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notificationLocale"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
+            resourceInputs["webHookUrl"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:NotificationChannel" }, { type: "azure-native:devtestlab/v20160515:NotificationChannel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NotificationChannel.__pulumiType, name, inputs, opts);
+        super(NotificationChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

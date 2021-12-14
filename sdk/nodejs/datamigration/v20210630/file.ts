@@ -64,7 +64,7 @@ export class File extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FileArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupName === undefined) && !opts.urn) {
@@ -76,28 +76,28 @@ export class File extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["fileName"] = args ? args.fileName : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["fileName"] = args ? args.fileName : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datamigration:File" }, { type: "azure-native:datamigration/v20180715preview:File" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(File.__pulumiType, name, inputs, opts);
+        super(File.__pulumiType, name, resourceInputs, opts);
     }
 }
 

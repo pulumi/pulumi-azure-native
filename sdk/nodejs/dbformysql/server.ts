@@ -129,7 +129,7 @@ export class Server extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.properties === undefined) && !opts.urn) {
@@ -138,59 +138,59 @@ export class Server extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["administratorLogin"] = undefined /*out*/;
-            inputs["byokEnforcement"] = undefined /*out*/;
-            inputs["earliestRestoreDate"] = undefined /*out*/;
-            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
-            inputs["infrastructureEncryption"] = undefined /*out*/;
-            inputs["masterServerId"] = undefined /*out*/;
-            inputs["minimalTlsVersion"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["replicaCapacity"] = undefined /*out*/;
-            inputs["replicationRole"] = undefined /*out*/;
-            inputs["sslEnforcement"] = undefined /*out*/;
-            inputs["storageProfile"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userVisibleState"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administratorLogin"] = undefined /*out*/;
+            resourceInputs["byokEnforcement"] = undefined /*out*/;
+            resourceInputs["earliestRestoreDate"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            resourceInputs["infrastructureEncryption"] = undefined /*out*/;
+            resourceInputs["masterServerId"] = undefined /*out*/;
+            resourceInputs["minimalTlsVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["replicaCapacity"] = undefined /*out*/;
+            resourceInputs["replicationRole"] = undefined /*out*/;
+            resourceInputs["sslEnforcement"] = undefined /*out*/;
+            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userVisibleState"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["administratorLogin"] = undefined /*out*/;
-            inputs["byokEnforcement"] = undefined /*out*/;
-            inputs["earliestRestoreDate"] = undefined /*out*/;
-            inputs["fullyQualifiedDomainName"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["infrastructureEncryption"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["masterServerId"] = undefined /*out*/;
-            inputs["minimalTlsVersion"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["replicaCapacity"] = undefined /*out*/;
-            inputs["replicationRole"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["sslEnforcement"] = undefined /*out*/;
-            inputs["storageProfile"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userVisibleState"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["administratorLogin"] = undefined /*out*/;
+            resourceInputs["byokEnforcement"] = undefined /*out*/;
+            resourceInputs["earliestRestoreDate"] = undefined /*out*/;
+            resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["infrastructureEncryption"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["masterServerId"] = undefined /*out*/;
+            resourceInputs["minimalTlsVersion"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["replicaCapacity"] = undefined /*out*/;
+            resourceInputs["replicationRole"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["sslEnforcement"] = undefined /*out*/;
+            resourceInputs["storageProfile"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userVisibleState"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:Server" }, { type: "azure-native:dbformysql/v20171201preview:Server" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Server.__pulumiType, name, inputs, opts);
+        super(Server.__pulumiType, name, resourceInputs, opts);
     }
 }
 

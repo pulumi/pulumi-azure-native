@@ -71,7 +71,7 @@ export class IscsiServer extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IscsiServerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.backupScheduleGroupId === undefined) && !opts.urn) {
@@ -89,30 +89,30 @@ export class IscsiServer extends pulumi.CustomResource {
             if ((!args || args.storageDomainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageDomainId'");
             }
-            inputs["backupScheduleGroupId"] = args ? args.backupScheduleGroupId : undefined;
-            inputs["chapId"] = args ? args.chapId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["iscsiServerName"] = args ? args.iscsiServerName : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["reverseChapId"] = args ? args.reverseChapId : undefined;
-            inputs["storageDomainId"] = args ? args.storageDomainId : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backupScheduleGroupId"] = args ? args.backupScheduleGroupId : undefined;
+            resourceInputs["chapId"] = args ? args.chapId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["iscsiServerName"] = args ? args.iscsiServerName : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["reverseChapId"] = args ? args.reverseChapId : undefined;
+            resourceInputs["storageDomainId"] = args ? args.storageDomainId : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["backupScheduleGroupId"] = undefined /*out*/;
-            inputs["chapId"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["reverseChapId"] = undefined /*out*/;
-            inputs["storageDomainId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backupScheduleGroupId"] = undefined /*out*/;
+            resourceInputs["chapId"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["reverseChapId"] = undefined /*out*/;
+            resourceInputs["storageDomainId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IscsiServer.__pulumiType, name, inputs, opts);
+        super(IscsiServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

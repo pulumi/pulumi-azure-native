@@ -92,46 +92,46 @@ export class LabResource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LabResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["artifactsStorageAccount"] = args ? args.artifactsStorageAccount : undefined;
-            inputs["createdDate"] = args ? args.createdDate : undefined;
-            inputs["defaultStorageAccount"] = args ? args.defaultStorageAccount : undefined;
-            inputs["defaultVirtualNetworkId"] = args ? args.defaultVirtualNetworkId : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["labStorageType"] = args ? args.labStorageType : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["artifactsStorageAccount"] = args ? args.artifactsStorageAccount : undefined;
+            resourceInputs["createdDate"] = args ? args.createdDate : undefined;
+            resourceInputs["defaultStorageAccount"] = args ? args.defaultStorageAccount : undefined;
+            resourceInputs["defaultVirtualNetworkId"] = args ? args.defaultVirtualNetworkId : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["labStorageType"] = args ? args.labStorageType : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
         } else {
-            inputs["artifactsStorageAccount"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["defaultStorageAccount"] = undefined /*out*/;
-            inputs["defaultVirtualNetworkId"] = undefined /*out*/;
-            inputs["labStorageType"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["storageAccounts"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["vaultName"] = undefined /*out*/;
+            resourceInputs["artifactsStorageAccount"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["defaultStorageAccount"] = undefined /*out*/;
+            resourceInputs["defaultVirtualNetworkId"] = undefined /*out*/;
+            resourceInputs["labStorageType"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["storageAccounts"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vaultName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:devtestlab:LabResource" }, { type: "azure-native:devtestlab/v20160515:LabResource" }, { type: "azure-native:devtestlab/v20180915:LabResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LabResource.__pulumiType, name, inputs, opts);
+        super(LabResource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

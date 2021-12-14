@@ -116,7 +116,7 @@ export class SqlPool extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlPoolArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -125,49 +125,49 @@ export class SqlPool extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["collation"] = args ? args.collation : undefined;
-            inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["creationDate"] = args ? args.creationDate : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
-            inputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
-            inputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["storageAccountType"] = args ? args.storageAccountType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["creationDate"] = args ? args.creationDate : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
+            resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
+            resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["storageAccountType"] = args ? args.storageAccountType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["collation"] = undefined /*out*/;
-            inputs["createMode"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maxSizeBytes"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["recoverableDatabaseId"] = undefined /*out*/;
-            inputs["restorePointInTime"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["sourceDatabaseDeletionDate"] = undefined /*out*/;
-            inputs["sourceDatabaseId"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["storageAccountType"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["collation"] = undefined /*out*/;
+            resourceInputs["createMode"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxSizeBytes"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["recoverableDatabaseId"] = undefined /*out*/;
+            resourceInputs["restorePointInTime"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["sourceDatabaseDeletionDate"] = undefined /*out*/;
+            resourceInputs["sourceDatabaseId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["storageAccountType"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:synapse:SqlPool" }, { type: "azure-native:synapse/v20190601preview:SqlPool" }, { type: "azure-native:synapse/v20200401preview:SqlPool" }, { type: "azure-native:synapse/v20201201:SqlPool" }, { type: "azure-native:synapse/v20210301:SqlPool" }, { type: "azure-native:synapse/v20210401preview:SqlPool" }, { type: "azure-native:synapse/v20210501:SqlPool" }, { type: "azure-native:synapse/v20210601:SqlPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlPool.__pulumiType, name, inputs, opts);
+        super(SqlPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -88,7 +88,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagedDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
@@ -97,47 +97,47 @@ export class ManagedDatabase extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["catalogCollation"] = args ? args.catalogCollation : undefined;
-            inputs["collation"] = args ? args.collation : undefined;
-            inputs["createMode"] = args ? args.createMode : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["longTermRetentionBackupResourceId"] = args ? args.longTermRetentionBackupResourceId : undefined;
-            inputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            inputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["restorableDroppedDatabaseId"] = args ? args.restorableDroppedDatabaseId : undefined;
-            inputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            inputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
-            inputs["storageContainerSasToken"] = args ? args.storageContainerSasToken : undefined;
-            inputs["storageContainerUri"] = args ? args.storageContainerUri : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["defaultSecondaryLocation"] = undefined /*out*/;
-            inputs["earliestRestorePoint"] = undefined /*out*/;
-            inputs["failoverGroupId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["catalogCollation"] = args ? args.catalogCollation : undefined;
+            resourceInputs["collation"] = args ? args.collation : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["longTermRetentionBackupResourceId"] = args ? args.longTermRetentionBackupResourceId : undefined;
+            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
+            resourceInputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restorableDroppedDatabaseId"] = args ? args.restorableDroppedDatabaseId : undefined;
+            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
+            resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
+            resourceInputs["storageContainerSasToken"] = args ? args.storageContainerSasToken : undefined;
+            resourceInputs["storageContainerUri"] = args ? args.storageContainerUri : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["defaultSecondaryLocation"] = undefined /*out*/;
+            resourceInputs["earliestRestorePoint"] = undefined /*out*/;
+            resourceInputs["failoverGroupId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["catalogCollation"] = undefined /*out*/;
-            inputs["collation"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["defaultSecondaryLocation"] = undefined /*out*/;
-            inputs["earliestRestorePoint"] = undefined /*out*/;
-            inputs["failoverGroupId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["catalogCollation"] = undefined /*out*/;
+            resourceInputs["collation"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["defaultSecondaryLocation"] = undefined /*out*/;
+            resourceInputs["earliestRestorePoint"] = undefined /*out*/;
+            resourceInputs["failoverGroupId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedDatabase" }, { type: "azure-native:sql/v20180601preview:ManagedDatabase" }, { type: "azure-native:sql/v20190601preview:ManagedDatabase" }, { type: "azure-native:sql/v20200202preview:ManagedDatabase" }, { type: "azure-native:sql/v20200801preview:ManagedDatabase" }, { type: "azure-native:sql/v20201101preview:ManagedDatabase" }, { type: "azure-native:sql/v20210201preview:ManagedDatabase" }, { type: "azure-native:sql/v20210501preview:ManagedDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagedDatabase.__pulumiType, name, inputs, opts);
+        super(ManagedDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

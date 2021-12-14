@@ -63,31 +63,31 @@ export class HierarchySetting extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HierarchySettingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.groupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            inputs["defaultManagementGroup"] = args ? args.defaultManagementGroup : undefined;
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["requireAuthorizationForGroupCreation"] = args ? args.requireAuthorizationForGroupCreation : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["defaultManagementGroup"] = args ? args.defaultManagementGroup : undefined;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["requireAuthorizationForGroupCreation"] = args ? args.requireAuthorizationForGroupCreation : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["defaultManagementGroup"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["requireAuthorizationForGroupCreation"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["defaultManagementGroup"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["requireAuthorizationForGroupCreation"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:management:HierarchySetting" }, { type: "azure-native:management/v20200501:HierarchySetting" }, { type: "azure-native:management/v20201001:HierarchySetting" }, { type: "azure-native:management/v20210401:HierarchySetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(HierarchySetting.__pulumiType, name, inputs, opts);
+        super(HierarchySetting.__pulumiType, name, resourceInputs, opts);
     }
 }
 

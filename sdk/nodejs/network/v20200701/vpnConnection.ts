@@ -124,7 +124,7 @@ export class VpnConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VpnConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.gatewayName === undefined) && !opts.urn) {
@@ -133,58 +133,58 @@ export class VpnConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["connectionBandwidth"] = args ? args.connectionBandwidth : undefined;
-            inputs["connectionName"] = args ? args.connectionName : undefined;
-            inputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
-            inputs["enableBgp"] = args ? args.enableBgp : undefined;
-            inputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
-            inputs["enableRateLimiting"] = args ? args.enableRateLimiting : undefined;
-            inputs["gatewayName"] = args ? args.gatewayName : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["remoteVpnSite"] = args ? args.remoteVpnSite : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
-            inputs["routingWeight"] = args ? args.routingWeight : undefined;
-            inputs["sharedKey"] = args ? args.sharedKey : undefined;
-            inputs["useLocalAzureIpAddress"] = args ? args.useLocalAzureIpAddress : undefined;
-            inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
-            inputs["vpnConnectionProtocolType"] = args ? args.vpnConnectionProtocolType : undefined;
-            inputs["vpnLinkConnections"] = args ? args.vpnLinkConnections : undefined;
-            inputs["connectionStatus"] = undefined /*out*/;
-            inputs["egressBytesTransferred"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ingressBytesTransferred"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["connectionBandwidth"] = args ? args.connectionBandwidth : undefined;
+            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
+            resourceInputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
+            resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
+            resourceInputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
+            resourceInputs["enableRateLimiting"] = args ? args.enableRateLimiting : undefined;
+            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["remoteVpnSite"] = args ? args.remoteVpnSite : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
+            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
+            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
+            resourceInputs["useLocalAzureIpAddress"] = args ? args.useLocalAzureIpAddress : undefined;
+            resourceInputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
+            resourceInputs["vpnConnectionProtocolType"] = args ? args.vpnConnectionProtocolType : undefined;
+            resourceInputs["vpnLinkConnections"] = args ? args.vpnLinkConnections : undefined;
+            resourceInputs["connectionStatus"] = undefined /*out*/;
+            resourceInputs["egressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ingressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["connectionBandwidth"] = undefined /*out*/;
-            inputs["connectionStatus"] = undefined /*out*/;
-            inputs["dpdTimeoutSeconds"] = undefined /*out*/;
-            inputs["egressBytesTransferred"] = undefined /*out*/;
-            inputs["enableBgp"] = undefined /*out*/;
-            inputs["enableInternetSecurity"] = undefined /*out*/;
-            inputs["enableRateLimiting"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["ingressBytesTransferred"] = undefined /*out*/;
-            inputs["ipsecPolicies"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["remoteVpnSite"] = undefined /*out*/;
-            inputs["routingConfiguration"] = undefined /*out*/;
-            inputs["routingWeight"] = undefined /*out*/;
-            inputs["sharedKey"] = undefined /*out*/;
-            inputs["useLocalAzureIpAddress"] = undefined /*out*/;
-            inputs["usePolicyBasedTrafficSelectors"] = undefined /*out*/;
-            inputs["vpnConnectionProtocolType"] = undefined /*out*/;
-            inputs["vpnLinkConnections"] = undefined /*out*/;
+            resourceInputs["connectionBandwidth"] = undefined /*out*/;
+            resourceInputs["connectionStatus"] = undefined /*out*/;
+            resourceInputs["dpdTimeoutSeconds"] = undefined /*out*/;
+            resourceInputs["egressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["enableBgp"] = undefined /*out*/;
+            resourceInputs["enableInternetSecurity"] = undefined /*out*/;
+            resourceInputs["enableRateLimiting"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["ingressBytesTransferred"] = undefined /*out*/;
+            resourceInputs["ipsecPolicies"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["remoteVpnSite"] = undefined /*out*/;
+            resourceInputs["routingConfiguration"] = undefined /*out*/;
+            resourceInputs["routingWeight"] = undefined /*out*/;
+            resourceInputs["sharedKey"] = undefined /*out*/;
+            resourceInputs["useLocalAzureIpAddress"] = undefined /*out*/;
+            resourceInputs["usePolicyBasedTrafficSelectors"] = undefined /*out*/;
+            resourceInputs["vpnConnectionProtocolType"] = undefined /*out*/;
+            resourceInputs["vpnLinkConnections"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:VpnConnection" }, { type: "azure-native:network/v20180401:VpnConnection" }, { type: "azure-native:network/v20180601:VpnConnection" }, { type: "azure-native:network/v20180701:VpnConnection" }, { type: "azure-native:network/v20180801:VpnConnection" }, { type: "azure-native:network/v20181001:VpnConnection" }, { type: "azure-native:network/v20181101:VpnConnection" }, { type: "azure-native:network/v20181201:VpnConnection" }, { type: "azure-native:network/v20190201:VpnConnection" }, { type: "azure-native:network/v20190401:VpnConnection" }, { type: "azure-native:network/v20190601:VpnConnection" }, { type: "azure-native:network/v20190701:VpnConnection" }, { type: "azure-native:network/v20190801:VpnConnection" }, { type: "azure-native:network/v20190901:VpnConnection" }, { type: "azure-native:network/v20191101:VpnConnection" }, { type: "azure-native:network/v20191201:VpnConnection" }, { type: "azure-native:network/v20200301:VpnConnection" }, { type: "azure-native:network/v20200401:VpnConnection" }, { type: "azure-native:network/v20200501:VpnConnection" }, { type: "azure-native:network/v20200601:VpnConnection" }, { type: "azure-native:network/v20200801:VpnConnection" }, { type: "azure-native:network/v20201101:VpnConnection" }, { type: "azure-native:network/v20210201:VpnConnection" }, { type: "azure-native:network/v20210301:VpnConnection" }, { type: "azure-native:network/v20210501:VpnConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VpnConnection.__pulumiType, name, inputs, opts);
+        super(VpnConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

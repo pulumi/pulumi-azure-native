@@ -59,7 +59,7 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HcxEnterpriseSiteArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
@@ -68,25 +68,25 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["hcxEnterpriseSiteName"] = args ? args.hcxEnterpriseSiteName : undefined;
-            inputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["activationKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["hcxEnterpriseSiteName"] = args ? args.hcxEnterpriseSiteName : undefined;
+            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["activationKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["activationKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["activationKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:avs:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200320:HcxEnterpriseSite" }, { type: "azure-native:avs/v20200717preview:HcxEnterpriseSite" }, { type: "azure-native:avs/v20210601:HcxEnterpriseSite" }, { type: "azure-native:avs/v20211201:HcxEnterpriseSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(HcxEnterpriseSite.__pulumiType, name, inputs, opts);
+        super(HcxEnterpriseSite.__pulumiType, name, resourceInputs, opts);
     }
 }
 

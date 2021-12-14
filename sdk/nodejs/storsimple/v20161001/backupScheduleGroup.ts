@@ -56,7 +56,7 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BackupScheduleGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -71,22 +71,22 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
             if ((!args || args.startTime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scheduleGroupName"] = args ? args.scheduleGroupName : undefined;
-            inputs["startTime"] = args ? args.startTime : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scheduleGroupName"] = args ? args.scheduleGroupName : undefined;
+            resourceInputs["startTime"] = args ? args.startTime : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["startTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["startTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BackupScheduleGroup.__pulumiType, name, inputs, opts);
+        super(BackupScheduleGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

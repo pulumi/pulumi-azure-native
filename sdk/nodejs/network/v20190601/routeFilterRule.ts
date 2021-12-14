@@ -72,7 +72,7 @@ export class RouteFilterRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RouteFilterRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.access === undefined) && !opts.urn) {
@@ -90,32 +90,32 @@ export class RouteFilterRule extends pulumi.CustomResource {
             if ((!args || args.routeFilterRuleType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeFilterRuleType'");
             }
-            inputs["access"] = args ? args.access : undefined;
-            inputs["communities"] = args ? args.communities : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["routeFilterName"] = args ? args.routeFilterName : undefined;
-            inputs["routeFilterRuleType"] = args ? args.routeFilterRuleType : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["etag"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["access"] = args ? args.access : undefined;
+            resourceInputs["communities"] = args ? args.communities : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["routeFilterName"] = args ? args.routeFilterName : undefined;
+            resourceInputs["routeFilterRuleType"] = args ? args.routeFilterRuleType : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
         } else {
-            inputs["access"] = undefined /*out*/;
-            inputs["communities"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["routeFilterRuleType"] = undefined /*out*/;
+            resourceInputs["access"] = undefined /*out*/;
+            resourceInputs["communities"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["routeFilterRuleType"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:RouteFilterRule" }, { type: "azure-native:network/v20161201:RouteFilterRule" }, { type: "azure-native:network/v20170301:RouteFilterRule" }, { type: "azure-native:network/v20170601:RouteFilterRule" }, { type: "azure-native:network/v20170801:RouteFilterRule" }, { type: "azure-native:network/v20170901:RouteFilterRule" }, { type: "azure-native:network/v20171001:RouteFilterRule" }, { type: "azure-native:network/v20171101:RouteFilterRule" }, { type: "azure-native:network/v20180101:RouteFilterRule" }, { type: "azure-native:network/v20180201:RouteFilterRule" }, { type: "azure-native:network/v20180401:RouteFilterRule" }, { type: "azure-native:network/v20180601:RouteFilterRule" }, { type: "azure-native:network/v20180701:RouteFilterRule" }, { type: "azure-native:network/v20180801:RouteFilterRule" }, { type: "azure-native:network/v20181001:RouteFilterRule" }, { type: "azure-native:network/v20181101:RouteFilterRule" }, { type: "azure-native:network/v20181201:RouteFilterRule" }, { type: "azure-native:network/v20190201:RouteFilterRule" }, { type: "azure-native:network/v20190401:RouteFilterRule" }, { type: "azure-native:network/v20190701:RouteFilterRule" }, { type: "azure-native:network/v20190801:RouteFilterRule" }, { type: "azure-native:network/v20190901:RouteFilterRule" }, { type: "azure-native:network/v20191101:RouteFilterRule" }, { type: "azure-native:network/v20191201:RouteFilterRule" }, { type: "azure-native:network/v20200301:RouteFilterRule" }, { type: "azure-native:network/v20200401:RouteFilterRule" }, { type: "azure-native:network/v20200501:RouteFilterRule" }, { type: "azure-native:network/v20200601:RouteFilterRule" }, { type: "azure-native:network/v20200701:RouteFilterRule" }, { type: "azure-native:network/v20200801:RouteFilterRule" }, { type: "azure-native:network/v20201101:RouteFilterRule" }, { type: "azure-native:network/v20210201:RouteFilterRule" }, { type: "azure-native:network/v20210301:RouteFilterRule" }, { type: "azure-native:network/v20210501:RouteFilterRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RouteFilterRule.__pulumiType, name, inputs, opts);
+        super(RouteFilterRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

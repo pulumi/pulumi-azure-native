@@ -79,7 +79,7 @@ export class AndroidMAMPolicyByName extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AndroidMAMPolicyByNameArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.friendlyName === undefined) && !opts.urn) {
@@ -88,64 +88,64 @@ export class AndroidMAMPolicyByName extends pulumi.CustomResource {
             if ((!args || args.hostName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            inputs["accessRecheckOfflineTimeout"] = args ? args.accessRecheckOfflineTimeout : undefined;
-            inputs["accessRecheckOnlineTimeout"] = args ? args.accessRecheckOnlineTimeout : undefined;
-            inputs["appSharingFromLevel"] = (args ? args.appSharingFromLevel : undefined) ?? "none";
-            inputs["appSharingToLevel"] = (args ? args.appSharingToLevel : undefined) ?? "none";
-            inputs["authentication"] = (args ? args.authentication : undefined) ?? "required";
-            inputs["clipboardSharingLevel"] = (args ? args.clipboardSharingLevel : undefined) ?? "blocked";
-            inputs["dataBackup"] = (args ? args.dataBackup : undefined) ?? "allow";
-            inputs["description"] = args ? args.description : undefined;
-            inputs["deviceCompliance"] = (args ? args.deviceCompliance : undefined) ?? "enable";
-            inputs["fileEncryption"] = (args ? args.fileEncryption : undefined) ?? "required";
-            inputs["fileSharingSaveAs"] = (args ? args.fileSharingSaveAs : undefined) ?? "allow";
-            inputs["friendlyName"] = args ? args.friendlyName : undefined;
-            inputs["hostName"] = args ? args.hostName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedBrowser"] = (args ? args.managedBrowser : undefined) ?? "required";
-            inputs["offlineWipeTimeout"] = args ? args.offlineWipeTimeout : undefined;
-            inputs["pin"] = (args ? args.pin : undefined) ?? "required";
-            inputs["pinNumRetry"] = args ? args.pinNumRetry : undefined;
-            inputs["policyName"] = args ? args.policyName : undefined;
-            inputs["screenCapture"] = (args ? args.screenCapture : undefined) ?? "allow";
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["groupStatus"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numOfApps"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accessRecheckOfflineTimeout"] = args ? args.accessRecheckOfflineTimeout : undefined;
+            resourceInputs["accessRecheckOnlineTimeout"] = args ? args.accessRecheckOnlineTimeout : undefined;
+            resourceInputs["appSharingFromLevel"] = (args ? args.appSharingFromLevel : undefined) ?? "none";
+            resourceInputs["appSharingToLevel"] = (args ? args.appSharingToLevel : undefined) ?? "none";
+            resourceInputs["authentication"] = (args ? args.authentication : undefined) ?? "required";
+            resourceInputs["clipboardSharingLevel"] = (args ? args.clipboardSharingLevel : undefined) ?? "blocked";
+            resourceInputs["dataBackup"] = (args ? args.dataBackup : undefined) ?? "allow";
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["deviceCompliance"] = (args ? args.deviceCompliance : undefined) ?? "enable";
+            resourceInputs["fileEncryption"] = (args ? args.fileEncryption : undefined) ?? "required";
+            resourceInputs["fileSharingSaveAs"] = (args ? args.fileSharingSaveAs : undefined) ?? "allow";
+            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
+            resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedBrowser"] = (args ? args.managedBrowser : undefined) ?? "required";
+            resourceInputs["offlineWipeTimeout"] = args ? args.offlineWipeTimeout : undefined;
+            resourceInputs["pin"] = (args ? args.pin : undefined) ?? "required";
+            resourceInputs["pinNumRetry"] = args ? args.pinNumRetry : undefined;
+            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["screenCapture"] = (args ? args.screenCapture : undefined) ?? "allow";
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["groupStatus"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numOfApps"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accessRecheckOfflineTimeout"] = undefined /*out*/;
-            inputs["accessRecheckOnlineTimeout"] = undefined /*out*/;
-            inputs["appSharingFromLevel"] = undefined /*out*/;
-            inputs["appSharingToLevel"] = undefined /*out*/;
-            inputs["authentication"] = undefined /*out*/;
-            inputs["clipboardSharingLevel"] = undefined /*out*/;
-            inputs["dataBackup"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["deviceCompliance"] = undefined /*out*/;
-            inputs["fileEncryption"] = undefined /*out*/;
-            inputs["fileSharingSaveAs"] = undefined /*out*/;
-            inputs["friendlyName"] = undefined /*out*/;
-            inputs["groupStatus"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["managedBrowser"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numOfApps"] = undefined /*out*/;
-            inputs["offlineWipeTimeout"] = undefined /*out*/;
-            inputs["pin"] = undefined /*out*/;
-            inputs["pinNumRetry"] = undefined /*out*/;
-            inputs["screenCapture"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accessRecheckOfflineTimeout"] = undefined /*out*/;
+            resourceInputs["accessRecheckOnlineTimeout"] = undefined /*out*/;
+            resourceInputs["appSharingFromLevel"] = undefined /*out*/;
+            resourceInputs["appSharingToLevel"] = undefined /*out*/;
+            resourceInputs["authentication"] = undefined /*out*/;
+            resourceInputs["clipboardSharingLevel"] = undefined /*out*/;
+            resourceInputs["dataBackup"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["deviceCompliance"] = undefined /*out*/;
+            resourceInputs["fileEncryption"] = undefined /*out*/;
+            resourceInputs["fileSharingSaveAs"] = undefined /*out*/;
+            resourceInputs["friendlyName"] = undefined /*out*/;
+            resourceInputs["groupStatus"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedBrowser"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numOfApps"] = undefined /*out*/;
+            resourceInputs["offlineWipeTimeout"] = undefined /*out*/;
+            resourceInputs["pin"] = undefined /*out*/;
+            resourceInputs["pinNumRetry"] = undefined /*out*/;
+            resourceInputs["screenCapture"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:intune:AndroidMAMPolicyByName" }, { type: "azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AndroidMAMPolicyByName.__pulumiType, name, inputs, opts);
+        super(AndroidMAMPolicyByName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

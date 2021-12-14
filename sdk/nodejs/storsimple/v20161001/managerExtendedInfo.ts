@@ -79,7 +79,7 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagerExtendedInfoArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.algorithm === undefined) && !opts.urn) {
@@ -94,34 +94,34 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["algorithm"] = args ? args.algorithm : undefined;
-            inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            inputs["encryptionKeyThumbprint"] = args ? args.encryptionKeyThumbprint : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["integrityKey"] = args ? args.integrityKey : undefined;
-            inputs["managerName"] = args ? args.managerName : undefined;
-            inputs["portalCertificateThumbprint"] = args ? args.portalCertificateThumbprint : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["algorithm"] = args ? args.algorithm : undefined;
+            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
+            resourceInputs["encryptionKeyThumbprint"] = args ? args.encryptionKeyThumbprint : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["integrityKey"] = args ? args.integrityKey : undefined;
+            resourceInputs["managerName"] = args ? args.managerName : undefined;
+            resourceInputs["portalCertificateThumbprint"] = args ? args.portalCertificateThumbprint : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["algorithm"] = undefined /*out*/;
-            inputs["encryptionKey"] = undefined /*out*/;
-            inputs["encryptionKeyThumbprint"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["integrityKey"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["portalCertificateThumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["algorithm"] = undefined /*out*/;
+            resourceInputs["encryptionKey"] = undefined /*out*/;
+            resourceInputs["encryptionKeyThumbprint"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["integrityKey"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["portalCertificateThumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storsimple:ManagerExtendedInfo" }, { type: "azure-native:storsimple/v20170601:ManagerExtendedInfo" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagerExtendedInfo.__pulumiType, name, inputs, opts);
+        super(ManagerExtendedInfo.__pulumiType, name, resourceInputs, opts);
     }
 }
 

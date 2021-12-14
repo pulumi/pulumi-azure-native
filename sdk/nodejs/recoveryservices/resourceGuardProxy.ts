@@ -68,7 +68,7 @@ export class ResourceGuardProxy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResourceGuardProxyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -77,29 +77,29 @@ export class ResourceGuardProxy extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceGuardProxyName"] = args ? args.resourceGuardProxyName : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGuardProxyName"] = args ? args.resourceGuardProxyName : undefined;
+            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["eTag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices/v20210201preview:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20210701:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20210801:ResourceGuardProxy" }, { type: "azure-native:recoveryservices/v20211001:ResourceGuardProxy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ResourceGuardProxy.__pulumiType, name, inputs, opts);
+        super(ResourceGuardProxy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

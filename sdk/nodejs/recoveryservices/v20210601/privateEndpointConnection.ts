@@ -68,7 +68,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -77,29 +77,29 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if ((!args || args.vaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vaultName"] = args ? args.vaultName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["eTag"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20200202:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20201001:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20201201:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20210101:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20210201:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20210201preview:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20210210:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20210301:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20210401:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20210701:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20210801:PrivateEndpointConnection" }, { type: "azure-native:recoveryservices/v20211001:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(PrivateEndpointConnection.__pulumiType, name, inputs, opts);
+        super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

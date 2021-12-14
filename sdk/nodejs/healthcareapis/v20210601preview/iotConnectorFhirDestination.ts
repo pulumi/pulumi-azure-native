@@ -76,7 +76,7 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: IotConnectorFhirDestinationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.fhirMapping === undefined) && !opts.urn) {
@@ -97,34 +97,34 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["fhirDestinationName"] = args ? args.fhirDestinationName : undefined;
-            inputs["fhirMapping"] = args ? args.fhirMapping : undefined;
-            inputs["fhirServiceResourceId"] = args ? args.fhirServiceResourceId : undefined;
-            inputs["iotConnectorName"] = args ? args.iotConnectorName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceIdentityResolutionType"] = args ? args.resourceIdentityResolutionType : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["fhirDestinationName"] = args ? args.fhirDestinationName : undefined;
+            resourceInputs["fhirMapping"] = args ? args.fhirMapping : undefined;
+            resourceInputs["fhirServiceResourceId"] = args ? args.fhirServiceResourceId : undefined;
+            resourceInputs["iotConnectorName"] = args ? args.iotConnectorName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceIdentityResolutionType"] = args ? args.resourceIdentityResolutionType : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["etag"] = undefined /*out*/;
-            inputs["fhirMapping"] = undefined /*out*/;
-            inputs["fhirServiceResourceId"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceIdentityResolutionType"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["fhirMapping"] = undefined /*out*/;
+            resourceInputs["fhirServiceResourceId"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceIdentityResolutionType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:IotConnectorFhirDestination" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(IotConnectorFhirDestination.__pulumiType, name, inputs, opts);
+        super(IotConnectorFhirDestination.__pulumiType, name, resourceInputs, opts);
     }
 }
 

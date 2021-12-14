@@ -55,28 +55,28 @@ export class AdvancedThreatProtection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AdvancedThreatProtectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["settingName"] = args ? args.settingName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["settingName"] = args ? args.settingName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["isEnabled"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["isEnabled"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:security:AdvancedThreatProtection" }, { type: "azure-native:security/v20170801preview:AdvancedThreatProtection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AdvancedThreatProtection.__pulumiType, name, inputs, opts);
+        super(AdvancedThreatProtection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

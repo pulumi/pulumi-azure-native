@@ -67,7 +67,7 @@ export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppSlotConfigurationNamesArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -76,27 +76,27 @@ export class WebAppSlotConfigurationNames extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["appSettingNames"] = args ? args.appSettingNames : undefined;
-            inputs["azureStorageConfigNames"] = args ? args.azureStorageConfigNames : undefined;
-            inputs["connectionStringNames"] = args ? args.connectionStringNames : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appSettingNames"] = args ? args.appSettingNames : undefined;
+            resourceInputs["azureStorageConfigNames"] = args ? args.azureStorageConfigNames : undefined;
+            resourceInputs["connectionStringNames"] = args ? args.connectionStringNames : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["appSettingNames"] = undefined /*out*/;
-            inputs["azureStorageConfigNames"] = undefined /*out*/;
-            inputs["connectionStringNames"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["appSettingNames"] = undefined /*out*/;
+            resourceInputs["azureStorageConfigNames"] = undefined /*out*/;
+            resourceInputs["connectionStringNames"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20150801:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20160801:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20180201:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20181101:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20190801:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20200601:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20200901:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20201001:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20201201:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20210101:WebAppSlotConfigurationNames" }, { type: "azure-native:web/v20210201:WebAppSlotConfigurationNames" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppSlotConfigurationNames.__pulumiType, name, inputs, opts);
+        super(WebAppSlotConfigurationNames.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -67,7 +67,7 @@ export class Service extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -82,29 +82,29 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.targetSubscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetSubscriptionId'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["serviceTopologyName"] = args ? args.serviceTopologyName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetLocation"] = args ? args.targetLocation : undefined;
-            inputs["targetSubscriptionId"] = args ? args.targetSubscriptionId : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["serviceTopologyName"] = args ? args.serviceTopologyName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetLocation"] = args ? args.targetLocation : undefined;
+            resourceInputs["targetSubscriptionId"] = args ? args.targetSubscriptionId : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["targetLocation"] = undefined /*out*/;
-            inputs["targetSubscriptionId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["targetLocation"] = undefined /*out*/;
+            resourceInputs["targetSubscriptionId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:deploymentmanager:Service" }, { type: "azure-native:deploymentmanager/v20180901preview:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Service.__pulumiType, name, inputs, opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

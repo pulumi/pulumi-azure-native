@@ -76,7 +76,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -91,34 +91,34 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["base64Value"] = args ? args.base64Value : undefined;
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["isExportable"] = args ? args.isExportable : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["thumbprint"] = args ? args.thumbprint : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["expiryTime"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["base64Value"] = args ? args.base64Value : undefined;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["isExportable"] = args ? args.isExportable : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["expiryTime"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["expiryTime"] = undefined /*out*/;
-            inputs["isExportable"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["thumbprint"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["expiryTime"] = undefined /*out*/;
+            resourceInputs["isExportable"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["thumbprint"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation/v20151031:Certificate" }, { type: "azure-native:automation/v20190601:Certificate" }, { type: "azure-native:automation/v20200113preview:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Certificate.__pulumiType, name, inputs, opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

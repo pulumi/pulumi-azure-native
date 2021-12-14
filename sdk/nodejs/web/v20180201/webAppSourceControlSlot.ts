@@ -75,7 +75,7 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppSourceControlSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -87,32 +87,32 @@ export class WebAppSourceControlSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["branch"] = args ? args.branch : undefined;
-            inputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
-            inputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
-            inputs["isMercurial"] = args ? args.isMercurial : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["repoUrl"] = args ? args.repoUrl : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["branch"] = args ? args.branch : undefined;
+            resourceInputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
+            resourceInputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
+            resourceInputs["isMercurial"] = args ? args.isMercurial : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["branch"] = undefined /*out*/;
-            inputs["deploymentRollbackEnabled"] = undefined /*out*/;
-            inputs["isManualIntegration"] = undefined /*out*/;
-            inputs["isMercurial"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["repoUrl"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["branch"] = undefined /*out*/;
+            resourceInputs["deploymentRollbackEnabled"] = undefined /*out*/;
+            resourceInputs["isManualIntegration"] = undefined /*out*/;
+            resourceInputs["isMercurial"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["repoUrl"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSourceControlSlot" }, { type: "azure-native:web/v20150801:WebAppSourceControlSlot" }, { type: "azure-native:web/v20160801:WebAppSourceControlSlot" }, { type: "azure-native:web/v20181101:WebAppSourceControlSlot" }, { type: "azure-native:web/v20190801:WebAppSourceControlSlot" }, { type: "azure-native:web/v20200601:WebAppSourceControlSlot" }, { type: "azure-native:web/v20200901:WebAppSourceControlSlot" }, { type: "azure-native:web/v20201001:WebAppSourceControlSlot" }, { type: "azure-native:web/v20201201:WebAppSourceControlSlot" }, { type: "azure-native:web/v20210101:WebAppSourceControlSlot" }, { type: "azure-native:web/v20210115:WebAppSourceControlSlot" }, { type: "azure-native:web/v20210201:WebAppSourceControlSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppSourceControlSlot.__pulumiType, name, inputs, opts);
+        super(WebAppSourceControlSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

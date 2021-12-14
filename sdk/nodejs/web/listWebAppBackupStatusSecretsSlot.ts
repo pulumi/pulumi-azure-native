@@ -20,7 +20,7 @@ export function listWebAppBackupStatusSecretsSlot(args: ListWebAppBackupStatusSe
     return pulumi.runtime.invoke("azure-native:web:listWebAppBackupStatusSecretsSlot", {
         "backupId": args.backupId,
         "backupName": args.backupName,
-        "backupSchedule": args.backupSchedule,
+        "backupSchedule": args.backupSchedule ? inputs.web.backupScheduleProvideDefaults(args.backupSchedule) : undefined,
         "databases": args.databases,
         "enabled": args.enabled,
         "kind": args.kind,

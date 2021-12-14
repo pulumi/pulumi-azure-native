@@ -67,7 +67,7 @@ export class Snapshot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SnapshotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -82,31 +82,31 @@ export class Snapshot extends pulumi.CustomResource {
             if ((!args || args.volumeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["poolName"] = args ? args.poolName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["snapshotName"] = args ? args.snapshotName : undefined;
-            inputs["volumeName"] = args ? args.volumeName : undefined;
-            inputs["created"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["snapshotId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
+            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["snapshotId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["created"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["snapshotId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["snapshotId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:Snapshot" }, { type: "azure-native:netapp/v20170815:Snapshot" }, { type: "azure-native:netapp/v20190501:Snapshot" }, { type: "azure-native:netapp/v20190601:Snapshot" }, { type: "azure-native:netapp/v20190701:Snapshot" }, { type: "azure-native:netapp/v20190801:Snapshot" }, { type: "azure-native:netapp/v20191001:Snapshot" }, { type: "azure-native:netapp/v20191101:Snapshot" }, { type: "azure-native:netapp/v20200201:Snapshot" }, { type: "azure-native:netapp/v20200301:Snapshot" }, { type: "azure-native:netapp/v20200501:Snapshot" }, { type: "azure-native:netapp/v20200601:Snapshot" }, { type: "azure-native:netapp/v20200701:Snapshot" }, { type: "azure-native:netapp/v20200801:Snapshot" }, { type: "azure-native:netapp/v20200901:Snapshot" }, { type: "azure-native:netapp/v20201201:Snapshot" }, { type: "azure-native:netapp/v20210201:Snapshot" }, { type: "azure-native:netapp/v20210401:Snapshot" }, { type: "azure-native:netapp/v20210401preview:Snapshot" }, { type: "azure-native:netapp/v20210601:Snapshot" }, { type: "azure-native:netapp/v20210801:Snapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Snapshot.__pulumiType, name, inputs, opts);
+        super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

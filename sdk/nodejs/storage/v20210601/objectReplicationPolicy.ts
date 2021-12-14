@@ -72,7 +72,7 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ObjectReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -87,31 +87,31 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
             if ((!args || args.sourceAccount === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceAccount'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["destinationAccount"] = args ? args.destinationAccount : undefined;
-            inputs["objectReplicationPolicyId"] = args ? args.objectReplicationPolicyId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["sourceAccount"] = args ? args.sourceAccount : undefined;
-            inputs["enabledTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["policyId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["destinationAccount"] = args ? args.destinationAccount : undefined;
+            resourceInputs["objectReplicationPolicyId"] = args ? args.objectReplicationPolicyId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
+            resourceInputs["enabledTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policyId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["destinationAccount"] = undefined /*out*/;
-            inputs["enabledTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["policyId"] = undefined /*out*/;
-            inputs["rules"] = undefined /*out*/;
-            inputs["sourceAccount"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["destinationAccount"] = undefined /*out*/;
+            resourceInputs["enabledTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["policyId"] = undefined /*out*/;
+            resourceInputs["rules"] = undefined /*out*/;
+            resourceInputs["sourceAccount"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:storage:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20190601:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20200801preview:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210101:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210201:ObjectReplicationPolicy" }, { type: "azure-native:storage/v20210401:ObjectReplicationPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ObjectReplicationPolicy.__pulumiType, name, inputs, opts);
+        super(ObjectReplicationPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

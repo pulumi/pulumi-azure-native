@@ -74,7 +74,7 @@ export class ScopeMap extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ScopeMapArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actions === undefined) && !opts.urn) {
@@ -86,31 +86,31 @@ export class ScopeMap extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scopeMapName"] = args ? args.scopeMapName : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scopeMapName"] = args ? args.scopeMapName : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:ScopeMap" }, { type: "azure-native:containerregistry/v20190501preview:ScopeMap" }, { type: "azure-native:containerregistry/v20210601preview:ScopeMap" }, { type: "azure-native:containerregistry/v20210801preview:ScopeMap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ScopeMap.__pulumiType, name, inputs, opts);
+        super(ScopeMap.__pulumiType, name, resourceInputs, opts);
     }
 }
 

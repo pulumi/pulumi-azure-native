@@ -60,26 +60,26 @@ export class Alias extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: AliasArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["aliasName"] = args ? args.aliasName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:subscription:Alias" }, { type: "azure-native:subscription/v20191001preview:Alias" }, { type: "azure-native:subscription/v20200901:Alias" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Alias.__pulumiType, name, inputs, opts);
+        super(Alias.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -61,7 +61,7 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SqlResourceSqlTriggerArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -79,30 +79,30 @@ export class SqlResourceSqlTrigger extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["triggerName"] = args ? args.triggerName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["triggerName"] = args ? args.triggerName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resource"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resource"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20190801:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20191212:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200301:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200401:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200601preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20200901:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210115:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210301preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210315:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210401preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210415:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210615:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20210701preview:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20211015:SqlResourceSqlTrigger" }, { type: "azure-native:documentdb/v20211015preview:SqlResourceSqlTrigger" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SqlResourceSqlTrigger.__pulumiType, name, inputs, opts);
+        super(SqlResourceSqlTrigger.__pulumiType, name, resourceInputs, opts);
     }
 }
 

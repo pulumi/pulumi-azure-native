@@ -60,7 +60,7 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GuestConfigurationHCRPAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.machineName === undefined) && !opts.urn) {
@@ -69,25 +69,25 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["guestConfigurationAssignmentName"] = args ? args.guestConfigurationAssignmentName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["machineName"] = args ? args.machineName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["guestConfigurationAssignmentName"] = args ? args.guestConfigurationAssignmentName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["machineName"] = args ? args.machineName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.guestconfiguration.v20181120.guestConfigurationAssignmentPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment" }, { type: "azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GuestConfigurationHCRPAssignment.__pulumiType, name, inputs, opts);
+        super(GuestConfigurationHCRPAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

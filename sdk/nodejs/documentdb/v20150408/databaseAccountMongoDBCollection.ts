@@ -68,7 +68,7 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DatabaseAccountMongoDBCollectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -86,32 +86,32 @@ export class DatabaseAccountMongoDBCollection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["collectionName"] = args ? args.collectionName : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["resource"] = args ? args.resource : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["indexes"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["shardKey"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["collectionName"] = args ? args.collectionName : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["resource"] = args ? args.resource : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["indexes"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["shardKey"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["indexes"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["shardKey"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["indexes"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["shardKey"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:documentdb:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20150401:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20151106:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20160319:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20190801:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20191212:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20200301:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20200401:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20200601preview:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20200901:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20210115:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20210301preview:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20210315:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20210401preview:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20210415:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20210515:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20210615:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20210701preview:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20211015:DatabaseAccountMongoDBCollection" }, { type: "azure-native:documentdb/v20211015preview:DatabaseAccountMongoDBCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DatabaseAccountMongoDBCollection.__pulumiType, name, inputs, opts);
+        super(DatabaseAccountMongoDBCollection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

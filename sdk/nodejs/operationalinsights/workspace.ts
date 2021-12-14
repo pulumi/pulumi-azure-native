@@ -113,56 +113,56 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["eTag"] = args ? args.eTag : undefined;
-            inputs["features"] = args ? args.features : undefined;
-            inputs["forceCmkForQuery"] = args ? args.forceCmkForQuery : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
-            inputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceCapping"] = args ? args.workspaceCapping : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["customerId"] = undefined /*out*/;
-            inputs["modifiedDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateLinkScopedResources"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["features"] = args ? args.features : undefined;
+            resourceInputs["forceCmkForQuery"] = args ? args.forceCmkForQuery : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
+            resourceInputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceCapping"] = args ? args.workspaceCapping : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["customerId"] = undefined /*out*/;
+            resourceInputs["modifiedDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateLinkScopedResources"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["customerId"] = undefined /*out*/;
-            inputs["eTag"] = undefined /*out*/;
-            inputs["features"] = undefined /*out*/;
-            inputs["forceCmkForQuery"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["modifiedDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateLinkScopedResources"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccessForIngestion"] = undefined /*out*/;
-            inputs["publicNetworkAccessForQuery"] = undefined /*out*/;
-            inputs["retentionInDays"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["workspaceCapping"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["customerId"] = undefined /*out*/;
+            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["features"] = undefined /*out*/;
+            resourceInputs["forceCmkForQuery"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["modifiedDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateLinkScopedResources"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccessForIngestion"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccessForQuery"] = undefined /*out*/;
+            resourceInputs["retentionInDays"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["workspaceCapping"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:Workspace" }, { type: "azure-native:operationalinsights/v20200301preview:Workspace" }, { type: "azure-native:operationalinsights/v20200801:Workspace" }, { type: "azure-native:operationalinsights/v20201001:Workspace" }, { type: "azure-native:operationalinsights/v20210601:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -180,7 +180,7 @@ export class SiteAuthSettings extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SiteAuthSettingsArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -189,66 +189,66 @@ export class SiteAuthSettings extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["aadClientId"] = args ? args.aadClientId : undefined;
-            inputs["additionalLoginParams"] = args ? args.additionalLoginParams : undefined;
-            inputs["allowedAudiences"] = args ? args.allowedAudiences : undefined;
-            inputs["allowedExternalRedirectUrls"] = args ? args.allowedExternalRedirectUrls : undefined;
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["defaultProvider"] = args ? args.defaultProvider : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["facebookAppId"] = args ? args.facebookAppId : undefined;
-            inputs["facebookAppSecret"] = args ? args.facebookAppSecret : undefined;
-            inputs["facebookOAuthScopes"] = args ? args.facebookOAuthScopes : undefined;
-            inputs["googleClientId"] = args ? args.googleClientId : undefined;
-            inputs["googleClientSecret"] = args ? args.googleClientSecret : undefined;
-            inputs["googleOAuthScopes"] = args ? args.googleOAuthScopes : undefined;
-            inputs["httpApiPrefixPath"] = args ? args.httpApiPrefixPath : undefined;
-            inputs["issuer"] = args ? args.issuer : undefined;
-            inputs["microsoftAccountClientId"] = args ? args.microsoftAccountClientId : undefined;
-            inputs["microsoftAccountClientSecret"] = args ? args.microsoftAccountClientSecret : undefined;
-            inputs["microsoftAccountOAuthScopes"] = args ? args.microsoftAccountOAuthScopes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["openIdIssuer"] = args ? args.openIdIssuer : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tokenRefreshExtensionHours"] = args ? args.tokenRefreshExtensionHours : undefined;
-            inputs["tokenStoreEnabled"] = args ? args.tokenStoreEnabled : undefined;
-            inputs["twitterConsumerKey"] = args ? args.twitterConsumerKey : undefined;
-            inputs["twitterConsumerSecret"] = args ? args.twitterConsumerSecret : undefined;
-            inputs["unauthenticatedClientAction"] = args ? args.unauthenticatedClientAction : undefined;
+            resourceInputs["aadClientId"] = args ? args.aadClientId : undefined;
+            resourceInputs["additionalLoginParams"] = args ? args.additionalLoginParams : undefined;
+            resourceInputs["allowedAudiences"] = args ? args.allowedAudiences : undefined;
+            resourceInputs["allowedExternalRedirectUrls"] = args ? args.allowedExternalRedirectUrls : undefined;
+            resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
+            resourceInputs["defaultProvider"] = args ? args.defaultProvider : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["facebookAppId"] = args ? args.facebookAppId : undefined;
+            resourceInputs["facebookAppSecret"] = args ? args.facebookAppSecret : undefined;
+            resourceInputs["facebookOAuthScopes"] = args ? args.facebookOAuthScopes : undefined;
+            resourceInputs["googleClientId"] = args ? args.googleClientId : undefined;
+            resourceInputs["googleClientSecret"] = args ? args.googleClientSecret : undefined;
+            resourceInputs["googleOAuthScopes"] = args ? args.googleOAuthScopes : undefined;
+            resourceInputs["httpApiPrefixPath"] = args ? args.httpApiPrefixPath : undefined;
+            resourceInputs["issuer"] = args ? args.issuer : undefined;
+            resourceInputs["microsoftAccountClientId"] = args ? args.microsoftAccountClientId : undefined;
+            resourceInputs["microsoftAccountClientSecret"] = args ? args.microsoftAccountClientSecret : undefined;
+            resourceInputs["microsoftAccountOAuthScopes"] = args ? args.microsoftAccountOAuthScopes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["openIdIssuer"] = args ? args.openIdIssuer : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tokenRefreshExtensionHours"] = args ? args.tokenRefreshExtensionHours : undefined;
+            resourceInputs["tokenStoreEnabled"] = args ? args.tokenStoreEnabled : undefined;
+            resourceInputs["twitterConsumerKey"] = args ? args.twitterConsumerKey : undefined;
+            resourceInputs["twitterConsumerSecret"] = args ? args.twitterConsumerSecret : undefined;
+            resourceInputs["unauthenticatedClientAction"] = args ? args.unauthenticatedClientAction : undefined;
         } else {
-            inputs["aadClientId"] = undefined /*out*/;
-            inputs["additionalLoginParams"] = undefined /*out*/;
-            inputs["allowedAudiences"] = undefined /*out*/;
-            inputs["allowedExternalRedirectUrls"] = undefined /*out*/;
-            inputs["clientId"] = undefined /*out*/;
-            inputs["clientSecret"] = undefined /*out*/;
-            inputs["defaultProvider"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["facebookAppId"] = undefined /*out*/;
-            inputs["facebookAppSecret"] = undefined /*out*/;
-            inputs["facebookOAuthScopes"] = undefined /*out*/;
-            inputs["googleClientId"] = undefined /*out*/;
-            inputs["googleClientSecret"] = undefined /*out*/;
-            inputs["googleOAuthScopes"] = undefined /*out*/;
-            inputs["httpApiPrefixPath"] = undefined /*out*/;
-            inputs["issuer"] = undefined /*out*/;
-            inputs["microsoftAccountClientId"] = undefined /*out*/;
-            inputs["microsoftAccountClientSecret"] = undefined /*out*/;
-            inputs["microsoftAccountOAuthScopes"] = undefined /*out*/;
-            inputs["openIdIssuer"] = undefined /*out*/;
-            inputs["tokenRefreshExtensionHours"] = undefined /*out*/;
-            inputs["tokenStoreEnabled"] = undefined /*out*/;
-            inputs["twitterConsumerKey"] = undefined /*out*/;
-            inputs["twitterConsumerSecret"] = undefined /*out*/;
-            inputs["unauthenticatedClientAction"] = undefined /*out*/;
+            resourceInputs["aadClientId"] = undefined /*out*/;
+            resourceInputs["additionalLoginParams"] = undefined /*out*/;
+            resourceInputs["allowedAudiences"] = undefined /*out*/;
+            resourceInputs["allowedExternalRedirectUrls"] = undefined /*out*/;
+            resourceInputs["clientId"] = undefined /*out*/;
+            resourceInputs["clientSecret"] = undefined /*out*/;
+            resourceInputs["defaultProvider"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["facebookAppId"] = undefined /*out*/;
+            resourceInputs["facebookAppSecret"] = undefined /*out*/;
+            resourceInputs["facebookOAuthScopes"] = undefined /*out*/;
+            resourceInputs["googleClientId"] = undefined /*out*/;
+            resourceInputs["googleClientSecret"] = undefined /*out*/;
+            resourceInputs["googleOAuthScopes"] = undefined /*out*/;
+            resourceInputs["httpApiPrefixPath"] = undefined /*out*/;
+            resourceInputs["issuer"] = undefined /*out*/;
+            resourceInputs["microsoftAccountClientId"] = undefined /*out*/;
+            resourceInputs["microsoftAccountClientSecret"] = undefined /*out*/;
+            resourceInputs["microsoftAccountOAuthScopes"] = undefined /*out*/;
+            resourceInputs["openIdIssuer"] = undefined /*out*/;
+            resourceInputs["tokenRefreshExtensionHours"] = undefined /*out*/;
+            resourceInputs["tokenStoreEnabled"] = undefined /*out*/;
+            resourceInputs["twitterConsumerKey"] = undefined /*out*/;
+            resourceInputs["twitterConsumerSecret"] = undefined /*out*/;
+            resourceInputs["unauthenticatedClientAction"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:SiteAuthSettings" }, { type: "azure-native:web/v20160801:SiteAuthSettings" }, { type: "azure-native:web/v20180201:SiteAuthSettings" }, { type: "azure-native:web/v20181101:SiteAuthSettings" }, { type: "azure-native:web/v20190801:SiteAuthSettings" }, { type: "azure-native:web/v20200601:SiteAuthSettings" }, { type: "azure-native:web/v20200901:SiteAuthSettings" }, { type: "azure-native:web/v20201001:SiteAuthSettings" }, { type: "azure-native:web/v20201201:SiteAuthSettings" }, { type: "azure-native:web/v20210101:SiteAuthSettings" }, { type: "azure-native:web/v20210115:SiteAuthSettings" }, { type: "azure-native:web/v20210201:SiteAuthSettings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SiteAuthSettings.__pulumiType, name, inputs, opts);
+        super(SiteAuthSettings.__pulumiType, name, resourceInputs, opts);
     }
 }
 

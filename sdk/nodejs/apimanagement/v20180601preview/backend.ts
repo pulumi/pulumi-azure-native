@@ -88,7 +88,7 @@ export class Backend extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BackendArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.protocol === undefined) && !opts.urn) {
@@ -103,39 +103,39 @@ export class Backend extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            inputs["backendId"] = args ? args.backendId : undefined;
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["proxy"] = args ? args.proxy : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["title"] = args ? args.title : undefined;
-            inputs["tls"] = args ? args.tls : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["backendId"] = args ? args.backendId : undefined;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["proxy"] = args ? args.proxy : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.apimanagement.v20180601preview.backendTlsPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["credentials"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["proxy"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["title"] = undefined /*out*/;
-            inputs["tls"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["proxy"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
+            resourceInputs["tls"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Backend" }, { type: "azure-native:apimanagement/v20160707:Backend" }, { type: "azure-native:apimanagement/v20161010:Backend" }, { type: "azure-native:apimanagement/v20170301:Backend" }, { type: "azure-native:apimanagement/v20180101:Backend" }, { type: "azure-native:apimanagement/v20190101:Backend" }, { type: "azure-native:apimanagement/v20191201:Backend" }, { type: "azure-native:apimanagement/v20191201preview:Backend" }, { type: "azure-native:apimanagement/v20200601preview:Backend" }, { type: "azure-native:apimanagement/v20201201:Backend" }, { type: "azure-native:apimanagement/v20210101preview:Backend" }, { type: "azure-native:apimanagement/v20210401preview:Backend" }, { type: "azure-native:apimanagement/v20210801:Backend" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Backend.__pulumiType, name, inputs, opts);
+        super(Backend.__pulumiType, name, resourceInputs, opts);
     }
 }
 

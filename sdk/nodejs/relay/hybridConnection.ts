@@ -72,7 +72,7 @@ export class HybridConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: HybridConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -81,31 +81,31 @@ export class HybridConnection extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["hybridConnectionName"] = args ? args.hybridConnectionName : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["userMetadata"] = args ? args.userMetadata : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["listenerCount"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["hybridConnectionName"] = args ? args.hybridConnectionName : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["listenerCount"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["listenerCount"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["requiresClientAuthorization"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
-            inputs["userMetadata"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["listenerCount"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["requiresClientAuthorization"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["userMetadata"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:relay/v20160701:HybridConnection" }, { type: "azure-native:relay/v20170401:HybridConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(HybridConnection.__pulumiType, name, inputs, opts);
+        super(HybridConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

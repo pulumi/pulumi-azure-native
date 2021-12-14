@@ -80,7 +80,7 @@ export class WorkbookTemplate extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkbookTemplateArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.galleries === undefined) && !opts.urn) {
@@ -92,34 +92,34 @@ export class WorkbookTemplate extends pulumi.CustomResource {
             if ((!args || args.templateData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateData'");
             }
-            inputs["author"] = args ? args.author : undefined;
-            inputs["galleries"] = args ? args.galleries : undefined;
-            inputs["localized"] = args ? args.localized : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateData"] = args ? args.templateData : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["author"] = args ? args.author : undefined;
+            resourceInputs["galleries"] = args ? args.galleries : undefined;
+            resourceInputs["localized"] = args ? args.localized : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateData"] = args ? args.templateData : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["author"] = undefined /*out*/;
-            inputs["galleries"] = undefined /*out*/;
-            inputs["localized"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["priority"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["templateData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["author"] = undefined /*out*/;
+            resourceInputs["galleries"] = undefined /*out*/;
+            resourceInputs["localized"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["templateData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:WorkbookTemplate" }, { type: "azure-native:insights/v20201120:WorkbookTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WorkbookTemplate.__pulumiType, name, inputs, opts);
+        super(WorkbookTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -105,7 +105,7 @@ export class Link extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LinkArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hubName === undefined) && !opts.urn) {
@@ -129,46 +129,46 @@ export class Link extends pulumi.CustomResource {
             if ((!args || args.targetEntityTypeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetEntityTypeName'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["linkName"] = args ? args.linkName : undefined;
-            inputs["mappings"] = args ? args.mappings : undefined;
-            inputs["operationType"] = args ? args.operationType : undefined;
-            inputs["participantPropertyReferences"] = args ? args.participantPropertyReferences : undefined;
-            inputs["referenceOnly"] = args ? args.referenceOnly : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sourceEntityType"] = args ? args.sourceEntityType : undefined;
-            inputs["sourceEntityTypeName"] = args ? args.sourceEntityTypeName : undefined;
-            inputs["targetEntityType"] = args ? args.targetEntityType : undefined;
-            inputs["targetEntityTypeName"] = args ? args.targetEntityTypeName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["linkName"] = args ? args.linkName : undefined;
+            resourceInputs["mappings"] = args ? args.mappings : undefined;
+            resourceInputs["operationType"] = args ? args.operationType : undefined;
+            resourceInputs["participantPropertyReferences"] = args ? args.participantPropertyReferences : undefined;
+            resourceInputs["referenceOnly"] = args ? args.referenceOnly : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceEntityType"] = args ? args.sourceEntityType : undefined;
+            resourceInputs["sourceEntityTypeName"] = args ? args.sourceEntityTypeName : undefined;
+            resourceInputs["targetEntityType"] = args ? args.targetEntityType : undefined;
+            resourceInputs["targetEntityTypeName"] = args ? args.targetEntityTypeName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["linkName"] = undefined /*out*/;
-            inputs["mappings"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["operationType"] = undefined /*out*/;
-            inputs["participantPropertyReferences"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["referenceOnly"] = undefined /*out*/;
-            inputs["sourceEntityType"] = undefined /*out*/;
-            inputs["sourceEntityTypeName"] = undefined /*out*/;
-            inputs["targetEntityType"] = undefined /*out*/;
-            inputs["targetEntityTypeName"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["linkName"] = undefined /*out*/;
+            resourceInputs["mappings"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["operationType"] = undefined /*out*/;
+            resourceInputs["participantPropertyReferences"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["referenceOnly"] = undefined /*out*/;
+            resourceInputs["sourceEntityType"] = undefined /*out*/;
+            resourceInputs["sourceEntityTypeName"] = undefined /*out*/;
+            resourceInputs["targetEntityType"] = undefined /*out*/;
+            resourceInputs["targetEntityTypeName"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights/v20170101:Link" }, { type: "azure-native:customerinsights/v20170426:Link" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Link.__pulumiType, name, inputs, opts);
+        super(Link.__pulumiType, name, resourceInputs, opts);
     }
 }
 

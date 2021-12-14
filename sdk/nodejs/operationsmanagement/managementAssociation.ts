@@ -61,7 +61,7 @@ export class ManagementAssociation extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagementAssociationArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.providerName === undefined) && !opts.urn) {
@@ -76,27 +76,27 @@ export class ManagementAssociation extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managementAssociationName"] = args ? args.managementAssociationName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["providerName"] = args ? args.providerName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managementAssociationName"] = args ? args.managementAssociationName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationsmanagement/v20151101preview:ManagementAssociation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagementAssociation.__pulumiType, name, inputs, opts);
+        super(ManagementAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

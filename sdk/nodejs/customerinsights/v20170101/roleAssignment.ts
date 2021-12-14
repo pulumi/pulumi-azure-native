@@ -132,7 +132,7 @@ export class RoleAssignment extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.hubName === undefined) && !opts.urn) {
@@ -147,60 +147,60 @@ export class RoleAssignment extends pulumi.CustomResource {
             if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            inputs["assignmentName"] = args ? args.assignmentName : undefined;
-            inputs["conflationPolicies"] = args ? args.conflationPolicies : undefined;
-            inputs["connectors"] = args ? args.connectors : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["interactions"] = args ? args.interactions : undefined;
-            inputs["kpis"] = args ? args.kpis : undefined;
-            inputs["links"] = args ? args.links : undefined;
-            inputs["principals"] = args ? args.principals : undefined;
-            inputs["profiles"] = args ? args.profiles : undefined;
-            inputs["relationshipLinks"] = args ? args.relationshipLinks : undefined;
-            inputs["relationships"] = args ? args.relationships : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["roleAssignments"] = args ? args.roleAssignments : undefined;
-            inputs["sasPolicies"] = args ? args.sasPolicies : undefined;
-            inputs["segments"] = args ? args.segments : undefined;
-            inputs["views"] = args ? args.views : undefined;
-            inputs["widgetTypes"] = args ? args.widgetTypes : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["assignmentName"] = args ? args.assignmentName : undefined;
+            resourceInputs["conflationPolicies"] = args ? args.conflationPolicies : undefined;
+            resourceInputs["connectors"] = args ? args.connectors : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["interactions"] = args ? args.interactions : undefined;
+            resourceInputs["kpis"] = args ? args.kpis : undefined;
+            resourceInputs["links"] = args ? args.links : undefined;
+            resourceInputs["principals"] = args ? args.principals : undefined;
+            resourceInputs["profiles"] = args ? args.profiles : undefined;
+            resourceInputs["relationshipLinks"] = args ? args.relationshipLinks : undefined;
+            resourceInputs["relationships"] = args ? args.relationships : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["roleAssignments"] = args ? args.roleAssignments : undefined;
+            resourceInputs["sasPolicies"] = args ? args.sasPolicies : undefined;
+            resourceInputs["segments"] = args ? args.segments : undefined;
+            resourceInputs["views"] = args ? args.views : undefined;
+            resourceInputs["widgetTypes"] = args ? args.widgetTypes : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["assignmentName"] = undefined /*out*/;
-            inputs["conflationPolicies"] = undefined /*out*/;
-            inputs["connectors"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["interactions"] = undefined /*out*/;
-            inputs["kpis"] = undefined /*out*/;
-            inputs["links"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["principals"] = undefined /*out*/;
-            inputs["profiles"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["relationshipLinks"] = undefined /*out*/;
-            inputs["relationships"] = undefined /*out*/;
-            inputs["role"] = undefined /*out*/;
-            inputs["roleAssignments"] = undefined /*out*/;
-            inputs["sasPolicies"] = undefined /*out*/;
-            inputs["segments"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["views"] = undefined /*out*/;
-            inputs["widgetTypes"] = undefined /*out*/;
+            resourceInputs["assignmentName"] = undefined /*out*/;
+            resourceInputs["conflationPolicies"] = undefined /*out*/;
+            resourceInputs["connectors"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["interactions"] = undefined /*out*/;
+            resourceInputs["kpis"] = undefined /*out*/;
+            resourceInputs["links"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principals"] = undefined /*out*/;
+            resourceInputs["profiles"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["relationshipLinks"] = undefined /*out*/;
+            resourceInputs["relationships"] = undefined /*out*/;
+            resourceInputs["role"] = undefined /*out*/;
+            resourceInputs["roleAssignments"] = undefined /*out*/;
+            resourceInputs["sasPolicies"] = undefined /*out*/;
+            resourceInputs["segments"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["views"] = undefined /*out*/;
+            resourceInputs["widgetTypes"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:RoleAssignment" }, { type: "azure-native:customerinsights/v20170426:RoleAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RoleAssignment.__pulumiType, name, inputs, opts);
+        super(RoleAssignment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -65,7 +65,7 @@ export class Role extends pulumi.CustomResource {
     /** @deprecated Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole. */
     constructor(name: string, args: RoleArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Role is deprecated: Please use one of the variants: CloudEdgeManagementRole, IoTRole, KubernetesRole, MECRole.")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -77,24 +77,24 @@ export class Role extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:Role" }, { type: "azure-native:databoxedge/v20190301:Role" }, { type: "azure-native:databoxedge/v20190701:Role" }, { type: "azure-native:databoxedge/v20190801:Role" }, { type: "azure-native:databoxedge/v20200501preview:Role" }, { type: "azure-native:databoxedge/v20200901:Role" }, { type: "azure-native:databoxedge/v20201201:Role" }, { type: "azure-native:databoxedge/v20210201:Role" }, { type: "azure-native:databoxedge/v20210201preview:Role" }, { type: "azure-native:databoxedge/v20210601:Role" }, { type: "azure-native:databoxedge/v20210601preview:Role" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Role.__pulumiType, name, inputs, opts);
+        super(Role.__pulumiType, name, resourceInputs, opts);
     }
 }
 

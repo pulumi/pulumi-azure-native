@@ -76,7 +76,7 @@ export class Compute extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ComputeArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -85,33 +85,33 @@ export class Compute extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["computeName"] = args ? args.computeName : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["computeName"] = args ? args.computeName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:Compute" }, { type: "azure-native:machinelearningservices/v20180301preview:Compute" }, { type: "azure-native:machinelearningservices/v20181119:Compute" }, { type: "azure-native:machinelearningservices/v20190501:Compute" }, { type: "azure-native:machinelearningservices/v20190601:Compute" }, { type: "azure-native:machinelearningservices/v20191101:Compute" }, { type: "azure-native:machinelearningservices/v20200101:Compute" }, { type: "azure-native:machinelearningservices/v20200218preview:Compute" }, { type: "azure-native:machinelearningservices/v20200301:Compute" }, { type: "azure-native:machinelearningservices/v20200401:Compute" }, { type: "azure-native:machinelearningservices/v20200501preview:Compute" }, { type: "azure-native:machinelearningservices/v20200515preview:Compute" }, { type: "azure-native:machinelearningservices/v20200601:Compute" }, { type: "azure-native:machinelearningservices/v20200801:Compute" }, { type: "azure-native:machinelearningservices/v20200901preview:Compute" }, { type: "azure-native:machinelearningservices/v20210101:Compute" }, { type: "azure-native:machinelearningservices/v20210301preview:Compute" }, { type: "azure-native:machinelearningservices/v20210401:Compute" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Compute.__pulumiType, name, inputs, opts);
+        super(Compute.__pulumiType, name, resourceInputs, opts);
     }
 }
 

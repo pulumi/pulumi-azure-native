@@ -77,7 +77,7 @@ export class SynapseWorkspaceSqlPoolTableDataSetMapping extends pulumi.CustomRes
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SynapseWorkspaceSqlPoolTableDataSetMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -98,34 +98,34 @@ export class SynapseWorkspaceSqlPoolTableDataSetMapping extends pulumi.CustomRes
             if ((!args || args.synapseWorkspaceSqlPoolTableResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'synapseWorkspaceSqlPoolTableResourceId'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["dataSetId"] = args ? args.dataSetId : undefined;
-            inputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
-            inputs["kind"] = "SynapseWorkspaceSqlPoolTable";
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            inputs["synapseWorkspaceSqlPoolTableResourceId"] = args ? args.synapseWorkspaceSqlPoolTableResourceId : undefined;
-            inputs["dataSetMappingStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
+            resourceInputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
+            resourceInputs["kind"] = "SynapseWorkspaceSqlPoolTable";
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+            resourceInputs["synapseWorkspaceSqlPoolTableResourceId"] = args ? args.synapseWorkspaceSqlPoolTableResourceId : undefined;
+            resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["dataSetMappingStatus"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["synapseWorkspaceSqlPoolTableResourceId"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["synapseWorkspaceSqlPoolTableResourceId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:SynapseWorkspaceSqlPoolTableDataSetMapping" }, { type: "azure-native:datashare/v20181101preview:SynapseWorkspaceSqlPoolTableDataSetMapping" }, { type: "azure-native:datashare/v20191101:SynapseWorkspaceSqlPoolTableDataSetMapping" }, { type: "azure-native:datashare/v20200901:SynapseWorkspaceSqlPoolTableDataSetMapping" }, { type: "azure-native:datashare/v20210801:SynapseWorkspaceSqlPoolTableDataSetMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SynapseWorkspaceSqlPoolTableDataSetMapping.__pulumiType, name, inputs, opts);
+        super(SynapseWorkspaceSqlPoolTableDataSetMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -89,7 +89,7 @@ export class GuestAgent extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: GuestAgentArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -98,38 +98,38 @@ export class GuestAgent extends pulumi.CustomResource {
             if ((!args || args.virtualMachineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            inputs["customResourceName"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
         } else {
-            inputs["credentials"] = undefined /*out*/;
-            inputs["customResourceName"] = undefined /*out*/;
-            inputs["httpProxyConfig"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningAction"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
+            resourceInputs["credentials"] = undefined /*out*/;
+            resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["httpProxyConfig"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningAction"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:GuestAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GuestAgent.__pulumiType, name, inputs, opts);
+        super(GuestAgent.__pulumiType, name, resourceInputs, opts);
     }
 }
 

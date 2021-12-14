@@ -120,60 +120,60 @@ export class BlockchainMember extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BlockchainMemberArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["blockchainMemberName"] = args ? args.blockchainMemberName : undefined;
-            inputs["consortium"] = args ? args.consortium : undefined;
-            inputs["consortiumManagementAccountPassword"] = args ? args.consortiumManagementAccountPassword : undefined;
-            inputs["consortiumMemberDisplayName"] = args ? args.consortiumMemberDisplayName : undefined;
-            inputs["consortiumRole"] = args ? args.consortiumRole : undefined;
-            inputs["firewallRules"] = args ? args.firewallRules : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validatorNodesSku"] = args ? args.validatorNodesSku : undefined;
-            inputs["consortiumManagementAccountAddress"] = undefined /*out*/;
-            inputs["dns"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicKey"] = undefined /*out*/;
-            inputs["rootContractAddress"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
+            resourceInputs["blockchainMemberName"] = args ? args.blockchainMemberName : undefined;
+            resourceInputs["consortium"] = args ? args.consortium : undefined;
+            resourceInputs["consortiumManagementAccountPassword"] = args ? args.consortiumManagementAccountPassword : undefined;
+            resourceInputs["consortiumMemberDisplayName"] = args ? args.consortiumMemberDisplayName : undefined;
+            resourceInputs["consortiumRole"] = args ? args.consortiumRole : undefined;
+            resourceInputs["firewallRules"] = args ? args.firewallRules : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validatorNodesSku"] = args ? args.validatorNodesSku : undefined;
+            resourceInputs["consortiumManagementAccountAddress"] = undefined /*out*/;
+            resourceInputs["dns"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicKey"] = undefined /*out*/;
+            resourceInputs["rootContractAddress"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
         } else {
-            inputs["consortium"] = undefined /*out*/;
-            inputs["consortiumManagementAccountAddress"] = undefined /*out*/;
-            inputs["consortiumManagementAccountPassword"] = undefined /*out*/;
-            inputs["consortiumMemberDisplayName"] = undefined /*out*/;
-            inputs["consortiumRole"] = undefined /*out*/;
-            inputs["dns"] = undefined /*out*/;
-            inputs["firewallRules"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["password"] = undefined /*out*/;
-            inputs["protocol"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicKey"] = undefined /*out*/;
-            inputs["rootContractAddress"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userName"] = undefined /*out*/;
-            inputs["validatorNodesSku"] = undefined /*out*/;
+            resourceInputs["consortium"] = undefined /*out*/;
+            resourceInputs["consortiumManagementAccountAddress"] = undefined /*out*/;
+            resourceInputs["consortiumManagementAccountPassword"] = undefined /*out*/;
+            resourceInputs["consortiumMemberDisplayName"] = undefined /*out*/;
+            resourceInputs["consortiumRole"] = undefined /*out*/;
+            resourceInputs["dns"] = undefined /*out*/;
+            resourceInputs["firewallRules"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["password"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicKey"] = undefined /*out*/;
+            resourceInputs["rootContractAddress"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userName"] = undefined /*out*/;
+            resourceInputs["validatorNodesSku"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:blockchain:BlockchainMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BlockchainMember.__pulumiType, name, inputs, opts);
+        super(BlockchainMember.__pulumiType, name, resourceInputs, opts);
     }
 }
 

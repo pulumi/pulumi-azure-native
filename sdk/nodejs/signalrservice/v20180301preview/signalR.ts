@@ -93,47 +93,47 @@ export class SignalR extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SignalRArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceName"] = args ? args.resourceName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["externalIP"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["hostNamePrefix"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicPort"] = undefined /*out*/;
-            inputs["serverPort"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["externalIP"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["hostNamePrefix"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicPort"] = undefined /*out*/;
+            resourceInputs["serverPort"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["externalIP"] = undefined /*out*/;
-            inputs["hostName"] = undefined /*out*/;
-            inputs["hostNamePrefix"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicPort"] = undefined /*out*/;
-            inputs["serverPort"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["externalIP"] = undefined /*out*/;
+            resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["hostNamePrefix"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicPort"] = undefined /*out*/;
+            resourceInputs["serverPort"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalR" }, { type: "azure-native:signalrservice/v20181001:SignalR" }, { type: "azure-native:signalrservice/v20200501:SignalR" }, { type: "azure-native:signalrservice/v20200701preview:SignalR" }, { type: "azure-native:signalrservice/v20210401preview:SignalR" }, { type: "azure-native:signalrservice/v20210601preview:SignalR" }, { type: "azure-native:signalrservice/v20210901preview:SignalR" }, { type: "azure-native:signalrservice/v20211001:SignalR" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SignalR.__pulumiType, name, inputs, opts);
+        super(SignalR.__pulumiType, name, resourceInputs, opts);
     }
 }
 

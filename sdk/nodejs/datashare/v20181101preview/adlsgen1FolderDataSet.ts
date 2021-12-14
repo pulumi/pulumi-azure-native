@@ -76,7 +76,7 @@ export class ADLSGen1FolderDataSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ADLSGen1FolderDataSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -100,33 +100,33 @@ export class ADLSGen1FolderDataSet extends pulumi.CustomResource {
             if ((!args || args.subscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["dataSetName"] = args ? args.dataSetName : undefined;
-            inputs["folderPath"] = args ? args.folderPath : undefined;
-            inputs["kind"] = "AdlsGen1Folder";
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["shareName"] = args ? args.shareName : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
+            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
+            resourceInputs["kind"] = "AdlsGen1Folder";
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["shareName"] = args ? args.shareName : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["accountName"] = undefined /*out*/;
-            inputs["dataSetId"] = undefined /*out*/;
-            inputs["folderPath"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceGroup"] = undefined /*out*/;
-            inputs["subscriptionId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = undefined /*out*/;
+            resourceInputs["dataSetId"] = undefined /*out*/;
+            resourceInputs["folderPath"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceGroup"] = undefined /*out*/;
+            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datashare:ADLSGen1FolderDataSet" }, { type: "azure-native:datashare/v20191101:ADLSGen1FolderDataSet" }, { type: "azure-native:datashare/v20200901:ADLSGen1FolderDataSet" }, { type: "azure-native:datashare/v20201001preview:ADLSGen1FolderDataSet" }, { type: "azure-native:datashare/v20210801:ADLSGen1FolderDataSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ADLSGen1FolderDataSet.__pulumiType, name, inputs, opts);
+        super(ADLSGen1FolderDataSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

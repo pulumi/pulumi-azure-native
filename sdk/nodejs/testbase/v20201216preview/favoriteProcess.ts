@@ -60,7 +60,7 @@ export class FavoriteProcess extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: FavoriteProcessArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actualProcessName === undefined) && !opts.urn) {
@@ -75,26 +75,26 @@ export class FavoriteProcess extends pulumi.CustomResource {
             if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            inputs["actualProcessName"] = args ? args.actualProcessName : undefined;
-            inputs["favoriteProcessResourceName"] = args ? args.favoriteProcessResourceName : undefined;
-            inputs["packageName"] = args ? args.packageName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actualProcessName"] = args ? args.actualProcessName : undefined;
+            resourceInputs["favoriteProcessResourceName"] = args ? args.favoriteProcessResourceName : undefined;
+            resourceInputs["packageName"] = args ? args.packageName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["actualProcessName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actualProcessName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:testbase:FavoriteProcess" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FavoriteProcess.__pulumiType, name, inputs, opts);
+        super(FavoriteProcess.__pulumiType, name, resourceInputs, opts);
     }
 }
 

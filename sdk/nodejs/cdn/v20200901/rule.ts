@@ -77,7 +77,7 @@ export class Rule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: RuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.actions === undefined) && !opts.urn) {
@@ -95,36 +95,36 @@ export class Rule extends pulumi.CustomResource {
             if ((!args || args.ruleSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
-            inputs["conditions"] = args ? args.conditions : undefined;
-            inputs["matchProcessingBehavior"] = args ? args.matchProcessingBehavior : undefined;
-            inputs["order"] = args ? args.order : undefined;
-            inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleName"] = args ? args.ruleName : undefined;
-            inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actions"] = args ? args.actions : undefined;
+            resourceInputs["conditions"] = args ? args.conditions : undefined;
+            resourceInputs["matchProcessingBehavior"] = args ? args.matchProcessingBehavior : undefined;
+            resourceInputs["order"] = args ? args.order : undefined;
+            resourceInputs["profileName"] = args ? args.profileName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["actions"] = undefined /*out*/;
-            inputs["conditions"] = undefined /*out*/;
-            inputs["deploymentStatus"] = undefined /*out*/;
-            inputs["matchProcessingBehavior"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["order"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["actions"] = undefined /*out*/;
+            resourceInputs["conditions"] = undefined /*out*/;
+            resourceInputs["deploymentStatus"] = undefined /*out*/;
+            resourceInputs["matchProcessingBehavior"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["order"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:cdn:Rule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Rule.__pulumiType, name, inputs, opts);
+        super(Rule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -68,7 +68,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BandwidthScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.days === undefined) && !opts.urn) {
@@ -89,28 +89,28 @@ export class BandwidthSchedule extends pulumi.CustomResource {
             if ((!args || args.stop === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stop'");
             }
-            inputs["days"] = args ? args.days : undefined;
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rateInMbps"] = args ? args.rateInMbps : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["start"] = args ? args.start : undefined;
-            inputs["stop"] = args ? args.stop : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["days"] = args ? args.days : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rateInMbps"] = args ? args.rateInMbps : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["start"] = args ? args.start : undefined;
+            resourceInputs["stop"] = args ? args.stop : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["days"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["rateInMbps"] = undefined /*out*/;
-            inputs["start"] = undefined /*out*/;
-            inputs["stop"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["days"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rateInMbps"] = undefined /*out*/;
+            resourceInputs["start"] = undefined /*out*/;
+            resourceInputs["stop"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:databoxedge:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20190701:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20190801:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20200501preview:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20200901:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20200901preview:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20201201:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20210201:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20210201preview:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20210601:BandwidthSchedule" }, { type: "azure-native:databoxedge/v20210601preview:BandwidthSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(BandwidthSchedule.__pulumiType, name, inputs, opts);
+        super(BandwidthSchedule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -69,7 +69,7 @@ export class WebAppPrivateEndpointConnectionSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppPrivateEndpointConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -81,31 +81,31 @@ export class WebAppPrivateEndpointConnectionSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
-            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["ipAddresses"] = undefined /*out*/;
-            inputs["privateEndpoint"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
+            resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["ipAddresses"] = undefined /*out*/;
+            resourceInputs["privateEndpoint"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["ipAddresses"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpoint"] = undefined /*out*/;
-            inputs["privateLinkServiceConnectionState"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["ipAddresses"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpoint"] = undefined /*out*/;
+            resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210115:WebAppPrivateEndpointConnectionSlot" }, { type: "azure-native:web/v20210201:WebAppPrivateEndpointConnectionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppPrivateEndpointConnectionSlot.__pulumiType, name, inputs, opts);
+        super(WebAppPrivateEndpointConnectionSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

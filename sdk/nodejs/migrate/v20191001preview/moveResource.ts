@@ -56,7 +56,7 @@ export class MoveResource extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: MoveResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.moveCollectionName === undefined) && !opts.urn) {
@@ -65,23 +65,23 @@ export class MoveResource extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["moveCollectionName"] = args ? args.moveCollectionName : undefined;
-            inputs["moveResourceName"] = args ? args.moveResourceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["moveCollectionName"] = args ? args.moveCollectionName : undefined;
+            resourceInputs["moveResourceName"] = args ? args.moveResourceName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:migrate:MoveResource" }, { type: "azure-native:migrate/v20210101:MoveResource" }, { type: "azure-native:migrate/v20210801:MoveResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(MoveResource.__pulumiType, name, inputs, opts);
+        super(MoveResource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

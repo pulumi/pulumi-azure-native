@@ -76,7 +76,7 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: InstanceFailoverGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.locationName === undefined) && !opts.urn) {
@@ -94,33 +94,33 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["failoverGroupName"] = args ? args.failoverGroupName : undefined;
-            inputs["locationName"] = args ? args.locationName : undefined;
-            inputs["managedInstancePairs"] = args ? args.managedInstancePairs : undefined;
-            inputs["partnerRegions"] = args ? args.partnerRegions : undefined;
-            inputs["readOnlyEndpoint"] = args ? args.readOnlyEndpoint : undefined;
-            inputs["readWriteEndpoint"] = args ? args.readWriteEndpoint : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["replicationRole"] = undefined /*out*/;
-            inputs["replicationState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["failoverGroupName"] = args ? args.failoverGroupName : undefined;
+            resourceInputs["locationName"] = args ? args.locationName : undefined;
+            resourceInputs["managedInstancePairs"] = args ? args.managedInstancePairs : undefined;
+            resourceInputs["partnerRegions"] = args ? args.partnerRegions : undefined;
+            resourceInputs["readOnlyEndpoint"] = args ? args.readOnlyEndpoint : undefined;
+            resourceInputs["readWriteEndpoint"] = args ? args.readWriteEndpoint : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["replicationRole"] = undefined /*out*/;
+            resourceInputs["replicationState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["managedInstancePairs"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["partnerRegions"] = undefined /*out*/;
-            inputs["readOnlyEndpoint"] = undefined /*out*/;
-            inputs["readWriteEndpoint"] = undefined /*out*/;
-            inputs["replicationRole"] = undefined /*out*/;
-            inputs["replicationState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["managedInstancePairs"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["partnerRegions"] = undefined /*out*/;
+            resourceInputs["readOnlyEndpoint"] = undefined /*out*/;
+            resourceInputs["readWriteEndpoint"] = undefined /*out*/;
+            resourceInputs["replicationRole"] = undefined /*out*/;
+            resourceInputs["replicationState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20201101preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210201preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210501preview:InstanceFailoverGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(InstanceFailoverGroup.__pulumiType, name, inputs, opts);
+        super(InstanceFailoverGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

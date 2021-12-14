@@ -116,7 +116,7 @@ export class WebTest extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebTestArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.locations === undefined) && !opts.urn) {
@@ -131,51 +131,51 @@ export class WebTest extends pulumi.CustomResource {
             if ((!args || args.webTestKind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'webTestKind'");
             }
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["frequency"] = (args ? args.frequency : undefined) ?? 300;
-            inputs["kind"] = (args ? args.kind : undefined) ?? "ping";
-            inputs["location"] = args ? args.location : undefined;
-            inputs["locations"] = args ? args.locations : undefined;
-            inputs["request"] = args ? args.request : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["retryEnabled"] = args ? args.retryEnabled : undefined;
-            inputs["syntheticMonitorId"] = args ? args.syntheticMonitorId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = (args ? args.timeout : undefined) ?? 30;
-            inputs["validationRules"] = args ? args.validationRules : undefined;
-            inputs["webTestKind"] = (args ? args.webTestKind : undefined) ?? "ping";
-            inputs["webTestName"] = args ? args.webTestName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["frequency"] = (args ? args.frequency : undefined) ?? 300;
+            resourceInputs["kind"] = (args ? args.kind : undefined) ?? "ping";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["locations"] = args ? args.locations : undefined;
+            resourceInputs["request"] = args ? args.request : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retryEnabled"] = args ? args.retryEnabled : undefined;
+            resourceInputs["syntheticMonitorId"] = args ? args.syntheticMonitorId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? 30;
+            resourceInputs["validationRules"] = args ? args.validationRules : undefined;
+            resourceInputs["webTestKind"] = (args ? args.webTestKind : undefined) ?? "ping";
+            resourceInputs["webTestName"] = args ? args.webTestName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["configuration"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["frequency"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["locations"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["request"] = undefined /*out*/;
-            inputs["retryEnabled"] = undefined /*out*/;
-            inputs["syntheticMonitorId"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["timeout"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["validationRules"] = undefined /*out*/;
-            inputs["webTestKind"] = undefined /*out*/;
-            inputs["webTestName"] = undefined /*out*/;
+            resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["frequency"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["locations"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["request"] = undefined /*out*/;
+            resourceInputs["retryEnabled"] = undefined /*out*/;
+            resourceInputs["syntheticMonitorId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeout"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationRules"] = undefined /*out*/;
+            resourceInputs["webTestKind"] = undefined /*out*/;
+            resourceInputs["webTestName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:insights:WebTest" }, { type: "azure-native:insights/v20150501:WebTest" }, { type: "azure-native:insights/v20180501preview:WebTest" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebTest.__pulumiType, name, inputs, opts);
+        super(WebTest.__pulumiType, name, resourceInputs, opts);
     }
 }
 

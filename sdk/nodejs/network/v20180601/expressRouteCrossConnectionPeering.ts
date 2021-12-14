@@ -112,7 +112,7 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExpressRouteCrossConnectionPeeringArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.crossConnectionName === undefined) && !opts.urn) {
@@ -121,52 +121,52 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["crossConnectionName"] = args ? args.crossConnectionName : undefined;
-            inputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
-            inputs["id"] = args ? args.id : undefined;
-            inputs["ipv6PeeringConfig"] = args ? args.ipv6PeeringConfig : undefined;
-            inputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            inputs["microsoftPeeringConfig"] = args ? args.microsoftPeeringConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["peerASN"] = args ? args.peerASN : undefined;
-            inputs["peeringName"] = args ? args.peeringName : undefined;
-            inputs["peeringType"] = args ? args.peeringType : undefined;
-            inputs["primaryPeerAddressPrefix"] = args ? args.primaryPeerAddressPrefix : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["secondaryPeerAddressPrefix"] = args ? args.secondaryPeerAddressPrefix : undefined;
-            inputs["sharedKey"] = args ? args.sharedKey : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["vlanId"] = args ? args.vlanId : undefined;
-            inputs["azureASN"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["primaryAzurePort"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["secondaryAzurePort"] = undefined /*out*/;
+            resourceInputs["crossConnectionName"] = args ? args.crossConnectionName : undefined;
+            resourceInputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["ipv6PeeringConfig"] = args ? args.ipv6PeeringConfig : undefined;
+            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
+            resourceInputs["microsoftPeeringConfig"] = args ? args.microsoftPeeringConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["peerASN"] = args ? args.peerASN : undefined;
+            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
+            resourceInputs["peeringType"] = args ? args.peeringType : undefined;
+            resourceInputs["primaryPeerAddressPrefix"] = args ? args.primaryPeerAddressPrefix : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["secondaryPeerAddressPrefix"] = args ? args.secondaryPeerAddressPrefix : undefined;
+            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["vlanId"] = args ? args.vlanId : undefined;
+            resourceInputs["azureASN"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["primaryAzurePort"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["secondaryAzurePort"] = undefined /*out*/;
         } else {
-            inputs["azureASN"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["gatewayManagerEtag"] = undefined /*out*/;
-            inputs["ipv6PeeringConfig"] = undefined /*out*/;
-            inputs["lastModifiedBy"] = undefined /*out*/;
-            inputs["microsoftPeeringConfig"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["peerASN"] = undefined /*out*/;
-            inputs["peeringType"] = undefined /*out*/;
-            inputs["primaryAzurePort"] = undefined /*out*/;
-            inputs["primaryPeerAddressPrefix"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["secondaryAzurePort"] = undefined /*out*/;
-            inputs["secondaryPeerAddressPrefix"] = undefined /*out*/;
-            inputs["sharedKey"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["vlanId"] = undefined /*out*/;
+            resourceInputs["azureASN"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["gatewayManagerEtag"] = undefined /*out*/;
+            resourceInputs["ipv6PeeringConfig"] = undefined /*out*/;
+            resourceInputs["lastModifiedBy"] = undefined /*out*/;
+            resourceInputs["microsoftPeeringConfig"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["peerASN"] = undefined /*out*/;
+            resourceInputs["peeringType"] = undefined /*out*/;
+            resourceInputs["primaryAzurePort"] = undefined /*out*/;
+            resourceInputs["primaryPeerAddressPrefix"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["secondaryAzurePort"] = undefined /*out*/;
+            resourceInputs["secondaryPeerAddressPrefix"] = undefined /*out*/;
+            resourceInputs["sharedKey"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["vlanId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:network:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20180201:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20180401:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20180701:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20180801:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20181001:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20181101:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20181201:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190201:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190401:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190601:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190701:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190801:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20190901:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20191101:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20191201:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200301:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200401:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200501:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200601:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200701:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20200801:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20201101:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20210201:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20210301:ExpressRouteCrossConnectionPeering" }, { type: "azure-native:network/v20210501:ExpressRouteCrossConnectionPeering" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ExpressRouteCrossConnectionPeering.__pulumiType, name, inputs, opts);
+        super(ExpressRouteCrossConnectionPeering.__pulumiType, name, resourceInputs, opts);
     }
 }
 

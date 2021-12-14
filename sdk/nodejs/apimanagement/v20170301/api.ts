@@ -108,7 +108,7 @@ export class Api extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ApiArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.path === undefined) && !opts.urn) {
@@ -120,52 +120,52 @@ export class Api extends pulumi.CustomResource {
             if ((!args || args.serviceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["apiRevision"] = args ? args.apiRevision : undefined;
-            inputs["apiType"] = args ? args.apiType : undefined;
-            inputs["apiVersion"] = args ? args.apiVersion : undefined;
-            inputs["apiVersionSet"] = args ? args.apiVersionSet : undefined;
-            inputs["apiVersionSetId"] = args ? args.apiVersionSetId : undefined;
-            inputs["authenticationSettings"] = args ? args.authenticationSettings : undefined;
-            inputs["contentFormat"] = args ? args.contentFormat : undefined;
-            inputs["contentValue"] = args ? args.contentValue : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["protocols"] = args ? args.protocols : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["serviceUrl"] = args ? args.serviceUrl : undefined;
-            inputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
-            inputs["wsdlSelector"] = args ? args.wsdlSelector : undefined;
-            inputs["isCurrent"] = undefined /*out*/;
-            inputs["isOnline"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["apiRevision"] = args ? args.apiRevision : undefined;
+            resourceInputs["apiType"] = args ? args.apiType : undefined;
+            resourceInputs["apiVersion"] = args ? args.apiVersion : undefined;
+            resourceInputs["apiVersionSet"] = args ? args.apiVersionSet : undefined;
+            resourceInputs["apiVersionSetId"] = args ? args.apiVersionSetId : undefined;
+            resourceInputs["authenticationSettings"] = args ? args.authenticationSettings : undefined;
+            resourceInputs["contentFormat"] = args ? args.contentFormat : undefined;
+            resourceInputs["contentValue"] = args ? args.contentValue : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["serviceUrl"] = args ? args.serviceUrl : undefined;
+            resourceInputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
+            resourceInputs["wsdlSelector"] = args ? args.wsdlSelector : undefined;
+            resourceInputs["isCurrent"] = undefined /*out*/;
+            resourceInputs["isOnline"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["apiRevision"] = undefined /*out*/;
-            inputs["apiType"] = undefined /*out*/;
-            inputs["apiVersion"] = undefined /*out*/;
-            inputs["apiVersionSet"] = undefined /*out*/;
-            inputs["apiVersionSetId"] = undefined /*out*/;
-            inputs["authenticationSettings"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["isCurrent"] = undefined /*out*/;
-            inputs["isOnline"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["protocols"] = undefined /*out*/;
-            inputs["serviceUrl"] = undefined /*out*/;
-            inputs["subscriptionKeyParameterNames"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["apiRevision"] = undefined /*out*/;
+            resourceInputs["apiType"] = undefined /*out*/;
+            resourceInputs["apiVersion"] = undefined /*out*/;
+            resourceInputs["apiVersionSet"] = undefined /*out*/;
+            resourceInputs["apiVersionSetId"] = undefined /*out*/;
+            resourceInputs["authenticationSettings"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["isCurrent"] = undefined /*out*/;
+            resourceInputs["isOnline"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["protocols"] = undefined /*out*/;
+            resourceInputs["serviceUrl"] = undefined /*out*/;
+            resourceInputs["subscriptionKeyParameterNames"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Api" }, { type: "azure-native:apimanagement/v20160707:Api" }, { type: "azure-native:apimanagement/v20161010:Api" }, { type: "azure-native:apimanagement/v20180101:Api" }, { type: "azure-native:apimanagement/v20180601preview:Api" }, { type: "azure-native:apimanagement/v20190101:Api" }, { type: "azure-native:apimanagement/v20191201:Api" }, { type: "azure-native:apimanagement/v20191201preview:Api" }, { type: "azure-native:apimanagement/v20200601preview:Api" }, { type: "azure-native:apimanagement/v20201201:Api" }, { type: "azure-native:apimanagement/v20210101preview:Api" }, { type: "azure-native:apimanagement/v20210401preview:Api" }, { type: "azure-native:apimanagement/v20210801:Api" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Api.__pulumiType, name, inputs, opts);
+        super(Api.__pulumiType, name, resourceInputs, opts);
     }
 }
 

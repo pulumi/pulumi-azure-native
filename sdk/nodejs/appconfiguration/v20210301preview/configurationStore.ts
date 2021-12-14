@@ -100,7 +100,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -109,44 +109,44 @@ export class ConfigurationStore extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["configStoreName"] = args ? args.configStoreName : undefined;
-            inputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
-            inputs["encryption"] = args ? args.encryption : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["configStoreName"] = args ? args.configStoreName : undefined;
+            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["disableLocalAuth"] = undefined /*out*/;
-            inputs["encryption"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["privateEndpointConnections"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicNetworkAccess"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["disableLocalAuth"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:appconfiguration:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20190201preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20191001:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20191101preview:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200601:ConfigurationStore" }, { type: "azure-native:appconfiguration/v20200701preview:ConfigurationStore" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConfigurationStore.__pulumiType, name, inputs, opts);
+        super(ConfigurationStore.__pulumiType, name, resourceInputs, opts);
     }
 }
 

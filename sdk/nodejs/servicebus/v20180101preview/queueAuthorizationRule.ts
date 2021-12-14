@@ -56,7 +56,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: QueueAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.namespaceName === undefined) && !opts.urn) {
@@ -71,24 +71,24 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             if ((!args || args.rights === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rights'");
             }
-            inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
-            inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["queueName"] = args ? args.queueName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["rights"] = args ? args.rights : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
+            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["queueName"] = args ? args.queueName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["rights"] = args ? args.rights : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["rights"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["rights"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:servicebus:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20140901:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20150801:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20170401:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20210101preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20210601preview:QueueAuthorizationRule" }, { type: "azure-native:servicebus/v20211101:QueueAuthorizationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(QueueAuthorizationRule.__pulumiType, name, inputs, opts);
+        super(QueueAuthorizationRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

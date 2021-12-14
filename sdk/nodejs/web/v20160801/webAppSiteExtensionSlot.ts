@@ -127,7 +127,7 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppSiteExtensionSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -139,59 +139,59 @@ export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["siteExtensionId"] = args ? args.siteExtensionId : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["authors"] = undefined /*out*/;
-            inputs["comment"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["downloadCount"] = undefined /*out*/;
-            inputs["extensionUrl"] = undefined /*out*/;
-            inputs["feedUrl"] = undefined /*out*/;
-            inputs["iconUrl"] = undefined /*out*/;
-            inputs["installationArgs"] = undefined /*out*/;
-            inputs["installedDateTime"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["licenseUrl"] = undefined /*out*/;
-            inputs["localIsLatestVersion"] = undefined /*out*/;
-            inputs["localPath"] = undefined /*out*/;
-            inputs["projectUrl"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publishedDateTime"] = undefined /*out*/;
-            inputs["summary"] = undefined /*out*/;
-            inputs["title"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["siteExtensionId"] = args ? args.siteExtensionId : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["authors"] = undefined /*out*/;
+            resourceInputs["comment"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["downloadCount"] = undefined /*out*/;
+            resourceInputs["extensionUrl"] = undefined /*out*/;
+            resourceInputs["feedUrl"] = undefined /*out*/;
+            resourceInputs["iconUrl"] = undefined /*out*/;
+            resourceInputs["installationArgs"] = undefined /*out*/;
+            resourceInputs["installedDateTime"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["licenseUrl"] = undefined /*out*/;
+            resourceInputs["localIsLatestVersion"] = undefined /*out*/;
+            resourceInputs["localPath"] = undefined /*out*/;
+            resourceInputs["projectUrl"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publishedDateTime"] = undefined /*out*/;
+            resourceInputs["summary"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         } else {
-            inputs["authors"] = undefined /*out*/;
-            inputs["comment"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["downloadCount"] = undefined /*out*/;
-            inputs["extensionUrl"] = undefined /*out*/;
-            inputs["feedUrl"] = undefined /*out*/;
-            inputs["iconUrl"] = undefined /*out*/;
-            inputs["installationArgs"] = undefined /*out*/;
-            inputs["installedDateTime"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["licenseUrl"] = undefined /*out*/;
-            inputs["localIsLatestVersion"] = undefined /*out*/;
-            inputs["localPath"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["projectUrl"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publishedDateTime"] = undefined /*out*/;
-            inputs["summary"] = undefined /*out*/;
-            inputs["title"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["authors"] = undefined /*out*/;
+            resourceInputs["comment"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["downloadCount"] = undefined /*out*/;
+            resourceInputs["extensionUrl"] = undefined /*out*/;
+            resourceInputs["feedUrl"] = undefined /*out*/;
+            resourceInputs["iconUrl"] = undefined /*out*/;
+            resourceInputs["installationArgs"] = undefined /*out*/;
+            resourceInputs["installedDateTime"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["licenseUrl"] = undefined /*out*/;
+            resourceInputs["localIsLatestVersion"] = undefined /*out*/;
+            resourceInputs["localPath"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["projectUrl"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publishedDateTime"] = undefined /*out*/;
+            resourceInputs["summary"] = undefined /*out*/;
+            resourceInputs["title"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20180201:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20181101:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20190801:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20200601:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20200901:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20201001:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20201201:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20210101:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20210115:WebAppSiteExtensionSlot" }, { type: "azure-native:web/v20210201:WebAppSiteExtensionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppSiteExtensionSlot.__pulumiType, name, inputs, opts);
+        super(WebAppSiteExtensionSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

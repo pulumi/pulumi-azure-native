@@ -125,7 +125,7 @@ export class NrtAlertRule extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: NrtAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -149,57 +149,57 @@ export class NrtAlertRule extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["alertDetailsOverride"] = args ? args.alertDetailsOverride : undefined;
-            inputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
-            inputs["customDetails"] = args ? args.customDetails : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["entityMappings"] = args ? args.entityMappings : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
-            inputs["kind"] = "NRT";
-            inputs["query"] = args ? args.query : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["ruleId"] = args ? args.ruleId : undefined;
-            inputs["severity"] = args ? args.severity : undefined;
-            inputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
-            inputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
-            inputs["tactics"] = args ? args.tactics : undefined;
-            inputs["templateVersion"] = args ? args.templateVersion : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["lastModifiedUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alertDetailsOverride"] = args ? args.alertDetailsOverride : undefined;
+            resourceInputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
+            resourceInputs["customDetails"] = args ? args.customDetails : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["entityMappings"] = args ? args.entityMappings : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
+            resourceInputs["kind"] = "NRT";
+            resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["ruleId"] = args ? args.ruleId : undefined;
+            resourceInputs["severity"] = args ? args.severity : undefined;
+            resourceInputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
+            resourceInputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
+            resourceInputs["tactics"] = args ? args.tactics : undefined;
+            resourceInputs["templateVersion"] = args ? args.templateVersion : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["lastModifiedUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["alertDetailsOverride"] = undefined /*out*/;
-            inputs["alertRuleTemplateName"] = undefined /*out*/;
-            inputs["customDetails"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["enabled"] = undefined /*out*/;
-            inputs["entityMappings"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["incidentConfiguration"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["lastModifiedUtc"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["query"] = undefined /*out*/;
-            inputs["severity"] = undefined /*out*/;
-            inputs["suppressionDuration"] = undefined /*out*/;
-            inputs["suppressionEnabled"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tactics"] = undefined /*out*/;
-            inputs["templateVersion"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["alertDetailsOverride"] = undefined /*out*/;
+            resourceInputs["alertRuleTemplateName"] = undefined /*out*/;
+            resourceInputs["customDetails"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["entityMappings"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["incidentConfiguration"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["lastModifiedUtc"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["query"] = undefined /*out*/;
+            resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["suppressionDuration"] = undefined /*out*/;
+            resourceInputs["suppressionEnabled"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tactics"] = undefined /*out*/;
+            resourceInputs["templateVersion"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:NrtAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20200101:NrtAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:NrtAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(NrtAlertRule.__pulumiType, name, inputs, opts);
+        super(NrtAlertRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

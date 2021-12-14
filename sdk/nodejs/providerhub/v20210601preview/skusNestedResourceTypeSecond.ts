@@ -54,7 +54,7 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SkusNestedResourceTypeSecondArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.nestedResourceTypeFirst === undefined) && !opts.urn) {
@@ -69,27 +69,27 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
             if ((!args || args.resourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            inputs["nestedResourceTypeFirst"] = args ? args.nestedResourceTypeFirst : undefined;
-            inputs["nestedResourceTypeSecond"] = args ? args.nestedResourceTypeSecond : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["providerNamespace"] = args ? args.providerNamespace : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["nestedResourceTypeFirst"] = args ? args.nestedResourceTypeFirst : undefined;
+            resourceInputs["nestedResourceTypeSecond"] = args ? args.nestedResourceTypeSecond : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:providerhub:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20201120:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20210501preview:SkusNestedResourceTypeSecond" }, { type: "azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SkusNestedResourceTypeSecond.__pulumiType, name, inputs, opts);
+        super(SkusNestedResourceTypeSecond.__pulumiType, name, resourceInputs, opts);
     }
 }
 

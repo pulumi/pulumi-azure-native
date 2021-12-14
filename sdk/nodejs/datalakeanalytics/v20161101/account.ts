@@ -176,7 +176,7 @@ export class Account extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.dataLakeStoreAccounts === undefined) && !opts.urn) {
@@ -188,82 +188,82 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["computePolicies"] = args ? args.computePolicies : undefined;
-            inputs["dataLakeStoreAccounts"] = args ? args.dataLakeStoreAccounts : undefined;
-            inputs["defaultDataLakeStoreAccount"] = args ? args.defaultDataLakeStoreAccount : undefined;
-            inputs["firewallAllowAzureIps"] = (args ? args.firewallAllowAzureIps : undefined) ?? "Disabled";
-            inputs["firewallRules"] = args ? args.firewallRules : undefined;
-            inputs["firewallState"] = (args ? args.firewallState : undefined) ?? "Disabled";
-            inputs["location"] = args ? args.location : undefined;
-            inputs["maxDegreeOfParallelism"] = (args ? args.maxDegreeOfParallelism : undefined) ?? 30;
-            inputs["maxDegreeOfParallelismPerJob"] = (args ? args.maxDegreeOfParallelismPerJob : undefined) ?? 32;
-            inputs["maxJobCount"] = (args ? args.maxJobCount : undefined) ?? 3;
-            inputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
-            inputs["newTier"] = (args ? args.newTier : undefined) ?? "Consumption";
-            inputs["queryStoreRetention"] = (args ? args.queryStoreRetention : undefined) ?? 30;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["accountId"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["currentTier"] = undefined /*out*/;
-            inputs["debugDataAccessLevel"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["hiveMetastores"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["maxActiveJobCountPerUser"] = undefined /*out*/;
-            inputs["maxJobRunningTimeInMin"] = undefined /*out*/;
-            inputs["maxQueuedJobCountPerUser"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicDataLakeStoreAccounts"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["systemMaxDegreeOfParallelism"] = undefined /*out*/;
-            inputs["systemMaxJobCount"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkRules"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["computePolicies"] = args ? args.computePolicies : undefined;
+            resourceInputs["dataLakeStoreAccounts"] = args ? args.dataLakeStoreAccounts : undefined;
+            resourceInputs["defaultDataLakeStoreAccount"] = args ? args.defaultDataLakeStoreAccount : undefined;
+            resourceInputs["firewallAllowAzureIps"] = (args ? args.firewallAllowAzureIps : undefined) ?? "Disabled";
+            resourceInputs["firewallRules"] = args ? args.firewallRules : undefined;
+            resourceInputs["firewallState"] = (args ? args.firewallState : undefined) ?? "Disabled";
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxDegreeOfParallelism"] = (args ? args.maxDegreeOfParallelism : undefined) ?? 30;
+            resourceInputs["maxDegreeOfParallelismPerJob"] = (args ? args.maxDegreeOfParallelismPerJob : undefined) ?? 32;
+            resourceInputs["maxJobCount"] = (args ? args.maxJobCount : undefined) ?? 3;
+            resourceInputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
+            resourceInputs["newTier"] = (args ? args.newTier : undefined) ?? "Consumption";
+            resourceInputs["queryStoreRetention"] = (args ? args.queryStoreRetention : undefined) ?? 30;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["currentTier"] = undefined /*out*/;
+            resourceInputs["debugDataAccessLevel"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["hiveMetastores"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["maxActiveJobCountPerUser"] = undefined /*out*/;
+            resourceInputs["maxJobRunningTimeInMin"] = undefined /*out*/;
+            resourceInputs["maxQueuedJobCountPerUser"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicDataLakeStoreAccounts"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemMaxDegreeOfParallelism"] = undefined /*out*/;
+            resourceInputs["systemMaxJobCount"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetworkRules"] = undefined /*out*/;
         } else {
-            inputs["accountId"] = undefined /*out*/;
-            inputs["computePolicies"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["currentTier"] = undefined /*out*/;
-            inputs["dataLakeStoreAccounts"] = undefined /*out*/;
-            inputs["debugDataAccessLevel"] = undefined /*out*/;
-            inputs["defaultDataLakeStoreAccount"] = undefined /*out*/;
-            inputs["endpoint"] = undefined /*out*/;
-            inputs["firewallAllowAzureIps"] = undefined /*out*/;
-            inputs["firewallRules"] = undefined /*out*/;
-            inputs["firewallState"] = undefined /*out*/;
-            inputs["hiveMetastores"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["maxActiveJobCountPerUser"] = undefined /*out*/;
-            inputs["maxDegreeOfParallelism"] = undefined /*out*/;
-            inputs["maxDegreeOfParallelismPerJob"] = undefined /*out*/;
-            inputs["maxJobCount"] = undefined /*out*/;
-            inputs["maxJobRunningTimeInMin"] = undefined /*out*/;
-            inputs["maxQueuedJobCountPerUser"] = undefined /*out*/;
-            inputs["minPriorityPerJob"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["newTier"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["publicDataLakeStoreAccounts"] = undefined /*out*/;
-            inputs["queryStoreRetention"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["storageAccounts"] = undefined /*out*/;
-            inputs["systemMaxDegreeOfParallelism"] = undefined /*out*/;
-            inputs["systemMaxJobCount"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["virtualNetworkRules"] = undefined /*out*/;
+            resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["computePolicies"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["currentTier"] = undefined /*out*/;
+            resourceInputs["dataLakeStoreAccounts"] = undefined /*out*/;
+            resourceInputs["debugDataAccessLevel"] = undefined /*out*/;
+            resourceInputs["defaultDataLakeStoreAccount"] = undefined /*out*/;
+            resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["firewallAllowAzureIps"] = undefined /*out*/;
+            resourceInputs["firewallRules"] = undefined /*out*/;
+            resourceInputs["firewallState"] = undefined /*out*/;
+            resourceInputs["hiveMetastores"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxActiveJobCountPerUser"] = undefined /*out*/;
+            resourceInputs["maxDegreeOfParallelism"] = undefined /*out*/;
+            resourceInputs["maxDegreeOfParallelismPerJob"] = undefined /*out*/;
+            resourceInputs["maxJobCount"] = undefined /*out*/;
+            resourceInputs["maxJobRunningTimeInMin"] = undefined /*out*/;
+            resourceInputs["maxQueuedJobCountPerUser"] = undefined /*out*/;
+            resourceInputs["minPriorityPerJob"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["newTier"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicDataLakeStoreAccounts"] = undefined /*out*/;
+            resourceInputs["queryStoreRetention"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["storageAccounts"] = undefined /*out*/;
+            resourceInputs["systemMaxDegreeOfParallelism"] = undefined /*out*/;
+            resourceInputs["systemMaxJobCount"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNetworkRules"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:datalakeanalytics:Account" }, { type: "azure-native:datalakeanalytics/v20151001preview:Account" }, { type: "azure-native:datalakeanalytics/v20191101preview:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Account.__pulumiType, name, inputs, opts);
+        super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -61,7 +61,7 @@ export class ManagedNetworkPeeringPolicy extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ManagedNetworkPeeringPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.managedNetworkName === undefined) && !opts.urn) {
@@ -70,25 +70,25 @@ export class ManagedNetworkPeeringPolicy extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["managedNetworkName"] = args ? args.managedNetworkName : undefined;
-            inputs["managedNetworkPeeringPolicyName"] = args ? args.managedNetworkPeeringPolicyName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedNetworkName"] = args ? args.managedNetworkName : undefined;
+            resourceInputs["managedNetworkPeeringPolicyName"] = args ? args.managedNetworkPeeringPolicyName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["properties"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagedNetworkPeeringPolicy.__pulumiType, name, inputs, opts);
+        super(ManagedNetworkPeeringPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

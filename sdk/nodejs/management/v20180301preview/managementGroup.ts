@@ -72,32 +72,32 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["details"] = args ? args.details : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["groupId"] = args ? args.groupId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["children"] = undefined /*out*/;
-            inputs["roles"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["children"] = undefined /*out*/;
+            resourceInputs["roles"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["children"] = undefined /*out*/;
-            inputs["details"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["roles"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["children"] = undefined /*out*/;
+            resourceInputs["details"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["roles"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:management:ManagementGroup" }, { type: "azure-native:management/v20171101preview:ManagementGroup" }, { type: "azure-native:management/v20180101preview:ManagementGroup" }, { type: "azure-native:management/v20191101:ManagementGroup" }, { type: "azure-native:management/v20200201:ManagementGroup" }, { type: "azure-native:management/v20200501:ManagementGroup" }, { type: "azure-native:management/v20201001:ManagementGroup" }, { type: "azure-native:management/v20210401:ManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ManagementGroup.__pulumiType, name, inputs, opts);
+        super(ManagementGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

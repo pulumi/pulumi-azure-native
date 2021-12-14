@@ -67,7 +67,7 @@ export class WorkspaceConnection extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WorkspaceConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -76,29 +76,29 @@ export class WorkspaceConnection extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["authType"] = args ? args.authType : undefined;
-            inputs["category"] = args ? args.category : undefined;
-            inputs["connectionName"] = args ? args.connectionName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["target"] = args ? args.target : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["authType"] = args ? args.authType : undefined;
+            resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["authType"] = undefined /*out*/;
-            inputs["category"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["target"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["value"] = undefined /*out*/;
+            resourceInputs["authType"] = undefined /*out*/;
+            resourceInputs["category"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["target"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["value"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210101:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210301preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210401:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210701:WorkspaceConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WorkspaceConnection.__pulumiType, name, inputs, opts);
+        super(WorkspaceConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

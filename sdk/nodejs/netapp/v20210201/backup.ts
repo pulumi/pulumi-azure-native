@@ -91,7 +91,7 @@ export class Backup extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: BackupArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -106,42 +106,42 @@ export class Backup extends pulumi.CustomResource {
             if ((!args || args.volumeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["backupName"] = args ? args.backupName : undefined;
-            inputs["label"] = args ? args.label : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["poolName"] = args ? args.poolName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["useExistingSnapshot"] = (args ? args.useExistingSnapshot : undefined) ?? false;
-            inputs["volumeName"] = args ? args.volumeName : undefined;
-            inputs["backupId"] = undefined /*out*/;
-            inputs["backupType"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["failureReason"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["size"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["backupName"] = args ? args.backupName : undefined;
+            resourceInputs["label"] = args ? args.label : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["useExistingSnapshot"] = (args ? args.useExistingSnapshot : undefined) ?? false;
+            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["backupId"] = undefined /*out*/;
+            resourceInputs["backupType"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["backupId"] = undefined /*out*/;
-            inputs["backupType"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["failureReason"] = undefined /*out*/;
-            inputs["label"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["size"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["useExistingSnapshot"] = undefined /*out*/;
-            inputs["volumeName"] = undefined /*out*/;
+            resourceInputs["backupId"] = undefined /*out*/;
+            resourceInputs["backupType"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["failureReason"] = undefined /*out*/;
+            resourceInputs["label"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["useExistingSnapshot"] = undefined /*out*/;
+            resourceInputs["volumeName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:netapp:Backup" }, { type: "azure-native:netapp/v20200501:Backup" }, { type: "azure-native:netapp/v20200601:Backup" }, { type: "azure-native:netapp/v20200701:Backup" }, { type: "azure-native:netapp/v20200801:Backup" }, { type: "azure-native:netapp/v20200901:Backup" }, { type: "azure-native:netapp/v20201101:Backup" }, { type: "azure-native:netapp/v20201201:Backup" }, { type: "azure-native:netapp/v20210401:Backup" }, { type: "azure-native:netapp/v20210401preview:Backup" }, { type: "azure-native:netapp/v20210601:Backup" }, { type: "azure-native:netapp/v20210801:Backup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Backup.__pulumiType, name, inputs, opts);
+        super(Backup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

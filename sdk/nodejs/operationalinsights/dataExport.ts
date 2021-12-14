@@ -80,7 +80,7 @@ export class DataExport extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: DataExportArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -95,35 +95,35 @@ export class DataExport extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["createdDate"] = args ? args.createdDate : undefined;
-            inputs["dataExportId"] = args ? args.dataExportId : undefined;
-            inputs["dataExportName"] = args ? args.dataExportName : undefined;
-            inputs["enable"] = args ? args.enable : undefined;
-            inputs["eventHubName"] = args ? args.eventHubName : undefined;
-            inputs["lastModifiedDate"] = args ? args.lastModifiedDate : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["tableNames"] = args ? args.tableNames : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["createdDate"] = args ? args.createdDate : undefined;
+            resourceInputs["dataExportId"] = args ? args.dataExportId : undefined;
+            resourceInputs["dataExportName"] = args ? args.dataExportName : undefined;
+            resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
+            resourceInputs["lastModifiedDate"] = args ? args.lastModifiedDate : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["tableNames"] = args ? args.tableNames : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["dataExportId"] = undefined /*out*/;
-            inputs["enable"] = undefined /*out*/;
-            inputs["eventHubName"] = undefined /*out*/;
-            inputs["lastModifiedDate"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["resourceId"] = undefined /*out*/;
-            inputs["tableNames"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["dataExportId"] = undefined /*out*/;
+            resourceInputs["enable"] = undefined /*out*/;
+            resourceInputs["eventHubName"] = undefined /*out*/;
+            resourceInputs["lastModifiedDate"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["tableNames"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20190801preview:DataExport" }, { type: "azure-native:operationalinsights/v20200301preview:DataExport" }, { type: "azure-native:operationalinsights/v20200801:DataExport" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(DataExport.__pulumiType, name, inputs, opts);
+        super(DataExport.__pulumiType, name, resourceInputs, opts);
     }
 }
 

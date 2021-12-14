@@ -96,7 +96,7 @@ export class Connector extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ConnectorArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.connectorProperties === undefined) && !opts.urn) {
@@ -111,42 +111,42 @@ export class Connector extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["connectorName"] = args ? args.connectorName : undefined;
-            inputs["connectorProperties"] = args ? args.connectorProperties : undefined;
-            inputs["connectorType"] = args ? args.connectorType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["hubName"] = args ? args.hubName : undefined;
-            inputs["isInternal"] = args ? args.isInternal : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["connectorId"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
+            resourceInputs["connectorProperties"] = args ? args.connectorProperties : undefined;
+            resourceInputs["connectorType"] = args ? args.connectorType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["hubName"] = args ? args.hubName : undefined;
+            resourceInputs["isInternal"] = args ? args.isInternal : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["connectorId"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["connectorId"] = undefined /*out*/;
-            inputs["connectorName"] = undefined /*out*/;
-            inputs["connectorProperties"] = undefined /*out*/;
-            inputs["connectorType"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["isInternal"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["connectorId"] = undefined /*out*/;
+            resourceInputs["connectorName"] = undefined /*out*/;
+            resourceInputs["connectorProperties"] = undefined /*out*/;
+            resourceInputs["connectorType"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["isInternal"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:customerinsights:Connector" }, { type: "azure-native:customerinsights/v20170101:Connector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Connector.__pulumiType, name, inputs, opts);
+        super(Connector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

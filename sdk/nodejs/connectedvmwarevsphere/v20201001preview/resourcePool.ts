@@ -134,64 +134,64 @@ export class ResourcePool extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ResourcePoolArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            inputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["moRefId"] = args ? args.moRefId : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["resourcePoolName"] = args ? args.resourcePoolName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vCenterId"] = args ? args.vCenterId : undefined;
-            inputs["cpuLimitMHz"] = undefined /*out*/;
-            inputs["cpuReservationMHz"] = undefined /*out*/;
-            inputs["cpuSharesLevel"] = undefined /*out*/;
-            inputs["customResourceName"] = undefined /*out*/;
-            inputs["memLimitMB"] = undefined /*out*/;
-            inputs["memReservationMB"] = undefined /*out*/;
-            inputs["memSharesLevel"] = undefined /*out*/;
-            inputs["moName"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["moRefId"] = args ? args.moRefId : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourcePoolName"] = args ? args.resourcePoolName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
+            resourceInputs["cpuLimitMHz"] = undefined /*out*/;
+            resourceInputs["cpuReservationMHz"] = undefined /*out*/;
+            resourceInputs["cpuSharesLevel"] = undefined /*out*/;
+            resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["memLimitMB"] = undefined /*out*/;
+            resourceInputs["memReservationMB"] = undefined /*out*/;
+            resourceInputs["memSharesLevel"] = undefined /*out*/;
+            resourceInputs["moName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
         } else {
-            inputs["cpuLimitMHz"] = undefined /*out*/;
-            inputs["cpuReservationMHz"] = undefined /*out*/;
-            inputs["cpuSharesLevel"] = undefined /*out*/;
-            inputs["customResourceName"] = undefined /*out*/;
-            inputs["extendedLocation"] = undefined /*out*/;
-            inputs["inventoryItemId"] = undefined /*out*/;
-            inputs["kind"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["memLimitMB"] = undefined /*out*/;
-            inputs["memReservationMB"] = undefined /*out*/;
-            inputs["memSharesLevel"] = undefined /*out*/;
-            inputs["moName"] = undefined /*out*/;
-            inputs["moRefId"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["statuses"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
-            inputs["vCenterId"] = undefined /*out*/;
+            resourceInputs["cpuLimitMHz"] = undefined /*out*/;
+            resourceInputs["cpuReservationMHz"] = undefined /*out*/;
+            resourceInputs["cpuSharesLevel"] = undefined /*out*/;
+            resourceInputs["customResourceName"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["inventoryItemId"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["memLimitMB"] = undefined /*out*/;
+            resourceInputs["memReservationMB"] = undefined /*out*/;
+            resourceInputs["memSharesLevel"] = undefined /*out*/;
+            resourceInputs["moName"] = undefined /*out*/;
+            resourceInputs["moRefId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
+            resourceInputs["vCenterId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:ResourcePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ResourcePool.__pulumiType, name, inputs, opts);
+        super(ResourcePool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

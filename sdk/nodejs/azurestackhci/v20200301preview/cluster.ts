@@ -104,7 +104,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.aadClientId === undefined) && !opts.urn) {
@@ -116,46 +116,46 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["aadClientId"] = args ? args.aadClientId : undefined;
-            inputs["aadTenantId"] = args ? args.aadTenantId : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["billingModel"] = undefined /*out*/;
-            inputs["cloudId"] = undefined /*out*/;
-            inputs["lastBillingTimestamp"] = undefined /*out*/;
-            inputs["lastSyncTimestamp"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["registrationTimestamp"] = undefined /*out*/;
-            inputs["reportedProperties"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["trialDaysRemaining"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aadClientId"] = args ? args.aadClientId : undefined;
+            resourceInputs["aadTenantId"] = args ? args.aadTenantId : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["billingModel"] = undefined /*out*/;
+            resourceInputs["cloudId"] = undefined /*out*/;
+            resourceInputs["lastBillingTimestamp"] = undefined /*out*/;
+            resourceInputs["lastSyncTimestamp"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["registrationTimestamp"] = undefined /*out*/;
+            resourceInputs["reportedProperties"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["trialDaysRemaining"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["aadClientId"] = undefined /*out*/;
-            inputs["aadTenantId"] = undefined /*out*/;
-            inputs["billingModel"] = undefined /*out*/;
-            inputs["cloudId"] = undefined /*out*/;
-            inputs["lastBillingTimestamp"] = undefined /*out*/;
-            inputs["lastSyncTimestamp"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["registrationTimestamp"] = undefined /*out*/;
-            inputs["reportedProperties"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["trialDaysRemaining"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["aadClientId"] = undefined /*out*/;
+            resourceInputs["aadTenantId"] = undefined /*out*/;
+            resourceInputs["billingModel"] = undefined /*out*/;
+            resourceInputs["cloudId"] = undefined /*out*/;
+            resourceInputs["lastBillingTimestamp"] = undefined /*out*/;
+            resourceInputs["lastSyncTimestamp"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["registrationTimestamp"] = undefined /*out*/;
+            resourceInputs["reportedProperties"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trialDaysRemaining"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci:Cluster" }, { type: "azure-native:azurestackhci/v20201001:Cluster" }, { type: "azure-native:azurestackhci/v20210101preview:Cluster" }, { type: "azure-native:azurestackhci/v20210901:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Cluster.__pulumiType, name, inputs, opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -76,7 +76,7 @@ export class ExportPipeline extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ExportPipelineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.registryName === undefined) && !opts.urn) {
@@ -88,33 +88,33 @@ export class ExportPipeline extends pulumi.CustomResource {
             if ((!args || args.target === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            inputs["exportPipelineName"] = args ? args.exportPipelineName : undefined;
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["options"] = args ? args.options : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["target"] = args ? args.target : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["exportPipelineName"] = args ? args.exportPipelineName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["identity"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["options"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["target"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["options"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["target"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:ExportPipeline" }, { type: "azure-native:containerregistry/v20191201preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20210601preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20210801preview:ExportPipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ExportPipeline.__pulumiType, name, inputs, opts);
+        super(ExportPipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -77,7 +77,7 @@ export class LivePipeline extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: LivePipelineArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -92,33 +92,33 @@ export class LivePipeline extends pulumi.CustomResource {
             if ((!args || args.topologyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topologyName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["bitrateKbps"] = args ? args.bitrateKbps : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["livePipelineName"] = args ? args.livePipelineName : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["topologyName"] = args ? args.topologyName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["bitrateKbps"] = args ? args.bitrateKbps : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["livePipelineName"] = args ? args.livePipelineName : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["topologyName"] = args ? args.topologyName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["bitrateKbps"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["parameters"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["topologyName"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["bitrateKbps"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["topologyName"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:videoanalyzer/v20211101preview:LivePipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LivePipeline.__pulumiType, name, inputs, opts);
+        super(LivePipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

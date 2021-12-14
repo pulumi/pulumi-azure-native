@@ -56,7 +56,7 @@ export class ServerDnsAlias extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: ServerDnsAliasArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
@@ -65,23 +65,23 @@ export class ServerDnsAlias extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            inputs["dnsAliasName"] = args ? args.dnsAliasName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["azureDnsRecord"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["dnsAliasName"] = args ? args.dnsAliasName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["azureDnsRecord"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["azureDnsRecord"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["azureDnsRecord"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:ServerDnsAlias" }, { type: "azure-native:sql/v20200202preview:ServerDnsAlias" }, { type: "azure-native:sql/v20200801preview:ServerDnsAlias" }, { type: "azure-native:sql/v20201101preview:ServerDnsAlias" }, { type: "azure-native:sql/v20210201preview:ServerDnsAlias" }, { type: "azure-native:sql/v20210501preview:ServerDnsAlias" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServerDnsAlias.__pulumiType, name, inputs, opts);
+        super(ServerDnsAlias.__pulumiType, name, resourceInputs, opts);
     }
 }
 

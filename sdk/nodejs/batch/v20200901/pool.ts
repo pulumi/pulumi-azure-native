@@ -132,7 +132,7 @@ export class Pool extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.accountName === undefined) && !opts.urn) {
@@ -141,73 +141,73 @@ export class Pool extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["accountName"] = args ? args.accountName : undefined;
-            inputs["applicationLicenses"] = args ? args.applicationLicenses : undefined;
-            inputs["applicationPackages"] = args ? args.applicationPackages : undefined;
-            inputs["certificates"] = args ? args.certificates : undefined;
-            inputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["interNodeCommunication"] = args ? args.interNodeCommunication : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["mountConfiguration"] = args ? args.mountConfiguration : undefined;
-            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            inputs["poolName"] = args ? args.poolName : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["scaleSettings"] = args ? args.scaleSettings : undefined;
-            inputs["startTask"] = args ? args.startTask : undefined;
-            inputs["taskSchedulingPolicy"] = args ? args.taskSchedulingPolicy : undefined;
-            inputs["taskSlotsPerNode"] = args ? args.taskSlotsPerNode : undefined;
-            inputs["userAccounts"] = args ? args.userAccounts : undefined;
-            inputs["vmSize"] = args ? args.vmSize : undefined;
-            inputs["allocationState"] = undefined /*out*/;
-            inputs["allocationStateTransitionTime"] = undefined /*out*/;
-            inputs["autoScaleRun"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["currentDedicatedNodes"] = undefined /*out*/;
-            inputs["currentLowPriorityNodes"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["provisioningStateTransitionTime"] = undefined /*out*/;
-            inputs["resizeOperationStatus"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["applicationLicenses"] = args ? args.applicationLicenses : undefined;
+            resourceInputs["applicationPackages"] = args ? args.applicationPackages : undefined;
+            resourceInputs["certificates"] = args ? args.certificates : undefined;
+            resourceInputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["interNodeCommunication"] = args ? args.interNodeCommunication : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["mountConfiguration"] = args ? args.mountConfiguration : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scaleSettings"] = args ? args.scaleSettings : undefined;
+            resourceInputs["startTask"] = args ? args.startTask : undefined;
+            resourceInputs["taskSchedulingPolicy"] = args ? args.taskSchedulingPolicy : undefined;
+            resourceInputs["taskSlotsPerNode"] = args ? args.taskSlotsPerNode : undefined;
+            resourceInputs["userAccounts"] = args ? args.userAccounts : undefined;
+            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["allocationState"] = undefined /*out*/;
+            resourceInputs["allocationStateTransitionTime"] = undefined /*out*/;
+            resourceInputs["autoScaleRun"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["currentDedicatedNodes"] = undefined /*out*/;
+            resourceInputs["currentLowPriorityNodes"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["provisioningStateTransitionTime"] = undefined /*out*/;
+            resourceInputs["resizeOperationStatus"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["allocationState"] = undefined /*out*/;
-            inputs["allocationStateTransitionTime"] = undefined /*out*/;
-            inputs["applicationLicenses"] = undefined /*out*/;
-            inputs["applicationPackages"] = undefined /*out*/;
-            inputs["autoScaleRun"] = undefined /*out*/;
-            inputs["certificates"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["currentDedicatedNodes"] = undefined /*out*/;
-            inputs["currentLowPriorityNodes"] = undefined /*out*/;
-            inputs["deploymentConfiguration"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["interNodeCommunication"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["metadata"] = undefined /*out*/;
-            inputs["mountConfiguration"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["networkConfiguration"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["provisioningStateTransitionTime"] = undefined /*out*/;
-            inputs["resizeOperationStatus"] = undefined /*out*/;
-            inputs["scaleSettings"] = undefined /*out*/;
-            inputs["startTask"] = undefined /*out*/;
-            inputs["taskSchedulingPolicy"] = undefined /*out*/;
-            inputs["taskSlotsPerNode"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["userAccounts"] = undefined /*out*/;
-            inputs["vmSize"] = undefined /*out*/;
+            resourceInputs["allocationState"] = undefined /*out*/;
+            resourceInputs["allocationStateTransitionTime"] = undefined /*out*/;
+            resourceInputs["applicationLicenses"] = undefined /*out*/;
+            resourceInputs["applicationPackages"] = undefined /*out*/;
+            resourceInputs["autoScaleRun"] = undefined /*out*/;
+            resourceInputs["certificates"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["currentDedicatedNodes"] = undefined /*out*/;
+            resourceInputs["currentLowPriorityNodes"] = undefined /*out*/;
+            resourceInputs["deploymentConfiguration"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["interNodeCommunication"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["mountConfiguration"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkConfiguration"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["provisioningStateTransitionTime"] = undefined /*out*/;
+            resourceInputs["resizeOperationStatus"] = undefined /*out*/;
+            resourceInputs["scaleSettings"] = undefined /*out*/;
+            resourceInputs["startTask"] = undefined /*out*/;
+            resourceInputs["taskSchedulingPolicy"] = undefined /*out*/;
+            resourceInputs["taskSlotsPerNode"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userAccounts"] = undefined /*out*/;
+            resourceInputs["vmSize"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:batch:Pool" }, { type: "azure-native:batch/v20170901:Pool" }, { type: "azure-native:batch/v20181201:Pool" }, { type: "azure-native:batch/v20190401:Pool" }, { type: "azure-native:batch/v20190801:Pool" }, { type: "azure-native:batch/v20200301:Pool" }, { type: "azure-native:batch/v20200501:Pool" }, { type: "azure-native:batch/v20210101:Pool" }, { type: "azure-native:batch/v20210601:Pool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Pool.__pulumiType, name, inputs, opts);
+        super(Pool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

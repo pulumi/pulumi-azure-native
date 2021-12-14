@@ -88,7 +88,7 @@ export class SourceControl extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: SourceControlArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.automationAccountName === undefined) && !opts.urn) {
@@ -97,40 +97,40 @@ export class SourceControl extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["autoSync"] = args ? args.autoSync : undefined;
-            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            inputs["branch"] = args ? args.branch : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["folderPath"] = args ? args.folderPath : undefined;
-            inputs["publishRunbook"] = args ? args.publishRunbook : undefined;
-            inputs["repoUrl"] = args ? args.repoUrl : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["securityToken"] = args ? args.securityToken : undefined;
-            inputs["sourceControlName"] = args ? args.sourceControlName : undefined;
-            inputs["sourceType"] = args ? args.sourceType : undefined;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoSync"] = args ? args.autoSync : undefined;
+            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            resourceInputs["branch"] = args ? args.branch : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
+            resourceInputs["publishRunbook"] = args ? args.publishRunbook : undefined;
+            resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["securityToken"] = args ? args.securityToken : undefined;
+            resourceInputs["sourceControlName"] = args ? args.sourceControlName : undefined;
+            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["autoSync"] = undefined /*out*/;
-            inputs["branch"] = undefined /*out*/;
-            inputs["creationTime"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["folderPath"] = undefined /*out*/;
-            inputs["lastModifiedTime"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["publishRunbook"] = undefined /*out*/;
-            inputs["repoUrl"] = undefined /*out*/;
-            inputs["sourceType"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["autoSync"] = undefined /*out*/;
+            resourceInputs["branch"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["folderPath"] = undefined /*out*/;
+            resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publishRunbook"] = undefined /*out*/;
+            resourceInputs["repoUrl"] = undefined /*out*/;
+            resourceInputs["sourceType"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:automation:SourceControl" }, { type: "azure-native:automation/v20170515preview:SourceControl" }, { type: "azure-native:automation/v20200113preview:SourceControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(SourceControl.__pulumiType, name, inputs, opts);
+        super(SourceControl.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -80,39 +80,39 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: VirtualMachineScaleSetArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["overProvision"] = args ? args.overProvision : undefined;
-            inputs["provisioningState"] = args ? args.provisioningState : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["sku"] = args ? args.sku : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
-            inputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["overProvision"] = args ? args.overProvision : undefined;
+            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
+            resourceInputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["location"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["overProvision"] = undefined /*out*/;
-            inputs["provisioningState"] = undefined /*out*/;
-            inputs["sku"] = undefined /*out*/;
-            inputs["tags"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["upgradePolicy"] = undefined /*out*/;
-            inputs["virtualMachineProfile"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["overProvision"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["upgradePolicy"] = undefined /*out*/;
+            resourceInputs["virtualMachineProfile"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:compute:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20160330:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20160430preview:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20170330:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20171201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20180401:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20180601:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20181001:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20190301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20190701:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20191201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20200601:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20201201:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210301:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210401:VirtualMachineScaleSet" }, { type: "azure-native:compute/v20210701:VirtualMachineScaleSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VirtualMachineScaleSet.__pulumiType, name, inputs, opts);
+        super(VirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

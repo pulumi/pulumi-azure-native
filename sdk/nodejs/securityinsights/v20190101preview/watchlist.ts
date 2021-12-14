@@ -136,7 +136,7 @@ export class Watchlist extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WatchlistArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -157,63 +157,63 @@ export class Watchlist extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["created"] = args ? args.created : undefined;
-            inputs["createdBy"] = args ? args.createdBy : undefined;
-            inputs["defaultDuration"] = args ? args.defaultDuration : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["isDeleted"] = args ? args.isDeleted : undefined;
-            inputs["labels"] = args ? args.labels : undefined;
-            inputs["numberOfLinesToSkip"] = args ? args.numberOfLinesToSkip : undefined;
-            inputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
-            inputs["provider"] = args ? args.provider : undefined;
-            inputs["rawContent"] = args ? args.rawContent : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["updated"] = args ? args.updated : undefined;
-            inputs["updatedBy"] = args ? args.updatedBy : undefined;
-            inputs["uploadStatus"] = args ? args.uploadStatus : undefined;
-            inputs["watchlistAlias"] = args ? args.watchlistAlias : undefined;
-            inputs["watchlistId"] = args ? args.watchlistId : undefined;
-            inputs["watchlistItemsCount"] = args ? args.watchlistItemsCount : undefined;
-            inputs["watchlistType"] = args ? args.watchlistType : undefined;
-            inputs["workspaceName"] = args ? args.workspaceName : undefined;
-            inputs["name"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["created"] = args ? args.created : undefined;
+            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
+            resourceInputs["defaultDuration"] = args ? args.defaultDuration : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["isDeleted"] = args ? args.isDeleted : undefined;
+            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["numberOfLinesToSkip"] = args ? args.numberOfLinesToSkip : undefined;
+            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
+            resourceInputs["provider"] = args ? args.provider : undefined;
+            resourceInputs["rawContent"] = args ? args.rawContent : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["updated"] = args ? args.updated : undefined;
+            resourceInputs["updatedBy"] = args ? args.updatedBy : undefined;
+            resourceInputs["uploadStatus"] = args ? args.uploadStatus : undefined;
+            resourceInputs["watchlistAlias"] = args ? args.watchlistAlias : undefined;
+            resourceInputs["watchlistId"] = args ? args.watchlistId : undefined;
+            resourceInputs["watchlistItemsCount"] = args ? args.watchlistItemsCount : undefined;
+            resourceInputs["watchlistType"] = args ? args.watchlistType : undefined;
+            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["contentType"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["createdBy"] = undefined /*out*/;
-            inputs["defaultDuration"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["displayName"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["isDeleted"] = undefined /*out*/;
-            inputs["labels"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["numberOfLinesToSkip"] = undefined /*out*/;
-            inputs["provider"] = undefined /*out*/;
-            inputs["rawContent"] = undefined /*out*/;
-            inputs["source"] = undefined /*out*/;
-            inputs["tenantId"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
-            inputs["updated"] = undefined /*out*/;
-            inputs["updatedBy"] = undefined /*out*/;
-            inputs["uploadStatus"] = undefined /*out*/;
-            inputs["watchlistAlias"] = undefined /*out*/;
-            inputs["watchlistId"] = undefined /*out*/;
-            inputs["watchlistItemsCount"] = undefined /*out*/;
-            inputs["watchlistType"] = undefined /*out*/;
+            resourceInputs["contentType"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
+            resourceInputs["defaultDuration"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["isDeleted"] = undefined /*out*/;
+            resourceInputs["labels"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["numberOfLinesToSkip"] = undefined /*out*/;
+            resourceInputs["provider"] = undefined /*out*/;
+            resourceInputs["rawContent"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["updated"] = undefined /*out*/;
+            resourceInputs["updatedBy"] = undefined /*out*/;
+            resourceInputs["uploadStatus"] = undefined /*out*/;
+            resourceInputs["watchlistAlias"] = undefined /*out*/;
+            resourceInputs["watchlistId"] = undefined /*out*/;
+            resourceInputs["watchlistItemsCount"] = undefined /*out*/;
+            resourceInputs["watchlistType"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:Watchlist" }, { type: "azure-native:securityinsights/v20210301preview:Watchlist" }, { type: "azure-native:securityinsights/v20210401:Watchlist" }, { type: "azure-native:securityinsights/v20210901preview:Watchlist" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Watchlist.__pulumiType, name, inputs, opts);
+        super(Watchlist.__pulumiType, name, resourceInputs, opts);
     }
 }
 

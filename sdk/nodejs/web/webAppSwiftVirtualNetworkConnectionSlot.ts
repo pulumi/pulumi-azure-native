@@ -69,7 +69,7 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args: WebAppSwiftVirtualNetworkConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -81,28 +81,28 @@ export class WebAppSwiftVirtualNetworkConnectionSlot extends pulumi.CustomResour
             if ((!args || args.slot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            inputs["slot"] = args ? args.slot : undefined;
-            inputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
-            inputs["swiftSupported"] = args ? args.swiftSupported : undefined;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
+            resourceInputs["swiftSupported"] = args ? args.swiftSupported : undefined;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
-            inputs["kind"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["subnetResourceId"] = undefined /*out*/;
-            inputs["swiftSupported"] = undefined /*out*/;
-            inputs["systemData"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["subnetResourceId"] = undefined /*out*/;
+            resourceInputs["swiftSupported"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azure-native:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20181101:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20190801:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20200601:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20200901:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnectionSlot" }, { type: "azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnectionSlot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(WebAppSwiftVirtualNetworkConnectionSlot.__pulumiType, name, inputs, opts);
+        super(WebAppSwiftVirtualNetworkConnectionSlot.__pulumiType, name, resourceInputs, opts);
     }
 }
 
