@@ -36,7 +36,10 @@ local_generate_code:: clean
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	cd ${PACKDIR}/dotnet/ && \
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
-	rm Pulumi.AzureNative.csproj.bak
+	rm Pulumi.AzureNative.csproj.bak && \
+	cd ../nodejs/ && \
+	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" tsconfig.json && \
+	rm tsconfig.json.bak
 	echo "Finished generating."
 
 local_generate:: clean
@@ -44,7 +47,10 @@ local_generate:: clean
 	cd ${PACKDIR}/go/ && find . -type f -exec sed -i '' -e '/^\/\/.*/g' {} \;
 	cd ${PACKDIR}/dotnet/ && \
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" Pulumi.AzureNative.csproj && \
-	rm Pulumi.AzureNative.csproj.bak
+	rm Pulumi.AzureNative.csproj.bak && \
+	cd ../nodejs/ && \
+	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" tsconfig.json && \
+	rm tsconfig.json.bak
 	echo "Finished generating."
 
 generate_schema::
@@ -75,7 +81,10 @@ lint_provider:: provider # lint the provider code
 	cd provider && GOGC=20 golangci-lint run -c ../.golangci.yml
 
 generate_nodejs::
-	$(WORKING_DIR)/bin/$(CODEGEN) nodejs ${VERSION}
+	$(WORKING_DIR)/bin/$(CODEGEN) nodejs ${VERSION} && \
+	cd ${PACKDIR}/nodejs/ && \
+	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" tsconfig.json && \
+	rm tsconfig.json.bak
 
 build_nodejs:: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs::
