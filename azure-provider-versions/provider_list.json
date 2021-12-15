@@ -65277,7 +65277,9 @@
           "North Central US",
           "Korea Central",
           "Japan East",
-          "East Asia"
+          "West US 3",
+          "East Asia",
+          "East US 2 EUAP"
         ],
         "properties": null,
         "resourceType": "connectedClusters"

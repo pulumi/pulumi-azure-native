@@ -1,0 +1,223 @@
+
+
+
+package v20190101preview
+
+import (
+	"context"
+	"reflect"
+
+	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+type ScheduledAlertRule struct {
+	pulumi.CustomResourceState
+
+	AlertRuleTemplateName pulumi.StringPtrOutput                 `pulumi:"alertRuleTemplateName"`
+	Description           pulumi.StringPtrOutput                 `pulumi:"description"`
+	DisplayName           pulumi.StringOutput                    `pulumi:"displayName"`
+	Enabled               pulumi.BoolOutput                      `pulumi:"enabled"`
+	Etag                  pulumi.StringPtrOutput                 `pulumi:"etag"`
+	EventGroupingSettings EventGroupingSettingsResponsePtrOutput `pulumi:"eventGroupingSettings"`
+	IncidentConfiguration IncidentConfigurationResponsePtrOutput `pulumi:"incidentConfiguration"`
+	Kind                  pulumi.StringOutput                    `pulumi:"kind"`
+	LastModifiedUtc       pulumi.StringOutput                    `pulumi:"lastModifiedUtc"`
+	Name                  pulumi.StringOutput                    `pulumi:"name"`
+	Query                 pulumi.StringOutput                    `pulumi:"query"`
+	QueryFrequency        pulumi.StringOutput                    `pulumi:"queryFrequency"`
+	QueryPeriod           pulumi.StringOutput                    `pulumi:"queryPeriod"`
+	Severity              pulumi.StringOutput                    `pulumi:"severity"`
+	SuppressionDuration   pulumi.StringOutput                    `pulumi:"suppressionDuration"`
+	SuppressionEnabled    pulumi.BoolOutput                      `pulumi:"suppressionEnabled"`
+	Tactics               pulumi.StringArrayOutput               `pulumi:"tactics"`
+	TriggerOperator       pulumi.StringOutput                    `pulumi:"triggerOperator"`
+	TriggerThreshold      pulumi.IntOutput                       `pulumi:"triggerThreshold"`
+	Type                  pulumi.StringOutput                    `pulumi:"type"`
+}
+
+
+func NewScheduledAlertRule(ctx *pulumi.Context,
+	name string, args *ScheduledAlertRuleArgs, opts ...pulumi.ResourceOption) (*ScheduledAlertRule, error) {
+	if args == nil {
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.Enabled == nil {
+		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.OperationalInsightsResourceProvider == nil {
+		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
+	}
+	if args.Query == nil {
+		return nil, errors.New("invalid value for required argument 'Query'")
+	}
+	if args.QueryFrequency == nil {
+		return nil, errors.New("invalid value for required argument 'QueryFrequency'")
+	}
+	if args.QueryPeriod == nil {
+		return nil, errors.New("invalid value for required argument 'QueryPeriod'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Severity == nil {
+		return nil, errors.New("invalid value for required argument 'Severity'")
+	}
+	if args.SuppressionDuration == nil {
+		return nil, errors.New("invalid value for required argument 'SuppressionDuration'")
+	}
+	if args.SuppressionEnabled == nil {
+		return nil, errors.New("invalid value for required argument 'SuppressionEnabled'")
+	}
+	if args.TriggerOperator == nil {
+		return nil, errors.New("invalid value for required argument 'TriggerOperator'")
+	}
+	if args.TriggerThreshold == nil {
+		return nil, errors.New("invalid value for required argument 'TriggerThreshold'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
+	}
+	args.Kind = pulumi.String("Scheduled")
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:securityinsights:ScheduledAlertRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20200101:ScheduledAlertRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20210301preview:ScheduledAlertRule"),
+		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20210901preview:ScheduledAlertRule"),
+		},
+	})
+	opts = append(opts, aliases)
+	var resource ScheduledAlertRule
+	err := ctx.RegisterResource("azure-native:securityinsights/v20190101preview:ScheduledAlertRule", name, args, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+
+func GetScheduledAlertRule(ctx *pulumi.Context,
+	name string, id pulumi.IDInput, state *ScheduledAlertRuleState, opts ...pulumi.ResourceOption) (*ScheduledAlertRule, error) {
+	var resource ScheduledAlertRule
+	err := ctx.ReadResource("azure-native:securityinsights/v20190101preview:ScheduledAlertRule", name, id, state, &resource, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &resource, nil
+}
+
+
+type scheduledAlertRuleState struct {
+}
+
+type ScheduledAlertRuleState struct {
+}
+
+func (ScheduledAlertRuleState) ElementType() reflect.Type {
+	return reflect.TypeOf((*scheduledAlertRuleState)(nil)).Elem()
+}
+
+type scheduledAlertRuleArgs struct {
+	AlertRuleTemplateName               *string                `pulumi:"alertRuleTemplateName"`
+	Description                         *string                `pulumi:"description"`
+	DisplayName                         string                 `pulumi:"displayName"`
+	Enabled                             bool                   `pulumi:"enabled"`
+	Etag                                *string                `pulumi:"etag"`
+	EventGroupingSettings               *EventGroupingSettings `pulumi:"eventGroupingSettings"`
+	IncidentConfiguration               *IncidentConfiguration `pulumi:"incidentConfiguration"`
+	Kind                                string                 `pulumi:"kind"`
+	OperationalInsightsResourceProvider string                 `pulumi:"operationalInsightsResourceProvider"`
+	Query                               string                 `pulumi:"query"`
+	QueryFrequency                      string                 `pulumi:"queryFrequency"`
+	QueryPeriod                         string                 `pulumi:"queryPeriod"`
+	ResourceGroupName                   string                 `pulumi:"resourceGroupName"`
+	RuleId                              *string                `pulumi:"ruleId"`
+	Severity                            string                 `pulumi:"severity"`
+	SuppressionDuration                 string                 `pulumi:"suppressionDuration"`
+	SuppressionEnabled                  bool                   `pulumi:"suppressionEnabled"`
+	Tactics                             []string               `pulumi:"tactics"`
+	TriggerOperator                     TriggerOperator        `pulumi:"triggerOperator"`
+	TriggerThreshold                    int                    `pulumi:"triggerThreshold"`
+	WorkspaceName                       string                 `pulumi:"workspaceName"`
+}
+
+
+type ScheduledAlertRuleArgs struct {
+	AlertRuleTemplateName               pulumi.StringPtrInput
+	Description                         pulumi.StringPtrInput
+	DisplayName                         pulumi.StringInput
+	Enabled                             pulumi.BoolInput
+	Etag                                pulumi.StringPtrInput
+	EventGroupingSettings               EventGroupingSettingsPtrInput
+	IncidentConfiguration               IncidentConfigurationPtrInput
+	Kind                                pulumi.StringInput
+	OperationalInsightsResourceProvider pulumi.StringInput
+	Query                               pulumi.StringInput
+	QueryFrequency                      pulumi.StringInput
+	QueryPeriod                         pulumi.StringInput
+	ResourceGroupName                   pulumi.StringInput
+	RuleId                              pulumi.StringPtrInput
+	Severity                            pulumi.StringInput
+	SuppressionDuration                 pulumi.StringInput
+	SuppressionEnabled                  pulumi.BoolInput
+	Tactics                             pulumi.StringArrayInput
+	TriggerOperator                     TriggerOperatorInput
+	TriggerThreshold                    pulumi.IntInput
+	WorkspaceName                       pulumi.StringInput
+}
+
+func (ScheduledAlertRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*scheduledAlertRuleArgs)(nil)).Elem()
+}
+
+type ScheduledAlertRuleInput interface {
+	pulumi.Input
+
+	ToScheduledAlertRuleOutput() ScheduledAlertRuleOutput
+	ToScheduledAlertRuleOutputWithContext(ctx context.Context) ScheduledAlertRuleOutput
+}
+
+func (*ScheduledAlertRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledAlertRule)(nil))
+}
+
+func (i *ScheduledAlertRule) ToScheduledAlertRuleOutput() ScheduledAlertRuleOutput {
+	return i.ToScheduledAlertRuleOutputWithContext(context.Background())
+}
+
+func (i *ScheduledAlertRule) ToScheduledAlertRuleOutputWithContext(ctx context.Context) ScheduledAlertRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledAlertRuleOutput)
+}
+
+type ScheduledAlertRuleOutput struct{ *pulumi.OutputState }
+
+func (ScheduledAlertRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledAlertRule)(nil))
+}
+
+func (o ScheduledAlertRuleOutput) ToScheduledAlertRuleOutput() ScheduledAlertRuleOutput {
+	return o
+}
+
+func (o ScheduledAlertRuleOutput) ToScheduledAlertRuleOutputWithContext(ctx context.Context) ScheduledAlertRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ScheduledAlertRuleOutput{})
+}
